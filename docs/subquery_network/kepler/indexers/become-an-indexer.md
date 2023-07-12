@@ -74,8 +74,8 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 | Service                                                                                   | Version Tag |
 | :---------------------------------------------------------------------------------------- | :---------- |
-| [onfinality/subql-coordinator](https://hub.docker.com/r/onfinality/subql-coordinator)     | `v1.1.2`    |
-| [onfinality/subql-indexer-proxy](https://hub.docker.com/r/onfinality/subql-indexer-proxy) | `v1.1.1`    |
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator)     | `v1.2.0`    |
+| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy) | `v1.2.0`    |
 
 ::: warning Important
 
