@@ -44,7 +44,7 @@ In the default settings, indexer-proxy listen on port 80, now we need to change 
 ```shell
 # docker-compose.yml
 proxy:
-    image: onfinality/subql-indexer-proxy:v1.0.1
+    image: subquerynetwork/indexer-proxy:v1.2.0
     container_name: indexer_proxy
     restart: always
     ports:
