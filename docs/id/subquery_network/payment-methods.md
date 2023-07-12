@@ -6,7 +6,7 @@ Untuk fleksibilitas, ada 3 opsi pembayaran untuk membayar data blockchain. Merek
 - Perjanjian Layanan Tertutup.
 - Perjanjian Layanan Terbuka.
 
-## Pay-As-You-Go (PAYG)
+## Flex Plans (Pay-As-You-Go / PAYG)
 
 Ini adalah metode pembayaran dasar dan cadangan untuk orang lain. Setiap Pengindeks akan mengiklankan harga PAYG mereka saat mendaftarkan kemampuan mereka untuk melayani permintaan untuk Proyek SubQuery tertentu.
 
@@ -22,7 +22,7 @@ Rencana Tertutup juga dapat ditempatkan pada Proyek SubQuery yang ada untuk mena
 
 ## Perjanjian Layanan Terbuka
 
-Perjanjian Terbuka mirip dengan Perjanjian Tertutup, tetapi memungkinkan beberapa Pengindeks untuk bergabung dan bersaing untuk memberikan data kepada Konsumen. Perjanjian Layanan Pasar Terbuka dapat dimulai sebagai kontrak antara 1 Konsumen dan 1 Pengindeks, tetapi lebih banyak pihak dapat bergabung dalam kontrak yang menghasilkan *n* konsumen dan *n* pengindeks.
+Perjanjian Terbuka mirip dengan Perjanjian Tertutup, tetapi memungkinkan beberapa Pengindeks untuk bergabung dan bersaing untuk memberikan data kepada Konsumen. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Indexer, but more parties may join the contract resulting in _n_ consumer and _n_ indexers.
 
 Setiap Perjanjian Layanan Pasar Terbuka menghasilkan kumpulan hadiah baru yang dibuat untuk kontrak itu, dan SQT didistribusikan di antara pengindeks yang berpartisipasi oleh fungsi produksi Cobb-Douglas.
 
