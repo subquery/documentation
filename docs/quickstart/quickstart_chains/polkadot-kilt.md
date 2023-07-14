@@ -1,4 +1,4 @@
-# Astar (WASM) Quick Start
+# Kilt Quick Start
 
 ## Goals
 
