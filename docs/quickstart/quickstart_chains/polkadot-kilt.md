@@ -129,7 +129,7 @@ dataSources:
         #     method: AttestationRemoved
 ```
 
-The above code indicates that you will be running a `handleWasmEvent` mapping function whenever there is an `Transfer` event on any transaction from the Astar contract. Similarly, we will run the `handleWasmCall` mapping function whenever there is a `approve` log on the same contract.
+The above code indicates that you will be running a `handleAttestationCreated` mapping function whenever there is an `AttestationCreated` event on any transaction from the Kilt Blockchain. Similarly, we will run the `handleAttestationRevoked` mapping function whenever there is a `AttestationRevoked` log on Kilt.
 
 Check out our [Substrate Wasm](../../build/substrate-wasm.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Substrate WASM contracts.
 
@@ -137,60 +137,90 @@ Check out our [Substrate Wasm](../../build/substrate-wasm.md) documentation to g
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. There are multiple other exported functions such as `handleWasmCall`, `handleWasmEvent`, `handleNewContract`, `handleBondAndStake`, `handleUnbondAndUnstake`, and `handleReward`. 
+Navigate to the default mapping function in the `src/mappings` directory. There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked. 
 
 ```ts
-type ApproveCallArgs = [AccountId, Balance];
-
-export async function handleWasmCall(
-  call: WasmCall<ApproveCallArgs>
+export async function handleAttestationCreated(
+  event: SubstrateEvent
 ): Promise<void> {
-  logger.info(`Processing WASM Call at ${call.blockNumber}`);
-  const approval = new Approval(`${call.blockNumber}-${call.idx}`);
-  approval.hash = call.hash;
-  approval.owner = call.from.toString();
-  approval.contractAddress = call.dest.toString();
-  if (typeof call.data !== "string") {
-    const [spender, value] = call.data.args;
-    approval.spender = spender.toString();
-    approval.value = value.toBigInt();
-  } else {
-    logger.info(`Decode call failed ${call.hash}`);
-  }
-  await approval.save();
-}
-```
-
-The `handleWasmCall` function receives event data from the WASM execution environment whenever an call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Approval` entity and populates the fields with data from the Wasm Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
-
-```ts
-export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`
+    `New attestation created at block ${event.block.block.header.number}`
   );
+  // A new attestation has been created.\[attester ID, claim hash, CType hash, (optional) delegation ID\]
   const {
     event: {
-      data: [accountId, smartContract, balanceOf],
+      data: [attesterID, claimHash, hash, delegationID],
     },
   } = event;
-  // Retrieve the dapp by its ID
-  let dapp: DApp = await DApp.get(smartContract.toString());
-  if (!dapp) {
-    dapp = DApp.create({
-      id: smartContract.toString(),
-      accountID: accountId.toString(),
-      totalStake: BigInt(0),
+
+  const attestation = Attestation.create({
+    id: claimHash.toString(),
+    createdDate: event.block.timestamp,
+    createdBlock: event.block.block.header.number.toBigInt(),
+    creator: event.extrinsic.extrinsic.signer.toString(),
+    creationClaimHash: claimHash.toString(),
+    hash: hash.toString(),
+    attestationId: attesterID.toString(),
+    delegationID: delegationID ? delegationID.toString() : null,
+  });
+
+  await attestation.save();
+
+  await handleDailyUpdate(event.block.timestamp, "CREATED");
+}
+
+export async function handleAttestationRevoked(
+  event: SubstrateEvent
+): Promise<void> {
+  logger.info(
+    `New attestation revoked at block ${event.block.block.header.number}`
+  );
+  // An attestation has been revoked.\[account id, claim hash\]
+  const {
+    event: {
+      data: [accountID, claimHash],
+    },
+  } = event;
+
+  const attestation = await Attestation.get(claimHash.toString());
+
+  assert(attestation, "Can't find an attestation");
+  attestation.revokedDate = event.block.timestamp;
+  attestation.revokedBlock = event.block.block.header.number.toBigInt();
+  attestation.revokedClaimHash = claimHash.toString();
+
+  await attestation.save();
+
+  await handleDailyUpdate(event.block.timestamp, "REVOKED");
+}
+
+export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"): Promise<void>{
+  const id = date.toISOString().slice(0, 10);
+  let aggregation = await Aggregation.get(id);
+  if (!aggregation) {
+    aggregation = Aggregation.create({
+      id,
+      attestationsCreated: 0,
+      attestationsRevoked: 0,
     });
   }
+  if (type === "CREATED") {
+    aggregation.attestationsCreated++;
+  }
 
-  dapp.totalStake += (balanceOf as Balance).toBigInt();
-  await dapp.save();
+  else if (type === "REVOKED") {
+    aggregation.attestationsRevoked++;
+  }
+
+  await aggregation.save();
 }
 ```
 
-The `handleBondAndStake` function receives Substrate event data from the native Substrate environment whenever an event matches the filters that was specified previously in the `project.yaml`. It extracts the various data from the event payload (in Substrate it's stored as an array of Codecs), then checks if an existing DApp record exists. If none exists (e.g. it's a new dApp), then it instantiates a new one and then updates the total stake to reflect the new staking mount. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
+The `handleAttestationCreated` function receives event data from the Kilt execution environment whenever an call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Attestation` entity and populates the fields with data from the Substrate Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_). The same can be said for the `handleAttestationRevoked`. The only difference is for the attestations revoked we do not need to instantiate a new `Attestation` entity.
 
-Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
+There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked. 
+
+Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) to get detailed information on mapping functions for each type.
 
 ## 4. Build Your Project
 
