@@ -246,6 +246,135 @@ const balance = await erc20.balanceOf(address);
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
 
+## GraphQL querying differences
+
+### Basic Queries
+
+When querying for basic entities there are few differences between `Subquery`  and `theGraph`
+
+theGraph example
+```graphql
+{
+  exampleEntities {
+    "<entity fields>"
+  }
+}
+```
+
+subquery example
+- There is an extra layer when querying `entities`
+```graphql
+{
+  exampleEntities {
+    nodes {
+      "<entity fields>" 
+    }
+  }
+}
+```
+
+### Filters 
+  - Instead of `where`, Subquery uses `filter`
+
+theGraph example
+- TheGraph uses a list of suffixes on the end of the entity field for filtering
+```graphql
+{
+  exampleEntities(where: {field1_is: "<value>"} ) {
+    "<entity fields>"
+  }
+}
+```
+subquery example
+- When using subquery, you will need to add an extra layer on the graphQL for the filters 
+```graphql
+{
+  exampleEntities(filter: {field1 : {equalTo: "<value>"}}) {
+    nodes {
+      "<entity fields>" 
+    }
+  }
+}
+```
+
+### Sorting
+Instead of using `orderBy` and `orderDirection`
+Subquery uses just `orderBy` followed by `CREATED_AT_ASC`
+
+theGraph example
+```graphql
+{
+  exampleEntities(orderBy: "<field>", orderDirection: asc) {
+    "<entites_fields>"
+  }
+}
+```
+subquery example
+```graphql
+{
+  exampleEntities(orderBy: "FIELD_1_ASC") {
+    nodes {
+      "<entites_fields>"
+    }
+  }
+}
+```
+
+### Historical queries
+
+- When querying historical data, there isn't too much difference
+
+theGraph example
+```graphql
+{
+    exampleEntities(block: {number: 123}) {
+      "<entity_fields>"
+    }
+}
+```
+Subquery example
+```graphql
+{
+    exampleEntities(block: {number: 123}) {
+      nodes {
+        "<entity_fields>"
+      }
+    }
+}
+```
+
+### Metadata
+- Subquery does not support historical metadata querying. However `deployments` will still show the deployments on their heights
+
+theGraph example:
+```graphql
+{
+  _meta(block: {number: <blockNumber>}) {
+    block {
+      hash
+      timestamp
+    }
+    deployment
+    hasIndexingErrors
+  }
+}
+```
+
+Subquery example:
+```graphql
+{
+  _metadata{
+    deployments
+    indexerHealthy
+  }
+}
+```
+
+#### Unsupported GraphQL features from theGraph
+
+- Pagination (`cursors`, `edges`)
+-  [Aggregate functions](../../run_publish/aggregate.md)
+
 ## What's Next?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
