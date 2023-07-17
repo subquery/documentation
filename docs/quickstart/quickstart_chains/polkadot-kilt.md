@@ -2,7 +2,7 @@
 
 ## Goals
 
-This quick start guide introduces SubQuery's Substrate WASM support by using an example project in Kilt Spiritnet. The example project indexes all Attestations [created](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationCreated) and [revoked](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationRevoked) on the [Kilt Spiritnet Blockchain](https://www.kilt.io/).
+This quick start guide introduces SubQuery's Substrate Kilt Spiritnet support by using an example project in Kilt Spiritnet. The example project indexes all Attestations [created](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationCreated) and [revoked](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationRevoked) on the [Kilt Spiritnet Blockchain](https://www.kilt.io/).
 Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
 
 The project that we are developing throughout this guide can be found [here](https://github.com/subquery/subql-starter/tree/e7152c7391cce015b2df0c293ee6c62215ed0e3b/Kilt/kilt-spiritnet-credentials-example)
