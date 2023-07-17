@@ -156,12 +156,14 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                   | Supported filter                                                                                         |
-| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [algorand/BlockHandler](../mapping/algorand.md#block-handler)             | `modulo`                                                                                                 |
-| [algorand/TransactionHandler](../mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+| Handler                                                                   | Supported filter                                                                                                            |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [algorand/BlockHandler](../mapping/algorand.md#block-handler)             | `modulo`                                                                                                                    |
+| [algorand/TransactionHandler](../mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `applicationArgs`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 `txType` is the enum for the type of transaction. You can see a [list of valid enum values here](https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6).
+
+`applicationArgs` are not currently implemented with the dictionary. You can still use the dictionary and the filter will work, but it will not improve indexing speed like other filters.
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
