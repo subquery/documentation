@@ -1,8 +1,8 @@
-# Polkadot Quick Start (Humanode)
+# Humanode Quick Start
 
 ## Goals
 
-This quick guide aims to adapt the standard starter project and index all transfers, bioauthenitcation events, and online validator nodes from Humanode chain.
+This quick guide aims to adapt the standard starter project and index all transfers, bioauthenitcation events, and online validator nodes from Humanode chain. Humanode is a standalone Substrate chain, but the same process applies to it as a normal Polkadot parachain or relaychain.
 
 ::: warning Important
 Before we begin, ensure that you have initialized your project using the steps in the [Start Here](../quickstart.md) section.

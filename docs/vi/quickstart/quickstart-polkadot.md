@@ -204,7 +204,7 @@ Bạn sẽ thấy một playground GraphQL trong trình duyệt và các lược
 
 ### Xuất bản Dự Án SubQuery của bạn
 
-SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể triển khai dự án mới của mình. Bạn có thể triển khai nó trên [SubQuery Projects](https://project.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi.
+SubQuery cung cấp dịch vụ quản lý miễn phí nơi bạn có thể triển khai dự án mới của mình. Bạn có thể triển khai nó trên [SubQuery Managed Service](https://managedservice.subquery.network) và truy vấn nó bằng cách sử dụng [Explorer](https://explorer.subquery.network) của chúng tôi.
 
 Đọc hướng dẫn để [xuất bản dự án mới của bạn lên SubQuery Projects](../run_publish/publish.md)
 

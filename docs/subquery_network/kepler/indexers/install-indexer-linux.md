@@ -6,17 +6,13 @@ Let's see how to run the Indexer Service on a cloud provider.
 
 We will use a Linux EC2 instance from AWS in the following examples.
 
-```
-Note: You can use any other cloud provider, but we will be able to provide only limited support and troubleshooting help.
-```
+::: info Note
+Note: You can use any other cloud providers, we will try our best to provide support and troubleshooting help.
+:::
 
 ### Step 1 - Launch a Virtual Machine
 
-Follow these instructions to launch an EC2 instance:
-
-[How to Set Up an Indexer with AWS](../indexers/install-indexer-aws.md)
-
-- We recommend a t3.medium linux EC2
+There are plenty of online guies on how to launch a compute engine on various cloud providers, including AWS, GCP, Azure, Digital Ocean etc. You can follow [this tutorial to launch a new EC2 on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) (we recommend a compute engine equivalent to a [t3.medium](https://aws.amazon.com/ec2/instance-types/) linux EC2)
 
 ### Step 2 - Install Docker and Docker-Compose
 
@@ -63,7 +59,7 @@ Run the following command:
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
-curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
@@ -80,18 +76,18 @@ sudo docker-compose up -d
 
 It will start the following services:
 
-- `coordinator_db`
-- `coordinator_service`
-- `coordinator_proxy`
-- `proxy-redis`
+- `indexer_db`
+- `indexer_coordinator`
+- `indexer_proxy`
+- `indexer_cache`
 
 ::: tip Note
-Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 13 first characters of the project's Qm-hash.
+Each project you start indexing will create 2 extra containers `node_qm----------` and `query_qm----------` that has the 15 first characters of the project's Qm-hash.
 :::
 
 Now, check the service status:
 
-![CLI- Check Service Status](/assets/img/cli_servicestatuss_install_on_linux.png)
+![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
 ### Step 5 - Set Up Auto Start
 
@@ -135,7 +131,9 @@ systemctl status subquery.service
 
 ## Next Steps
 
-**You have successfully installed and started the Indexer Service on Linux. Now, move forward to [connect with MetaMask](../metamask/connect-metamask.md).**
+**You have successfully installed and started the Indexer Service on Linux.**
+
+We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
 
 ::: tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).

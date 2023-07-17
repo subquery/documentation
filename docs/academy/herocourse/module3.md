@@ -471,11 +471,11 @@ Focus on the `proposed` method within the council event. The `proposed` method i
 Hence, you need to add the following fields: `id`, `index`, `hash`, `voteThreshold` and `block` to your entity.
 
 ```
-            id => account
-            index => proposal_index
-            hash => proposal_hash
-            voteThreshold => threshold
-            block => Not a part of proposed method but useful to extract
+id => account
+index => proposal_index
+hash => proposal_hash
+voteThreshold => threshold
+block => Not a part of proposed method but useful to extract
 ```
 
 Next, let’s create an entity object called `Councillor`. This object will hold the number of votes each **councillor** has made.
@@ -487,13 +487,13 @@ Finally, let’s create a **VoteHistory** entity. This will be another [council 
 You need to add the following fields: `id`, `proposalHash`, `approvedVote`, `councillor`, `votedYes`, `votedNo`, and `block` to your entity.
 
 ```
-            id => account
-            proposalHash => Proposal
-            approvedVote => voted
-            Councillor => Councillor
-            votedYes => yes
-            votedNo => no
-            block => Not a part of proposed method but useful to extract
+id => account
+proposalHash => Proposal
+approvedVote => voted
+Councillor => Councillor
+votedYes => yes
+votedNo => no
+block => Not a part of proposed method but useful to extract
 ```
 
 Here, we have specified the type as the proposal entityNote for `proposalHash`. We have also introduced a new field called `Councillor` and allocated it the `Councillor` type. This has created a table where these two columns work as references to their respective tables.
@@ -701,8 +701,6 @@ npm install
 ```
 
 :::
-
-````
 
 #### Step 6: Generate the Associated Typescript
 

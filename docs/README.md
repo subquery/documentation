@@ -1,10 +1,8 @@
 ---
-
 footer: false
 lastUpdated: false
 contributors: false
 editLink: false
-
 ---
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
@@ -30,6 +28,10 @@ editLink: false
               <img src="/assets/img/logo_polkadot_polkadot.svg" />
               <img src="/assets/img/logo_polkadot_polkadot_blue.svg" />
             </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-astar.html'}"> 
+              <img src="/assets/img/logo_polkadot_astar.svg" />
+              <img src="/assets/img/logo_polkadot_astar_blue.svg" />
+            </router-link>
             <router-link :to="{path: '/quickstart/quickstart_chains/polkadot-humanode.html'}"> 
               <img src="/assets/img/logo_polkadot_humanode.svg" />
               <img src="/assets/img/logo_polkadot_humanode_blue.svg" />
@@ -45,29 +47,53 @@ editLink: false
               <img src="/assets/img/logo_cosmos_cronos.svg" />
               <img src="/assets/img/logo_cosmos_cronos_blue.svg" />
             </router-link>
-            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos.html'}"> 
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-juno.html'}"> 
               <img src="/assets/img/logo_cosmos_juno.svg" />
               <img src="/assets/img/logo_cosmos_juno_blue.svg" />
+            </router-link>
+            <router-link :to="{path: '/quickstart/quickstart_chains/cosmos-thorchain.html'}"> 
+              <img src="/assets/img/logo_cosmos_thorchain.svg" />
+              <img src="/assets/img/logo_cosmos_thorchain_blue.svg" />
             </router-link>
           </div>
         </div>
       </div>
+      <router-link :to="{path: '/quickstart/quickstart_chains/ethereum.html'}"> 
+        <img src="/assets/img/logo_ethereum.svg" />
+        <img src="/assets/img/logo_ethereum_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/polygon.html'}"> 
+        <img src="/assets/img/logo_polygon.svg" />
+        <img src="/assets/img/logo_polygon_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/bsc.html'}"> 
+        <img src="/assets/img/logo_bsc.svg" />
+        <img src="/assets/img/logo_bsc_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/arbitrum.html'}"> 
+        <img src="/assets/img/logo_arbitrum.svg" />
+        <img src="/assets/img/logo_arbitrum_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/optimism.html'}"> 
+        <img src="/assets/img/logo_optimism.svg" />
+        <img src="/assets/img/logo_optimism_blue.svg" />
+      </router-link>
       <router-link :to="{path: '/quickstart/quickstart_chains/algorand.html'}"> 
-          <img src="/assets/img/logo_algorand.svg" />
-          <img src="/assets/img/logo_algorand_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
-          <img src="/assets/img/logo_avalanche.svg" />
-          <img src="/assets/img/logo_avalanche_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
-          <img src="/assets/img/logo_near.svg" />
-          <img src="/assets/img/logo_near_blue.svg" />
-        </router-link>
-        <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
-          <img src="/assets/img/logo_terra.svg" />
-          <img src="/assets/img/logo_terra_blue.svg" />
-        </router-link>
+        <img src="/assets/img/logo_algorand.svg" />
+        <img src="/assets/img/logo_algorand_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/avalanche.html'}"> 
+        <img src="/assets/img/logo_avalanche.svg" />
+        <img src="/assets/img/logo_avalanche_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/near.html'}"> 
+        <img src="/assets/img/logo_near.svg" />
+        <img src="/assets/img/logo_near_blue.svg" />
+      </router-link>
+      <router-link :to="{path: '/quickstart/quickstart_chains/terra.html'}"> 
+        <img src="/assets/img/logo_terra.svg" />
+        <img src="/assets/img/logo_terra_blue.svg" />
+      </router-link>
     </div>
   </div>
   <div class="journey layout mt80">

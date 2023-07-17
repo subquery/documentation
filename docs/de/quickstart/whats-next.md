@@ -2,7 +2,7 @@
 
 Nun, da Sie ein klares Verständnis dafür haben, wie man ein einfaches SubQuery-Projekt erstellt, was sind die nächsten Schritte Ihrer Reise?
 
-- Jetzt können Sie Ihr Projekt ganz einfach veröffentlichen. SubQuery provides a managed service solution where you can deploy your new project. Sie können es in [SubQuery-Projekten](https://project.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen. Lesen Sie diese vollständige Anleitung zum [Veröffentlichen Ihres neuen Projekts in SubQuery Projects](../run_publish/publish.md).
+- Jetzt können Sie Ihr Projekt ganz einfach veröffentlichen. SubQuery provides a managed service solution where you can deploy your new project. Sie können es in [SubQuery-Projekten](https://managedservice.subquery.network) bereitstellen und mit unserem [Explorer](https://explorer.subquery.network) abfragen. Lesen Sie diese vollständige Anleitung zum [Veröffentlichen Ihres neuen Projekts in SubQuery's Managed Service](../run_publish/publish.md).
 
 - Um tiefer in die Entwicklerdokumentation einzutauchen, wechseln Sie zum Abschnitt [Build ](../../build/introduction.md) und erfahren Sie mehr über die drei Schlüsseldateien: **die Manifestdatei, das GraphQL-Schema und die Zuordnungsdatei.**
 

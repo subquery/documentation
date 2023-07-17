@@ -26,28 +26,6 @@ Ensure that your indexer is all set and available at all times. Your indexer wil
 
 Reach out to a Delegator and ask them to delegate to your indexer. Alternatively, set up another account and delegate to your own indexer.
 
-### 5. Create a Default Plan
-
-- To create a default plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan`.
-
-![Create plan](/assets/img/create_default_plan.png)
-
-- After that, select a template for the plan.
-
-![Select plan template](/assets/img/select_plan_template.png)
-
-- Select `Set a price for this plan` but DO NOT select a specific deployment ID. Then click `Create`.
-
-![Set plan parameters](/assets/img/set_default_plan_parameters.png)
-
-- You will see a pop-up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds.
-
-![Confirm the Plan with MetaMask](/assets/img/createplan_metamask_confirmation.png)
-
-- Then you will see a default plan created in the `Default` tab.
-
-![Default plan created](/assets/img/default_plan_created.png)
-
 ### 6. Create a Deployment-Specific Plan
 
 To create a deployment-specific plan, navigate to `Plan & Offer` -> `My Plans`. Then select `Create a Plan` just like you did while creating a default plan. **_However, also select a specific deployment Id._**

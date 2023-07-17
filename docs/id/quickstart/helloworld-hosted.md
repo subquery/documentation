@@ -9,7 +9,7 @@ Kami akan mengambil proyek awal yang sederhana (dan semua yang telah kami pelaja
 Pada akhir quick start ini, Anda harus:
 
 - memahami prasyarat yang diperlukan
-- bisa menghosting proyek pada [SubQuery Projects](https://project.subquery.network/)
+- bisa menghosting proyek pada [SubQuery Managed Service](https://managedservice.subquery.network/)
 - menjalankan kueri sederhana untuk mendapatkan tinggi blok mainnet Polkadot menggunakan playground
 - menjalankan kueri GET sederhana untuk mendapatkan tinggi blok mainnet Polkadot menggunakan cURL
 
@@ -106,7 +106,7 @@ Sekarang setelah Anda memasukkan kode ke GitHub, mari kita lihat bagaimana kita 
 
 ## 4. Buat proyek Anda
 
-Navigasikan ke [https://project.subquery.network](https://project.subquery.network) dan masuk dengan akun GitHub Anda.
+Navigasikan ke [https://managedservice.subquery.network](https://managedservice.subquery.network) dan masuk dengan akun GitHub Anda.
 
 ![Selamat datang di SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ Keterbacaan tidak menjadi perhatian di sini karena Anda mungkin akan memiliki be
 
 ## Ringkasan
 
-Dalam memulai cepat yang dihosting SubQuery ini, kami menunjukkan betapa cepat dan mudahnya mengambil proyek Subql dan menyebarkannya ke [Proyek SubQuery](https://project.subquery.network) di mana semua infrastruktur disediakan untuk kenyamanan Anda. Ada taman bermain bawaan untuk menjalankan berbagai kueri serta titik akhir API untuk integrasi kode Anda.
+Dalam memulai cepat yang dihosting SubQuery ini, kami menunjukkan betapa cepat dan mudahnya mengambil proyek Subql dan menyebarkannya ke [Proyek SubQuery](https://managedservice.subquery.network) di mana semua infrastruktur disediakan untuk kenyamanan Anda. Ada taman bermain bawaan untuk menjalankan berbagai kueri serta titik akhir API untuk integrasi kode Anda.

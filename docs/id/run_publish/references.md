@@ -207,7 +207,7 @@ Proyek SubQuery biasanya dijalankan dalam kotak pasir javascript untuk keamanan 
 
 Meskipun ini meningkatkan keamanan, kami memahami bahwa ini membatasi fungsionalitas SubQuery Anda yang tersedia. Perintah `--unsafe` mengimpor semua modul javascript default yang sangat meningkatkan fungsionalitas kotak pasir dengan pengorbanan keamanan yang menurun.
 
-**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi bagian dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [SubQuery's Managed Service](https://project.subquery.network).**
+**Perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi bagian dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [SubQuery's Managed Service](https://managedservice.subquery.network).**
 
 ### --batch-size
 
@@ -438,7 +438,7 @@ Bendera ini memungkinkan fungsi agregasi tertentu termasuk jumlah, maks, rata-ra
 
 Ini dinonaktifkan secara default karena batas entitas.
 
-**Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://project.subquery.network).**
+**Juga, perhatikan bahwa perintah `--unsafe` akan mencegah proyek Anda dijalankan di Jaringan SubQuery, dan Anda harus menghubungi dukungan jika Anda ingin perintah ini dijalankan dengan proyek Anda di [ layanan terkelola SubQuery](https://managedservice.subquery.network).**
 
 ### --port
 

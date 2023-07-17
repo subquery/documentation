@@ -9,7 +9,7 @@
 
 ## Giới thiệu
 
-Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [SubQuery Projects](https://project.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
+Chạy một nút chỉ mục là một tùy chọn khác ngoài việc sử dụng Docker hoặc có một dự án được lưu trữ tại [SubQuery Managed Service](https://managedservice.subquery.network/). Nó đòi hỏi nhiều thời gian và nỗ lực hơn nhưng sẽ nâng cao hiểu biết của bạn về cách SubQuery hoạt động.
 
 ## Postgres
 
@@ -44,7 +44,7 @@ export DB_HOST=localhost
 export DB_PORT=5432
 ```
 
-Tất nhiên, nếu bạn có các giá trị khác nhau cho các khoá trên, vui lòng điều chỉnh cho phù hợp. Lưu ý rằng lệnh ` env ` sẽ hiển thị các biến môi trường hiện tại và quá trình này chỉ đặt các giá trị này tạm thời. Có nghĩa là, chúng chỉ có hiệu lực trong khoảng thời gian của phiên đầu cuối. Để đặt chúng vĩnh viễn, hãy lưu trữ chúng trong ~/bash_profile của bạn.
+Tất nhiên, nếu bạn có các giá trị khác nhau cho các khoá trên, vui lòng điều chỉnh cho phù hợp. Lưu ý rằng lệnh `env` sẽ hiển thị các biến môi trường hiện tại và quá trình này chỉ đặt các giá trị này tạm thời. Có nghĩa là, chúng chỉ có hiệu lực trong khoảng thời gian của phiên đầu cuối. Để đặt chúng vĩnh viễn, hãy lưu trữ chúng trong ~/bash_profile của bạn.
 
 ## Lập chỉ mục một dự án
 

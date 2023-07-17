@@ -187,7 +187,7 @@ Para un nuevo proyecto de inicio de SubQuery, pruebe la siguiente consulta para 
 
 ### Publica tu SubQuery Project
 
-SubQuery ofrece un servicio gestionado gratuito en el que puedes desplegar tu nuevo proyecto. Puedes implementarlo en [SubQuery Proyects](https://project.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network).
+SubQuery ofrece un servicio gestionado gratuito en el que puedes desplegar tu nuevo proyecto. Puedes implementarlo en [SubQuery Proyects](https://managedservice.subquery.network) y consultarlo usando nuestro [Explorador](https://explorer.subquery.network).
 
 Lee la guía para [publicar tu nuevo proyecto en SubQuery Projects](../run_publish/publish.md)
 

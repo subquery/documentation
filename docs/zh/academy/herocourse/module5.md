@@ -71,7 +71,7 @@ To understand more about how dictionaries work, refer to:
 
 #### Step 4: Understanding slots
 
-Slots are a feature in SubQuery Projects that are the equivalent of a development environments. To learn more, visit:
+Slots are a feature in SubQuery's Managed Service that are the equivalent of a development environments. To learn more, visit:
 
 - [What are deployment slots?](https://doc.subquery.network/faqs/faqs/#what-are-deployment-slots)
 - [What is the advantage of a staging slot?](https://doc.subquery.network/faqs/faqs/#what-is-the-advantage-of-a-staging-slot)

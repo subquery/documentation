@@ -1,5 +1,11 @@
 # Indexers
 
+:::info Indexers in Kepler
+
+To read more specifically about being an Indexer in SubQuery's Kepler Network, please head to [Kepler - Indexers](./kepler/indexers/become-an-indexer.md)
+
+:::
+
 ## What is an Indexer?
 
 An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
@@ -63,6 +69,7 @@ More detailed information will come soon.
 ## How are Indexers rewarded?
 
 Indexers are rewarded in SQT in two ways:
+
 - Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
@@ -72,17 +79,22 @@ There may be multiple reward pools simultaneously active for a given Indexer. Th
 
 ## Risk of being an Indexer
 
-There are a few risks of being an Indexer. 
+There are a few risks of being an Indexer.
+
 - Infrastructure investment risk. An Indexer needs to invest in hardware infrastructure which is an upfront cost. However, many infrastructure provides such as AWS provide monthly payments, as opposed to yearly contracts, and the ability to scale servers up and down based on demand. This significantly reduces the risk for an Indexer.
 - Lack of customers. This risk is inherent in any business opportunity and the traditional risk mitigation methods apply here. Indexers can adjust their price to be competitive, advertise their services, and build a solid reputation within the community by contributing to forums and helping others.
 
 ## How to attract Delegators?
 
-Indexers can increase their earning potential by attracting Delegators. Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings.
+**Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Indexers set an Indexer’s Commission Rate (ICR) which is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of profits an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
 
-For example, Indexer A has set an ICR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Indexer itself, will be rewarded a share of the remaining 20% of what the Indexer has earned. The share will be split proportionally between them. Note that Delegators must have delegated their tokens for the entire Era to be eligible for these rewards. For more information on Delegators rewards, see [Delegators](./delegators.md).
+You should read more about how Delegators will pick Indexers [here](./delegators.md#how-to-select-indexers)
+
+The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
+
+You can [change this rate at any time](./kepler/indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
 
 ## Security & Performance considerations
 

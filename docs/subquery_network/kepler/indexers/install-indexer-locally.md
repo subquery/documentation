@@ -19,14 +19,13 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 - [Docker](https://docs.docker.com/get-docker/) - It contains all the required images to run the entire Web3 application.
 
-### Step 1 - Clone the Indexing Service Repo
+### Step 1 - Download the Indexer Service file
 
-- Clone the indexing services repository to your local machine. This repository contains a `docker-compose.yml` file, which consists of all the images to build and start the various applications.
+- Donwloand indexing services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
 
 ```bash
-mkdir kepler
-cd kepler
-curl https://raw.githubusercontent.com/subquery/indexer-services/develop/docker-compose.yml -o docker-compose.yml
+mkdir subquery-indexer && cd subquery-indexer
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
 ::: warning Important
@@ -45,14 +44,12 @@ docker-compose up -d
 
 Please check that the Docker is already running. The images will be pulled from Docker and then it will start the following services:
 
-- `coordinator_db`
-- `coordinator_service`
-- `coordinator_proxy`
-- `proxy-redis`
+- `indexer_db`
+- `indexer_coordinator`
+- `indexer_proxy`
+- `indexer_cache`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
-
-![docker compose-up cli result](/assets/img/commandline_result_installlocally.png)
 
 ### Step 3 - Open the Indexer Admin Page
 
@@ -64,9 +61,9 @@ Open `http://localhost:8000/` in your browser and you will get to see:
 
 ## Next Steps
 
-You have successfully installed the Indexing service locally. The next step is to connect your application with MetaMask.
+**You have successfully installed and started the Indexer Service locally.**
 
-**Head to [How to Connect to MetaMask](../metamask/connect-metamask.md) guide.**
+We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
 
 :::tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).

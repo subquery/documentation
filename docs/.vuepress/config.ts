@@ -1,5 +1,5 @@
-import { defineUserConfig, SidebarConfig, SidebarConfigArray } from "vuepress";
-import { defaultTheme } from "vuepress";
+import { defineUserConfig } from "vuepress";
+import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { pwaPlugin } from "vuepress-plugin-pwa2";
@@ -16,25 +16,27 @@ export default defineUserConfig({
       manifest: {
         short_name: "SubQL Docs",
       },
-      favicon: "https://academy.subquery.network/assets/favicons/favicon.ico",
+      favicon: "/assets/favicons/favicon.ico",
     }),
     mdEnhancePlugin({
       linkCheck: true,
       codetabs: true,
-    }), // TODO remove legacy mode //https://vuepress-theme-hope.github.io/v2/md-enhance/migration.html
+      container: true,
+    }),
     sitemapPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
     }),
     seoPlugin({
-      hostname: "https://blog.subquery.network",
+      hostname: "https://academy.subquery.network",
       author: "SubQuery Team",
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
+      fallBackImage: "https://static.subquery.network/link-share.jpg",
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
-      apiKey: "7f75a78b4f95cebe82c0ced1ff75235e",
-      indexName: "subquery",
+      apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
+      indexName: "subquery_academy",
     }),
   ],
   title: "SubQuery Academy (Documentation)",
@@ -46,7 +48,7 @@ export default defineUserConfig({
       "link",
       {
         rel: "icon",
-        href: "assets/favicons/favicon.ico",
+        href: "/assets/favicons/favicon.ico",
         type: "image/x-icon",
       },
     ],
@@ -56,7 +58,7 @@ export default defineUserConfig({
         rel: "apple-touch-icon",
         type: "image/png",
         sizes: "180x180",
-        href: "assets/favicons/apple-touch-icon.png",
+        href: "/assets/favicons/apple-touch-icon.png",
       },
     ],
     [
@@ -65,7 +67,7 @@ export default defineUserConfig({
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "assets/favicons/favicon-32x32.png",
+        href: "/assets/favicons/favicon-32x32.png",
       },
     ],
     [
@@ -74,48 +76,82 @@ export default defineUserConfig({
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "assets/favicons/favicon-16x16.png",
+        href: "/assets/favicons/favicon-16x16.png",
       },
     ],
-    ["link", { rel: "manifest", href: "assets/manifest.json" }],
+    ["link", { rel: "manifest", href: "/assets/manifest.json" }],
   ],
   locales: {
     "/": {
-      lang: "en-UK",
+      lang: "en-US",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
-    "/de/": {
-      lang: "de",
+    "/zh/": {
+      lang: "zh-CN",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    // "/id/": {
-    //   lang: "id",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
+    "/es/": {
+      lang: "es",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/de/": {
+      lang: "de-AT",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    /*
+    "/id/": {
+       lang: "id",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     "/it/": {
+       lang: "it",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
+    "/ja/": {
+      lang: "ja",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
+    "/ko/": {
+      lang: "ko",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
     "/ru/": {
       lang: "ru",
       title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    // "/th/": {
-    //   lang: "th",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/tr/": {
-    //   lang: "tr",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
+    /*
+    "/th/": {
+       lang: "th",
+       title: "SubQuery Academy (Documentation)",
+       description:
+         "Explore and transform your chain data to build intuitive dApps faster!.",
+     },
+     */
+    "/tr/": {
+      lang: "tr",
+      title: "SubQuery Academy (Documentation)",
+      description:
+        "Explore and transform your chain data to build intuitive dApps faster!.",
+    },
     "/uk/": {
       lang: "uk",
       title: "SubQuery Academy (Documentation)",
@@ -128,65 +164,63 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    "/zh/": {
-      lang: "zh-CN",
-      title: "SubQuery Academy (Documentation)",
-      description:
-        "Explore and transform your chain data to build intuitive dApps faster!.",
-    },
-    /*
-      "/es/": {
-        lang: "es",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
-    /*
-      "/it/": {
-        lang: "it",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ja/": {
-        lang: "ja",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      "/ko/": {
-        lang: "ko",
-        title: "SubQuery Academy (Documentation)",
-        description:
-          "Explore and transform your chain data to build intuitive dApps faster!.",
-      },
-      */
   },
-  theme: defaultTheme({
+  theme: hopeTheme({
+    hostname: "https://academy.subquery.network",
+    favicon: "/assets/favicons/favicon.ico",
+    author: "SubQuery Team",
     lastUpdated: true,
     locales: {
       "/": {
         sidebar: getSidebar(""),
       },
+      "/de/": {
+        sidebar: getSidebar("/de"),
+      },
+      "/tr/": {
+        sidebar: getSidebar("/tr"),
+      },
       "/zh/": {
-        selectLanguageName: "Chinese",
         sidebar: getSidebar("/zh"),
       },
       "/vi/": {
-        selectLanguageName: "Vietnamese",
         sidebar: getSidebar("/vi"),
       },
       "/ru/": {
-        selectLanguageName: "Russian",
         sidebar: getSidebar("/ru"),
       },
       "/uk/": {
-        selectLanguageName: "Ukranian",
         sidebar: getSidebar("/uk"),
       },
+      "/es/": {
+        sidebar: getSidebar("/es"),
+      },
+      "/ja/": {
+        sidebar: getSidebar("/js"),
+      },
+      "/ko/": {
+        sidebar: getSidebar("/ko"),
+      },
+      /*
+      "/id/": {
+        sidebar: getSidebar("/id"),
+      },
+      "/it/": {
+        sidebar: getSidebar("/it"),
+      },
+      "/th/": {
+        sidebar: getSidebar("/th"),
+      },
+      */
     },
     logo: "/assets/img/logo.png",
+    plugins: {
+      mdEnhance: {
+        // this is the default option, so you can use it directly
+        container: true,
+        codetabs: true,
+      },
+    },
     navbar: [
       {
         text: "Explorer",
@@ -195,8 +229,8 @@ export default defineUserConfig({
         rel: "",
       },
       {
-        text: "Projects",
-        link: "https://project.subquery.network/",
+        text: "Managed Service",
+        link: "https://managedservice.subquery.network/",
         target: "_blank",
         rel: "",
       },
@@ -208,7 +242,8 @@ export default defineUserConfig({
         rel: "",
       },
     ],
-    sidebarDepth: 2,
+    repo: "https://github.com/subquery/documentation",
+    repoLabel: "Docs GitHub",
     docsRepo: "https://github.com/subquery/documentation",
     docsDir: "docs",
     docsBranch: "master",
@@ -236,7 +271,7 @@ chainWebpack: (config) => {
   });
 };
 
-function getSidebar(locale: string): SidebarConfigArray {
+function getSidebar(locale: string): SidebarOptions {
   return [
     {
       text: "Welcome",
@@ -250,16 +285,134 @@ function getSidebar(locale: string): SidebarConfigArray {
         `${locale}/quickstart/quickstart.md`,
         {
           text: "2. Specific Chains",
+          collapsible: true,
           children: [
-            `${locale}/quickstart/quickstart_chains/polkadot.md`,
-            `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
-            `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
-            `${locale}/quickstart/quickstart_chains/algorand.md`,
-            `${locale}/quickstart/quickstart_chains/avalanche.md`,
-            `${locale}/quickstart/quickstart_chains/flare.md`,
-            `${locale}/quickstart/quickstart_chains/terra.md`,
+            {
+              text: "Algorand",
+              link: `${locale}/quickstart/quickstart_chains/algorand.md`,
+            },
+            {
+              text: "Arbitrum",
+              link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
+            },
+            {
+              text: "Avalanche",
+              collapsible: true,
+              children: [
+                {
+                  text: "Avalanche (Pangolin Rewards)",
+                  link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
+                },
+                {
+                  text: "Avalanche (Crabada NFTs)",
+                  link: `${locale}/quickstart/quickstart_chains/avalanche-crabada.md`,
+                },
+              ],
+            },
+            {
+              text: "BNB Smart Chain (BSC)",
+              link: `${locale}/quickstart/quickstart_chains/bsc.md`,
+            },
+            {
+              text: "Cosmos",
+              collapsible: true,
+              children: [
+                {
+                  text: "Cronos (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
+                },
+                {
+                  text: "Juno",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
+                },
+                {
+                  text: "Sei",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
+                },
+                {
+                  text: "Terra",
+                  link: `${locale}/quickstart/quickstart_chains/terra.md`,
+                },
+                {
+                  text: "Thorchain",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
+                },
+                {
+                  text: "And more Cosmos zones",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-other.md`,
+                },
+              ],
+            },
+            {
+              text: "Ethereum",
+              collapsible: true,
+              children: [
+                {
+                  text: "Ethereum Gravatar (Simple)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                },
+                {
+                  text: "Ethereum ENS (Complex)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                },
+              ],
+            },
+            {
+              text: "Flare",
+              link: `${locale}/quickstart/quickstart_chains/flare.md`,
+            },
+            {
+              text: "Gnosis",
+              link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
+            },
+            {
+              text: "NEAR",
+              collapsible: true,
+              children: [
+                {
+                  text: "NEAR",
+                  link: `${locale}/quickstart/quickstart_chains/near.md`,
+                },
+                {
+                  text: "Aurora (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/near-aurora.md`,
+                },
+              ],
+            },
+            {
+              text: "Optimism",
+              link: `${locale}/quickstart/quickstart_chains/optimism.md`,
+            },
+            {
+              text: "Polkadot/Substrate",
+              collapsible: true,
+              children: [
+                {
+                  text: "Astar (WASM)",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-astar.md`,
+                },
+                {
+                  text: "Moonbeam (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-moonbeam.md`,
+                },
+                {
+                  text: "Humanode",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+                },
+                {
+                  text: "Polkadot/Substrate",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot.md`,
+                },
+                {
+                  text: "And more Polkadot chains",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-other.md`,
+                },
+              ],
+            },
+            {
+              text: "Polygon",
+              link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+            },
           ],
         },
         `${locale}/quickstart/whats-next.md`,
@@ -274,30 +427,45 @@ function getSidebar(locale: string): SidebarConfigArray {
         `${locale}/build/install.md`,
         {
           text: "Manifest File",
+          collapsible: true,
           children: [
-            `${locale}/build/manifest/polkadot.md`,
-            `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/avalanche.md`,
             `${locale}/build/manifest/algorand.md`,
+            `${locale}/build/manifest/arbitrum.md`,
+            `${locale}/build/manifest/bsc.md`,
+            `${locale}/build/manifest/cosmos.md`,
+            `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/flare.md`,
+            `${locale}/build/manifest/gnosis.md`,
             `${locale}/build/manifest/near.md`,
+            `${locale}/build/manifest/optimism.md`,
+            `${locale}/build/manifest/polkadot.md`,
+            `${locale}/build/manifest/polygon.md`,
             `${locale}/build/manifest/terra.md`,
           ],
         },
         `${locale}/build/graphql.md`,
         {
           text: "Mapping",
+          collapsible: true,
           children: [
-            `${locale}/build/mapping/polkadot.md`,
-            `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/avalanche.md`,
             `${locale}/build/mapping/algorand.md`,
+            `${locale}/build/mapping/arbitrum.md`,
+            `${locale}/build/mapping/bsc.md`,
+            `${locale}/build/mapping/cosmos.md`,
+            `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/flare.md`,
+            `${locale}/build/mapping/gnosis.md`,
             `${locale}/build/mapping/near.md`,
+            `${locale}/build/mapping/optimism.md`,
+            `${locale}/build/mapping/polkadot.md`,
+            `${locale}/build/mapping/polygon.md`,
             `${locale}/build/mapping/terra.md`,
             `${locale}/build/mapping/store.md`,
           ],
         },
+        `${locale}/build/testing.md`,
         `${locale}/build/multi-chain.md`,
         `${locale}/build/substrate-evm.md`,
         `${locale}/build/substrate-wasm.md`,
@@ -314,6 +482,7 @@ function getSidebar(locale: string): SidebarConfigArray {
       children: [
         `${locale}/run_publish/run.md`,
         `${locale}/run_publish/publish.md`,
+        `${locale}/run_publish/monitor.md`,
         `${locale}/run_publish/cli.md`,
         `${locale}/run_publish/query.md`,
         `${locale}/run_publish/graphql.md`,
@@ -341,31 +510,30 @@ function getSidebar(locale: string): SidebarConfigArray {
         {
           text: "Kepler Network",
           link: `${locale}/subquery_network/kepler/welcome`,
+          collapsible: true,
           children: [
             `${locale}/subquery_network/kepler/welcome.md`,
+            `${locale}/subquery_network/kepler/ksqt.md`,
+
             {
               text: "Indexers",
               link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+              collapsible: true,
               children: [
                 `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
                 `${locale}/subquery_network/kepler/indexers/install-indexer-locally.md`,
                 `${locale}/subquery_network/kepler/indexers/install-indexer-linux.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-aws.md`,
                 `${locale}/subquery_network/kepler/indexers/index-project.md`,
-                `${locale}/subquery_network/kepler/indexers/ssh-in-aws.md`,
+                `${locale}/subquery_network/kepler/indexers/dictionary-restore.md`,
+                `${locale}/subquery_network/kepler/indexers/plans.md`,
                 `${locale}/subquery_network/kepler/indexers/troubleshooting-indexers.md`,
                 `${locale}/subquery_network/kepler/indexers/faqs-indexers.md`,
+                `${locale}/subquery_network/kepler/indexers/ssl-configuration.md`,
               ],
             },
             `${locale}/subquery_network/kepler/delegators.md`,
             `${locale}/subquery_network/kepler/consumers.md`,
-            {
-              text: "Metamask",
-              link: `${locale}/subquery_network/kepler/metamask/connect-metamask`,
-              children: [
-                `${locale}/subquery_network/kepler/metamask/connect-metamask.md`,
-              ],
-            },
+            `${locale}/subquery_network/kepler/swap.md`,
           ],
         },
       ],
@@ -378,6 +546,7 @@ function getSidebar(locale: string): SidebarConfigArray {
         {
           text: "Hero Course",
           link: `${locale}/academy/herocourse/welcome`,
+          collapsible: true,
           children: [
             `${locale}/academy/herocourse/welcome.md`,
             `${locale}/academy/herocourse/module1.md`,
@@ -391,6 +560,7 @@ function getSidebar(locale: string): SidebarConfigArray {
         {
           text: "SubQuery Moonbeam Course",
           link: `${locale}/academy/moonbeam_course/welcome`,
+          collapsible: true,
           children: [
             `${locale}/academy/moonbeam_course/welcome.md`,
             `${locale}/academy/moonbeam_course/lesson1.md`,
@@ -404,6 +574,7 @@ function getSidebar(locale: string): SidebarConfigArray {
         {
           text: "Tutorials & Examples",
           link: `${locale}/academy/tutorials_examples/introduction`,
+          collapsible: true,
           children: [
             `${locale}/academy/tutorials_examples/introduction.md`,
             `${locale}/academy/tutorials_examples/block-height.md`,
@@ -427,6 +598,8 @@ function getSidebar(locale: string): SidebarConfigArray {
         `${locale}/miscellaneous/social_media.md`,
         `${locale}/miscellaneous/branding.md`,
         `${locale}/miscellaneous/ambassadors.md`,
+        `${locale}/miscellaneous/avalanche-eth-migration.md`,
+        `${locale}/miscellaneous/vulnerability-reporting.md`,
       ],
     },
     {

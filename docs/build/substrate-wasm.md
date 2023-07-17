@@ -2,6 +2,10 @@
 
 We provide a custom data source processor for [Substrate WASM contract](https://ink.substrate.io/why-webassembly-for-smart-contracts). This offers a simple way to filter and index both WASM and Substrate activity on many Polkadot networks within a single SubQuery project.
 
+:::warning Check out the Quick Start Guide
+There is a [friendly quick start guide that introduces SubQuery's Substrate WASM support by using an example project in Astar Network](../quickstart/quickstart_chains/polkadot-astar.md). This guide covers most of the topics shown in the following guide in a format more easy to understand. You can return here when you need specific technical support for the Substrate WASM data source processor.
+:::
+
 **Tested and Supported networks**
 
 | Network Name | Websocket Endpoint                           | Dictionary Endpoint                                            |

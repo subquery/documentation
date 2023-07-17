@@ -1,5 +1,17 @@
 # Avalanche Manifest File
 
+:::warning Avalanche SDK is Deprecated
+We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to recieve the latest updates.
+
+The new `@subql/node-ethereum` is feature equivalent, and provides some massive performance improvements and support for new features.
+
+The migration effort is easy and should only take a few minutes. You can [follow a step by step guide here](../../miscellaneous/avalanche-eth-migration.md).
+:::
+
+::: info Important
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-Chain is EVM-compatible, we can use the core Ethereum framework to index it.
+:::
+
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
@@ -7,37 +19,40 @@ The Manifest can be in either YAML or JSON format. In this document, we will use
 Below is a standard example of a basic Avalanche `project.yaml`.
 
 ```yml
-specVersion: 1.0.0
-name: avalanche-subql-starter
-version: 0.0.1
+specVersion: "1.0.0"
+
+name: "avalanche-subql-starter"
+version: "0.0.1"
 runner:
   node:
-    name: "@subql/node-avalanche"
-    version: latest
+    name: "@subql/node-ethereum"
+    version: "*"
   query:
     name: "@subql/query"
-    version: latest
-description: "This project can be use as a starting point for developing your Avalanche based SubQuery project"
-repository: https://github.com/subquery/avalanche-subql-starter
+    version: "*"
+description: "This project can be use as a starting point for developing your new Avalanche C-Chain SubQuery project"
+repository: "https://github.com/subquery/ethereum-subql-starter"
+
 schema:
-  file: ./schema.graphql
+  file: "./schema.graphql"
+
 network:
-  chainId: "mainnet"
-  subnet: "C"
+  # chainId is the EVM Chain ID, for Avalanche-C chain is 43114
+  # https://chainlist.org/chain/43114
+  chainId: "43114"
   # This endpoint must be a public non-pruned archive node
+  # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  # If using an OnFinality Endpoint, you should append the API key like so:
-  # endpoint: "https://avalanche.api.onfinality.io?apikey=xxxxx-xxxxx-xxxxxx-xxxxxxxx"
-  # Note that we currently only support HTTP endpoints (not Websockets)
-  endpoint: "https://avalanche.api.onfinality.io/public"
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
+  endpoint: ["https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"]
+  # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
+  dictionary: "https://api.subquery.network/sq/subquery/avalanche-dictionary"
+
 dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 1 # Block to start indexing from
+  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche is compatible
+    startBlock: 57360 # Contract creation of Pangolin Token https://snowtrace.io/tx/0xfab84552e997848a43f05e440998617d641788d355e3195b6882e9006996d8f9
     options:
       # Must be a key of assets
       abi: erc20
@@ -45,26 +60,24 @@ dataSources:
       address: "0x60781C2586D68229fde47564546784ab3fACA982"
     assets:
       erc20:
-        file: "IPangolinERC20.json"
+        file: "./abis/PangolinERC20.json"
     mapping:
-      file: ./dist/index.js
+      file: "./dist/index.js"
       handlers:
-        - handler: handleBlock
-          kind: avalanche/BlockHandler
         - handler: handleTransaction
-          kind: avalanche/TransactionHandler
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Avalanche is compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 rawAmount)
-            ## from: "0x60781C2586D68229fde47564546784ab3fACA982"
+            function: deposit(uint256 amount)
         - handler: handleLog
-          kind: avalanche/LogHandler
+          kind: ethereum/LogHandler # We use ethereum handlers since Avalanche is compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - Transfer(address indexed from, address indexed to, uint256 amount)
+              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
 ## Overview
@@ -76,13 +89,13 @@ dataSources:
 | **specVersion** | String                                     | The spec version of the manifest file               |
 | **name**        | String                                     | Name of your project                                |
 | **version**     | String                                     | Version of your project                             |
-| **description** | String                                     | Discription of your project                         |
+| **description** | String                                     | Description of your project                         |
+| **runner**      | [Runner Spec](#runner-spec)                | Runner specs info                                   |
 | **repository**  | String                                     | Git repository address of your project              |
 | **schema**      | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
 | **network**     | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |
 | **dataSources** | [DataSource Spec](#datasource-spec)        | The datasource to your project                      |
 | **templates**   | [Templates Spec](../dynamicdatasources.md) | Allows creating new datasources from this templates |
-| **runner**      | [Runner Spec](#runner-spec)                | Runner specs info                                   |
 
 ### Schema Spec
 
@@ -94,17 +107,23 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Avalanche might be `mainnet`.
+The `chainId` is the network identifier of the blockchain, for Avalanche this is `43114`. See https://chainlist.org/chain/43114
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
-| Field            | Type   | Description                                                                                                                                                                                                |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                    |
-| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
+- Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
+- Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
+- Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
+
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/avalanche).
+
+| Field            | Type   | Description                                                                                                                                                                              |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                  |
+| **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                             |
+| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
+| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
+| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
 
 ### Runner Spec
 
@@ -117,7 +136,7 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 | Field       | Type   | Description                                                                                                                                                                                                          |
 | ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-avalanche`                                                                                                                                                                                              |
+| **name**    | String | `@subql/node-ethereum` _We use the Ethereum node package for Avalanche since it is compatible with the Ethereum framework_                                                                                           |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
@@ -131,11 +150,11 @@ Additionally you will need to update the `endpoint`. This defines the wss endpoi
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 
-| Field          | Type         | Description                                                                                   |
-| -------------- | ------------ | --------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [avalanche/Runtime](#data-sources-and-mapping)                                                |
-| **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
-| **mapping**    | Mapping Spec |                                                                                               |
+| Field          | Type         | Description                                                                                                                                  |
+| -------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping) _We use the Ethereum runtime for Avalanche since it is compatible with the Ethereum framework_ |
+| **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data                                                |
+| **mapping**    | Mapping Spec |                                                                                                                                              |
 
 ### Mapping Spec
 
@@ -149,10 +168,19 @@ In this section, we will talk about the default Avalanche runtime and its mappin
 
 ```yml
 dataSources:
-  - kind: avalanche/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
+  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche is compatible
+    startBlock: 57360 # Contract creation of Pangolin Token https://snowtrace.io/tx/0xfab84552e997848a43f05e440998617d641788d355e3195b6882e9006996d8f9
+    options:
+      # Must be a key of assets
+      abi: erc20
+      ## Pangolin token https://snowtrace.io/token/0x60781c2586d68229fde47564546784ab3faca982
+      address: "0x60781C2586D68229fde47564546784ab3fACA982"
+    assets:
+      erc20:
+        file: "./abis/PangolinERC20.json"
     mapping:
-      file: dist/index.js # Entry path for this mapping
+      file: "./dist/index.js"
+      handlers:
       ...
 ```
 
@@ -162,11 +190,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                     | Supported filter                                                                                    |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [avalanche/BlockHandler](../mapping/avalanche.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [avalanche/TransactionHandler](../mapping/avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [avalanche/LogHandler](../mapping/avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                                    | Supported filter                                                                                    |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [ethereum/BlockHandler](../mapping/avalanche.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/avalanche.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/LogHandler](../mapping/avalanche.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -179,6 +207,14 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
+## Real-time indexing (Block Confirmations)
+
+As indexers are an additional layer in your data processing pipeline, they can introduce a massive delay between when an on-chain event occurs and when the data is processed and able to be queried from the indexer.
+
+SubQuery provides real time indexing of unconfirmed data directly from the RPC endpoint that solves this problem. SubQuery takes the most probabilistic data before it is confirmed to provide to the app. In the unlikely event that the data isn’t confirmed and a reorg occurs, SubQuery will automatically roll back and correct its mistakes quickly and efficiently - resulting in an insanely quick user experience for your customers.
+
+To control this feature, please adjust the [--block-confirmations](../../run_publish/references.md#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../run_publish/references.md#disable-historical) is enabled (enabled by default)
+
 ## Bypass Blocks
 
 Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
@@ -187,10 +223,8 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ```yaml
 network:
-  chainId: "mainnet"
-  subnet: "C"
-  endpoint: "https://avalanche.api.onfinality.io/public"
-  dictionary: https://api.subquery.network/sq/subquery/avalanche-dictionary
+  chainId: "43114"
+  endpoint: ["https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"]
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
 

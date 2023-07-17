@@ -4,7 +4,7 @@
 
 SubQuery Project'teki projelerinizi alakalı ve güncel tutmanız önemlidir. Test amacıyla SubQuery Project'e yüklenen projeler için, kaynakları korumak ve maliyetten tasarruf etmek için daha sonra silinmeleri önerilir.
 
-Bir dizin oluşturucu düğümü çalıştırmak, Docker kullanmanın veya[SubQuery Projeleri'nde](https://project.subquery.network/) sizin için bir proje barındırmanın dışında başka bir seçenektir. Daha fazla zaman ve çaba gerektirir, ancak SubQuery'nin kapaklar altında nasıl çalıştığına dair anlayışınızı geliştirecektir.
+Bir dizin oluşturucu düğümü çalıştırmak, Docker kullanmanın veya[SubQuery Projeleri'nde](https://managedservice.subquery.network/) sizin için bir proje barındırmanın dışında başka bir seçenektir. Daha fazla zaman ve çaba gerektirir, ancak SubQuery'nin kapaklar altında nasıl çalıştığına dair anlayışınızı geliştirecektir.
 
 ## Bir projeyi hazırlama yuvasından silme
 

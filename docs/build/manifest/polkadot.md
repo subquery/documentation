@@ -24,13 +24,14 @@ schema:
 network:
   chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
   # This endpoint must be a public non-pruned archive node
+  # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: wss://polkadot.api.onfinality.io/public-ws
+  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
+  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
   # Optionally provide a list of blocks that you wish to bypass
   bypassBlocks: [1, 2, 100, "200-500"]
 dataSources:
@@ -122,7 +123,13 @@ The `chainId` or `genesisHash` is the network identifier of the blockchain. In S
 
 ![Genesis Hash](/assets/img/genesis-hash.jpg)
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io)
+Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
+
+- Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
+- Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
+- Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
+
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/eth).
 
 | Field            | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
 | ---------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -337,6 +344,14 @@ network:
   chaintypes:
     file: ./dist/chaintypes.js
 ```
+
+## Real-time indexing (Unfinalised Blocks)
+
+As indexers are an additional layer in your data processing pipeline, they can introduce a massive delay between when an on-chain event occurs and when the data is processed and able to be queried from the indexer.
+
+SubQuery provides real time indexing of unfinalised data directly from the RPC endpoint that solves this problem. SubQuery takes the most probabilistic data before it is finalised to provide to the app. In the unlikely event that the data isn’t finalised, SubQuery will automatically roll back and correct its mistakes quickly and efficiently - resulting in an insanely quick user experience for your customers.
+
+To enable this feature, you must ensure that your project has the [--unfinalized-blocks](../../run_publish/references.md#unfinalized-blocks) command enabled as well as [historic indexing](../../run_publish/references.md#disable-historical) (enabled by default)
 
 ## Bypass Blocks
 

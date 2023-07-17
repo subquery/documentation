@@ -107,7 +107,7 @@ const b2 = await api.rpc.chain.getBlock();
 
 ## Mô-đun và Thư viện
 
-Để cải thiện khả năng xử lý dữ liệu của SubQuery, chúng tôi đã cho phép một số mô-đun tích hợp của NodeJS chạy các chức năng ánh xạ trong [sandbox](#the-sandbox) và cho phép người dùng gọi các thư viện của bên thứ ba.
+Để cải thiện khả năng xử lý dữ liệu của SubQuery, chúng tôi đã cho phép một số mô-đun tích hợp của NodeJS chạy các chức năng ánh xạ trong [sandbox](#third-party-library-support---the-sandbox) và cho phép người dùng gọi các thư viện của bên thứ ba.
 
 Xin lưu ý rằng đây là một **tính năng thử nghiệm** và bạn có thể gặp phải lỗi hoặc sự cố có thể ảnh hưởng tiêu cực đến chức năng ánh xạ của bạn. Vui lòng báo cáo bất kỳ lỗi nào bạn tìm thấy bằng cách tạo sự cố trong [GitHub](https://github.com/subquery/subql).
 

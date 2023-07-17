@@ -20,7 +20,7 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are focussing on indexing all transactions ralated to the PLANET asset.
+Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are focussing on indexing all transactions related to the PLANET asset.
 
 ```graphql
 type Transaction @entity {
@@ -59,7 +59,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand , there are two types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand, there are two types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
@@ -82,7 +82,7 @@ dataSources:
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address.
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address. The `txType: axfer `  distinguishes the type of the transaction as an [asset transfer transaction](https://developer.algorand.org/docs/get-details/transactions/transactions/).
 
 Check out our [Manifest File](../../build/manifest/algorand.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -122,7 +122,7 @@ export async function handleTransaction(
 
 Let’s understand how the above code works.
 
-Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeigh` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeight` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping/algorand.md) documentation to get more information on mapping functions.
 

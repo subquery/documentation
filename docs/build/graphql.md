@@ -23,6 +23,12 @@ npm run-script codegen
 
 :::
 
+All entites can be imported from the following directory after codegen:
+
+```ts
+import { GraphQLEntity1, GraphQLEntity2 } from "../types";
+```
+
 ### Entities
 
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
@@ -36,6 +42,39 @@ type Example @entity {
   address: String # This is an optional field
 }
 ```
+
+### Adding Documentation Strings to GraphQL Schema
+
+Documentation strings (also known as "doc strings") can be added to a GraphQL schema to provide human-readable descriptions of the schema's types and fields. This can be particularly useful for maintaining and understanding the schema over time, and for auto-generating API documentation.
+
+Doc strings are added as comments to the schema, using triple-quote syntax ("""). They must appear before the type or field definition that they describe.
+
+Here's an example of a schema with doc strings:
+
+```graphql
+"""
+This is an example entity
+"""
+type StarterEntity @entity {
+  """
+  id is a required field
+  """
+  id: ID!
+
+  field1: Int!
+
+  # The following field is optional
+  field2: String
+
+  field3: BigInt
+  field4: Date
+  field5: Boolean
+}
+```
+
+In addition, when using GraphQL query Playground, these doc strings will automatically show up in the schema documentation panel. This makes it easier for developers to understand your API while exploring it, and can even serve as a form of live, interactive documentation for your API.
+
+![image](../.vuepress/public/assets/img/schema_docstring.png)
 
 ### Naming Constraints
 
@@ -65,7 +104,7 @@ We currently support the following scalar types:
 
 ## Indexing by non-primary-key field
 
-To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field.
+To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field (you can also use [composite indexes](#composite-index)).
 
 However, we don't allow users to add `@index` annotation on any [JSON](graphql.md#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
@@ -106,6 +145,51 @@ const jack = await User.getByName("Jack Sparrow");
 const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
+```
+
+### Composite Index
+
+Composite indexes work just like regular indexes, except they provide even faster access to data by utilising multiple columns to create the index.
+
+For example, a composite index on columns `col_a` and `col_b` will significantly help when there are queries that filter across both (e.g. `WHERE col_a=x AND col_b=y`).
+
+You can create composite indexes though the `@compositeIndexes` annotation on an entity, and you can specify as many as you want.
+
+```graphql
+type Account @entity {
+  id: ID! # Account address
+  balance: BigInt
+}
+
+type Transfer @entity @compositeIndexes(fields: [["blockNumber", "from"]]) {
+  id: ID! #this primary key is the network + block number + the event id
+  amount: BigInt
+  blockNumber: BigInt
+  from: Account! #Sending Address
+  to: Account! # receiving address
+}
+```
+
+Composite index can include all properties of standard scalar types (except for `Boolean` or `JSON` types) and relations.
+
+Here is an example where you define more than one composite index on a particular entity. To avoid overloading the database with index creation and query complexity, composite indexes can have a maximum of 3 fields.
+:
+
+```graphql
+type Account @entity {
+  id: ID! # Account address
+  balance: BigInt
+}
+
+type Transfer
+  @entity
+  @compositeIndexes(fields: [["blockNumber", "from"], ["from", "to"]]) { # can have multiple
+  id: ID! #this primary key is the network + block number + the event id
+  amount: BigInt
+  blockNumber: BigInt
+  from: Account! #Sending Address
+  to: Account! # receiving address
+}
 ```
 
 ## Entity Relationships
@@ -259,6 +343,17 @@ type ContactCard @jsonField {
 type User @entity {
   id: ID!
   contact: [ContactCard] # Store a list of JSON objects
+}
+```
+
+### JSON field indexes
+
+By default we automatically add indexes to JSON fields to improve querying performance. This can be disabled by specifying the `indexed: false` argument on the `jsonField` directive like so. This is useful if you are using alternative databases like Cockroach DB, as there can be some perfomance issues with inserting JSON data with an index (Cockroach does not support gin index and Jsonb data).
+
+```graphql
+type AddressDetail @jsonField(indexed: false) {
+  street: String!
+  district: String!
 }
 ```
 

@@ -9,7 +9,7 @@
 
 ## 소개
 
-인덱서 노드를 실행하는 것은 Docker를 사용하거나 [SubQuery 프로젝트](https://project.subquery.network/)에서 프로젝트를 호스팅하는 것 외에 다른 옵션입니다. 더 많은 시간과 노력이 필요하지만 SubQuery가 어떻게 작동하는지 이해하는 데 도움이 됩니다.
+인덱서 노드를 실행하는 것은 Docker를 사용하거나 [SubQuery 프로젝트](https://managedservice.subquery.network/)에서 프로젝트를 호스팅하는 것 외에 다른 옵션입니다. 더 많은 시간과 노력이 필요하지만 SubQuery가 어떻게 작동하는지 이해하는 데 도움이 됩니다.
 
 ## Postgres
 

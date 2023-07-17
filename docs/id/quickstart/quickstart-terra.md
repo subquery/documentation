@@ -225,7 +225,7 @@ Untuk proyek pemula SubQuery baru, Anda dapat mencoba kueri berikut untuk menget
 
 ### Publikasikan Proyek SubQuery Anda
 
-SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://project.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami.
+SubQuery menyediakan layanan terkelola gratis saat Anda dapat menerapkan proyek baru Anda. Anda dapat menerapkannya ke [Proyek SubQuery](https://managedservice.subquery.network) dan menanyakannya menggunakan [Explorer](https://explorer.subquery.network) kami.
 
 [Baca panduan untuk memublikasikan proyek baru Anda ke Proyek SubQuery](../run_publish/publish.md)
 

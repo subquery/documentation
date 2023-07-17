@@ -1,6 +1,6 @@
 # Ciao mondo (SubQuery hosted)
 
-Lo scopo di questo avvio rapido è mostrare come si può ottenere il progetto di avvio predefinito in esecuzione in SubQuery Projects (il nostro servizio gestito) in pochi semplici passi.
+Lo scopo di questo avvio rapido è mostrare come si può ottenere il progetto di avvio predefinito in esecuzione in SubQuery's Managed Service (il nostro servizio gestito) in pochi semplici passi.
 
 Prenderemo il semplice progetto iniziale (e tutto ciò che abbiamo imparato finora) ma invece di eseguirlo localmente in Docker, approfitteremo dell'infrastruttura di hosting gestito di SubQuery. In altre parole, lasciamo che SubQuery faccia tutto il lavoro pesante, eseguendo e gestendo l'infrastruttura di produzione.
 
@@ -9,7 +9,7 @@ Prenderemo il semplice progetto iniziale (e tutto ciò che abbiamo imparato fino
 Alla fine di questo inizio rapido, dovreste:
 
 - capire i pre-requisiti richiesti
-- essere in grado di ospitare un progetto in [Progetti SubQuery](https://project.subquery.network/)
+- essere in grado di ospitare un progetto in [Progetti SubQuery](https://managedservice.subquery.network/)
 - eseguire una semplice query per ottenere l'altezza del blocco della mainnet Polkadot utilizzando il parco giochi
 - eseguire una semplice query GET per ottenere l'altezza del blocco della mainnet Polkadot usando cURL
 
@@ -102,11 +102,11 @@ Il comando push significa "per favore spingi il mio codice nel repo di origine d
 
 ![Primo commit](/assets/img/first_commit.png)
 
-Ora che hai messo il tuo codice su GitHub, vediamo come possiamo ospitarlo in SubQuery Projects.
+Ora che hai messo il tuo codice su GitHub, vediamo come possiamo ospitarlo in SubQuery's Managed Service.
 
 ## 4. Crea il tuo progetto
 
-Vai a [https://project.subquery.network](https://project.subquery.network) e accedi con il tuo account GitHub.
+Vai a [https://managedservice.subquery.network](https://managedservice.subquery.network) e accedi con il tuo account GitHub.
 
 ![Benvenuti a SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -133,7 +133,7 @@ La dashboard contiene molte informazioni utili come la rete che sta usando, l'UR
 
 ## 5. Distribuisci il tuo progetto
 
-Ora che hai creato il tuo progetto in SubQuery Projects, impostando il comportamento di visualizzazione, il prossimo passo è quello di distribuire il tuo progetto rendendolo operativo. Il deploy di una versione fa partire una nuova operazione di indicizzazione SubQuery e imposta il servizio di query richiesto per iniziare ad accettare richieste GraphQL. Qui puoi anche distribuire le nuove versioni ai progetti esistenti.
+Ora che hai creato il tuo progetto in SubQuery's Managed Service, impostando il comportamento di visualizzazione, il prossimo passo è quello di distribuire il tuo progetto rendendolo operativo. Il deploy di una versione fa partire una nuova operazione di indicizzazione SubQuery e imposta il servizio di query richiesto per iniziare ad accettare richieste GraphQL. Qui puoi anche distribuire le nuove versioni ai progetti esistenti.
 
 Potete scegliere di distribuire in vari ambienti come uno slot di produzione o uno slot di staging. Qui faremo il deploy su uno slot di produzione. Cliccando sul pulsante "Deploy" si apre una schermata con i seguenti campi:
 
@@ -188,4 +188,4 @@ La leggibilità non è una preoccupazione qui, poiché probabilmente avrete del 
 
 ## Riassunto
 
-In questo avvio rapido di SubQuery hosted abbiamo mostrato quanto fosse facile e veloce prendere un progetto Subql e distribuirlo su [Progetti SubQuery](https://project.subquery.network) dove tutta l'infrastruttura è fornita per la vostra comodità. C'è un parco giochi integrato per l'esecuzione di varie query, nonché un endpoint API per l'integrazione del vostro codice.
+In questo avvio rapido di SubQuery hosted abbiamo mostrato quanto fosse facile e veloce prendere un progetto Subql e distribuirlo su [Progetti SubQuery](https://managedservice.subquery.network) dove tutta l'infrastruttura è fornita per la vostra comodità. C'è un parco giochi integrato per l'esecuzione di varie query, nonché un endpoint API per l'integrazione del vostro codice.

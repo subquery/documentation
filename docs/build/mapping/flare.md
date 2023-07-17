@@ -100,11 +100,11 @@ const balance = await erc20.balanceOf(address);
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain.
 
-## The Sandbox
+## Third-party Library Support - the Sandbox
 
-SubQuery is deterministic by design, that means that each SubQuery project is guranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
+SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
 
-**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
+**You can easily bypass this limitation however, allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects.** In order to do to, you must run your project in `unsafe` mode, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
 
 ```yml
 subquery-node:
@@ -117,15 +117,28 @@ subquery-node:
   ...
 ```
 
-By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the folling:
+When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
+
+```ts
+import { FlareTransaction } from "@subql/types-flare";
+import fetch from "node-fetch";
+
+export async function handleTransaction(tx: FlareTransaction): Promise<void> {
+  const httpData = await fetch("https://api.github.com/users/github");
+  logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
+  // Do something with this data
+}
+```
+
+By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the following:
 
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
-- Note `HTTP` and `WebSocket` connections are forbidden
+- external `HTTP` and `WebSocket` connections are forbidden
 
 ## Modules and Libraries
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#the-sandbox), and have allowed users to call third-party libraries.
+To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#third-party-library-support---the-sandbox), and have allowed users to call third-party libraries.
 
 Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 

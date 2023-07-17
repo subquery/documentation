@@ -4,7 +4,7 @@
 
 Es importante mantener tus proyectos en SubQuery Project relevantes y actualizados. En el caso de los proyectos que se suben a SubQuery Project con fines de prueba, se recomienda eliminarlos posteriormente para conservar los recursos y ahorrar costes.
 
-Ejecutar un nodo indexador es otra opción fuera de usar Docker o tener un proyecto alojado para ti en [SubQuery Projects](https://project.subquery.network/). Requiere más tiempo y esfuerzo, pero mejorará su comprensión de cómo funciona SubQuery bajo las cubiertas.
+Ejecutar un nodo indexador es otra opción fuera de usar Docker o tener un proyecto alojado para ti en [SubQuery Managed Service](https://managedservice.subquery.network/). Requiere más tiempo y esfuerzo, pero mejorará su comprensión de cómo funciona SubQuery bajo las cubiertas.
 
 ## Elimina un proyecto del slot puesto en escena
 

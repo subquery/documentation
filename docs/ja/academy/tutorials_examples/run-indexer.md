@@ -9,7 +9,7 @@
 
 ## はじめに
 
-Docker を使用するか、[SubQuery Projects](https://project.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQuery がどのように機能するのか、その理解を深めることができます。
+Docker を使用するか、[SubQuery Managed Service](https://managedservice.subquery.network/) でプロジェクトをホストしてもらう以外に、インデクサノードを実行することもできます。 より多くの時間と労力を必要としますが、SubQuery がどのように機能するのか、その理解を深めることができます。
 
 ## Postgres
 

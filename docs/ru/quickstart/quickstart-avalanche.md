@@ -213,7 +213,7 @@ query {
 
 ### Опубликуйте свой проект SubQuery
 
-SubQuery предоставляет бесплатный управляемый сервис, на котором вы можете развернуть свой новый проект. Вы можете развернуть его в [SubQuery Projects](https://project.subquery.network) и запросить его с помощью нашего [Проводника](https://explorer.subquery.network).
+SubQuery предоставляет бесплатный управляемый сервис, на котором вы можете развернуть свой новый проект. Вы можете развернуть его в [SubQuery Managed Service](https://managedservice.subquery.network) и запросить его с помощью нашего [Проводника](https://explorer.subquery.network).
 
 [Прочитайте руководство по публикации вашего нового проекта в SubQuery Projects](../run_publish/publish.md). **Обратите внимание, что развертывание необходимо выполнять через IPFS**.
 

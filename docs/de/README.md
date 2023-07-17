@@ -88,7 +88,7 @@
         </div>
       </li>
       <li>
-        <div class="title">Wie viel kostet es, mein Projekt in SubQuery Projects zu hosten?</div>
+        <div class="title">Wie viel kostet es, mein Projekt in SubQuery's Managed Service zu hosten?</div>
         <div class="content">
           <p>Dieser Service wird der Community mit einem großzügigen kostenlosen Kontingent zur Verfügung gestellt! You can host your first two SubQuery projects for absolutely free!</p>
           <span class="more">

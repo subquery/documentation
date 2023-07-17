@@ -204,7 +204,7 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 ### Опублікуйте проект SubQuery
 
-SubQuery provides a free managed service where you can deploy your new project to. Ви можете розгорнути його в [SubQuery Projects](https://project.subquery.network) і зробити запит за допомогою нашого [ Explorer](https://explorer.subquery.network).
+SubQuery provides a free managed service where you can deploy your new project to. Ви можете розгорнути його в [SubQuery Managed Service](https://managedservice.subquery.network) і зробити запит за допомогою нашого [ Explorer](https://explorer.subquery.network).
 
 Read the guide to [publish your new project to SubQuery Projects](../run_publish/publish.md)
 

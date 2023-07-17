@@ -1,4 +1,4 @@
-# Cosmos Quick Start (Cronos)
+# Cronos Quick Start
 
 ## Goals
 

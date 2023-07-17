@@ -1,7 +1,7 @@
 # Running SubQuery Locally
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service.
-Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Projects](https://project.subquery.network).
+Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Managed Service](https://managedservice.subquery.network).
 
 **There are two ways to run a project locally, [using Docker](#using-docker) or running the individual components using NodeJS ([indexer node service](#running-an-indexer-subqlnode) and [query service](#running-the-query-service)).**
 
@@ -167,25 +167,32 @@ subql-node -f your-project-path
 
 Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
 
+If your database is using SSL, you can use the following command to add the server certificate to it:
+
+```shell
+subql-node -f your-project-path --pg-ca /path/to/ca.pem
+```
+
+If your database is using SSL and requires a client certificate, you can use the following command to connect to it:
+
+```shell
+subql-node -f your-project-path --pg-ca /path/to/ca.pem --pg-cert /path/to/client-cert.pem --pg-key /path/to/client-key.key
+```
+
 #### Specify a configuration file
 
 ::: code-tabs
+
 @tab Substrate/Polkadot
 
 ```shell
 subql-node -c your-project-config.yml
 ```
 
-@tab Terra
+@tab EVM (Ethereum, Polygon, BNB Smart Chain, Avalanche, Flare)
 
 ```shell
-subql-node-terra -c your-project-config.yml
-```
-
-@tab Avalanche
-
-```shell
-subql-node-avalanche -c your-project-config.yml
+subql-node-ethereum -c your-project-config.yml
 ```
 
 @tab Cosmos
@@ -198,6 +205,12 @@ subql-node-cosmos -c your-project-config.yml
 
 ```shell
 subql-node-algorand -c your-project-config.yml
+```
+
+@tab Near
+
+```shell
+subql-node-near -c your-project-config.yml
 ```
 
 :::
@@ -215,45 +228,6 @@ Result:
 ```
 
 When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
-
-#### Run in local mode
-
-::: code-tabs
-@tab Substrate/Polkadot
-
-```shell
-subql-node -f your-project-path --local
-```
-
-@tab Terra
-
-```shell
-subql-node-terra -f your-project-path --local
-```
-
-@tab Avalanche
-
-```shell
-subql-node-avalanche -f your-project-path --local
-```
-
-@tab Cosmos
-
-```shell
-subql-node-cosmos -f your-project-path --local
-```
-
-@tab Algorand
-
-```shell
-subql-node-algorand -f your-project-path --local
-```
-
-:::
-
-For debugging purposes, users can run the node in local mode. Switching to local model will create Postgres tables in the default schema `public`.
-
-If local mode is not used, a new Postgres schema with the initial `subquery_ ` and corresponding project tables will be created.
 
 #### Check your node health
 
@@ -354,6 +328,12 @@ After running the subql-query service successfully, open your browser and head t
 
 SubQuery is designed to provide reliable and performant indexing to production applications, we use the services that we build to run SubQuery in our own managed service which serves millions of requests each day to hundreds of customers. As such, we've added some commands that you will find useful to get the most performance out of your project and mitigate against any DDOS attacks.
 
+### Improve Indexing with Node Workers and Cache Size
+
+Use `node worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. [Read more here](../run_publish/references.html#w-workers).
+
+You should also adjust and play around with the various arguments that control how SubQuery uses a store to improve indexing performance by making expensive database operations in bulk. In particular, you can review `--store-cache-threshold`, `--store-get-cache-size`, `--store-cache-async`, and `--store-flush-interval` - read more about these settings in our [references](./references.md#store-cache-threshold).
+
 ### DDOS Mitigation
 
 SubQuery runs well behind a API gateway or a DDOS mitigation service. For any public project that is run in a production configuration, setting up a gateway, web application firewall, or some other protected endpoint is recommended.
@@ -379,5 +359,5 @@ GraphQL is extremely powerful, but one of the downsides is that it allows users 
 - `--query-complexity` is a flag that controls the level of query complexity that this service will accept expressed as a positive integer, [read more here](./references.md#query-complexity).
 - `--query-timeout` is a flag that will restrict the time each query will be allowed to run for, [read more here](./references.md#query-timeout).
 - `--max-connection` is a flag that will restrict the number of simulteneous connections to the query endpoint, [read more here](./references.md#max-connection).
-- `--query-limit` ([coming soon](https://github.com/subquery/subql/issues/1507)) is a flag that will allow you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
+- `--query-limit` is a flag that allows you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
 - `--unsafe` is a flag that enables some advanced features like [GraphQL aggregations](./aggregate.md), these may have performance impacts, [read more here](./references.md#unsafe-query-service)

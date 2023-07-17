@@ -1,25 +1,73 @@
-# Avalanche Quick Start
+# Avalanche Quick Start - Pangolin Rewards
 
 ## Goals
 
-The goal of this quick start guide is to index all Pangolin token _RewardPaid_ logs.
+The goal of this quick start guide is to index all token deposits and transfers from the Avalanche's [Pangolin token](https://snowtrace.io/address/0x88afdae1a9f58da3e68584421937e5f564a0135b).
 
-::: warning Important
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section.
+::: warning
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Avalanche project**
 :::
 
 Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-avalanche-pangolin-rewards).
 :::
 
-## 1. Update Your GraphQL Schema File
+## 1. Update Your Project Manifest File
+
+::: warning Important
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-chain is built on Ethereum's EVM, we can use the core Ethereum framework to index it.
+:::
+
+The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
+
+We are indexing actions from the Pangolin Rewards contract, first you will need to import the contract abi defintion from [here](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b). You can copy the entire JSON and save as a file `./abis/PangolinRewards.json` in the root directory.
+
+This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
+
+**Since you are going to index all Pangolin Rewards, you need to update the `datasources` section as follows:**
+
+```yaml
+dataSources:
+  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche C-Chain is EVM compatible
+    startBlock: 7906490 # Block when the first reward is made
+    options:
+      # Must be a key of assets
+      abi: erc20
+      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
+      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
+    assets:
+      erc20:
+        file: "./abis/PangolinRewards.json"
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        - handler: handleLog
+          kind: ethereum/LogHandler # We use ethereum handlers since Avalanche C-Chain is EVM compatible
+          filter:
+            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+            topics:
+              - RewardPaid(address user, uint256 reward)
+```
+
+The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin Rewards contract](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b).
+
+Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+
+## 2. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards in Pangolin:
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
 
 ```graphql
 type PangolinRewards @entity {
@@ -27,14 +75,22 @@ type PangolinRewards @entity {
   transactionHash: String!
   blockNumber: BigInt!
   blockHash: String!
-  receiver: String
-  amount: BigInt
+  receiver: User!
+  amount: BigInt!
+}
+
+type User @entity {
+  id: ID! # Wallet address
+  totalRewards: BigInt!
+  rewards: [PangolinRewards]! @derivedFrom(field: "receiver") #This is virtual field
 }
 ```
 
 ::: warning Important
 When you make any changes to the schema file, please ensure that you regenerate your types directory.
 :::
+
+SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
 
 ::: code-tabs
 @tab:active yarn
@@ -51,70 +107,52 @@ npm run-script codegen
 
 :::
 
-You will find the generated models in the `/src/types/models` directory.
+This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entites can be imported from the following directory:
+
+```ts
+import { PangolinRewards, User } from "../types";
+```
+
+If you're creating a new Ethereum based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Avalanche SubQuery project, you would import these types like so.
+
+```ts
+import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
+```
 
 Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 
-Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
-
-## 2. Update Your Project Manifest File
-
-The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
-
-**Since you are going to index all Pangolin approval logs, you need to update the `datasources` section as follows:**
-
-```yaml
-dataSources:
-  - kind: avalanche/Runtime
-    startBlock: 7906490 # Block when the first reward is made
-    options:
-      # Must be a key of assets
-      abi: erc20
-      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
-      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
-    assets:
-      erc20:
-        file: "./node_modules/@pangolindex/exchange-contracts/artifacts/contracts/staking-rewards/StakingRewards.sol/StakingRewards.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleLog
-          kind: avalanche/LogHandler
-          filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            topics:
-              - RewardPaid(address user, uint256 reward)
-```
-
-The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin reward contract](https://snowtrace.io/txs?a=0x60781C2586D68229fde47564546784ab3fACA982&p=1).
-
-Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
-
-Next, let’s proceed ahead with the Mapping Function’s configuration.
+Now that you have made essential changes to the GraphQL Schema file, let’s proceed ahead with the Mapping Function’s configuration.
 
 ## 3. Add a Mapping Function
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
+Follow these steps to add a mapping function:
 
-The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardPaid` transaction logs, and save them to the GraphQL entities created earlier.
-
-Update the `handleLog` function as follows (**note the additional imports**):
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code (**note the additional imports**):
 
 ```ts
-import { PangolinRewards } from "../types";
-import { AvalancheLog } from "@subql/types-avalanche";
+import { PangolinRewards, User } from "../types";
+import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
 
-export async function handleLog(event: AvalancheLog): Promise<void> {
+async function checkGetUser(id: string): Promise<User> {
+  let user = await User.get(id.toLowerCase());
+  if (!user) {
+    // does not exist, create a new user
+    user = User.create({
+      id: id.toLowerCase(),
+      totalRewards: BigInt(0),
+    });
+  }
+  return user;
+}
+
+export async function handleLog(event: RewardPaidLog): Promise<void> {
+  logger.info(`New Reward Paid at block ${event.blockNumber}`);
   const { args } = event;
   if (args) {
+    const user = await checkGetUser(args.user);
+
     const pangolinRewardRecord = new PangolinRewards(
       `${event.blockHash}-${event.logIndex}`
     );
@@ -122,10 +160,11 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
     pangolinRewardRecord.transactionHash = event.transactionHash;
     pangolinRewardRecord.blockHash = event.blockHash;
     pangolinRewardRecord.blockNumber = BigInt(event.blockNumber);
-
-    pangolinRewardRecord.receiver = args.user;
+    pangolinRewardRecord.receiverId = user.id;
     pangolinRewardRecord.amount = BigInt(args.reward.toString());
 
+    user.totalRewards += pangolinRewardRecord.amount;
+    await user.save();
     await pangolinRewardRecord.save();
   }
 }
@@ -133,7 +172,7 @@ export async function handleLog(event: AvalancheLog): Promise<void> {
 
 Let’s understand how the above code works.
 
-The function here receives an `AvalancheLog` which includes transaction log data in the payload. We extract this data and then instantiate a new `PangolinRewards` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
+The mapping function here receives an `RewardPaidLog` which includes transaction log data in the payload. We extract this data and first read and confirm that we have a `User` record via `checkGetUser`. We then create a new `PangolinRewards` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping/avalanche.md) documentation to get more information on mapping functions.
 
@@ -205,14 +244,19 @@ Try the following query to understand how it works for your new SubQuery starter
 
 ```graphql
 query {
-  pangolinRewards(first: 1) {
+  pangolinRewards(first: 5) {
     nodes {
       id
-      receiver
       amount
-      blockNumber
-      blockHash
-      transactionHash
+    }
+  }
+  users(first: 5, orderBy: TOTAL_REWARDS_DESC) {
+    nodes {
+      id
+      totalRewards
+      rewards(first: 5) {
+        totalCount
+      }
     }
   }
 }
@@ -226,12 +270,63 @@ You will see the result similar to below:
     "pangolinRewards": {
       "nodes": [
         {
-          "id": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54-60",
-          "receiver": "0x3F8D6e7bA3A842642Fd362C7122BE8d17DC82555",
-          "amount": "48537775882115127788",
-          "blockNumber": "7906491",
-          "blockHash": "0x39b4d0a98192d1509c15543caa70cad7e067a08d98f9b4e335ab92c87585cf54",
-          "transactionHash": "0x202891b2c5c62467b08f04816dfe8ecbaf40e967e1926127318ebcb85c76a46d"
+          "id": "0xa0759b9929d68bc88ad01832484ecc24fd0abbcaf19a92a69a1a8fc1f2f23a71-20",
+          "amount": "750406183852"
+        },
+        {
+          "id": "0xf4b8a0948afc4264b876b4431da01a7a96a11f1ce24d73a2a0a71f9a8228b3c9-121",
+          "amount": "31106152923645074116"
+        },
+        {
+          "id": "0x8f348fcc2eb78e91e6d212a045356983f4f46ba1843e5e0f763e1e75a1ae8582-33",
+          "amount": "612972344478229813"
+        },
+        {
+          "id": "0xbb588aa14c97bad75d34ccbae332af03eab1390678516df01badf4b4f1886d4e-56",
+          "amount": "3588963063129"
+        },
+        {
+          "id": "0x477c12a0a4a5642378e58569743b24af200d36f7952d2e6bc4cfd9fa8e96592f-74",
+          "amount": "30987822664812021072"
+        }
+      ]
+    },
+    "users": {
+      "nodes": [
+        {
+          "id": "0x5da33bcd38fbc3e9632f9f6a198f4f0ef13746b6",
+          "totalRewards": "4883581127128396302822",
+          "rewards": {
+            "totalCount": 2
+          }
+        },
+        {
+          "id": "0x79dcf1ef9786255c0f00f506c785bbd878ec184a",
+          "totalRewards": "2282547055289881964699",
+          "rewards": {
+            "totalCount": 1
+          }
+        },
+        {
+          "id": "0x695b71dbd30a9f30c1958644086900ac9cd33c85",
+          "totalRewards": "1620206587081566430579",
+          "rewards": {
+            "totalCount": 1
+          }
+        },
+        {
+          "id": "0xfd94d62683d8962055b661c4e64e762ed41e5489",
+          "totalRewards": "1149590592806652626951",
+          "rewards": {
+            "totalCount": 1
+          }
+        },
+        {
+          "id": "0xab7901b09b67ee05b016456289cf74d362bd6d8c",
+          "totalRewards": "882873704607946614381",
+          "rewards": {
+            "totalCount": 1
+          }
         }
       ]
     }
@@ -240,7 +335,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/pangolin-rewards-tutorial).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-avalanche-pangolin-rewards).
 :::
 
 ## What's next?

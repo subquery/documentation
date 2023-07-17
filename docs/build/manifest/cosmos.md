@@ -24,13 +24,14 @@ schema:
 network:
   chainId: juno-1
   # This endpoint must be a public non-pruned archive node
+  # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
   # You can get them from OnFinality for free https://app.onfinality.io
   # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: https://juno.api.onfinality.io/public
+  endpoint: ["https://juno.api.onfinality.io/public"]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
+  dictionary: "https://api.subquery.network/sq/subquery/cosmos-juno-dictionary"
   # chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
   #  cosmos.slashing.v1beta1:
   #    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
@@ -97,9 +98,15 @@ We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains 
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Cosmos might be `juno-1`.
+The `chainId` is the network identifier of the Cosmos Zone. Examples in Cosmos might be `juno-1`. You can often search for this in https://github.com/cosmos/chain-registry.
 
-Additionally you will need to update the `endpoint`. This defines the wss endpoint of the blockchain to be indexed - **this must be a full archive node**. Public nodes may be rate limited which can affect indexing speed. We suggest getting a private API key when developing your project. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io).
+Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
+
+- Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
+- Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
+- Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
+
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks).
 
 | Field            | Type   | Description                                                                                                                                                                                                |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -213,28 +220,30 @@ filter:
 
 ## Chain Types
 
-We can load protobuf message definitions to allow support for specific Cosmos chains under `network.chaintypes`. If most are just using Wasm this should be already included.
+We can load protobuf message definitions to allow support for specific Cosmos zones under `network.chaintypes`. Any protobuf files that are required for the network (these end in `.proto`) should be imported. For example, you can find Osmosis' protobuf definitions [here](https://buf.build/osmosis-labs/osmosis/tree/main:osmosis)
 
 You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
 
 ```yml
-chainTypes: # This is a beta feature that allows support for any Cosmos chain by importing the correct protobuf messages
-  cosmos.slashing.v1beta1:
-    file: "./proto/cosmos/slashing/v1beta1/tx.proto"
-    messages:
-      - "MsgUnjail"
-  cosmos.gov.v1beta1:
-    file: "./proto/cosmos/gov/v1beta1/tx.proto"
-    messages:
-      - "MsgVoteWeighted"
-  cosmos.gov.v1beta1.gov: # Key is not used, it matches the one above and is inferred from the file
-    file: "./proto/cosmos/gov/v1beta1/gov.proto"
-    messages:
-      - "WeightedVoteOption"
-  publicawesome.stargaze.claim.v1beta1: # Key is not used, it matches the one above and is inferred from the file
-    file: "./proto/stargaze/claim/v1beta1/tx.proto"
-    messages:
-      - "MsgInitialClaim"
+network:
+  ...
+  chainTypes: # This is a beta feature that allows support for any Cosmos zone by importing the correct protobuf messages
+    cosmos.slashing.v1beta1:
+      file: "./proto/cosmos/slashing/v1beta1/tx.proto"
+      messages:
+        - "MsgUnjail"
+    cosmos.gov.v1beta1:
+      file: "./proto/cosmos/gov/v1beta1/tx.proto"
+      messages:
+        - "MsgVoteWeighted"
+    cosmos.gov.v1beta1.gov: # Key is not used, it matches the one above and is inferred from the file
+      file: "./proto/cosmos/gov/v1beta1/gov.proto"
+      messages:
+        - "WeightedVoteOption"
+    publicawesome.stargaze.claim.v1beta1: # Key is not used, it matches the one above and is inferred from the file
+      file: "./proto/stargaze/claim/v1beta1/tx.proto"
+      messages:
+        - "MsgInitialClaim"
 ```
 
 Our [starter repo has chaintypes for popular Cosmos chains](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) already added under a branch for each chain. Additionally see [Tested and Supported networks](#tested-and-supported-networks).
@@ -252,6 +261,17 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
   bypassBlocks: [1, 2, 3, "105-200", 290]
 ```
+
+::: tip Indexing chains that have skipped blocks
+Some Cosmos chains, like Juno, have hard forks that intentionally skip blocks. To handle this situation, you should use the bypass blocks feature and connect to different RPC endpoints as required. For example, on Juno, block 2578098 represents a hard fork, if you want to index data before this block:
+
+1. Find a RPC endpoint that provides archival data for blocks before 2578098
+2. Set bypass blocks to `bypassBlocks: []`
+3. Index data up to block 2578098, you'll notice SubQuery will stop there because most RPC endpoints only have one set of data
+4. Without clearing the database, change the RPC endpoint to a new endpoint that has blocks after 2578098
+5. Continue indexing
+
+:::
 
 ## Validating
 

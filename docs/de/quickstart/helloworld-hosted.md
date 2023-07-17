@@ -1,6 +1,6 @@
 # Hallo die Welt (SubQuery gehostet)
 
-Das Ziel dieser Schnellstartanleitung besteht darin, zu zeigen, wie Sie in wenigen einfachen Schritten das standardmäßige Startprojekt in SubQuery Projects (unserem verwalteten Dienst) ausführen können.
+Das Ziel dieser Schnellstartanleitung besteht darin, zu zeigen, wie Sie in wenigen einfachen Schritten das standardmäßige Startprojekt in SubQuery's Managed Service (unserem verwalteten Dienst) ausführen können.
 
 Wir nehmen das einfache Starterprojekt (und alles, was wir bisher gelernt haben), aber anstatt es lokal in Docker auszuführen, nutzen wir die verwaltete Hosting-Infrastruktur von SubQuery. Mit anderen Worten, wir überlassen SubQuery die ganze schwere Arbeit, den Betrieb und die Verwaltung der Produktionsinfrastruktur.
 
@@ -9,7 +9,7 @@ Wir nehmen das einfache Starterprojekt (und alles, was wir bisher gelernt haben)
 Am Ende dieses Schnellstarts sollten Sie:
 
 - die erforderlichen Voraussetzungen verstehen
-- ein Projekt in [SubQuery-Projekten](https://project.subquery.network/) hosten können
+- ein Projekt in [SubQuery-Projekten](https://managedservice.subquery.network/) hosten können
 - eine einfache Abfrage ausführen, um die Blockhöhe des Polkadot-Mainnets über den Spielplatz zu erhalten
 - eine einfache GET-Abfrage ausführen, um die Blockhöhe des Polkadot-Mainnets mit cURL zu erhalten
 
@@ -106,7 +106,7 @@ Nachdem Sie Ihren Code nun in GitHub eingegeben haben, schauen wir uns an, wie w
 
 ## 4. Erstellen Sie Ihr Projekt
 
-Navigieren Sie zu [https://project.subquery.network](https://project.subquery.network) und melden Sie sich mit Ihrem GitHub-Konto an.
+Navigieren Sie zu [https://managedservice.subquery.network](https://managedservice.subquery.network) und melden Sie sich mit Ihrem GitHub-Konto an.
 
 ![Herzlich Willkommen bei SubQuery-Projekten](/assets/img/welcome_to_subquery_projects.png)
 
@@ -133,7 +133,7 @@ Das Dashboard enthält viele nützliche Informationen wie das verwendete Netzwer
 
 ## 5. Stellen Sie Ihr Projekt bereit
 
-Nachdem Sie Ihr Projekt nun in SubQuery Projects erstellt und das Anzeigeverhalten eingerichtet haben, besteht der nächste Schritt darin, Ihr Projekt bereitzustellen, um es betriebsbereit zu machen. Das Bereitstellen einer Version löst den Start eines neuen SubQuery-Indizierungsvorgangs aus und richtet den erforderlichen Abfragedienst ein, um GraphQL-Anforderungen zu akzeptieren. Sie können hier auch neue Versionen für bestehende Projekte bereitstellen.
+Nachdem Sie Ihr Projekt nun in SubQuery's Managed Service erstellt und das Anzeigeverhalten eingerichtet haben, besteht der nächste Schritt darin, Ihr Projekt bereitzustellen, um es betriebsbereit zu machen. Das Bereitstellen einer Version löst den Start eines neuen SubQuery-Indizierungsvorgangs aus und richtet den erforderlichen Abfragedienst ein, um GraphQL-Anforderungen zu akzeptieren. Sie können hier auch neue Versionen für bestehende Projekte bereitstellen.
 
 Sie können wählen, ob Sie in verschiedenen Umgebungen bereitstellen möchten, z. B. in einem Produktions-Slot oder einem Staging-Slot. Hier stellen wir einen Produktionsslot bereit. Wenn Sie auf die Schaltfläche "Deploy" klicken, wird ein Bildschirm mit den folgenden Feldern angezeigt:
 
@@ -190,4 +190,4 @@ Die Lesbarkeit ist hier kein Problem, da Sie wahrscheinlich etwas Front-End-Code
 
 ## Zusammenfassung
 
-In diesem von SubQuery gehosteten Schnellstart haben wir gezeigt, wie schnell und einfach es war, ein Subql-Projekt zu verwenden und es in [SubQuery-Projekten](https://project.subquery.network) bereitzustellen, wo Ihnen die gesamte Infrastruktur zur Verfügung gestellt wird. Es gibt einen integrierten Playground zum Ausführen verschiedener Abfragen sowie einen API-Endpunkt, in den Ihr Code integriert werden kann.
+In diesem von SubQuery gehosteten Schnellstart haben wir gezeigt, wie schnell und einfach es war, ein Subql-Projekt zu verwenden und es in [SubQuery-Projekten](https://managedservice.subquery.network) bereitzustellen, wo Ihnen die gesamte Infrastruktur zur Verfügung gestellt wird. Es gibt einen integrierten Playground zum Ausführen verschiedener Abfragen sowie einen API-Endpunkt, in den Ihr Code integriert werden kann.

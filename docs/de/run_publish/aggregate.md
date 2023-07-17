@@ -28,4 +28,4 @@ Die Implementierung von Aggregatfunktionen in SubQuery basiert auf [pg-aggregate
 
 ::: wichtige Warnung Bitte beachten Sie, dass Sie das Flag `--unsafe` im Abfragedienst aktivieren müssen, um diese Funktionen nutzen zu können. [Mehr lesen](./references.md#unsafe-query-service).
 
-Beachten Sie außerdem, dass der Befehl `--unsafe` verhindert, dass Ihr Projekt im SubQuery-Netzwerk ausgeführt wird, und Sie müssen sich an den Support wenden, wenn Sie möchten, dass dieser Befehl mit Ihrem Projekt in [verwaltet von SubQuery ausgeführt wird Dienst](https://project.subquery.network). :::
+Beachten Sie außerdem, dass der Befehl `--unsafe` verhindert, dass Ihr Projekt im SubQuery-Netzwerk ausgeführt wird, und Sie müssen sich an den Support wenden, wenn Sie möchten, dass dieser Befehl mit Ihrem Projekt in [verwaltet von SubQuery ausgeführt wird Dienst](https://managedservice.subquery.network). :::

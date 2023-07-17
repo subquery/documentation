@@ -215,7 +215,7 @@ query {
 
 ### Публикувайте своя SubQuery проект
 
-SubQuery предоставя безплатна управлявана услуга, с помощта който можете да разгърнете новия си проект. Може да го разгърнете в [SubQuery Projects](https://project.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network).
+SubQuery предоставя безплатна управлявана услуга, с помощта който можете да разгърнете новия си проект. Може да го разгърнете в [SubQuery Managed Service](https://managedservice.subquery.network) и да направите запитване с помощта на нашият [Explorer](https://explorer.subquery.network).
 
 [Прочетете ръководството за публикуване на новия си проект в SubQuery Projects](../run_publish/publish.md), **Обърнете внимание, че трябва да внедрите чрез IPFS**.
 

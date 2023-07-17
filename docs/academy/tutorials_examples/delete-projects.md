@@ -4,7 +4,7 @@
 
 It is important to keep your projects in SubQuery Project relevant and up to date. For any projects that uploaded to SubQuery Project for testing purposes, it is recommended to delete them afterwards to conserve resources and save cost.
 
-Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Projects](https://project.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
+Running an indexer node is another option outside of using Docker or having a project hosted for you at [SubQuery Managed Service](https://managedservice.subquery.network/). It requires more time and effort but will enhance your understanding of how SubQuery works under the covers.
 
 ## Deleting a project from the staging slot
 

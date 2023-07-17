@@ -4,7 +4,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- The mappings files are referenced in `project.yaml` under the mapping handlers.
 
 There are different classes of mappings functions for Polkadot/Substrate; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
 
@@ -93,11 +93,11 @@ async function handleEvmCall(
 
 :::
 
-## The Sandbox
+## Third-party Library Support - the Sandbox
 
-SubQuery is deterministic by design, that means that each SubQuery project is guranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
+SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
 
-**You can bypass this limitation, allowing you to index and retrieve information from third party data sources like HTTP endpoints, non historical RPC calls, and more.** In order to do to, you must run your project in `unsafe-mode`, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
+**You can easily bypass this limitation however, allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects.** In order to do so, you must run your project in `unsafe` mode, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
 
 ```yml
 subquery-node:
@@ -110,17 +110,30 @@ subquery-node:
   ...
 ```
 
-By default, the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the folling:
+When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
+
+```ts
+import { SubstrateEvent } from "@subql/types";
+import fetch from "node-fetch";
+
+export async function handleEvent(event: SubstrateEvent): Promise<void> {
+  const httpData = await fetch("https://api.github.com/users/github");
+  logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
+  // Do something with this data
+}
+```
+
+By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the following:
 
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
 - hybrid libraries like `@polkadot/*` that uses ESM as default. However, if any other libraries depend on any modules in _ESM_ format, the virtual machine will _NOT_ compile and return an error.
 - Historical/safe queries, see [RPC Calls](#rpc-calls).
-- Note `HTTP` and `WebSocket` connections are forbidden
+- external `HTTP` and `WebSocket` connections are forbidden
 
 ## Modules and Libraries
 
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](=#the-sandbox), and have allowed users to call third-party libraries.
+To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](=#third-party-library-support---the-sandbox), and have allowed users to call third-party libraries.
 
 Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
 

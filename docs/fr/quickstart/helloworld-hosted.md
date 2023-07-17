@@ -9,7 +9,7 @@ Nous allons prendre le projet de démarrage simple (et tout ce que nous avons ap
 À la fin de ce démarrage rapide, vous devriez :
 
 - comprendre les pré-requis nécessaires
-- pouvoir héberger un projet dans [SubQuery Projects](https://project.subquery.network/)
+- pouvoir héberger un projet dans [SubQuery Managed Service](https://managedservice.subquery.network/)
 - exécuter une requête simple pour obtenir la hauteur de bloc du réseau principal Polkadot en utilisant playground
 - exécuter une simple requête GET pour obtenir la hauteur de bloc du réseau principal Polkadot en utilisant cURL
 
@@ -106,7 +106,7 @@ Maintenant que vous avez placé votre code sur GitHub, voyons comment l'héberge
 
 ## 4. Créez votre projet
 
-Naviguez vers [https://project.subquery.network](https://project.subquery.network) et connectez-vous avec votre compte GitHub.
+Naviguez vers [https://managedservice.subquery.network](https://managedservice.subquery.network) et connectez-vous avec votre compte GitHub.
 
 ![Bienvenue à SubQuery Projects](/assets/img/welcome_to_subquery_projects.png)
 
@@ -188,4 +188,4 @@ La lisibilité n'est pas un problème ici, car vous aurez probablement un code f
 
 ## Résumé
 
-Dans ce démarrage rapide de SubQuery hosted, nous avons montré comment il était rapide et facile de prendre un projet Subql et de le déployer sur [SubQuery Projects](https://project.subquery.network) où toute l'infrastructure est fournie pour votre confort. Il existe playground intégré permettant d'exécuter diverses requêtes, ainsi qu'un point de terminaison API auquel votre code peut s'intégrer.
+Dans ce démarrage rapide de SubQuery hosted, nous avons montré comment il était rapide et facile de prendre un projet Subql et de le déployer sur [SubQuery Managed Service](https://managedservice.subquery.network) où toute l'infrastructure est fournie pour votre confort. Il existe playground intégré permettant d'exécuter diverses requêtes, ainsi qu'un point de terminaison API auquel votre code peut s'intégrer.

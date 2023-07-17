@@ -137,20 +137,15 @@ const id = block.block.header.hash.toString();
 await store.remove(`StarterEntity`, id);
 ```
 
+## Bulk Remove Record
 
-## Count Record
+`bulkRemove(entity: string, ids: string[]): Promise<void>;`
 
-`count(entity: string, field?: string, value?: any, options?: {distinct?: boolean; col?: string}): Promise<number>;`
-
-This allows to count records of the entity with specific field and value.
-
-```typescript
-await store.count(`StarterEntity`, `field1`, field1Value);
-```
-
-Also, we can count distinct records by a column on entity.
+This allows to remove a number of entities with their `ids`.
 
 ```typescript
-await store.count(`StarterEntity`, undefined, undefined, {distinct: true, col: 'field1'});
+const ids = ['1', '2', '3'];
+await store.remove(`StarterEntity`, ids);
 ```
+
 
