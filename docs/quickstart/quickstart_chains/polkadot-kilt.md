@@ -131,7 +131,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleAttestationCreated` mapping function whenever there is an `AttestationCreated` event on any transaction from the Kilt Blockchain. Similarly, we will run the `handleAttestationRevoked` mapping function whenever there is a `AttestationRevoked` log on Kilt.
 
-Check out our [Substrate](../../build/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Substrate WASM contracts.
+Check out our [Substrate](../../build/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Polkadot chains.
 
 ## 3. Mapping Functions
 
