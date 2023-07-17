@@ -59,9 +59,9 @@ The manifest file contains the largest set of differences, but once you understa
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-manifest-3.png)
 
-::: code-group
+::: code-tabs
 
-::: code-group-item SubGraph
+@tab SubGraph
 
 ```yaml
 # ******* SubGraph *******
@@ -102,9 +102,7 @@ dataSources:
           handler: handleUnlockAttackNFTs
 ```
 
-:::
-
-::: code-group-item SubQuery
+@tab:active SubQuery
 
 ```yaml
 # ******* SubQuery *******
@@ -166,8 +164,6 @@ dataSources:
 
 :::
 
-:::
-
 ## Mapping
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
@@ -178,9 +174,9 @@ The functions are defined the same way. Moreover, entities can be instantiated, 
 
 ![Difference between a SubGraph and a SubQuery project](/assets/img/subgraph-mapping.png)
 
-::: code-group
+::: code-tabs
 
-::: code-group-item SubGraph
+@tab SubGraph
 
 ```ts
 // ******* SubGraph *******
@@ -200,9 +196,7 @@ export function handleUnlockAttackNFTs(event: UnlockAttackNFTs): void {
 }
 ```
 
-:::
-
-::: code-group-item SubQuery
+@tab:active SubQuery
 
 ```ts
 // ******* SubQuery *******
@@ -227,8 +221,6 @@ export async function handleUnlockAttackNFTs(
 
 :::
 
-:::
-
 ## Querying Contracts
 
 We globally provide an `api` object that implements an [Ethers.js Provider](https://docs.ethers.io/v5/api/providers/provider/). This will allow querying contract state at the current block height being indexed. The easiest way to use the `api` is with [Typechain](https://github.com/dethcrypto/TypeChain), with this you can generate typescript interfaces that are compatible with this `api` that make it much easier to query your contracts.
@@ -246,107 +238,146 @@ const balance = await erc20.balanceOf(address);
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
 
-## GraphQL querying differences
+## GraphQL Query Differences
 
-### Basic Queries
+There are minor differences between the default GraphQL query service for SubQuery, and that of the Graph.
 
-When querying for basic entities there are few differences between `Subquery`  and `theGraph`
+### Query format
 
-theGraph example
+Note the additional nesting of entity properties under the `nodes` syntax.
+
+::: code-tabs
+
+@tab SubGraph
+
 ```graphql
 {
   exampleEntities {
-    "<entity fields>"
+    field1
+    field2
   }
 }
 ```
 
-subquery example
-- There is an extra layer when querying `entities`
+@tab:active SubQuery
+
 ```graphql
 {
   exampleEntities {
     nodes {
-      "<entity fields>" 
+      field1
+      field2
     }
   }
 }
 ```
 
-### Filters 
-  - Instead of `where`, Subquery uses `filter`
+:::
 
-theGraph example
-- TheGraph uses a list of suffixes on the end of the entity field for filtering
+### Filters
+
+Instead of `where`, SubQuery uses `filter`. The Graph also uses a list of suffixes on the end of the entity field for filtering, when using SubQuery, you will need to add an extra layer on the GraphQL to specify the operator for the filters.
+
+::: code-tabs
+
+@tab SubGraph
+
 ```graphql
 {
-  exampleEntities(where: {field1_is: "<value>"} ) {
-    "<entity fields>"
+  exampleEntities(where: { field1_is: "<value>" }) {
+    field1
+    field2
   }
 }
 ```
-subquery example
-- When using subquery, you will need to add an extra layer on the graphQL for the filters 
+
+@tab:active SubQuery
+
 ```graphql
 {
-  exampleEntities(filter: {field1 : {equalTo: "<value>"}}) {
+  exampleEntities(filter: { field1: { equalTo: "<value>" } }) {
     nodes {
-      "<entity fields>" 
+      field1
+      field2
     }
   }
 }
 ```
+
+:::
 
 ### Sorting
-Instead of using `orderBy` and `orderDirection`
-Subquery uses just `orderBy` followed by `CREATED_AT_ASC`
 
-theGraph example
+Instead of using `orderBy` and `orderDirection`, SubQuery creates directional values for the `orderBy` property (e.g. `CREATED_AT_ASC` and `CREATED_AT_DSC`)
+
+::: code-tabs
+
+@tab SubGraph
+
 ```graphql
 {
   exampleEntities(orderBy: "<field>", orderDirection: asc) {
-    "<entites_fields>"
+    field1
+    field2
   }
 }
 ```
-subquery example
+
+@tab:active SubQuery
+
 ```graphql
 {
   exampleEntities(orderBy: "FIELD_1_ASC") {
     nodes {
-      "<entites_fields>"
+      field1
+      field2
     }
   }
 }
 ```
 
+:::
+
 ### Historical queries
 
-- When querying historical data, there isn't too much difference
+There is no difference when querying [historical data](../run_publish/historical.md).
 
-theGraph example
+::: code-tabs
+
+@tab SubGraph
+
 ```graphql
 {
-    exampleEntities(block: {number: 123}) {
-      "<entity_fields>"
-    }
+  exampleEntities(block: { number: 123 }) {
+    field1
+    field2
+  }
 }
 ```
-Subquery example
+
+@tab:active SubQuery
+
 ```graphql
 {
-    exampleEntities(block: {number: 123}) {
-      nodes {
-        "<entity_fields>"
-      }
+  exampleEntities(block: { number: 123 }) {
+    nodes {
+      field1
+      field2
     }
+  }
 }
 ```
+
+:::
 
 ### Metadata
-- Subquery does not support historical metadata querying. However `deployments` will still show the deployments on their heights
 
-theGraph example:
+Subquery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
+
+::: code-tabs
+
+@tab SubGraph
+
 ```graphql
 {
   _meta(block: {number: <blockNumber>}) {
@@ -360,20 +391,23 @@ theGraph example:
 }
 ```
 
-Subquery example:
+@tab:active SubQuery
+
 ```graphql
 {
-  _metadata{
+  _metadata {
     deployments
     indexerHealthy
   }
 }
 ```
 
+:::
+
 #### Unsupported GraphQL features from theGraph
 
 - Pagination (`cursors`, `edges`)
--  [Aggregate functions](../../run_publish/aggregate.md)
+- [Aggregate functions](../../run_publish/aggregate.md)
 
 ## What's Next?
 
