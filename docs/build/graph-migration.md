@@ -173,6 +173,8 @@ The functions are defined the same way. Moreover, entities can be instantiated, 
 
 ::: code-tabs
 
+@tab SubGraph
+
 ```ts
 // ******* SubGraph *******
 import { NewGravatar, UpdatedGravatar } from "../generated/Gravity/Gravity";
