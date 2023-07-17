@@ -417,10 +417,10 @@ Subquery does not support historical metadata querying. However `deployments` wi
 
 :::
 
-#### Unsupported GraphQL features from theGraph
+#### Other changes
 
-- Pagination (`cursors`, `edges`)
-- [Aggregate functions](../../run_publish/aggregate.md)
+- SubQuery has a larger support for query pagination. You have the options of using `first` and `offset`, or `cursors` on `edges`.
+- SubQuery supports [advanced aggregate functions](../../run_publish/aggregate.md) to allow you to perform a calculation on a set of values during your query.
 
 ## What's Next?
 
