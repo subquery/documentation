@@ -11,7 +11,7 @@ The SubQuery testing framework provides an easy way to test the behavior of mapp
 When developing your project, if you don't want to use the SubQuery Testing Framework, the following options or approaches can be used:
 
 - For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time.
-- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`)
+- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringifying it (note that `JSON.stringify` doesn’t support native `BigInts`)
 
 ```ts
 export async function handleLog(log: EthereumLog): Promise<void> {
