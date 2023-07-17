@@ -276,23 +276,27 @@ Visit [Running SubQuery Locally](../../run_publish/run.md) to get more informati
 
 ## 6. Query Your Project
 
-Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
+Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the kilt-example project.
 
 ```graphql
 query {
-  transactions(first: 3, orderBy: BLOCK_HEIGHT_ASC) {
-    totalCount
-    nodes {
-      id
-      timestamp
-      blockHeight
-      transactionHash
-      blockHash
-      contractAddress
-      from
-      value
+    attestations (first: 10, orderBy: CREATED_DATE_DESC) {
+        nodes {
+            id
+          	createdDate
+          	attestationId
+          	hash
+          	delegationID
+          	revokedDate
+        }
+    }	
+  	aggregations(orderBy: ID_DESC){
+      nodes{
+        id
+        attestationsCreated
+        attestationsRevoked
+      }
     }
-  }
 }
 ```
 
@@ -303,45 +307,7 @@ There is a _Docs_ tab on the right side of the playground which should open a do
 You should see results similar to below:
 
 ```json
-{
-  "data": {
-    "transactions": {
-      "totalCount": 17,
-      "nodes": [
-        {
-          "id": "3281781-0",
-          "timestamp": "2023-04-04T14:37:54.532",
-          "blockHeight": "3281781",
-          "transactionHash": "0x4f57e6ab4e8337375871fe4c8f7ae2e71601ea7fbd135b6f8384eb30db31ec44",
-          "blockHash": "0x6d65fe39ae469afd74d32e34a61382b1bbda37983dea745ea2afe58e57d4afbc",
-          "contractAddress": "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc",
-          "from": "WJWxmJ27TdMZqvzLx18sZpH9s5ir9irFm1LRfbDeByamdHf",
-          "value": "25000000000000000000"
-        },
-        {
-          "id": "3281792-0",
-          "timestamp": "2023-04-04T14:40:06.386",
-          "blockHeight": "3281792",
-          "transactionHash": "0xbe8d6f09a96ff44e732315fbeff2862e9bdeb8353612a0bfab10632c410d8135",
-          "blockHash": "0xaa09e8060068931a58a162c150ccb73e0b4de528185f1da92b049ab31c299e5a",
-          "contractAddress": "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc",
-          "from": "aFNoZEM64m1ifrHAwEPEuhfRM5L7kjnPhmtYjZaQHX2zb6y",
-          "value": "32000000000000000000"
-        },
-        {
-          "id": "3281797-1",
-          "timestamp": "2023-04-04T14:41:06.786",
-          "blockHeight": "3281797",
-          "transactionHash": "0xfdb111a314ee4e4460a3f2ab06221d5985c50e8f5cbae5a12f4f73b222d5954c",
-          "blockHash": "0xeb4e49463e174fc993417e852f499ddc6e3c4a15f355a576a74772604f2132e5",
-          "contractAddress": "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc",
-          "from": "aFNoZEM64m1ifrHAwEPEuhfRM5L7kjnPhmtYjZaQHX2zb6y",
-          "value": "57000000000000000000"
-        }
-      ]
-    }
-  }
-}
+
 ```
 
 ## What's next?
