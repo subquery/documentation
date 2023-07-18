@@ -280,7 +280,7 @@ Once the container is running, navigate to http://localhost:3000 in your browser
 
 ```graphql
 query {
-    attestations (first: 10, orderBy: CREATED_DATE_DESC) {
+    attestations (first: 2, orderBy: CREATED_DATE_DESC) {
         nodes {
             id
           	createdDate
@@ -290,7 +290,7 @@ query {
           	revokedDate
         }
     }	
-  	aggregations(orderBy: ID_DESC){
+  	aggregations(first:2, orderBy: ID_DESC){
       nodes{
         id
         attestationsCreated
@@ -307,7 +307,44 @@ There is a _Docs_ tab on the right side of the playground which should open a do
 You should see results similar to below:
 
 ```json
-
+{
+  "data": {
+    "attestations": {
+      "nodes": [
+        {
+          "id": "0xacdd8c76cb2cffde5e1924d8b879655e75dae2617ead6ec0a87328cbe4ef5ca8",
+          "createdDate": "2022-09-29T10:38:54.542",
+          "attestationId": "4pnfkRn5UurBJTW92d9TaVLR2CqJdY4z5HPjrEbpGyBykare",
+          "hash": "0xd8c61a235204cb9e3c6acb1898d78880488846a7247d325b833243b46d923abe",
+          "delegationID": "",
+          "revokedDate": null
+        },
+        {
+          "id": "0xa9bb0bc92ad7eb79fbde4983de508794fa2b8e9f9f88236be24c2ac517f29750",
+          "createdDate": "2022-09-29T10:36:48.306",
+          "attestationId": "4pnfkRn5UurBJTW92d9TaVLR2CqJdY4z5HPjrEbpGyBykare",
+          "hash": "0xcef8f3fe5aa7379faea95327942fd77287e1c144e3f53243e55705f11e890a4c",
+          "delegationID": "",
+          "revokedDate": null
+        }
+      ]
+    },
+    "aggregations": {
+      "nodes": [
+        {
+          "id": "2022-09-29",
+          "attestationsCreated": 5,
+          "attestationsRevoked": 0
+        },
+        {
+          "id": "2022-09-28",
+          "attestationsCreated": 23,
+          "attestationsRevoked": 0
+        }
+      ]
+    }
+  }
+}
 ```
 
 ## What's next?
