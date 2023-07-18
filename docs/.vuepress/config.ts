@@ -318,6 +318,10 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
+                  text: "Archway",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-archway.md`,
+                },
+                {
                   text: "Cronos (EVM)",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
                 },
