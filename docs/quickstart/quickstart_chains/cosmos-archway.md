@@ -4,11 +4,10 @@
 
 The goal of this quick start guide is to index all [Archway contract metadata](https://docs.archway.io/developers/rewards/managing-rewards#contract-metadata) as well as all rewards paid out to contract developers.
 
-
 ::: info
 Archway is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface.
 
-Before we begin, make sure that you have initialised your project using the provided steps in the **[Create a New Project](../quickstart.md)** section. 
+Before we begin, make sure that you have initialised your project using the provided steps in the **[Create a New Project](../quickstart.md)** section.
 :::
 
 In every SubQuery project, there are 3 key files to update. Let's begin updating them one by one.
@@ -19,9 +18,9 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
-Update the `schema.graphql` file as follows. Here we are indexing not only standard block data such as the id, blockheight, transaction hash and the timestamp, we are also indexing contract, owner and reward addresses. We also index the reward amount and denomination in a second entity called `RewardWithdrawl` as well.
+Update the `schema.graphql` file as follows. In this project, since we are indexing all [Archway's contract metadata](https://docs.archway.io/developers/rewards/managing-rewards#contract-metadata) as well as all rewards paid to contract developers, we define one entity for each to record each instance of this. Each entity has a number of properties, including id, blockheight, transaction hash and the timestamp, we are also indexing contract, owner and reward addresses.
 
 ```graphql
 type ContractMetadata @entity {
@@ -121,7 +120,12 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 
 ```ts
-import {CosmosEvent,CosmosBlock,CosmosMessage,CosmosTransaction,} from "@subql/types-cosmos";
+import {
+  CosmosEvent,
+  CosmosBlock,
+  CosmosMessage,
+  CosmosTransaction,
+} from "@subql/types-cosmos";
 import { ContractMetadata, RewardWithdrawl } from "../types";
 
 type MsgSetContractMetadataMessage = {
@@ -153,14 +157,19 @@ export async function handleSetContractMetadata(
       createdDate: new Date(msg.block.header.time.toISOString()),
       createdTxHash: msg.tx.hash,
       contractAddress: msg.msg.decodedMsg.metadata.contractAddress,
-      ownerAddress:msg.msg.decodedMsg.metadata.ownerAddress ||msg.msg.decodedMsg.senderAddress,
+      ownerAddress:
+        msg.msg.decodedMsg.metadata.ownerAddress ||
+        msg.msg.decodedMsg.senderAddress,
       rewardsAddress: msg.msg.decodedMsg.metadata.rewardsAddress,
     });
   } else {
     // we are updating
-    contractMetadataRecord.contractAddress = msg.msg.decodedMsg.metadata.contractAddress;
-    contractMetadataRecord.ownerAddress = msg.msg.decodedMsg.metadata.ownerAddress;
-    contractMetadataRecord.rewardsAddress = msg.msg.decodedMsg.metadata.rewardsAddress;
+    contractMetadataRecord.contractAddress =
+      msg.msg.decodedMsg.metadata.contractAddress;
+    contractMetadataRecord.ownerAddress =
+      msg.msg.decodedMsg.metadata.ownerAddress;
+    contractMetadataRecord.rewardsAddress =
+      msg.msg.decodedMsg.metadata.rewardsAddress;
   }
   // Save the data
   await contractMetadataRecord.save();
@@ -210,7 +219,7 @@ Here we have two functions, `handleSetContractMetadata` and `handleRewardsWithdr
 `handleSetContractMetadata` receives a message of type `CosmosMessage<MsgSetContractMetadataMessage>`
 , logs the blockheight of the message to the console for debugging purposes and then attempts to obtain the various metadata such as the contractAddress, ownerAddress and rewardsAddress from the `msg` parameter that was passed into the function. Note that the contract address is used as a unique id.
 
-The `handleRewardsWithdrawEvent` function works in a similar way where the event of type `CosmosEvent` is passed into this function and then we look for certain event attributes to index by searching through the attribute keys. Finally, the fields of the `RewardWithdrawl` entity are populated appropriately. 
+The `handleRewardsWithdrawEvent` function works in a similar way where the event of type `CosmosEvent` is passed into this function and then we look for certain event attributes to index by searching through the attribute keys. Finally, the fields of the `RewardWithdrawl` entity are populated appropriately.
 
 Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 
@@ -333,7 +342,7 @@ You will see the result similar to below:
 
 ## What’s Next?
 
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for indexing Archway contract metadata and the rewards paid to contract developers. 
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for indexing Archway contract metadata and the rewards paid to contract developers.
 
 ::: tip Tip
 

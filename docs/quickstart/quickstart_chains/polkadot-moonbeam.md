@@ -1,6 +1,7 @@
 # Moonbeam (EVM) Quick Start
 
 ## Goals
+
 This quick start guide introduces SubQuery's Substrate EVM support by using an example project in Moonbeam Network. The example project indexes all Transfers from the [Moonbeam EVM FRAX ERC-20 contract](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb), as well as Collators joining and leaving events from [Moonbeam's Staking functions](https://docs.moonbeam.network/builders/pallets-precompiles/pallets/staking/).
 
 This project is unique, as it indexes data from both Moonbeam's Substrate execution layer (native Moonbeam pallets and runtime), with smart contract data from Moonbeam's EVM smart contract layer, within the same SubQuery project and into the same dataset. A very similar approach was taken with [indexing Astar's WASM layer too](https://academy.subquery.network/quickstart/quickstart_chains/polkadot-astar.html).
@@ -9,26 +10,22 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key f
 
 ## 1. GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
 The Moonbeam-evm-substrate-starter project has two entities. An Erc20Transfer and Collator. These two entities index ERC-20 transfers related to [the $FRAX contract](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb), as well as any [collators joining or leaving](https://docs.moonbeam.network/node-operators/networks/collators/activities/) the Moonbeam Parachain.
 
 ```graphql
 type Erc20Transfer @entity {
-
   id: ID! #id is a required field
   from: String!
   to: String!
   contractAddress: String!
   amount: BigInt!
-
 }
 
 type Collator @entity {
-
   id: ID! #collator address
   joinedDate: Date!
-
 }
 ```
 
@@ -136,7 +133,6 @@ The above code indicates that you will be running a `handleErc20Transfer` mappin
 
 Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Substrate EVM contracts.
 
-
 ## 3. Mapping Functions
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
@@ -144,22 +140,25 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. There are the exported functions `handleCollatorJoined`, `handleCollatorLeft` and `handleErc20Transfer`.
 
 ```ts
-export async function handleCollatorJoined(call: SubstrateExtrinsic): Promise<void> {
+export async function handleCollatorJoined(
+  call: SubstrateExtrinsic
+): Promise<void> {
   //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateEvent at ${call.block.block.header.number}`);
 
   const address = call.extrinsic.signer.toString();
 
   const collator = Collator.create({
-      id: address,
-      joinedDate: call.block.timestamp
+    id: address,
+    joinedDate: call.block.timestamp,
   });
 
   await collator.save();
-
 }
 
-export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void> {
+export async function handleCollatorLeft(
+  call: SubstrateExtrinsic
+): Promise<void> {
   //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateCall at ${call.block.block.header.number}`);
 
@@ -171,18 +170,22 @@ export async function handleCollatorLeft(call: SubstrateExtrinsic): Promise<void
 The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate event/call data from the native Substrate environment whenever an event/call matches the filters that were specified previously in the `project.yaml`. It extracts the various data from the event/call payload, then checks if an existing Collator record exists. If none exists (e.g. it's a new collator), then it instantiates a new one and then updates the total stake to reflect the new collators. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
 
 ```ts
-export async function erc20Transfer(event: MoonbeamEvent<[string, string, BigNumber] & { from: string, to: string, value: BigNumber, }>): Promise<void> {
-    //We added a logger to the top of this function, in order to see the block number of the event we are processing.
-    logger.info(`Processing MoonbeamEvent at ${event.blockNumber.toString()}`);
-    const transfer = Erc20Transfer.create({
-        id: event.transactionHash,
-        from: event.args.from,
-        to: event.args.to,
-        amount: event.args.value.toBigInt(),
-        contractAddress: event.address,
-    });
+export async function erc20Transfer(
+  event: MoonbeamEvent<
+    [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
+  >
+): Promise<void> {
+  //We added a logger to the top of this function, in order to see the block number of the event we are processing.
+  logger.info(`Processing MoonbeamEvent at ${event.blockNumber.toString()}`);
+  const transfer = Erc20Transfer.create({
+    id: event.transactionHash,
+    from: event.args.from,
+    to: event.args.to,
+    amount: event.args.value.toBigInt(),
+    contractAddress: event.address,
+  });
 
-    await transfer.save();
+  await transfer.save();
 }
 ```
 
@@ -212,7 +215,6 @@ npm run-script build
 ::: warning Important
 Whenever you make changes to your mapping functions, make sure to rebuild your project.
 :::
-
 
 ## 5. Run Your Project Locally with Docker
 
@@ -249,7 +251,6 @@ Once the container is running, navigate to http://localhost:3000 in your browser
 
 Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
 
-
 ```graphql
 query {
   erc20Transfers(first: 3, orderBy: BLOCK_HEIGHT_ASC) {
@@ -263,6 +264,7 @@ query {
   }
 }
 ```
+
 ::: tip
 There is a _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and helps you find what entities and methods you can query. To learn more about the GraphQL Query language [here](../../run_publish/graphql.md).
 :::
@@ -301,8 +303,9 @@ You should see results similar to below:
           "to": "0xa7A3Cb7d3f9Cf963012fdd54E6de3562A3A5f140",
           "contractAddress": "0x322e86852e492a7ee17f28a78c663da38fb33bfb",
           "amount": "380739794849478795472"
-        },
-      ]}
+        }
+      ]
+    }
   }
 }
 ```

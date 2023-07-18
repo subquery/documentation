@@ -14,7 +14,7 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file defines the shape of your data from SubQuery due to the GraphQL query language’s mechanism. Hence, updating the GraphQL Schema file is the perfect start. It allows you to decide your end goal right at the start.
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
 Update the `schema.graphql` file as follows and remove all existing entities, here you can see we are indexing all transfers in Terra:
 

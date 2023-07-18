@@ -18,7 +18,7 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all oracles that submit prices on the chain, as well as each individual price submission made to NEAR's price oracle:
 
