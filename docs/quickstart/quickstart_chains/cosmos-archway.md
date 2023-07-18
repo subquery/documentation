@@ -333,7 +333,7 @@ You will see the result similar to below:
 
 ## What’s Next?
 
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for indexing Archway contract metadata and the rewards paid to contract developers. 
 
 ::: tip Tip
 
