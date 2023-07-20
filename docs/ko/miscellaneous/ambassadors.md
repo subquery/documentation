@@ -40,7 +40,6 @@
 
 훈련생 프로그램을 통과하면, 서브쿼리 앰배서더라는 이름으로 저희의 전체 프로그램에 참여할 수 있습니다. 여기서부터 여러분은 프로그램을 지속적으로 진행하여 단계적으로 발전하고 귀하가 승진함에 따라 더 많은 보상과 이익을 얻을 수 있습니다.
 
-
 ## 앰배서더 활동
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
