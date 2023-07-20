@@ -8,7 +8,7 @@
 
 ## エクスポート可能なFigma ファイル
 
-私たちのFigmaファイルには、エクスポート用のすべてのブランド資産（ロゴ、フォント、カラー、画像など）が完全に集められています。
+Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
 
 [Figma - SubQuery ブランドリソース](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
