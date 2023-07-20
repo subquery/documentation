@@ -9,6 +9,7 @@ SubQuery Foundation là bước đầu tiên hướng tới việc phân cấp q
 Mạng SubQuery sẽ được quản lý bởi SubQuery Foundation. SubQuery Foundation sẽ là một tổ chức phi lợi nhuận được tạo ra đặc biệt để phục vụ, quản lý và phát triển Mạng SubQuery và cung cấp hỗ trợ cho người dùng và nhà phát triển tham gia.
 
 SubQuery Foundation dự kiến ​​sẽ có các nhiệm vụ sau:
+
 - Phát triển và cập nhật Mạng SubQuery.
 - Quản lý và phân phối tài sản từ Foundation Treasury.
 - Quản lý Chương trình Tài trợ SubQuery để kích thích phát triển hệ sinh thái và mạng lưới.
