@@ -8,7 +8,7 @@
 
 ## 내보내기 가능한 Figma 파일
 
-당사의 Figma 파일에는 내보낼 수 있는 브랜드의 모든 자산(로고, 글꼴, 색상, 이미지 등)을 모아놨습니다.
+Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
 
 [Figma - SubQuery 브랜드 자료들](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
