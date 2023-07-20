@@ -8,7 +8,7 @@ Herhangi bir ticari marka, logo, tasarım veya diğer marka özelliklerini kulla
 
 ## Dışa Aktarılabilir Figma Dosyası
 
-Figma dosyamız, ihracat için tüm marka varlıklarının (logolar, yazı tipleri, renkler, görüntüler vb.) tam bir koleksiyonuna sahiptir.
+Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
 
 [Figma - SubQuery Marka Kaynakları](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
