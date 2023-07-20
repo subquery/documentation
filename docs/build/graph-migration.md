@@ -253,6 +253,177 @@ const balance = await erc20.balanceOf(address);
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
 
+## GraphQL Query Differences
+
+There are minor differences between the default GraphQL query service for SubQuery, and that of the Graph.
+
+### Query format
+
+Note the additional nesting of entity properties under the `nodes` syntax.
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Filters
+
+Instead of `where`, SubQuery uses `filter`. The Graph also uses a list of suffixes on the end of the entity field for filtering, when using SubQuery, you will need to add an extra layer on the GraphQL to specify the operator for the filters.
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(where: { field1_is: "<value>" }) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(filter: { field1: { equalTo: "<value>" } }) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Sorting
+
+Instead of using `orderBy` and `orderDirection`, SubQuery creates directional values for the `orderBy` property (e.g. `CREATED_AT_ASC` and `CREATED_AT_DSC`)
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(orderBy: "<field>", orderDirection: asc) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(orderBy: "FIELD_1_ASC") {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Historical queries
+
+There is no difference when querying [historical data](../run_publish/historical.md).
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(block: { number: 123 }) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(block: { number: 123 }) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Metadata
+
+Subquery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  _meta(block: {number: <blockNumber>}) {
+    block {
+      hash
+      timestamp
+    }
+    deployment
+    hasIndexingErrors
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  _metadata {
+    deployments
+    indexerHealthy
+  }
+}
+```
+
+:::
+
+#### Other changes
+
+- SubQuery has a larger support for query pagination. You have the options of using `first` and `offset`, or `cursors` on `edges`.
+- SubQuery supports [advanced aggregate functions](../../run_publish/aggregate.md) to allow you to perform a calculation on a set of values during your query.
+
 ## What's Next?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
