@@ -12,7 +12,7 @@ When developing your project, if you don't want to use the SubQuery Testing Fram
 
 ### Choosing the starting block
 
-For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the section 
+For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the following section.
 
 ```yml
 # ...
@@ -25,10 +25,10 @@ dataSources:
       file: ./dist/index.js
       handlers:
       # {... handlers...}
-
 ```
 
 ### Logging
+
 We recommend to generously use logging, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`).
 
 The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
@@ -58,7 +58,6 @@ If you are running a docker container, add this line to your `docker-compose.yam
 You should now see the new logging in the terminal screen.
 
 ![logging.debug](/assets/img/subquery_logging.png)
-
 
 ## Using the SubQuery Testing Framework
 
