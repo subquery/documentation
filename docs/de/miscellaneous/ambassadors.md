@@ -40,7 +40,6 @@ Nachdem Sie eine Bewerbung abgeschickt haben, wählen wir Kandidaten aus, die un
 
 Sobald Sie das Trainee-Programm bestanden haben, können Sie sich SubQuery-Ambassador nennen und werden in unser vollständiges Programm aufgenommen. Von nun an können Sie das Programm weiter durcharbeiten und die Stufen aufsteigen, um beim Aufsteigen der Ränge mehr Belohnungen und Vorteile zu erhalten.
 
-
 ## Ambassador-Aktivitäten
 
 SubQuery-Ambassadors können in vier Hauptbereichen einen Beitrag leisten, darunter Veranstaltungsmanagement, Inhaltserstellung, Übersetzung und Community-Moderation. Du kannst an so vielen Bereichen teilnehmen, wie du möchtest, du bist nicht an einen gebunden.
