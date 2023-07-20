@@ -1,8 +1,8 @@
 # Từ điển SubQuery hoạt động như thế nào?
 
-Toàn bộ ý tưởng của một dự án từ điển chung là lập chỉ mục tất cả dữ liệu từ một chuỗi khối và ghi lại các sự kiện, ngoại diên và các loại của nó (mô-đun và phương pháp) trong cơ sở dữ liệu theo thứ tự chiều cao của khối. Một dự án khác có thể truy vấn điểm cuối ` network.dictionary ` này thay vì ` network.endpoint ` mặc định được xác định trong tệp kê khai.
+Toàn bộ ý tưởng của một dự án từ điển chung là lập chỉ mục tất cả dữ liệu từ một chuỗi khối và ghi lại các sự kiện, ngoại diên và các loại của nó (mô-đun và phương pháp) trong cơ sở dữ liệu theo thứ tự chiều cao của khối. Một dự án khác có thể truy vấn điểm cuối `network.dictionary` này thay vì `network.endpoint` mặc định được xác định trong tệp kê khai.
 
-Điểm cuối ` network.dictionary ` là một tham số tùy chọn mà nếu có, SDK sẽ tự động phát hiện và sử dụng. ` network.endpoint ` là bắt buộc và sẽ không biên dịch nếu không có.
+Điểm cuối `network.dictionary` là một tham số tùy chọn mà nếu có, SDK sẽ tự động phát hiện và sử dụng. `network.endpoint` là bắt buộc và sẽ không biên dịch nếu không có.
 
 Lấy dự án [ từ điển SubQuery ](https://github.com/subquery/subql-dictionary) làm ví dụ, tệp [ schema ](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) xác định 3 thực thể; bên ngoài, sự kiện, specVersion. 3 thực thể này lần lượt chứa 6, 4 và 2 trường. Khi dự án này được chạy, các trường này được phản ánh trong các bảng cơ sở dữ liệu.
 

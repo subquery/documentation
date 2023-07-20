@@ -8,9 +8,9 @@
 
 Версия спецификации `0.2.1` предоставит новое поле `templates`. Шаблоны (templates) аналогичны источникам данных с несколькими отличиями.
 
-* Им нужно `name`, чтобы идентифицировать шаблон
-* `startBlock` больше не нужен. Это будет установлено в блоке, в котором создается источник данных
-* В случае пользовательского источника данных поле `processor.options` также может быть частично заполнено, остальные параметры будут предоставлены при создании экземпляра источника данных.
+- Им нужно `name`, чтобы идентифицировать шаблон
+- `startBlock` больше не нужен. Это будет установлено в блоке, в котором создается источник данных
+- В случае пользовательского источника данных поле `processor.options` также может быть частично заполнено, остальные параметры будут предоставлены при создании экземпляра источника данных.
 
 ## Пример проекта
 
@@ -18,28 +18,28 @@
 
 Приведенный ниже пример относится к децентрализованной бирже с фабрикой контрактов, которая развертывает новый контракт при добавлении торговой пары. Когда проект запущен, невозможно узнать адреса всех контрактов торговых пар, которые были созданы или будут созданы. Источники данных могут быть динамически созданы обработчиком сопоставления из шаблона для индексации вновь созданных контрактов торговых пар.
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 //Эта функция определяется с помощью команды cli `subql codegen`
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## Просмотр проектов Динамические источники данных
 
@@ -106,6 +105,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 Результат
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   }
 }
 ```
-

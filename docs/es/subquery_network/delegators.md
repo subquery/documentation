@@ -23,7 +23,7 @@ Hay varios beneficios de convertirse en un Delegador:
 
 Para atraer a los Delegadores a apoyar su trabajo, los Indexadores ofrecen a los Delegadores una parte de las recompensas que ganan. El Indexador anunciará una tasa de Comisión del Indexador, donde los ingresos restantes se repartirán dentro de la totalidad de la delegación/fondo de apuestas proporcionalmente al valor individual delegado/apostado en el albergue.
 
-*Tipo de Comisión del Indexador*: Este es un porcentaje de las comisiones obtenidas al servir solicitudes a los Consumidores. Los indexadores son libres de fijar esta tasa a cualquier valor que deseen. Un porcentaje más alto indica que los Indexadores tienen más ganancias. Un porcentaje menor indica que los Indexadores comparten más de sus ganancias con sus Distribuidores.
+_Tipo de Comisión del Indexador_: Este es un porcentaje de las comisiones obtenidas al servir solicitudes a los Consumidores. Los indexadores son libres de fijar esta tasa a cualquier valor que deseen. Un porcentaje más alto indica que los Indexadores tienen más ganancias. Un porcentaje menor indica que los Indexadores comparten más de sus ganancias con sus Distribuidores.
 
 Los desempleados sólo recibirán ingresos por apostar Eras de las que formaron parte durante todo el período. Por ejemplo, si se unen a una era participante a mediados del período correspondiente. entonces no ganarán ningún ingreso de Cuota de Consulta por esa Era particular.
 
@@ -39,7 +39,7 @@ A pesar de que no se considera un papel arriesgado, ser un Delegador incluye alg
 
 ## ¿Cómo seleccionar indexadores?
 
-Los deducidos pueden seleccionar los índices potenciales basados en un *Índice de reputación* o RI. Este RI tiene en cuenta el tiempo de actividad, el índice de comisión del índice, los eventos de recorte y la frecuencia de cambio del parámetro Indexer.
+Los deducidos pueden seleccionar los índices potenciales basados en un _Índice de reputación_ o RI. Este RI tiene en cuenta el tiempo de actividad, el índice de comisión del índice, los eventos de recorte y la frecuencia de cambio del parámetro Indexer.
 
 SubQuery lanzará pronto el programa oficial de RI, pero esperamos que otras solicitudes de delegación calculen y publiquen las suyas.
 

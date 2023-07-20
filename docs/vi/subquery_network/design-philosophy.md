@@ -4,7 +4,7 @@ Nguyên tắc với Mạng SubQuery là sự đơn giản và linh hoạt cho c�
 
 ## Thiết kế Đa chuỗi
 
-*SubQuery tin tưởng vào ý tưởng rằng một cộng đồng các blockchain, làm việc cùng nhau để khuyến khích việc áp dụng web3 vào đời sống, là tương lai của thế giới.*
+_SubQuery tin tưởng vào ý tưởng rằng một cộng đồng các blockchain, làm việc cùng nhau để khuyến khích việc áp dụng web3 vào đời sống, là tương lai của thế giới._
 
 SubQuery có nguồn gốc từ hệ sinh thái Polkadot, đó là ngôi nhà của chúng tôi và sẽ là vị trí của Mạng SubQuery. Tiền đề cốt lõi của Polkadot là tạo ra một cộng đồng lớn mạnh gồm các nhà phát triển, người dùng và doanh nghiệp sẽ khai thác khả năng tương tác đa chuỗi của nó. SubQuery tin tưởng vào ý tưởng rằng một cộng đồng các blockchain, làm việc cùng nhau để khuyến khích việc áp dụng web3, là tương lai và Polkadot sẽ là người dẫn đầu trong sáng kiến ​​đó.
 
@@ -16,7 +16,7 @@ SubQuery hiện hỗ trợ cả Polkadot, Avalanche và Terra. Mong đợi sự 
 
 ## Đơn giản và dễ tiếp cận
 
-*Mạng SubQuery được thiết kế để trở thành nhà cung cấp dữ liệu của mọi người.*
+_Mạng SubQuery được thiết kế để trở thành nhà cung cấp dữ liệu của mọi người._
 
 Nguyên tắc với Mạng SubQuery là sự đơn giản. Theo ý kiến của SubQuery rằng các phương pháp tiếp cận khác đối với các dịch vụ truy vấn dữ liệu phi tập trung là quá phức tạp và khiến người tham gia khó dự đoán lợi tức đầu tư của họ. Mục đích là giúp bạn dễ dàng tham gia vào mạng lưới và dự báo rõ ràng lợi nhuận tiềm năng trong tương lai của bạn.
 
@@ -26,7 +26,7 @@ Theo kế hoạch, SubQuery Network sẽ không yêu cầu ngưỡng đặt cư�
 
 ## Linh hoạt
 
-*SubQuery chỉ là một công cụ trong tay cộng đồng của chúng ta, vô số cơ hội tồn tại chỉ có giới hạn bởi sự sáng tạo của con người.*
+_SubQuery chỉ là một công cụ trong tay cộng đồng của chúng ta, vô số cơ hội tồn tại chỉ có giới hạn bởi sự sáng tạo của con người._
 
 Tiềm năng của SubQuery có thể nằm ở tính linh hoạt của nó - người dùng sẽ có quyền tự do điều chỉnh và chuyển đổi dữ liệu phi tập trung cho phù hợp với nhu cầu của họ. các nhà phát triển dApp cần dữ liệu ở một định dạng cụ thể được thiết kế riêng cho dApp của họ để dễ phát triển và tạo sự khác biệt với những dữ liệu khác.
 

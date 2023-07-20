@@ -11,7 +11,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/\*Handler) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
@@ -51,7 +51,6 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-
 The above code indicates that you will be running a `handleDividendBatch` mapping function whenever there is a `ClaimDividendBatch` log on any transaction from the [WINR contract](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code).
 
 Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
@@ -61,7 +60,6 @@ Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight and timestamp along with the user, the total rewards and the dividends.
-
 
 ```graphql
 type Dividend @entity {

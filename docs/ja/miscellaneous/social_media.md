@@ -1,10 +1,10 @@
 # ソーシャル メディアリンク
 
-SubQueryは、多くのソーシャルメディアチャンネルを通じてフォロワーを維持し、コミュニケーションのアクティブなプロジェクトです。
+SubQuery は、多くのソーシャルメディアチャンネルを通じてフォロワーを維持し、コミュニケーションのアクティブなプロジェクトです。
 
 私たちの目標は、常に忠実なコミュニティの声に耳を傾け、それに応えることです。
 
-## 公式SubQueryコミュニティ
+## 公式 SubQuery コミュニティ
 
 - [Linktree](https://linktr.ee/subquerynetwork)
 - [Discord](https://discord.com/invite/subquery)(専用のテクニカルサポートチャンネルを持つプライマリーコミュニティ)
@@ -15,9 +15,9 @@ SubQueryは、多くのソーシャルメディアチャンネルを通じてフ
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
-## 非公式SubQueryコミュニティ
+## 非公式 SubQuery コミュニティ
 
-これらのコミュニティはSubQueryチームの管理下にはありませんが、アンバサダーがサポートしてくれる場合があります。 SubQueryはその中で起こることに**責任を負わない**ので、詐欺にはご注意ください。
+これらのコミュニティは SubQuery チームの管理下にはありませんが、アンバサダーがサポートしてくれる場合があります。 SubQuery はその中で起こることに**責任を負わない**ので、詐欺にはご注意ください。
 
 - [Telegram (中国語)](https://t.me/subquerychina)
 - [Telegram (ロシア語)](https://t.me/SubQuery_russia)

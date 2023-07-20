@@ -22,7 +22,7 @@ Kế hoạch kín cũng có thể được đặt trên các Dự án SubQuery h
 
 ## Thỏa thuận dịch vụ mở
 
-Thỏa thuận dịch vụ thị trường mở tương tự như Thỏa thuận dịch vụ thị trường kín, nhưng cho phép nhiều Người lập chỉ mục tham gia và cạnh tranh để cung cấp dữ liệu cho Người tiêu dùng. Thỏa thuận dịch vụ thị trường mở có thể bắt đầu như một hợp đồng giữa 1 Người tiêu dùng và 1 Người lập chỉ mục, nhưng nhiều bên có thể tham gia hợp đồng dẫn đến *n* người tiêu dùng và *n* người lập chỉ mục.
+Thỏa thuận dịch vụ thị trường mở tương tự như Thỏa thuận dịch vụ thị trường kín, nhưng cho phép nhiều Người lập chỉ mục tham gia và cạnh tranh để cung cấp dữ liệu cho Người tiêu dùng. Thỏa thuận dịch vụ thị trường mở có thể bắt đầu như một hợp đồng giữa 1 Người tiêu dùng và 1 Người lập chỉ mục, nhưng nhiều bên có thể tham gia hợp đồng dẫn đến _n_ người tiêu dùng và _n_ người lập chỉ mục.
 
 Mỗi Thỏa thuận dịch vụ thị trường mở là kết quả của một pool phần thưởng mới được tạo ra cho hợp đồng đó và SQT được phân phối giữa các nhà lập chỉ mục tham gia bởi hàm sản xuất Cobb-Douglas.
 

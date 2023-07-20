@@ -15,9 +15,10 @@ Consumers may also need to understand how to create SubQuery projects to be Inde
 ## Benefits of being a Consumer
 
 There are numerous benefits of being a Consumer.
- - Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications. 
- - Focus on developing your appplication, not on time consuming blockchain integration.
- - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
+
+- Easy access to blockchain data. There is no need to learn about the intricacies of a blockchain. Just get access to the exact data you need to run your applications.
+- Focus on developing your appplication, not on time consuming blockchain integration.
+- Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Service Cost
 

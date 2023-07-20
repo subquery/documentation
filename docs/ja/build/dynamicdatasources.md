@@ -8,9 +8,9 @@
 
 バージョン `0.2.1` で新しい `templates` フィールドが導入されます。 テンプレートはデータソースと同じですが、いくつかの違いがあります。
 
-* テンプレートを識別するには、 `name` が必要です
-* `startBlock` はもう必要ありません。 データソースが作成されたブロックに設定されます
-* カスタムデータソースの場合、`processor.options` フィールドに部分的に入力することも可能です。残りのオプションは、データソースのインスタンス化の際に提供されます。
+- テンプレートを識別するには、 `name` が必要です
+- `startBlock` はもう必要ありません。 データソースが作成されたブロックに設定されます
+- カスタムデータソースの場合、`processor.options` フィールドに部分的に入力することも可能です。残りのオプションは、データソースのインスタンス化の際に提供されます。
 
 ## サンプルプロジェクト
 
@@ -18,28 +18,28 @@
 
 以下の例は、取引ペアが追加されたときに新しいコントラクトを展開するファクトリーコントラクトを持つ分散取引所です。 プロジェクト実行時に、作成済みまたは作成予定のすべての取引ペアコントラクトのアドレスを把握することはできません。 データソースは、新しく作成された取引ペアコントラクトをインデックスするために、テンプレートからマッピングハンドラによって動的に作成することができます。
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 // This function is defined using `subql codegen` cli command
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## プロジェクトの動的データソースを確認する
 
@@ -106,6 +105,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 結果
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   }
 }
 ```
-

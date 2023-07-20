@@ -8,9 +8,9 @@
 
 เวอร์ชัน `0.2.1` นั้นมี `templates` ใหม่ เทมเพลตจะคล้ายกับ Data Source แต่จะมีความแตกต่างกันเล็กน้อย
 
-* ระบบต้องการ `name` เพื่อระบุเทมเพลต
-* `startBlock` ไม่จำเป็นอีกต่อไป มันจะถูกตั้งไว้เป็นบล็อกที่ Data Source ถูกสร้าง
-* ในกรณีของแหล่งข้อมูลแบบกำหนดเอง `processor.options` สามารถกรอกข้อมูลได้เพียงบางส่วน สำหรับตัวเลือกที่เหลือจะได้รับเมื่อมีการสร้าง Data Source
+- ระบบต้องการ `name` เพื่อระบุเทมเพลต
+- `startBlock` ไม่จำเป็นอีกต่อไป มันจะถูกตั้งไว้เป็นบล็อกที่ Data Source ถูกสร้าง
+- ในกรณีของแหล่งข้อมูลแบบกำหนดเอง `processor.options` สามารถกรอกข้อมูลได้เพียงบางส่วน สำหรับตัวเลือกที่เหลือจะได้รับเมื่อมีการสร้าง Data Source
 
 ## โปรเจกต์ตัวอย่าง
 
@@ -18,28 +18,28 @@
 
 ตัวอย่างด้านล่าง เป็นการแลกเปลี่ยนแบบไร้ศูนย์กลางที่มี Factory Contract ที่จำใช้งาน Contract ใหม่เมื่อมีการคู่เทรดถูกเพิ่มเข้ามา เมื่อทำการรันโปรเจกต์แล้ว จะไม่สามารถทราบแอดเดรสของคู่เทรดทั้งหมดที่สร้างขึ้นหรือถูกสร้างขึ้นมาได้ Data Source สามารถสร้างได้โดยการใช้ Mapping Handler จากเทมเพลตเพื่อ Index Contract ของคู่เทรดใหม่ที่ถูกสร้างขึ้น
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 // ฟังก์ชันนี้ถูกสร้างขึ้นโดยใช้ `subql codegen` ของ cli command
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## การดู Dynamic Data Source ของโปรเจกต์
 
@@ -106,6 +105,7 @@ Dynamic Data Source จะถูกเก็บไว้ใน Metadata ขอ�
 ```
 
 ผลลัพธ์
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ Dynamic Data Source จะถูกเก็บไว้ใน Metadata ขอ�
   }
 }
 ```
-

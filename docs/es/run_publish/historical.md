@@ -14,8 +14,7 @@ type Account @entity {
 }
 ```
 
-![Indexación Histórica](/assets/img/historic_indexing.png
-)
+![Indexación Histórica](/assets/img/historic_indexing.png)
 
 En el ejemplo anterior, el balance DOT de Alice cambia constantemente, y a medida que indexamos los datos, la propiedad `balance` en la entidad `Cuenta` cambiará. Un proyecto básico de SubQuery que indexa los balances de cuentas perderá estos datos históricos y sólo almacenará el estado de la altura del bloque de indexación actual. Por ejemplo, si actualmente indicamos para bloquear 100, los datos de la base de datos sólo pueden representar el estado de la cuenta de Alice en el bloque 100.
 

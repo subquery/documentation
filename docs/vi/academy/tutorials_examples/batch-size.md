@@ -38,4 +38,4 @@ Ví dụ này đặt kích thước lô thành 50.
 
 ## Tại sao phải thay đổi kích thước lô?
 
-Việc sử dụng kích thước lô nhỏ hơn có thể làm giảm mức sử dụng bộ nhớ và không khiến người dùng bị treo cho các truy vấn lớn. Nói cách khác, ứng dụng của bạn có thể phản hồi nhanh hơn. 
+Việc sử dụng kích thước lô nhỏ hơn có thể làm giảm mức sử dụng bộ nhớ và không khiến người dùng bị treo cho các truy vấn lớn. Nói cách khác, ứng dụng của bạn có thể phản hồi nhanh hơn.

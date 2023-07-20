@@ -13,7 +13,7 @@ Standardmäßig beginnen alle Starterprojekte mit der Synchronisierung der Block
 
 Um eine SubQuery-Node mit der Synchronisierung aus einer Höhe ungleich Null zu starten, müssen Sie lediglich Ihre Datei project.yaml und den startBlock-Schlüssel ändern.
 
-Unten ist eine Datei project.yaml, in der der Startblock auf 1.000.000  gesetzt wurde
+Unten ist eine Datei project.yaml, in der der Startblock auf 1.000.000 gesetzt wurde
 
 ```shell
 specVersion: 0.0.1

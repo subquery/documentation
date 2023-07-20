@@ -23,7 +23,7 @@ Es gibt mehrere Vorteile, ein Delegator zu werden:
 
 Um Delegators für die Unterstützung ihrer Arbeit zu gewinnen, bieten Indexer den Delegators einen Anteil an den Belohnungen, die sie verdienen. Der Indexer bewirbt einen Indexer-Provisionssatz, bei dem die verbleibenden Einnahmen dann innerhalb des gesamten Delegations-/Staking-Pools proportional zum einzelnen delegierten/staked-Wert im Pool geteilt werden.
 
-*Provisionssatz des Indexers*: Dies ist ein prozentualer Anteil der Gebühren, die durch die Bearbeitung von Anfragen an Verbraucher verdient werden. Indexer können diesen Kurs frei auf jeden gewünschten Wert festlegen. Ein höherer Prozentsatz zeigt an, dass Indexer mehr von den Gewinnen behalten. Ein niedrigerer Prozentsatz zeigt an, dass die Indexer mehr von ihren Gewinnen mit ihren Delegatoren teilen.
+_Provisionssatz des Indexers_: Dies ist ein prozentualer Anteil der Gebühren, die durch die Bearbeitung von Anfragen an Verbraucher verdient werden. Indexer können diesen Kurs frei auf jeden gewünschten Wert festlegen. Ein höherer Prozentsatz zeigt an, dass Indexer mehr von den Gewinnen behalten. Ein niedrigerer Prozentsatz zeigt an, dass die Indexer mehr von ihren Gewinnen mit ihren Delegatoren teilen.
 
 Delegators erhalten nur Einnahmen für das Staken von Epochen, an denen sie während des gesamten Zeitraums teilgenommen haben. Wenn sie beispielsweise in der Mitte des relevanten Zeitraums einer Staking-Ära beitreten, verdienen sie für diese bestimmte Ära keine Einnahmen aus Abfragegebühren.
 
@@ -39,7 +39,7 @@ Auch wenn es nicht als riskante Rolle angesehen wird, birgt die Tätigkeit als D
 
 ## Wie wähle ich Indexer aus?
 
-Delegators können potenzielle Indexer basierend auf einem *Reputationsindex* oder RI auswählen. Dieser RI berücksichtigt die Betriebszeit eines Indexers, die Indexer-Provisionsrate, Slashing-Ereignisse und die Häufigkeit von Indexer-Parameteränderungen.
+Delegators können potenzielle Indexer basierend auf einem _Reputationsindex_ oder RI auswählen. Dieser RI berücksichtigt die Betriebszeit eines Indexers, die Indexer-Provisionsrate, Slashing-Ereignisse und die Häufigkeit von Indexer-Parameteränderungen.
 
 SubQuery wird das offizielle RI bald starten, aber wir erwarten, dass andere Delegationsanwendungen ihre eigenen berechnen und veröffentlichen werden.
 

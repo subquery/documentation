@@ -1,10 +1,10 @@
 # Lesson 5: Explaining Reliationships in SubQuery
 
-This lesson explores entities relationships in SubQuery. 
+This lesson explores entities relationships in SubQuery.
 
 In this lesson we will create a `many-to-many` relationship and update `Transaction` entity and create `Account` entity. It would require regenerating associated typescript with `yarn codegen` and updating `mappingHandlers.ts` file by changing the `handleFrontierEvmEvent()` function.
 
-Find out more about [data reliationships in SubQuery](../../academy/herocourse/module3.md). 
+Find out more about [data reliationships in SubQuery](../../academy/herocourse/module3.md).
 
 <br/>
 <figure class="video_container">
@@ -12,7 +12,7 @@ Find out more about [data reliationships in SubQuery](../../academy/herocourse/m
 </figure>
 
 ::: tip Note
-In this lesson we will alter the code for the last time. 
+In this lesson we will alter the code for the last time.
 :::
 
 ## Changing the Project
@@ -27,6 +27,7 @@ First, create a basic `Account` entity:
 type Account @entity {
   id: ID! # Key
 ```
+
 To establish a `one-to-many` reliationship link `Transcation` with `Account` by using entity's name as a property value of `Transaction` entity:
 
 ```graphql
@@ -43,10 +44,10 @@ receivedTransactions: [Transaction] @derivedFrom(field: "to")
 
 ::: tip Note
 Use `@derivedFrom` to create a queryable virtual field in the database.
-Find out more about [Reverse Lookups](../herocourse/module3.html#lesson-3-reverse-lookups) in our documentation. 
+Find out more about [Reverse Lookups](../herocourse/module3.html#lesson-3-reverse-lookups) in our documentation.
 :::
 
-Your entire file should look like this: 
+Your entire file should look like this:
 
 ```graphql
 type Transaction @entity {
@@ -89,21 +90,20 @@ Change your `handleFrontierEvmEvent()` function to achieve the following:
 export async function handleFrontierEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
-  
-  // Get data from the event 
-  const from =  event.args.from
+  // Get data from the event
+  const from = event.args.from;
   const to = event.args.to;
-  
+
   // Ensure account entities exist
   const fromAccount = await Account.get(from);
-    if (!fromAccount) {
-        await new Account(from).save();
-    }
-    
-    const toAccount = await Account.get(to);
-    if (!toAccount) {
-        await new Account(to).save();
-    }
+  if (!fromAccount) {
+    await new Account(from).save();
+  }
+
+  const toAccount = await Account.get(to);
+  if (!toAccount) {
+    await new Account(to).save();
+  }
 
   // Create new transaction entity
   const transaction = new Transaction(event.transactionHash);
@@ -117,8 +117,7 @@ export async function handleFrontierEvmEvent(
 }
 ```
 
-Your entire file should look like this: 
-
+Your entire file should look like this:
 
 ```ts
 import { Account, Approval, Collator, Transaction } from "../types";
@@ -127,7 +126,7 @@ import {
   FrontierEvmCall,
 } from "@subql/frontier-evm-processor";
 import { BigNumber } from "ethers";
-import {SubstrateEvent, SubstrateExtrinsic} from "@subql/types";
+import { SubstrateEvent, SubstrateExtrinsic } from "@subql/types";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & {
@@ -144,21 +143,20 @@ type ApproveCallArgs = [string, BigNumber] & {
 export async function handleFrontierEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
-  
-  // Get data from the event 
-  const from =  event.args.from
+  // Get data from the event
+  const from = event.args.from;
   const to = event.args.to;
-  
+
   // Ensure account entities exist
   const fromAccount = await Account.get(from);
-    if (!fromAccount) {
-        await new Account(from).save();
-    }
-    
-    const toAccount = await Account.get(to);
-    if (!toAccount) {
-        await new Account(to).save();
-    }
+  if (!fromAccount) {
+    await new Account(from).save();
+  }
+
+  const toAccount = await Account.get(to);
+  if (!toAccount) {
+    await new Account(to).save();
+  }
 
   // Create new transaction entity
   const transaction = new Transaction(event.transactionHash);
@@ -186,13 +184,11 @@ export async function handleFrontierEvmCall(
 }
 
 // Create Collator
-export async function collatorJoined(
-  event: SubstrateEvent): Promise<void> {
-
+export async function collatorJoined(event: SubstrateEvent): Promise<void> {
   const address = event.extrinsic.extrinsic.signer.toString();
   const collator = Collator.create({
-      id: address,
-      joinedDate: event.block.timestamp
+    id: address,
+    joinedDate: event.block.timestamp,
   });
 
   await collator.save();
@@ -200,25 +196,22 @@ export async function collatorJoined(
 
 // Collator Leaves
 
-export async function collatorLeft(
-  call: SubstrateExtrinsic): Promise<void> {
-
+export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
   const address = call.extrinsic.signer.toString();
   const collator = await Collator.get(address);
 
   if (!collator) {
-      // Collator doesn't exist
+    // Collator doesn't exist
   } else {
-      collator.leaveDate = call.block.timestamp
+    collator.leaveDate = call.block.timestamp;
   }
 
   await collator.save();
-
 }
 ```
 
 ::: warning Important
-Remove `/.data` folder to reindex your data from beginning and adjust the whole database to the new  `Collator` entity's shape. Otherwise, the indexer will start indexing data from the latest block it finished last time and your project will be missing some data of collators indexed before.
+Remove `/.data` folder to reindex your data from beginning and adjust the whole database to the new `Collator` entity's shape. Otherwise, the indexer will start indexing data from the latest block it finished last time and your project will be missing some data of collators indexed before.
 
 Also, remember to regerate associated typescript after any change in the `schema.grapql`.
 :::
@@ -226,50 +219,50 @@ Also, remember to regerate associated typescript after any change in the `schema
 ## Query
 
 Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data.
-Expand previous query by adding `accounts` on the bottom: 
+Expand previous query by adding `accounts` on the bottom:
 
 ```graphql
 query {
-    approvals (first: 5) {
-        nodes {
-            id
-            value
-            owner
-            spender
-        }
+  approvals(first: 5) {
+    nodes {
+      id
+      value
+      owner
+      spender
     }
-    transactions (first: 5) {
-        nodes {
-            id
-            value
-            to: id
-            from: id
-        }
+  }
+  transactions(first: 5) {
+    nodes {
+      id
+      value
+      to: id
+      from: id
     }
-    collators (last: 5) {
-        nodes {
-            id
-            joinedDate
-            leaveDate
-        }
+  }
+  collators(last: 5) {
+    nodes {
+      id
+      joinedDate
+      leaveDate
     }
-    accounts(first: 5) {
+  }
+  accounts(first: 5) {
+    nodes {
+      id
+      sentTransactions {
         nodes {
-            id
-            sentTransactions {
-                nodes {
-                    id
-                    value
-                    to: id
-                    from: id
-                    contractAddress       
-                }
-            }
+          id
+          value
+          to: id
+          from: id
+          contractAddress
         }
+      }
     }
+  }
 }
 ```
- 
+
 ## Useful resources
 
 - [SubQuery Project Explorer](https://explorer.subquery.network/)

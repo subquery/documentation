@@ -22,7 +22,7 @@ Geschlossene Pläne können auch für bestehende SubQuery-Projekte platziert wer
 
 ## Servicevertrag öffnen
 
-Offenmarkt-Dienstleistungsvereinbarungen ähneln geschlossenen Marktdienstleistungsvereinbarungen, ermöglichen jedoch mehreren Indexierern, sich anzuschließen und zu konkurrieren, um dem Verbraucher Daten bereitzustellen. Eine Offenmarkt-Dienstleistungsvereinbarung kann als Vertrag zwischen 1 Verbraucher und 1 Indexierer beginnen, aber es können weitere Parteien dem Vertrag beitreten, was zu *n* Verbrauchern und *n* Indexierern führt.
+Offenmarkt-Dienstleistungsvereinbarungen ähneln geschlossenen Marktdienstleistungsvereinbarungen, ermöglichen jedoch mehreren Indexierern, sich anzuschließen und zu konkurrieren, um dem Verbraucher Daten bereitzustellen. Eine Offenmarkt-Dienstleistungsvereinbarung kann als Vertrag zwischen 1 Verbraucher und 1 Indexierer beginnen, aber es können weitere Parteien dem Vertrag beitreten, was zu _n_ Verbrauchern und _n_ Indexierern führt.
 
 Jede Offenmarkt-Servicevereinbarung führt dazu, dass für diesen Vertrag ein neuer Belohnungspool erstellt wird, und SQT wird von der Cobb-Douglas-Produktionsfunktion unter den teilnehmenden Indexierern verteilt.
 

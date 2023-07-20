@@ -4,7 +4,7 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 
 我们希望倾听社区的声音，所以请加入社区并向我们发送您的想法或问题！
 
-## SubQuery官方社区
+## SubQuery 官方社区
 
 - [链接](https://linktr.ee/subquerynetwork)
 - [Discord](https://discord.com/invite/subquery) (拥有专业技术支持频道的主社区)
@@ -15,9 +15,9 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
 
-## SubQuery非官方社区
+## SubQuery 非官方社区
 
-这些社区并不是由SubQuery团队搭建的，但我们的大使可能在那里提供支持。 请注意防骗，因为SubQuery **不** 负责它们内部发生的事情。
+这些社区并不是由 SubQuery 团队搭建的，但我们的大使可能在那里提供支持。 请注意防骗，因为 SubQuery **不** 负责它们内部发生的事情。
 
 - [Telegram (Chinese)](https://t.me/subquerychina)
 - [Telegram (Russian)](https://t.me/SubQuery_russia)

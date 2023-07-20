@@ -23,7 +23,7 @@ Có một số lợi ích của việc trở thành một Người ủy quyền 
 
 Để thu hút Người ủy quyền hỗ trợ công việc của họ, Người lập chỉ mục cung cấp cho Người ủy quyền một phần phần thưởng mà họ kiếm được. Người lập chỉ mục sẽ quảng cáo Tỷ lệ hoa hồng của Người lập chỉ mục, trong đó doanh thu còn lại sau đó sẽ được chia sẻ trong tổng số ủy quyền/pool đặt cược tương ứng với giá trị được ủy quyền/đặt cược riêng lẻ trong pool.
 
-*Tỷ lệ hoa hồng của người lập chỉ mục*: Đây là tỷ lệ phần trăm của phí thu được từ việc cung cấp yêu cầu cho Người tiêu dùng. Người lập chỉ mục có thể tự do đặt tỷ lệ này thành bất kỳ giá trị nào họ muốn. Tỷ lệ phần trăm cao hơn cho thấy Người lập chỉ mục giữ nhiều lợi nhuận hơn. Tỷ lệ phần trăm thấp hơn cho thấy Người lập chỉ mục chia sẻ nhiều lợi nhuận hơn với Người ủy quyền của họ.
+_Tỷ lệ hoa hồng của người lập chỉ mục_: Đây là tỷ lệ phần trăm của phí thu được từ việc cung cấp yêu cầu cho Người tiêu dùng. Người lập chỉ mục có thể tự do đặt tỷ lệ này thành bất kỳ giá trị nào họ muốn. Tỷ lệ phần trăm cao hơn cho thấy Người lập chỉ mục giữ nhiều lợi nhuận hơn. Tỷ lệ phần trăm thấp hơn cho thấy Người lập chỉ mục chia sẻ nhiều lợi nhuận hơn với Người ủy quyền của họ.
 
 Những người ủy quyền sẽ chỉ nhận được doanh thu của Chu kỳ đặt cược khi họ đã tham gia trong suốt thời gian đó. Ví dụ: nếu họ tham gia Chu kỳ đặt cược giữa chừng, thì họ sẽ không kiếm được bất kỳ doanh thu Phí Truy vấn nào cho Chu kỳ cụ thể đó.
 
@@ -39,7 +39,7 @@ Mặc dù nó không được coi là một vai trò rủi ro, nhưng việc tr�
 
 ## Làm thế nào để chọn Người lập chỉ mục?
 
-Người ủy quyền có thể chọn Người lập chỉ mục tiềm năng dựa trên *Chỉ số danh tiếng* hoặc RI. RI này tính đến thời gian hoạt động của Người lập chỉ mục, tỷ lệ hoa hồng của người lập chỉ mục, sự kiện cắt giảm và tần suất thay đổi tham số của Người lập chỉ mục.
+Người ủy quyền có thể chọn Người lập chỉ mục tiềm năng dựa trên _Chỉ số danh tiếng_ hoặc RI. RI này tính đến thời gian hoạt động của Người lập chỉ mục, tỷ lệ hoa hồng của người lập chỉ mục, sự kiện cắt giảm và tần suất thay đổi tham số của Người lập chỉ mục.
 
 SubQuery sẽ sớm khởi chạy RI chính thức, nhưng chúng tôi hy vọng các ứng dụng ủy quyền khác sẽ tính toán và phát hành riêng của chúng.
 

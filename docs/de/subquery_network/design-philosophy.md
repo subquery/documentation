@@ -4,7 +4,7 @@ Das Leitprinzip des SubQuery-Netzwerks ist Einfachheit und Flexibilität für ve
 
 ## Multi-chain nach Design
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+_SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future._
 
 SubQuery stammt aus dem Polkadot-Ökosystem, es ist unser Zuhause und wird der Standort des SubQuery-Netzwerks sein. Die Kernprämisse von Polkadot ist es, eine florierende Community von Entwicklern, Benutzern und Unternehmen zu schaffen, die sich die Multichain-Interoperabilität zunutze machen. SubQuery glaubt an die Idee, dass eine Gemeinschaft von Blockchains, die zusammenarbeiten, um die Einführung von Web3 zu fördern, die Zukunft ist und dass Polkadot ein führender Akteur in dieser Initiative sein wird.
 
@@ -16,7 +16,7 @@ SubQuery unterstützt derzeit Polkadot, Avalanche und Terra. Erwarten Sie in den
 
 ## Einfach und zugänglich
 
-*Das SubQuery-Netzwerk ist als Datenlieferant für die Menschen konzipiert.*
+_Das SubQuery-Netzwerk ist als Datenlieferant für die Menschen konzipiert._
 
 Das Leitprinzip des SubQuery Network ist Einfachheit. SubQuery ist der Meinung, dass andere Ansätze für dezentralisierte Datenabfragedienste zu komplex sind und es den Teilnehmern erschweren, ihre Kapitalrendite vorherzusagen. Ziel ist folgendes: Ihnen den Einstieg in das Netzwerk zu erleichtern und Ihre zukünftigen Renditechancen klar zu prognostizieren.
 
@@ -26,7 +26,7 @@ Das bedeutet, dass ein Designziel darin besteht, die Teilnahme für alle so einf
 
 ## Flexibel
 
-*SubQuery ist nur ein Werkzeug in den Händen unserer Community, es gibt endlose Möglichkeiten, die nur durch die Kreativität der Menschen begrenzt sind.*
+_SubQuery ist nur ein Werkzeug in den Händen unserer Community, es gibt endlose Möglichkeiten, die nur durch die Kreativität der Menschen begrenzt sind._
 
 Das Potenzial von SubQuery kann in seiner Flexibilität liegen - Benutzer haben die Freiheit, dezentrale Daten an ihre Bedürfnisse anzupassen und zu transformieren. dApp-Entwickler benötigen Daten in einem bestimmten Format, das auf ihre dApp zugeschnitten ist, um die Entwicklung zu vereinfachen und sie von anderen abzuheben.
 

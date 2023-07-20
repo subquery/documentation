@@ -8,9 +8,9 @@ Afin d'utiliser les sources de données dynamiques, vous devez avoir une version
 
 La version `0.2.1` de Spec introduit un nouveau champ pour `les modèles`. Les modèles sont les mêmes que les sources de données, à quelques différences près.
 
-* Ils ont besoin d'un `nom` afin d'identifier le modèle.
-* `startBlock` n'est plus nécessaire. Il sera défini dans le bloc où la source de données est créée.
-* Dans le cas d'une source de données personnalisée, le champ `processor.options` peut également être partiellement rempli, le reste des options sera fourni lorsque la source de données sera instanciée.
+- Ils ont besoin d'un `nom` afin d'identifier le modèle.
+- `startBlock` n'est plus nécessaire. Il sera défini dans le bloc où la source de données est créée.
+- Dans le cas d'une source de données personnalisée, le champ `processor.options` peut également être partiellement rempli, le reste des options sera fourni lorsque la source de données sera instanciée.
 
 ## Exemple de projet
 
@@ -18,8 +18,8 @@ La meilleure façon de montrer comment utiliser une source de données dynamique
 
 L'exemple ci-dessous concerne une bourse décentralisée qui possède un contrat d'usine qui déploie un nouveau contrat lorsqu'une paire de transactions est ajoutée. Lorsque le projet est exécuté, il n'est pas possible de connaître les adresses de tous les contrats de paire de négociation qui ont été créés ou qui seront créés. Les sources de données peuvent être créées dynamiquement par un gestionnaire de mapping à partir d'un modèle afin d'indexer les contrats de paires de négociation nouvellement créés.
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
@@ -92,7 +92,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 }
 ```
 
-
 ## Voir les sources de données dynamiques d'un projet
 
 Les sources de données dynamiques sont stockées dans les métadonnées du projet. Si vous avez besoin de voir les détails, vous pouvez les interroger comme ci-dessous :
@@ -106,6 +105,7 @@ Les sources de données dynamiques sont stockées dans les métadonnées du proj
 ```
 
 Résultat
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ Résultat
   }
 }
 ```
-

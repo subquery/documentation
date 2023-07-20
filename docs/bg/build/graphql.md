@@ -7,6 +7,7 @@
 **Важно: Когато правите промени във файла на схемата, моля, уверете се, че регенерирате директорията си с типове със следната команда `yarn codegen`**
 
 ### Oбекти
+
 Всеки обект трябва да дефинира своите задължителни `id` полета с типа `ID!`. Използва се като първичен ключ и e уникален сред всички обекти от един и същи тип.
 
 Не-нулеви полета в обекта са обозначени с `!`. Моля, вижте примера по-долу:
@@ -14,14 +15,15 @@
 ```graphql
 type Example @entity {
   id: ID! # id полето е винаги задължително и трябва да изглежда така
-  name: String! # Това е задължително поле 
-  address: String # Това е задължително поле 
+  name: String! # Това е задължително поле
+  address: String # Това е задължително поле
 }
 ```
 
 ### Поддържани скалари и типове
 
 Понастоящем поддържаме следните типове скалари:
+
 - `ID`
 - `Int`
 - `String`
@@ -45,14 +47,15 @@ type Example @entity {
 type User @entity {
   id: ID!
   name: String! @index(unique: true) # уникален може да бъде зададен на true или false
-  title: Title! # Индексите се добавят автоматично към полето за външен ключ 
+  title: Title! # Индексите се добавят автоматично към полето за външен ключ
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 Ако приемем, че знаем името на този потребител, но не знаем точната стойност на идентификатора, вместо да извлечем всички потребители и след това да филтрираме по име, можем да добавим `@index` зад полето за име. Това прави заявките много по-бързи и можем допълнително да придадем `unique: true` за да гарантираме уникалност.
 
 **Ако полето не е уникално, максималният размер на набора от резултати е 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Манипулатор във функция за съпоставяне
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
@@ -121,7 +124,7 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field
 }
 
 type Account @entity {
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### Взаимоотношения много към много
+
 Връзка много към много може да бъде постигната чрез внедряване на обект на преобразуване, за свързване на другите две единици.
 
 Пример: Всеки човек е част от множество групи (PersonGroup) и групите имат множество различни хора (PersonGroup).
@@ -202,16 +206,18 @@ type Transfer @entity {
 Поддържаме записването на данни като тип JSON, което е бърз начин за съхраняване на структурирани данни. Ние автоматично ще генерираме съответните JSON интерфейси за запитване на тези данни и ще ви спестим време за дефиниране и управление на обекти.
 
 Препоръчваме на потребителите да използват типа JSON в следните сценарии:
+
 - Когато съхраняването на структурирани данни в едно поле е по-управляемо, отколкото създаването на множество отделни обекти.
 - Запазване на произволни потребителски предпочитания за ключ/стойност (където стойността може да бъде булева, текстова или числова и не искате да имате отделни колони за различни типове данни)
 - Схемата е непостоянна и се променя често
 
 ### Дефинирайте JSON директива
+
 Дефинирайте свойството като тип JSON, като добавите анотацията `jsonField` в обекта. Това автоматично ще генерира интерфейси за всички JSON обекти във вашия проект под `types/interfaces.ts`, и можете да получите достъп до тях във вашата функция за преобразуване.
 
 За разлика от стандартния обект, обектът на директивата `id` не изисква никакво поле за идентификатор. JSON обект също може да се влага с други JSON обекти.
 
-````graphql
+```graphql
 въведете  AddressDetail @jsonField {
   street: String!
   district: String!
@@ -223,10 +229,10 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Store a list of JSON objects
 }
-````
+```
 
 ### Запитване на JSON полета
 
@@ -237,15 +243,9 @@ type User @entity {
 ```graphql
 #За да намерите първите 5 потребители, със собствени телефонни номера, които съдържат '0064'.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

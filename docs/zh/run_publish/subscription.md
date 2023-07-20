@@ -10,7 +10,7 @@ SubQuery 现在已支持 Graphql 订阅。 像查询一样，订阅可以让您�
 
 ## 如何订阅
 
-GraphQL订阅的基本例子是在创建任何新项目时发出通知。 在下面的示例中，我们订阅 `Transfer` 选项，并在此表有任何更改时收到更新。
+GraphQL 订阅的基本例子是在创建任何新项目时发出通知。 在下面的示例中，我们订阅 `Transfer` 选项，并在此表有任何更改时收到更新。
 
 您可以通过查询以下的 GraphQL 端点来创建订阅。 然后您的连接将订阅对 `Transfer` 项目表所作的任何更改。
 
@@ -36,7 +36,7 @@ subscription {
 
 我们支持的过滤器有两种类型：
 
-- `id` : 过滤器仅返回影响到特定选项的更改(由ID指定)。
+- `id` : 过滤器仅返回影响到特定选项的更改(由 ID 指定)。
 - `类型`: 只有相同的改动类型将返回一个更新。
 
 假定我们有一个选项 `Balances`, 并且它记录每个账户的余额。
@@ -68,5 +68,5 @@ subscription {
 ::: 警告 重要 请注意，您必须在节点和查询服务上启用 `--subscription` 标志才能使用这些功能。 :::
 
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. 它不能在浏览器内的GraphQL背景中工作。
+The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. 它不能在浏览器内的 GraphQL 背景中工作。
 :::

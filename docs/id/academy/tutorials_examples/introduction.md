@@ -4,8 +4,6 @@ Di sini kami akan memberikan daftar tutorial dan menunjukkan berbagai contoh unt
 
 ## Contoh SubQuery
 
-
-
 ## Contoh Proyek SubQuery
 
 | Contoh                                                                                        | Deskripsi                                                                                                                                   | Topik                                                                                                                |

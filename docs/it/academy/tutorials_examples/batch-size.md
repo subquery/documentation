@@ -38,4 +38,4 @@ This example sets the batch size to 50.
 
 ## Why change the batch size?
 
-Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive. 
+Using a smaller batch size can reduce memory usage and not leave users hanging for large queries. In otherwords, your application can be more responsive.

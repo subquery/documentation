@@ -8,9 +8,9 @@ Um dynamische Datenquellen verwenden zu können, benötigen Sie mindestens die S
 
 Spezifikationsversion `0.2.1` führt ein neues `Templates`-Feld ein. Templates sind mit einigen Unterschieden identisch mit Datenquellen.
 
-* Sie benötigen einen `Namen`, um die Template zu identifizieren
-* `startBlock` ist nicht mehr erforderlich. Dies wird auf den Block gesetzt, in dem die Datenquelle erstellt wird
-* Im Fall einer benutzerdefinierten Datenquelle kann das Feld `processor.options` auch teilweise ausgefüllt werden, die restlichen Optionen werden bereitgestellt, wenn die Datenquelle instanziiert wird.
+- Sie benötigen einen `Namen`, um die Template zu identifizieren
+- `startBlock` ist nicht mehr erforderlich. Dies wird auf den Block gesetzt, in dem die Datenquelle erstellt wird
+- Im Fall einer benutzerdefinierten Datenquelle kann das Feld `processor.options` auch teilweise ausgefüllt werden, die restlichen Optionen werden bereitgestellt, wenn die Datenquelle instanziiert wird.
 
 ## Beispielprojekt
 
@@ -18,28 +18,28 @@ Am besten lässt sich anhand eines Beispiels zeigen, wie dynamische Datenquellen
 
 Das folgende Beispiel gilt für eine dezentrale Börse mit einem Fabrikvertrag, der einen neuen Vertrag einsetzt, wenn ein Handelspaar hinzugefügt wird. Wenn das Projekt ausgeführt wird, ist es nicht möglich, die Adressen aller Handelspaarkontrakte zu kennen, die erstellt wurden oder erstellt werden. Datenquellen können von einem Mapping-Handler aus einer Vorlage dynamisch erstellt werden, um die neu erstellten Handelspaarkontrakte zu indizieren.
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 // Diese Funktion wird mit dem CLI-Befehl „subql codegen“ definiert
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## Anzeigen der dynamischen Datenquellen eines Projekts
 
@@ -106,6 +105,7 @@ Dynamische Datenquellen werden in den Metadaten des Projekts gespeichert. Wenn S
 ```
 
 Ergebnis
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ Ergebnis
   }
 }
 ```
-

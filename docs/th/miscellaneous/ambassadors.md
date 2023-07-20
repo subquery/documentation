@@ -40,7 +40,6 @@
 
 เมื่อคุณผ่านโปรแกรมฝึกหัดแล้ว คุณจะสามารถเรียกตัวเองว่าแอมบาสเดอร์ของ SubQuery ได้และจะได้เข้าร่วมโปรแกรมอย่างเต็มรูปแบบกับเรา จากนั้นคุณสามารถทำงานในโปรแกรมต่อไปได้เพื่อเลื่อนระดับ รับรางวัล รวมถึงสิทธิประโยชน์ที่มากขึ้นเมื่อระดับของคุณสูงขึ้น
 
-
 ## กิจกรรมของแอมบาสเดอร์
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.

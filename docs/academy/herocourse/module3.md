@@ -711,7 +711,7 @@ Next, generate the associated typescript using the following command:
 
 ```shell
 yarn codegen
-````
+```
 
 @tab npm
 

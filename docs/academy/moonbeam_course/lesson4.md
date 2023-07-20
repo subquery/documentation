@@ -1,6 +1,6 @@
 # Lesson 4: Data Mutation Example
 
-This lesson focuses on data mutation example. 
+This lesson focuses on data mutation example.
 We will alter the code by adding `Collator.Left` property to the `Collator` entity in `schema.graphql`. It would require from us to regenerate associated typescript with `yarn codegen` and updating `project.yaml` and `mappingHandlers.ts` files as well.
 
 <br/>
@@ -8,12 +8,11 @@ We will alter the code by adding `Collator.Left` property to the `Collator` enti
   <iframe src="https://www.youtube.com/embed/XJCzqd8sfLc" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-
 ## Changing the Project
 
 ::: tip Note
-In this lesson we will continue changing the code. 
-::: 
+In this lesson we will continue changing the code.
+:::
 
 ### Manifest
 
@@ -27,7 +26,7 @@ First, let's add a new handler `collatorLeft` to `project.yaml`.
             method: leaveCandidates
 ```
 
-Your entire Manifest file should look like this: 
+Your entire Manifest file should look like this:
 
 ```yaml
 specVersion: 1.0.0
@@ -35,19 +34,19 @@ name: moonbeam-evm-starter
 version: 0.0.1
 runner:
   node:
-    name: '@subql/node'
-    version: '>=0.35.0'
+    name: "@subql/node"
+    version: ">=0.35.0"
   query:
-    name: '@subql/query'
-    version: '>=0.16.0'
+    name: "@subql/query"
+    version: ">=0.16.0"
 description: Moonbeam / SubQuery Course — Building dApps with the help of SubQuery
-repository: 'https://github.com/subquery/tutorials-frontier-evm-starter'
+repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b'
-  endpoint: 'wss://moonriver.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/moonriver-dictionary'
+  chainId: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b"
+  endpoint: "wss://moonriver.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
@@ -57,7 +56,7 @@ dataSources:
       file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
         abi: erc20
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
         file: ./erc20.abi.json
@@ -68,18 +67,18 @@ dataSources:
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
-              - 'Transfer(address indexed from,address indexed to,uint256 value)'
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
               - null
               - null
               - null
         - handler: handleFrontierEvmCall
           kind: substrate/FrontierEvmCall
           filter:
-            function: 'approve(address to,uint256 value)'
+            function: "approve(address to,uint256 value)"
   - kind: substrate/Runtime
     startBlock: 69218
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: collatorJoined
           kind: substrate/EventHandler
@@ -99,7 +98,7 @@ Find more information about Polkadot specific methods in [Polkadot Explorer](htt
 
 ### Schema GraphQl
 
-Next, we need to adjust the `schema.graphql` file by adding a new nonobligatory property `leaveDate` of type `Date` to the `Collator` entity. 
+Next, we need to adjust the `schema.graphql` file by adding a new nonobligatory property `leaveDate` of type `Date` to the `Collator` entity.
 
 Your file should look like this:
 
@@ -120,7 +119,6 @@ type Approval @entity {
   contractAddress: String!
 }
 
-
 type Collator @entity {
   id: ID! # Collator address
   joinedDate: Date!
@@ -135,24 +133,21 @@ The last thing we need to do is to add a new function `collatorLeft()` that corr
 ```ts
 // Collator Leaves
 
-export async function collatorLeft(
-  call: SubstrateExtrinsic): Promise<void> {
-
+export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
   const address = call.extrinsic.signer.toString();
   const collator = await Collator.get(address);
 
   if (!collator) {
-      // Collator doesn't exist
+    // Collator doesn't exist
   } else {
-      collator.leaveDate = call.block.timestamp
+    collator.leaveDate = call.block.timestamp;
   }
 
   await collator.save();
-
 }
 ```
 
-Your entire file should look like this: 
+Your entire file should look like this:
 
 ```ts
 import { Approval, Collator, Transaction } from "../types";
@@ -161,7 +156,7 @@ import {
   FrontierEvmCall,
 } from "@subql/frontier-evm-processor";
 import { BigNumber } from "ethers";
-import {SubstrateEvent, SubstrateExtrinsic} from "@subql/types";
+import { SubstrateEvent, SubstrateExtrinsic } from "@subql/types";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & {
@@ -174,7 +169,7 @@ type ApproveCallArgs = [string, BigNumber] & {
   _value: BigNumber;
 };
 
-// Create Transaction 
+// Create Transaction
 export async function handleFrontierEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
@@ -203,13 +198,11 @@ export async function handleFrontierEvmCall(
 }
 
 // Create Collator
-export async function collatorJoined(
-  event: SubstrateEvent): Promise<void> {
-
+export async function collatorJoined(event: SubstrateEvent): Promise<void> {
   const address = event.extrinsic.extrinsic.signer.toString();
   const collator = Collator.create({
-      id: address,
-      joinedDate: event.block.timestamp
+    id: address,
+    joinedDate: event.block.timestamp,
   });
 
   await collator.save();
@@ -217,33 +210,30 @@ export async function collatorJoined(
 
 // Collator Leaves
 
-export async function collatorLeft(
-  call: SubstrateExtrinsic): Promise<void> {
-
+export async function collatorLeft(call: SubstrateExtrinsic): Promise<void> {
   const address = call.extrinsic.signer.toString();
   const collator = await Collator.get(address);
 
   if (!collator) {
-      // Collator doesn't exist
+    // Collator doesn't exist
   } else {
-      collator.leaveDate = call.block.timestamp
+    collator.leaveDate = call.block.timestamp;
   }
 
   await collator.save();
-
 }
 ```
 
 ::: warning Important
-Remove `/.data` folder to reindex your data from beginning and adjust the whole database to the new  `Collator` entity's shape. Otherwise, the indexer will start indexing data from the latest block it finished last time and your project will be missing some data of collators indexed before.
+Remove `/.data` folder to reindex your data from beginning and adjust the whole database to the new `Collator` entity's shape. Otherwise, the indexer will start indexing data from the latest block it finished last time and your project will be missing some data of collators indexed before.
 
 Also, remember to regerate associated typescript after any change in the `schema.grapql`.
 :::
 
 ## Query
 
-Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data. 
-Expand previous query by adding `leaveDate` property to `collators`: 
+Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data.
+Expand previous query by adding `leaveDate` property to `collators`:
 
 ```graphql
 query {

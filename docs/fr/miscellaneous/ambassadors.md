@@ -40,7 +40,6 @@ Une fois que vous aurez envoyé votre candidature, nous sélectionnerons les can
 
 Une fois que vous aurez réussi le programme de formation, vous pourrez vous considérer comme un ambassadeur de SubQuery et serez accepté dans notre programme complet. À partir de là, vous pouvez continuer à travailler dans le cadre du programme et gravir les échelons, en obtenant davantage de récompenses et d'avantages à mesure que vous gravissez les échelons.
 
-
 ## Activités des ambassadeurs
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.

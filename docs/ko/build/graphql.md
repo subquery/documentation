@@ -7,6 +7,7 @@
 **중요: 스키마 파일을 변경할 때, 반드시 `yarn codegen` 명령을 통해 디렉토리 타입을 재생성해야 합니다.**
 
 ### 엔티티
+
 각 엔티티는 `ID!` 형식의 필수 필드 `id`를 정의해야 합니다. 이는 동일한 유형의 모든 엔티티에서 기본 키로 사용되며 고유의 값을 갖습니다.
 
 Entity의 초기화될 수 없는 값들은 `!` 으로 표시됩니다. 아래 예제를 참조하세요:
@@ -22,6 +23,7 @@ Entity의 초기화될 수 없는 값들은 `!` 으로 표시됩니다. 아래 �
 ### 지원되는 스칼라 및 유형
 
 현재 지원되는 스칼라 및 유형은 다음과 같습니다.
+
 - `ID`
 - `Int`
 - `String`
@@ -45,11 +47,12 @@ Query 성능을 향상시키려면 기본 키가 아닌 field에 `@index` 주석
 입력하세요 사용자 @entity {
   id: ID!
   이름: String! @index(unique: true) # 고유 항목을 참 또는 거짓으로 설정할 수 있습니다.
-  title: Title! # 인덱스는 외부 키 field에 자동으로 추가됩니다. 
-}  
+  title: Title! # 인덱스는 외부 키 field에 자동으로 추가됩니다.
+}
   이름: String! @index(unique:true)
 }
 ```
+
 이 사용자의 이름은 알고 있지만 정확한 id 값은 모른다고 가정하면 모든 사용자를 추출한 다음 이름으로 필터링하는 대신 이름 필드 뒤에 `@index` 을 추가할 수 있습니다. 이렇게 하면 Query가 훨씬 빨라지고 `unique: true`를 추가로 전달하여 고유성을 보장할 수 있습니다.
 
 **필드가 고유하지 않은 경우 최대 결과 집합 크기는 100입니다.**
@@ -63,12 +66,12 @@ When code generation is run, this will automatically create a `getByName` under 
 
 ```typescript
 // 맵핑 기능의 Handler
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
@@ -118,7 +121,7 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field
 }
 
 type Account @entity {
@@ -128,6 +131,7 @@ type Account @entity {
 ```
 
 ### 다대다 관계
+
 다대다 관계는 맵핑 Entity를 구현하여 다른 두 Entity를 연결함으로써 달성될 수 있습니다.
 
 예: 각 사용자는 여러 그룹(사용자 그룹) 의 일부이며 그룹에는 여러 다른 사용자(사용자 그룹) 가 있습니다.
@@ -199,16 +203,18 @@ type Transfer @entity {
 JSON 유형의 데이터 저장을 지원하여 구조화된 데이터를 빠르게 저장할 수 있습니다. 데이터 쿼리에 필요한 해당 JSON 인터페이스를 자동으로 생성함으로써 엔티티를 정의하고 관리하는 시간을 절약합니다.
 
 다음 시나리오의 사용자는 JSON 유형의 사용을 권장합니다.
+
 - 구조화된 데이터를 단일 필드에 저장하는 것이 여러 개의 개별 엔티티를 생성하는 것보다 용이한 경우
 - 임의의 키/값 사용자 기본 설정 저장(여기서 값은 Boolean, 텍스트 또는 숫자일 수 있으며 다른 데이터 유형에 대해 별도의 열을 사용하지 않을 수 있습니다).
 - 스키마가 휘발성이고 자주 변경되는 경우
 
 ### JSON 지시어 정의
+
 Entity에 `jsonField` 주석을 추가하여 속성을 JSON 유형으로 정의합니다. 이렇게 하면 프로젝트의 모든 JSON 개체에 대한 인터페이스가 `types/interfaces.ts`에 자동으로 생성되며 맵핑기능에서 액세스할 수 있습니다.
 
 엔티티와 달리 jsonField 지시문 개체에는 `id` Field가 필요하지 않습니다. JSON 개체는 다른 JSON 개체와 중첩할 수도 있습니다.
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
   street: String!
   district: String!
@@ -220,10 +226,10 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Store a list of JSON objects
 }
-````
+```
 
 ### JSON 필드 쿼리하기
 
@@ -234,15 +240,9 @@ JSON 유형을 사용하면, 텍스트 검색을 수행할 때마다 전체 엔�
 ```graphql
 #처음 5명의 사용자의 핸드폰 번호에는 '0064'가 포함되어 있습니다.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

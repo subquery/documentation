@@ -7,6 +7,7 @@ Die Datei `schema.graphql` definiert die verschiedenen GraphQL-Schemas. Aufgrund
 **Wichtig: Wenn Sie Änderungen an der Schemadatei vornehmen, stellen Sie bitte sicher, dass Sie Ihr Typenverzeichnis mit dem folgenden Befehl `yarn codegen` . neu generieren**
 
 ### Entitäten
+
 Jede Entität muss ihre Pflichtfelder `id` mit dem Typ `ID!` definieren. Er wird als Primärschlüssel verwendet und ist unter allen Entitäten desselben Typs eindeutig.
 
 Nicht-nullfähige Felder in der Entität werden durch `!` gekennzeichnet. Bitte sehen Sie sich das folgende Beispiel an:
@@ -22,6 +23,7 @@ Beispiel @entity {
 ### Unterstützte Skalare und Typen
 
 Wir unterstützen derzeit folgende Skalartypen:
+
 - `ID`
 - `Int`
 - `String`
@@ -49,10 +51,11 @@ type User @entity {
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 Angenommen kennen wir den Namen dieses Benutzers, kennen aber nicht den genauen ID-Wert, anstatt alle Benutzer zu extrahieren und dann nach Namen zu filtern, können wir `@index` hinter dem Namensfeld hinzufügen. Dies macht die Abfrage viel schneller und wir können zusätzlich das `unique: true` übergeben, um die Eindeutigkeit sicherzustellen.
 
 **Wenn ein Feld nicht eindeutig ist, beträgt die maximale Ergebnissatzgröße 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Handler in der Mapping-Funktion
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // Liste aller Kapitäne
 ```
@@ -121,7 +124,7 @@ Beispiel: Eine Person kann mehrere Konten haben.
 ```graphql
 schreib Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field
 }
 
 type Account @entity {
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### Viele-zu-Viele-Beziehungen
+
 Eine Viele-zu-Viele-Beziehung kann erreicht werden, indem eine Abbildungsentität implementiert wird, um die anderen beiden Entitäten zu verbinden.
 
 Beispiel: Jede Person ist Teil mehrerer Gruppen (PersonGroup) und Gruppen haben mehrere verschiedene Personen (PersonGroup).
@@ -202,16 +206,18 @@ schreib Transfer @entity {
 Wir unterstützen das Speichern von Daten als JSON-Typ, was eine schnelle Möglichkeit zum Speichern strukturierter Daten darstellt. Wir generieren automatisch entsprechende JSON-Schnittstellen zum Abfragen dieser Daten und sparen Ihnen Zeit beim Definieren und Verwalten von Entitäten.
 
 Wir empfehlen Benutzern, den JSON-Typ in den folgenden Szenarien zu verwenden:
+
 - Das Speichern strukturierter Daten in einem einzelnen Feld ist einfacher zu verwalten als das Erstellen mehrerer separater Entitäten.
 - Das Speichern von beliebiger Schlüssel/Wert-Benutzereinstellungen (wobei der Wert boolesch, textuell oder numerisch sein kann und Sie keine separaten Spalten für verschiedene Datentypen haben möchten)
 - Das Schema ist flüchtig und ändert sich häufig
 
 ### JSON-Direktive definieren
+
 Definieren Sie die Eigenschaft als JSON-Typ, indem Sie die Annotation `jsonField` in der Entität hinzufügen. Dadurch werden automatisch Schnittstellen für alle JSON-Objekte in Ihrem Projekt unter `types/interfaces.ts` generiert, auf die Sie in Ihrer Mapping-Funktion zugreifen können.
 
 Im Gegensatz zur Entität erfordert das jsonField-Direktivenobjekt kein `id`-Feld. Ein JSON-Objekt kann auch mit anderen JSON-Objekten verschachtelt werden.
 
-````graphql
+```graphql
 schreib Addresse-Details @jsonField {
   street: String!
   Bezirk: String!
@@ -223,10 +229,10 @@ schreib ContactCard @jsonField {
 }
 
 schreib User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Speichern Sie eine Liste von JSON-Objekten
 }
-````
+```
 
 ### Abfragen von JSON-Feldern
 

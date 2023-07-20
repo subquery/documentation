@@ -10,11 +10,10 @@
 
 - 既知の多くの攻撃方法に対して免疫があります。
 
-
 ## 制限事項
 
-- 特定の組み込みモジュールへのアクセスを制限するため、`assert`, `buffer`, `crypto`, `util`, `path`  のみをホワイトリストに登録しています。
+- 特定の組み込みモジュールへのアクセスを制限するため、`assert`, `buffer`, `crypto`, `util`, `path` のみをホワイトリストに登録しています。
 
-- **CommonJS** で書かれた[サードパーティモジュール](../create/mapping/polkadot.md#third-party-libraries) や、`@polkadot/*`のようにESMをデフォルトで使用する**hybrid** ライブラリに対応しています。
+- **CommonJS** で書かれた[サードパーティモジュール](../create/mapping/polkadot.md#third-party-libraries) や、`@polkadot/*`のように ESM をデフォルトで使用する**hybrid** ライブラリに対応しています。
 
 - `HTTP` と `WebSocket` を使用するモジュールは禁止されています。

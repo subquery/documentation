@@ -55,10 +55,10 @@ Pulling graphql-engine  ... done
 subquery-node_1   | 2021-06-06T02:04:25.490Z <fetch> INFO fetch block [1, 100]
 ```
 
-您就知道SubQuery节点已经开始同步。
+您就知道 SubQuery 节点已经开始同步。
 
 ## 概括
 
-现在您已经了解了幕后发生的事情，问题是接下来该做什么？ 如果您有信心，可以开始学习 [create a project](../create/introduction.md)并详细了解三个关键文件。 清单文件、GraphQL架构和映射文件。
+现在您已经了解了幕后发生的事情，问题是接下来该做什么？ 如果您有信心，可以开始学习 [create a project](../create/introduction.md)并详细了解三个关键文件。 清单文件、GraphQL 架构和映射文件。
 
 或者您可以继续我们的教程部分，我们将学习如何在 SubQuery 的托管基础架构上运行这个 Hello World 示例，我们将学习如何修改 start 块，我们将运行随时可用的开源项目来更深入地了解如何运行 SubQuery 项目。

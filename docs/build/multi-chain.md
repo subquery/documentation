@@ -196,13 +196,13 @@ When querying metadata using GraphQL with multi-chain enabled, you need to pass 
 To query metadata from all metadata tables you can use the query shown below. There are no arguments in this query, so you cannot filter or sort.
 
 ```graphql
-  {
-    _metadatas {
-      totalCount
-      nodes {
-        chain
-        lastProcessedHeight
-      }
+{
+  _metadatas {
+    totalCount
+    nodes {
+      chain
+      lastProcessedHeight
     }
   }
+}
 ```

@@ -9,6 +9,7 @@ La Fundación SubQuery es el primer paso hacia la descentralización de la propi
 SubQuery Network será administrada por SubQuery Foundation. La SubQuery Foundation será una entidad sin ánimo de lucro creada específicamente para servir, gestionar, y desarrollar SubQuery Network y proporcionar soporte para usuarios y desarrolladores para participar.
 
 Se espera que la SubQuery Foundation tenga los siguientes obligaciones:
+
 - Developing and updating the SubQuery Network.
 - Manage and distributing assets from the Foundation Treasury.
 - Managing the SubQuery Grants Programme to stimulate ecosystem and network development.

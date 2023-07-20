@@ -10,7 +10,6 @@ Alcuni codici maligni possono attaccare l'host o addirittura comprometterlo, e c
 
 - È immune a molti metodi di attacco conosciuti.
 
-
 ## Restrizione
 
 - Per limitare l'accesso a certi moduli integrati, solo`assert`, `buffer`, `crypto`,`util` и `path` sono inseriti nella lista bianca.

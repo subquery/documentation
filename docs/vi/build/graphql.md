@@ -2,26 +2,28 @@
 
 ## Xác định các thực thể
 
-` schema.graphql ` xác định các kiểu lược đồ ( hay còn gọi là schema) GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, về căn bản thì lược đồ (schema) sẽ chỉ ra dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách code bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+`schema.graphql` xác định các kiểu lược đồ ( hay còn gọi là schema) GraphQL khác nhau. Do cách thức hoạt động của ngôn ngữ truy vấn GraphQL, về căn bản thì lược đồ (schema) sẽ chỉ ra dạng dữ liệu của bạn từ SubQuery. Để tìm hiểu thêm về cách code bằng ngôn ngữ lược đồ GraphQL, chúng tôi khuyên bạn nên xem [Schemas and Types](https://graphql.org/learn/schema/#type-language).
 
 **Chú ý: Khi thực hiện bất kỳ thay đổi nào đối với tệp schema, bạn phải tạo thư mục types của mình bằng lệnh `yarn codegen`**
 
 ### Các thực thể
+
 Mỗi thực thể phải định nghĩa các trường bắt buộc `id` với kiểu `ID!`. Nó được sử dụng làm khóa chính và là độc nhất trong số tất cả các thực thể cùng loại.
 
 Các trường không thể để trống trong thực thể được biểu thị bằng `!`. Xem ví dụ dưới đây để rõ hơn:
 
 ```graphql
 type Example @entity {
-  id: ID! # trường id luôn là bắt buộc và phải trông như thế này 
+  id: ID! # trường id luôn là bắt buộc và phải trông như thế này
   name: String! # Đây là một trường bắt buộc
-  address: String # Đây là một trường tùy chọn 
+  address: String # Đây là một trường tùy chọn
 }
 ```
 
 ### Các kiểu dữ liệu vô hướng và các kiểu types được SubQuery hỗ trợ:
 
 Hiện tại, SubQuery hỗ trợ các kiểu dữ liệu sau:
+
 - `ID`
 - `Int`
 - `String`
@@ -44,15 +46,16 @@ Tuy nhiên, chúng tôi không cho phép người dùng thêm chú thích `@inde
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # biến độc nhất, có thể được đặt thành true hoặc false 
+  name: String! @index(unique: true) # biến độc nhất, có thể được đặt thành true hoặc false
   title: Title! # Chỉ mục được tự động thêm vào trường khóa ngoại (foreign key)
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 Giả sử chúng tôi biết tên của người dùng này, nhưng chúng tôi không biết giá trị id chính xác, thay vì trích xuất tất cả người dùng và sau đó lọc theo tên, chúng tôi có thể thêm `@index` vào phía sau trường tên. Điều này làm cho việc truy vấn nhanh hơn nhiều và chúng tôi cũng có thể chuyển `unique: true` để đảm bảo tính độc nhất.
 
 **Nếu một trường không phải là duy nhất, kích thước danh sách kết quả tối đa là 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Xử lý trong hàm ánh xạ
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // Danh sách tất cả các Captain
 ```
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### Mối quan hệ nhiều-nhiều
+
 Có thể triển khai một mối quan hệ nhiều - nhiều bằng cách triển khai một thực thể ánh xạ để kết nối hai thực thể.
 
 Ví dụ: Mỗi người (person) là một thành viên của nhiều nhóm (PersonGroup) và nhiều nhóm (groups) có nhiều người khác nhau (PersonGroup).
@@ -200,16 +204,18 @@ type Transfer @entity {
 Chúng tôi đang hỗ trợ lưu dữ liệu dưới dạng JSON, đây là một cách nhanh chóng để lưu trữ dữ liệu có cấu trúc. Chúng tôi sẽ tự động tạo các giao diện JSON tương ứng để truy vấn dữ liệu này và giúp bạn tiết kiệm thời gian xác định và quản lý các thực thể.
 
 Chúng tôi khuyên người dùng sử dụng kiểu dữ liệu JSON trong các trường hợp sau:
+
 - Khi lưu trữ dữ liệu có cấu trúc trong một trường sẽ dễ quản lý hơn so với việc tạo nhiều thực thể riêng biệt.
 - Lưu khóa tùy chọn/giá trị tùy ý của người dùng (trong đó giá trị có thể là boolean, văn bản hoặc số, và bạn không muốn có các cột riêng biệt cho các kiểu dữ liệu khác nhau)
 - Lược đồ dễ thay đổi và thay đổi thường xuyên
 
 ### Định nghĩa theo JSON
+
 Định nghĩa thuộc tính dưới dạng JSON bằng cách thêm chú thích `jsonField` trong thực thể. Thao tác này sẽ tự động tạo giao diện cho tất cả các đối tượng JSON trong dự án của bạn dưới `type/interface.ts` và bạn có thể truy cập chúng trong hàm ánh xạ của mình.
 
 Không giống như thực thể, đối tượng chỉ thị jsonField không yêu cầu bất kỳ trường `id` nào. Một đối tượng JSON cũng có thể lồng ghép với các đối tượng JSON khác.
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
   street: String!
   district: String!
@@ -221,29 +227,23 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Store a list of JSON objects
 }
-````
+```
 
 ### Truy vấn các trường JSON
 
 Hạn chế của việc sử dụng các kiểu JSON là ảnh hưởng đến tính hiệu quả của truy vấn khi lọc, vì mỗi lần thực hiện tìm kiếm văn bản, nó sẽ tìm trên toàn bộ thực thể.
 
-Tuy nhiên, sự hạn chế  đó là không đáng kể, và vẫn có thể chấp nhận được trong dịch vụ truy vấn của chúng tôi. Dưới đây là ví dụ về cách sử dụng toán tử `contains` trong truy vấn GraphQL trên trường JSON để tìm 5 người dùng đầu tiên sở hữu số điện thoại có chứa '0064'.
+Tuy nhiên, sự hạn chế đó là không đáng kể, và vẫn có thể chấp nhận được trong dịch vụ truy vấn của chúng tôi. Dưới đây là ví dụ về cách sử dụng toán tử `contains` trong truy vấn GraphQL trên trường JSON để tìm 5 người dùng đầu tiên sở hữu số điện thoại có chứa '0064'.
 
 ```graphql
 # Để tìm 5 số điện thoại của người dùng đầu tiên có chứa '0064'.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

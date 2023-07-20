@@ -7,6 +7,7 @@
 **สำคัญ: เมื่อคุณทำการเปลี่ยนแปลงใดๆ กับไฟล์ Schema โปรดตรวจสอบให้แน่ใจว่าคุณได้สร้างโฟลเดอร์ Types ของคุณใหม่ด้วยคำสั่ง `yarn codegen`**
 
 ### Entitiy
+
 แต่ละ Entity จะต้องนิยามฟิลด์ที่จำเป็น `id` ด้วย Type ของ `ID!` สิ่งนี้จะถูกใช้เป็น Primary Key และไม่ซ้ำกันกับ Entity ทั้งหมดที่มี Type เดียวกัน
 
 ฟิลด์ที่ไม่สามารถกำหนดค่า Null ได้ (Non-nullable Field) จะมีเครื่องหมาย `!` กำกับไว้ สามารถดูตัวอย่างโค้ดได้ด้านล่าง:
@@ -22,6 +23,7 @@ type Example @entity {
 ### Scalar และ Type ที่รองรับ
 
 ขณะนี้เรารองรับ Scalars Type ดังนี้:
+
 - `ID`
 - `Int`
 - `String`
@@ -49,10 +51,11 @@ type User @entity {
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 สมมุติว่าเรารู้ชื่อของผู้ใช้งานแต่เราไม่รู้ค่า Id ที่แน่ชัด แทนที่จะดึงข้อมูลผู้ใช้งานทั้งหมดและกรองตามชื่อ เราสามารถเพิ่ม `@index` หลัง Name Field ได้ วิธีนี้ทำให้การดึงข้อมูลนั้นเร็วกว่ามาก และเราสามารถเพิ่ม `unique: true` เพื่อการันตีว่าข้อมูลนั้นไม่เหมือนกัน
 
 **หากแต่ละฟิลด์นั้นไม่ซ้ำกัน จำนวนผลลัพท์สูงสุดจะถูกตั้งไว้ที่ 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Handler ในฟังก์ชัน Mapping
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // รายการของกัปตันทั้งหมด
 ```
@@ -121,7 +124,7 @@ type Passport @entity {
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field
 }
 
 type Account @entity {
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### ความสัมพันธ์แบบ Many-to-Many
+
 ความสัมพันธ์แบบ Many-to-Many สามารถได้รับด้วยการใช้งาน Mapping Entity เพื่อเชื่อมต่อกับ Entity อื่นอีกสองอัน
 
 ตัวอย่าง: แต่ละคนสามารถเป็นส่วนหนึ่งของหลายๆ กลุ่ม (PersonGroup) และกลุ่มสามารถมีหลายๆ คนที่ต่างกันได้ (PersonGroup)
@@ -202,16 +206,18 @@ type Transfer @entity {
 เรารองรับการเซฟข้อมูลในรูปแบบของ JSON ซึ่งเป็นวิธีที่รวดเร็วในการเก็บข้อมูลที่มีโครงสร้างชัดเจน เราจะสร้างอินเทอร์เฟซของ JSON ที่สอดคล้องโดยอัตโนมัติ เพื่อการดึงข้อมูลนี้ และช่วยประหยัดเวลาในการนิยามและจัดการกับ Entity
 
 เราแนะนำให้ผู้ใช้งานใช้ JSON สำหรับกรณีดังต่อไปนี้:
+
 - เมื่อทำการกักเก็บข้อมูลที่มีโครงสร้างชัดเจนในฟิลด์เดี่ยวนั้นสามารถจัดการได้ง่ายกว่าการสร้าง Entity หลายอันที่แยกกันไป
 - การบันทึก คีย์/ค่า ใดก็ตามที่ผู้ใช้งานต้องการ (โดยค่านั้นสามารถเป็น Boolean ลายลักษณ์อักษร หรือ ตัวเลข และคุณไม่ต้องการที่จะมีคอลลัมน์แยกสำหรับ Type ของข้อมูลต่างๆ)
 - Schema นั้นมีการเปลี่ยนแปลงที่บ่อยและไม่แน่นอน
 
 ### การนิยามคำสั่ง JSON
+
 กำหนดคุณสมบัติเป็น JSON ด้วยการเพิ่ม `jsonField` ไว้ใน Entity วิธีการนี้จะสร้างรูปแบบการเชื่อมต่อโดยอัตโนมัติสำหรับ JSON Object ในโปรเจคภายใต้ `types/interfaces.ts` และคุณสามารถเข้าถึงมันด้วยฟงัก์ชัน Mapping ของคุณ
 
 คำสั่งจาก Object ของ jsonField ไม่ต้องการ Field `id` ซึ่งแตกต่างจาก Entity JSON Object ยังสามารถซ้อนกับ JSON Object อื่นๆ ได้อีกด้วย
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
   street: String!
   district: String!
@@ -223,10 +229,10 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # เก็บรายการของ JSON Object
 }
-````
+```
 
 ### การดึงข้อมูลจาก JSON Field
 
@@ -237,15 +243,9 @@ type User @entity {
 ```graphql
 # เพื่อหาผู้ใช้งาน 5 คนแรกที่มีเบอร์มือถือที่มี '0064'
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

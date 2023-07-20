@@ -9,7 +9,7 @@
 
 ## Introduction
 
-In order to debug SubQuery projects such as stepping through code, setting breakpoints, and inspecting variables, you will have to use a Node.js inspector in conjunction with Chrome developer tools. 
+In order to debug SubQuery projects such as stepping through code, setting breakpoints, and inspecting variables, you will have to use a Node.js inspector in conjunction with Chrome developer tools.
 
 ## Node inspector
 
@@ -20,6 +20,7 @@ node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
 For example:
+
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
 Debugger listening on ws://127.0.0.1:9229/56156753-c07d-4bbe-af2d-2c7ff4bcc5ad
@@ -33,6 +34,6 @@ Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on t
 
 ![node inspect](/assets/img/node_inspect.png)
 
-Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool. 
+Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
 
 ![debugging projects](/assets/img/debugging_projects.png)

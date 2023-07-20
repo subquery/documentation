@@ -17,6 +17,7 @@ Nếu một Người lập chỉ mục có hành vi sai trái (chẳng hạn nh�
 ## Người lập chỉ mục được thưởng như thế nào?
 
 Người lập chỉ mục được thưởng trong SQT theo hai cách:
+
 - Phần thưởng từ pool phần thưởng SQT dựa trên phân phối được xác định bởi Hàm Sản xuất Cobb-Douglas.
 - Phần thưởng phí truy vấn SQT trực tiếp từ các Thỏa thuận kín mà người lập chỉ mục là bên tham gia.
 

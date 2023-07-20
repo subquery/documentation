@@ -31,16 +31,22 @@ This tutorial will use Certbot + NGINX + Ubuntu as an example.
 Check [https://certbot.eff.org/instructions](https://certbot.eff.org/instructions) on how to do this step
 
 #### 3.2 Install & Config NGINX
+
 ##### 3.2.1 Install Nginx
-We will use nginx for two purpose. 
+
+We will use nginx for two purpose.
+
 1. Listen on port 80 to allow Let's encrypt to verify your domain name.
 2. As a reverse proxy to forward traffic from port 443 (https) to indexer-proxy.
+
 ```shell
 sudo apt install -y nginx
 ```
 
 ##### 3.2.2 Reconfig indexer-proxy
-In the default settings, indexer-proxy listen on port 80, now we need to change it to 1080. 
+
+In the default settings, indexer-proxy listen on port 80, now we need to change it to 1080.
+
 ```shell
 # docker-compose.yml
 proxy:
@@ -61,11 +67,15 @@ proxy:
       - --token-duration=24                                 # query auth token validity [hours]
       - --redis-endpoint=redis://indexer_cache
 ```
+
 then restart the indexer-proxy container
+
 ```shell
 docker-compose up -d
 ```
+
 ##### 3.2.3 Config NGINX
+
 Edit your NGINX configuration to add the following (e.g. it would usually be at `/etc/nginx/sites-available/proxy.mysqindexer.com`)
 
 ```shell
@@ -87,7 +97,9 @@ sudo ln -s /etc/nginx/sites-available/proxy.mysqindexer.com /etc/nginx/sites-ena
 ```
 
 Then finish configuration.
+
 ##### 3.2.3 Run certbot
+
 ```bash
 # run certbot
 sudo certbot --nginx -d proxy.mysqindexer.com

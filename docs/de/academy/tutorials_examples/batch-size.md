@@ -38,4 +38,4 @@ In diesem Beispiel wird die Batchgröße auf 50 festgelegt.
 
 ## Warum die Batchgröße ändern?
 
-Die Verwendung einer kleineren Batchgröße kann die Speichernutzung reduzieren und Benutzer nicht für große Abfragen hängen lassen. Mit anderen Worten, Ihre Anwendung kann reaktionsschneller sein. 
+Die Verwendung einer kleineren Batchgröße kann die Speichernutzung reduzieren und Benutzer nicht für große Abfragen hängen lassen. Mit anderen Worten, Ihre Anwendung kann reaktionsschneller sein.

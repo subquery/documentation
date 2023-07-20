@@ -1,8 +1,7 @@
 # 相关术语
 
 ![terminology
-](/assets/img/terminology.png
-)
+](/assets/img/terminology.png)
 
 ## **分配（Allocating）**
 
@@ -64,4 +63,4 @@
 
 ## **锁定期限（Lock period）**
 
-代币等待退还的期间。 在此期间，代币不会获得任何奖励。 目前，锁定期限是28天。
+代币等待退还的期间。 在此期间，代币不会获得任何奖励。 目前，锁定期限是 28 天。

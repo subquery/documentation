@@ -83,8 +83,8 @@ Before clicking **`Add Project`,** you will need to obtain the project's deploym
 
 The following projects are available for indexing on the Kepler network. Some projects have a backup restore provided.
 
-| Network    | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
-| ---------  | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
+| Network   | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
+| --------- | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
 | Polygon   | Kepler Network Project  | `QmUVXKjcsYkS6WfJQfeD7juDbnMWCuo5qKgRRo893LajE2` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Polygon   | Kepler Airdrop Project  | `QmUwTD5dqQRRFcMCihJ4HHnMPfEvRpKpcFvGcTJjBpGg9T` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Polygon   | Kepler Exchange Project | `QmV6sbiPyTDUjcQNJs2eGcAQp2SMXL2BU6qdv5aKrRr7Hg` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |

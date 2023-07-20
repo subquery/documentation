@@ -40,7 +40,6 @@ Setelah Anda mengirim melalui aplikasi, kami akan memilih kandidat yang sesuai d
 
 Setelah Anda lulus program pelatihan, Anda dapat menyebut diri Anda sebagai duta besar SubQuery dan akan diterima dalam program penuh kami. Dari sini Anda dapat terus bekerja melalui program dan naik tingkatan, mendapatkan lebih banyak hadiah dan keuntungan saat Anda naik peringkat.
 
-
 ## Aktivitas Ambassador
 
 Duta SubQuery dapat berkontribusi melalui empat bidang utama, termasuk manajemen acara, pembuatan konten, terjemahan, dan moderasi komunitas. Anda dapat berpartisipasi di sebanyak mungkin bidang yang Anda inginkan, Anda tidak terikat pada satu bidang saja.

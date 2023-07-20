@@ -9,7 +9,7 @@
 
 ### Exercise
 
-In these exercises, we will take the starter project and focus on understanding a popular one to many entity relationships. We will create a project that allows us to query for accounts and determine how much was transferred to what receiving address. 
+In these exercises, we will take the starter project and focus on understanding a popular one to many entity relationships. We will create a project that allows us to query for accounts and determine how much was transferred to what receiving address.
 
 ### Pre-requisites
 
@@ -26,10 +26,10 @@ Completion of Module 2
 5. Query for address balances in the playground
 
 ### Detailed steps
+
 #### Step 1: Initialize your project
 
 The first step in creating a SubQuery project is to create a project with the following command:
-
 
 ```
 ~/Code/subQuery$ subql init
@@ -37,13 +37,13 @@ Project name [subql-starter]: balances-transfers
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
-Description [This project can be use as a starting po...]: 
-Version [0.0.4]: 
-License [MIT]: 
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
 Preparing project... done
 balances-transfers is ready
 ```
@@ -52,7 +52,7 @@ balances-transfers is ready
 
 Create an entity called “Account”. This account will contain multiple transfers. An account can be thought of as a Polkadot address owned by someone.
 
-Transfers can be thought of  as a transaction with an amount, a sender and a receiver. (Let’s ignore the sender for now). Here, we will obtain the amount transferred, the blockNumber and who it was sent to, which is also known as the receiver. The schema file should look like this:
+Transfers can be thought of as a transaction with an amount, a sender and a receiver. (Let’s ignore the sender for now). Here, we will obtain the amount transferred, the blockNumber and who it was sent to, which is also known as the receiver. The schema file should look like this:
 
 ```
 type Account @entity {
@@ -69,8 +69,7 @@ type Transfer @entity {
 
 #### Step 3: Update the manifest file (aka project.yaml)
 
-Update the manifest file to only include the handleEvent handler and update the filter method to Transfer. This is because we only want to work with balance transfer events which will contain the data for transactions being transferred from one account to another. 
-
+Update the manifest file to only include the handleEvent handler and update the filter method to Transfer. This is because we only want to work with balance transfer events which will contain the data for transactions being transferred from one account to another.
 
 ```
 specVersion: 0.2.0
@@ -99,23 +98,21 @@ dataSources:
             method: Transfer
 ```
 
-
 Also note the inclusion of a dictionary also.
-
 
 #### Step 4: Update the mappings file
 
-The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. As we are only focusing on handleEvent, delete the remaining functions. 
+The initialisation command pre-creates a sample mappings file with 3 functions, handleBlock, handleEvent and handleCall. As we are only focusing on handleEvent, delete the remaining functions.
 
 We also need to make a few other changes. Firstly, we need to understand that the balance.transfer event provides access to an array of data in the following format: [from, to, value]. This means we can access the values as follows:
 
 ```
     const fromAddress = event.event.data[0];
-    const toAddress = event.event.data[1]; 
+    const toAddress = event.event.data[1];
     const amount = event.event.data[2];
 ```
 
-Next, because the Account entity (formally called the StarterEntity), was instantiated in the handleBlock function and we no longer have this, we need to instantiate this within our handleEvent function. However, we need to first test to see if this value is already in our database. This is because an event can contain multiple transfers to the SAME toAddress. 
+Next, because the Account entity (formally called the StarterEntity), was instantiated in the handleBlock function and we no longer have this, we need to instantiate this within our handleEvent function. However, we need to first test to see if this value is already in our database. This is because an event can contain multiple transfers to the SAME toAddress.
 
 So we get the toAddress and if it does not exist, we save it to the database.
 
@@ -145,9 +142,9 @@ import {Balance} from "@polkadot/types/interfaces";
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
     // The balances.transfer event has the following payload \[from, to, value\] that we can access
-    
+
     // const fromAddress = event.event.data[0];
-    const toAddress = event.event.data[1]; 
+    const toAddress = event.event.data[1];
     const amount = event.event.data[2];
 
        // query for toAddress from DB
@@ -156,7 +153,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
        if (!toAccount) {
            await new Account(toAddress.toString()).save();
        }
-    
+
     // instantiate a new Transfer object using the block number and event.idx as a unique ID
     const transfer = new Transfer(`${event.block.block.header.number.toNumber()}-${event.idx}`, );
     transfer.blockNumber = event.block.block.header.number.toBigInt();
@@ -206,13 +203,13 @@ docker-compose pull && docker-compose up
 
 #### Step 8: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000).
 
-This will open up a “playground” where you can create your query. Copy the example below. 
+This will open up a “playground” where you can create your query. Copy the example below.
 
 ```
 query{
-  accounts(first: 3){  
+  accounts(first: 3){
     nodes{
       id
     }
@@ -284,7 +281,7 @@ This will return the following:
 }
 ```
 
-The magic lies in the ability to query the account id from within the transfer query. The example below shows that we are querying for transfers where we have an associated amount and blockNumber, but we can then link this to the receiving or “to” address as follows: 
+The magic lies in the ability to query the account id from within the transfer query. The example below shows that we are querying for transfers where we have an associated amount and blockNumber, but we can then link this to the receiving or “to” address as follows:
 
 ```
 query{
@@ -338,16 +335,15 @@ The query above returns the following results:
 }
 ```
 
-Looking at the database schema also helps us understand what is happening. The accounts table is a standalone table containing just receiving addresses (accounts.id). The transfer table contains “to_id” which is links or points back to accounts. 
+Looking at the database schema also helps us understand what is happening. The accounts table is a standalone table containing just receiving addresses (accounts.id). The transfer table contains “to_id” which is links or points back to accounts.
 
-In other words, one account links to many transfers or more verbosely stated, each unique Polkadot address that is stored in accounts.id links to one or more than one Polkadot address that has an associated amount and block number. 
-
+In other words, one account links to many transfers or more verbosely stated, each unique Polkadot address that is stored in accounts.id links to one or more than one Polkadot address that has an associated amount and block number.
 
 ### References
 
-* [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
-* [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
-* [One-to-many relationships](/build/graphql/#one-to-one-relationships)
+- [Account Transfers PDF workbook](/assets/pdf/Account_Transfers.pdf)
+- [Account Transfers Github](https://github.com/subquery/tutorials-account-transfers)
+- [One-to-many relationships](/build/graphql/#one-to-one-relationships)
 
 ## Lesson 2: Many to many entities
 
@@ -358,7 +354,7 @@ In other words, one account links to many transfers or more verbosely stated, ea
 
 ### Exercise
 
-Here we will take the starter project and focus on understanding how many-to-many relationships work. We will create a project that allows us to query for the number of votes that councillors have made and how many votes a given proposal has received. 
+Here we will take the starter project and focus on understanding how many-to-many relationships work. We will create a project that allows us to query for the number of votes that councillors have made and how many votes a given proposal has received.
 
 To learn more about the Polkadot governance structure, please refer to: [https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/](https://polkadot.network/blog/a-walkthrough-of-polkadots-governance/)
 
@@ -376,7 +372,6 @@ Completion of Module 2
 4. Deploy your code in Docker
 5. Query for address balances in the playground
 
-
 ### Detailed steps
 
 #### Step 1: Initialize your project
@@ -389,40 +384,39 @@ Project name [subql-starter]: council-proposal
 ? Select a network Polkadot
 ? Select a template project subql-starter     Starter project for subquery
 Cloning project... done
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]: 
-Git repository [https://github.com/subquery/subql-starter]: 
+RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
+Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: 
-Description [This project can be use as a starting po...]: 
-Version [0.0.4]: 
-License [MIT]: 
+Author [Ian He & Jay Ji]:
+Description [This project can be use as a starting po...]:
+Version [0.0.4]:
+License [MIT]:
 Preparing project... done
 council-proposal is ready
 ```
 
 #### Step 2: Update the graphql schema
 
-Let’s first create an entity called “Proposals”. This proposal is an event of type council. In other words, we are interested in extracting data from the council event. Visit [https://polkadot.js.org/docs/substrate/events#council](https://polkadot.js.org/docs/substrate/events#council) for more information. 
+Let’s first create an entity called “Proposals”. This proposal is an event of type council. In other words, we are interested in extracting data from the council event. Visit [https://polkadot.js.org/docs/substrate/events#council](https://polkadot.js.org/docs/substrate/events#council) for more information.
 
 Within the council event, we are going to focus on the “proposed” method. The proposed method is defined as:
 
 _“ A motion (given hash) has been proposed (by given account) with a threshold (given MemberCount). [account, proposal_index, proposal_hash, threshold]” - [source](https://polkadot.js.org/docs/substrate/events#proposedaccountid32-u32-h256-u32)_
 
-We can therefore add the following fields: id, index, hash, voteThreshold and block to our entity. 
-            id => _account_
-            index => _proposal_index_
-            hash => _proposal_hash_
-            voteThreshold => _threshold_
-            block => _Not part of proposed method but useful to extract_
+We can therefore add the following fields: id, index, hash, voteThreshold and block to our entity.
+id => _account_
+index => _proposal_index_
+hash => _proposal_hash_
+voteThreshold => _threshold_
+block => _Not part of proposed method but useful to extract_
 
-Next, let’s create an entity object called Councillor. This object will simply hold the number of votes each councillor has made. 
+Next, let’s create an entity object called Councillor. This object will simply hold the number of votes each councillor has made.
 
 Finally, let’s create a VoteHistory entity. This will be another [council event](https://polkadot.js.org/docs/substrate/events#council) using the [voted](https://polkadot.js.org/docs/substrate/events#votedaccountid32-h256-bool-u32-u32) method defined as:
 
 _“A motion (given hash) has been voted on by a given account, leaving a tally (yes votes and no votes given respectively as MemberCount). [account, proposal_hash, voted, yes, no]”_
 
-We can therefore add the following fields: id, proposalHash, approvedVote, councillor, votedYes, votedNo, and block to our entity. 
-
+We can therefore add the following fields: id, proposalHash, approvedVote, councillor, votedYes, votedNo, and block to our entity.
 
             id => _account_
             **proposalHash => Proposal**
@@ -432,14 +426,13 @@ We can therefore add the following fields: id, proposalHash, approvedVote, counc
             votedNo => _no_
             block => _Not part of proposed method but useful to extract_
 
-Note that for proposalHash, we are specifying the type as the proposal entity. We also introduced a new field called Councillor and gave that a type of Councillor. What this has effectively done is created a table where these two columns are references to their respective tables. 
+Note that for proposalHash, we are specifying the type as the proposal entity. We also introduced a new field called Councillor and gave that a type of Councillor. What this has effectively done is created a table where these two columns are references to their respective tables.
 
-This means that the VoteHistory entity or VoteHistory database table can link the Councillor entity to the Proposal entity thereby creating what can be considered as a many to many relationship. 
+This means that the VoteHistory entity or VoteHistory database table can link the Councillor entity to the Proposal entity thereby creating what can be considered as a many to many relationship.
 
-A councillor can vote for many proposals and a proposal will have many votes is effectively what this all means. 
+A councillor can vote for many proposals and a proposal will have many votes is effectively what this all means.
 
 The schema file should look like this:
-
 
 ```
 type Proposal @entity {
@@ -469,8 +462,7 @@ type Councillor @entity {
 
 #### Step 3: Update the manifest file (aka project.yaml)
 
-Update the manifest file to only include two Event handlers and update the filter method to council/Proposed and council/Voted. 
-
+Update the manifest file to only include two Event handlers and update the filter method to council/Proposed and council/Voted.
 
 ```
 specVersion: 0.2.0
@@ -510,7 +502,7 @@ dataSources:
 
 This mappings file will contain three functions. Let’s call the first function “handleCouncilProposedEvent”.
 
-We can access the values of the event with the following code: 
+We can access the values of the event with the following code:
 
 ```
   const {
@@ -522,13 +514,11 @@ We can access the values of the event with the following code:
 
 Then we instantiate a new Proposal object,
 
-
 ```
   const proposal = new Proposal(proposal_hash.toString());
 ```
 
-and then assign each of the events to a variable in the Proposal object and save it. 
-
+and then assign each of the events to a variable in the Proposal object and save it.
 
 ```
   proposal.index = proposal_index.toString();
@@ -551,7 +541,7 @@ const {
   } = event;
 ```
 
-but before storing the values into the voteHistory object, a helper function is used to check if the councillorId already exists. 
+but before storing the values into the voteHistory object, a helper function is used to check if the councillorId already exists.
 
 ```
   await ensureCouncillor(councilorId.toString());
@@ -565,7 +555,6 @@ but before storing the values into the voteHistory object, a helper function is 
 
 This helper function checks if the councillor entity exists. If it does NOT exist, a new one is created and the number of votes is set to zero. Otherwise, the number of votes is incremented by one.
 
-
 ```
 async function ensureCouncillor(accountId: string): Promise<void> {
   // ensure that our account entities exist
@@ -577,6 +566,7 @@ async function ensureCouncillor(accountId: string): Promise<void> {
   councillor.numberOfVotes += 1;
   await councillor.save();
 ```
+
 The complete mapping files look like the following:
 
 ```
@@ -652,7 +642,6 @@ npm install
 
 Next, we will generate the associated typescript with the following command:
 
-
 ```
 yarn codegen
 ```
@@ -689,9 +678,9 @@ docker-compose pull && docker-compose up
 
 #### Step 9: Run a query
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [localhost:3000](http://localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [localhost:3000](http://localhost:3000).
 
-This will open up a “playground” where you can create your query. Copy the example below. 
+This will open up a “playground” where you can create your query. Copy the example below.
 
 ```
 query {
@@ -700,7 +689,7 @@ query {
             id
             numberOfVotes
             voteHistories (first: 5) {
-              totalCount 
+              totalCount
               nodes {
                 approvedVote
               }
@@ -797,7 +786,7 @@ This will query the councillors, and for each councillor return the number of vo
 
 ### Bonus
 
-Including a reverse lookup on the schema file will allow us to customise the fields that we can query on. 
+Including a reverse lookup on the schema file will allow us to customise the fields that we can query on.
 
 ```
 type Proposal @entity {
@@ -831,9 +820,9 @@ By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
 
 ### References
 
-* [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
-* [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
-* [Many-to-many relationships](/build/graphql/#many-to-many-relationships)
+- [Council Proposal PDF workbook](/assets/pdf/Council_Proposal.pdf)
+- [Council Proposal Github](https://github.com/subquery/tutorials-council-proposals)
+- [Many-to-many relationships](/build/graphql/#many-to-many-relationships)
 
 ## Lesson 3: Reverse lookups
 
@@ -844,7 +833,7 @@ By adding voteHistory_p and voteHistory_b, voteHistories becomes voteHistory_c
 
 ### Exercise
 
-In this lab, we will take the starter project and focus on understanding what reverse lookups are. 
+In this lab, we will take the starter project and focus on understanding what reverse lookups are.
 
 ### Pre-requisites
 
@@ -855,7 +844,7 @@ Completion of Module 3: Lesson 2 - One to many entities.
 ### High level steps
 
 1. Git clone the tutorials-account-transfers project
-2. Run it to ensure it is working 
+2. Run it to ensure it is working
 3. Add a new field in the schema and make it a reverse lookup
 4. Requery the project with this new “virtual” field as a reverse look up
 
@@ -863,17 +852,15 @@ Completion of Module 3: Lesson 2 - One to many entities.
 
 #### Step 1: Clone Account Transfer project
 
-
 ```
 git clone https://github.com/subquery/tutorials-account-transfers
 ```
 
 Start by cloning the “tutorials-account-transfers” Github repository. This was the exercise for Module 3 - Lesson 2.
 
-#### Step 2: Confirm the project works. 
+#### Step 2: Confirm the project works.
 
 Run the basic commands to get the project up and running.
-
 
 ```
 yarn install
@@ -882,13 +869,13 @@ yarn build
 docker-compose pull && docker-compose up
 ```
 
-Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000). 
+Once the docker container is up and running, which could take a few minutes, open up your browser and navigate to [www.localhost:3000](www.localhost:3000).
 
-This will open up a “playground” where you can create your query. Copy the example below. 
+This will open up a “playground” where you can create your query. Copy the example below.
 
 ```
 query{
-  accounts(first: 3){  
+  accounts(first: 3){
     nodes{
       id
     }
@@ -918,7 +905,7 @@ This will query the account entity returning the id. We have defined the id here
 }
 ```
 
-As noted in a previous exercise, the magic lies in the ability to query the account id from within the transfer entity. The example below shows that we are querying for transfers where we have an associated amount and blockNumber, but we can then link this to the receiving or “to” address as follows: 
+As noted in a previous exercise, the magic lies in the ability to query the account id from within the transfer entity. The example below shows that we are querying for transfers where we have an associated amount and blockNumber, but we can then link this to the receiving or “to” address as follows:
 
 ```
 query{
@@ -974,10 +961,10 @@ The query above returns the following results:
 
 #### Step 3: Add a reverse lookup
 
-Add an extra field to the Account entity called myToAddress. Make this of type Transfer and add the @derived annotation. This is making a “virtual field” called myToAddress that can be accessed from the Account entity. It is virtual because the database table structure does not actually change. 
+Add an extra field to the Account entity called myToAddress. Make this of type Transfer and add the @derived annotation. This is making a “virtual field” called myToAddress that can be accessed from the Account entity. It is virtual because the database table structure does not actually change.
 
-* Allows you to do a reverse lookup in Graphql
-* Adds a GetElementByID() on the child entities
+- Allows you to do a reverse lookup in Graphql
+- Adds a GetElementByID() on the child entities
 
 ```
 type Account @entity {
@@ -1086,10 +1073,10 @@ You should get something similar to the following:
 ```
 
 [Reverse lookups](/create/graphql.md)
-Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress. 
+Adding the @derivedFrom keyword to the myToAddress field allows a “virtual” field to appear in the Account object. This can be seen in the documentation tab. This allows a “reverse lookup” where the Transfer.to field can be accessed from Account.myToAddress.
 
 ### References
 
-* [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
-* [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
-* [Reverse lookups](/create/graphql.md)
+- [Account Transfer with Reverse Lookups PDF Workbook](/assets/pdf/Account_Transfer_with_Reverse_Lookups)
+- [Account Transfer with Reverse Lookups Github](https://github.com/subquery/tutorials-account-transfer-reverse-lookups)
+- [Reverse lookups](/create/graphql.md)

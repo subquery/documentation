@@ -36,4 +36,4 @@ SubQuery 网络通过允许用户将项目基础架构完全去中心化，从�
 
 构建者是网络中运行的 SubQuery 项目的构建者。 他们编写并发布 SubQuery 项目，以便网络索引和运行。
 
-::: 信息注释 了解更多关于 [如何建立你的第一个SubQuery 项目](../build/introduction.md) :::
+::: 信息注释 了解更多关于 [如何建立你的第一个 SubQuery 项目](../build/introduction.md) :::

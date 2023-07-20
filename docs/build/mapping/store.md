@@ -26,8 +26,12 @@ export interface Store {
   bulkCreate(entity: string, data: Entity[]): Promise<void>;
   bulkUpdate(entity: string, data: Entity[], fields?: string[]): Promise<void>;
   remove(entity: string, id: string): Promise<void>;
-  count(entity: string, field?: string, value?: any, options?: {distinct?: boolean; col?: string}): Promise<number>;
-
+  count(
+    entity: string,
+    field?: string,
+    value?: any,
+    options?: { distinct?: boolean; col?: string }
+  ): Promise<number>;
 }
 ```
 
@@ -144,8 +148,6 @@ await store.remove(`StarterEntity`, id);
 This allows to remove a number of entities with their `ids`.
 
 ```typescript
-const ids = ['1', '2', '3'];
+const ids = ["1", "2", "3"];
 await store.remove(`StarterEntity`, ids);
 ```
-
-

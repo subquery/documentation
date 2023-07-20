@@ -38,4 +38,4 @@ Cet exemple définit la taille du lot à 50.
 
 ## Pourquoi changer la taille du lot ?
 
-L'utilisation d'une taille de lot plus petite peut réduire l'utilisation de la mémoire et ne pas laisser les utilisateurs en suspens pour les grandes requêtes. En d'autres termes, votre application peut être plus réactive. 
+L'utilisation d'une taille de lot plus petite peut réduire l'utilisation de la mémoire et ne pas laisser les utilisateurs en suspens pour les grandes requêtes. En d'autres termes, votre application peut être plus réactive.
