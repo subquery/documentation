@@ -40,7 +40,6 @@ Khi bạn đã gửi đơn đăng ký, chúng tôi sẽ chọn những ứng vi�
 
 Sau khi vượt qua chương trình thực tập sinh, bạn có thể tự gọi mình là đại sứ SubQuery và sẽ được nhận vào chương trình đầy đủ của chúng tôi. Từ đây trở đi, bạn có thể tiếp tục công việc thông qua chương trình đại sứ và thăng hạng dần dần, kiếm thêm nhiều phần thưởng và quyền lợi với mỗi lần thăng hạng.
 
-
 ## Các Hoạt động của Đại sứ
 
 Các Đại sứ SubQuery có thể đóng góp thông qua bốn lĩnh vực chính, bao gồm quản lý sự kiện, sáng tạo nội dung, dịch thuật và kiểm duyệt cộng đồng. Bạn có thể tham gia vào bao nhiêu lĩnh vực tùy thích, không bị ràng buộc vào bất kỳ lĩnh vực nào.
