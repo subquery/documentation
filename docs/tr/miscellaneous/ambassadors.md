@@ -40,7 +40,6 @@ Siz bir başvuru gönderdikten sonra, bizim değerlerimizle uyumlu olan adaylar�
 
 Stajyer programını başarıyla geçtikten sonra kendinize bir SubQuery elçisi olarak adlandırabilirsiniz. Bu aşamadan sonra tam programımıza kabul edileceksiniz. Bundan sonra program boyunca çalışmaya devam edebilir ve kademelerde ilerleyebilirsiniz. Bu kademelerde yukarıya doğru tırmandıkça daha fazla ödül ve avantaj elde edeceksiniz.
 
-
 ## Büyükelçi Aktiviteleri
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
