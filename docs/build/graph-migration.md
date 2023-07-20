@@ -6,7 +6,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **More flexibility** - SubQuery's mapping functions are written in TypeScript, and so you can import additional libraries, make external API calls, or do anything you want in order to retrieve and process your data.
 - **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, and more
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
-- **Multi-chain indexing support** - allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
+- **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to all you to run, monitor, and optimise your locally hosted project
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://kepler.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
