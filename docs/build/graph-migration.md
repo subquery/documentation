@@ -19,7 +19,7 @@ The migration from a SubGraph to a SubQuery Project is (by design) easy and quic
 
 **Want Support During Migration?**
 
-Reach out to our team at [sales@subquery.network](mailto:sales@subquery.network) and get professional service to manage the migration for you.
+Reach out to our team at [sales@subquery.network](mailto:sales@subquery.network) and get a professional service to manage the migration for you.
 
 :::
 
