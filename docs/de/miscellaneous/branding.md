@@ -8,7 +8,7 @@ Im Zweifel bitte nachfragen!
 
 ## Exportierbare Figma-Datei
 
-Unsere Figma-Datei enthält eine vollständige Sammlung aller Markenelemente (Logos, Schriftarten, Farben, Bilder usw.) zum Exportieren.
+Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
 
 [Figma - SubQuery Markenressourcen](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
