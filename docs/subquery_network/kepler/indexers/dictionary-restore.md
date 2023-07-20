@@ -15,8 +15,8 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 | Moonriver | `QmXCr6uZFdY1YcGTa4u6ZieQPXK4VHE1Pjy7CBr7ubFwKR` | ~130GB        | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/moonriver/moonriver.tar) | `db22b7565d8fea385a9e69636eb805079bf6708e898296f27673bc2b4d7a476d` |
 | Acala     | `Qmarrhgrpqw5VK71rMtb4GARpPvq8ajMjAqnjnWZFLV61N` | ~10G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/acala/acala.tar)         | `4f0d8105f45ca856c57fa5f87d102e398e1e99403612c077750cb07bc9839c0d` |
 | Karura    | `QmWumrabg4k6t4EUMhQg19xWwcxGq1hWbcmfmRYiy2Bod5` | ~10G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/karura/karura.tar)       | `046674efb30cdc7ab61b1e834201ac125548e0fafb5f6b69e321a9ddf7b06ae9` |
-| Arbitrum  | `QmPKMkqTe7UMRPZWxuD8dFgufjKzWQEeW84Qo1x1X8VVLR` | ~240G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/arbitrum/arbitrum.tar)       | `046674efb30cdc7ab61b1e834201ac125548e0fafb5f6b69e321a9ddf7b06ae9` |
-| Optimism  | `QmPuHdLxTQHEAitgLe9Sg1Jnr1WwJASDRSL5RUzBe3NywV` | ~250G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/optimism/optimism.tar)       | `046674efb30cdc7ab61b1e834201ac125548e0fafb5f6b69e321a9ddf7b06ae9` |
+| Arbitrum  | `QmPKMkqTe7UMRPZWxuD8dFgufjKzWQEeW84Qo1x1X8VVLR` | ~240G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/arbitrum/arbitrum.tar)       | `466bd2af217941c4d69cf7bbb00e258acbf6cc2a551f8d3e19fce22b8db8db2b` |
+| Optimism  | `QmPuHdLxTQHEAitgLe9Sg1Jnr1WwJASDRSL5RUzBe3NywV` | ~250G          | [S3 URL](https://kepler-dictionary-projects.s3.ap-southeast-2.amazonaws.com/optimism/optimism.tar)       | `d5bc1ae0739214df6d2effff837e2bdcdc342eb56ca4609aab739787f6d6027a` |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
 
