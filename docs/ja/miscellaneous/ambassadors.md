@@ -40,7 +40,6 @@ SubQueryでは、私たちがやっていることを達成するために懸命
 
 研修生プログラムに合格すると、SubQueryアンバサダーを名乗ることができ、正式なプログラムへの参加も認められます。 ここから先はプログラムを継続し、ランクアップしていくことで、より多くの報酬や特典を得ることができます。
 
-
 ## アンバサダーの活動
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
