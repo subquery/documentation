@@ -9,6 +9,7 @@ SubQuery基金会是实现对SubQuery网络所有权分散的第一步。
 SubQuery网络将由SubQuery基金会管理。 SubQuery 基金会将是一个专门为服务、管理和开发 SubQuery 网络并为用户和开发者参与提供支持而创建的非营利实体。
 
 基金会预计将具有以下任务：
+
 - 开发和更新SubQuery网络.
 - 管理和分配来自基金会财务处的资产.
 - 管理SubQuery赠款方案，以刺激生态系统和网络发展.
