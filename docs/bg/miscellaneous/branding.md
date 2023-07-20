@@ -8,7 +8,7 @@
 
 ## Експортируем файл Figma
 
-Нашият файл Figma съдържа пълна колекция от всички активи на марката (лого, шрифтове, цветове, изображения и т.н.) с възможност за експорт.
+Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
 
 [Figma - Ресурси за бранда SubQuery](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
 
