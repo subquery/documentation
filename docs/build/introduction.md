@@ -41,7 +41,7 @@ For example:
 
 The Manifest `project.yaml` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
 
-The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/polkadot.md) of what it looks like:
+The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/ethereum.md) of what it looks like:
 
 ```yml
 specVersion: 1.0.0
@@ -92,11 +92,8 @@ For more information, please check the full documentation about [Manifest File](
 The schema.graphql file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
 
 1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required id field with the type of ID!, serving as the unique primary key.
-
-2. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
-
-3. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
-
+2. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
 Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
@@ -108,6 +105,7 @@ User entity: Stores basic user data.
 """
 type User @entity {
   id: ID!
+  # To define a simple user type with a uniqueness constraint on the username, you simply add the @unique directive to the username field.
   name: String! @index(unique: true)
   email: String @index
   createdDate: Date
@@ -135,6 +133,11 @@ type Post @entity {
   author: User @index
 }
 ```
+::: tip
+
+The comments put in the GraphQL schema are automatically converted into sentences included in the docs of your GraphQL playground.
+
+:::
 
 ## Code Generation
 
@@ -177,11 +180,11 @@ Mapping functions are crucial to the transformation of chain data into GraphQL e
 
 In general (bar some exceptions), there are three primary types of mapping functions:
 
-1. [Block Handlers](mapping/polkadot.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
+1. [Block Handlers](mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
 
-2. [Event Handlers](mapping/polkadot.md#event-handler): These are used to capture information when certain events occur in a new block. These events may trigger the mapping, allowing data source activity to be captured.
+2. [Event Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain events' logs occur in a new block. These events may trigger the mapping, allowing data source activity to be captured.
 
-3. [Call Handlers](mapping/polkadot.md#call-handler): These are used to capture information on certain substrate extrinsics, generally when specific, predefined operations are performed on the chain.
+3. [Call Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
 
 Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
 
