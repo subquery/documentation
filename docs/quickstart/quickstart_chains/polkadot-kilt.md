@@ -345,7 +345,7 @@ You should see results similar to below:
 
 ## What's next?
 
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for events from the lottery smart contract at [`bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`](https://astar.subscan.io/account/bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc?tab=wasm_transaction).
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for events related to attestations [created](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationCreated) and [revoked](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationRevoked) on the [Kilt Spiritnet Blockchain](https://www.kilt.io/).
 
 ::: tip Tip
 
