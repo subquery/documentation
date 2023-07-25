@@ -6,7 +6,7 @@ This quick start guide introduces SubQuery's Substrate Kilt Spiritnet support by
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
 
-The project that we are developing throughout this guide can be found [here](https://github.com/subquery/subql-starter/tree/e7152c7391cce015b2df0c293ee6c62215ed0e3b/Kilt/kilt-spiritnet-credentials-example)
+The project that we are developing throughout this guide can be found [here](https://github.com/subquery/subql-starter/tree/main/Kilt/kilt-spiritnet-credentials-example)
 
 ## 1. GraphQL Schema File
 
