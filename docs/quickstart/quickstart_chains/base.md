@@ -334,7 +334,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter.git).
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-faucet).
 :::
 
 ## What's next?
