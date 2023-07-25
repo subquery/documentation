@@ -13,12 +13,12 @@ In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-chan
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-faucet). 
 
-We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Arbitrum project. It defines most of the details on how SubQuery will index and transform the chain data. For Arbitrum, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -32,7 +32,7 @@ As we are indexing all dripped faucets from the USDC Faucet contract, the first 
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum is a layer-2 that is compatible
+  - kind: ethereum/Runtime # We use ethereum runtime since Base is a layer-2 that is compatible
     startBlock: 1512049 # This is the block of the first claim dividend https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
     options:
       # Must be a key of assets
