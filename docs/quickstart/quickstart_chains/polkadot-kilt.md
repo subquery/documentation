@@ -69,7 +69,6 @@ The Project Manifest (`project.yaml`) file works as an entry point to your proje
 - [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
-- [EventHandlers](../../build/substrate-wasm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/substrate-wasm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 We are indexing all attestations creation and revoking events from the Kilt Spiritnet blockchain. This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
