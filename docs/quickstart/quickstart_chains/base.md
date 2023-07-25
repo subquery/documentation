@@ -26,7 +26,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Base 
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all dripped faucets from the USDC Faucet contract, the first step is to import the contract abi definition which can be obtained from [here](https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d). Copy the entire contract ABI and save it as a file called `winr-staking.abi.json` in the `/abis` directory.
+As we are indexing all dripped faucets from the USDC Faucet contract, the first step is to import the contract abi definition which can be obtained from [here](https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d). Copy the entire contract ABI and save it as a file called `faucet.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
