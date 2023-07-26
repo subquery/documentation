@@ -1,4 +1,4 @@
-# Sei Quick Start
+# Akash Quick Start
 
 ## Goals
 The goal of this quick start guide is to index all [reward transactions](https://www.mintscan.io/akash/txs/808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217?height=11797219) for delegators in the [Akash network](https://akash.network/).
