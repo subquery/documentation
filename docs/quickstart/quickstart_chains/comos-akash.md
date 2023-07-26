@@ -262,30 +262,15 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
 
 ```graphql
-query {
-  exchangeRates(first: 5, orderBy: BLOCK_HEIGHT_DESC) {
-    totalCount
-    nodes {
-      id
-      blockHeight
-      timestamp
-      txHash
-      contractName
-      contractAddress
-      contractVersion
-      longRate
-      shortRate
-      priceNotional
-      priceUSD
-    }
-  }
-  dailyAggregations(first: 5, orderBy: ID_DESC) {
-    nodes {
-      id
-      openPriceUSD
-      lowPriceUSD
-      highPriceUSD
-      closePriceUSD
+{
+  query {
+    delegatorRewards(first: 5, orderBy: REWARD_AMOUNT_DESC) {
+      nodes {
+        id
+        delegatorAddress
+        validatorAddress
+        rewardAmount
+      }
     }
   }
 }
@@ -294,52 +279,7 @@ query {
 You will see the result similar to below:
 
 ```json
-{
-  "data": {
-    "exchangeRates": {
-      "totalCount": 23,
-      "nodes": [
-        {
-          "id": "15613515-sei1xg9nz66lw2u6esc036tcjug35s06wljenjfn9qntzv6pcee3782q8hyx28",
-          "blockHeight": "15613515",
-          "timestamp": "2023-06-16T06:59:29.321",
-          "txHash": "3BCCD70CCA957630D33E059EA9F74882A53B74603FCFAED0EFB5A4F8DB761153",
-          "contractName": "levana.finance:market",
-          "contractAddress": "sei1xg9nz66lw2u6esc036tcjug35s06wljenjfn9qntzv6pcee3782q8hyx28",
-          "contractVersion": "0.1.0-beta.15",
-          "longRate": -0.11993339988124402,
-          "shortRate": 0.11803523598915301,
-          "priceNotional": 0.000598617598372426,
-          "priceUSD": 1670.515539000002
-        },
-        {
-          "id": "15613506-sei1xg9nz66lw2u6esc036tcjug35s06wljenjfn9qntzv6pcee3782q8hyx28",
-          "blockHeight": "15613506",
-          "timestamp": "2023-06-16T06:59:25.818",
-          "txHash": "EB1839610D908D1D3DF71E89EB0CE7C10582FC85EE4A8070298E859AADC03B51",
-          "contractName": "levana.finance:market",
-          "contractAddress": "sei1xg9nz66lw2u6esc036tcjug35s06wljenjfn9qntzv6pcee3782q8hyx28",
-          "contractVersion": "0.1.0-beta.15",
-          "longRate": -0.11993339988124402,
-          "shortRate": 0.11803523598915301,
-          "priceNotional": 0.000598619969003707,
-          "priceUSD": 1670.5089234900004
-        }
-      ]
-    },
-    "dailyAggregations": {
-      "nodes": [
-        {
-          "id": "2023-06-16",
-          "openPriceUSD": 1670.76,
-          "lowPriceUSD": 1670.508887540001,
-          "highPriceUSD": 1670.8,
-          "closePriceUSD": 1670.515539000002
-        }
-      ]
-    }
-  }
-}
+
 ```
 
 ## What’s Next?
