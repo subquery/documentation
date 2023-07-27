@@ -48,6 +48,7 @@ Please check that the Docker is already running. The images will be pulled from 
 - `indexer_coordinator`
 - `indexer_proxy`
 - `indexer_cache`
+- `indexer_ipfs`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
