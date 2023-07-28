@@ -97,6 +97,9 @@ The following projects are available for indexing on the Kepler network. Some pr
 | Karura    | Karura Dictionary       | `QmWumrabg4k6t4EUMhQg19xWwcxGq1hWbcmfmRYiy2Bod5` | ~10G          | N/A  | [Yes](./dictionary-restore.md) |
 | Arbitrum  | Arbitrum Dictionary     | `QmPKMkqTe7UMRPZWxuD8dFgufjKzWQEeW84Qo1x1X8VVLR` | ~240G         | N/A  | [Yes](./dictionary-restore.md) |
 | Optimism  | Optimism Dictionary     | `QmPuHdLxTQHEAitgLe9Sg1Jnr1WwJASDRSL5RUzBe3NywV` | ~250G         | N/A  | [Yes](./dictionary-restore.md) |
+| Khala  | Khala Dictionary           | `QmYCAns2cunZKJFU85KNK8CvL2ATAmCFVZRdBf963GqWYs` | ~78G         | N/A  | [Yes](./dictionary-restore.md) |
+| Westend  | Westend Dictionary       | `Qma6BeSQGHrhP5aydmkQcJCR25TEwuNMogS5boovBBwoeW` | ~35G         | N/A  | [Yes](./dictionary-restore.md) |
+| Astar  | Astar Dictionary           | `QmUmnKPhcE6JwGMYvY3Yitb5j8qxbQBMxgpkHpVQuXqxDH` | ~65G         | N/A  | [Yes](./dictionary-restore.md) |
 
 ::: info Note
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)

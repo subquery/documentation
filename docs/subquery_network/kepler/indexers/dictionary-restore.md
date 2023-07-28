@@ -17,6 +17,9 @@ In order to speed up the onboarding of Indexers, we are providing database snaps
 | Karura    | `QmWumrabg4k6t4EUMhQg19xWwcxGq1hWbcmfmRYiy2Bod5` | ~10G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/karura/karura.tar)       | `046674efb30cdc7ab61b1e834201ac125548e0fafb5f6b69e321a9ddf7b06ae9` |
 | Arbitrum  | `QmPKMkqTe7UMRPZWxuD8dFgufjKzWQEeW84Qo1x1X8VVLR` | ~240G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/arbitrum/arbitrum.tar)       | `466bd2af217941c4d69cf7bbb00e258acbf6cc2a551f8d3e19fce22b8db8db2b` |
 | Optimism  | `QmPuHdLxTQHEAitgLe9Sg1Jnr1WwJASDRSL5RUzBe3NywV` | ~250G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/optimism/optimism.tar)       | `d5bc1ae0739214df6d2effff837e2bdcdc342eb56ca4609aab739787f6d6027a` |
+| Khala  | `QmYCAns2cunZKJFU85KNK8CvL2ATAmCFVZRdBf963GqWYs` | ~78G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/khala/khala.tar)       | `1b18b40345b7473fb4d8219f1da60381126ec8bbbe064158d2ed5b1b3ad532cd` |
+| Westend  | `Qma6BeSQGHrhP5aydmkQcJCR25TEwuNMogS5boovBBwoeW` | ~35G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/westend/westend.tar)       | `72c94be8187a1298a81a7039900566a80447996899b047f6b4fe3f3066a89bef` |
+| Astar  | `QmUmnKPhcE6JwGMYvY3Yitb5j8qxbQBMxgpkHpVQuXqxDH` | ~65G          | [S3 URL](https://kepler-dictionary-projects-prod.s3.amazonaws.com/astar/astar.tar)       | `db2c8be67d18e7401290d67b3d7f457dc1881ef0505eb22807487d03b5031e81` |
 
 You can download the snapshot either from the s3 bucket URL or the BitTorrent magnet link:
 
