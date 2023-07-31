@@ -26,6 +26,11 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
 curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
+
+# extra steps to use local ipfs node
+mkdir ipfs
+curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/ipfs/ipfs.sh -o ipfs/ipfs.sh
+chmod +x ipfs/ipfs.sh
 ```
 
 ::: warning Important
@@ -48,11 +53,19 @@ Please check that the Docker is already running. The images will be pulled from 
 - `indexer_coordinator`
 - `indexer_proxy`
 - `indexer_cache`
-- `indexer_ipfs`
+- (Optional) `indexer_ipfs`
 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
-### Step 3 - Open the Indexer Admin Page
+### Step 3 - Check Local IPFS
+If you have decided to use local IPFS
+```
+# check peers, it should not be empty and contains at least one of the following peer
+docker exec indexer_ipfs ipfs swarm peers
+docker exec indexer_ipfs ipfs swarm peers | grep -E "(12D3KooWHEEjciF2JmDukCkWW93tQ7eJYs16PWqEo81GrXz82DUL|12D3KooWForH2nsSRN5cynPhoona6re1nw2EcimQJxHnicd1yqUV|12D3KooWPhsrviSKFTKawpW3bRAdLZ89jhXdYuszAys4YwL3RMn3|12D3KooWCFokEyt9gtuQHTwVAzwBsdjsBqfSxq1D3X1FsAbTwaSN)"
+```
+
+### Step 4 - Open the Indexer Admin Page
 
 Open `http://localhost:8000/` in your browser and you will get to see:
 
