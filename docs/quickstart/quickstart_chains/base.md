@@ -1,4 +1,4 @@
-# Base (Goerli) Quick Start
+# Base Quick Start
 
 ## Goals
 
