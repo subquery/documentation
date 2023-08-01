@@ -242,11 +242,9 @@ Une fois que votre déploiement a été effectué avec succès et que nos nœuds
 
 ![Projet en cours de déploiement et de synchronisation](/assets/img/projects_deploy_sync.png)
 
-Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Vous pouvez également cliquer sur les trois points situés à côté du titre de votre projet, et le visualiser dans l'explorateur de SubQuery. There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
-
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
 
 ## Project Alert Notifications
 
