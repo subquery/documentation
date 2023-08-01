@@ -1,15 +1,17 @@
-# Truy vấn dự án của bạn trong SubQuery Explorer
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Bạn có thể xuất bản các dự án SubQuery của riêng mình lên explorer của chúng tôi bằng cách làm theo hướng dẫn của chúng tôi để [Xuất bản Dự án SubQuery của bạn](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-Trình khám phá SubQuery giúp bạn bắt đầu dễ dàng. Chúng tôi đang lưu trữ các dự án SubQuery này trực tuyến và cho phép mọi người truy vấn miễn phí từng dự án. Các node được quản lý này sẽ được đội ngũ SubQuery giám sát và điều hành ở mức hiệu suất cho phép các ứng dụng sử dụng và tin tưởng vào chúng.
+:::
 
-![Dự Án SubQuery](https://static.subquery.network/media/explorer/explorer-project.png)
+Bạn có thể theo dõi [hướng dẫn GraphQL chính thức tại đây](https://graphql.org/learn/) để tìm hiểu thêm về GraphQL, cách thức hoạt động và cách sử dụng:
 
-Bạn cũng sẽ lưu ý rằng SubQuery Explorer cung cấp một sân chơi để khám phá dữ liệu có sẵn với các truy vấn mẫu - bạn có thể kiểm tra các truy vấn trực tiếp trong trình duyệt của mình mà không cần triển khai mã. Ngoài ra, chúng tôi đã thực hiện một số cải tiến nhỏ đối với tài liệu của mình để hỗ trợ tốt hơn cho các nhà phát triển trong hành trình truy vấn và phân tích dữ liệu của thế giới Polkadot tốt hơn.
+- Có nhiều thư viện để giúp bạn thực thi GraphQL bằng [nhiều ngôn ngữ khác nhau](https://graphql.org/code/).
+- Để hiểu sâu hơn bằng các hướng dẫn thực hành, hãy xem qua [Cách để GraphQL](https://www.howtographql.com/).
+- Xem qua khóa học online miễn phí, [Khám Phá GraphQL: Một Ngôn Ngữ truy vấn cho APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn.
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Tài liệu này được tạo tự động và giúp bạn tìm thấy những thực thể và phương pháp nào bạn có thể truy vấn. On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
