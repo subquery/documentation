@@ -1,15 +1,17 @@
-# สืบค้นโปรเจกต์ของคุณใน SubQuery Explorer
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-SubQuery explorer ทำให้การเริ่มต้นใช้งานเป็นเรื่องง่าย เรากำลังโฮสต์โปรเจกต์ SubQuery เหล่านี้แบบออนไลน์ และอนุญาตให้ทุกคนสืบค้นแต่ละโปรเจกต์ได้ฟรี โหนดที่มีการจัดการเหล่านี้จะได้รับการตรวจสอบและดำเนินการโดยทีม SubQuery ในระดับประสิทธิภาพที่จะอนุญาตให้แอปที่ใช้งานจริงใช้และสามารถพึ่งพาได้
+:::
 
-![SubQuery Project](https://static.subquery.network/media/explorer/explorer-project.png)
+คุณสามารถทำตาม [คู่มือ GraphQL อย่างเป็นทางการที่นี่](https://graphql.org/learn/) เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับ GraphQL วิธีการทำงาน และวิธีใช้งาน:
 
-นอกจากนี้ คุณควรทราบด้วยว่า SubQuery Explorer มี playground สำหรับการค้นหาข้อมูลที่มีอยู่ พร้อมด้วยตัวอย่างการสืบค้น - คุณสามารถทดสอบการสืบค้นโดยตรงในเบราว์เซอร์ของคุณโดยไม่ต้องเขียนโค้ด นอกจากนี้ เราได้ทำการปรับปรุงเล็กน้อยในเอกสารของเรา เพื่อสนับสนุนนักพัฒนาในเส้นทางการค้นหาที่ดีขึ้นและวิเคราะห์ข้อมูล Polkadot ของโลกได้ดียิ่งขึ้น
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/).
+- สำหรับประสบการณ์การเรียนรู้เชิงลึกพร้อมบทช่วยสอนเชิงปฏิบัติ โปรดดูที่ [วิธีสร้าง GraphQL](https://www.howtographql.com/)
+- ดูหลักสูตรออนไลน์ฟรี [การสำรวจ GraphQL: ภาษาการสืบค้นสำหรับ API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. เอกสารนี้สร้างขึ้นโดยอัตโนมัติและช่วยให้คุณค้นหา entities และ methods ที่คุณสามารถค้นหาได้ On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
