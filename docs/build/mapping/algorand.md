@@ -46,6 +46,19 @@ export async function handleTransaction(
 }
 ```
 
+### Algorand Atomic Transfers (Grouped Transactions)
+
+[Atomic Transfers](https://developer.algorand.org/articles/algorand-atomic-transfers/) are irreducible batch transactions that allow groups of transactions to be submitted at one time. If any of the transactions fail, then all the transactions will fail. That is, an Atomic Transfer guarantees the simultaneous execution of multiple transfers of all kinds of assets.
+
+You can get groups of transactions from within your mapping functions with the `AlgorandBlock.getTransactionsByGroup(group)` function. For example:
+
+```ts
+// tx.block.getTransactionsByGroup(string groupID): AlgorandTransaction[]
+const txGroup: AlgorandTransaction[] = tx.block.getTransactionsByGroup(
+  tx.group!
+);
+```
+
 ## Third-party Library Support - the Sandbox
 
 SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is required to decentralise SubQuery in the SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
