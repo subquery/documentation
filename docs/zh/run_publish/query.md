@@ -1,15 +1,17 @@
-# 如何在 SubQuery Explorer 中查询您的项目
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. 您可以按照我们的指南 [发布您自己的 SubQuery 项目](../run_publish/publish.md) 向我们的浏览器发布您自己的 SubQuery 项目。
+::: info Coming from the Graph?
 
-![SubQuery 浏览器](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-SubQuery 浏览器使启动变得更加容易。 我们正在在线托管这些SubQuery项目，允许任何人免费查询。 这些托管节点将由SubQuery团队通过生产应用的使用频率和性能级别进行监测和运行。
+:::
 
-![SubQuery 项目](https://static.subquery.network/media/explorer/explorer-project.png)
+您可以在这里关注 [官方GraphQL指南](https://graphql.org/learn/) 来了解 GraphQL的更多消息、工作原理及应用方法：
 
-您还会注意到 SubQuery Explorer 提供了一个playground，用于发现可用数据的示例查询 - 您可以直接在您的浏览器中测试查询，而无需执行代码。 此外，我们对文档做了一些小的改进，以更好地支持开发人员查询和分析整个Polkadot数据。
+- 有一些库可以帮助您在 [多种不同语言的](https://graphql.org/code/) 中实现 GraphQL 。
+- 关于实用教程的深入学习体验，请参阅 [如何GraphQL](https://www.howtographql.com/)。
+- 观看免费在线课程， [探索 GraphQL: API查询语言](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)。
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. 该文档是自动生成的，可帮助您查找实体和方法。
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. 该文档是自动生成的，可帮助您查找实体和方法。 On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
