@@ -243,11 +243,9 @@ jobs:
 
 ![プロジェクトを展開および同期する](/assets/img/projects_deploy_sync.png)
 
-または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+または、プロジェクトのタイトルの横にある3つの点をクリックして、SubQuery Explorer で表示することもできます。 There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
-
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
 
 ## Project Alert Notifications
 
