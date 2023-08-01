@@ -1,15 +1,17 @@
-# Запитайте свій проект у SubQuery Explorer
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. Ви можете опублікувати свої власні проєкти SubQuery в нашому провіднику, слідуючи нашому керівництву по [опублікувати свій проєкт SubQuery ](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-Провідник SubQuery спрощує початок роботи. Ми розміщуємо ці проекти SubQuery в Інтернеті і дозволяємо кожному запитувати кожного безкоштовно. Ці керовані вузли будуть контролюватися та працювати командою SubQuery на рівні продуктивності, що дозволить виробничим програмам використовувати та покладатися на них.
+:::
 
-![SubQuery Проекти](https://static.subquery.network/media/explorer/explorer-project.png)
+Ви можете слідувати [офіційному посібнику GraphQL тут ](https://graphql.org/learn/), щоб дізнатися більше про GraphQL, як він працює та як ним користуватися:
 
-Ви також зауважите, що SubQuery Explorer забезпечує майданчик для виявлення доступних даних із прикладами запитів - ви можете тестувати запити безпосередньо у своєму браузері без коду реалізації. Крім того, ми внесли деякі невеликі вдосконалення в нашу документацію, щоб краще підтримати розробників у їх подорожі для кращого запиту та аналізу світових даних Polkadot.
+- Існують бібліотеки, які допоможуть вам реалізувати GraphQL на [багатьох різних мовах](https://graphql.org/code/).
+- Для поглибленого досвіду навчання з практичними навчальними посібниками див. [ Як графічний ](https://www.howtographql.com/).
+- Ознайомтеся з безкоштовним онлайн-курсом, [ Вивчення GraphQL: Мова запитів для API ](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати.
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Ця документація генерується автоматично і допомагає вам знайти, які сутності та методи ви можете запитувати. On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
