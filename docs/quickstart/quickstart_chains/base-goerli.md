@@ -11,9 +11,9 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-faucet). 
+The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-faucet).
 
-We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/*Handler) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/\*Handler) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
@@ -37,7 +37,7 @@ dataSources:
     options:
       # Must be a key of assets
       abi: faucet_abi
-      address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D" # this is the contract address for USDC faucet on Base Goerli     
+      address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D" # this is the contract address for USDC faucet on Base Goerli
  https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
     assets:
       faucet_abi:
@@ -62,7 +62,6 @@ dataSources:
         # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-
 The above code indicates that you will be running a `handleDrip` mapping function whenever there is a `drip` method being called on any transaction from the [USDC Faucet contract](https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
@@ -72,7 +71,6 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight and drip receiver along with an aggregation of the total value of the drip per day.
-
 
 ```graphql
 type Drip @entity {
@@ -154,7 +152,10 @@ export async function handleDrip(tx: DripTransaction): Promise<void> {
   }
 }
 
-export async function handleDailyDrips(date: Date, dripValue: bigint): Promise<void> {
+export async function handleDailyDrips(
+  date: Date,
+  dripValue: bigint
+): Promise<void> {
   const id = date.toISOString().slice(0, 10);
   let aggregateDrips = await DailyUSDCDrips.get(id);
 
@@ -163,11 +164,9 @@ export async function handleDailyDrips(date: Date, dripValue: bigint): Promise<v
       id,
       totalValue: dripValue,
     });
-  }
-  else {
+  } else {
     aggregateDrips.totalValue += dripValue;
   }
-
 
   await aggregateDrips.save();
 }
@@ -246,19 +245,19 @@ Try the following query to understand how it works for your new SubQuery starter
 ```graphql
 # Write your query or mutation here
 query {
-    drips (first: 10, orderBy: DATE_DESC) {
-    	nodes {
-        id
-        value
-        date
-        }
-    }	
-  	dailyUSDCDrips(orderBy: ID_DESC){
-      nodes{
-        id
-        totalValue
-      }
+  drips(first: 10, orderBy: DATE_DESC) {
+    nodes {
+      id
+      value
+      date
     }
+  }
+  dailyUSDCDrips(orderBy: ID_DESC) {
+    nodes {
+      id
+      totalValue
+    }
+  }
 }
 ```
 

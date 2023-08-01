@@ -310,6 +310,10 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
+              text: "Base",
+              link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
+            },
+            {
               text: "BNB Smart Chain (BSC)",
               link: `${locale}/quickstart/quickstart_chains/bsc.md`,
             },
