@@ -243,11 +243,9 @@ jobs:
 
 ![Проект будет развернут и синхронизирован](/assets/img/projects_deploy_sync.png)
 
-Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Кроме того, вы можете щелкнуть три точки рядом с названием вашего проекта и просмотреть его в SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
-
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
 
 ## Project Alert Notifications
 
