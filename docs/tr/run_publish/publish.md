@@ -243,11 +243,9 @@ Dağıtımınız başarıyla tamamlandıktan ve node'larımız zincirdeki verile
 
 ![Projenize yeni sürümü dağıtın](/assets/img/projects_deploy_sync.png)
 
-Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Alternatif olarak, projenizin başlığının yanında bulunan üç noktaya tıklayabilir ve onu SubQuery Explorer'da görüntüleyebilirsiniz. There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
-
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
 
 ## Project Alert Notifications
 
