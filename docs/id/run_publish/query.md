@@ -1,15 +1,17 @@
-# Buat kueri Proyek Anda di SubQuery Explorer
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) adalah Layanan Terkelola online yang menyediakan akses ke proyek-proyek SubQuery yang diterbitkan yang dibuat oleh kontributor di komunitas kami dan dikelola oleh tim SubQuery. Anda dapat memublikasikan proyek SubQuery Anda sendiri ke penjelajah kami dengan mengikuti panduan kami untuk [Menerbitkan Proyek SubQuery Anda](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![Penjelajah SubQuery](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-Penjelajah SubQuery memudahkan memulai. Kami menghosting proyek SubQuery ini secara online dan memungkinkan siapa saja untuk menanyakan setiap proyek secara gratis. Node terkelola ini akan dipantau dan dijalankan oleh tim SubQuery pada tingkat kinerja yang memungkinkan aplikasi produksi menggunakan dan mengandalkannya.
+:::
 
-![Proyek SubQuery](https://static.subquery.network/media/explorer/explorer-project.png)
+Anda dapat mengikuti [panduan resmi GraphQL di sini](https://graphql.org/learn/) untuk mempelajari lebih lanjut tentang GraphQL, cara kerjanya, dan cara menggunakannya:
 
-Anda juga akan melihat bahwa SubQuery Explorer menyediakan tempat bermain untuk menemukan data yang tersedia dengan contoh kueri - Anda dapat menguji kueri secara langsung di browser tanpa menerapkan kode. Selain itu, kami telah membuat beberapa perbaikan kecil pada dokumentasi kami untuk mendukung pengembang dengan lebih baik dalam perjalanan mereka untuk membuat kueri dan menganalisis data Polkadot dunia dengan lebih baik.
+- Ada pustaka untuk membantu Anda mengimplementasikan GraphQL dalam [banyak bahasa yang berbeda](https://graphql.org/code/).
+- Untuk pengalaman belajar yang mendalam dengan tutorial praktis, lihat [Cara GraphQL](https://www.howtographql.com/).
+- Lihatlah kursus online gratis, [Menjelajahi GraphQL: Bahasa Kueri untuk API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
-Pada bagian kanan atas taman bermain, Anda akan menemukan tombol _Docs_ yang akan membuka gambar dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri.
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+Pada bagian kanan atas taman bermain, Anda akan menemukan tombol _Docs_ yang akan membuka gambar dokumentasi. Dokumentasi ini dibuat secara otomatis dan membantu Anda menemukan entitas dan metode apa yang dapat Anda kueri. On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
