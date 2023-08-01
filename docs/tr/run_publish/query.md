@@ -1,15 +1,17 @@
-# Projenizi SubQuery Explorer'da Sorgulayın
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-SubQuery gezgini, başlama sürecini oldukça kolay bir hale getirir. Bu SubQuery projelerini çevrimiçi olarak barındırıyoruz ve herkesin bunları ücretsiz bir şekilde sorgulamasına olanak sağlıyoruz. Bu yönetilen node'lar, SubQuery ekibi tarafından production uygulamalarının bunları kullanmasına ve bunlara dayanmasına izin verecek bir performans düzeyinde izlenecek ve çalışır durumda kalmaları sağlanacaktır.
+:::
 
-![SubQuery Projesi](https://static.subquery.network/media/explorer/explorer-project.png)
+GraphQL, nasıl çalıştığı ve nasıl kullanılacağı hakkında daha fazla bilgi edinmek için [resmi GraphQL rehberini buradan](https://graphql.org/learn/) takip edebilirsiniz:
 
-Ayrıca, SubQuery Explorer'ın örnek sorgularla mevcut verileri keşfetmek için bir oyun alanı sağladığını da unutmayın - sorguları kod implemente etmeye gerek kalmadan doğrudan tarayıcınızda test edebilirsiniz. Ek olarak, dünyanın Polkadot verilerini daha iyi sorgulama ve analiz etme yolculuklarında geliştiricileri daha iyi bir şekilde desteklemek için dokümantasyonumuzda bazı küçük iyileştirmeler yaptık.
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/).
+- Pratik öğreticilerle derinlemesine bir öğrenme deneyimi için [GraphQL Nasıl Kullanılır](https://www.howtographql.com/) bölümüne göz atın.
+- [GraphQL'yi Keşfetmek: API'ler için Bir Sorgu Dili](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis) isimli ücretsiz çevrimiçi kursa göz atın.
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Bu dokümantasyonlar otomatik olarak oluşturulur ve hangi varlıkları ve yöntemleri sorgulayabileceğinizi bulmanıza yardımcı olur.
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. Bu dokümantasyonlar otomatik olarak oluşturulur ve hangi varlıkları ve yöntemleri sorgulayabileceğinizi bulmanıza yardımcı olur. On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
