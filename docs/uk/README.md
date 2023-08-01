@@ -154,7 +154,7 @@ footer: false lastUpdated: false contributors: false editLink: false
         <h5>Absolute performance</h5>
         <p>Fast syncing and indexing optimisations.</p>
       </router-link>
-      <router-link class="item" :to="{path: '/run_publish/graphql.html'}">
+      <router-link class="item" :to="{path: '/run_publish/query.html'}">
         <h5>The power of GraphQL</h5>
         <p>Filtering, subscriptions, aggregation &#8212; all the features that you need.</p>
       </router-link>
