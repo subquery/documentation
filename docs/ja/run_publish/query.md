@@ -1,15 +1,17 @@
-# SubQuery Explorer でプロジェクトのクエリを実行する
+# Query your Project using GraphQL
 
-[SubQuery Explorer](https://explorer.subquery.network) is an online Managed Service that provides access to published SubQuery projects made by contributors in our community and managed by the SubQuery team. You can publish your own SubQuery projects to our explorer by following our guide to [Publish your SubQuery Project](../run_publish/publish.md).
+::: info Coming from the Graph?
 
-![SubQuery Explorer](https://static.subquery.network/media/explorer/explorer-header.png)
+You may want to take a look at the information we have [on the differences](../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
-SubQuery Explorerは簡単に開始できます。 私たちはこれらのSubQueryノードをオンラインでホスティングしており、誰もが無料でそれぞれクエリを実行することができます。 これらのマネージドノードは、SubQueryチームによってパフォーマンスレベルで監視および実行され、これにより本番アプリケーションの使用と依存が可能になります。
+:::
 
-![SubQuery Project](https://static.subquery.network/media/explorer/explorer-project.png)
+[公式GraphQLガイド](https://graphql.org/learn/) に従って、GraphQLの動作方法、使い方を学ぶことができます。
 
-SubQuery Explorer は、サンプルクエリを使用して利用可能なデータを検出するためのプレイグラウンドを提供していることにも注意してください。コードを実装することなくブラウザで直接クエリをテストすることができます。 さらに、開発者が世界中のPolkadotデータを照会し、分析するための旅をよりよくサポートするために、ドキュメントにいくつかの小さな改良を加えました。
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/).
+- 実用的なチュートリアルを使用した詳細な学習体験については、 [GraphQL](https://www.howtographql.com/) を参照してください。
+- 無料オンラインコースをチェックしてください。 [GraphQL: API 用のクエリ言語](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)。
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。
+![SubQuery Project](/assets/img/query.png)
 
-::: tip Note Learn more about the [GraphQL Query language.](./graphql.md) :::
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. このドキュメントは自動的に生成され、クエリできるエンティティやメソッドを見つけるのに役立ちます。 On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
