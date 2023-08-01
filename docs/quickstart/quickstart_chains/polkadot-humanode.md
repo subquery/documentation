@@ -210,7 +210,7 @@ Open your browser and head to http://localhost:3000.
 
 You will see a GraphQL playground in the browser and the schemas, which are ready to query.
 
-Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
 
 ```grpahql
 query {

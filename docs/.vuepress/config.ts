@@ -493,7 +493,6 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/run_publish/monitor.md`,
         `${locale}/run_publish/cli.md`,
         `${locale}/run_publish/query.md`,
-        `${locale}/run_publish/graphql.md`,
         `${locale}/run_publish/ipfs.md`,
         `${locale}/run_publish/aggregate.md`,
         `${locale}/run_publish/subscription.md`,
