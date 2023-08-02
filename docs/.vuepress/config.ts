@@ -408,6 +408,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
                 },
                 {
+                  text: "Kilt",
+                  link:`${locale}/quickstart/quickstart_chains/polkadot-kilt.md`,
+                },
+                {
                   text: "Polkadot/Substrate",
                   link: `${locale}/quickstart/quickstart_chains/polkadot.md`,
                 },
