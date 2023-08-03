@@ -265,7 +265,7 @@ Try the following queries to understand how it works for your new SubQuery start
 ```graphql
 {
   query {
-    delegatorRewards(first: 5, orderBy: REWARD_AMOUNT_DESC) {
+    delegatorReward(first: 1) {
       nodes {
         id
         delegatorAddress
@@ -280,7 +280,23 @@ Try the following queries to understand how it works for your new SubQuery start
 You will see the result similar to below:
 
 ```json
-
+{
+  "data": {
+    "query": {
+      "delegatorRewards": {
+        "totalCount": 1,
+        "nodes": [
+          {
+            "id": "808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217",
+            "delegatorAddress": "akash1ckc4z334rfpdcqdz5a85mdtaktt2dtkm58783c5",
+            "validatorAddress": "akashvaloper14kn0kk33szpwus9nh8n87fjel8djx0y0uzn073",
+            "rewardAmount": "1440293uakt",
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
 ## What’s Next?
