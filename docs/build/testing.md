@@ -10,8 +10,42 @@ The SubQuery testing framework provides an easy way to test the behavior of mapp
 
 When developing your project, if you don't want to use the SubQuery Testing Framework, the following options or approaches can be used:
 
-- For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time.
-- Generously use [logging](./introduction.md#logging) in your code, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringifying it (note that `JSON.stringify` doesn’t support native `BigInts`)
+### Choosing the starting block
+
+For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the following section.
+
+```yml
+# ...
+# {... Initial sections: spec-version, name, version, etc ...}
+# ...
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 15695385
+    options:
+      abi: erc20
+      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+    assets:
+      erc20:
+        file: "erc20.abi.json"
+    mapping:
+      file: "./dist/index.js"
+      handlers:
+        # {... handlers...}
+```
+
+### Logging
+
+We recommend to generously use logging, including using the debug level when developing to reduce the number of logs printed in your production code. A good practice is to log a new event or transaction when you receive it in the mapping function so you know what error occurs where. When developing you can also debug the payload by stringfying it (note that `JSON.stringify` doesn’t support native `BigInts`).
+
+The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
+
+```typescript
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
+```
+
+To use `logger.info` or `logger.warn`, just place the line into any mapping file. When developing a SubQuery project, it's common to log a message with the block height at the start of each mapping function so you can easily identify that the mapping function has been triggered and is executing. In addition, you can inspect the payload of data passed through to the mapping function easily by stringifying the payload. Note that `JSON.stringify` doesn’t support native `BigInts`.
 
 ```ts
 export async function handleLog(log: EthereumLog): Promise<void> {
@@ -21,7 +55,17 @@ export async function handleLog(log: EthereumLog): Promise<void> {
 }
 ```
 
-## Using the SubQuery Testing Framework
+The default log level is `info` and above. To use `logger.debug`,you must add `--log-level=debug` to your command line.
+
+If you are running a docker container, add this line to your `docker-compose.yaml` file.
+
+![logging.debug](/assets/img/logging_debug.png)
+
+You should now see the new logging in the terminal screen.
+
+![logging.debug](/assets/img/subquery_logging.png)
+
+## The SubQuery Testing Framework
 
 The testing framework provides a convenient way to test mapping handlers and validate the data being indexed in SubQuery projects. It ensures that the data processing logic works as expected and helps to catch errors early in the development process. By providing detailed summaries of failed tests, developers can quickly identify and resolve issues, improving the overall quality and reliability of the SubQuery project.
 
@@ -32,17 +76,15 @@ To use the SubQuery testing framework, you need to:
 
 Each new starter project should have some default test boilerplate added so you can easily get started.
 
-## Writing Test Cases
+### Writing Test Cases
 
 Test cases should be written using the `subqlTest(name, blockHeight, dependentEntities, expectedEntities, handler)` function with the following parameters:
 
-- **name**: A string containing the name of the test.
-- **blockHeight**: The height of the block used in the test.
-- **dependentEntities**: An array of entities that are required for the test to run. When the test case is run, a new database store will be instantiated with this array of entities already saved.
-- **expectedEntities**: An array of entities that are expected after the mapping handler has run. These are read from the store after the mapping function has finished. You can check for the presence of as many entities as you wish.
-- **handler**: The name of the mapping handler function to test.
-
-### Example test case
+- `name``: A string containing the name of the test.
+- `blockHeight`: The height of the block used in the test.
+- `dependentEntities`: An array of entities that are required for the test to run. When the test case is run, a new database store will be instantiated with this array of entities already saved.
+- `expectedEntities`: An array of entities that are expected after the mapping handler has run. These are read from the store after the mapping function has finished. You can check for the presence of as many entities as you wish.
+- `handler`: The name of the mapping handler function to test.
 
 ```ts
 // Example handleEvent function
@@ -82,7 +124,7 @@ subqlTest(
 );
 ```
 
-## Running Tests
+### Running Tests
 
 To run the tests, execute the `test` command (this assumes that you have `subql-node` installed). The testing service will discover and import test files, run the tests, and log the results.
 
@@ -113,7 +155,7 @@ The output will include a summary of the total tests run, passing tests, and fai
 
 ![image](../.vuepress/public/assets/img/tf-fail-summary.png)
 
-## Example Project
+### Example Project
 
 An example SubQuery project with test cases can be found in this repository: [polkadot-starter](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter). This project demonstrates the usage of the testing framework and serves as a reference for developers who want to implement tests in their own SubQuery projects.
 
@@ -121,7 +163,7 @@ The polkadot-starter project within the repository includes test files following
 
 To use the example project as a starting point for your project, you can either clone the repository or use it as a reference when implementing tests in your SubQuery project. Make sure to follow the provided structure and adapt the test cases as needed to fit your project requirements.
 
-## Running Tests with Docker
+### Running Tests with Docker
 
 You can use Docker to run tests in an isolated environment. Here is an example of subquery-node service in a `docker-compose.yml` file that runs your project using the SubQuery node Docker image:
 
@@ -157,7 +199,7 @@ To run tests with Docker, set the Docker SUB_COMMAND environment variable to "te
 SUB_COMMAND=test docker-compose pull && docker-compose up
 ```
 
-## Setting up GitHub Actions
+### Setting up GitHub Actions
 
 GitHub Actions can be used to automate the testing process for your SubQuery project. Here is an [example workflow from the Polkadot Starter project](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/pr.yml) that runs tests whenever a new pull request is created:
 
@@ -192,16 +234,16 @@ This workflow checks out the repository, sets up a Node.js environment, installs
 
 Each [SubQuery starter project](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/pr.yml) should have this GitHub action already added. To set up this GitHub Actions workflow on an old project, create a file named `pr.yml` (or any other name of your choice) inside the `.github/workflows` directory in your SubQuery project and paste the above workflow configuration into the file. Once the file is saved, GitHub Actions will automatically start running the workflow whenever a new pull request is created.
 
-## When not to use the SubQuery Testing Framework
+### When not to use the SubQuery Testing Framework
 
 While the testing framework is a powerful tool for testing the behavior of mapping handlers and validating the data being indexed in SubQuery projects, there are certain limitations and use cases that are not suitable for this framework.
 
-### Limitations
+Limitations:
 
-- **Integration and end-to-end testing**: The testing framework is specifically designed for testing individual mapping handlers. It is not suitable for testing the integration of multiple components or the end-to-end functionality of your SubQuery project.
-- **State persistence**: The testing framework does not persist state between test cases. This means that any state changes made during a test case will not carry over to subsequent test cases. If your mapping handlers rely on previous state changes, the testing framework may not be suitable.
-- **Dynamic data sources**: The testing framework cannot be used to test dynamic data sources. It is designed to test the behavior of mapping handlers and validate the data being indexed in SubQuery projects, but it does not support testing the functionality related to dynamically adding or removing data sources during runtime.
+- Integration and end-to-end testing: The testing framework is specifically designed for testing individual mapping handlers. It is not suitable for testing the integration of multiple components or the end-to-end functionality of your SubQuery project.
+- State persistence: The testing framework does not persist state between test cases. This means that any state changes made during a test case will not carry over to subsequent test cases. If your mapping handlers rely on previous state changes, the testing framework may not be suitable.
+- Dynamic data sources: The testing framework cannot be used to test dynamic data sources. It is designed to test the behavior of mapping handlers and validate the data being indexed in SubQuery projects, but it does not support testing the functionality related to dynamically adding or removing data sources during runtime.
 
-### What You Should Not Use It For
+What You Should Not Use It For:
 
-- **Performance testing**: The testing framework is not designed to test the performance of your mapping handlers or the overall SubQuery project. It focuses on the correctness of the data being indexed but does not measure the speed or efficiency of the data processing.
+- Performance testing: The testing framework is not designed to test the performance of your mapping handlers or the overall SubQuery project. It focuses on the correctness of the data being indexed but does not measure the speed or efficiency of the data processing.
