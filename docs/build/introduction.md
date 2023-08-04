@@ -78,7 +78,6 @@ dataSources:
             method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
-
 ```
 
 The project.yaml file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
@@ -89,15 +88,20 @@ For more information, please check the full documentation about [Manifest File](
 
 ## Setting up the GraphQL Schema
 
-The schema.graphql file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
+The `schema.graphql` file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
 
-1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required id field with the type of ID!, serving as the unique primary key.
+1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required `id` field with the type of `ID!`, serving as the unique primary key.
 2. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
 3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
 Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
 
+::: tip
+
+The comments put in the GraphQL schema are automatically converted into sentences included in the docs of your GraphQL playground.
+
+:::
 
 ```graphql
 """
@@ -133,11 +137,6 @@ type Post @entity {
   author: User @index
 }
 ```
-::: tip
-
-The comments put in the GraphQL schema are automatically converted into sentences included in the docs of your GraphQL playground.
-
-:::
 
 ## Code Generation
 
@@ -178,46 +177,51 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.yaml` under the mapping handlers.
 
-In general (bar some exceptions), there are three primary types of mapping functions:
+In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 
 1. [Block Handlers](mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
-
-2. [Event Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain events' logs occur in a new block. These events may trigger the mapping, allowing data source activity to be captured.
-
-3. [Call Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
+2. [Transaction Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
+3. [Log Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
 
 Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
 
-Here's an example of how to use a block handler and an event handler:
+Here's an example of how to use a transaction handler and log handler:
 
 ```ts
-import { SubstrateBlock, SubstrateEvent } from "@subql/types";
+import { Approval, Transaction } from "../types";
+import {
+  ApproveTransaction,
+  TransferLog,
+} from "../types/abi-interfaces/Erc20Abi";
 
-// Block Handler
-export async function handleBlock(block: SubstrateBlock): Promise<void> {
-  const record = new BlockEntity(block.block.header.hash.toString());
-  record.blockNumber = block.block.header.number.toNumber();
-  await record.save();
+export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
+  logger.info(`New Approval transaction at block ${tx.blockNumber}`);
+  const approval = Approval.create({
+    id: tx.hash,
+    owner: tx.from,
+    spender: await tx.args[0],
+    value: BigInt(await tx.args[1].toString()),
+    contractAddress: tx.to,
+  });
+
+  await approval.save();
 }
 
-// Event Handler
-export async function handleEvent(event: SubstrateEvent): Promise<void> {
-  const {
-    event: {
-      data: [account, balance],
-    },
-  } = event;
-  const record = new EventEntity(
-    event.extrinsic.block.block.header.hash.toString()
-  );
-  record.account = account.toString();
-  record.balance = (balance as Balance).toBigInt();
-  await record.save();
+export async function handleLog(log: TransferLog): Promise<void> {
+  logger.info(`New transfer transaction log at block ${log.blockNumber}`);
+  const transaction = Transaction.create({
+    id: log.transactionHash,
+    value: log.args.value.toBigInt(),
+    from: log.args.from,
+    to: log.args.to,
+    contractAddress: log.address,
+  });
+
+  await transaction.save();
 }
 ```
-In the above example, the `handleBlock` function is a block handler that saves the block number every time a new block is attached to the chain. The `handleEvent` function is an event handler that captures and stores the account and balance data whenever a particular event is triggered.
 
-Remember, different types of handlers are suited to different purposes. Choose the ones that best fit your specific project requirements.
+Remember, different types of handlers are suited to different purposes. Choose the ones that best fit your specific project requirements. We do recommend to avoid using Block handlers in all cases however for performance reasons.
 
 ::: tip
 
@@ -248,7 +252,7 @@ npm run-script build
 
 ### Alternative build options
 
-We support additional build options for subquery projects using `subql build`.
+We support additional build options for SubQuery projects using `subql build`.
 
 With this you can define additional entry points to build using the exports field in `package.json`.
 
