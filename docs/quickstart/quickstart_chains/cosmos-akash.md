@@ -1,10 +1,12 @@
 # Akash Quick Start
 
 ## Goals
+
 The goal of this quick start guide is to index all [reward transactions](https://www.mintscan.io/akash/txs/808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217?height=11797219) for delegators in the [Akash network](https://akash.network/).
 
 ::: info
 The Akash network is a chain based on the Cosmos SDK, which means you can index chain data via the standard Cosmos RPC interface.
+
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
 
@@ -76,18 +78,6 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
 
 ```yml
-## 2. Update Your Manifest File
-
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
-- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
-- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
-
-```yml
 dataSources:
   - kind: cosmos/Runtime
     startBlock: 11364001
@@ -101,6 +91,7 @@ dataSources:
             messageFilter:
               type: "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward"
 ```
+
 In the code above, we have defined a single handler, `handleReward`, that will be executed whenever a `withdraw_rewards` type is detected within a `MsgWithdrawDelegatorReward` type message. This handler is used to track the rewards transactions of delegators in the Akash network.
 
 Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
@@ -182,8 +173,8 @@ async function handleDelegator(reward: bigint, delegatorAddress: string) {
   }
   await delegatorRecord.save();
 }
-
 ```
+
 In the Akash SubQuery project, we have two main functions, namely `handleReward` and `handleDelegator`, that were defined in the `src/mappings/mappingHandlers.ts` file.
 
 The `handleReward` function is triggered when a `withdraw_rewards` type event is detected. It receives an event of type `CosmosEvent`, logs a message to the console for debugging purposes, and then tries to extract key data points such as the reward amount, validator address, and delegator address from the `event.event.attributes` (Cosmos events code attributes as an array of key-value pairs).
@@ -290,7 +281,7 @@ You will see the result similar to below:
             "id": "808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217",
             "delegatorAddress": "akash1ckc4z334rfpdcqdz5a85mdtaktt2dtkm58783c5",
             "validatorAddress": "akashvaloper14kn0kk33szpwus9nh8n87fjel8djx0y0uzn073",
-            "rewardAmount": "1440293uakt",
+            "rewardAmount": "1440293uakt"
           }
         ]
       }
@@ -301,7 +292,7 @@ You will see the result similar to below:
 
 ## What’s Next?
 
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data from bLuna.
+Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for indexing Akash delegator rewards.
 
 ::: tip Tip
 

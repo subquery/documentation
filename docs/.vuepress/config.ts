@@ -318,7 +318,7 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text:"Akash",
+                  text: "Akash",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-akash.md`,
                 },
                 {
