@@ -40,7 +40,6 @@ Una vez que haya enviado una solicitud, seleccionaremos candidatos que se ajuste
 
 Una vez que pase el programa de aprendizaje, puede llamarse embajador de SubQuery y será aceptado en nuestro programa completo. Desde aquí puedes continuar trabajando a través del programa y progresar en los niveles, ganar más recompensas y beneficios a medida que subas el rango.
 
-
 ## Actividades del embajador
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.

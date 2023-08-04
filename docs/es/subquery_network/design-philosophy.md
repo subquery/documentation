@@ -4,7 +4,7 @@ El principio rector con SubQuery Network es la simplicidad y flexibilidad para d
 
 ## Multi-cadena por diseño
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+_SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future._
 
 SubQuery es nativo del ecosistema Polkadot, es nuestro hogar y será la ubicación de la Red SubQuery. El núcleo de la misión de Polkadot es crear una emocionante comunidad de desarrolladores, usuarios y empresas que aprovecharán su interoperabilidad multicadena. SubQuery cree en la idea de que una comunidad de blockchains, trabajando juntos para alentar la adopción web3, es el futuro y que Polkadot será un actor líder en esa iniciativa.
 
@@ -16,7 +16,7 @@ SubQuery actualmente soporta Polkadot, Avalanche y Terra. Espere más soporte pa
 
 ## Simple y Accesible
 
-*La Red SubQuery está diseñada para ser el proveedor de datos de las personas.*
+_La Red SubQuery está diseñada para ser el proveedor de datos de las personas._
 
 El principio que rige la Red SubQuery es la simplicidad. En opinión de SubQuery, otros enfoques de los servicios descentralizados de consulta de datos son demasiado complejos y dificultan a los participantes la previsión de su rentabilidad. El objetivo es facilitarle la participación en la red y prever claramente su rendimiento potencial futuro.
 
@@ -26,7 +26,7 @@ Esto significa que un objetivo del diseño es facilitar al máximo la participac
 
 ## Flexible
 
-*SubQuery es sólo una herramienta en manos de nuestra comunidad, existen infinitas oportunidades limitadas sólo por la creatividad de la gente.*
+_SubQuery es sólo una herramienta en manos de nuestra comunidad, existen infinitas oportunidades limitadas sólo por la creatividad de la gente._
 
 El potencial de SubQuery puede residir en su flexibilidad - los usuarios tendrán la libertad de adaptar y transformar datos descentralizados para satisfacer sus necesidades. Los desarrolladores de dApp necesitan datos en un formato específico adaptado a su dApp para facilitar el desarrollo y separarlos de otros.
 

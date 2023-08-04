@@ -10,7 +10,6 @@ Einige bösartige Codes werden wahrscheinlich den Host angreifen oder sogar komp
 
 - Ist gegen viele bekannte Angriffsmethoden immun.
 
-
 ## Die Beschränkungen
 
 - Um den Zugriff auf bestimmte integrierte Module einzuschränken, nur `assert`, `buffer`, `crypto`, `util` und ` path` stehen auf der Whitelist.

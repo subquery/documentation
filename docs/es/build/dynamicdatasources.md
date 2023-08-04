@@ -8,9 +8,9 @@ Para poder utilizar fuentes de datos dinámicas necesitas tener al menos una ver
 
 Spec versión `0.2.1` introduce un nuevo campo `plantillas`. Las plantillas son las mismas que las fuentes de datos con un par de diferencias.
 
-* Necesitan un `nombre` para identificar la plantilla
-* `startBlock` ya no es necesario. Esto se establecerá en el bloque que la fuente de datos es creada
-* En el caso de una fuente de datos personalizada el campo de `. opciones de procesador` también se puede rellenar parcialmente, el resto de las opciones se proporcionarán cuando se instaure la fuente de datos.
+- Necesitan un `nombre` para identificar la plantilla
+- `startBlock` ya no es necesario. Esto se establecerá en el bloque que la fuente de datos es creada
+- En el caso de una fuente de datos personalizada el campo de `. opciones de procesador` también se puede rellenar parcialmente, el resto de las opciones se proporcionarán cuando se instaure la fuente de datos.
 
 ## Ejemplo de proyecto
 
@@ -18,8 +18,8 @@ La mejor manera de mostrar cómo utilizar una fuente de datos dinámica es con u
 
 El siguiente ejemplo es un cambio descentralizado que tiene un contrato de fábrica que despliega un nuevo contrato cuando se añade un par de operaciones. Cuando el proyecto es ejecutado no es posible conocer las direcciones de todo contrato de pareja de operaciones que se han creado o se crearán. Las fuentes de datos pueden ser creadas dinámicamente por un manejador de mapeo de una plantilla con el fin de indexar los contratos del par de operaciones recién creados.
 
-
 ### `proyecto.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
@@ -92,7 +92,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promesa<void> {
 }
 ```
 
-
 ## Ver fuentes de datos dinámicas de un proyecto
 
 Las fuentes dinámicas de datos se almacenan en los metadatos del proyecto. Si necesitas ver qué detalles puedes consultarlos a continuación:
@@ -106,6 +105,7 @@ Las fuentes dinámicas de datos se almacenan en los metadatos del proyecto. Si n
 ```
 
 Resultado
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ Resultado
   }
 }
 ```
-

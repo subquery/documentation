@@ -1,10 +1,15 @@
-# Migrating from The Graph
+# The Graph Migration
 
-When we set out to build SubQuery, we always planned to make the developer experience as close as possible to other indexing solutions out there in the market, including The Graph. Ethereum developers can benefit from the superior SubQuery experience, including the open-source SDK, tools, documentation, and developer support that the SubQuery ecosystem provides. Additionally, Ethereum is accommodated by SubQuery’s Managed Service, which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day.
+SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
 
-SubQuery also brings some major improvements to existing users of The Graph, including the ability to make external API calls or import external libraries from within your mapping functions and better controls to run your projects in your own infrastructure with automated DOS (denial of service) mitigation controls. Additionally, we have no plans to sunset our managed service.
-
-Both SubQuery and The Graph are designed to index data fast, but analysis shows that SubQuery is 1.85x faster for common projects over The Graph (e.g the standard Ethereum Name Service project). This adds up when you’re indexing millions of blocks, and is something to consider when choosing your indexer. SubQuery achieves this by using mulit-threading and optimisation of the store to reduce costly database writes. With faster sync times, developers can iterate faster and deliver features to market quicker.
+- **Performance improvements** - SubQuery is up to 1.85x faster for common projects over The Graph (e.g the standard Ethereum Name Service project) thanks to multi-threading and a store cache layer
+- **More flexibility** - SubQuery's mapping functions are written in TypeScript, and so you can import additional libraries, make external API calls, or do anything you want in order to retrieve and process your data.
+- **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, and more
+- **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
+- **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
+- **More control** - A large library of [command line parameters](../run_publish/references.md) to all you to run, monitor, and optimise your locally hosted project
+- **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
+- **A decentralised network supporting all chains** - Our [decentralised network](https://kepler.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 
 ![Competitor Comparison](/assets/img/competitor_comparison.jpg)
 
@@ -14,7 +19,7 @@ The migration from a SubGraph to a SubQuery Project is (by design) easy and quic
 
 **Want Support During Migration?**
 
-Reach out to our team at sales@subquery.network and get professional service to manage the migration for you.
+Reach out to our team at [sales@subquery.network](mailto:sales@subquery.network) and get a professional service to manage the migration for you.
 
 :::
 
@@ -252,6 +257,177 @@ const balance = await erc20.balanceOf(address);
 ```
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
+
+## GraphQL Query Differences
+
+There are minor differences between the default GraphQL query service for SubQuery, and that of the Graph.
+
+### Query format
+
+Note the additional nesting of entity properties under the `nodes` syntax.
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Filters
+
+Instead of `where`, SubQuery uses `filter`. The Graph also uses a list of suffixes on the end of the entity field for filtering, when using SubQuery, you will need to add an extra layer on the GraphQL to specify the operator for the filters.
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(where: { field1_is: "<value>" }) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(filter: { field1: { equalTo: "<value>" } }) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Sorting
+
+Instead of using `orderBy` and `orderDirection`, SubQuery creates directional values for the `orderBy` property (e.g. `CREATED_AT_ASC` and `CREATED_AT_DSC`)
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(orderBy: "<field>", orderDirection: asc) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(orderBy: "FIELD_1_ASC") {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Historical queries
+
+There is no difference when querying [historical data](../run_publish/historical.md).
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(block: { number: 123 }) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(block: { number: 123 }) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+### Metadata
+
+Subquery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  _meta(block: {number: <blockNumber>}) {
+    block {
+      hash
+      timestamp
+    }
+    deployment
+    hasIndexingErrors
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  _metadata {
+    deployments
+    indexerHealthy
+  }
+}
+```
+
+:::
+
+#### Other changes
+
+- SubQuery has a larger support for query pagination. You have the options of using `first` and `offset`, or `cursors` on `edges`.
+- SubQuery supports [advanced aggregate functions](../../run_publish/aggregate.md) to allow you to perform a calculation on a set of values during your query.
 
 ## What's Next?
 

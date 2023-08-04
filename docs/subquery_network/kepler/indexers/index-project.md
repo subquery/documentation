@@ -85,12 +85,21 @@ The following projects are available for indexing on the Kepler network. Some pr
 
 | Network   | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
 | --------- | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
-| Polygon   | Kepler Network Project  | `Qma5ytpgnpqvrgxg3Da7ovUNmhEdaAuEsE7doJmVumn8Eq` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
+| Polygon   | Kepler Network Project  | `QmUVXKjcsYkS6WfJQfeD7juDbnMWCuo5qKgRRo893LajE2` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Polygon   | Kepler Airdrop Project  | `QmUwTD5dqQRRFcMCihJ4HHnMPfEvRpKpcFvGcTJjBpGg9T` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
 | Polygon   | Kepler Exchange Project | `QmV6sbiPyTDUjcQNJs2eGcAQp2SMXL2BU6qdv5aKrRr7Hg` | -             | [Subquery URL](https://gx.api.subquery.network/sq/subquery/polygon-dictionary) | No                             |
-| Pollkadot | Polkadot Dictionary     | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Kusama    | Kusama Dictionary       | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Nodle     | Nodle Dictionary        | `QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y` | -             | N/A                                                                            | [Yes](./dictionary-restore.md) |
+| Polkadot  | Polkadot Dictionary     | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | N/A  | [Yes](./dictionary-restore.md) |
+| Kusama    | Kusama Dictionary       | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | N/A  | [Yes](./dictionary-restore.md) |
+| Moonbeam  | Moonbeam Dictionary     | `QmeeqBHdVu7iYnhVE9ZiYEKTWe4jXVUD5pVoGXT6LbCP2t` | ~123GB        | N/A  | [Yes](./dictionary-restore.md) |
+| Moonriver | Moonriver Dictionary    | `QmXCr6uZFdY1YcGTa4u6ZieQPXK4VHE1Pjy7CBr7ubFwKR` | ~130GB        | N/A  | [Yes](./dictionary-restore.md) |
+| Nodle     | Nodle Dictionary        | `QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y` | ~15G          | N/A  | [Yes](./dictionary-restore.md) |
+| Acala     | Acala Dictionary        | `Qmarrhgrpqw5VK71rMtb4GARpPvq8ajMjAqnjnWZFLV61N` | ~10G          | N/A  | [Yes](./dictionary-restore.md) |
+| Karura    | Karura Dictionary       | `QmWumrabg4k6t4EUMhQg19xWwcxGq1hWbcmfmRYiy2Bod5` | ~10G          | N/A  | [Yes](./dictionary-restore.md) |
+| Arbitrum  | Arbitrum Dictionary     | `QmPKMkqTe7UMRPZWxuD8dFgufjKzWQEeW84Qo1x1X8VVLR` | ~240G         | N/A  | [Yes](./dictionary-restore.md) |
+| Optimism  | Optimism Dictionary     | `QmPuHdLxTQHEAitgLe9Sg1Jnr1WwJASDRSL5RUzBe3NywV` | ~250G         | N/A  | [Yes](./dictionary-restore.md) |
+| Khala  | Khala Dictionary           | `QmYCAns2cunZKJFU85KNK8CvL2ATAmCFVZRdBf963GqWYs` | ~78G         | N/A  | [Yes](./dictionary-restore.md) |
+| Westend  | Westend Dictionary       | `Qma6BeSQGHrhP5aydmkQcJCR25TEwuNMogS5boovBBwoeW` | ~35G         | N/A  | [Yes](./dictionary-restore.md) |
+| Astar  | Astar Dictionary           | `QmUmnKPhcE6JwGMYvY3Yitb5j8qxbQBMxgpkHpVQuXqxDH` | ~65G         | N/A  | [Yes](./dictionary-restore.md) |
 
 ::: info Note
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)

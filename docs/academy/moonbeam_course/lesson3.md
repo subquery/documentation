@@ -1,6 +1,6 @@
 # Lesson 3: How to Index a Substrate Event
 
-This lesson explains how to index Substrate native events alongside Moonbeam data. 
+This lesson explains how to index Substrate native events alongside Moonbeam data.
 We will alter the code by adding a `collatorJoined event` and updating `schema.graphql`,
 `project.yaml` and `mappingHandlers.ts` accordingly.
 
@@ -12,30 +12,30 @@ We will alter the code by adding a `collatorJoined event` and updating `schema.g
 ## Changing the Project
 
 ::: tip Note
-In this lesson we will alter the code. 
-::: 
+In this lesson we will alter the code.
+:::
 
 ### Manifest
 
-Let's start with adding new data source on the bottom of `project.yaml` file. 
-This will allow a new handler `collatorJoined` to be used to extract data from the chain. 
-The handler name has to match the name of corresponding function in `mappinghandlers.ts` file. 
-Pay attention to different content of `kind`, `module` and `method` specification. 
+Let's start with adding new data source on the bottom of `project.yaml` file.
+This will allow a new handler `collatorJoined` to be used to extract data from the chain.
+The handler name has to match the name of corresponding function in `mappinghandlers.ts` file.
+Pay attention to different content of `kind`, `module` and `method` specification.
 
 ```yaml
-  - kind: substrate/Runtime
-    startBlock: 69218
-    mapping:
-      file: './dist/index.js'
-      handlers:
-        - handler: collatorJoined
-          kind: substrate/EventHandler
-          filter:
-            module: parachainStaking
-            method: JoinedCollatorCandidates
+- kind: substrate/Runtime
+  startBlock: 69218
+  mapping:
+    file: "./dist/index.js"
+    handlers:
+      - handler: collatorJoined
+        kind: substrate/EventHandler
+        filter:
+          module: parachainStaking
+          method: JoinedCollatorCandidates
 ```
 
-Your entire Manifest file should look like this: 
+Your entire Manifest file should look like this:
 
 ```yaml
 specVersion: 1.0.0
@@ -43,19 +43,19 @@ name: moonbeam-evm-starter
 version: 0.0.1
 runner:
   node:
-    name: '@subql/node'
-    version: '>=0.35.0'
+    name: "@subql/node"
+    version: ">=0.35.0"
   query:
-    name: '@subql/query'
-    version: '>=0.16.0'
+    name: "@subql/query"
+    version: ">=0.16.0"
 description: Moonbeam / SubQuery Course — Building dApps with the help of SubQuery
-repository: 'https://github.com/subquery/tutorials-frontier-evm-starter'
+repository: "https://github.com/subquery/tutorials-frontier-evm-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b'
-  endpoint: 'wss://moonriver.api.onfinality.io/public-ws'
-  dictionary: 'https://api.subquery.network/sq/subquery/moonriver-dictionary'
+  chainId: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b"
+  endpoint: "wss://moonriver.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
@@ -65,7 +65,7 @@ dataSources:
       file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
       options:
         abi: erc20
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
     assets:
       erc20:
         file: ./erc20.abi.json
@@ -76,18 +76,18 @@ dataSources:
           kind: substrate/FrontierEvmEvent
           filter:
             topics:
-              - 'Transfer(address indexed from,address indexed to,uint256 value)'
+              - "Transfer(address indexed from,address indexed to,uint256 value)"
               - null
               - null
               - null
         - handler: handleFrontierEvmCall
           kind: substrate/FrontierEvmCall
           filter:
-            function: 'approve(address to,uint256 value)'
+            function: "approve(address to,uint256 value)"
   - kind: substrate/Runtime
     startBlock: 69218
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: collatorJoined
           kind: substrate/EventHandler
@@ -95,14 +95,15 @@ dataSources:
             module: parachainStaking
             method: JoinedCollatorCandidates
 ```
+
 ::: tip Note
 Find more information about Polkadot specific methods in [Polkadot Explorer](https://polkadot.js.org/apps/#/explorer).
 :::
 
 ### Schema GraphQl
 
-Next steps would be to add a new entity — `Collator` -  to `schema.graphql` file.
-Apart from the required `id` it should also include another required property - `joinedDate` of data type `Date`. 
+Next steps would be to add a new entity — `Collator` - to `schema.graphql` file.
+Apart from the required `id` it should also include another required property - `joinedDate` of data type `Date`.
 
 ```graphql
 type Collator @entity {
@@ -111,7 +112,7 @@ type Collator @entity {
 }
 ```
 
-The entire file should look like this: 
+The entire file should look like this:
 
 ```graphql
 type Transaction @entity {
@@ -151,10 +152,10 @@ yarn codegen
 ```shell
 npm run-script codegen
 ```
+
 :::
 
 Next step would be to create a proper function that allow creating collators and saving all the needed data in our database.
-
 
 ### Mapping functions
 
@@ -163,20 +164,18 @@ This function is responsible for getting the data from the chain, creating an en
 
 ```ts
 // Create Collator
-export async function collatorJoined(
-  event: SubstrateEvent): Promise<void> {
-
+export async function collatorJoined(event: SubstrateEvent): Promise<void> {
   const address = event.extrinsic.extrinsic.signer.toString();
   const collator = Collator.create({
-      id: address,
-      joinedDate: event.block.timestamp
+    id: address,
+    joinedDate: event.block.timestamp,
   });
 
   await collator.save();
 }
 ```
 
-Your file should look like this: 
+Your file should look like this:
 
 ```ts
 import { Approval, Collator, Transaction } from "../types";
@@ -185,7 +184,7 @@ import {
   FrontierEvmCall,
 } from "@subql/frontier-evm-processor";
 import { BigNumber } from "ethers";
-import {SubstrateEvent} from "@subql/types";
+import { SubstrateEvent } from "@subql/types";
 
 // Setup types from ABI
 type TransferEventArgs = [string, string, BigNumber] & {
@@ -198,7 +197,7 @@ type ApproveCallArgs = [string, BigNumber] & {
   _value: BigNumber;
 };
 
-// Create Transaction 
+// Create Transaction
 export async function handleFrontierEvmEvent(
   event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
@@ -227,13 +226,11 @@ export async function handleFrontierEvmCall(
 }
 
 // Create Collator
-export async function collatorJoined(
-  event: SubstrateEvent): Promise<void> {
-
+export async function collatorJoined(event: SubstrateEvent): Promise<void> {
   const address = event.extrinsic.extrinsic.signer.toString();
   const collator = Collator.create({
-      id: address,
-      joinedDate: event.block.timestamp
+    id: address,
+    joinedDate: event.block.timestamp,
   });
 
   await collator.save();
@@ -243,37 +240,36 @@ export async function collatorJoined(
 ## Query
 
 Open your browser and head to `http://localhost:3000`. Use GraphQL playground to query your data.
-Expand previous query by adding `collators` on the bottom: 
+Expand previous query by adding `collators` on the bottom:
 
 ```graphql
 query {
-    approvals (first: 5) {
-        nodes {
-            id
-            value
-            owner
-            spender
-        }
+  approvals(first: 5) {
+    nodes {
+      id
+      value
+      owner
+      spender
     }
-    transactions (first: 5) {
-        nodes {
-            id
-            value
-            to: id
-            from: id
-        }
+  }
+  transactions(first: 5) {
+    nodes {
+      id
+      value
+      to: id
+      from: id
     }
-    collators (last: 5) {
-        nodes {
-            id
-            joinedDate
-            leaveDate
-        }
+  }
+  collators(last: 5) {
+    nodes {
+      id
+      joinedDate
+      leaveDate
     }
-
+  }
 }
 ```
- 
+
 ## Useful resources
 
 - [SubQuery Project Explorer](https://explorer.subquery.network/)

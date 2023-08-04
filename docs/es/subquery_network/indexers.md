@@ -17,6 +17,7 @@ Si un Indexador es detectado mal (tal como proporcionando datos no válidos, inc
 ## ¿Cómo se recompensa a los indexadores?
 
 Los indexadores son recompensados en SQT de dos maneras:
+
 - Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 

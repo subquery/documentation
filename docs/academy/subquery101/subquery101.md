@@ -6,7 +6,7 @@ SubQuery is a blockchain project built on the Polkadot/Substrate network that in
 
 ## Why is Indexing Important?
 
-Indexing allows for fast retrieval of data by those who wish to use it. Just like indexes in the library that help you to find your favourite books, or when you use Google search, SubQuery has already categorised data on the blockchain so developers can find it easily. 
+Indexing allows for fast retrieval of data by those who wish to use it. Just like indexes in the library that help you to find your favourite books, or when you use Google search, SubQuery has already categorised data on the blockchain so developers can find it easily.
 
 ## Who Uses SubQuery?
 

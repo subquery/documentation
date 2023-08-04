@@ -40,7 +40,6 @@ Una volta inviata la candidatura, selezioneremo i candidati che si allineano con
 
 Una volta superato il programma di tirocinio, potrai definirti un ambasciatore di SubQuery e sarai accettato nel nostro programma completo. Da qui in poi si può continuare a lavorare attraverso il programma e progredire nei livelli, guadagnando più premi e benefici man mano che si sale di livello.
 
-
 ## Attività dell'ambasciatore
 
 SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.

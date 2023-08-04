@@ -37,4 +37,4 @@ Este ejemplo establece el tamaño del lote a 50.
 
 ## ¿Por qué cambiar el tamaño del lote?
 
-Usar un tamaño por lotes más pequeño puede reducir el uso de memoria y no dejar a los usuarios colgando para grandes consultas. En otras palabras, su aplicación puede ser más receptiva. 
+Usar un tamaño por lotes más pequeño puede reducir el uso de memoria y no dejar a los usuarios colgando para grandes consultas. En otras palabras, su aplicación puede ser más receptiva.

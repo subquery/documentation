@@ -8,7 +8,7 @@ Một dự án SubQuery cơ bản lập chỉ mục số dư tài khoản có th
 
 ```graphql
 type Account @entity {
-  id: ID! # Địa chỉ tài khoản của Alice 
+  id: ID! # Địa chỉ tài khoản của Alice
   balance: BigInt
   transfers: [Transfer]
 }

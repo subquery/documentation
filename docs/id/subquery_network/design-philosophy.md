@@ -4,7 +4,7 @@ Prinsip panduan dengan Jaringan SubQuery adalah kesederhanaan dan fleksibilitas 
 
 ## Multi-Rantai dengan Desain
 
-*SubQuery percaya pada gagasan bahwa komunitas blockchain, bekerja sama untuk mendorong adopsi web3, adalah masa depan.*
+_SubQuery percaya pada gagasan bahwa komunitas blockchain, bekerja sama untuk mendorong adopsi web3, adalah masa depan._
 
 SubQuery berasal dari ekosistem Polkadot, ini adalah rumah kami dan akan menjadi lokasi Jaringan SubQuery. Premis inti Polkadot adalah untuk menciptakan komunitas pengembang, pengguna, dan bisnis yang berkembang yang akan memanfaatkan interoperabilitas multirantai. SubQuery percaya pada gagasan bahwa komunitas blockchain, bekerja sama untuk mendorong adopsi web3, adalah masa depan dan bahwa Polkadot akan menjadi pemain terkemuka dalam inisiatif itu.
 
@@ -16,7 +16,7 @@ SubQuery saat ini mendukung Polkadot, Avalanche, dan Terra. Harapkan lebih banya
 
 ## Sederhana dan Dapat Diakses
 
-*Jaringan SubQuery dirancang untuk menjadi penyedia data orang-orang.*
+_Jaringan SubQuery dirancang untuk menjadi penyedia data orang-orang._
 
 Prinsip panduan dengan Jaringan SubQuery adalah kesederhanaan. SubQuery berpendapat bahwa pendekatan lain untuk layanan kueri data terdesentralisasi terlalu rumit dan menyulitkan peserta untuk memprediksi laba atas investasi mereka. Tujuannya adalah untuk memudahkan Anda untuk terlibat dalam jaringan, dan untuk memperkirakan dengan jelas potensi keuntungan Anda di masa depan.
 
@@ -26,7 +26,7 @@ Ini berarti bahwa tujuan desain adalah membuatnya semudah mungkin bagi siapa saj
 
 ## Fleksibel
 
-*SubQuery hanyalah alat di tangan komunitas kami, peluang tanpa akhir yang ada hanya dibatasi oleh kreativitas orang-orang.*
+_SubQuery hanyalah alat di tangan komunitas kami, peluang tanpa akhir yang ada hanya dibatasi oleh kreativitas orang-orang._
 
 Potensi SubQuery mungkin terletak pada fleksibilitasnya - pengguna akan memiliki kebebasan untuk mengadaptasi dan mengubah data terdesentralisasi agar sesuai dengan kebutuhan mereka. pengembang dApp memerlukan data dalam format khusus yang disesuaikan untuk dApp mereka untuk kemudahan pengembangan dan untuk membedakannya dari yang lain.
 

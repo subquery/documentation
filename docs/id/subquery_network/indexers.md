@@ -17,6 +17,7 @@ Jika Pengindeks ketahuan melakukan kesalahan (seperti dengan memberikan data yan
 ## Bagaimana Pengindeks dihargai?
 
 Pengindeks dihargai di SQT dalam dua cara:
+
 - Imbalan dari kumpulan imbalan SQT berdasarkan distribusi yang ditentukan oleh Fungsi Produksi Cobb-Douglas.
 - Imbalan biaya kueri SQT langsung dari Perjanjian Tertutup yang menjadi pihak pengindeks.
 

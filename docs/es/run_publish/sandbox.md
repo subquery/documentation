@@ -10,7 +10,6 @@ Es probable que algún código malicioso ataque al anfitrión o incluso lo compr
 
 - Es inmune a muchos métodos conocidos de ataque.
 
-
 ## Restricción
 
 - Para limitar el acceso a ciertos módulos integrados, solo `assert`, `buffer`, `crypto`,`util` y `path` están en la lista blanca.

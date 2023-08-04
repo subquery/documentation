@@ -38,4 +38,4 @@ Bu örnek, toplu iş boyutunu 50 olarak ayarlar.
 
 ## Toplu iş boyutu neden değiştirilir?
 
-Daha küçük bir toplu iş boyutu kullanmak bellek kullanımını azaltabilir ve kullanıcıları büyük sorgular için asılı bırakmaz. Diğer sözcüklerde, uygulamanız daha duyarlı olabilir. 
+Daha küçük bir toplu iş boyutu kullanmak bellek kullanımını azaltabilir ve kullanıcıları büyük sorgular için asılı bırakmaz. Diğer sözcüklerde, uygulamanız daha duyarlı olabilir.

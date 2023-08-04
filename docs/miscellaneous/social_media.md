@@ -1,6 +1,6 @@
 # Social Media Links
 
-SubQuery is an active project that maintains and communicates with our followers through many social media channels. 
+SubQuery is an active project that maintains and communicates with our followers through many social media channels.
 
 It is our aim to always listen and engage with our loyal community so please join the conversation and send us your ideas or questions!
 

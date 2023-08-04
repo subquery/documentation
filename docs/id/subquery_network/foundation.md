@@ -9,6 +9,7 @@ Yayasan SubQuery adalah langkah pertama menuju desentralisasi kepemilikan atas J
 Jaringan SubQuery akan dikelola oleh SubQuery Foundation. Yayasan SubQuery akan menjadi entitas nirlaba yang dibuat khusus untuk melayani, mengelola, dan mengembangkan Jaringan SubQuery serta memberikan dukungan bagi pengguna dan pengembang untuk berpartisipasi.
 
 Yayasan SubQuery diharapkan memiliki mandat berikut:
+
 - Mengembangkan dan memperbarui Jaringan SubQuery.
 - Mengelola dan mendistribusikan aset dari Perbendaharaan Yayasan.
 - Mengelola Program Hibah SubQuery untuk merangsang pengembangan ekosistem dan jaringan.

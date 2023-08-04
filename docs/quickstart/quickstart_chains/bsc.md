@@ -30,7 +30,7 @@ The Project Manifest (`project.yaml`) file works as an entry point to your BSC p
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-We are indexing actions from the MOBOX Farming contract, first you will need to import the contract abi definition from [here]( https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code). You can copy the entire JSON and save as a file `mobox.abi.json` in the root directory.
+We are indexing actions from the MOBOX Farming contract, first you will need to import the contract abi definition from [here](https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code). You can copy the entire JSON and save as a file `mobox.abi.json` in the root directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
@@ -271,7 +271,7 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 
 3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
 
-Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
+Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
 
 ```graphql
 query {

@@ -8,9 +8,9 @@ Trong nhiều trường hợp bạn không thể biết tất cả các tham s�
 
 Phiên bản thông số `0.2.1` giới thiệu trường `templates` mới. Các Template cũng giống như các nguồn dữ liệu với một vài điểm khác biệt.
 
-* Các template cần một `name` để sử dụng và phân biệt với nhau.
-* `startBlock` không còn cần thiết nữa. startBlock</0> sẽ được đặt mặc định là block mà nguồn dữ liệu được tạo ra
-* Trong trường hợp nguồn dữ liệu tùy chỉnh, trường `processor.options` cũng có thể được điền một phần, phần còn lại của các tùy chọn sẽ được cung cấp khi nguồn dữ liệu được tạo ra.
+- Các template cần một `name` để sử dụng và phân biệt với nhau.
+- `startBlock` không còn cần thiết nữa. startBlock</0> sẽ được đặt mặc định là block mà nguồn dữ liệu được tạo ra
+- Trong trường hợp nguồn dữ liệu tùy chỉnh, trường `processor.options` cũng có thể được điền một phần, phần còn lại của các tùy chọn sẽ được cung cấp khi nguồn dữ liệu được tạo ra.
 
 ## Dự án mẫu
 
@@ -18,28 +18,28 @@ Cách tốt nhất để hiểu cách sử dụng nguồn dữ liệu động l�
 
 Ví dụ: Một sàn giao dịch phi tập trung có contract factory triển khai contract mới khi thêm một cặp giao dịch: Khi dự án được chạy, không thể biết địa chỉ của tất cả các contract (của cặp giao dịch) đã được tạo hoặc sẽ được tạo. Nguồn dữ liệu có thể được tạo một cách tự động bởi một trình xử lý ánh xạ từ một template để lập chỉ mục các contract (cho cặp giao dịch) mới được tạo.
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -77,8 +77,8 @@ templates:
 
 ```ts
 // Hàm này được định nghĩa bằng lệnh cli command từ `subql codegen`
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## Xem dự án Nguồn dữ liệu động
 
@@ -106,6 +105,7 @@ Nguồn dữ liệu động được lưu trữ trong metadata của dự án. N
 ```
 
 Kết quả
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ Kết quả
   }
 }
 ```
-

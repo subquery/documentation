@@ -22,7 +22,7 @@ Los planes cerrados también pueden colocarse en proyectos de subconsultas exist
 
 ## Acuerdo de Servicio Abierto
 
-Los Acuerdos de Servicios de Mercado Abierto son similares a los Acuerdos de Servicio de Mercado Cerrado, pero permiten que varios Indexadores se unan y compitan para proporcionar datos al Consumidor. Un Acuerdo de Servicio de Mercado Abierto puede comenzar como un contrato entre 1 Indice de Consumidor y 1, pero más partes pueden unirse al contrato resultando en *n* consumidores y *n* indexadores.
+Los Acuerdos de Servicios de Mercado Abierto son similares a los Acuerdos de Servicio de Mercado Cerrado, pero permiten que varios Indexadores se unan y compitan para proporcionar datos al Consumidor. Un Acuerdo de Servicio de Mercado Abierto puede comenzar como un contrato entre 1 Indice de Consumidor y 1, pero más partes pueden unirse al contrato resultando en _n_ consumidores y _n_ indexadores.
 
 Cada Acuerdo de Servicio de Mercado Abierto da como resultado la creación de un nuevo fondo de recompensas para ese contrato, y SQT se distribuye entre los indicadores participantes por la función de producción Cobb-Douglas .
 

@@ -7,6 +7,7 @@ Le fichier `schema.graphql` définit les différents schemas GraphQL. En raison 
 **Important : Lorsque vous apportez des modifications au fichier schema, veuillez vous assurer que vous régénérez le répertoire de vos types avec la commande suivante `yarn codegen`**
 
 ### Entités
+
 Chaque entité doit définir ses champs requis `id` avec le type `ID!`. Il est utilisé comme clé primaire et unique parmi toutes les entités du même type.
 
 Les champs non nullables dans l'entité sont indiqués par `!`. Veuillez consulter l'exemple ci-dessous:
@@ -22,6 +23,7 @@ type Exemple @entity {
 ### Les scalaires et les types supportés
 
 Nous prenons actuellement en charge les types de scalars fluides :
+
 - `ID`
 - `Int`
 - `String`
@@ -49,10 +51,11 @@ type User @entity {
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 En supposant que nous connaissions le nom de cet utilisateur, mais nous ne connaissons pas la valeur exacte de l'id plutôt que d'extraire tous les utilisateurs puis de filtrer par nom, nous pouvons ajouter `@index` derrière le champ de nom. Cela rend la requête beaucoup plus rapide et nous pouvons également passer le `unique : true` pour assurer l'unicité.
 
 **Si un champ n'est pas unique, la taille maximum du champs de résultats est de 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Gestionnaire dans la fonction de mapping
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
@@ -121,7 +124,7 @@ Exemple: Une personne peut avoir plusieurs comptes.
 ```graphql
 type Person @entity {
   id: ID!
-  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field 
+  accounts: [Account]! @derivedFrom(field: "person") #This is virtual field
 }
 
 type Account @entity {
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### Relations de plusieurs à plusieurs
+
 Une relation de plusieurs à plusieurs peut être obtenue en implémentant une entité de cartographie pour relier les deux autres entités.
 
 Exemple: Chaque personne fait partie de groupes multiples (Groupe de personnes) et les groupes ont plusieurs personnes différentes (Groupe de personnes).
@@ -202,16 +206,18 @@ type Transfer @entity {
 Nous prenons en charge l'enregistrement des données en tant que type JSON, ce qui est un moyen rapide de stocker des données structurées. Nous générerons automatiquement les interfaces JSON correspondantes pour interroger ces données et vous économiserons du temps pour définir et gérer les entités.
 
 Nous recommandons aux utilisateurs d'utiliser le type JSON dans les scénarios suivants :
+
 - Lorsque vous stockez des données structurées dans un seul champ est plus facile à gérer que de créer plusieurs entités séparées.
 - Sauvegarde des préférences utilisateur de clé arbitraire (où la valeur peut être booléenne, textuelle, ou numérique, et vous ne voulez pas avoir de colonnes séparées pour différents types de données)
 - Le schema est volatil et évolue fréquemment
 
 ### Définissez la directive JSON
+
 Définissez la propriété en tant que type JSON en ajoutant l'annotation `jsonField` dans l'entité. Cela générera automatiquement des interfaces pour tous les objets JSON de votre projet sous `types/interfaces.ts`, et vous pouvez y accéder dans votre fonction de mapping.
 
 Contrairement à l'entité, l'objet directive jsonField ne nécessite aucun champ `id`. Un objet JSON est également capable de s'imbriquer avec d'autres objets JSON.
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
   street: String!
   district: String!
@@ -223,10 +229,10 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Stocker une liste d'objets JSON
 }
-````
+```
 
 ### Requête des champs JSON
 
@@ -237,15 +243,9 @@ Cependant, l'impact est acceptable dans notre service de requêtes. Voici un exe
 ```graphql
 #Pour trouver les 5 premiers utilisateurs qui possèdent des numéros de téléphone contenant '0064'.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

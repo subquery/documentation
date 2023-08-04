@@ -17,6 +17,7 @@ If an Indexer is caught misbehaving (such as by providing invalid, incomplete, o
 ## How are Indexers rewarded?
 
 Indexers are rewarded in SQT in two ways:
+
 - Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 

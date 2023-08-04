@@ -24,7 +24,7 @@ SubQuery will create an individual indexing node for each chain that you index i
 
 Finally, the projects should index and save data to the same PostgreSQL database table schema. This will be set in your `docker-compose.yml` with the line `--db-schema=<enter-common-schema-name-here>`. You will need to add this same argument if you are running your project via the command line.
 
-In our example project, we have [altered the standard `docker-compose.yml`](https://github.com/subquery/multi-networks-transfers/blob/main/docker-compose.yml) to automatically provision two indexing nodes, one for each chain that we are indexing. This is a suggested approach to speed up development.
+In our example project, we have [altered the standard `docker-compose.yml`](https://github.com/subquery/subquery-example-multi-chain-transfers/blob/main/docker-compose.yml) to automatically provision two indexing nodes, one for each chain that we are indexing. This is a suggested approach to speed up development.
 
 ```yaml
   ...
@@ -60,7 +60,7 @@ This feature is only supported for Partner Plan Customers in the [SubQuery Manag
 Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
 
 :::info See a real world example
-You can see an example project with all of this correctly enabled [here](https://github.com/subquery/multi-networks-transfers)
+You can see an example project with all of this correctly enabled [here](https://github.com/subquery/subquery-example-multi-chain-transfers)
 :::
 
 ### 1. Create a Multi-Chain Manifest File
@@ -114,11 +114,11 @@ Use `subql publish` command to publish all the projects listed in the `subquery-
 
 ### See the Example Project
 
-The repository for this example can be found [here](https://github.com/subquery/multi-networks-transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
+The repository for this example can be found [here](https://github.com/subquery/subquery-example-multi-chain-transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
 
 A modified docker-compose.yaml file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a seperate manifest file (see [command line references](../run_publish/references.md)).
 
-This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/multi-networks-transfers/blob/main/README.md#configure-your-project)
+This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/subquery-example-multi-chain-transfers/blob/main/README.md#configure-your-project)
 
 ## Tips
 
@@ -196,13 +196,13 @@ When querying metadata using GraphQL with multi-chain enabled, you need to pass 
 To query metadata from all metadata tables you can use the query shown below. There are no arguments in this query, so you cannot filter or sort.
 
 ```graphql
-  {
-    _metadatas {
-      totalCount
-      nodes {
-        chain
-        lastProcessedHeight
-      }
+{
+  _metadatas {
+    totalCount
+    nodes {
+      chain
+      lastProcessedHeight
     }
   }
+}
 ```

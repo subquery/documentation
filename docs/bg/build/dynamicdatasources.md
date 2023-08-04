@@ -8,9 +8,9 @@
 
 Версия на спецификацията `0.2.1` ще генерира ново поле `templates`. Шаблоните (Templates) са подобни като при източниците на данни с няколко разлики.
 
-* Необходима е команда `name` за идентифициране на шаблона
-* `startBlock` повече не необходим. Той ще бъде зададен в блока, в който е създаден източникът на данни
-* В случай на персонализиран източник на данни, полето `processor.options` може да бъде частично попълнено, останалите опции ще бъдат предоставени при самото създаване на екземпляра на източника за данни.
+- Необходима е команда `name` за идентифициране на шаблона
+- `startBlock` повече не необходим. Той ще бъде зададен в блока, в който е създаден източникът на данни
+- В случай на персонализиран източник на данни, полето `processor.options` може да бъде частично попълнено, останалите опции ще бъдат предоставени при самото създаване на екземпляра на източника за данни.
 
 ## Пример на проект
 
@@ -18,28 +18,28 @@
 
 Примерът по-долу е за децентрализирана борса, която има фабричен контракт, който внедрява нов контракт, в случай на добавяне на двойка за търговия. При стартиране на един проект, не е възможно да се знаят адресите на всички контракти за търговски двойки, които вече са създадени или предстоят да бъдат създадени. Източниците на данни могат да бъдат динамично създадени програмно чрез съпоставяне с шаблон, за индексация на новосъздадените контракти за търговските двойки.
 
-
 ### `project.yaml`
+
 ```yaml
 specVersion: 0.2.1
 name: example-project
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
+  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
   chaintypes:
     file: "./types.yaml"
 dataSources:
   - kind: substrate/Moonbeam
     startBlock: 1358833
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: exchangeFactory
-        address: '0x0000000000000000000000000000000000000000'
+        address: "0x0000000000000000000000000000000000000000"
     assets:
       exchangeFactory:
         file: ./src/exchangeFactory.abi.json
@@ -56,7 +56,7 @@ templates:
   - name: TradingPair
     kind: substrate/Moonbeam
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         abi: tradingPair
         # we do not know the address at this point, it will be provided when instantiated
@@ -76,9 +76,9 @@ templates:
 ### `mappingHandlers.ts`
 
 ```ts
-// Тази функция се определя с помощта на командата cli  `subql codegen` 
-import { createTradingPairDatasource } from '../types';
-import {MoonbeamEvent} from '@subql/contract-processors/dist/moonbeam';
+// Тази функция се определя с помощта на командата cli  `subql codegen`
+import { createTradingPairDatasource } from "../types";
+import { MoonbeamEvent } from "@subql/contract-processors/dist/moonbeam";
 
 async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
   const { exchange, token1, token2 } = event.args;
@@ -91,7 +91,6 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   /* mapping fuction implementation here */
 }
 ```
-
 
 ## Преглед на проектите от Динамични източници на данни
 
@@ -106,6 +105,7 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
 ```
 
 Резултат
+
 ```
 {
   "data": {
@@ -115,4 +115,3 @@ async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
   }
 }
 ```
-

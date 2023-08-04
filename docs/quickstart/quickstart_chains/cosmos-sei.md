@@ -18,11 +18,11 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect start. It allows you to define your end goal right at the start.
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
-Update the `schema.graphql` file as follows. Here we are indexing not only standard block data such as the id, blockheight, transaction hash and the timestamp, we are also indexing exchange rate data such as the notional and USD price, the long and short rate and also contract details.
+Update the `schema.graphql` file as follows. In this project, since we are indexing all ETH-USD exchange rates provided to [Levana’s Sei DEX protocol](https://blog.levana.finance/levana-perpetual-swap-beta-now-live-on-sei-networks-testnet-a-new-era-for-decentralized-crypto-fc0930ea4b9) by the Pyth price oracle, we have a `ExchangeRate` entity that includes a number of properties, including exchange rate data such as the notional and USD price, the long and short rate and also contract details.
 
-Daily aggregated price data such as open, close, low and high prices are also captured
+Daily aggregated price data such as open, close, low and high prices are also captured in a seperate `DailyAggregation` entity.
 
 ```graphql
 type ExchangeRate @entity {
@@ -317,7 +317,7 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 
 3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
 
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/graphql.md).
+Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
 
 ```graphql
 query {

@@ -310,6 +310,10 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
+              text: "Base",
+              link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
+            },
+            {
               text: "BNB Smart Chain (BSC)",
               link: `${locale}/quickstart/quickstart_chains/bsc.md`,
             },
@@ -317,6 +321,14 @@ function getSidebar(locale: string): SidebarOptions {
               text: "Cosmos",
               collapsible: true,
               children: [
+                {
+                  text: "Akash",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-akash.md`,
+                },
+                {
+                  text: "Archway",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-archway.md`,
+                },
                 {
                   text: "Cronos (EVM)",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
@@ -362,6 +374,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/flare.md`,
             },
             {
+              text: "Gnosis",
+              link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
@@ -388,8 +404,16 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/polkadot-astar.md`,
                 },
                 {
+                  text: "Moonbeam (EVM)",
+                  link: `${locale}/quickstart/quickstart_chains/polkadot-moonbeam.md`,
+                },
+                {
                   text: "Humanode",
                   link: `${locale}/quickstart/quickstart_chains/polkadot-humanode.md`,
+                },
+                {
+                  text: "Kilt",
+                  link:`${locale}/quickstart/quickstart_chains/polkadot-kilt.md`,
                 },
                 {
                   text: "Polkadot/Substrate",
@@ -428,6 +452,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/flare.md`,
+            `${locale}/build/manifest/gnosis.md`,
             `${locale}/build/manifest/near.md`,
             `${locale}/build/manifest/optimism.md`,
             `${locale}/build/manifest/polkadot.md`,
@@ -447,6 +472,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/flare.md`,
+            `${locale}/build/mapping/gnosis.md`,
             `${locale}/build/mapping/near.md`,
             `${locale}/build/mapping/optimism.md`,
             `${locale}/build/mapping/polkadot.md`,
@@ -456,12 +482,12 @@ function getSidebar(locale: string): SidebarOptions {
           ],
         },
         `${locale}/build/testing.md`,
+        `${locale}/build/graph-migration.md`,
         `${locale}/build/multi-chain.md`,
+        `${locale}/build/dynamicdatasources.md`,
         `${locale}/build/substrate-evm.md`,
         `${locale}/build/substrate-wasm.md`,
         `${locale}/build/cosmos-evm.md`,
-        `${locale}/build/dynamicdatasources.md`,
-        `${locale}/build/graph-migration.md`,
         `${locale}/build/optimisation.md`,
       ],
     },
@@ -475,7 +501,6 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/run_publish/monitor.md`,
         `${locale}/run_publish/cli.md`,
         `${locale}/run_publish/query.md`,
-        `${locale}/run_publish/graphql.md`,
         `${locale}/run_publish/ipfs.md`,
         `${locale}/run_publish/aggregate.md`,
         `${locale}/run_publish/subscription.md`,

@@ -9,6 +9,7 @@ Die SubQuery Foundation ist der erste Schritt zur Dezentralisierung der Eigentü
 Das SubQuery Network wird von einer SubQuery Foundation verwaltet. Die SubQuery Foundation wird eine gemeinnützige Einrichtung sein, die speziell gegründet wurde, um das SubQuery-Netzwerk zu bedienen, zu verwalten und zu entwickeln und Benutzern und Entwicklern Unterstützung bei der Teilnahme zu bieten.
 
 Die SubQuery Foundation wird voraussichtlich die folgenden Mandate haben:
+
 - Developing and updating the SubQuery Network.
 - Manage and distributing assets from the Foundation Treasury.
 - Managing the SubQuery Grants Programme to stimulate ecosystem and network development.

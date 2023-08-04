@@ -38,4 +38,4 @@ Contoh ini mengatur ukuran batch (batch size) ke 50.
 
 ## Kenapa mengubah ukuran batch?
 
-Menggunakan ukuran batch yang lebih kecil dapat mengurangi penggunaan memori dan tidak membuat pengguna menggantung untuk kueri besar. Dengan kata lain, aplikasi Anda bisa lebih responsif. 
+Menggunakan ukuran batch yang lebih kecil dapat mengurangi penggunaan memori dan tidak membuat pengguna menggantung untuk kueri besar. Dengan kata lain, aplikasi Anda bisa lebih responsif.

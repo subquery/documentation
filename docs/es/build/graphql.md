@@ -7,6 +7,7 @@ El archivo `schema.graphql` define los diversos esquemas GraphQL. Debido a la fo
 **Importante: Cuando haga cambios en el archivo de esquema, por favor, asegúrate de regenerar el directorio de tus tipos con el siguiente comando `yarn codegen`**
 
 ### Entidades
+
 Cada entidad debe definir sus campos requeridos `id` con el tipo de `ID!`. Se utiliza como la clave primaria y única entre todas las entidades del mismo tipo.
 
 Los campos que no aceptan valores Null en la entidad se indican mediante `!`. Por favor vea el ejemplo a continuación:
@@ -22,6 +23,7 @@ type Example @entity {
 ### Escalares y tipos soportados
 
 Actualmente soportamos tipos de escalares fluidos:
+
 - `ID`
 - `Int`
 - `String`
@@ -43,22 +45,21 @@ Aquí tenemos un ejemplo.
 
 ```graphql
 type User @entity {
-  id:
-  ID!
+  id: ID!
   name: String!
   groups: ID!
   name: String! @index(unique: true) # unique puede establecerse en verdadero o falso
- title: Title! # Los índices se añaden automáticamente al campo de clave foránea 
+  title: Title! # Los índices se añaden automáticamente al campo de clave foránea
 }
 
 type Title @entity {
-  id:  
-  ID!
+  id: ID!
   name: String!
-  groups: ID!  
-  name: String! @index(unique:true)
+  groups: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 Asumiendo que conocíamos el nombre de este usuario, pero no conocemos el valor exacto del id, en lugar de extraer todos los usuarios y luego filtrar por nombre podemos añadir `@index` detrás del campo nombre. Esto hace que la consulta sea mucho más rápida y además podemos pasar el `único: verdadero` para asegurar la unidad.
 
 **Si un campo no es único, el tamaño máximo del conjunto de resultados es 100**
@@ -72,12 +73,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'capitán')
 
 ```typescript
 // Handler in mapping function
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
@@ -130,7 +131,7 @@ Ejemplo: Una persona puede tener múltiples cuentas.
 ```graphql
 type Person @entity {
   id:
-  cuentas: [Account]! @derivedFrom(field: "person") #Este es un campo virtual 
+  cuentas: [Account]! @derivedFrom(field: "person") #Este es un campo virtual
 }
 
 type Account @entity {
@@ -140,6 +141,7 @@ type Account @entity {
 ```
 
 ### Relaciones Muchos-a-Muchos
+
 Una relación muchos-a-muchos puede lograrse implementando una entidad de mapeo para conectar las otras dos entidades.
 
 Ejemplo: Cada persona es parte de múltiples grupos (PersonGrup) y los grupos tienen múltiples personas diferentes (PersonGrup).
@@ -223,35 +225,33 @@ type Transfer @entity {
 Estamos soportando guardar datos como un tipo JSON, que es una forma rápida de almacenar datos estructurados. Generaremos automáticamente interfaces JSON correspondientes para consultar estos datos y ahorraremos tiempo definiendo y gestionando entidades.
 
 Recomendamos que los usuarios usen el tipo JSON en los siguientes escenarios:
+
 - Al almacenar datos estructurados en un solo campo es más manejable que la creación de múltiples entidades separadas.
 - Guardando las preferencias de usuario clave/valor arbitrario (donde el valor puede ser booleano, textual, o numérico, y no quiere tener columnas separadas para diferentes tipos de datos)
 - El esquema es volátil y cambia con frecuencia
 
 ### Define la directiva JSON
+
 Define la propiedad como un tipo JSON agregando la anotación `jsonField` en la entidad. Esto automáticamente generará interfaces para todos los objetos JSON en su proyecto bajo `types/interfaces.ts`, y puedes acceder a ellos desde tu función de mapeo.
 
 A diferencia de la entidad, el objeto de directiva jsonField no requiere ningún campo `id`. Un objeto JSON también es capaz de anidar con otros objetos JSON.
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
-  street:
-  String!
-  district:
-String!
+  street: String!
+  district: String!
 }
 
 type ContactCard @jsonField {
   phone: String!
-  address:
-  AddressDetail # Nested JSON
+  address: AddressDetail # Nested JSON
 }
 
 type User @entity {
-  id: 
-  ID! 
+  id: ID!
   contact: [ContactCard] # Almacenar una lista de objetos JSON
 }
-````
+```
 
 ### Consulta de campos JSON
 
@@ -262,15 +262,9 @@ Sin embargo, el impacto sigue siendo aceptable en nuestro servicio de consultas.
 ```graphql
 #Para encontrar los primeros 5 usuarios de los números de teléfono contienen '0064'.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

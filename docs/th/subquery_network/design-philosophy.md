@@ -4,7 +4,7 @@ The guiding principle with the SubQuery Network is simplicity and flexibility fo
 
 ## Multi-Chain by Design
 
-*SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future.*
+_SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future._
 
 SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
 
@@ -16,7 +16,7 @@ SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 
 
 ## Simple and Accessible
 
-*The SubQuery Network is designed to be the data provider of the people.*
+_The SubQuery Network is designed to be the data provider of the people._
 
 The guiding principle with the SubQuery Network is simplicity. It is SubQuery’s opinion that other approaches to decentralised data query services are overly complex and make it difficult for participants to predict their return on investment. The aim is to make it easy for you to get involved in the network, and to clearly forecast your future potential return.
 
@@ -26,7 +26,7 @@ This means that a design goal is to make it as easy as possible for anyone to pa
 
 ## Flexible
 
-*SubQuery is just a tool in the hands of our community, endless opportunities exist limited only by the creativity of the people.*
+_SubQuery is just a tool in the hands of our community, endless opportunities exist limited only by the creativity of the people._
 
 The potential of SubQuery may lie in its flexibility - users will have the freedom to adapt and transform decentralised data to suit their needs. dApp developers need data in a specific format tailored for their dApp for ease of development and to set it apart from others.
 

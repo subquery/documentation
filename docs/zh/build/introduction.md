@@ -1,6 +1,6 @@
 # 创建新的 SubQuery 项目
 
-在 [快速开始](/quickstart/quickstart-polkadot.md) 指南， 我们快速地演示了一个DEMO，让您知道什么是SubQuery以及它是如何运作的。 在这里，我们将进一步了解创建项目流程及后续所需使用的关键文件的流程。
+在 [快速开始](/quickstart/quickstart-polkadot.md) 指南， 我们快速地演示了一个 DEMO，让您知道什么是 SubQuery 以及它是如何运作的。 在这里，我们将进一步了解创建项目流程及后续所需使用的关键文件的流程。
 
 ## SubQuery 示例
 
@@ -14,7 +14,7 @@
 
 ## 目录结构
 
-下面的map提供了运行 `init` 命令时子查询项目的目录结构概览。
+下面的 map 提供了运行 `init` 命令时子查询项目的目录结构概览。
 
 ```
 - project-name
@@ -47,16 +47,16 @@ yarn 编码器
 
 ## 创建项目
 
-为了在本地托管的 SubQuery 节点上运行您的SubQuery 项目，您需要首先构建您的项目。
+为了在本地托管的 SubQuery 节点上运行您的 SubQuery 项目，您需要首先构建您的项目。
 
 从项目的根目录运行构建命令。
 
-`console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的logger。
+`console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的 logger。
 
 ```typescript
-logger.info('Info level message');
-logger.debug('Debugger level message');
-logger.warn('Warning level message');
+logger.info("Info level message");
+logger.debug("Debugger level message");
+logger.warn("Warning level message");
 ```
 
 要使用 `logger.info` 或 `logger.warn`，只需将行放入您的映射文件。
@@ -65,7 +65,7 @@ logger.warn('Warning level message');
 
 要使用 `logger.debug`, 需要一个额外的标记。 将 `--log-level=debug` 添加到您的命令行。
 
-如果您正在运行一个docker容器，请将此行添加到您的 `docker-compose.yaml` 文件中。
+如果您正在运行一个 docker 容器，请将此行添加到您的 `docker-compose.yaml` 文件中。
 
 ![logging.debug](/assets/img/logging_debug.png)
 

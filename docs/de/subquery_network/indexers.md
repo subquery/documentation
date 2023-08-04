@@ -17,6 +17,7 @@ Wenn ein Indexer bei Fehlverhalten erwischt wird (z. B. durch die Angabe ungült
 ## Wie werden Indexer belohnt?
 
 Indexer werden in SQT auf zwei Arten belohnt:
+
 - Rewards from SQT reward pools based on distribution defined by the Cobb-Douglas Production Function.
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 

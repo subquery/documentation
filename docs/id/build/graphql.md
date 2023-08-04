@@ -7,6 +7,7 @@ File `schema.graphql` mendefinisikan berbagai skema GraphQL. Karena cara kerja b
 **Penting: Saat Anda membuat perubahan apa pun pada file skema, harap pastikan bahwa Anda membuat ulang direktori jenis Anda dengan perintah berikut `yarn codegen`**
 
 ### Entitas
+
 Setiap entitas harus menentukan bidang wajib `id` dengan jenis `ID!`. Ini digunakan sebagai kunci utama dan unik di antara semua entitas dengan tipe yang sama.
 
 Bidang yang non-nullable dalam entitas ditunjukkan dengan `!`. Silakan lihat contoh di bawah ini:
@@ -22,6 +23,7 @@ type Example @entity {
 ### Skalar dan jenis yang didukung
 
 Saat ini kami mendukung jenis skalar mengalir:
+
 - `ID`
 - `Int`
 - `String`
@@ -49,10 +51,11 @@ type User @entity {
 }
 
 type Title @entity {
-  id: ID!  
-  name: String! @index(unique:true)
+  id: ID!
+  name: String! @index(unique: true)
 }
 ```
+
 Berasumsi kita mengetahui nama pengguna ini, tetapi kita tidak mengetahui nilai id persisnya, daripada mengekstrak semua pengguna dan kemudian memfilter berdasarkan nama kita bisa menambahkan `@index`di belakang bidang nama. Ini menjadikan kueri jauh lebih cepat dan kita bisa dengan tambahan melewati `unique: true`untuk memastikan keunikan.
 
 **Jika sebuah field tidak unik, ukuran hasil maksimalnya adalah 100**
@@ -66,12 +69,12 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 
 ```typescript
 // Handler dalam fungsi mapping
-import {User} from "../types/models/User"
-import {Title} from "../types/models/Title"
+import { User } from "../types/models/User";
+import { Title } from "../types/models/Title";
 
-const jack = await User.getByName('Jack Sparrow');
+const jack = await User.getByName("Jack Sparrow");
 
-const captainTitle = await Title.getByName('Captain');
+const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
@@ -131,6 +134,7 @@ type Account @entity {
 ```
 
 ### Hubungan Banyak ke Banyak
+
 Hubungan banyak ke banyak bisa diraih dengan mengimplementasikan entitas pemetaan untuk menghubungkan dua entitas lainnya.
 
 Contoh: Setiap orang merupakan bagian dari beberapa kelompok (PersonGroup) dan kelompok memiliki beberapa orang berbeda (PersonGroup).
@@ -202,16 +206,18 @@ type Transfer @entity {
 Kami mendukung penyimpanan data sebagai jenis JSON, yang merupakan cara cepat untuk menyimpan data terstruktur. Kami akan secara otomatis menghasilkan antarmuka JSON yang berkaitan untuk mengkueri data ini dan menghemat waktu Anda menentukan dan mengatur entitas.
 
 Kami menyarankan pengguna menggunakan jenis JSON di skenario berikut:
+
 - Saat menyimpan data terstruktur di satu field lebih bisa diatur daripada membuat beberapa entitas berbeda.
 - Menyimpan kunci yang berubah-ubah/preferensi nilai pengguna (di mana nilai bisa menjadi boolean, tekstual, atau numerik, dan Anda tidak ingin memiliki kolom terpisah untuk jenis data berbeda)
 - Skema ini tidak stabil dan sering berubah
 
 ### Menentukan direktif JSON
+
 Menentukan properti sebagai jenis JSON dengan menambahkan anotasi `jsonField` di entitas. Ini akan secara otomatis menghasilkan antarmuka untuk semua obyek JSON di proyek Anda di bawah `types/interfaces.ts`, dan Anda bisa mengaksesnya di fungsi pemetaan Anda.
 
 Tidak seperti entitas, obyek direktif jsonField tidak memerlukan bidang `id` apa pun. Obyek JSON juga bisa bersarang dengan obyek JSON lainnya.
 
-````graphql
+```graphql
 type AddressDetail @jsonField {
   street: String!
   district: String!
@@ -223,10 +229,10 @@ type ContactCard @jsonField {
 }
 
 type User @entity {
-  id: ID! 
+  id: ID!
   contact: [ContactCard] # Store a list of JSON objects
 }
-````
+```
 
 ### Mengkueri field JSON
 
@@ -237,15 +243,9 @@ Akan tetapi, dampaknya masih bisa diterima di layanan kueri kami. Berikut sebuah
 ```graphql
 #Untuk mencari 5 pengguna pertama yang memiliki nomor telepon yang mengandung '0064'.
 
-query{
-  user(
-    first: 5,
-    filter: {
-      contactCard: {
-        contains: [{ phone: "0064" }]
-    }
-}){
-    nodes{
+query {
+  user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {
+    nodes {
       id
       contactCard
     }

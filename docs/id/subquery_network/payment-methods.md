@@ -22,7 +22,7 @@ Rencana Tertutup juga dapat ditempatkan pada Proyek SubQuery yang ada untuk mena
 
 ## Perjanjian Layanan Terbuka
 
-Perjanjian Terbuka mirip dengan Perjanjian Tertutup, tetapi memungkinkan beberapa Pengindeks untuk bergabung dan bersaing untuk memberikan data kepada Konsumen. Perjanjian Layanan Pasar Terbuka dapat dimulai sebagai kontrak antara 1 Konsumen dan 1 Pengindeks, tetapi lebih banyak pihak dapat bergabung dalam kontrak yang menghasilkan *n* konsumen dan *n* pengindeks.
+Perjanjian Terbuka mirip dengan Perjanjian Tertutup, tetapi memungkinkan beberapa Pengindeks untuk bergabung dan bersaing untuk memberikan data kepada Konsumen. Perjanjian Layanan Pasar Terbuka dapat dimulai sebagai kontrak antara 1 Konsumen dan 1 Pengindeks, tetapi lebih banyak pihak dapat bergabung dalam kontrak yang menghasilkan _n_ konsumen dan _n_ pengindeks.
 
 Setiap Perjanjian Layanan Pasar Terbuka menghasilkan kumpulan hadiah baru yang dibuat untuk kontrak itu, dan SQT didistribusikan di antara pengindeks yang berpartisipasi oleh fungsi produksi Cobb-Douglas.
 

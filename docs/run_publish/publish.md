@@ -245,13 +245,9 @@ Once your deployment has succesfully completed and our nodes have indexed your d
 
 ![Project being deployed and synced](/assets/img/projects_deploy_sync.png)
 
-Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer here](../run_publish/query.md).
+Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
 ![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
-
-::: tip Note
-Learn more about the [GraphQL Query language.](./graphql.md)
-:::
 
 ## Project Alert Notifications
 

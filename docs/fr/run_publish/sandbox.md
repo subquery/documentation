@@ -10,10 +10,9 @@ Un code malveillant est susceptible d'attaquer l'hôte ou même de le compromett
 
 - Est immunisé contre de nombreuses méthodes d'attaque connues.
 
-
 ## Restriction
 
-- Pour limiter l'accès à certains modules intégrés, seuls `assert`, `buffer`, `crypto``, util` et `path` sont sur la liste blanche.
+- Pour limiter l'accès à certains modules intégrés, seuls `assert`, `buffer`, ` crypto``, util ` et `path` sont sur la liste blanche.
 
 - Nous supportons les [modules tiers](../create/mapping/polkadot.md#third-party-libraries) écrits en **CommonJS** et les bibliothèques **hybrides** comme `@polkadot/*` qui utilisent ESM par défaut.
 

@@ -10,7 +10,6 @@ Bazı kötü amaçlı kodların ana makineye saldırması, hatta güvenliğini t
 
 - Bilinen birçok saldırı yöntemine karşı bağışıktır.
 
-
 ## Kısıtlama
 
 - Belirli yerleşik modüllere erişimi sınırlamak için, yalnızca `assert`, `buffer`, `crypto`,`util` ve `path` beyaz listededir.

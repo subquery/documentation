@@ -43,7 +43,7 @@ dataSources:
 
 ## Як визначити поточну висоту блокчейну?
 
-Якщо ви використовуєте мережу Polkadot, ви можете відвідати [https://polkascan.io/](https://polkascan.io/), обрати мережу, а потім переглянути значення  "Finalised Block".
+Якщо ви використовуєте мережу Polkadot, ви можете відвідати [https://polkascan.io/](https://polkascan.io/), обрати мережу, а потім переглянути значення "Finalised Block".
 
 ## Чи повинен я виконувати команди rebuild або codegen?
 

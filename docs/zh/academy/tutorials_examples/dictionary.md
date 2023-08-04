@@ -4,11 +4,11 @@
 
 `network. dictionary` endpoint 是一个可选的参数，如果存在，SDK 将自动检测和使用。 `network.endpoint` 是强制性的，如果不存在，将不会编译。
 
-将 [SubQuery dictionary](https://github.com/subquery/subql-dictionary) 项目作为示例。 [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) 文件定义了3个实体；外观、事件、旁观版本。 这3个实体分别含有6、4和2个字段。 当这个项目运行时，这些字段将反映在数据库表中。
+将 [SubQuery dictionary](https://github.com/subquery/subql-dictionary) 项目作为示例。 [schema](https://github.com/subquery/subql-dictionary/blob/main/schema.graphql) 文件定义了 3 个实体；外观、事件、旁观版本。 这 3 个实体分别含有 6、4 和 2 个字段。 当这个项目运行时，这些字段将反映在数据库表中。
 
 ![扩展表](/assets/img/extrinsics_table.png) ![事件表](/assets/img/events_table.png) ![可视表](/assets/img/specversion_table.png)
 
-然后，区块链中的数据被存储在这些表中，可进行索引。 然后该项目托管在 SubQuery 项目中，API端点可以添加到清单文件。
+然后，区块链中的数据被存储在这些表中，可进行索引。 然后该项目托管在 SubQuery 项目中，API 端点可以添加到清单文件。
 
 ## 如何将字典纳入您的项目中？
 
@@ -26,13 +26,13 @@ network:
 
 ## 使用字典时会发生什么情况？
 
-当使用字典时，索引器将首先将调用和事件过滤器作为参数，并将其合并为一个 GraphQL 查询。 然后它使用字典的 API 来获取一个相关的区块高度列表，只包含特定事件和相关信息。 如果使用默认值，这通常大大低于100。
+当使用字典时，索引器将首先将调用和事件过滤器作为参数，并将其合并为一个 GraphQL 查询。 然后它使用字典的 API 来获取一个相关的区块高度列表，只包含特定事件和相关信息。 如果使用默认值，这通常大大低于 100。
 
-例如，想象一下，您需要检索转账的相关事件。 并非所有区块都有这个事件(在下面的图像中，区块3和4中没有转账的事件)。
+例如，想象一下，您需要检索转账的相关事件。 并非所有区块都有这个事件(在下面的图像中，区块 3 和 4 中没有转账的事件)。
 
 ![字典区块](/assets/img/dictionary_blocks.png)
 
-字典允许您的项目跳过这些区块，而不是在每个区块中寻找一个转账事件。 它跳到了区块1、2和5。 这是因为字典是事先计算的每个区块中所有调用和事件的参考值。
+字典允许您的项目跳过这些区块，而不是在每个区块中寻找一个转账事件。 它跳到了区块 1、2 和 5。 这是因为字典是事先计算的每个区块中所有调用和事件的参考值。
 
 这意味着使用字典可以减少索引器从该区块链中获得的数据数量，并减少当地缓冲区中储存的“不想要的”区块的数量。 但与传统方法相比，它增加了一个额外步骤，需要从字典的 API 获取数据。
 
