@@ -31,7 +31,7 @@ type Attestation @entity {
 
 type Aggregation @entity {
   # This is an entity allowing us to calculate all the attesations created and revoked in one day
-  id: ID ! # AAAA-MM-DD
+  id: ID! # AAAA-MM-DD
   attestationsCreated: Int!
   attestationsRevoked: Int!
 }
@@ -133,7 +133,7 @@ Check out our [Substrate](../../build/polkadot.md) documentation to get more inf
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked. 
+Navigate to the default mapping function in the `src/mappings` directory. There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 
 ```ts
 export async function handleAttestationCreated(
@@ -190,7 +190,10 @@ export async function handleAttestationRevoked(
   await handleDailyUpdate(event.block.timestamp, "REVOKED");
 }
 
-export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"): Promise<void>{
+export async function handleDailyUpdate(
+  date: Date,
+  type: "CREATED" | "REVOKED"
+): Promise<void> {
   const id = date.toISOString().slice(0, 10);
   let aggregation = await Aggregation.get(id);
   if (!aggregation) {
@@ -202,9 +205,7 @@ export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"
   }
   if (type === "CREATED") {
     aggregation.attestationsCreated++;
-  }
-
-  else if (type === "REVOKED") {
+  } else if (type === "REVOKED") {
     aggregation.attestationsRevoked++;
   }
 
@@ -214,7 +215,7 @@ export async function handleDailyUpdate( date: Date, type: "CREATED" | "REVOKED"
 
 The `handleAttestationCreated` function receives event data from the Kilt execution environment whenever an call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Attestation` entity and populates the fields with data from the Substrate Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_). The same can be said for the `handleAttestationRevoked`. The only difference is for the attestations revoked we do not need to instantiate a new `Attestation` entity.
 
-There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked. 
+There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 
 Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) to get detailed information on mapping functions for each type.
 
@@ -276,23 +277,23 @@ Once the container is running, navigate to http://localhost:3000 in your browser
 
 ```graphql
 query {
-    attestations (first: 2, orderBy: CREATED_DATE_DESC) {
-        nodes {
-            id
-          	createdDate
-          	attestationId
-          	hash
-          	delegationID
-          	revokedDate
-        }
-    }	
-  	aggregations(first:2, orderBy: ID_DESC){
-      nodes{
-        id
-        attestationsCreated
-        attestationsRevoked
-      }
+  attestations(first: 2, orderBy: CREATED_DATE_DESC) {
+    nodes {
+      id
+      createdDate
+      attestationId
+      hash
+      delegationID
+      revokedDate
     }
+  }
+  aggregations(first: 2, orderBy: ID_DESC) {
+    nodes {
+      id
+      attestationsCreated
+      attestationsRevoked
+    }
+  }
 }
 ```
 
