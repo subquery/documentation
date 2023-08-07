@@ -128,6 +128,13 @@ The initial steps will be the same, if you have select an EVM network, it will p
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
 ```
+
+Followed by prompt on the path to your ABI file ( absolute or relative to your current working directory )
+
+```shell
+? Path to ABI ../../../hello/world/abis/erc721.abi.json
+```
+
 You will then be prompted `events` and `functions` available from the provided ABI.
 
 Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
