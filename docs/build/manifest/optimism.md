@@ -51,8 +51,7 @@ network:
 
 dataSources:
   - kind: ethereum/Runtime # We use ethereum runtime since Optimism is a layer-2 that is compatible
-    startBlock: 100316590
-    # startBlock: 9277162 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
+    startBlock: 100316590 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
     options:
       # Must be a key of assets
       abi: airdrop
@@ -99,7 +98,7 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. In Optimism it is `10`. See https://chainlist.org/chain/10
+The `chainId` is the network identifier of the blockchain. In Optimism it is `10`. See https://chainlist.org/chain/10.
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 

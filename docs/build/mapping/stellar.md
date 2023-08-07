@@ -1,4 +1,8 @@
-# Soroban Mapping
+# Stellar & Soroban Mapping [Beta]
+
+::: warning Stellar and Soroban is in Beta
+Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-soroban/issues/2) and [Soroban support](https://github.com/subquery/subql-soroban/issues/3).
+:::
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
@@ -6,28 +10,40 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There are different classes of mappings functions for Soroban; and [Event Handlers](#event-handler).
+There is only one type of Handler currently supported for Soroban, [event handlers](#event-handler).
 
 ## Event Handler
 
-You can use event handlers to capture information when certain events are included on transactions. During the processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/soroban.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use event handlers to capture information when certain events are included on transactions.
+
+During processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/soroban.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TransferEvent } from "../types";
-import {SorobanEvent} from "@subql/types-soroban";
+import { SorobanEvent } from "@subql/types-soroban";
 
 export async function handleEvent(event: SorobanEvent): Promise<void> {
   logger.info(`New event at block ${event.ledger}`);
-  const _event = TransferEvent.create({
-    id: event.id,
-    contract: event.contractId,
-    ledger: event.ledger,
-    from: event.topic[1],
-    to: event.topic[2],
-    value: event.value.decoded
-  })
 
-  await _event.save();
+  // Get data from the event
+  // The transfer event has the following payload \[env, from, to\]
+  // logger.info(JSON.stringify(event));
+  const {
+    topic: [env, from, to],
+  } = event;
+
+  // Create the new transfer entity
+  const transfer = Transfer.create({
+    id: event.id,
+    ledger: ledgerNumber,
+    date: new Date(event.ledgerClosedAt),
+    contract: event.contractId,
+    fromId: from,
+    toId: to,
+    value: BigInt(event.value.decoded!),
+  });
+
+  await transfer.save();
 }
 ```
 
@@ -54,9 +70,7 @@ When run in `unsafe` mode, you can import any custom libraries into your project
 import { SorobanEvent } from "@subql/types-soroban";
 import fetch from "node-fetch";
 
-export async function handleTransaction(
-  event: SorobanEvent
-): Promise<void> {
+export async function handleTransaction(event: SorobanEvent): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data
@@ -67,7 +81,7 @@ By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) san
 
 - only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
 - third-party libraries written by _CommonJS_.
-- external `HTTP` and `WebSocket` connections are forbidden
+- external `HTTP` and `WebSocket` connections are forbidden.
 
 ## Modules and Libraries
 

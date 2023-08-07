@@ -1,10 +1,14 @@
-# Soroban Manifest File
+# Stellar & Soroban Manifest File [Beta]
+
+::: warning Stellar and Soroban is in Beta
+Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-soroban/issues/2) and [Soroban support](https://github.com/subquery/subql-soroban/issues/3).
+:::
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Soroban `project.yaml`.
+Below is a standard example of a basic Optimism `project.yaml`.
 
 ```yml
 specVersion: "1.0.0"
@@ -18,35 +22,36 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new Soroban SubQuery project"
+description: "This project can be use as a starting point for developing your new Stellar Soroban Future Network SubQuery project"
 repository: "https://github.com/subquery/soroban-subql-starter"
 
 schema:
   file: "./schema.graphql"
 
 network:
-  # This is the network passphrase for your soroban chain
+  # Stellar and Soroban uses the network passphrase as the chainId
+  # 'Public Global Stellar Network ; September 2015' for mainnet
+  # 'Test SDF Future Network ; October 2022' for Future Network
   chainId: "Test SDF Future Network ; October 2022"
   # This endpoint must be a public non-pruned archive node
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
-  # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint: ["https://rpc-futurenet.stellar.org:443"]
+  # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
+  # dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
 
 dataSources:
   - kind: soroban/Runtime
-    startBlock: 20000
+    startBlock: 270000 # This is the start block from which you begin indexing
     mapping:
       file: "./dist/index.js"
       handlers:
         - handler: handleEvent
           kind: soroban/EventHandler
           filter:
-            # contractId: ""
+            # contractId: "" # You can optionally specify a smart contract address here
             topics:
-              - transfer
+              - "transfer" # Topic signature(s) for the events, there can be up to 4
 ```
 
 ## Overview
@@ -76,7 +81,7 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain, soroban uses network passphrase. Examples in soroban are `Test SDF Future Network ; October 2022` for futurenet
+The `chainId` is the network identifier of the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases). Examples in Stellar are `Public Global Stellar Network ; September 2015` for mainnet and `Test SDF Future Network ; October 2022` for Future Network.
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
@@ -84,11 +89,11 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/eth).
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
 | Field            | Type   | Description                                                                                                                                                                              |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                  |
+| **chainId**      | String | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
 | **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                             |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
@@ -105,7 +110,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 | Field       | Type   | Description                                                                                                                                                                                                          |
 | ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-soroban`                                                                                                                                                                                               |
+| **name**    | String | `@subql/node-soroban`                                                                                                                                                                                                |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
@@ -119,16 +124,16 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 
-| Field          | Type         | Description                                                                                   |
-| -------------- | ------------ | --------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [soroban/Runtime](#data-sources-and-mapping)                                                 |
-| **startBlock** | Integer      | This changes your indexing start block, set this higher to skip initial blocks with less data |
-| **mapping**    | Mapping Spec |                                                                                               |
+| Field          | Type         | Description                                                                                                                               |
+| -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **kind**       | string       | [soroban/Runtime](#data-sources-and-mapping)                                                                                              |
+| **startBlock** | Integer      | This changes your indexing start block (called a Ledger on Stellar), set this higher to skip initial blocks/ledgers with no relevant data |
+| **mapping**    | Mapping Spec |                                                                                                                                           |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                      |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Field                  | Type                         | Description                                                                                                                     |
+| ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/soroban.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -138,7 +143,7 @@ In this section, we will talk about the default Soroban runtime and its mapping.
 ```yml
 dataSources:
   - kind: soroban/Runtime
-    startBlock: 20000
+    startBlock: 270000 # This is the start block from which you begin indexing
     mapping:
       file: "./dist/index.js"
       handlers:
@@ -149,9 +154,19 @@ dataSources:
 
 The following table explains filters supported by different handlers.
 
-| Handler                                                                   | Supported filter                                                                                    |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [soroban/EventHandler](../mapping/soroban.md#event-handler)                 | `topics` filters, and `contractId`                                                                 |
+| Handler                                                     | Supported filter                                                           |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [soroban/EventHandler](../mapping/soroban.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
+
+```yml
+# Example filter from EventHandler
+- handler: handleEvent
+  kind: soroban/EventHandler
+  filter:
+    # contractId: "" # You can optionally specify a smart contract address here
+    topics:
+      - "transfer" # Topic signature(s) for the events, there can be up to 4
+```
 
 Default runtime mapping filters are an extremely useful feature to decide what event will trigger a mapping handler.
 
