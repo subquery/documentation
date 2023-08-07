@@ -115,12 +115,27 @@ There are 3 important files that need to be modified. These are:
 SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
 
 ### EVM indexers
-#### Generate scaffold from ABI
-
-This feature allows you to generate scaffold for handlers and updates the `project.yaml` according to the provided ABI.
 
 #### Pre-requisites
 - `@subql/cli` v___ or newer
+- `node.js` v__
+
+#### Generate scaffold from ABI (new project)
+
+Set up a SubQuery scaffold based on your ABI from a new project.
+
+The initial steps will be the same, if you have select an EVM network, it will prompt
+```shell
+? Do you want to generate scaffolding with an existing abi contract?
+```
+You will then be prompted `events` and `functions` available from the provided ABI.
+
+Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
+
+#### Generate scaffold from ABI (existing project)
+
+This feature allows you to generate scaffold for handlers and updates the `project.yaml` according to the provided ABI.
+
 
 This will show a list of accepted flags
 ```shell
