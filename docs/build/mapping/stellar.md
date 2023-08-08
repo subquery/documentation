@@ -1,7 +1,7 @@
 # Stellar & Soroban Mapping [Beta]
 
 ::: warning Stellar and Soroban is in Beta
-Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-soroban/issues/2) and [Soroban support](https://github.com/subquery/subql-soroban/issues/3).
+Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-stellar/issues/2) and [Soroban support](https://github.com/subquery/subql-stellar/issues/3).
 :::
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
@@ -10,19 +10,19 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
-There is only one type of Handler currently supported for Soroban, [event handlers](#event-handler).
+There is only one type of Handler currently supported for Stellar, [event handlers](#event-handler).
 
 ## Event Handler
 
 You can use event handlers to capture information when certain events are included on transactions.
 
-During processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/soroban.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TransferEvent } from "../types";
-import { SorobanEvent } from "@subql/types-soroban";
+import { StellarEvent } from "@subql/types-stellar";
 
-export async function handleEvent(event: SorobanEvent): Promise<void> {
+export async function handleEvent(event: StellarEvent): Promise<void> {
   logger.info(`New event at block ${event.ledger}`);
 
   // Get data from the event
@@ -55,7 +55,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node-soroban:latest
+  image: subquerynetwork/subql-node-stellar:latest
   ...
   command:
     - -f=/app
@@ -67,10 +67,10 @@ subquery-node:
 When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
 
 ```ts
-import { SorobanEvent } from "@subql/types-soroban";
+import { StellarEvent } from "@subql/types-stellar";
 import fetch from "node-fetch";
 
-export async function handleTransaction(event: SorobanEvent): Promise<void> {
+export async function handleEvent(event: StellarEvent): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data

@@ -1,7 +1,7 @@
 # Stellar & Soroban Manifest File [Beta]
 
 ::: warning Stellar and Soroban is in Beta
-Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-soroban/issues/2) and [Soroban support](https://github.com/subquery/subql-soroban/issues/3).
+Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-stellar/issues/2) and [Soroban support](https://github.com/subquery/subql-stellar/issues/3).
 :::
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
@@ -17,13 +17,13 @@ name: "soroban-subql-starter"
 version: "0.0.1"
 runner:
   node:
-    name: "@subql/node-soroban"
+    name: "@subql/node-stellar"
     version: "*"
   query:
     name: "@subql/query"
     version: "*"
 description: "This project can be use as a starting point for developing your new Stellar Soroban Future Network SubQuery project"
-repository: "https://github.com/subquery/soroban-subql-starter"
+repository: "https://github.com/subquery/stellar-subql-starter"
 
 schema:
   file: "./schema.graphql"
@@ -41,13 +41,13 @@ network:
   # dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
 
 dataSources:
-  - kind: soroban/Runtime
+  - kind: stellar/Runtime
     startBlock: 270000 # This is the start block from which you begin indexing
     mapping:
       file: "./dist/index.js"
       handlers:
         - handler: handleEvent
-          kind: soroban/EventHandler
+          kind: stellar/EventHandler
           filter:
             # contractId: "" # You can optionally specify a smart contract address here
             topics:
@@ -110,7 +110,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 | Field       | Type   | Description                                                                                                                                                                                                          |
 | ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-soroban`                                                                                                                                                                                                |
+| **name**    | String | `@subql/node-stellar`                                                                                                                                                                                                |
 | **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 
 ### Runner Query Spec
@@ -126,7 +126,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                                                               |
 | -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **kind**       | string       | [soroban/Runtime](#data-sources-and-mapping)                                                                                              |
+| **kind**       | string       | [stellar/Runtime](#data-sources-and-mapping)                                                                                              |
 | **startBlock** | Integer      | This changes your indexing start block (called a Ledger on Stellar), set this higher to skip initial blocks/ledgers with no relevant data |
 | **mapping**    | Mapping Spec |                                                                                                                                           |
 
@@ -134,15 +134,15 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                                     |
 | ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/soroban.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/stellar.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
-In this section, we will talk about the default Soroban runtime and its mapping. Here is an example:
+In this section, we will talk about the default Stellar runtime and its mapping. Here is an example:
 
 ```yml
 dataSources:
-  - kind: soroban/Runtime
+  - kind: stellar/Runtime
     startBlock: 270000 # This is the start block from which you begin indexing
     mapping:
       file: "./dist/index.js"
@@ -156,12 +156,12 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                     | Supported filter                                                           |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [soroban/EventHandler](../mapping/soroban.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
+| [stellar/EventHandler](../mapping/stellar.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
 
 ```yml
 # Example filter from EventHandler
 - handler: handleEvent
-  kind: soroban/EventHandler
+  kind: stellar/EventHandler
   filter:
     # contractId: "" # You can optionally specify a smart contract address here
     topics:
