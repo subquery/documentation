@@ -70,7 +70,7 @@ If you're creating a new Ethereum based project (including Ethereum, Avalanche, 
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-**ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
+**ABI Codegen is not yet supported for Substrate WASM**
 
 ## Build
 
