@@ -21,4 +21,4 @@ Architects can sell their services for creating SubQuery projects. Here, Archite
 
 ## Next steps
 
-You can already become an architect today, all you need to do is learn how to build a SubQuery project. View the quick start guide [here](../quickstart/quickstart.md) to get started!
+You can already become an architect today, all you need to do is learn how to build a SubQuery project. View the quick start guide [here](../../quickstart/quickstart.md) to get started!

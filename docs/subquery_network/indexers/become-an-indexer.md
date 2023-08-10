@@ -160,7 +160,7 @@ Once your Indexing Service is all set and running successfully, connect to your 
 
 At this stage, only Indexers that received kSQT tokens via the airdrop can obtain and participate as Indexers in Kepler. This may change soon as we test and verify that aspects of the Kepler network are running smoothly.
 
-For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../ksqt.md).
+For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../token/token.md#ksqt).
 
 ## 4. How to index a project
 
@@ -176,7 +176,7 @@ For the initial stages of Kepler, the SubQuery Council will set some default pla
 
 ## 6. Configure an Indexer Commission Rate (ICR)
 
-Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../../indexers.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
+Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](./rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your ICR](/assets/img/icr1.png)
 
