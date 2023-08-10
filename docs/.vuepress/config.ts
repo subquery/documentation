@@ -36,6 +36,37 @@ export default defineUserConfig({
           "/subquery_network/architects/introduction.html",
         "/subquery_network/consumers.html":
           "/subquery_network/consumers/introduction.html",
+        "/subquery_network/delegators.html":
+          "/subquery_network/delegators/introduction.html",
+        "/subquery_network/indexers.html":
+          "/subquery_network/indexers/introduction.html",
+        "/subquery_network/token.html": "/subquery_network/token/token.html",
+        "/subquery_network/design-philosophy.html":
+          "/subquery_network/design/design-philosophy.html",
+        "/subquery_network/payment-methods.html":
+          "/subquery_network/design/payment-methods.html",
+        "/subquery_network/kepler/welcome.html":
+          "/subquery_network/introduction.html",
+        "/subquery_network/kepler/ksqt.html":
+          "/subquery_network/token/token.html",
+        "/subquery_network/kepler/indexers/become-an-indexer.html":
+          "/subquery_network/indexers/become-an-indexer.html",
+        "/subquery_network/kepler/indexers/install-indexer-locally.html":
+          "/subquery_network/indexers/install-indexer-locally.html",
+        "/subquery_network/kepler/indexers/install-indexer-linux.html":
+          "/subquery_network/indexers/install-indexer-linux.html",
+        "/subquery_network/kepler/indexers/index-project.html":
+          "/subquery_network/indexers/index-project.html",
+        "/subquery_network/kepler/indexers/dictionary-restore.html":
+          "/subquery_network/indexers/dictionary-restore.html",
+        "/subquery_network/kepler/indexers/plans.html":
+          "/subquery_network/indexers/plans.html",
+        "/subquery_network/kepler/indexers/troubleshooting-indexers.html":
+          "/subquery_network/indexers/troubleshooting-indexers.html",
+        "/subquery_network/kepler/indexers/faqs-indexers.html":
+          "/subquery_network/indexers/faqs-indexers.html",
+        "/subquery_network/kepler/indexers/ssl-configuration.html":
+          "/subquery_network/indexers/ssl-configuration.html",
       },
     }),
   ],
