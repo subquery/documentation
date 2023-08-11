@@ -17,20 +17,21 @@ The following map provides an overview of the directory structure of a SubQuery 
 ```
 - project-name
   L .github
+  L abis
   L docker
   L src
     L mappings
       L mappingHandlers.ts
+    L test
     L index.ts
   L .gitignore
-  L docker-compose.yml
   L LICENSE
+  L README.md
+  L docker-compose.yml
   L package.json
   L project.yaml
-  L README.md
   L schema.graphql
   L tsconfig.json
-
 ```
 
 For example:
