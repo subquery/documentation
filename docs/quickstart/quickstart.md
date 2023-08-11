@@ -117,14 +117,16 @@ SubQuery supports various blockchain networks and provides a dedicated guide for
 ### EVM indexers
 
 #### Pre-requisites
-- `@subql/cli` v___ or newer
-- `node.js` v__
+
+- `@subql/cli` v\_\_\_ or newer
+- `node.js` v\_\_
 
 #### Generate scaffold from ABI (new project)
 
 Set up a SubQuery scaffold based on your ABI from a new project.
 
 The initial steps will be the same, if you have select an EVM network, it will prompt
+
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
 ```
@@ -143,56 +145,65 @@ Once completed, you will have a scaffold project structure from your chosen ABI 
 
 This feature allows you to generate scaffold for handlers and updates the `project.yaml` according to the provided ABI.
 
-
 This will show a list of accepted flags
+
 ```shell
 subql codegen:generate --help
 ```
 
 Generate scaffold
+
 ```shell
 subql codegen:generate \
--f <root path of your project> \ 
+-f <root path of your project> \
 --abiPath <path of your abi file from project root> \ (required)
 -- startBlock <startBlock> \ (required)
---address <address> \ 
---events '*' \  # accepted formats: 'transfers, approval' 
+--address <address> \
+--events '*' \  # accepted formats: 'transfers, approval'
 --functions '*' # accepted formats: 'transferFrom, approve'
 ```
+
 This will attempt to read the provided ABI file, and generate a list of events & functions in accordance.
 
 If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected.
 
 #### Example
+
 ```shell
 subql codegen:generate \
--f './example-project' \ 
+-f './example-project' \
 --abiPath './abis/erc721.json' \ (required)
 -- startBlock 1 \ (required)
---address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \ 
+--address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \
 --events '*' \
---functions '*' 
+--functions '*'
 ```
+
 This should generate a typescript file `<abiName>Handler.ts` containing functions with the appropriate typing.
+
 ```typescript
-export async function handleApproveErc721AbiTx(tx: ApproveTransaction ): Promise<void> {
-// Place your code logic here
+export async function handleApproveErc721AbiTx(
+  tx: ApproveTransaction
+): Promise<void> {
+  // Place your code logic here
 }
 ```
+
 This will also add a new datasource in the `project.yaml` including the selected ABI events/functions
+
 ```yaml
-  - kind: ethereum/Runtime
-    startBlock: 1
-    options:
-      abi: Erc721Abi
-    assets:
-      Erc721Abi:
-        file: ./abis/erc721.abi.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleApproveErc721AbiTx
-          kind: ethereum/TransactionHandler
-          filter:
-            function: approve(address,uint256)
+- kind: ethereum/Runtime
+  startBlock: 1
+  options:
+    abi: Erc721Abi
+  assets:
+    Erc721Abi:
+      file: ./abis/erc721.abi.json
+  mapping:
+    file: ./dist/index.js
+    handlers:
+      - handler: handleApproveErc721AbiTx
+        kind: ethereum/TransactionHandler
+        filter:
+          function: approve(address,uint256)
 ```
