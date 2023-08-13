@@ -196,11 +196,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use event and call handlers with appropriate mapping filters.**
 
-| Handler                                                        | Supported filter                     |
-| -------------------------------------------------------------- | ------------------------------------ |
-| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp` |
-| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                    |
-| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`         |
+| Handler                                                        | Supported filter                         |
+| -------------------------------------------------------------- | ---------------------------------------- |
+| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp`     |
+| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                        |
+| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`, `isSigned` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -212,6 +212,7 @@ filter:
   module: balances
   method: Deposit
   success: true
+  isSigned: true
 ```
 
 The `specVersion` filter specifies the spec version range for a Substrate block. The following examples describe how to set version ranges.
