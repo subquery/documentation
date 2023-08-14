@@ -2,41 +2,72 @@ import { defineUserConfig } from "vuepress";
 import { hopeTheme, SidebarOptions } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
-import { pwaPlugin } from "vuepress-plugin-pwa2";
-import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
-import { seoPlugin } from "vuepress-plugin-seo2";
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import { seoPlugin } from "vuepress-plugin-seo2";
+import { redirectPlugin } from "vuepress-plugin-redirect";
+
+const hostname = "https://academy.subquery.network";
 
 export default defineUserConfig({
   plugins: [
     googleAnalyticsPlugin({
       id: "G-MY90N76MNK",
     }),
-    pwaPlugin({
-      manifest: {
-        short_name: "SubQL Docs",
-      },
-      favicon: "/assets/favicons/favicon.ico",
-    }),
-    mdEnhancePlugin({
-      linkCheck: true,
-      codetabs: true,
-      container: true,
-    }),
-    sitemapPlugin({
-      hostname: "https://academy.subquery.network",
-    }),
     seoPlugin({
-      hostname: "https://academy.subquery.network",
-      author: "SubQuery Team",
+      hostname,
+      author: {
+        name: "SubQuery Team",
+      },
       autoDescription: true,
       twitterID: "@SubQueryNetwork",
       fallBackImage: "https://static.subquery.network/link-share.jpg",
+    }),
+    sitemapPlugin({
+      hostname,
     }),
     docsearchPlugin({
       appId: "30B5W460WL",
       apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
       indexName: "subquery_academy",
+    }),
+    redirectPlugin({
+      config: {
+        "/subquery_network/architects.html":
+          "/subquery_network/architects/introduction.html",
+        "/subquery_network/consumers.html":
+          "/subquery_network/consumers/introduction.html",
+        "/subquery_network/delegators.html":
+          "/subquery_network/delegators/introduction.html",
+        "/subquery_network/indexers.html":
+          "/subquery_network/indexers/introduction.html",
+        "/subquery_network/token.html": "/subquery_network/token/token.html",
+        "/subquery_network/design-philosophy.html":
+          "/subquery_network/design/design-philosophy.html",
+        "/subquery_network/payment-methods.html":
+          "/subquery_network/design/payment-methods.html",
+        "/subquery_network/kepler/welcome.html":
+          "/subquery_network/introduction.html",
+        "/subquery_network/kepler/ksqt.html":
+          "/subquery_network/token/token.html",
+        "/subquery_network/kepler/indexers/become-an-indexer.html":
+          "/subquery_network/indexers/become-an-indexer.html",
+        "/subquery_network/kepler/indexers/install-indexer-locally.html":
+          "/subquery_network/indexers/install-indexer-locally.html",
+        "/subquery_network/kepler/indexers/install-indexer-linux.html":
+          "/subquery_network/indexers/install-indexer-linux.html",
+        "/subquery_network/kepler/indexers/index-project.html":
+          "/subquery_network/indexers/index-project.html",
+        "/subquery_network/kepler/indexers/dictionary-restore.html":
+          "/subquery_network/indexers/dictionary-restore.html",
+        "/subquery_network/kepler/indexers/plans.html":
+          "/subquery_network/indexers/plans.html",
+        "/subquery_network/kepler/indexers/troubleshooting-indexers.html":
+          "/subquery_network/indexers/troubleshooting-indexers.html",
+        "/subquery_network/kepler/indexers/faqs-indexers.html":
+          "/subquery_network/indexers/faqs-indexers.html",
+        "/subquery_network/kepler/indexers/ssl-configuration.html":
+          "/subquery_network/indexers/ssl-configuration.html",
+      },
     }),
   ],
   title: "SubQuery Academy (Documentation)",
@@ -166,7 +197,7 @@ export default defineUserConfig({
     },
   },
   theme: hopeTheme({
-    hostname: "https://academy.subquery.network",
+    hostname,
     favicon: "/assets/favicons/favicon.ico",
     author: "SubQuery Team",
     lastUpdated: true,
@@ -219,6 +250,16 @@ export default defineUserConfig({
         // this is the default option, so you can use it directly
         container: true,
         codetabs: true,
+        checkLinks: {
+          // only check links in dev mode
+          status: "dev",
+        },
+      },
+      pwa: {
+        manifest: {
+          short_name: "SubQL Docs",
+        },
+        favicon: "/assets/favicons/favicon.ico",
       },
     },
     navbar: [
@@ -524,41 +565,70 @@ function getSidebar(locale: string): SidebarOptions {
       collapsible: true,
       children: [
         `${locale}/subquery_network/introduction.md`,
-        `${locale}/subquery_network/token.md`,
-        `${locale}/subquery_network/consumers.md`,
-        `${locale}/subquery_network/indexers.md`,
-        `${locale}/subquery_network/delegators.md`,
-        `${locale}/subquery_network/architects.md`,
-        `${locale}/subquery_network/payment-methods.md`,
-        `${locale}/subquery_network/foundation.md`,
-        `${locale}/subquery_network/design-philosophy.md`,
         {
-          text: "Kepler Network",
-          link: `${locale}/subquery_network/kepler/welcome`,
+          text: "The SubQuery Tokens",
+          link: `${locale}/subquery_network/token/token.md`,
           collapsible: true,
           children: [
-            `${locale}/subquery_network/kepler/welcome.md`,
-            `${locale}/subquery_network/kepler/ksqt.md`,
-
+            `${locale}/subquery_network/token/token.md`,
+            `${locale}/subquery_network/token/tokenomics.md`,
+            `${locale}/subquery_network/token/swap.md`,
+          ],
+        },
+        {
+          text: "Consumers",
+          link: `${locale}/subquery_network/consumers/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/consumers/introduction.md`,
+            `${locale}/subquery_network/consumers/playground.md`,
+            `${locale}/subquery_network/consumers/faq.md`,
+          ],
+        },
+        {
+          text: "Delegators",
+          link: `${locale}/subquery_network/delegators/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/delegators/introduction.md`,
+            `${locale}/subquery_network/delegators/rewards.md`,
+            `${locale}/subquery_network/delegators/delegating.md`,
+          ],
+        },
+        {
+          text: "Indexers",
+          link: `${locale}/subquery_network/indexers/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/indexers/introduction.md`,
+            `${locale}/subquery_network/indexers/rewards.md`,
             {
-              text: "Indexers",
-              link: `${locale}/subquery_network/kepler/indexers/become-an-indexer`,
+              text: "Becoming an Indexer",
+              link: `${locale}/subquery_network/indexers/become-an-indexer.md`,
               collapsible: true,
               children: [
-                `${locale}/subquery_network/kepler/indexers/become-an-indexer.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-locally.md`,
-                `${locale}/subquery_network/kepler/indexers/install-indexer-linux.md`,
-                `${locale}/subquery_network/kepler/indexers/index-project.md`,
-                `${locale}/subquery_network/kepler/indexers/dictionary-restore.md`,
-                `${locale}/subquery_network/kepler/indexers/plans.md`,
-                `${locale}/subquery_network/kepler/indexers/troubleshooting-indexers.md`,
-                `${locale}/subquery_network/kepler/indexers/faqs-indexers.md`,
-                `${locale}/subquery_network/kepler/indexers/ssl-configuration.md`,
+                `${locale}/subquery_network/indexers/become-an-indexer.md`,
+                `${locale}/subquery_network/indexers/install-indexer-locally.md`,
+                `${locale}/subquery_network/indexers/install-indexer-linux.md`,
+                `${locale}/subquery_network/indexers/index-project.md`,
+                `${locale}/subquery_network/indexers/dictionary-restore.md`,
+                `${locale}/subquery_network/indexers/troubleshooting-indexers.md`,
+                `${locale}/subquery_network/indexers/ssl-configuration.md`,
               ],
             },
-            `${locale}/subquery_network/kepler/delegators.md`,
-            `${locale}/subquery_network/kepler/consumers.md`,
-            `${locale}/subquery_network/kepler/swap.md`,
+            `${locale}/subquery_network/indexers/plans.md`,
+            `${locale}/subquery_network/indexers/faqs-indexers.md`,
+          ],
+        },
+        `${locale}/subquery_network/architects/introduction.md`,
+        `${locale}/subquery_network/foundation.md`,
+        {
+          text: "Design Philosophy",
+          link: `${locale}/subquery_network/design/design-philosophy.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/design/design-philosophy.md`,
+            `${locale}/subquery_network/design/payment-methods.md`,
           ],
         },
       ],

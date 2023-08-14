@@ -55,16 +55,4 @@ You can also update your existing flex plans just the same way. Note that consum
 
 ## Claiming Rewards from a Plan Agreement
 
-Note, you need to wait for the Era completes before the rewards can be claimed. So if you receive rewards during Era 1, you can only claim them after Era 2 starts. This gives consumers sufficient time to lodge any disputes.
-
-To claim your rewards, head to `Rewards` under your profile. Then click `Claim`.
-
-![Claim Reward](/assets/img/claim_rewards.png)
-
-Then confirm the transaction with MetaMask as asked.
-
-![Confirm Claim Rewards](/assets/img/confirm_claim_rewrads.png)
-
-Wait for a few seconds and you will see the status as `claimed` under the `Action` column.
-
-![Reward Claimed](/assets/img/reward_confirmed.png)
+Read more at [claiming rewards from a plan agreement](./rewards.md#claiming-rewards-from-a-plan-agreement).

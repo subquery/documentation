@@ -127,7 +127,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleAttestationCreated` mapping function whenever there is an `AttestationCreated` event on any transaction from the Kilt Blockchain. Similarly, we will run the `handleAttestationRevoked` mapping function whenever there is a `AttestationRevoked` log on Kilt.
 
-Check out our [Substrate](../../build/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Polkadot chains.
+Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Polkadot chains.
 
 ## 3. Mapping Functions
 
@@ -298,7 +298,7 @@ query {
 ```
 
 ::: tip
-There is a _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and helps you find what entities and methods you can query. To learn more about the GraphQL Query language [here](../../run_publish/graphql.md).
+There is a _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and helps you find what entities and methods you can query. To learn more about the GraphQL Query language [here](../../run_publish/query.md).
 :::
 
 You should see results similar to below:

@@ -18,7 +18,7 @@ The Service Agreement ensures transparency between both parties. It includes det
 - Query URL
 - The price that the consumer will pay to the indexer for delivering the service(rewards will be in SQT)
 
-Read more about the two types of Service Agreements(Closed and Open Market) [here](../subquery_network/payment-methods.md)
+Read more about the two types of Service Agreements(Closed and Open Market) [here](../subquery_network/design/payment-methods.md)
 
 ## **Allocating**
 
