@@ -104,89 +104,14 @@ SubQuery supports various blockchain networks and provides a dedicated guide for
 
 Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
-### When Initialising New Projects
-
-When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
-
-If you have select an compatiable network type (EVM), it will prompt
+When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you have select an compatiable network type (EVM), it will prompt
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
 ```
 
-Followed by prompt on the path to your ABI file (absolute or relative to your current working directory)
-
-```shell
-? Path to ABI ../../../hello/world/abis/erc721.abi.json
-```
-
-You will then be prompted `events` and `functions` available from the provided ABI.
+So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
 
 Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
 
-#### Generate scaffold from ABI (existing project)
-
-This feature allows you to generate scaffold for handlers and updates the `project.yaml` according to the provided ABI.
-
-This will show a list of accepted flags
-
-```shell
-subql codegen:generate --help
-```
-
-Generate scaffold
-
-```shell
-subql codegen:generate \
--f <root path of your project> \
---abiPath <path of your abi file from project root> \ (required)
--- startBlock <startBlock> \ (required)
---address <address> \
---events '*' \  # accepted formats: 'transfers, approval'
---functions '*' # accepted formats: 'transferFrom, approve'
-```
-
-This will attempt to read the provided ABI file, and generate a list of events & functions in accordance.
-
-If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected.
-
-#### Example
-
-```shell
-subql codegen:generate \
--f './example-project' \
---abiPath './abis/erc721.json' \ (required)
--- startBlock 1 \ (required)
---address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \
---events '*' \
---functions '*'
-```
-
-This should generate a typescript file `<abiName>Handler.ts` containing functions with the appropriate typing.
-
-```typescript
-export async function handleApproveErc721AbiTx(
-  tx: ApproveTransaction
-): Promise<void> {
-  // Place your code logic here
-}
-```
-
-This will also add a new datasource in the `project.yaml` including the selected ABI events/functions
-
-```yaml
-- kind: ethereum/Runtime
-  startBlock: 1
-  options:
-    abi: Erc721Abi
-  assets:
-    Erc721Abi:
-      file: ./abis/erc721.abi.json
-  mapping:
-    file: ./dist/index.js
-    handlers:
-      - handler: handleApproveErc721AbiTx
-        kind: ethereum/TransactionHandler
-        filter:
-          function: approve(address,uint256)
-```
+You can read more about this feature in [Project Scaffolding](../build/introduction.md#evm-project-scaffolding)
