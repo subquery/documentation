@@ -29,6 +29,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 - どの動作を期待するか、またその理由を説明します。
 - 可能であればスクリーンショットを含めます。
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### プルリクエストを送る
 
 In general, we follow the "fork-and-pull" Git workflow:
