@@ -29,9 +29,11 @@
 - Обяснете какво поведение сте очаквали да видите вместо това и защо.
 - Включете снимки на екрана, ако е възможно.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Подаване на заявки за изтегляне
 
-Като цяло следваме работния процес на Git "Fork-and-pull":
+In general, we follow the "fork-and-pull" Git workflow:
 
 - Разклонете хранилището към вашия собствен Github акаунт.
 - Клонирайте проекта на вашата машина.
