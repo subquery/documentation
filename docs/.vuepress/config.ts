@@ -631,6 +631,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/subquery_network/design/payment-methods.md`,
           ],
         },
+        `${locale}/subquery_network/community.md`,
       ],
     },
     {
