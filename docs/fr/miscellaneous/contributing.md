@@ -29,6 +29,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 - Expliquez quel comportement vous vous attendiez à voir à la place et pourquoi.
 - Incluez des captures d'écran si possible.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Soumettre des Pull Requests
 
 In general, we follow the "fork-and-pull" Git workflow:
