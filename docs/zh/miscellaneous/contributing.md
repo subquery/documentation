@@ -29,9 +29,11 @@
 - 解释一下你期望发生的现象及为原因。
 - 尽可能包括屏幕截图。
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### 提交 Pull requests
 
-一般情况下，我们按照"fork-and-pull" Github 工作方式:
+In general, we follow the "fork-and-pull" Git workflow:
 
 - 将repository 分派到您自己的 Github 帐户.
 - 复制项目到您的设备.
