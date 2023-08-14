@@ -44,7 +44,7 @@ curl -o dictionary.tar <Download_URL>
 
 This assumes that you have an indexer [running locally](../../../run_publish/run.md) with admin access to a PostgresQL database (you will be using the `pg_restore` command).
 
-1. First extract the dowloaded snapshot and then extract it using the following command:
+1. First extract the downloaded snapshot and then extract it using the following command:
 
 ```bash
 tar -xvf dictionary.tar
@@ -101,4 +101,4 @@ pg_restore: creating INDEX "schema_qmzj9whrhrmvn2h.poi_hash"
 pg_restore: creating TRIGGER "schema_qmzj9whrhrmvn2h._metadata 0xc1aaf8b4176d0f02"
 ```
 
-After the data restored, you can start adding the specific project to you service inside admin app, and start indexing the project, the indexing will start basing on the restored data and continue indexing the project.
+After the data restored, you can start adding the specific project to your service inside admin app, and start indexing the project, the indexing will start basing on the restored data and continue indexing the project.
