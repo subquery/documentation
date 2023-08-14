@@ -11,7 +11,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-optimism-airdrop). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/\*Handler) for Optimism. Since Optimism is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
+The final code of this project can be found [here](https://github.com/subquery/subql-example-optimism-airdrop). We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Optimism. Since Optimism is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
