@@ -249,7 +249,7 @@ footer: false lastUpdated: false contributors: false editLink: false
     <div class="ct">
       <h3>The SubQuery Network</h3>
       <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </p>
-      <p>Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
+      <p>The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
       <router-link class="button" :to="{path: '/subquery_network/introduction.html'}">Learn more about our Decentralised Network</router-link>
     </div>
     <img src="/assets/img/architects.png" />
