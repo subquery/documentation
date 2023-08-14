@@ -29,9 +29,11 @@
 - Поясніть, який результат ви очікували побачити замість отриманого результату, і чому.
 - При можливості додавайте скріншоти.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Відправлення Pull Requests
 
-В цілому, ми дотримуємося робочого процесу Git "fork-and-pull":
+In general, we follow the "fork-and-pull" Git workflow:
 
 - Перенесіть репозиторій на свій обліковий запис Github.
 - Клонуйте проект на свій комп'ютер.
