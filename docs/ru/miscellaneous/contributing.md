@@ -29,9 +29,11 @@
 - Объясните, какое поведение вы должны увидеть вместо этого и почему.
 - Если возможно, включите скриншоты
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Отправка Pull Request'ов
 
-В целом, мы следуем рабочему процессу Git "fork-and-pull":
+In general, we follow the "fork-and-pull" Git workflow:
 
 - Перенесите репозиторий на свой аккаунт Github.
 - Клонируйте проект на свою машину.
