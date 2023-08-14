@@ -2,38 +2,34 @@
 
 **Mạng SubQuery là tương lai của cơ sở hạ tầng web3**
 
-Chúng tôi đang xây dựng dịch vụ dữ liệu mở, hiệu suất, đáng tin cậy và có thể mở rộng nhất cho các nhà phát triển dApp.
+We’re building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
-Mạng SubQuery lập chỉ mục và dữ liệu dịch vụ cho cộng đồng toàn cầu theo cách được khuyến khích và có thể xác minh.
-
-Sau khi xuất bản dự án của bạn lên Mạng SubQuery, bất kỳ ai cũng có thể lập chỉ mục và lưu trữ nó - cung cấp dữ liệu cho người dùng trên toàn thế giới nhanh hơn và đáng tin cậy hơn.
-
-Mạng SubQuery đang tạo điều kiện cho một cuộc cách mạng dữ liệu web3 mở bằng cách cho phép bạn phân cấp hoàn toàn ngăn xếp cơ sở hạ tầng của mình.
-
-## Những người tham gia
+The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
 
 Mọi người trong mạng đều có vai trò, từ những nhà phát triển có kỹ thuật cao đến những người không có kỹ thuật. Mạng SubQuery bao gồm bốn người tham gia mạng chính.
 
-### Người tiêu dùng
+**Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](./consumers/introduction.md).
 
-Người tiêu dùng sẽ yêu cầu Mạng SubQuery cung cấp dữ liệu cụ thể cho các dApp hoặc công cụ của họ và trả một số tiền SQT được quảng cáo cho mỗi yêu cầu.
+**Indexers** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Indexers](./indexers/introduction.md).
 
-::: tip Note Learn more about [Consumers](./consumers.md). :::
+**Delegators** will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do. Learn more about [Delegators](./delegators/introduction.md).
 
-### Người lập chỉ mục
+## SubQuery Kepler Network
 
-Người lập chỉ mục sẽ chạy và duy trì các dự án SubQuery chất lượng cao trong cơ sở hạ tầng của riêng họ, chạy cả dịch vụ lập chỉ mục và truy vấn và sẽ được thưởng trong SQT cho các yêu cầu mà họ phục vụ.
+SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network is deploying the Kepler Network.
 
-::: tip Note Learn more about [Indexers](./indexers.md). :::
+:::note
 
-### Người uỷ quyền
+[View the SubQuery Kepler network now](https://kepler.subquery.network)
 
-Người ủy quyền sẽ tham gia vào Mạng bằng cách hỗ trợ Người lập chỉ mục yêu thích của họ để kiếm phần thưởng dựa trên công việc mà người lập chỉ mục đó làm.
+:::
 
-::: tip Note Learn more about [Delegators](./delegators.md). :::
+### Why Are We Launching Kepler?
 
-### Kiến trúc sư
+You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.
 
-Kiến trúc sư là người xây dựng các dự án SubQuery mà Mạng chạy trên đó. Họ là tác giả và xuất bản các dự án SubQuery cho Mạng để lập chỉ mục và chạy.
+In order to launch our decentralised network (The SubQuery Network), there are several technical milestones that must be met. The first significant milestone was achieved in 2022, with three successful ‘seasons’ (or phases) of our Frontier testnet which stress-tested the network in a test environment. After taking these learnings, we elected to take a novel approach by allowing participants in our testnet to get started on real world projects now via Kepler rather than waiting for the launching of our token.
 
-::: tip Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+A further consideration is that when we survey the web3 ecosystem today, we see that many other projects that provide decentralised services have made poor progress migrating customers from their centralised services to their decentralised alternatives. Kepler is designed to migrate real projects from our managed service to the decentralised SubQuery Kepler Network in a carefully choreographed way whilst providing incentives to all.
+
+The rationale is that we can demonstrate both the technical and commercial applications of the SubQuery Network and bootstrap the mainnet with participants and activity to accelerate our growth.
