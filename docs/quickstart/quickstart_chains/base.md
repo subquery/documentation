@@ -4,9 +4,7 @@
 
 The goal of this quick start guide is to index the all the claims from the [Bridge to Base NFT contract](https://basescan.org/token/0xEa2a41c02fA86A4901826615F9796e603C6a4491) on [Base Mainnet](https://docs.base.org/using-base/).
 
-Here is a description from Base team about this NFT collection: *"This NFT commemorates you being early — you’re one of the first to teleport into the next generation of the internet as we work to bring billions of people onchain."*
-
-
+Here is a description from Base team about this NFT collection: _"This NFT commemorates you being early — you’re one of the first to teleport into the next generation of the internet as we work to bring billions of people onchain."_
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Base project.
@@ -14,13 +12,15 @@ Before we begin, **make sure that you have initialised your project** using the 
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
-::: tip Note
+::: tip Code
 The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-nft).
-
-We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/\*Handler) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
+
+::: tip Etheruem
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+:::
 
 The Project Manifest (`project.yaml`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
 
@@ -78,8 +78,7 @@ type Claim @entity {
   quantity: BigInt!
 }
 
-#The following entity allows us to aggregate daily claims from the Bridge to Base NFT contract.
-
+# The following entity allows us to aggregate daily claims from the Bridge to Base NFT contract.
 type DailyAggregation @entity {
   id: ID! # YYYY-MM-DD
   totalQuantity: BigInt!
@@ -243,20 +242,20 @@ Try the following query to understand how it works for your new SubQuery starter
 ```graphql
 # Write your query or mutation here
 query {
-    claims(first: 5) {
-      nodes {
-        id
-        blockHeight
-        timestamp
-        claimer
-        receiver
-        tokenId
-        quantity
-      }
+  claims(first: 5) {
+    nodes {
+      id
+      blockHeight
+      timestamp
+      claimer
+      receiver
+      tokenId
+      quantity
     }
-  
-  dailyAggregations(orderBy:TOTAL_QUANTITY_ASC){
-    nodes{
+  }
+
+  dailyAggregations(orderBy: TOTAL_QUANTITY_ASC) {
+    nodes {
       id
       totalQuantity
     }
@@ -330,7 +329,7 @@ You will see the result similar to below:
 }
 ```
 
-::: tip Note
+::: tip Code
 The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-nft).
 :::
 

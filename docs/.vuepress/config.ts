@@ -314,12 +314,12 @@ function getSidebar(locale: string): SidebarOptions {
               collapsible: true,
               children: [
                 {
-                  text: "Base (Goerli Testnet)",
-                  link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
-                },
-                {
                   text: "Base (Mainnet)",
                   link: `${locale}/quickstart/quickstart_chains/base.md`,
+                },
+                {
+                  text: "Base (Goerli Testnet)",
+                  link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
                 },
               ],
             },
