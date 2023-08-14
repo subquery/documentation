@@ -29,6 +29,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 - 당신이 기대 예상했던 작동과 그 이유를 설명하세요.
 - 가능하다면, 스크린샷을 첨부하세요.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Pull Requests 제출
 
 In general, we follow the "fork-and-pull" Git workflow:
