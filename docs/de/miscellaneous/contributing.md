@@ -29,9 +29,11 @@ Fehler werden als GitHub-Probleme verfolgt. Wenn Sie ein Problem protokollieren,
 - Erklären Sie, welches Verhalten Sie stattdessen erwartet haben und warum.
 - Fügen Sie wenn möglich Screenshots hinzu.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Senden von Pull-Requests
 
-Im Allgemeinen folgen wir dem „Fork-and-Pull“-Git-Workflow:
+In general, we follow the "fork-and-pull" Git workflow:
 
 - Verzweigen Sie das Repository zu Ihrem eigenen Github-Konto.
 - Klonen Sie das Projekt auf Ihren Computer.
