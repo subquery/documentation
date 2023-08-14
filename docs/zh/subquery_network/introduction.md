@@ -2,38 +2,34 @@
 
 **SubQuery 网络是 Web3 基础设施的未来**
 
-我们正在为 dApp 开发者构建最开放的、运行最可靠的、可扩展的数据服务。
+We’re building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
-SubQuery 网络以一种激励和可验证的方式为全球社区提供数据索引的服务。
-
-将项目发布到 SubQuery 网络后，任何人都可以对其进行索引和托管，从而可以更快、更可靠地向世界各地的用户提供数据。
-
-SubQuery 网络通过允许用户将项目基础架构完全去中心化，从而促进了开放式 Web3 数据革命。
-
-## 参与者
+The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
 
 网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 SubQuery 网络中包括四个主要参与者.
 
-### 消费者
+**Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](./consumers/introduction.md).
 
-消费者将向 SubQuery 网络检索其 dApp 或其工具的特定数据，并为每个请求通过代币 SQT 的形式支付广播费用。
+**Indexers** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Indexers](./indexers/introduction.md).
 
-::: tip Note Learn more about [Consumers](./consumers.md). :::
+**Delegators** will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do. Learn more about [Delegators](./delegators/introduction.md).
 
-### 索引者
+## SubQuery Kepler Network
 
-索引器者将在自己的基础设施中运行和维护高质量的 SubQuery 项目，同时运行着索引器和查询服务，并将会根据其提供的服务获得 SQT 代币奖励。
+SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network is deploying the Kepler Network.
 
-::: tip Note Learn more about [Indexers](./indexers.md). :::
+:::note
 
-### 委托者
+[View the SubQuery Kepler network now](https://kepler.subquery.network)
 
-委托者将通过委托来参与网络，支持他们最喜欢的索引者来，以根据索引者所做的工作获得奖励。
+:::
 
-::: tip Note Learn more about [Delegators](./delegators.md). :::
+### Why Are We Launching Kepler?
 
-### 构建者
+You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.
 
-构建者是网络中运行的 SubQuery 项目的构建者。 他们编写并发布 SubQuery 项目，以便网络索引和运行。
+In order to launch our decentralised network (The SubQuery Network), there are several technical milestones that must be met. The first significant milestone was achieved in 2022, with three successful ‘seasons’ (or phases) of our Frontier testnet which stress-tested the network in a test environment. After taking these learnings, we elected to take a novel approach by allowing participants in our testnet to get started on real world projects now via Kepler rather than waiting for the launching of our token.
 
-::: tip Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+A further consideration is that when we survey the web3 ecosystem today, we see that many other projects that provide decentralised services have made poor progress migrating customers from their centralised services to their decentralised alternatives. Kepler is designed to migrate real projects from our managed service to the decentralised SubQuery Kepler Network in a carefully choreographed way whilst providing incentives to all.
+
+The rationale is that we can demonstrate both the technical and commercial applications of the SubQuery Network and bootstrap the mainnet with participants and activity to accelerate our growth.
