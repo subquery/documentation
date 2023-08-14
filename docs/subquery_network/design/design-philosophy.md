@@ -1,6 +1,6 @@
 # Design Philosophy of the SubQuery Network
 
-The guiding principle with the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
+The guiding principle of the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
 
 ## Multi-Chain by Design
 
@@ -12,13 +12,13 @@ But the future is multi-chain. SubQuery knows that there are going to be many di
 
 The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network (within Polkadot or not) within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
 
-SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the comming months.
+SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the coming months.
 
 ## Simple and Accessible
 
 _The SubQuery Network is designed to be the data provider of the people._
 
-The guiding principle with the SubQuery Network is simplicity. It is SubQuery’s opinion that other approaches to decentralised data query services are overly complex and make it difficult for participants to predict their return on investment. The aim is to make it easy for you to get involved in the network, and to clearly forecast your future potential return.
+The guiding principle of the SubQuery Network is simplicity. It is SubQuery’s opinion that other approaches to decentralised data query services are overly complex and make it difficult for participants to predict their return on investment. The aim is to make it easy for you to get involved in the network, and to clearly forecast your future potential return.
 
 It is planned that the SubQuery Network won’t require high staking thresholds to participate or huge investment into hardware. The focus will be on making SubQuery easier to join and build with than other data providers - SubQuery’s success depends on the success of others creating the future on it.
 
