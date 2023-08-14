@@ -76,7 +76,7 @@ npm install -g @subql/node-algorand
 :::
 
 ::: danger
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an error down the line.
 :::
 
 Once installed, you can start a node with the following command:
@@ -310,7 +310,7 @@ npm install -g @subql/query
 ```
 
 ::: danger
-Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an errors down the line.
+Please note that we **DO NOT** encourage the use of `yarn global` due to its poor dependency management which may lead to an error down the line.
 :::
 
 ### Running the Query service
@@ -336,21 +336,21 @@ You should also adjust and play around with the various arguments that control h
 
 ### DDOS Mitigation
 
-SubQuery runs well behind a API gateway or a DDOS mitigation service. For any public project that is run in a production configuration, setting up a gateway, web application firewall, or some other protected endpoint is recommended.
+SubQuery runs well behind an API gateway or a DDOS mitigation service. For any public project that is run in a production configuration, setting up a gateway, web application firewall, or some other protected endpoint is recommended.
 
 ### Request Caching
 
-Although @subql/node does not natively provide any default reqeust level caching, one of the easiest way to increase performance when the number of users hitting your SubQuery project increases is by adding a cache in front of the GraphQL endpoint with a basic TTL of a few seconds (depending on how stale you want to allow your data). Most cloud providers offer simple to setup and manage caching solutions (e.g. Redis) that will work well with the GraphQL api endpoints that we provide. If you're worried about stale data affecting your user's experience, by leveraging [GraphQl subscriptions](./subscription.md) you can ensure that the most recent data is never affected by the cache while older, slower data is mostly from the cache. Additionally, consider different TTLs for each different entity.
+Although @subql/node does not natively provide any default request level caching, one of the easiest ways to increase performance when the number of users hitting your SubQuery project increases is by adding a cache in front of the GraphQL endpoint with a basic TTL of a few seconds (depending on how stale you want to allow your data). Most cloud providers offer simple to setup and manage caching solutions (e.g. Redis) that will work well with the GraphQL api endpoints that we provide. If you're worried about stale data affecting your user's experience, by leveraging [GraphQl subscriptions](./subscription.md) you can ensure that the most recent data is never affected by the cache while older, slower data is mostly from the cache. Additionally, consider different TTLs for each different entity.
 
 ### Database Configuration
 
-In our own managed service, we've been able to run a number of SubQuery projects in the same Postgres database - you do not need to run each project in a different database for suficient performance. When the I/O on the database becomes a problem, the simpliest solution is to first consider if any more [indexes can be added to your project](../build/optimisation.md#indexing-performance-advice).
+In our own managed service, we've been able to run a number of SubQuery projects in the same Postgres database - you do not need to run each project in a different database for sufficient performance. When the I/O on the database becomes a problem, the simplest solution is to first consider if any more [indexes can be added to your project](../build/optimisation.md#indexing-performance-advice).
 
 The next step our team will usually carry out is split the database into a read-write replica architecture. One database instance is the writer (that the @subql/node service connects to), while the other is the reader (that the @subql/query service connects to). We will do this before splitting up projects into different databases as it generally makes a huge improvement to database I/O.
 
 ### Run Multiple Query Services
 
-SubQuery is designed that you can run mulitple query services behind a load balancer for redundancy and performance. Just note that unless you have multiple read replicas of the database, you're performance will quickly become db constrained.
+SubQuery is designed so that you can run multiple query services behind a load balancer for redundancy and performance. Just note that unless you have multiple read replicas of the database, you're performance will quickly become db constrained.
 
 ### Restrict Query Complexity
 
@@ -358,6 +358,6 @@ GraphQL is extremely powerful, but one of the downsides is that it allows users 
 
 - `--query-complexity` is a flag that controls the level of query complexity that this service will accept expressed as a positive integer, [read more here](./references.md#query-complexity).
 - `--query-timeout` is a flag that will restrict the time each query will be allowed to run for, [read more here](./references.md#query-timeout).
-- `--max-connection` is a flag that will restrict the number of simulteneous connections to the query endpoint, [read more here](./references.md#max-connection).
+- `--max-connection` is a flag that will restrict the number of simultaneous connections to the query endpoint, [read more here](./references.md#max-connection).
 - `--query-limit` is a flag that allows you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
 - `--unsafe` is a flag that enables some advanced features like [GraphQL aggregations](./aggregate.md), these may have performance impacts, [read more here](./references.md#unsafe-query-service)
