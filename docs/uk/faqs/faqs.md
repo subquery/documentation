@@ -17,7 +17,7 @@ SubQuery also provides free, production grade hosting of projects for developers
 
 **The SubQuery Network**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. Мережа SubQuery індексує та надає данні всесвітній спільноті шляхом що є одночасно стимулюючим та може бути верифікованим. Після публікації вашого проектут в Мережі SubQuery, будь-хто може індексувати та розміщувати ваш проект - надаючи дані користувачам по всьому світі швидше та надійніше.
+The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
 More information [here](/subquery_network/introduction.md).
 
