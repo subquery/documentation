@@ -2,38 +2,34 @@
 
 **Das SubQuery-Netzwerk ist die Zukunft der web3-Infrastruktur**
 
-Wir entwickeln den offensten, leistungsfähigsten, zuverlässigsten und skalierbarsten Datendienst für dApp-Entwickler.
+We’re building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
-Das SubQuery-Netzwerk indiziert und stellt Daten für die globale Gemeinschaft auf eine motivierte und überprüfbare Weise bereit.
-
-Nachdem Sie Ihr Projekt im SubQuery-Netzwerk veröffentlicht haben, kann jeder es indizieren und hosten, wodurch Daten schneller und zuverlässiger für Benutzer auf der ganzen Welt bereitgestellt werden.
-
-Das SubQuery-Netzwerk erleichtert eine offene Web3-Datenrevolution, indem es Ihnen ermöglicht, Ihren Infrastruktur-Stack vollständig zu dezentralisieren.
-
-## Teilnehmer
+The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
 
 Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis hin zu denen, die es nicht sind. The SubQuery network includes four main network participants.
 
-### Verbraucher
+**Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](./consumers/introduction.md).
 
-Verbraucher fragen das SubQuery-Netzwerk nach bestimmten Daten für ihre dApps oder Tools und zahlen für jede Anfrage einen beworbenen SQT-Betrag.
+**Indexers** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Indexers](./indexers/introduction.md).
 
-::: tip Note Learn more about [Consumers](./consumers.md). :::
+**Delegators** will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do. Learn more about [Delegators](./delegators/introduction.md).
 
-### Indexers
+## SubQuery Kepler Network
 
-Indexer führen und pflegen qualitativ hochwertige SubQuery-Projekte in ihrer eigenen Infrastruktur, führen sowohl den Indexer als auch den Abfragedienst aus und werden für die von ihnen bedienten Anforderungen mit SQT belohnt.
+SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network is deploying the Kepler Network.
 
-::: tip Note Learn more about [Indexers](./indexers.md). :::
+:::note
 
-### Delegators
+[View the SubQuery Kepler network now](https://kepler.subquery.network)
 
-Die Delegierenden beteiligen sich am Netzwerk, indem sie ihre bevorzugten Indexer dabei unterstützen, Belohnungen basierend auf der Arbeit dieser Indexer zu verdienen.
+:::
 
-::: tip Note Learn more about [Delegators](./delegators.md). :::
+### Why Are We Launching Kepler?
 
-### Architekt
+You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.
 
-Architekten sind die Ersteller der SubQuery-Projekte, auf denen das Netzwerk ausgeführt wird. Sie erstellen und veröffentlichen SubQuery-Projekte, die das Netzwerk indizieren und ausführen kann.
+In order to launch our decentralised network (The SubQuery Network), there are several technical milestones that must be met. The first significant milestone was achieved in 2022, with three successful ‘seasons’ (or phases) of our Frontier testnet which stress-tested the network in a test environment. After taking these learnings, we elected to take a novel approach by allowing participants in our testnet to get started on real world projects now via Kepler rather than waiting for the launching of our token.
 
-::: tip Note Learn more about [how to build your first SubQuery project](../build/introduction.md). :::
+A further consideration is that when we survey the web3 ecosystem today, we see that many other projects that provide decentralised services have made poor progress migrating customers from their centralised services to their decentralised alternatives. Kepler is designed to migrate real projects from our managed service to the decentralised SubQuery Kepler Network in a carefully choreographed way whilst providing incentives to all.
+
+The rationale is that we can demonstrate both the technical and commercial applications of the SubQuery Network and bootstrap the mainnet with participants and activity to accelerate our growth.
