@@ -29,6 +29,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 - Giải thích hành vi nào bạn muốn thấy và tại sao.
 - Bao gồm ảnh chụp màn hình nếu có thể.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Gửi Pull Requests
 
 In general, we follow the "fork-and-pull" Git workflow:
