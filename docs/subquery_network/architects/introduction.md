@@ -6,9 +6,9 @@ An Architect is a SubQuery network participant who creates SubQuery projects for
 
 ## Requirements to become an Architect
 
-As Architects will be creating SubQuery projects, a technical background is highly recommended. Creating SubQuery projects involves reading technical documention and writing code. Having said this, there are numerous resources and a SubQuery academy course that takes a beginner developer through the journey of creating SubQuery projects very quickly.
+As Architects will be creating SubQuery projects, a technical background is highly recommended. Creating SubQuery projects involves reading technical documentation and writing code. Having said this, there are numerous resources and a SubQuery academy course that takes a beginner developer through the journey of creating SubQuery projects very quickly.
 
-Architects may be dApp developers, data analytics experts, or someone with a solid technical background willing to learn some simple coding concepts. Architects may also be Indexers and host a node and serve blockchain data to Consumers and be reward.
+Architects may be dApp developers, data analytics experts, or someone with a solid technical background willing to learn some simple coding concepts. Architects may also be Indexers and host a node and serve blockchain data to Consumers and be rewarded.
 
 ## Benefits of being an Architect
 
