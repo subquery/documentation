@@ -29,9 +29,11 @@ Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahny
 - Jelaskan perilaku mana yang Anda harapkan untuk dilihat dan mengapa.
 - Sertakan screenshot jika memungkinkan.
 
+If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
+
 ### Mengirimkan Pull Request
 
-Secara umum, kami mengikuti alur kerja "fork-and-pull" Git:
+In general, we follow the "fork-and-pull" Git workflow:
 
 - Fork repositori ke akun Github Anda sendiri.
 - Clone proyek ke mesin Anda.
