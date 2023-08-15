@@ -68,7 +68,7 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing the id, owner, display name, imagine URL and the block the gravatar was created in.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing the id, owner, display name, image URL and the block the gravatar was created in.
 
 ```graphql
 type Gravatar @entity {
