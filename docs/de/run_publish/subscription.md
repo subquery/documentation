@@ -43,8 +43,7 @@ Angenommen, wir haben eine Entität ` Balances `, die den Saldo jedes Kontos auf
 
 ```graphql
 type Balances {
-  id: ID! # jemandes Konto,z.B.
-15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
+  id: ID! # someone's account, eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
   amount: Int! # Balance dieses Kontos
 }
 ```
@@ -70,8 +69,8 @@ Beachten Sie, dass der Filter `Mutation` einer der Filter `INSERT`, `UPDATE` ode
 
 ## Using in the Managed Service
 
-The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+The managed service supports subscriptions for paid plans, you must enable subscription support when deploying your project in our service under "Advanced Settings"
 
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+The subscription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::
