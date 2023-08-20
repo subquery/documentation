@@ -119,6 +119,9 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
 ```ts
+import { Dividend, User } from "../types";
+import { ClaimDividendBatchLog } from "../types/abi-interfaces/WinrStakingAbi";
+
 async function checkGetUser(userID: string): Promise<User> {
   let user = await User.get(userID.toLowerCase());
   if (!user) {
