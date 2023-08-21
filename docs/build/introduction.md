@@ -17,25 +17,138 @@ The following map provides an overview of the directory structure of a SubQuery 
 ```
 - project-name
   L .github
+  L abis
   L docker
   L src
     L mappings
       L mappingHandlers.ts
+    L test
     L index.ts
   L .gitignore
-  L docker-compose.yml
   L LICENSE
+  L README.md
+  L docker-compose.yml
   L package.json
   L project.yaml
-  L README.md
   L schema.graphql
   L tsconfig.json
-
 ```
 
 For example:
 
 ![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+
+## EVM and Cosmos Project Scaffolding
+
+Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
+
+### When Initialising New SubQuery Projects
+
+When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
+
+If you have select an compatiable network type (EVM), it will prompt
+
+```shell
+? Do you want to generate scaffolding with an existing abi contract?
+```
+
+Followed by prompt on the path to your ABI file (absolute or relative to your current working directory). This must be in a JSON format.
+
+```shell
+? Path to ABI ../../../hello/world/abis/erc721.abi.json
+```
+
+So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
+
+![Project Scaffolding EVM](/assets/img/project-scaffold-evm.png)
+
+You will then be prompted to select what `events` and/or `functions` that you want to index from the provided ABI.
+
+### For an Existing SubQuery Project
+
+You can also generate additional scaffolded code new new contracts and append this code to your existing `project.yaml`. This is done using the `subql codegen:generate` command from within your project workspace.
+
+```shell
+subql codegen:generate \
+-f <root path of your project> \ # Assumes current location if not provided
+--abiPath <path of your abi file> \ # path is from project root - this is required
+--startBlock <start block> # Required
+--address <address> \ # Contract address
+--events '*' \  # accepted formats: 'transfers, approval'
+--functions '*' # accepted formats: 'transferFrom, approve'
+```
+
+This will attempt to read the provided ABI file, and generate a list of events & functions in accordance. If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected. For example:
+
+```shell
+subql codegen:generate \
+-f './example-project' \
+--abiPath './abis/erc721.json' \ (required)
+--startBlock 1 \ (required)
+--address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \
+--events '*' \
+--functions '*'
+```
+
+### What is Scaffolded?
+
+Once completed, you will have a scaffolded project structure from your chosen ABI `functions`/`events`.
+
+In the previous example for the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to scaffold.
+
+It initialises the correct manifest with Log Handlers included, as well a new typescript file `<abiName>Handler.ts` containing mapping functions and imports with the appropriate typing..
+
+:::details Manifest
+
+```yaml
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 6175243
+    options:
+      abi: Gravity
+      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
+    assets:
+      Gravity:
+        file: ./abis/Gravity.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleNewGravatarGravityLog
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - NewGravatar(uint256,address,string,string)
+        - handler: handleUpdatedGravatarGravityLog
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - UpdatedGravatar(uint256,address,string,string)
+```
+
+:::
+
+:::details Mapping
+
+```ts
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
+
+export async function handleNewGravatarGravityLog(
+  log: NewGravatarLog
+): Promise<void> {
+  // Place your code logic here
+}
+
+export async function handleUpdatedGravatarGravityLog(
+  log: UpdatedGravatarLog
+): Promise<void> {
+  // Place your code logic here
+}
+```
+
+:::
 
 ## Working with the Manifest File
 
@@ -165,13 +278,13 @@ This will create a new directory (or update the existing) `src/types` which cont
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-If you're creating a new Ethereum based project (including Ethereum, Avalanche, and Substrate's Frontier EVM & Acala EVM+), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+If you're creating a new Ethereum based project (including Ethereum EVM, Cosmos Ethermint, Avalanche, and Substrate's Frontier EVM & Acala EVM+), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-**ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
+**ABI Codegen is not yet supported for WASM contracts**
 
 ## Mapping
 
