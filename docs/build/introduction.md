@@ -38,7 +38,7 @@ For example:
 
 ![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
 
-## EVM Project Scaffolding
+## EVM and Cosmos Project Scaffolding
 
 Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
@@ -60,33 +60,31 @@ Followed by prompt on the path to your ABI file (absolute or relative to your cu
 
 So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
 
-You will then be prompted `events` and `functions` available from the provided ABI.
+![Project Scaffolding EVM](/assets/img/project-scaffold-evm.png)
 
-### For Existing SubQuery
+You will then be prompted to select what `events` and/or `functions` that you want to index from the provided ABI.
 
-You can also generate additional scaffolded code new new contracts and append this code to your existing `project.yaml`. This is done using the `subql codegen:generate` command.
+### For an Existing SubQuery Project
+
+You can also generate additional scaffolded code new new contracts and append this code to your existing `project.yaml`. This is done using the `subql codegen:generate` command from within your project workspace.
 
 ```shell
 subql codegen:generate \
 -f <root path of your project> \ # Assumes current location if not provided
 --abiPath <path of your abi file> \ # path is from project root - this is required
--- startBlock <start block> # Required
+--startBlock <start block> # Required
 --address <address> \ # Contract address
 --events '*' \  # accepted formats: 'transfers, approval'
 --functions '*' # accepted formats: 'transferFrom, approve'
 ```
 
-This will attempt to read the provided ABI file, and generate a list of events & functions in accordance.
-
-If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected.
-
-For example
+This will attempt to read the provided ABI file, and generate a list of events & functions in accordance. If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected. For example:
 
 ```shell
 subql codegen:generate \
 -f './example-project' \
 --abiPath './abis/erc721.json' \ (required)
--- startBlock 1 \ (required)
+--startBlock 1 \ (required)
 --address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \
 --events '*' \
 --functions '*'
@@ -94,36 +92,63 @@ subql codegen:generate \
 
 ### What is Scaffolded?
 
-Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
+Once completed, you will have a scaffolded project structure from your chosen ABI `functions`/`events`.
 
-This should generate a typescript file `<abiName>Handler.ts` containing functions with the appropriate typing.
+In the previous example for the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to scaffold.
 
-```typescript
-export async function handleApproveErc721AbiTx(
-  tx: ApproveTransaction
+It initialises the correct manifest with Log Handlers included, as well a new typescript file `<abiName>Handler.ts` containing mapping functions and imports with the appropriate typing..
+
+:::details Manifest
+
+```yaml
+dataSources:
+  - kind: ethereum/Runtime
+    startBlock: 6175243
+    options:
+      abi: Gravity
+      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
+    assets:
+      Gravity:
+        file: ./abis/Gravity.json
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleNewGravatarGravityLog
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - NewGravatar(uint256,address,string,string)
+        - handler: handleUpdatedGravatarGravityLog
+          kind: ethereum/LogHandler
+          filter:
+            topics:
+              - UpdatedGravatar(uint256,address,string,string)
+```
+
+:::
+
+:::details Mapping
+
+```ts
+import {
+  NewGravatarLog,
+  UpdatedGravatarLog,
+} from "../types/abi-interfaces/Gravity";
+
+export async function handleNewGravatarGravityLog(
+  log: NewGravatarLog
+): Promise<void> {
+  // Place your code logic here
+}
+
+export async function handleUpdatedGravatarGravityLog(
+  log: UpdatedGravatarLog
 ): Promise<void> {
   // Place your code logic here
 }
 ```
 
-This will also add a new datasource in the `project.yaml` including the selected ABI events/functions
-
-```yaml
-- kind: ethereum/Runtime
-  startBlock: 1
-  options:
-    abi: Erc721Abi
-  assets:
-    Erc721Abi:
-      file: ./abis/erc721.abi.json
-  mapping:
-    file: ./dist/index.js
-    handlers:
-      - handler: handleApproveErc721AbiTx
-        kind: ethereum/TransactionHandler
-        filter:
-          function: approve(address,uint256)
-```
+:::
 
 ## Working with the Manifest File
 
