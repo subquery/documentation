@@ -1,42 +1,29 @@
 # 1. Buat proyek baru
 
-Tujuan dari panduan memulai cepat ini adalah untuk memberi Anda pengaturan pengembangan lengkap dan langkah-langkah yang dipandu untuk membuat proyek blockchain SubQuery pertama Anda. Ini ditargetkan untuk pengembang berpengalaman hingga mereka yang baru memulai perjalanan blockchain mereka.
-
-Panduan mulai cepat ini akan memakan waktu sekitar 10-15 menit.
-
-Setelah menyelesaikan panduan memulai cepat ini, Anda akan memiliki proyek SubQuery yang berfungsi yang akan berjalan pada node SubQuery. Anda akan dapat mengadaptasi proyek starter standar dan transfer indeks dari jaringan blockchain favorit Anda seperti Polkadot, Avalanche, Cosmos, dll.
-
-Mari kita mulai proses pembuatan proyek blockchain SubQuery pertama Anda.
+The goal of this quick start guide is to provide you with working SubQuery project in your chosen layer-1 network and a basic understanding of how SubQuery works, it should take around 10-15 minutes.
 
 ## Prasyarat
 
 Sebelum Anda mulai membuat proyek blockchain pertama Anda dengan SubQuery, pastikan Anda telah menginstal aplikasi perangkat lunak pendukung yang diperlukan. Ini adalah:
 
-- [Node](https://nodejs.org/en/): Instalasi Node.js modern (misalnya versi LTS).
-- [Docker](https://docker.com/): Tutorial ini akan menggunakan Docker yang diperlukan.
-
-Sekarang, Anda siap untuk memulai dengan langkah pertama, yaitu instalasi SubQuery CLI.
+- [NodeJS](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of NodeJS.
+- [Docker](https://docker.com/): This tutorial will use Docker to run a local version of SubQuery's node.
 
 ## 1. Pasang CLI SubQuery
 
-Instal SubQuery CLI secara global di terminal Anda dengan menggunakan NPM:
+Install SubQuery CLI globally on your terminal by using NPM. We **do not** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. Hal ini dapat menyebabkan beberapa kesalahan.
 
 ```shell
 # NPM
 npm install -g @subql/cli
+
+# Test that it was installed correctly
+subql --help
 ```
 
-::::: bahaya Kami **JANGAN** mendorong penggunaan `yarn global` untuk menginstal `@subql/cli` karena manajemen ketergantungannya yang buruk. Hal ini dapat menyebabkan beberapa kesalahan. :::
+## 2. Initialise a new SubQuery Project
 
-Lihatlah semua perintah yang tersedia dan penggunaannya. Jalankan perintah yang diberikan di bawah ini di CLI:
-
-```shell
-bantuan subql
-```
-
-## 2. Inisialisasi Proyek Pemula SubQuery
-
-Jalankan perintah berikut di dalam direktori yang ingin Anda buat proyek SubQuery:
+Run the following command inside the directory that you want to create a SubQuery project in:
 
 ```shell
 subql init
@@ -45,14 +32,11 @@ subql init
 Anda akan ditanyai pertanyaan tertentu saat Anda melanjutkan perjalanan:
 
 - **Nama proyek**: Nama proyek untuk proyek SubQuery Anda.
-- **Keluarga Network**: Keluarga jaringan blockchain layer-1 yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Misalnya, Polkadot, Avalanche, Cosmos, atau jaringan lain yang didukung.
-- **Network**: Jaringan spesifik yang akan diindeks oleh proyek SubQuery ini. Gunakan tombol panah untuk memilih dari opsi yang tersedia. Misalnya, Polkadot, Avalanche, atau jaringan lain yang didukung.
-- **Proyek template**: Pilih proyek template SubQuery yang akan memberikan titik awal dalam pengembangan. Kami menyarankan untuk memilih proyek _"subql-starter"_.
-- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. Anda dapat dengan cepat mengakses titik akhir publik untuk jaringan yang berbeda, membuat node khusus pribadi Anda sendiri menggunakan [OnFinality](https://app.onfinality.io), atau hanya menggunakan titik akhir default. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node. Kita akan menggunakan nilai default untuk panduan ini. Berdasarkan jaringan yang Anda pilih, nilai default mungkin:
-  - For Polkadot - _"wss://polkadot.api.onfinality.io/public-ws"_,
-  - For Avalanche - _"https://avalanche.api.onfinality.io/public/ext/bc/C/rpc"_,
-  - For Ethereum - _“https://eth.api.onfinality.io/public”_ and likewise for other networks.
-- ** Repositori Git**: Berikan URL Git ke repo tempat proyek SubQuery ini akan dihosting (saat dihosting di SubQuery Explorer) atau terima default yang disediakan.
+- **Keluarga Network**: Keluarga jaringan blockchain layer-1 yang akan diindeks oleh proyek SubQuery ini. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
+- **Network**: Jaringan spesifik yang akan diindeks oleh proyek SubQuery ini. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
+- **Proyek template**: Pilih proyek template SubQuery yang akan memberikan titik awal dalam pengembangan. For some networks we provide multiple examples.
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node.
+- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in.
 - **Authors**: Masukkan pemilik proyek SubQuery ini di sini (misalnya nama Anda!) atau terima default yang disediakan.
 - **Deskripsi**: Sediakan paragraf singkat tentang proyek Anda yang menjelaskan data apa saja yang ada di dalamnya dan apa yang bisa dilakukan pengguna dengannya, atau terima default yang disediakan.
 - **Versi**: Masukkan nomor versi khusus atau gunakan default (`1.0.0`).
@@ -62,22 +46,26 @@ Mari kita lihat sebuah contoh:
 
 ```shell
 $ subql init
-Project name [subql-starter]: HelloWorld
-? Select a network family Substrate
-? Select a network Polkadot
-? Select a template project subql-starter     Starter project for subquery
-RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
-Git repository [https://github.com/subquery/subql-starter]:
-Fetching network genesis hash... done
-Author [Ian He & Jay Ji]: Sean
-Description [This project can be used as a starting po...]:
-Version [1.0.0]:
+Project name [subql-starter]: test-subquery-project
+? Select a network family Ethereum
+? Select a network Ethereum
+? Select a template project ethereum-starter     Starter project for Ethereum networks
+RPC endpoint: [https://eth.api.onfinality.io/public]:
+Git repository [https://github.com/subquery/ethereum-subql-starter]: https://github.com/jamesbayly/test-subquery-project  ^ Author [SubQuery Team]: James Bayly
+Description [This project can be use as a starting po...]: A new example ethereum SubQuery project
+Version [0.0.1]:
 License [MIT]:
 Preparing project... done
-HelloWorld is ready
+test-subquery-project is ready
 ```
 
-Setelah Anda menyelesaikan proses inisialisasi, Anda akan melihat folder dengan nama proyek Anda dibuat di dalam direktori. Harap dicatat bahwa isi direktori ini harus identik dengan apa yang tercantum dalam [Directory Structure](../build/introduction.md#directory-structure).
+:::info Ethereum Project Scaffolding
+
+You can generate a project from a JSON ABIs to save you time when creating your project in EVM chains. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
+
+:::
+
+Setelah Anda menyelesaikan proses inisialisasi, Anda akan melihat folder dengan nama proyek Anda dibuat di dalam direktori. Please note that the contents of this directory should be near identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
 
 Terakhir, jalankan perintah berikut untuk menginstal dependensi proyek baru dari dalam direktori proyek baru.
 
@@ -110,3 +98,21 @@ There are 3 important files that need to be modified. Ini adalah:
 3. Fungsi-fungsi pemetaan dalam direktori `src/mappings/`.
 
 SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
+
+## EVM Project Scaffolding
+
+Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
+
+When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you have select an compatiable network type (EVM), it will prompt
+
+```shell
+? Do you want to generate scaffolding with an existing abi contract?
+```
+
+So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
+
+![Project Scaffolding EVM](/assets/img/project-scaffold-evm.png)
+
+Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
+
+You can read more about this feature in [Project Scaffolding](../build/introduction.md#evm-project-scaffolding)
