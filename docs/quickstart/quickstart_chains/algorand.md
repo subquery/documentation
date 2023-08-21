@@ -26,9 +26,15 @@ Update the `schema.graphql` file as follows. In this project, you can see we are
 type Transaction @entity {
   id: ID! # A unique ID - The transaction ID
   blockHeight: Int!
-  sender: String!
-  receiver: String
+  sender: Address!
+  receiver: Address
   amount: BigInt
+}
+
+type Address @entity {
+  id: ID! # in this case the wallet address
+  sentTransactions: [Transaction] @derivedFrom(field: "sender")
+  recievedTransactions: [Transaction] @derivedFrom(field: "receiver")
 }
 ```
 
@@ -100,19 +106,34 @@ Update the `handleTransaction` function as follows (**note the additional import
 
 ```ts
 import { AlgorandTransaction } from "@subql/types-algorand";
-import { Transaction } from "../types";
+import { Transaction, Address } from "../types";
 
 export async function handleTransaction(
   tx: AlgorandTransaction
 ): Promise<void> {
   // logger.info(JSON.stringify(tx));
-  if (tx.assetTransferTransaction) {
+  if (tx.assetTransferTransaction && tx.id && tx.confirmedRound) {
+    // ensure that our address entities exist
+    const senderAddress = await Address.get(tx.sender.toLowerCase());
+    if (!senderAddress) {
+      await new Address(tx.sender.toLowerCase()).save();
+    }
+
+    const receiverAddress = await Address.get(
+      tx.assetTransferTransaction.receiver.toLowerCase()
+    );
+    if (!receiverAddress) {
+      await new Address(
+        tx.assetTransferTransaction.receiver.toLowerCase()
+      ).save();
+    }
+
     // Create the new transfer entity
     const transactionEntity: Transaction = Transaction.create({
       id: tx.id,
       blockHeight: tx.confirmedRound,
-      sender: tx.sender.toLowerCase(),
-      receiver: tx.assetTransferTransaction.receiver.toLowerCase(),
+      senderId: tx.sender.toLowerCase(),
+      receiverId: tx.assetTransferTransaction.receiver.toLowerCase(),
       amount: BigInt(tx.assetTransferTransaction.amount),
     });
     await transactionEntity.save();
