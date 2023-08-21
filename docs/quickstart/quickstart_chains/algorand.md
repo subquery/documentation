@@ -34,7 +34,7 @@ type Transaction @entity {
 type Address @entity {
   id: ID! # in this case the wallet address
   sentTransactions: [Transaction] @derivedFrom(field: "sender")
-  recievedTransactions: [Transaction] @derivedFrom(field: "receiver")
+  receivedTransactions: [Transaction] @derivedFrom(field: "receiver")
 }
 ```
 
@@ -143,7 +143,7 @@ export async function handleTransaction(
 
 Let’s understand how the above code works.
 
-Here, the function recieves a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeight` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
+Here, the function receives a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeight` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
 Check out our [Mappings](../../build/mapping/algorand.md) documentation to get more information on mapping functions.
 
@@ -224,10 +224,10 @@ query {
       amount
     }
   }
-  addresses(first: 5, orderBy: RECIEVED_TRANSACTIONS_COUNT_DESC) {
+  addresses(first: 5, orderBy: RECEIVED_TRANSACTIONS_COUNT_DESC) {
     nodes {
       id
-      recievedTransactions(first: 5) {
+      receivedTransactions(first: 5) {
         totalCount
         nodes {
           id
@@ -286,7 +286,7 @@ You will see the result similar to below:
       "nodes": [
         {
           "id": "fndsfhwxdue7nqavnpadw7gtqqinitzu3kw32sliq47iynymbwn2zm3iza",
-          "recievedTransactions": {
+          "receivedTransactions": {
             "totalCount": 91,
             "nodes": [
               {
@@ -309,7 +309,7 @@ You will see the result similar to below:
         },
         {
           "id": "gmgpw6xynm7fmnzx2l5zf7rekfh7r7z2qalg2cbyxtpbxbri6byrjtnn7y",
-          "recievedTransactions": {
+          "receivedTransactions": {
             "totalCount": 64,
             "nodes": [
               {
@@ -332,7 +332,7 @@ You will see the result similar to below:
         },
         {
           "id": "7dvgazex6zzn33auj3wsnf6xcxk35gpj7gryb7hv4bm3l7ygpauhi6e7ia",
-          "recievedTransactions": {
+          "receivedTransactions": {
             "totalCount": 47,
             "nodes": [
               {
@@ -355,7 +355,7 @@ You will see the result similar to below:
         },
         {
           "id": "l3aryt26d6v4asp4vqpe4lb6jwnmx2onolompvrrqjq7i4akzk46nkjixm",
-          "recievedTransactions": {
+          "receivedTransactions": {
             "totalCount": 34,
             "nodes": [
               {
@@ -378,7 +378,7 @@ You will see the result similar to below:
         },
         {
           "id": "akqtyjstxod7norenujjujiaxmd2a6fi4ixvq2banpc4e6n5nqxcvgoecq",
-          "recievedTransactions": {
+          "receivedTransactions": {
             "totalCount": 31,
             "nodes": [
               {
