@@ -112,6 +112,8 @@ When you are initalising a new project using the `subql init` command, SubQuery 
 
 So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
 
+![Project Scaffolding EVM](/assets/img/project-scaffold-evm.png)
+
 Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
 
 You can read more about this feature in [Project Scaffolding](../build/introduction.md#evm-project-scaffolding)
