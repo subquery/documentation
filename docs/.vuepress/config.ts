@@ -480,6 +480,10 @@ function getSidebar(locale: string): SidebarOptions {
               text: "Polygon",
               link: `${locale}/quickstart/quickstart_chains/polygon.md`,
             },
+            {
+              text: "Scroll Sepolia",
+              link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+            }
           ],
         },
         `${locale}/quickstart/whats-next.md`,
