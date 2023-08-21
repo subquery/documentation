@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to this guide of how to become an Indexer. Let's take an overview of the basic steps involved in the process:
+Welcome to this guide on how to become an Indexer. Let's take an overview of the basic steps involved in the process:
 
 ## Summary of Steps
 
@@ -22,8 +22,8 @@ Welcome to this guide of how to become an Indexer. Let's take an overview of the
 In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
 
 - All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
-- Indexers should only index from a list of standardised projects that will be listed [here](./index-project.md#2-add-a-project). You wont be rewarded for indexing any projects that are not on this list.
-- Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
+- Indexers should only index from a list of standardised projects that will be listed [here](./index-project.md#2-add-a-project). You won't be rewarded for indexing any projects that are not on this list.
+- Towards the end of each era, we will release the suggested plan templates, recommended pricing, and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
 - We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank Indexers and plans will be allocated to Indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
 - We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](./index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
 - Finally, we also assess pricing when creating agreements with Indexers, so Indexers with lower plan prices can expect a higher chance of being selected.
@@ -70,7 +70,7 @@ Login to your VM and create a folder, such as `kepler-indexer`
 curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
 ```
 
-This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release verisons at your own risk).
+This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release versions at your own risk).
 
 | Service                                                                                             | Version Tag |
 | :-------------------------------------------------------------------------------------------------- | :---------- |
@@ -160,7 +160,7 @@ Once your Indexing Service is all set and running successfully, connect to your 
 
 At this stage, only Indexers that received kSQT tokens via the airdrop can obtain and participate as Indexers in Kepler. This may change soon as we test and verify that aspects of the Kepler network are running smoothly.
 
-For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../ksqt.md).
+For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../token/token.md#ksqt).
 
 ## 4. How to index a project
 
@@ -176,7 +176,7 @@ For the initial stages of Kepler, the SubQuery Council will set some default pla
 
 ## 6. Configure an Indexer Commission Rate (ICR)
 
-Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../../indexers.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
+Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](./rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your ICR](/assets/img/icr1.png)
 

@@ -1,10 +1,8 @@
-# Delegators
-
-To learn more about the role of a Delegator, please visit [Delegators](../delegators). This page outlines how to perform various operations as a Delegator within SubQuery's Kepler Network.
+# Delegating to an Indexer
 
 ## How to delegate to an Indexer
 
-- To delegate to an Indexer of your choice, navigate to `Stake & Delegate` -> `Indexers`(on the left sidebar).
+After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-indexers-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Stake & Delegate` -> `Indexers`(on the left sidebar).
 
 - Then select `Delegate` in the last column `Action`.
 
@@ -47,17 +45,3 @@ Note that some Indexers cannot be delegated to, until they collect all the early
 ![Confirm withdraw](/assets/img/confirm_withdrawal.png)
 
 - Confirm the transaction.
-
-## How to claim your rewards
-
-- To claim rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last column.
-
-![Claim Reward](/assets/img/claim_rewards.png)
-
-- You will be asked to confirm the transaction with MetaMask.
-
-![Confirm Claim Rewards](/assets/img/confirm_claim_rewrads.png)
-
-- Wait for a few seconds and you will see the status as `claimed` under the `Action` column.
-
-![Reward Claimed](/assets/img/reward_confirmed.png)

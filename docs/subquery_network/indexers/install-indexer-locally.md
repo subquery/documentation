@@ -58,7 +58,9 @@ Please check that the Docker is already running. The images will be pulled from 
 ![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
 
 ### Step 3 - Check Local IPFS
+
 If you have decided to use local IPFS
+
 ```
 # check peers, it should not be empty and contains at least one of the following peer
 docker exec indexer_ipfs ipfs swarm peers

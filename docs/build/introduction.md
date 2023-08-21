@@ -125,6 +125,107 @@ This will also add a new datasource in the `project.yaml` including the selected
           function: approve(address,uint256)
 ```
 
+## Working with the Manifest File
+
+The Manifest `project.yaml` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
+
+The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/ethereum.md) of what it looks like:
+
+```yml
+specVersion: 1.0.0
+name: subquery-starter
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: "This project can be used as a starting point for developing your Polkadot based SubQuery project"
+repository: https://github.com/subquery/subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
+  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
+  bypassBlocks: [1, 2, 100, "200-500"]
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1 # Block to start indexing from
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+```
+
+The project.yaml file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
+
+When setting up your own SubQuery project, you will need to update this file to match your specific requirements.
+
+For more information, please check the full documentation about [Manifest File](./manifest).
+
+## Setting up the GraphQL Schema
+
+The `schema.graphql` file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
+
+1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required `id` field with the type of `ID!`, serving as the unique primary key.
+2. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
+4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
+
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
+
+::: tip
+
+The comments put in the GraphQL schema are automatically converted into sentences included in the docs of your GraphQL playground.
+
+:::
+
+```graphql
+"""
+User entity: Stores basic user data.
+"""
+type User @entity {
+  id: ID!
+  # To define a simple user type with a uniqueness constraint on the username, you simply add the @unique directive to the username field.
+  name: String! @index(unique: true)
+  email: String @index
+  createdDate: Date
+  isActive: Boolean
+  profile: UserProfile
+}
+
+"""
+UserProfile entity: Stores detailed user data.
+"""
+type UserProfile @entity {
+  id: ID!
+  bio: String
+  avatarUrl: String
+}
+
+"""
+Post entity: Represents user posts.
+"""
+type Post @entity {
+  id: ID!
+  title: String!
+  content: String
+  publishedDate: Date
+  author: User @index
+}
+```
+
 ## Code Generation
 
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
@@ -160,6 +261,62 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 **ABI Codegen is not yet supported for Cosmos Ethermint EVM ([track progress here](https://github.com/subquery/subql-cosmos/issues/102)) or Substrate WASM**
 
+## Mapping
+
+Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.yaml` under the mapping handlers.
+
+In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
+
+1. [Block Handlers](mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
+2. [Transaction Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
+3. [Log Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
+
+Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
+
+Here's an example of how to use a transaction handler and log handler:
+
+```ts
+import { Approval, Transaction } from "../types";
+import {
+  ApproveTransaction,
+  TransferLog,
+} from "../types/abi-interfaces/Erc20Abi";
+
+export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
+  logger.info(`New Approval transaction at block ${tx.blockNumber}`);
+  const approval = Approval.create({
+    id: tx.hash,
+    owner: tx.from,
+    spender: await tx.args[0],
+    value: BigInt(await tx.args[1].toString()),
+    contractAddress: tx.to,
+  });
+
+  await approval.save();
+}
+
+export async function handleLog(log: TransferLog): Promise<void> {
+  logger.info(`New transfer transaction log at block ${log.blockNumber}`);
+  const transaction = Transaction.create({
+    id: log.transactionHash,
+    value: log.args.value.toBigInt(),
+    from: log.args.from,
+    to: log.args.to,
+    contractAddress: log.address,
+  });
+
+  await transaction.save();
+}
+```
+
+Remember, different types of handlers are suited to different purposes. Choose the ones that best fit your specific project requirements. We do recommend to avoid using Block handlers in all cases however for performance reasons.
+
+::: tip
+
+The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels. We recommend using Loggers as part of your testing and debugging strategy. For more information on Loggers, check [here](./testing.md#logging).
+
+:::
+
 ## Build
 
 In order to run your SubQuery Project on a locally hosted SubQuery Node, you need to first build your work.
@@ -183,7 +340,7 @@ npm run-script build
 
 ### Alternative build options
 
-We support additional build options for subquery projects using `subql build`.
+We support additional build options for SubQuery projects using `subql build`.
 
 With this you can define additional entry points to build using the exports field in `package.json`.
 
@@ -210,33 +367,3 @@ Then by running `subql build` it will generate a dist folder with the following 
 Note that it will build `index.ts` whether or not it is specified in the exports field.
 
 For more information on using this including flags, see [cli reference](../run_publish/references.md).
-
-## Logging
-
-The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
-
-```typescript
-logger.info("Info level message");
-logger.debug("Debugger level message");
-logger.warn("Warning level message");
-```
-
-To use `logger.info` or `logger.warn`, just place the line into any mapping file. When developing a SubQuery project, it's common to log a message with the block height at the start of each mapping function so you can easily identify that the mapping function has been triggered and is executing. In addition, you can inspect the payload of data passed through to the mapping function easily by stringifying the payload. Note that `JSON.stringify` doesn’t support native `BigInts`.
-
-```ts
-export async function handleLog(log: EthereumLog): Promise<void> {
-  logger.info('New log found at ' + log.blockNumber.toString());
-  logger.info('New log payload ' + JSON.stringify(log.data));
-  ... // do something
-}
-```
-
-The default log level is `info` and above. To use `logger.debug`,you must add `--log-level=debug` to your command line.
-
-If you are running a docker container, add this line to your `docker-compose.yaml` file.
-
-![logging.debug](/assets/img/logging_debug.png)
-
-You should now see the new logging in the terminal screen.
-
-![logging.debug](/assets/img/subquery_logging.png)

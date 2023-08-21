@@ -1,6 +1,6 @@
-# FAQs - for Indexers
+# Frequently Asked Questions
 
-## What does the Indexer Service compris of?
+## What does the Indexer Service comprise of?
 
 The Indexer Service is comprised of:
 
@@ -60,7 +60,7 @@ docker rm query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 
 ## Can I connect my Docker node to an externally hosted database
 
-Not currently, but this is on our roadmap and we will ty to incorporate it soon.
+Not currently, but this is on our roadmap and we will try to incorporate it soon.
 
 ![Connect Docker Node to Externally Hosted Database](/assets/img/connect_node_externalDB_indexerfaqs.png)
 
@@ -68,7 +68,7 @@ Not currently, but this is on our roadmap and we will ty to incorporate it soon.
 
 ## Do I need to constantly update to the newest version of the software?
 
-Our developers are constantly improving the application and you can find the latest version of the subql-coordinator and subql-indexer-proxy on DockerHub. Always use the latest versions (use pre-release verisons at your own risk).
+Our developers are constantly improving the application and you can find the latest version of the subql-coordinator and subql-indexer-proxy on DockerHub. Always use the latest versions (use pre-release versions at your own risk).
 
 | Service                                                                                   | Version Tag |
 | :---------------------------------------------------------------------------------------- | :---------- |

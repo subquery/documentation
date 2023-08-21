@@ -45,7 +45,7 @@ Assume we have an entity `Balances`, and it records the balance of each account.
 
 ```graphql
 type Balances {
-  id: ID! # someone's account , eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
+  id: ID! # someone's account, eg. 15rb4HVycC1KLHsdaSdV1x2TJAmUkD7PhubmhL3PnGv7RiGY
   amount: Int! # the balance of this account
 }
 ```
@@ -73,8 +73,8 @@ Please note that you must enable the `--subscription` flag on both the node and 
 
 ## Using in the Managed Service
 
-The managed service supports subscriptions for paid plans, you must enable subscription support whend deploying your project in our service under "Advanced Settings"
+The managed service supports subscriptions for paid plans, you must enable subscription support when deploying your project in our service under "Advanced Settings"
 
 ::: warning Important
-The subcription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
+The subscription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
 :::

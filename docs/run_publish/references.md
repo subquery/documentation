@@ -1,16 +1,16 @@
 # Command Line Flags
 
-All booleans are by default `false` unless explicity mentioned.
+All booleans are by default `false` unless explicitly mentioned.
 
 ## subql (cli)
 
 ### --help
 
-This shows all the current command options for your current verison of `subql-cli`.
+This shows all the current command options for your current version of `subql-cli`.
 
 ### build
 
-This command is uses webpack to generate a bundle of a subquery project.
+This command uses webpack to generate a bundle of a subquery project.
 
 | Options        | Description                                                 |
 | -------------- | ----------------------------------------------------------- |
@@ -31,11 +31,11 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --help
 
-**Boolean** - This shows all the current command options for your current verison of `subql-node`.
+**Boolean** - This shows all the current command options for your current version of `subql-node`.
 
 ### --batch-size
 
-**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. This setting is overidden on the Managed service to `30`.
+**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. This setting is overridden on the Managed service to `30`.
 
 ```shell
 > subql-node -f . --batch-size=20
@@ -154,7 +154,7 @@ For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 
 ### -d, --network-dictionary
 
-**String (default: Network dictionary from your manifest)** - This allows you to specify a dictionary GraphQL endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/). You can search for dictionary and and enter the GraphQL API endpoint (e.g. https://api.subquery.network/sq/subquery/dictionary-polkadot).
+**String (default: Network dictionary from your manifest)** - This allows you to specify a dictionary GraphQL endpoint which is a free service that is provided and hosted at SubQuery's [Project Explorer](https://explorer.subquery.network/). You can search for dictionary and enter the GraphQL API endpoint (e.g. https://api.subquery.network/sq/subquery/dictionary-polkadot).
 
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
@@ -206,7 +206,7 @@ An instance of ProjectManifestImpl has failed the validation:
 
 ### -p, --port
 
-**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to. This sill find the next available port if `3000` is already in use.
+**Positive Integer (default: `3000`)** - The port the subquery indexing service binds to. This will find the next available port if `3000` is already in use.
 
 ### --pg-ca
 
@@ -257,7 +257,7 @@ subql-node reindex -f /example/subql-project --targetHeight=30
 ```
 
 ::: tip Note
-Once the command is executed and the state has been rolled back the the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
+Once the command is executed and the state has been rolled back to the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
 :::
 
 ### --scale-batch-size
@@ -266,7 +266,7 @@ Once the command is executed and the state has been rolled back the the specifie
 
 ### --store-cache-threshold
 
-**Positive Integer (default: `1000`)** - This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records excess this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory.
+**Positive Integer (default: `1000`)** - This can be specified when `--store-cache-async=false`. Store cache will flush data to the database when number of records exceeds this threshold, a higher number reduces number of transactions to database in order to save time but requires more memory.
 
 ### --store-get-cache-size
 
@@ -366,7 +366,7 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --help
 
-**Boolean** - This shows all the current command options for your current verison of `subql-query`.
+**Boolean** - This shows all the current command options for your current version of `subql-query`.
 
 ### --aggregate
 
@@ -426,7 +426,7 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --port
 
-**Positive Integer (default: `3000`)** - The port the subquery query service binds to. This sill find the next available port if `3000` is already in use.
+**Positive Integer (default: `3000`)** - The port the subquery query service binds to. This will find the next available port if `3000` is already in use.
 
 ### --pg-ca
 

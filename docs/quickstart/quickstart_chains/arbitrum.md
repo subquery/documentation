@@ -11,7 +11,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. @subql/node-ethereum, ethereum/Runtime, and ethereum/\*Handler) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
@@ -119,6 +119,9 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
 ```ts
+import { Dividend, User } from "../types";
+import { ClaimDividendBatchLog } from "../types/abi-interfaces/WinrStakingAbi";
+
 async function checkGetUser(userID: string): Promise<User> {
   let user = await User.get(userID.toLowerCase());
   if (!user) {

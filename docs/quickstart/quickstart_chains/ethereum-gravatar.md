@@ -68,7 +68,7 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing the id, owner, display name, imagine URL and the block the gravatar was created in.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing the id, owner, display name, image URL and the block the gravatar was created in.
 
 ```graphql
 type Gravatar @entity {
@@ -134,11 +134,15 @@ import {
   UpdatedGravatarLog,
 } from "../types/abi-interfaces/Gravity";
 import { Gravatar } from "../types";
+import assert from "assert";
 
 export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
   logger.info("New Gravar at block " + log.blockNumber.toString());
+
+  assert(log.args, "Require args on the logs");
+
   const gravatar = Gravatar.create({
-    id: log.args.id.toHexString(),
+    id: log.args.id.toHexString()!,
     owner: log.args.owner,
     displayName: log.args.displayName,
     imageUrl: log.args.imageUrl,
@@ -152,13 +156,21 @@ export async function handleUpdatedGravatar(
   log: UpdatedGravatarLog
 ): Promise<void> {
   logger.info("Updated Gravar at block " + log.blockNumber.toString());
-  const id = log.args.id.toHexString();
+
+  assert(log.args, "Require args on the logs");
+
+  const id: string = log.args.id.toHexString()!;
 
   // We first check if the Gravatar already exists, if not we create it
   let gravatar = await Gravatar.get(id);
   if (gravatar == null || gravatar == undefined) {
-    gravatar = new Gravatar(id);
-    gravatar.createdBlock = BigInt(log.blockNumber);
+    gravatar = Gravatar.create({
+      id,
+      createdBlock: BigInt(log.blockNumber),
+      owner: "",
+      displayName: "",
+      imageUrl: "",
+    });
   }
   // Update with new data
   gravatar.owner = log.args.owner;
@@ -166,6 +178,7 @@ export async function handleUpdatedGravatar(
   gravatar.imageUrl = log.args.imageUrl;
   await gravatar.save();
 }
+
 ```
 
 Let’s understand how the above code works.

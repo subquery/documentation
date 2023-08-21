@@ -2,7 +2,55 @@
 
 ## Defining Entities
 
-The `schema.graphql` file defines the various GraphQL schemas. Due to the way that the GraphQL query language works, the schema file essentially dictates the shape of your data from SubQuery. To learn more about how to write in GraphQL schema language, we recommend checking out [Schemas and Types](https://graphql.org/learn/schema/#type-language).
+The `schema.graphql` file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
+
+1. [Defining Entities](#defining-entities): In SubQuery, each entity should define a required `id` field with the type of `ID!`, serving as the unique primary key.
+2. [Supported Scalar Types](#supported-scalars-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+3. [Entity Relationships](#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
+4. [Indexing](#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
+
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
+
+::: tip
+
+The comments put in the GraphQL schema are automatically converted into sentences included in the docs of your GraphQL playground.
+
+:::
+
+```graphql
+"""
+User entity: Stores basic user data.
+"""
+type User @entity {
+  id: ID!
+  # To define a simple user type with a uniqueness constraint on the username, you simply add the @unique directive to the username field.
+  name: String! @index(unique: true)
+  email: String @index
+  createdDate: Date
+  isActive: Boolean
+  profile: UserProfile
+}
+
+"""
+UserProfile entity: Stores detailed user data.
+"""
+type UserProfile @entity {
+  id: ID!
+  bio: String
+  avatarUrl: String
+}
+
+"""
+Post entity: Represents user posts.
+"""
+type Post @entity {
+  id: ID!
+  title: String!
+  content: String
+  publishedDate: Date
+  author: User @index
+}
+```
 
 ::: warning Important
 When you make any changes to the schema file, don't forget to regenerate your types directory.
@@ -85,9 +133,9 @@ subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] ER
 subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] STATEMENT:  COMMENT ON CONSTRAINT bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey ON "app"."bank_msg_multi_send_input_coins" IS E'@foreignFieldName coins'
 ```
 
-Subquery automatically generates Postgres identifiers for your entities. For example, if you have an entity named `BankMsgMultiSendInputCoins`, then an identifier `bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey` will be automatically generated in Postgres. However, this identifier is 65 bytes, and Postgres doesn't support identifiers larger than 63 bytes. In this example, shortening the entity's name to `BankMultiSendInputCoins` will resolve the issue.
+SubQuery automatically generates Postgres identifiers for your entities. For example, if you have an entity named `BankMsgMultiSendInputCoins`, then an identifier `bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey` will be automatically generated in Postgres. However, this identifier is 65 bytes, and Postgres doesn't support identifiers larger than 63 bytes. In this example, shortening the entity's name to `BankMultiSendInputCoins` will resolve the issue.
 
-### Supported scalars and types
+### Supported scalar types
 
 We currently support the following scalar types:
 
