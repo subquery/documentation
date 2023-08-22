@@ -429,6 +429,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
             },
             {
+              text: "Meter",
+              link: `${locale}/quickstart/quickstart_chains/meter.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
