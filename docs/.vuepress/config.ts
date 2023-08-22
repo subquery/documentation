@@ -617,7 +617,7 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             `${locale}/subquery_network/indexers/plans.md`,
-            `${locale}/subquery_network/indexers/faqs-indexers.md`,
+            `${locale}/subquery_network/indexers/faq.md`,
           ],
         },
         `${locale}/subquery_network/architects/introduction.md`,

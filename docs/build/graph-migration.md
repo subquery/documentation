@@ -392,7 +392,7 @@ There is no difference when querying [historical data](../run_publish/historical
 
 ### Metadata
 
-Subquery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
+SubQuery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
 
 ::: code-tabs
 

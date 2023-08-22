@@ -32,7 +32,7 @@ Indexers can either invest in their own infrastructure hardware or rent infrastr
 
 Here are some of the maintenance and/or operational requirements Indexers should expect:
 
-- Always upgrade to the latest Subquery software version.
+- Always upgrade to the latest SubQuery software version.
 - Identify and take advantage of new indexing opportunities.
 - Update project version to latest and reindex where necessary.
 - Infrastructure maintenance:

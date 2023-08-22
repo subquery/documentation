@@ -81,7 +81,7 @@ Indexers need to be aware of their operation cost and expected incomes to unders
 
 ### Advertisements
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the Subquery forums or any other places deemed necessary. Some examples of the information to provide are:
+Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the SubQuery forums or any other places deemed necessary. Some examples of the information to provide are:
 
 - The background and experience of the Indexer or Indexer’s team.
 - The hardware approach and why it provides superior performance.

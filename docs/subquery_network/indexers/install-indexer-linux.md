@@ -95,7 +95,7 @@ Create `/etc/systemd/system/subquery.service`.
 
 ```
 [Unit]
-Description="Subquery systemd service"
+Description="SubQuery systemd service"
 After=network.target
 StartLimitIntervalSec=0
 
