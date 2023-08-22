@@ -177,7 +177,7 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" 
 请注意，这也必须在清单文件中设置，否则您将会得到：
 
 ```shell
-ERROR Create Subquery project from given path failed! Error: failed to parse project.yaml.
+ERROR Create SubQuery project from given path failed! Error: failed to parse project.yaml.
 An instance of ProjectManifestImpl has failed the validation:
  - property network has failed the following constraints: isObject
  - property network.network has failed the following constraints: nestedValidation
