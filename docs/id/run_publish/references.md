@@ -177,7 +177,7 @@ subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" 
 Perhatikan bahwa ini juga harus diatur dalam file manifes, jika tidak, Anda akan mendapatkan:
 
 ```shell
-GALAT Buat proyek Subquery dari jalur yang diberikan gagal! Kesalahan: gagal mengurai project.yaml.
+ERROR Create SubQuery project from given path failed! Kesalahan: gagal mengurai project.yaml.
 Sebuah instance dari ProjectManifestImpl telah gagal validasi:
  - jaringan properti telah gagal dalam batasan berikut: isObject
  - properti network.network telah gagal dalam batasan berikut: nestedValidation
