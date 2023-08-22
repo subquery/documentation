@@ -429,6 +429,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
             },
             {
+              text: "Immutable (Testnet)",
+              link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
