@@ -277,94 +277,53 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 143,
+        "totalCount": 80,
         "nodes": [
           {
-            "id": "0x726c97aef8f42f1c7eedd9762e105c426d0b216be73d8360811df475f624c3e2",
-            "blockHeight": "10926",
-            "from": "0xAED47A51AeFa6f95A388aDA3c459d94FF46fC4BB",
-            "to": "0x7739E567B9626ca241bdC5528343F92F7e59Af37",
-            "value": "179900000000000000000",
-            "contractAddress": "0x5300000000000000000000000000000000000004"
-          },
-          {
-            "id": "0x71305b1bfd3b5aa1b0236c1ae7ce137aff7757cf1a4a38ace9a22235e5d0b4bf",
-            "blockHeight": "11064",
-            "from": "0xAED47A51AeFa6f95A388aDA3c459d94FF46fC4BB",
-            "to": "0x7739E567B9626ca241bdC5528343F92F7e59Af37",
-            "value": "122000000000000000000",
-            "contractAddress": "0x5300000000000000000000000000000000000004"
-          },
-          {
-            "id": "0xe5305b8b35c72b4752d152fa7ade7e065759483432965cc90a3703fda3d8a8a5",
-            "blockHeight": "11083",
-            "from": "0xAED47A51AeFa6f95A388aDA3c459d94FF46fC4BB",
-            "to": "0x7739E567B9626ca241bdC5528343F92F7e59Af37",
-            "value": "102000000000000000000",
-            "contractAddress": "0x5300000000000000000000000000000000000004"
-          },
-          {
-            "id": "0x2d00a4d8fc20f26694ecbdf0c5da285a78212169978b114b06981039d843d36a",
-            "blockHeight": "11246",
-            "from": "0xAED47A51AeFa6f95A388aDA3c459d94FF46fC4BB",
-            "to": "0x7739E567B9626ca241bdC5528343F92F7e59Af37",
+            "id": "0x2ce31921ed8795bed3fc36265c1690d8a639f99d0c440d123679d3873ccf8846",
+            "blockHeight": "852",
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd9275Eb8276E14b9e28d5f9B12e90dDAAF3586Ef",
             "value": "100000000000000000000",
-            "contractAddress": "0x5300000000000000000000000000000000000004"
+            "contractAddress": "0x0000000000000000000000000000000000001010"
           },
           {
-            "id": "0xbb7ecb71c3e1cf6727b3761ca21a7199a0ee93ad4862e53058ad3bdd6cc7cce9",
-            "blockHeight": "11036",
-            "from": "0xAED47A51AeFa6f95A388aDA3c459d94FF46fC4BB",
-            "to": "0x7739E567B9626ca241bdC5528343F92F7e59Af37",
-            "value": "100000000000000000000",
-            "contractAddress": "0x5300000000000000000000000000000000000004"
+            "id": "0xe91b3a54f04fda04c65da1179a400d5985d8cdc40256b76361e0438713764490",
+            "blockHeight": "1116",
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xfb991F97d27Cf95975754130c1b6EF789557ebB0",
+            "value": "1000000000000000000",
+            "contractAddress": "0x0000000000000000000000000000000000001010"
+          },
+          {
+            "id": "0x794b1f49768949a00e851f9107f39dd2e830165b26466a60fcf0d4745b943884",
+            "blockHeight": "2522",
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0x8318a871CC140d9f77a1999f84875AC36EeCC04E",
+            "value": "1000000000000000000",
+            "contractAddress": "0x0000000000000000000000000000000000001010"
+          },
+          {
+            "id": "0x094d66b3b1a2591374360179861faf488ee383f31d0670e57147a8900c75dfe6",
+            "blockHeight": "2622",
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xEefE391EfAD59117ffabC024D298046129465244",
+            "value": "1000000000000000000",
+            "contractAddress": "0x0000000000000000000000000000000000001010"
+          },
+          {
+            "id": "0x6a720788810181430aeb232ea51555a627e725f1b088a6c3e32bfb85db35d574",
+            "blockHeight": "2431",
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0x9391ABF34d268C3C3b07c0B8f036486DEF14c784",
+            "value": "1000000000000000000",
+            "contractAddress": "0x0000000000000000000000000000000000001010"
           }
         ]
       }
     },
     "approvals": {
-      "nodes": [
-        {
-          "id": "0xfb1590aa76ef5ea8a12c4e3a1c988fd5fabf9dd65f77a5ec1ff7f27868bf3086",
-          "blockHeight": null,
-          "owner": "0x7C563F9423C93Fed57c6aC2cC562b0DE0956abB0",
-          "spender": "0xbbAd0e891922A8A4a7e9c39d4cc0559117016fec",
-          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x5300000000000000000000000000000000000004"
-        },
-        {
-          "id": "0x997f7c27dd9812e84f3dd8859fe8ac7dfc957a9778efe54cf2d8ff7c655f7bef",
-          "blockHeight": null,
-          "owner": "0x7C563F9423C93Fed57c6aC2cC562b0DE0956abB0",
-          "spender": "0xbbAd0e891922A8A4a7e9c39d4cc0559117016fec",
-          "value": "1000000000000000000000000",
-          "contractAddress": "0x5300000000000000000000000000000000000004"
-        },
-        {
-          "id": "0xfdf276d97f2fe1148ecce71d261aed8fd38d59283389d51b9b76d413acc5a3ed",
-          "blockHeight": null,
-          "owner": "0x7C563F9423C93Fed57c6aC2cC562b0DE0956abB0",
-          "spender": "0xbbAd0e891922A8A4a7e9c39d4cc0559117016fec",
-          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x5300000000000000000000000000000000000004"
-        },
-        {
-          "id": "0xcccc7e065b119588e7278169b8e6e017e9fa0d0209af28047bbb39ef7e0db9ee",
-          "blockHeight": null,
-          "owner": "0x2cFe53AaD05F1156FDcED046690749cCb774CfDD",
-          "spender": "0xbbAd0e891922A8A4a7e9c39d4cc0559117016fec",
-          "value": "1000000000000000000",
-          "contractAddress": "0x5300000000000000000000000000000000000004"
-        },
-        {
-          "id": "0xf3d60b7016e35e3a865ceb7df16e5e440a80bdae5f9fbe73996245e6c7d65482",
-          "blockHeight": null,
-          "owner": "0xCa266224613396A0e8D4C2497DBc4F33dD6CDEFf",
-          "spender": "0x481B20A927206aF7A754dB8b904B052e2781ea27",
-          "value": "19600000000000000",
-          "contractAddress": "0x5300000000000000000000000000000000000004"
-        }
-      ]
+      "nodes": []
     }
   }
 }
