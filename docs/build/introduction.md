@@ -284,7 +284,45 @@ If you're creating a new Ethereum based project (including Ethereum EVM, Cosmos 
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-**ABI Codegen is not yet supported for WASM contracts**
+### Codegen support for Cosmos protobufs
+
+**For Cosmos Projects**
+
+Codegen will also generate wrapper types for Cosmos protobufs
+
+Pre-requisites:
+- The protobuf types you wish to generate must be kept in the proto directory (at the root of your project)
+- You must also ensure the structure of the protobufs are in accordance with the provided protobuf 
+Example:
+`osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
+
+You will also need to include this in the project configuration file (`project.yaml`)
+```yaml
+network:
+  chainTypes:
+    osmosis.gamm.v1beta1:
+      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
+      messages:
+        - MsgSwapExactAmountIn
+```
+
+Once `codegen` is executed you will find the message types under `src/types/CosmosMessageTypes.ts`
+
+If you wish to add more message types from the same proto, you will need to include them under the `messages`
+```yaml
+network:
+  chainTypes:
+    osmosis.gamm.v1beta1:
+      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
+      messages:
+        - MsgSwapExactAmountIn
+        - MsgSwapExactAmountOut
+```
+If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`
+
+Unsupported Codegen
+- **Cosmos codegen is not yet supported for Cosmos WASM**
+- **ABI Codegen is not yet supported for WASM contracts**
 
 ## Mapping
 
