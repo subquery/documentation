@@ -433,6 +433,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
             },
             {
+              text: "Meter",
+              link: `${locale}/quickstart/quickstart_chains/meter.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
@@ -487,6 +491,10 @@ function getSidebar(locale: string): SidebarOptions {
             {
               text: "Scroll Sepolia",
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+            },
+            {
+              text: "ZkSync Era",
+              link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
             }
           ],
         },
