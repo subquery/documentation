@@ -1,4 +1,4 @@
-# Scroll (Sepolia Testnet) Quick Start
+# Meter Quick Start
 
 ## Goals
 
