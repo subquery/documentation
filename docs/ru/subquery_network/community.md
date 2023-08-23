@@ -10,9 +10,65 @@ Discord is our main community for talking about SubQuery and learning more. You 
 
 When the conversation is deeper and requires more thought, we move the conversation to [our Forum](https://forum.subquery.network/). Here you will find longer topics, a history of all announcements to Kepler, and deeper conversation about the direction of the network. Feel free to join and start posting at [forum.subquery.network](https://forum.subquery.network/)!
 
-## Contributing
+## Contributing to Codebases
 
 SubQuery is open source and open to the community, if you want to contribute (e.g. add a feature, fix a bug, suggest an improvement, or even just fix a typo in our documentation), please review our [contributing guide](../miscellaneous/contributing.md).
+
+The following codebases are where you can find code for all the contracts, appliations, and backend SubQuery projects. We're looking forward to seeing your contributions!
+
+### `network-app`
+
+dApp for indexers, consumers and delegators interact with SubQuery Network.
+
+<https://github.com/subquery/network-app>
+
+### `network-airdrop-app`
+
+dApp for users to interact with the SubQuery airdrop contract.
+
+<https://github.com/subquery/network-airdrop-app>
+
+### `network-contracts`
+
+Contracts for SubQuery Network.
+
+<https://github.com/subquery/network-contracts>
+
+### `network-app-backend`
+
+SubQuery project for the backend of the SubQuery App.
+
+<https://github.com/subquery/network-app-backend>
+
+### `network-airdrop-app-backend`
+
+SubQuery project for the backend of the SubQuery Airdrop App.
+
+<https://github.com/subquery/network-airdrop-app-backend>
+
+### `network-swap-app-backend`
+
+SubQuery project for the backend of the SubQuery Swap App.
+
+<https://github.com/subquery/network-swap-app-backend>
+
+### `network-indexer-services`
+
+Services that Indexers run to connect and serve data to the SubQuery Network.
+
+<https://github.com/subquery/network-indexer-services>
+
+### `network-clients`
+
+Client SDKs for SubQuery Network.
+
+<https://github.com/subquery/network-clients>
+
+### `subquery-component-library`
+
+React UI component library for SubQuery dApps.
+
+<https://github.com/subquery/subquery-component-library>
 
 ## Community Tools
 
