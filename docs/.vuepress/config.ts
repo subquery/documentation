@@ -495,7 +495,7 @@ function getSidebar(locale: string): SidebarOptions {
             {
               text: "ZkSync Era",
               link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
-            }
+            },
           ],
         },
         `${locale}/quickstart/whats-next.md`,
@@ -647,6 +647,11 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/subquery_network/design/payment-methods.md`,
           ],
         },
+        {
+          text: "Publish your Project",
+          link: `${locale}/subquery_network/publish.md`,
+        },
+
         `${locale}/subquery_network/community.md`,
       ],
     },
