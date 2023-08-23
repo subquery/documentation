@@ -487,6 +487,10 @@ function getSidebar(locale: string): SidebarOptions {
             {
               text: "Scroll Sepolia",
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+            },
+            {
+              text: "ZkSync Era",
+              link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
             }
           ],
         },
