@@ -13,7 +13,7 @@ In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-chan
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Meter/meter-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Scroll. Since Scroll is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Meter. Since Meter is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
