@@ -5,7 +5,7 @@
 The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://scan.meter.io/address/0x983147fb73a45fc7f8b4dfa1cd61bdc7b111e5b6) on [Meter Network](https://scan.meter.io).
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Scroll Sepolia project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Meter project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
