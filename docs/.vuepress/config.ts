@@ -429,6 +429,14 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
             },
             {
+              text: "Immutable (Testnet)",
+              link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
+            },
+            {
+              text: "Meter",
+              link: `${locale}/quickstart/quickstart_chains/meter.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
@@ -478,12 +486,26 @@ function getSidebar(locale: string): SidebarOptions {
             },
             {
               text: "Polygon",
-              link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "Polygon Mainnet",
+                  link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+                },
+                {
+                  text: "Polygon zkEVM",
+                  link: `${locale}/quickstart/quickstart_chains/polygon-zkevm.md`,
+                },
+              ],
             },
             {
               text: "Scroll Sepolia",
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
-            }
+            },
+            {
+              text: "ZkSync Era",
+              link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
+            },
           ],
         },
         `${locale}/quickstart/whats-next.md`,
@@ -635,6 +657,11 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/subquery_network/design/payment-methods.md`,
           ],
         },
+        {
+          text: "Publish your Project",
+          link: `${locale}/subquery_network/publish.md`,
+        },
+
         `${locale}/subquery_network/community.md`,
       ],
     },
