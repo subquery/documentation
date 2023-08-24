@@ -1,11 +1,11 @@
-# Scroll (Sepolia Testnet) Quick Start
+# Polygon zkEVM Quick Start
 
 ## Goals
 
 The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9) on [Polygon zkEVM](https://zkevm.polygonscan.com) Network .
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Scroll Sepolia project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Polygon zkEVM project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
@@ -13,13 +13,12 @@ In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-chan
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Scroll. Since Scroll is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Polygon zkEVM. Since Polygon zkEVM is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Scroll project. It defines most of the details on how SubQuery will index and transform the chain data. For
-Scroll, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Polygon zkEVM project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -27,7 +26,7 @@ Scroll, there are three types of mapping handlers (and you can have more than on
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Scroll's Sepolia network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Wrapped ETH contract on Polygon zkEVM network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
