@@ -120,6 +120,11 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions: `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
 ```ts
+import { ClaimedLog } from "../types/abi-interfaces/AirdropAbi";
+import assert from "assert";
+import { Claim } from "../types/models/Claim";
+import { DailyClaimSummary } from "../types/models/DailyClaimSummary";
+
 async function checkGetDailyClaim(
   timestamp: bigint
 ): Promise<DailyClaimSummary> {
