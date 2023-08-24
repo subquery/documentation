@@ -486,7 +486,17 @@ function getSidebar(locale: string): SidebarOptions {
             },
             {
               text: "Polygon",
-              link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "Polygon Mainnet",
+                  link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+                },
+                {
+                  text: "Polygon zkEVM",
+                  link: `${locale}/quickstart/quickstart_chains/polygon-zkevm.md`,
+                },
+              ],
             },
             {
               text: "Scroll Sepolia",
