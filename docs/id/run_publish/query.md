@@ -8,7 +8,8 @@ You may want to take a look at the information we have [on the differences](../b
 
 Anda dapat mengikuti [panduan resmi GraphQL di sini](https://graphql.org/learn/) untuk mempelajari lebih lanjut tentang GraphQL, cara kerjanya, dan cara menggunakannya:
 
-- Ada pustaka untuk membantu Anda mengimplementasikan GraphQL dalam [banyak bahasa yang berbeda](https://graphql.org/code/).
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/) - we recommend [Apollo Client](https://www.apollographql.com/docs/react/) as it will allow a [seamless migration to our decentralised network](../subquery_network/publish.md#changes-to-your-dapp) when you publish your project in the future.
+- You will want to review advice on how to [structure your GraphQL queries to maximise performance](../build/optimisation.md#query-performance-advice).
 - Untuk pengalaman belajar yang mendalam dengan tutorial praktis, lihat [Cara GraphQL](https://www.howtographql.com/).
 - Lihatlah kursus online gratis, [Menjelajahi GraphQL: Bahasa Kueri untuk API](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
