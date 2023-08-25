@@ -72,6 +72,7 @@ type Transfer @entity {
 
 ### Query Performance Advice
 
+- [Cursor-based pagination](https://graphql.org/learn/pagination/#pagination-and-edges) is far more efficient compared to `first`/`offset`/`after` pagination
 - Query only necessary fields from GraphQL.
 - For large data tables, avoid querying `totalCount` without adding conditions.
 - See also [restrict query complexity](../run_publish/run.md#restrict-query-complexity)

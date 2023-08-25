@@ -427,6 +427,7 @@ SubQuery does not support historical metadata querying. However `deployments` wi
 #### Other changes
 
 - SubQuery has a larger support for query pagination. You have the options of using `first` and `offset`, or `cursors` on `edges`.
+  - Note that [cursor-based pagination](https://graphql.org/learn/pagination/#pagination-and-edges) is far more efficient compared to `first`/`offset`/`after` pagination
 - SubQuery supports [advanced aggregate functions](../run_publish/aggregate.md) to allow you to perform a calculation on a set of values during your query.
 
 ## What's Next?
