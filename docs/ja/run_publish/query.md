@@ -8,7 +8,8 @@ You may want to take a look at the information we have [on the differences](../b
 
 [公式GraphQLガイド](https://graphql.org/learn/) に従って、GraphQLの動作方法、使い方を学ぶことができます。
 
-- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/).
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/) - we recommend [Apollo Client](https://www.apollographql.com/docs/react/) as it will allow a [seamless migration to our decentralised network](../subquery_network/publish.md#changes-to-your-dapp) when you publish your project in the future.
+- You will want to review advice on how to [structure your GraphQL queries to maximise performance](../build/optimisation.md#query-performance-advice).
 - 実用的なチュートリアルを使用した詳細な学習体験については、 [GraphQL](https://www.howtographql.com/) を参照してください。
 - 無料オンラインコースをチェックしてください。 [GraphQL: API 用のクエリ言語](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)。
 
