@@ -8,7 +8,8 @@ You may want to take a look at the information we have [on the differences](../b
 
 Ви можете слідувати [офіційному посібнику GraphQL тут ](https://graphql.org/learn/), щоб дізнатися більше про GraphQL, як він працює та як ним користуватися:
 
-- Існують бібліотеки, які допоможуть вам реалізувати GraphQL на [багатьох різних мовах](https://graphql.org/code/).
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/) - we recommend [Apollo Client](https://www.apollographql.com/docs/react/) as it will allow a [seamless migration to our decentralised network](../subquery_network/publish.md#changes-to-your-dapp) when you publish your project in the future.
+- You will want to review advice on how to [structure your GraphQL queries to maximise performance](../build/optimisation.md#query-performance-advice).
 - Для поглибленого досвіду навчання з практичними навчальними посібниками див. [ Як графічний ](https://www.howtographql.com/).
 - Ознайомтеся з безкоштовним онлайн-курсом, [ Вивчення GraphQL: Мова запитів для API ](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
