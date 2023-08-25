@@ -421,6 +421,10 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
+              text: "Fantom",
+              link: `${locale}/quickstart/quickstart_chains/fantom.md`,
+            },
+            {
               text: "Flare",
               link: `${locale}/quickstart/quickstart_chains/flare.md`,
             },
