@@ -8,7 +8,8 @@ You may want to take a look at the information we have [on the differences](../b
 
 Bạn có thể theo dõi [hướng dẫn GraphQL chính thức tại đây](https://graphql.org/learn/) để tìm hiểu thêm về GraphQL, cách thức hoạt động và cách sử dụng:
 
-- Có nhiều thư viện để giúp bạn thực thi GraphQL bằng [nhiều ngôn ngữ khác nhau](https://graphql.org/code/).
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/) - we recommend [Apollo Client](https://www.apollographql.com/docs/react/) as it will allow a [seamless migration to our decentralised network](../subquery_network/publish.md#changes-to-your-dapp) when you publish your project in the future.
+- You will want to review advice on how to [structure your GraphQL queries to maximise performance](../build/optimisation.md#query-performance-advice).
 - Để hiểu sâu hơn bằng các hướng dẫn thực hành, hãy xem qua [Cách để GraphQL](https://www.howtographql.com/).
 - Xem qua khóa học online miễn phí, [Khám Phá GraphQL: Một Ngôn Ngữ truy vấn cho APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis).
 
