@@ -8,7 +8,8 @@ You may want to take a look at the information we have [on the differences](../b
 
 您可以在这里关注 [官方GraphQL指南](https://graphql.org/learn/) 来了解 GraphQL的更多消息、工作原理及应用方法：
 
-- 有一些库可以帮助您在 [多种不同语言的](https://graphql.org/code/) 中实现 GraphQL 。
+- There are libraries to help you implement GraphQL in [many different languages](https://graphql.org/code/) - we recommend [Apollo Client](https://www.apollographql.com/docs/react/) as it will allow a [seamless migration to our decentralised network](../subquery_network/publish.md#changes-to-your-dapp) when you publish your project in the future.
+- You will want to review advice on how to [structure your GraphQL queries to maximise performance](../build/optimisation.md#query-performance-advice).
 - 关于实用教程的深入学习体验，请参阅 [如何GraphQL](https://www.howtographql.com/)。
 - 观看免费在线课程， [探索 GraphQL: API查询语言](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis)。
 
