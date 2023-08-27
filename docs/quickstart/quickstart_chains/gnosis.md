@@ -82,11 +82,11 @@ type Event @entity {
 type Token @entity {
   id: ID!
   mintBlockHeight: BigInt!
-  mintTx: String!
+  mintTx: String
   mintDate: Date!
   mintReceiver: Address!
   currentHolder: Address!
-  event: Event!
+  event: Event
 }
 
 type Address @entity {
