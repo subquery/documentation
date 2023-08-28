@@ -16,7 +16,50 @@ In every SubQuery project, there are 3 key files to update. Let's begin updating
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Sei/sei-starter).
 :::
 
-## 1. Update Your GraphQL Schema File
+## 1. Update Your Project Manifest File
+
+The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
+- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
+- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
+
+```yml
+dataSources:
+  - kind: cosmos/Runtime
+    startBlock: 15613354
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
+        # - handler: handleBlock
+        #   kind: cosmos/BlockHandler
+        # Using transaction handlers without filters slows your project down as they can be executed with each and every block
+        # - handler: handleTransaction
+        #   kind: cosmos/TransactionHandler
+        - handler: handleFundingRateChangeEvent
+          kind: cosmos/EventHandler
+          # https://sei.explorers.guru/transaction/9A5D1FB99CDFB03282459355E4C7221D93D9971160AE79E201FA2B2895952878
+          filter:
+            type: wasm-funding-rate-change
+            messageFilter:
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+        - handler: handleSpotPriceEvent
+          kind: cosmos/EventHandler
+          filter:
+            type: wasm-spot-price
+            messageFilter:
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract"
+```
+
+The above code defines that you will be running two handlers. A `handleFundingRateChangeEvent` handler which will be triggered when a `wasm-funding-rate-change` type is encountered on a `MsgExecuteContract` type and a `handleSpotPriceEvent` handler which will be triggered when a `wasm-spot-price` type is encountered on a `MsgExecuteContract` type.
+
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+
+## 2. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
@@ -69,52 +112,11 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
+As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs).
+
 Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
-
-## 2. Update Your Manifest File
-
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
-- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
-- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
-
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 15613354
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
-        # - handler: handleBlock
-        #   kind: cosmos/BlockHandler
-        # Using transaction handlers without filters slows your project down as they can be executed with each and every block
-        # - handler: handleTransaction
-        #   kind: cosmos/TransactionHandler
-        - handler: handleFundingRateChangeEvent
-          kind: cosmos/EventHandler
-          # https://sei.explorers.guru/transaction/9A5D1FB99CDFB03282459355E4C7221D93D9971160AE79E201FA2B2895952878
-          filter:
-            type: wasm-funding-rate-change
-            messageFilter:
-              type: "/cosmwasm.wasm.v1.MsgExecuteContract"
-        - handler: handleSpotPriceEvent
-          kind: cosmos/EventHandler
-          filter:
-            type: wasm-spot-price
-            messageFilter:
-              type: "/cosmwasm.wasm.v1.MsgExecuteContract"
-```
-
-The above code defines that you will be running two handlers. A `handleFundingRateChangeEvent` handler which will be triggered when a `wasm-funding-rate-change` type is encountered on a `MsgExecuteContract` type and a `handleSpotPriceEvent` handler which will be triggered when a `wasm-spot-price` type is encountered on a `MsgExecuteContract` type.
-
-Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 ## 3. Add a Mapping Function
 
