@@ -18,7 +18,33 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Thorchain/thorchain-starter).
 :::
 
-## 1. Update Your GraphQL Schema File
+## 1. Update Your Project Manifest File
+
+The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
+- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
+- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
+
+```yml
+dataSources:
+  - kind: cosmos/Runtime
+    startBlock: 7960001 # This is the lowest height on the current version of Thorchain
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleMessage
+          kind: cosmos/MessageHandler
+          filter:
+            type: /types.MsgDeposit
+```
+
+The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+
+## 2. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
@@ -70,37 +96,11 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
+As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs).
+
 Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
-
-## 2. Update Your Manifest File
-
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
-- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
-- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
-
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 7960001 # This is the lowest height on the current version of Thorchain
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleMessage
-          kind: cosmos/MessageHandler
-          filter:
-            type: /types.MsgDeposit
-```
-
-The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
-
-Next, let’s dig further into Mapping Function’s configuration.
 
 ## 3. Add a Mapping Function
 
@@ -109,25 +109,12 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 
 ```ts
-import { Coin, Deposit, DepositCoin } from "../types";
 import { CosmosMessage } from "@subql/types-cosmos";
-
-type DepositMessage = {
-  coins: {
-    asset: {
-      chain: string;
-      symbol: string;
-      ticker: string;
-      synth: boolean;
-    };
-    amount: string;
-  }[];
-  memo: string;
-  signer: any;
-};
+import { Coin, Deposit, DepositCoin } from "../types";
+import { MsgDeposit } from "../types/proto-interfaces/thorchain/v1/x/thorchain/types/msg_deposit";
 
 export async function handleMessage(
-  msg: CosmosMessage<DepositMessage>
+  msg: CosmosMessage<MsgDeposit>
 ): Promise<void> {
   // Create Deposit record
   const depositEntity = Deposit.create({

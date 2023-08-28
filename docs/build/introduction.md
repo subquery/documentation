@@ -292,7 +292,7 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 ### Cosmos Codegen from CosmWasm Protobufs
 
-Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety.
+Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
 It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories.
 
@@ -321,7 +321,19 @@ network:
         - MsgSwapExactAmountOut
 ```
 
-If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`
+If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`. You import them into your message handlers like so:
+
+```ts
+import { CosmosMessage } from "@subql/types-cosmos";
+import { MsgSwapExactAmountIn } from "../types/proto-interfaces/osmosis/gamm/v1beta1/tx";
+
+export async function handleMessage(
+  msg: CosmosMessage<MsgSwapExactAmountIn>
+): Promise<void> {
+  // Do something with typed event
+  const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;
+}
+```
 
 ## Mapping
 

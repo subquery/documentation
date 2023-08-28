@@ -94,15 +94,6 @@ You will find the generated models in the `/src/types/models` directory.
 
 As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs).
 
-In this example SubQuery project, you would import these types like so.
-
-```ts
-import {
-  ApproveTransaction,
-  TransferLog,
-} from "../types/abi-interfaces/Erc20Abi";
-```
-
 Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
