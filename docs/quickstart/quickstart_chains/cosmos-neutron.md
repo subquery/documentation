@@ -1,11 +1,11 @@
-# Sei Quick Start
+# Neutron Quick Start
 
 ## Goals
 
 The goal of this quick start guide is to index all [airdrop claims](https://www.mintscan.io/neutron/wasm/contract/neutron198sxsrjvt2v2lln2ajn82ks76k97mj72mtgl7309jehd0vy8rezs7e6c56) on [Neutron Network](https://www.mintscan.io/neutron/).
 
 ::: info
-Sei Network is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface.
+Neutron Network is a chain based on the Cosmos SDK. Therefore you can index chain data via the standard Cosmos RPC interface.
 
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section. You must complete the suggested [4 steps](https://github.com/subquery/cosmos-subql-starter#readme) for Cosmos users.
 :::
@@ -13,7 +13,7 @@ Before we begin, make sure that you have initialised your project using the prov
 In every SubQuery project, there are 3 key files to update. Let's begin updating them one by one.
 
 ::: tip
-The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Sei/sei-starter).
+The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Neutron/neutron-starter).
 :::
 
 ## 1. Update Your GraphQL Schema File
