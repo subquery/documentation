@@ -67,7 +67,7 @@ Check out our [Manifest File](../../build/manifest/avalanche.md) documentation t
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing two entities, `PangolineRewards` and `Users` where receiver is of type `User` and rewards contains a reverse look up to the receiver field.
 
 ```graphql
 type PangolinRewards @entity {
