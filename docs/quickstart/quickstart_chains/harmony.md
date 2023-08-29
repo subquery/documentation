@@ -1,4 +1,4 @@
-# Harmony Mainnet Quick Start
+# Harmony Quick Start
 
 ## Goals
 
