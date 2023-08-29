@@ -1,4 +1,4 @@
-# Gnosis Quick Start (EVM)
+# Gnosis Quick Start
 
 [Gnosis Chain](https://www.gnosis.io/) is an EVM compatible, community owned network that prioritizes credible neutrality and resiliency, open to everyone without privilege or prejudice. It aims to provide infrastructure and tools for creating, trading, and governing decentralized finance (DeFi) applications. There are several components that make up Gnosis such as the CoW Protocol, Safe, Gnosis Beacon Chain and GnosisDAO.
 
