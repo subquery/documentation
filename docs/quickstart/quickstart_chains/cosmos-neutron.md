@@ -270,7 +270,65 @@ Try the following queries to understand how it works for your new SubQuery start
 You will see the result similar to below:
 
 ```json
-
+{
+  "data": {
+    "query": {
+      "claims": {
+        "totalCount": 29,
+        "nodes": [
+          {
+            "id": "0BE48D29E571443DCBB69D166242EC0D82500CA574BD18B5EC4A2FC9B4F4DA52-0",
+            "transactionHash": "0BE48D29E571443DCBB69D166242EC0D82500CA574BD18B5EC4A2FC9B4F4DA52",
+            "blockHeight": "1437800",
+            "date": "2023-07-13T14:56:15.706",
+            "receiver": "neutron13yl8ksc640t4zj9ur2q0e9hcxuphxkfm9v7an9",
+            "amount": "1126628770"
+          },
+          {
+            "id": "E11FEDF7A703F8A01DB5B9251D22797AAC292F1FDC5B96EA8C378E9249B9B0FB-0",
+            "transactionHash": "E11FEDF7A703F8A01DB5B9251D22797AAC292F1FDC5B96EA8C378E9249B9B0FB",
+            "blockHeight": "1438551",
+            "date": "2023-07-13T15:39:28.097",
+            "receiver": "neutron1rmemz0vyxjzqgy4hljymvzq3e3uf46303wl7lv",
+            "amount": "806706762"
+          },
+          {
+            "id": "B75398DD51A3CB655908BFB9352A3F1BDE0910D095B8EB1D35E3817A3BE7D896-0",
+            "transactionHash": "B75398DD51A3CB655908BFB9352A3F1BDE0910D095B8EB1D35E3817A3BE7D896",
+            "blockHeight": "1438402",
+            "date": "2023-07-13T15:30:36.123",
+            "receiver": "neutron1h4j8r3wzf5lkkvvdnu9fulh7qpqpwu6ufeh56w",
+            "amount": "733135188"
+          },
+          {
+            "id": "7A926359E74A04FE929488C10A298F325CCF6A3BEC4D6867CF375F972D1C085E-0",
+            "transactionHash": "7A926359E74A04FE929488C10A298F325CCF6A3BEC4D6867CF375F972D1C085E",
+            "blockHeight": "1438955",
+            "date": "2023-07-13T16:02:38.373",
+            "receiver": "neutron10quf7r9jejsv5ahshc0z0rlfmxccy7kxaxxwy0",
+            "amount": "113793918"
+          },
+          {
+            "id": "2D857594AF05D3F6508BB7854B3253B5F4F9C0E27ECE888E8FDEF5DB59746F06-0",
+            "transactionHash": "2D857594AF05D3F6508BB7854B3253B5F4F9C0E27ECE888E8FDEF5DB59746F06",
+            "blockHeight": "1439106",
+            "date": "2023-07-13T16:11:02.756",
+            "receiver": "neutron1wj3y6eqjd5c8jcfd25w38jkjd66455faj92f4l",
+            "amount": "113334003"
+          }
+        ]
+      },
+      "dailyClaimSummaries": {
+        "nodes": [
+          {
+            "id": "2023-07-13",
+            "totalClaimed": "3899514263"
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
 ## What’s Next?
