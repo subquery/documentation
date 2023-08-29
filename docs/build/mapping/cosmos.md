@@ -67,20 +67,29 @@ The `CosmosTransaction` encapsulates TxInfo and the corresponding `CosmosBlock` 
 
 You can use message handlers to capture information from each message in a transaction. To achieve this, a defined MessageHandler will be called once for every message. You should use [Mapping Filters](../manifest/cosmos.md#mapping-handlers-and-filters) in your manifest to filter messages to reduce the time it takes to index data and improve mapping performance.
 
+[Cosmos Codegen from CosmWasm Protobufs](../introduction.md#cosmos-codegen-from-cosmwasm-protobufs) provides typesafe types for all CosmWasm contracts. You should consider adding these to the `CosmosMessage<T>` in your mapping handlers like so.
+
 ```ts
 import { CosmosMessage } from "@subql/types-cosmos";
+import { Coin, Deposit, DepositCoin } from "../types";
+import { MsgDeposit } from "../types/proto-interfaces/thorchain/v1/x/thorchain/types/msg_deposit";
 
-export async function handleMessage(msg: CosmosMessage): Promise<void> {
-  const record = new MessageEntity(`${msg.tx.tx.hash}-${msg.idx}`);
-  record.blockHeight = BigInt(msg.block.block.header.height);
-  record.txHash = msg.tx.txhash;
-  record.contract = msg.msg.contract;
-  record.sender = msg.msg.sender;
-  await record.save();
+export async function handleMessage(
+  msg: CosmosMessage<MsgDeposit>
+): Promise<void> {
+  // Create Deposit record
+  const depositEntity = Deposit.create({
+    id: `${msg.tx.hash}-${msg.idx}`,
+    blockHeight: BigInt(msg.block.block.header.height),
+    txHash: msg.tx.hash,
+    signer: msg.msg.decodedMsg.signer.toString(),
+    memo: msg.msg.decodedMsg.memo,
+  });
+  await depositEntity.save();
 }
 ```
 
-`CosmosMessage` encapsulates the `msg` object containing the message data, the `CosmosTransaction` in which the message occured in and also the `CosmosBlock` in which the transaction occured in.
+`CosmosMessage` encapsulates the `msg.decodedMsg` object containing the decoded message data, the `CosmosTransaction` in which the message occured in and also the `CosmosBlock` in which the transaction occured in.
 
 ## Third-party Library Support - the Sandbox
 

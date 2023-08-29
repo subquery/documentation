@@ -253,7 +253,7 @@ type Post @entity {
 
 ## Code Generation
 
-SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
+SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contracts (defined by JSON ABIs or Cosmos Protobufs) included in the data sources.
 
 **Whenever you change your GraphQL entities, you must regenerate your types directory with the following command:**
 
@@ -278,13 +278,62 @@ This will create a new directory (or update the existing) `src/types` which cont
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-If you're creating a new Ethereum based project (including Ethereum EVM, Cosmos Ethermint, Avalanche, and Substrate's Frontier EVM & Acala EVM+), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
+### EVM Codegen from ABIs
+
+If you're creating a new Ethereum based project (including Ethereum EVM, Cosmos Ethermint, Avalanche, and Substrate's Frontier EVM & Acala EVM+), the `codegen` command will also generate types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
+
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories.
+
+In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-**ABI Codegen is not yet supported for WASM contracts**
+### Cosmos Codegen from CosmWasm Protobufs
+
+Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
+
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories.
+
+**Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
+
+You will also need to include this in the project configuration file (`project.yaml`)
+
+```yaml
+network:
+  chainTypes:
+    osmosis.gamm.v1beta1:
+      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
+      messages:
+        - MsgSwapExactAmountIn
+```
+
+Once `codegen` is executed you will find the message types under `src/types/CosmosMessageTypes.ts`. If you wish to add more message types from the same proto, you will need to include them under the `messages` array.
+
+```yaml
+network:
+  chainTypes:
+    osmosis.gamm.v1beta1:
+      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
+      messages:
+        - MsgSwapExactAmountIn
+        - MsgSwapExactAmountOut
+```
+
+If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`. You import them into your message handlers like so:
+
+```ts
+import { CosmosMessage } from "@subql/types-cosmos";
+import { MsgSwapExactAmountIn } from "../types/proto-interfaces/osmosis/gamm/v1beta1/tx";
+
+export async function handleMessage(
+  msg: CosmosMessage<MsgSwapExactAmountIn>
+): Promise<void> {
+  // Do something with typed event
+  const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;
+}
+```
 
 ## Mapping
 

@@ -16,7 +16,51 @@ In every SubQuery project, there are 3 key files to update. Let's begin updating
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Archway/archway-starter).
 :::
 
-## 1. Update Your GraphQL Schema File
+## 1. Your Project Manifest File
+
+The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+
+- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
+- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
+- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
+
+Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
+
+```yml
+- kind: cosmos/Runtime
+    startBlock: 1338 # The first contract metadata was instantiated on this block
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
+        # - handler: handleBlock
+        #   kind: cosmos/BlockHandler
+        # Using transaction handlers without filters slows your project down as they can be executed with each and every block
+        # - handler: handleTransaction
+        #   kind: cosmos/TransactionHandler
+        - handler: handleRewardsWithdrawEvent
+          kind: cosmos/EventHandler
+          filter:
+            type: "archway.rewards.v1.RewardsWithdrawEvent"
+            messageFilter:
+              type: "/archway.rewards.v1.MsgWithdrawRewards"
+        # contractCall field can be specified here too
+        # values: # A set of key/value pairs that are present in the message data
+        # contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+        - handler: handleSetContractMetadata
+          kind: cosmos/MessageHandler
+          filter:
+            # Filter to only messages with the MsgSetContractMetadata function call
+            # e.g. https://archway.explorers.guru/transaction/EBEE24728FCDA79EF167625D66F438236ED17579CAA7229A562C5AB84608B5A4
+            type: "/archway.rewards.v1.MsgSetContractMetadata"
+```
+
+The above code defines that you will be running two handlers. A `handleRewardsWithdrawEvent` handler which will be triggered when a `RewardsWithdrawEvent` type is encountered on a `MsgWithdrawRewards` messageFilter type and a `handleSetContractMetadata` handler which will be triggered when a `MsgSetContractMetadata` type is encountered.
+
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+
+## 2. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
@@ -65,53 +109,11 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
+As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs).
+
 Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
-
-## 2. Update Your Manifest File
-
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
-- [MessageHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every message that matches optional filter criteria, run a mapping function
-- [EventHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
-
-```yml
-- kind: cosmos/Runtime
-    startBlock: 1338 # The first contract metadata was instantiated on this block
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
-        # - handler: handleBlock
-        #   kind: cosmos/BlockHandler
-        # Using transaction handlers without filters slows your project down as they can be executed with each and every block
-        # - handler: handleTransaction
-        #   kind: cosmos/TransactionHandler
-        - handler: handleRewardsWithdrawEvent
-          kind: cosmos/EventHandler
-          filter:
-            type: "archway.rewards.v1.RewardsWithdrawEvent"
-            messageFilter:
-              type: "/archway.rewards.v1.MsgWithdrawRewards"
-        # contractCall field can be specified here too
-        # values: # A set of key/value pairs that are present in the message data
-        # contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
-        - handler: handleSetContractMetadata
-          kind: cosmos/MessageHandler
-          filter:
-            # Filter to only messages with the MsgSetContractMetadata function call
-            # e.g. https://archway.explorers.guru/transaction/EBEE24728FCDA79EF167625D66F438236ED17579CAA7229A562C5AB84608B5A4
-            type: "/archway.rewards.v1.MsgSetContractMetadata"
-```
-
-The above code defines that you will be running two handlers. A `handleRewardsWithdrawEvent` handler which will be triggered when a `RewardsWithdrawEvent` type is encountered on a `MsgWithdrawRewards` messageFilter type and a `handleSetContractMetadata` handler which will be triggered when a `MsgSetContractMetadata` type is encountered.
-
-Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
 ## 3. Add a Mapping Function
 
@@ -120,25 +122,12 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 
 ```ts
-import {
-  CosmosEvent,
-  CosmosBlock,
-  CosmosMessage,
-  CosmosTransaction,
-} from "@subql/types-cosmos";
+import { CosmosEvent, CosmosMessage } from "@subql/types-cosmos";
 import { ContractMetadata, RewardWithdrawl } from "../types";
-
-type MsgSetContractMetadataMessage = {
-  senderAddress: string;
-  metadata: {
-    contractAddress: string;
-    ownerAddress: string;
-    rewardsAddress: string;
-  };
-};
+import { MsgSetContractMetadata } from "../types/proto-interfaces/archway/rewards/v1/tx";
 
 export async function handleSetContractMetadata(
-  msg: CosmosMessage<MsgSetContractMetadataMessage>
+  msg: CosmosMessage<MsgSetContractMetadata>
 ): Promise<void> {
   // Example https://archway.explorers.guru/transaction/485EC908712CCDC0D65918F0E8E90E291D32720F2D0C691CCC055544B98C14A1
   logger.info(
@@ -187,8 +176,6 @@ export async function handleRewardsWithdrawEvent(
   const rewardAddress = event.event.attributes.find(
     (a) => a.key === "reward_address"
   )?.value;
-
-  // [{"denom":"aarch","amount":"678985288328817228"}]
   const rewardsString = event.event.attributes.find(
     (a) => a.key === "rewards"
   )?.value;

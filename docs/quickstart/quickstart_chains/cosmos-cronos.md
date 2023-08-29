@@ -14,51 +14,11 @@ Now, let's move ahead in the process and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-::: tip Note
+::: tip
 The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 
-## 1. Update Your GraphQL Schema File
-
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
-
-Update the `schema.graphql` file as follows. The aim is to index all transfers of [Cro Crow Token](https://www.crocrow.com/).
-
-```graphql
-type Transfer @entity {
-  id: ID! # Transfer hash
-  from: String!
-  to: String!
-  tokenId: BigInt!
-}
-```
-
-::: warning Important
-When you make any changes to the schema file, do not forget to regenerate your types directory.
-:::
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
-
-Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
-
-## 2. Update Your Manifest File
+## 1. Your Project Manifest File
 
 The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
@@ -139,7 +99,51 @@ Please note that Cro Crow token requires a specific ABI interface. You need to:
 - Link this file as an erc20 asset in the manifest file.
   :::
 
-Next, let’s dig further into Mapping Function’s configuration.
+## 2. Update Your GraphQL Schema File
+
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+
+Update the `schema.graphql` file as follows. The aim is to index all transfers of [Cro Crow Token](https://www.crocrow.com/).
+
+```graphql
+type Transfer @entity {
+  id: ID! # Transfer hash
+  from: String!
+  to: String!
+  tokenId: BigInt!
+}
+```
+
+::: warning Important
+When you make any changes to the schema file, do not forget to regenerate your types directory.
+:::
+
+::: code-tabs
+@tab:active yarn
+
+```shell
+yarn codegen
+```
+
+@tab npm
+
+```shell
+npm run-script codegen
+```
+
+:::
+
+You will find the generated models in the `/src/types/models` directory.
+
+If you're creating as an CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs).
+
+If you're creating as an EVM based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
+
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. Read about how this is done in [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis).
+
+Check out our [GraphQL Schema](../../build/graphql.md) documentation to get more information on `schema.graphql` file.
+
+Now that you have made essential changes to the GraphQL Schema file, let’s go ahead with the next configuration.
 
 ## 3. Add a Mapping Function
 

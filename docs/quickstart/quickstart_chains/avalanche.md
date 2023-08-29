@@ -67,7 +67,7 @@ Check out our [Manifest File](../../build/manifest/avalanche.md) documentation t
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing two entities, `PangolineRewards` and `Users` where receiver is of type `User` and rewards contains a reverse look up to the receiver field.
 
 ```graphql
 type PangolinRewards @entity {
@@ -113,7 +113,11 @@ This will create a new directory (or update the existing) `src/types` which cont
 import { PangolinRewards, User } from "../types";
 ```
 
-If you're creating a new Ethereum based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the example Avalanche SubQuery project, you would import these types like so.
+As you're creating a new EVM based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
+
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. Read about how this is done in [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis).
+
+In this example Avalanche SubQuery project, you would import these types like so.
 
 ```ts
 import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
