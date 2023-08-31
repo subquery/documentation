@@ -13,7 +13,7 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-bsc-mobox-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/BNB%20Smart%20Chain/bsc-mobox-rewards).
 :::
 
 ## 1. Update Your Project Manifest File
@@ -460,7 +460,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-bsc-mobox-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/BNB%20Smart%20Chain/bsc-mobox-rewards).
 :::
 
 ## What's next?

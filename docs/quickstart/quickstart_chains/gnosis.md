@@ -13,7 +13,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-gnosis-poap).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Gnosis/gnosis-poap).
 :::
 
 ## 1. Your Project Manifest File
@@ -468,7 +468,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-gnosis-poap).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Gnosis/gnosis-poap).
 :::
 
 ## What's next?
