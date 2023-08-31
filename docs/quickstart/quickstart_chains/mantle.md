@@ -1,24 +1,24 @@
-# Harmony Quick Start
+# Mantle Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://explorer.harmony.one/tx/0xd611c8cf745d85527348218ccd793e5126a5ebecd4340802b8540ee992e3d3bb) on [Harmony](https://explorer.harmony.one/) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers) on Mantle Network.
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Harmony project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Mantle project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Harmony/harmony-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Mantle/mantle-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Harmony. Since Harmony is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Mantle. Since Mantle is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Harmony project. It defines most of the details on how SubQuery will index and transform the chain data. For Harmony, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Mantle project. It defines most of the details on how SubQuery will index and transform the chain data. For Mantle, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,18 +26,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Harmo
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Harmony's Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers) on Mantle Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Harmony is EVM-compatible
-    startBlock: 42793429 # This is the block that the contract was deployed on https://explorer.harmony.one/address/0x6983d1e6def3690c4d616b13597a09e6193ea013
+  - kind: ethereum/Runtime # We use ethereum runtime since Mantle is EVM-compatible
+    startBlock: 1 # This contract was deployed on the genesis block
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0x6983d1e6def3690c4d616b13597a09e6193ea013" # This is the contract address for Wrapped Ether https://explorer.harmony.one/address/0x6983d1e6def3690c4d616b13597a09e6193ea013
+      address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" # This is the contract address for the Mantle native token https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -45,25 +45,25 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Harmony is EVM-compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Mantle is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Harmony is EVM-compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Mantle is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - Transfer(address indexed from, address indexed to, uint256
                 amount)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+              # address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WETH contract](https://explorer.harmony.one/address/0x6983d1e6def3690c4d616b13597a09e6193ea013).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WETH contract](https://explorer.harmony.one/address/0x6983d1e6def3690c4d616b13597a09e6193ea013).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -372,7 +372,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Harmony/harmony-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Mantle/mantle-starter).
 :::
 
 ## What's next?
