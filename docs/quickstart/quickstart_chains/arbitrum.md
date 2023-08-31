@@ -2,7 +2,12 @@
 
 ## Goals
 
-The goal of this quick start guide is to index the total claimed dividends paid to users on the [WINR staking contract](https://arbiscan.io/address/0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034) on Arbitrum.
+The goal of this quick start guide is to index the total claimed dividends paid to users on the [WINR staking contract](https://arbiscan.io/address/0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034) on Arbitrum. Check out the video or follow the step by step instructions below.
+
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/7N-GE3ZuNdM" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Arbitrum Nova project
