@@ -337,7 +337,7 @@ export async function handleMessage(
 
 ### Cosmos Codegen from CosmWasm Contract ABIs
 
-Codegen will also generate wrapper types from CosmWasm contract abi, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
+Codegen will also generate wrapper types from CosmWasm contract abis, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
 Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.yaml` configuration:
 ```yaml
