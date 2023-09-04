@@ -8,6 +8,11 @@ Since SubQuery fully supports NEAR and Aurora, you can index data from both exec
 
 The goal of this quick start guide is to index transfers and approvals for the [Wrapped NEAR smart contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d) on NEAR Aurora.
 
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/cjziTXhGBGw" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an NEAR Aurora project
 :::
