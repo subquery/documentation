@@ -18,7 +18,7 @@ We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Fantom project. It defines most of the details on how SubQuery will index and transform the chain data. For Fantom, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Klaytn project. It defines most of the details on how SubQuery will index and transform the chain data. For Klaytn, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,18 +26,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Fanto
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped FTM contract on Fantom Opera network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Orbit ETH contract on Klaytn network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Fantom Opera is EVM-compatible
-    startBlock: 67295175 # This is the block that the contract was deployed on https://ftmscan.com/token/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83
+  - kind: ethereum/Runtime # We use ethereum runtime since Klaytn is EVM-compatible
+    startBlock: 131206820 # This is the block that the contract was deployed on https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83" # This is the contract address for Wrapped FTM https://ftmscan.com/token/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83
+      address: "0x34d21b1e550d73cee41151c77f3c73359527a396" # This is the contract address for Orbit Ether https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -45,14 +45,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Fantom Opera is EVM-compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Klaytn is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Fantom Opera is EVM-compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Klaytn  is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -61,9 +61,9 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WFTM contract](https://ftmscan.com/token/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Orbit ETH contract](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WFTM contract](https://ftmscan.com/token/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Orbit ETH](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -278,47 +278,47 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 459,
+        "totalCount": 8,
         "nodes": [
           {
-            "id": "0x57b54d4bf53caca4c60772761f4949e4dc02d92f62a02b180d5b382d50b7787d",
-            "blockHeight": "67295406",
-            "from": "0x31F63A33141fFee63D4B26755430a390ACdD8a4d",
-            "to": "0x0000000000000000000000000000000000000000",
-            "value": "176970961833699983570796",
-            "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+            "id": "0x19a332808b2642af38d84951bbe17c044b021be6e587a2f8799ff90419279672",
+            "blockHeight": "131207180",
+            "from": "0xd3e2Fd9dB41Acea03f0E0c22d85D3076186f4f24",
+            "to": "0xa03990511B6ee8BDb24C1693f9f8BD90DDfFd19D",
+            "value": "1813529233975307",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x128198372b0080d144f01041bdeb97e39155981010337abc8dc18878727af227",
-            "blockHeight": "67295494",
-            "from": "0x31F63A33141fFee63D4B26755430a390ACdD8a4d",
-            "to": "0x4EE115137ac73A3e5F99598564905465C101b11F",
-            "value": "160977046912584985744989",
-            "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+            "id": "0x12581a3f5dcb67a4d5017fa877c1971f130539ceb81949478cf3710f27802c44",
+            "blockHeight": "131207054",
+            "from": "0x6B0177E96C3623B6F6940dA18378d52f78CeA12D",
+            "to": "0x88Fe4fB118c954c11A359AbcE9dc887F7399bE1c",
+            "value": "1731405454880983",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0xaca3354ec2d60bc8816590e32c755a87269a07d1eef7c7a49f808d9d6aee9f18",
-            "blockHeight": "67296279",
-            "from": "0x38C2853E569125Fc9Af310Ab145FCEfB2A07A322",
-            "to": "0x0000000000000000000000000000000000000000",
-            "value": "10000000000000000000000",
-            "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+            "id": "0x8df838f5f6e0710c43a15512c353c62ca7ef90b19e77db72f832835d2eab76b1",
+            "blockHeight": "131207096",
+            "from": "0xc3DA629c518404860c8893a66cE3Bb2e16bea6eC",
+            "to": "0xd3e2Fd9dB41Acea03f0E0c22d85D3076186f4f24",
+            "value": "160321797378530",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x5f549d1546f590146b87091c9bdfde18ff1f3d33b6ed852fc454af810a4c0e32",
-            "blockHeight": "67296232",
-            "from": "0x5BAB9d61f84630A76fA9e2f67739f2da694B5402",
-            "to": "0x245cD6d33578de9aF75a3C0c636c726b1A8cbdAa",
-            "value": "6996500000000000000000",
-            "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+            "id": "0xc4f94437900be853cc03e0fae2c18650fdde00bd8a26cd080d45dd9051edad42",
+            "blockHeight": "131206820",
+            "from": "0x6B0177E96C3623B6F6940dA18378d52f78CeA12D",
+            "to": "0x71B59e4bC2995B57aA03437ed645AdA7Dd5B1890",
+            "value": "18574153690448",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x6158b4cc15013f08e89c91cef0d1610cd37d7d303126299900689790ecb8124e",
-            "blockHeight": "67295446",
-            "from": "0x31F63A33141fFee63D4B26755430a390ACdD8a4d",
-            "to": "0x0000000000000000000000000000000000000000",
-            "value": "6844335953031983950296",
-            "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+            "id": "0x6e4c46dad80fa9c55f4d1e6048317f12614b7405321ce36ed7bec8b0e624dffb",
+            "blockHeight": "131207283",
+            "from": "0xAebFAe557F3948B91c9cb25fc650A26F728C5C9d",
+            "to": "0x09267e3E96925C76DfcC2CE39479559A2AB9B8a2",
+            "value": "2000000000000",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           }
         ]
       }
@@ -326,20 +326,12 @@ You will see the result similar to below:
     "approvals": {
       "nodes": [
         {
-          "id": "0x7e08e7e27996561ba385b9ffc6a9a02d51ad17a22a9bbb9e79a6ad059f269720",
+          "id": "0x61e162fa7e5bbc5edfb462627eaf6d96aaf240ccde102bb0a04ef868bab54c07",
           "blockHeight": null,
-          "owner": "0xDEc89FC2ECfF1F2197204126EaAc55043155153b",
-          "spender": "0x1111111254EEB25477B68fb85Ed929f73A960582",
+          "owner": "0x88Fe4fB118c954c11A359AbcE9dc887F7399bE1c",
+          "spender": "0x51D233B5aE7820030A29c75d6788403B8B5d317B",
           "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
-        },
-        {
-          "id": "0xa00b913d56a1e91a6fdc52e05f56db54e518a1fbbd81e94ccc4b0d3521c72c53",
-          "blockHeight": null,
-          "owner": "0xDEc89FC2ECfF1F2197204126EaAc55043155153b",
-          "spender": "0x1111111254EEB25477B68fb85Ed929f73A960582",
-          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83"
+          "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
         }
       ]
     }
@@ -348,7 +340,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Fantom/fantom-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Klaytn/klaytn-starter).
 :::
 
 ## What's next?
