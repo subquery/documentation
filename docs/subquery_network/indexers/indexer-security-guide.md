@@ -1,45 +1,43 @@
 # Indexer Security Guide
 
 ## Background
-Indexers are node runners, fundamental participants in Subquery Network. Indexers run heavy indexing jobs and provide query services to public.   
-Security is one of the most critical pillar for indexers to archieve, in both worlds indexers are across, in traditional infrastructure world and in crypto world.  
+Indexers serve as the backbone of the Subquery Network. They undertake the arduous task of running intensive indexing jobs and offer query services to the public. Ensuring the security of indexers is paramount, not only in the traditional infrastructure domain but also in the realm of cryptocurrency.
 
-## The worst that could happen
-### Crypto Side
-* Funds in the controller wallet
-* Perform misbehaviors via controller wallet
-* Phishing scan planted to indexer admin console and endanger the main indexer wallet
+## Potential Risks
+### Crypto-Related Concerns
+* Loss of funds from the controller wallet.
+* Unauthorized activities, misbehaviors of Subquery Network executed via the controller wallet.
+* Phishing schemes targeting the indexer admin console, posing threats to the primary indexer wallet.
 
-### Traditional Side
-* Machine be compromised, become a zombie pc controlled by hacker
-* Private Network infiltrated
-* Data damage and hardware damage
-* Data Ransom
+### Traditional Infrastructure Concerns
+* System compromise, resulting in the machine being hijacked by malicious actors.
+* Breaches within the private network.
+* Risk of data corruption, physical hardware damage, and ransomware attacks.
 
-## Architecture and Potential attack surface
+## Architecture & Attack Vectors
+The diagram below illustrates the topology of the Indexer's infrastructure. It's crucial to understand the architecture to identify potential security threats and vulnerabilities.
 ![topology](../kepler/assets/img/sq-indexer-stack-topology.png)
 
 ### 443 / 80
-If nginx is used, check the [official docs](https://docs.nginx.com/nginx/admin-guide/security-controls/)
+If nginx is used, consult the [official docs](https://docs.nginx.com/nginx/admin-guide/security-controls/)
 
 ### 8000
-This is for admin only, MUST NOT EXPOSE TO PUBLIC
+This port is designated for administrative purposes only and MUST NOT be exposed to the public.
 
-Set up Firewall rules to protect the port. 
-* If you run on public clouds, check the security group settings from their docs.
-* Run on bare metal and expose to internet directly, try ufw/ufw-docker.
+Establish Firewall rules to safeguard the port. 
+* If operating on public clouds, refer to the respective security group settings in their documentation.
+* If running on bare metal and directly exposed to the internet, consider using tools like ufw/ufw-docker.
+* If running from home, use router's settings and only open 433/80 via port forwarding.
 
 ### 7370
-Safe.
+This port is generally safe.
 
 ### Docker
-Coordinator has direct access to your host docker, which can be dangerous if not well protected.
-If the machine is only used for running subquery services, indexers should consider apply specific security rules on docker.
-Check docs about SeLinux or AppArmor
+The Coordinator has unrestricted access to your host's Docker, which can pose security risks if not adequately shielded. If the machine is solely utilized for running Subquery services, indexers should contemplate applying specific Docker security measures. Refer to documentation on SeLinux or AppArmor for further insights.
 
 ## Other Best Practices
-* Regularly patch the host OS
-* Upgrade softwares to latest version
+* Regularly update the host OS.
+* Ensure the subquery service softwares are upgraded to the latest versions.
 
 ## Community Solutions
 > Use on own risk
