@@ -652,6 +652,7 @@ function getSidebar(locale: string): SidebarOptions {
                 `${locale}/subquery_network/indexers/become-an-indexer.md`,
                 `${locale}/subquery_network/indexers/install-indexer-locally.md`,
                 `${locale}/subquery_network/indexers/install-indexer-linux.md`,
+                `${locale}/subquery_network/indexers/indexer-security-guide.md`,
                 `${locale}/subquery_network/indexers/index-project.md`,
                 `${locale}/subquery_network/indexers/dictionary-restore.md`,
                 `${locale}/subquery_network/indexers/troubleshooting-indexers.md`,
