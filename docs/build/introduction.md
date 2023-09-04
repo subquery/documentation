@@ -294,7 +294,7 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/proto-interfaces` directories.
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to the `src/typs/proto-interfaces` directory.
 
 **Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
 
