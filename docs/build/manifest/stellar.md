@@ -36,7 +36,8 @@ network:
   # This endpoint must be a public non-pruned archive node
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
-  endpoint: ["https://rpc-futurenet.stellar.org:443"]
+  endpoint: ["https://horizon-futurenet.stellar.org:443"]
+  soroban: "https://rpc-futurenet.stellar.org"
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
   # dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
 
@@ -46,6 +47,18 @@ dataSources:
     mapping:
       file: "./dist/index.js"
       handlers:
+        - handler: handleTransaction
+          kind: soroban/TransactionHandler
+           filter:
+            account: "GAKNXHJ5PCZYFIBNBWB4RCQHH6GDEO7Z334N74BOQUQCHKOURQEPMXCH"
+        - handler: handleOperation
+          kind: stellar/OperationHandler
+          filter:
+            type: "payment"
+        - handler: handleCredit
+          kind: stellar/EffectHandler
+          filter:
+            type: "account_credited"
         - handler: handleEvent
           kind: stellar/EventHandler
           filter:
@@ -95,7 +108,8 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
 | **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                             |
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
+| **soroban**      | String | Defines the soroban endpoint - **This must be a full archive node**.                    
+| **port**         | Number | Optional port number on the `endpoint` to connect to                                                          |                                                                        
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
 | **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
 
@@ -156,7 +170,12 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                     | Supported filter                                                           |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [stellar/EventHandler](../mapping/stellar.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
+| [stellar/BlockHandler](../mapping/stellar.md#block-handler) | `modulo` and `timestamp`                                                   |
+| [stellar/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address) |
+| [soroban/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address) |
+| [stellar/OperationHandler](../mapping/stellar.md#operation-handler) | `type`, `sourceAccount` |
+| [stellar/EffectHandler](../mapping/stellar.md#effect-handler) | `type`, `account` |
+| [soroban/EventHandler](../mapping/stellar.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
 
 ```yml
 # Example filter from EventHandler
@@ -180,6 +199,21 @@ SubQuery provides real time indexing of unconfirmed data directly from the RPC e
 
 To control this feature, please adjust the [--block-confirmations](../../run_publish/references.md#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../run_publish/references.md#disable-historical) is enabled (enabled by default)
 
+## Bypass Blocks
+
+Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
+
+When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
+
+```yaml
+network:
+  chainId: "1"
+  endpoint: "https://eth.api.onfinality.io/public"
+  bypassBlocks: [1, 2, 3, "105-200", 290]
+```
+
 ## Validating
 
 You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.
+
+
