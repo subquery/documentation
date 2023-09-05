@@ -4,6 +4,11 @@
 
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/FafUBwzTK5U" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ::: warning Important
 Cronos is an EVM compatible (Ethermint) chain, as such there are two options for indexing Cronos data. You can index chain data via the standard Cosmos RPC interface, or via Ethereum APIs. For Cronos, we provide a starter project for each.
 
