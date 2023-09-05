@@ -453,6 +453,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/meter.md`,
             },
             {
+              text: "Metis",
+              link: `${locale}/quickstart/quickstart_chains/metis.md`,
+            },
+            {
               text: "NEAR",
               collapsible: true,
               children: [
