@@ -17,6 +17,11 @@ export interface Store {
     value: any,
     options?: { limit?: number; offset?: number }
   ): Promise<Entity[]>;
+  getByFields<T extends Entity>(
+    entity: string,
+    filter: [field: keyof T, operator: '=' | '!=' | 'in' | '!in', value: T[keyof T] | Array<T[keyof T]>][],
+    options?: {offset?: number; limit?: number}
+  ): Promise<T[]>;
   getOneByField(
     entity: string,
     field: string,
@@ -46,7 +51,7 @@ const id = block.block.header.hash.toString();
 await store.get(`StarterEntity`, id);
 ```
 
-## Get All Records by Field
+## Get Records by Field
 
 `getByField(entity: string, field: string, value: any, options?: { limit?: number; offset?: number }): Promise<Entity[]>;`
 
@@ -64,6 +69,36 @@ To get a list of records with `field1` equal to 50, 100 or 150:
 ```typescript
 // Get all records with field1 == 50 OR field1 == 100 OR field1 == 150
 await store.getByField("StarterEntity", "field1", [50, 100, 150]);
+```
+
+## Get Records by Field
+```ts
+getByFields<T extends Entity>(
+    entity: string,
+    filter: [field: keyof T, operator: '=' | '!=' | 'in' | '!in', value: T[keyof T] | Array<T[keyof T]>][],
+    options?: {offset?: number; limit?: number}
+  ): Promise<T[]>;
+```
+
+This returns matching records for the specific entity that matches the given filter. Each entry in the filter is an AND operation. By default it will return the first 100 results.
+The number of results can be changed via the `query-limit` flag for the node or via the options field. If you need more than the number of results provided you can also specify an `offset` and page your results.
+
+Using the store directly:
+```ts
+// Get all records with field1 == 50 AND field2 == '0xSomeAddress'
+await store.getByFields(`StarterEntity`, [['field1', '=', 50], ['field2', '=', '0xSomeAddress']]);
+```
+
+Using an entity, this will provide better type safety:
+```ts
+// Get all records with field1 == 50 AND field2 == '0xSomeAddress'
+await StarterEntity.getByFields([['field1', '=', 50], ['field2', '=', '0xSomeAddress']]);
+```
+
+It's also possible to match multiple values to a field:
+```ts
+// Get all records with field1 == 50 OR field1 == 51
+await StarterEntity.getByFields([['field1', '=', [50, 51]]]);
 ```
 
 ## Get First Record by Field
