@@ -13,7 +13,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Code
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-nft).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Base/base-nft).
 :::
 
 ## 1. Your Project Manifest File
@@ -334,7 +334,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Code
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-base-nft).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Base/base-nft).
 :::
 
 ## What's next?

@@ -389,6 +389,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
                 {
+                  text: "Neutron",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-neutron.md`,
+                },
+                {
                   text: "Sei",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
                 },
@@ -433,8 +437,16 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
             },
             {
+              text: "Harmony",
+              link: `${locale}/quickstart/quickstart_chains/harmony.md`,
+            },
+            {
               text: "Immutable (Testnet)",
               link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
+            },
+            {
+              text: "Mantle",
+              link: `${locale}/quickstart/quickstart_chains/mantle.md`,
             },
             {
               text: "Meter",

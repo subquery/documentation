@@ -1,4 +1,4 @@
-# Gnosis Quick Start (EVM)
+# Gnosis Quick Start
 
 [Gnosis Chain](https://www.gnosis.io/) is an EVM compatible, community owned network that prioritizes credible neutrality and resiliency, open to everyone without privilege or prejudice. It aims to provide infrastructure and tools for creating, trading, and governing decentralized finance (DeFi) applications. There are several components that make up Gnosis such as the CoW Protocol, Safe, Gnosis Beacon Chain and GnosisDAO.
 
@@ -13,7 +13,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-gnosis-poap).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Gnosis/gnosis-poap).
 :::
 
 ## 1. Your Project Manifest File
@@ -468,7 +468,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-gnosis-poap).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Gnosis/gnosis-poap).
 :::
 
 ## What's next?

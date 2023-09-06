@@ -294,7 +294,7 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories.
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to the `src/typs/proto-interfaces` directory.
 
 **Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
 
@@ -334,6 +334,27 @@ export async function handleMessage(
   const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;
 }
 ```
+
+### Cosmos Codegen from CosmWasm Contract ABIs
+
+Codegen will also generate wrapper types from CosmWasm contract abis, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
+
+Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.yaml` configuration:
+
+```yaml
+dataSources:
+  - kind: cosmos/Runtime
+    startBlock: 6000000
+    options:
+      abi: baseMinter
+    assets:
+      baseMinter:
+        file: './cosmwasm/base-minter/schema/base-minter.json'
+```
+
+All generated files could be found under `src/typs/cosmwasm-interfaces` and `src/typs/cosmwasm-interface-wrappers` directories.
+
+**Note**: For contract ABIs you wish to generate, you must ensure that each ABI is in its own directory. For example `<project-root>/abis/baseMinter/base-minter.json` and `<project-root>/abis/cw20/cw20.json`.
 
 ## Mapping
 

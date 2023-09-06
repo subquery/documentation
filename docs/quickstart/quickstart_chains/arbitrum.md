@@ -2,7 +2,12 @@
 
 ## Goals
 
-The goal of this quick start guide is to index the total claimed dividends paid to users on the [WINR staking contract](https://arbiscan.io/address/0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034) on Arbitrum.
+The goal of this quick start guide is to index the total claimed dividends paid to users on the [WINR staking contract](https://arbiscan.io/address/0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034) on Arbitrum. Check out the video or follow the step by step instructions below.
+
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/7N-GE3ZuNdM" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Arbitrum Nova project
@@ -11,7 +16,7 @@ Before we begin, **make sure that you have initialised your project** using the 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards). We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Arbitrum/arbitrum-one-winr). We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Arbitrum. Since Arbitrum is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
@@ -291,7 +296,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subql-example-arbitrum-winr-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Arbitrum/arbitrum-one-winr).
 :::
 
 ## What's next?

@@ -2,7 +2,12 @@
 
 ## Goals
 
-The goal of this quick guide is to adapt the standard starter project and start indexing [all the PLANET token transfers](https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand.
+The goal of this quick guide is to adapt the standard starter project and start indexing [all the PLANET token transfers](https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand. Check out the video or follow the step by step instructions below.
+
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/zWzKGT30zbE" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
 
 ::: warning Important
 Before we begin, make sure that you have initialised your project using the provided steps in the **[Start Here](../quickstart.md)** section.

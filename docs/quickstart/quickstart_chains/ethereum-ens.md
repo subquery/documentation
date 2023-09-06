@@ -8,7 +8,7 @@ This project can be use as a starting point for developing your new Ethereum Sub
 We suggest starting with the Ethereum Gravatar example. The ENS project is a lot more complicated and introduces some more advanced concepts
 :::
 
-Now, let's move forward and fork the example code for this project from [here](https://github.com/subquery/subquery-example-ens)
+Now, let's move forward and fork the example code for this project from [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens)
 
 ## 1. Your Project Manifest File
 
@@ -300,7 +300,7 @@ query {
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/subquery-example-ens).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens).
 :::
 
 ## What's next?
