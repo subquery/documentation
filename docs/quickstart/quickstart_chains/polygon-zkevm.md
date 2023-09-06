@@ -32,7 +32,7 @@ As we are indexing all transfers and approvals from the Wrapped ETH contract on 
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Base is EVM-compatible
+  - kind: ethereum/Runtime # We use ethereum runtime since Polygon is EVM-compatible
     startBlock: 1 # This is the block that the contract was deployed on https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
     options:
       # Must be a key of assets
