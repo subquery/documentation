@@ -142,6 +142,13 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleLog` and `handleTransaction`:
 
 ```ts
+import { Approval, Transfer } from "../types";
+import {
+  ApproveTransaction,
+  TransferLog,
+} from "../types/abi-interfaces/Erc20Abi";
+import assert from "assert";
+
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   assert(log.args, "No log.args");
@@ -172,6 +179,7 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
   await approval.save();
 }
+
 ```
 
 The `handleLog` function receives a `log` parameter of type `TransferLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
