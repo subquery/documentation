@@ -523,6 +523,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
             },
             {
+              text: "Skale",
+              link: `${locale}/quickstart/quickstart_chains/skale.md`,
+            },
+            {
               text: "ZkSync Era",
               link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
             },
