@@ -445,6 +445,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
             },
             {
+              text: "Klaytn",
+              link: `${locale}/quickstart/quickstart_chains/klaytn.md`,
+            },
+            {
               text: "Mantle",
               link: `${locale}/quickstart/quickstart_chains/mantle.md`,
             },
