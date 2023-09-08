@@ -29,6 +29,22 @@ Reach out to our team at [sales@subquery.network](mailto:sales@subquery.network)
 - The manifest file shows the most differences but you can easily overcome these differences once you understand them.
 - In addition, Mapping files are also quite similar with an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
+### Recommended Migration Steps
+
+This is the recommended proccess that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery:
+
+1. [Initialise a new SubQuery project](./introduction.md) for the same network using the `subql init` command. When migrating an existing SubGraph, it's not necessary to perform code scaffolding. It also ensures that you are using TS `strict` mode, which will help you identify any potential bugs.
+2. Copy over your `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
+3. Copy over relevant abi contracts to the `abis` directory and update the `project.manifest`. [More info](#manifest-file).
+4. Migrate your data sources in the `project.manifest`, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
+5. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
+6. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
+   - Imports will need to be updated
+   - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
+   - With strict mode, you must construct new entites with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
+   - [More info](#mapping).
+7. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
+
 ## GraphQL Schema
 
 Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities.
@@ -215,26 +231,36 @@ import {
   UpdatedGravatarLog,
 } from "../types/abi-interfaces/Gravity";
 import { Gravatar } from "../types";
+import assert from "assert";
 
-export async function handleNewGravatar(event: NewGravatarLog): Promise<void> {
-  let gravatar = new Gravatar(event.args.id.toHexString());
-  gravatar.owner = event.args.owner;
-  gravatar.displayName = event.args.displayName;
-  gravatar.imageUrl = event.args.imageUrl;
+export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
+  const gravatar = Gravatar.create({
+    id: log.args.id.toHexString()!,
+    owner: log.args.owner,
+    displayName: log.args.displayName,
+    imageUrl: log.args.imageUrl,
+    createdBlock: BigInt(log.blockNumber),
+  });
   await gravatar.save();
 }
 
 export async function handleUpdatedGravatar(
-  event: UpdatedGravatarLog
+  log: UpdatedGravatarLog
 ): Promise<void> {
-  let id = event.args.id.toHexString();
+  const id: string = log.args.id.toHexString()!;
   let gravatar = await Gravatar.get(id);
-  if (gravatar == null || gravatar == undefined) {
-    gravatar = new Gravatar(id);
+  if (!gravatar) {
+    gravatar = Gravatar.create({
+      id,
+      createdBlock: BigInt(log.blockNumber),
+      owner: "",
+      displayName: "",
+      imageUrl: "",
+    });
   }
-  gravatar.owner = event.args.owner;
-  gravatar.displayName = event.args.displayName;
-  gravatar.imageUrl = event.args.imageUrl;
+  gravatar.owner = log.args.owner;
+  gravatar.displayName = log.args.displayName;
+  gravatar.imageUrl = log.args.imageUrl;
   await gravatar.save();
 }
 ```
