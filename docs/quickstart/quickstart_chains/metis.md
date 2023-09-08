@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [METIS Token](https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers) on [Metis](https://metis.io/) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [METIS Token](https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers) on [Metis](https://metis.io/) Network.
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Metis project.
