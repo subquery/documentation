@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [SKL Token](https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433) on [Skale Europa](https://skale.space/) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [SKL Token](https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433) on [Skale Europa](https://skale.space/) Network.
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Skale project.
