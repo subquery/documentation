@@ -2,7 +2,7 @@
 
 ## Goals
 
-Boba is a multichainLayer-2 network that has two blockchains currently; Boba Mainnet (ie Boba ETH), and Boba BNB Chain (ie Boba BNB). This guide will focus on [Boba ETH](https://chainlist.org/chain/288). For [Boba BNB](https://chainlist.org/chain/56288), please refer to [Boba BNB Quick Start](./boba-bnb.md).
+Boba is a multichain Layer-2 network that has two blockchains currently; Boba Mainnet (ie Boba ETH), and Boba BNB Chain (ie Boba BNB). This guide will focus on [Boba ETH](https://chainlist.org/chain/288). For [Boba BNB](https://chainlist.org/chain/56288), please refer to [Boba BNB Quick Start](./boba-bnb.md).
 
 The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000) on [Boba Mainnet](https://https://bobascan.com/) Network.
 
