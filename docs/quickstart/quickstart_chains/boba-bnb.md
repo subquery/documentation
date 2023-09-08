@@ -292,62 +292,29 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 901,
+        "totalCount": 2,
         "nodes": [
           {
-            "id": "0x11c3519a07d48ca7e9b3d77c9c288919e8786dfffaad76bdfd6ae554d2481a13",
-            "blockHeight": "3072",
-            "from": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "4390819482026157205",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0xfb026bf808bc7b4806335f052397d369f93b6290cb5ff2f75699949fac64be9c",
+            "blockHeight": "20756087",
+            "from": "0xfC6B4edA3d786bc7ad5DfbAE38e0dfe8F7243392",
+            "to": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+            "value": "70054988156905858095",
+            "contractAddress": "0xC58aaD327D6D58D979882601ba8DDa0685B505eA"
           },
           {
-            "id": "0x8d2eed830280b0e35165560f7234da3ccd02f9dc526434e874ccb0e5a464c4f6",
-            "blockHeight": "936",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0x267816F8789a28463cE10acD50ffeDDE57F318Ee",
-            "value": "3499686336793644484",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
-          },
-          {
-            "id": "0x818086a329ca6cecfaf55ac6f3c5a34b985a97ef5439c15bb66f094b4e76a8e5",
-            "blockHeight": "2841",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "value": "3300395407835132030",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
-          },
-          {
-            "id": "0x08e395f3058c05141ab656e08fba91d47d52c9bc954e26f378e4edd3f4ef9d8d",
-            "blockHeight": "2435",
-            "from": "0x4b8f52c68594554DdF13aff5E2d8d788bC56Ca8c",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1794066117854317399",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
-          },
-          {
-            "id": "0x0ac0c00fd9c3bb4ee921e82fe32e658846497697447d9dadffaaec64b2c5ff4a",
-            "blockHeight": "2998",
-            "from": "0x7D9195077671B08F442B2A1b310858bDB1C4abcc",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1430946047728089377",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x903c73e86c70be0acefaf9af9e7f2d90f9e64db8a1a2a1258de1af0389cba5de",
+            "blockHeight": "20757345",
+            "from": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+            "to": "0xfC6B4edA3d786bc7ad5DfbAE38e0dfe8F7243392",
+            "value": "65000000000000000000",
+            "contractAddress": "0xC58aaD327D6D58D979882601ba8DDa0685B505eA"
           }
         ]
       }
     },
     "approvals": {
-      "nodes": [
-        {
-          "id": "0xccec6946012d52a27fcae9790ade5a5e7314f934170483fecf2896e3448604bd",
-          "blockHeight": null,
-          "owner": "0x12680Ad2f3D80b162344Ba3FF3978daB7A565675",
-          "spender": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
-        }
-      ]
+      "nodes": []
     }
   }
 }
