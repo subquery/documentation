@@ -66,7 +66,9 @@ export default defineUserConfig({
         "/subquery_network/kepler/indexers/faqs-indexers.html":
           "/subquery_network/indexers/faqs-indexers.html",
         "/subquery_network/kepler/indexers/ssl-configuration.html":
-          "/subquery_network/indexers/ssl-configuration.html",
+          "/subquery_network/indexers/indexer-security-guide.html",
+        "/subquery_network/indexers/ssl-configuration.html":
+          "/subquery_network/indexers/indexer-security-guide.html",
       },
     }),
   ],
@@ -656,7 +658,6 @@ function getSidebar(locale: string): SidebarOptions {
                 `${locale}/subquery_network/indexers/index-project.md`,
                 `${locale}/subquery_network/indexers/dictionary-restore.md`,
                 `${locale}/subquery_network/indexers/troubleshooting-indexers.md`,
-                `${locale}/subquery_network/indexers/ssl-configuration.md`,
               ],
             },
             `${locale}/subquery_network/indexers/plans.md`,
