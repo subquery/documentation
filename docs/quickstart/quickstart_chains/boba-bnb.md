@@ -1,26 +1,26 @@
-# Boba ETH Quick Start
+# Boba BNB Quick Start
 
 ## Goals
 
-Boba is a multichainLayer-2 network that has two blockchains currently; Boba Mainnet (ie Boba ETH), and Boba BNB Chain (ie Boba BNB). This guide will focus on [Boba ETH](https://chainlist.org/chain/288). For [Boba BNB](https://chainlist.org/chain/56288), please refer to [Boba BNB Quick Start](./boba-bnb.md).
+Boba is a multichainLayer-2 network that has two blockchains currently; Boba Mainnet (ie Boba ETH), and Boba BNB Chain (ie Boba BNB). This guide will focus on [Boba BNB](https://chainlist.org/chain/56288). For [Boba ETH](https://chainlist.org/chain/288), please refer to [Boba ETH Quick Start](./boba-eth.md).
 
-The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000) on [Boba Mainnet](https://https://bobascan.com/) Network.
+The goal of this quick start guide is to index all transfers and approval events from the [Wrapped BOBA](https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288) on [Boba BNB](https://bobascan.com/) Network .
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Boba ETH project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Boba BNB project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Boba/boba-eth-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Boba/boba-bnb-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Boba ETH. Since Boba ETH is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Boba BNB. Since Boba BNB is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Boba ETH project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Boba BNB project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -28,18 +28,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Boba 
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Boba ETH network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Wrapped BOBA contract on boba BNB network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Boba is EVM-compatible
-    startBlock: 1049330 # This is usually the block that the contract was deployed on https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000
+  - kind: ethereum/Runtime # We use ethereum runtime since Boba BNB is EVM-compatible
+    startBlock: 20756087 # This is usually the block that the contract was deployed on https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" # This is the contract address for Wrapped Ether https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000
+      address: "0xC58aaD327D6D58D979882601ba8DDa0685B505eA" # This is the contract address for Wrapped BOBA https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -47,14 +47,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Boba is EVM-compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Boba BNB is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Boba  is EVM-compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Boba BNB  is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -63,9 +63,9 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WETH contract](https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WBOBA contract](https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WETH contract](https://bobascan.com/address/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WBOBA contract](https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -181,6 +181,7 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
   await approval.save();
 }
+
 ```
 
 The `handleLog` function receives a `log` parameter of type `TransferLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
@@ -291,47 +292,47 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 21,
+        "totalCount": 901,
         "nodes": [
           {
-            "id": "0xffe50d2e3e50c7bfa09500d36ca7ae75de1891c929ce408e2c75c261504f6da4",
-            "blockHeight": "1049554",
-            "from": "0x547b227A77813Ea70Aacf01212B39Db7b560fa1c",
-            "to": "0x17C83E2B96ACfb5190d63F5E46d93c107eC0b514",
-            "value": "479864790439106520",
-            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+            "id": "0x11c3519a07d48ca7e9b3d77c9c288919e8786dfffaad76bdfd6ae554d2481a13",
+            "blockHeight": "3072",
+            "from": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
+            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+            "value": "4390819482026157205",
+            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
           },
           {
-            "id": "0x4bd23400942cf728b59996067cd2d62bbad238337829699968aeebf7a560f087",
-            "blockHeight": "1049572",
-            "from": "0x92E1ABD0688f2DaD6bAeF1bA550B3DB8496C6bf0",
-            "to": "0x4F059F8d45230Cd5B37544E87eeBba033A5f1b17",
-            "value": "182699882986823721",
-            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+            "id": "0x8d2eed830280b0e35165560f7234da3ccd02f9dc526434e874ccb0e5a464c4f6",
+            "blockHeight": "936",
+            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+            "to": "0x267816F8789a28463cE10acD50ffeDDE57F318Ee",
+            "value": "3499686336793644484",
+            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
           },
           {
-            "id": "0xf0f62948ba7019fc8566c13ca1d7d0b40e2d4a7969313005b282c56f30ee33ca",
-            "blockHeight": "1049659",
-            "from": "0x92E1ABD0688f2DaD6bAeF1bA550B3DB8496C6bf0",
-            "to": "0x4F059F8d45230Cd5B37544E87eeBba033A5f1b17",
-            "value": "182107694671145841",
-            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+            "id": "0x818086a329ca6cecfaf55ac6f3c5a34b985a97ef5439c15bb66f094b4e76a8e5",
+            "blockHeight": "2841",
+            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+            "to": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
+            "value": "3300395407835132030",
+            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
           },
           {
-            "id": "0x28d3b1dc6c033eb7d34c833845dc942d3039c404f56df0a3dacfed27c43052bd",
-            "blockHeight": "1049564",
-            "from": "0x247442181b8bAA03b3c7DC0D8e971bD4686db27c",
-            "to": "0x4F059F8d45230Cd5B37544E87eeBba033A5f1b17",
-            "value": "146018112402773964",
-            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+            "id": "0x08e395f3058c05141ab656e08fba91d47d52c9bc954e26f378e4edd3f4ef9d8d",
+            "blockHeight": "2435",
+            "from": "0x4b8f52c68594554DdF13aff5E2d8d788bC56Ca8c",
+            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+            "value": "1794066117854317399",
+            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
           },
           {
-            "id": "0x2d4fb3b93b06c3ecf957fab960c4d491bac4d16a3d24c969c98ed8d200652b19",
-            "blockHeight": "1049555",
-            "from": "0x0000000000d854E9Db5fDE8955F123283C41B489",
-            "to": "0x547b227A77813Ea70Aacf01212B39Db7b560fa1c",
-            "value": "133418544049988760",
-            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+            "id": "0x0ac0c00fd9c3bb4ee921e82fe32e658846497697447d9dadffaaec64b2c5ff4a",
+            "blockHeight": "2998",
+            "from": "0x7D9195077671B08F442B2A1b310858bDB1C4abcc",
+            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+            "value": "1430946047728089377",
+            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
           }
         ]
       }
@@ -339,20 +340,12 @@ You will see the result similar to below:
     "approvals": {
       "nodes": [
         {
-          "id": "0x5457b8e60bf56db8fb6cbca09407a6156fda5fcc5775e3bc13c4af12b46bdcc7",
+          "id": "0xccec6946012d52a27fcae9790ade5a5e7314f934170483fecf2896e3448604bd",
           "blockHeight": null,
-          "owner": "0x71A1B05506CAf8596b21f21Ac64E4818b8464867",
-          "spender": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
-          "value": "18043891388642118",
-          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
-        },
-        {
-          "id": "0xcbb77916b8aba6cf3df541c436ce14e71346f5a80c73e66c081dfe1e6dcce264",
-          "blockHeight": null,
-          "owner": "0x71A1B05506CAf8596b21f21Ac64E4818b8464867",
-          "spender": "0xAdB2d3b711Bb8d8Ea92ff70292c466140432c278",
-          "value": "18043891388642118",
-          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+          "owner": "0x12680Ad2f3D80b162344Ba3FF3978daB7A565675",
+          "spender": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+          "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
         }
       ]
     }
@@ -361,7 +354,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Boba/boba-eth-starter/).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Boba/boba-bnb-starter/).
 :::
 
 ## What's next?
