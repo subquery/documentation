@@ -1,6 +1,6 @@
 # Multi-Chain Support
 
-Multi-chain indexing allows you to index data from across different networks into the same database, this allows you to query a single endpoint to get data for all supported networks.
+Multi-chain indexing allows you to index data from **across different networks** into the same database, this allows you to query a single endpoint to get data for all supported networks.
 
 You can use the same SubQuery project, which includes the same GraphQL schema and mapping files to achieve this. It means that SubQuery is truly a write once, run anywhere multi-chain indexer.
 
@@ -9,14 +9,6 @@ For example, you could capture XCM transaction data from all Polkadot parachains
 ![Multi-chain](/assets/img/multi_chain.jpg)
 
 ## How it Works
-
-::: tip Requirements for multi-chain indexing
-
-1. All projects must reference the same [GraphQL schema](./graphql.md) in their `project-xxxx.yaml`
-2. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`
-3. When you first start your indexing node, you must start it with the `--multi-chain` indexing argument
-
-:::
 
 You can enable this feature by adding the `--multi-chain` [argument to the node](../run_publish/references.md#multi-chain) (you can do this in the `docker-compose.yml` or when running via command line), this must be done from the start, otherwise you will need to delete and reset your database.
 
@@ -48,7 +40,7 @@ In our example project, we have [altered the standard `docker-compose.yml`](http
 ```
 
 ::: warning Warning
-This feature is not compatible with Historical State and will be disabled if `--multi-chain` is used.
+This feature is not compatible with [Historical State](./historical.md) and will be disabled if `--multi-chain` is used.
 :::
 
 ::: warning Warning
@@ -85,7 +77,7 @@ Use the `subql codegen` command to generate the required entities, datasource te
 
 ### 3. Add a New Network to the Multi-Chain Manifest
 
-Use the `subql multi-chain:add` command to add a new network to the multi-chain manifest and automatically generate a new manifest ()`project-newchain.yaml`) and Docker service (in `docker-compose.yml`) for the chain.
+Use the `subql multi-chain:add` command to add a new network to the multi-chain manifest and automatically generate a new manifest (`project-newchain.yaml`) and Docker service (in `docker-compose.yml`) for the chain.
 
 Example:
 
@@ -93,7 +85,9 @@ Example:
 subql multi-chain:add -f subquery-multichain.yaml -c project-newchain.yaml
 ```
 
-This command adds `project-newchain.yaml` to the `subquery-multichain.yaml` manifest and updates `docker-compose.yml` with the new service:
+This command adds `project-newchain.yaml` to the `subquery-multichain.yaml` manifest. It both introduces the new chain and integrates the necessary [GraphQL schema](./graphql.md) into its corresponding `project-xxxx.yaml` file, a critical step for ensuring the proper functioning of multi-chain indexing.
+
+This command also updates `docker-compose.yml` with the new service. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`:
 
 ```yaml
 subquery-node-newchain:
@@ -116,11 +110,15 @@ Use `subql publish` command to publish all the projects listed in the `subquery-
 
 The repository for this example can be found [here](https://github.com/subquery/subquery-example-multi-chain-transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
 
-A modified docker-compose.yaml file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a seperate manifest file (see [command line references](../run_publish/references.md)).
+A modified `docker-compose.yaml` file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a seperate manifest file (see [command line references](../run_publish/references.md)).
 
-This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/subquery-example-multi-chain-transfers/blob/main/README.md#configure-your-project)
+This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/subquery-example-multi-chain-transfers/blob/main/README.md#configure-your-project).
 
 ## Tips
+
+In the upcoming sub-sections, we will outline valuable tips for developing multi-chain indexers.
+
+### Addressing ID Collision Concerns with Network Prefixes
 
 When writing your mapping handlers you should account (or prevent) ID collision. If you think this could be a possibility, it is recommended that you prefix your IDs with the network name/ID.
 
@@ -147,6 +145,8 @@ query {
   }
 }
 ```
+
+### Handling Network-Specific Logic
 
 Try to share as much logic as possible across networks, but if you want to determine exactly where the event/transaction/extrinsic/block originated from you will want to define a network specific mapping handler as it's hard to derive exactly what network each input comes from from the input itself.
 
