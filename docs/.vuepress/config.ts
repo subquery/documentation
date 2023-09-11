@@ -367,6 +367,20 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
+              text: "Boba",
+              collapsible: true,
+              children: [
+                {
+                  text: "Boba (ETH)",
+                  link: `${locale}/quickstart/quickstart_chains/boba-eth.md`,
+                },
+                {
+                  text: "Boba (BNB)",
+                  link: `${locale}/quickstart/quickstart_chains/boba-bnb.md`,
+                },
+              ],
+            },
+            {
               text: "BNB Smart Chain (BSC)",
               link: `${locale}/quickstart/quickstart_chains/bsc.md`,
             },
