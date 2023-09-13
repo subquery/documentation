@@ -1,24 +1,24 @@
-# Polygon zkEVM Quick Start
+# Metis Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9) on [Polygon zkEVM](https://zkevm.polygonscan.com) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [METIS Token](https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers) on [Metis](https://metis.io/) Network.
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Polygon zkEVM project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Metis project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Metis/metis-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Polygon zkEVM. Since Polygon zkEVM is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Metis. Since Metis is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Polygon zkEVM project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Metis project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,18 +26,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Polyg
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Polygon zkEVM network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Wrapped ETH contract on Metis network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Polygon is EVM-compatible
-    startBlock: 1 # This is the block that the contract was deployed on https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
+  - kind: ethereum/Runtime # We use ethereum runtime since Metis is EVM-compatible
+    startBlock: 8406498 # This is the block that the contract was deployed on https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9" # This is the contract address for Wrapped Ether https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
+      address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" # This is the contract address for Metis Token https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -45,14 +45,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Base is EVM-compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Metis is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Base is EVM-compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Metis is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -61,9 +61,9 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [METIS token contract](https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [METIS Token contract](https://andromeda-explorer.metis.io/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -142,13 +142,6 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleLog` and `handleTransaction`:
 
 ```ts
-import { Approval, Transfer } from "../types";
-import {
-  ApproveTransaction,
-  TransferLog,
-} from "../types/abi-interfaces/Erc20Abi";
-import assert from "assert";
-
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   assert(log.args, "No log.args");
@@ -179,7 +172,6 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
   await approval.save();
 }
-
 ```
 
 The `handleLog` function receives a `log` parameter of type `TransferLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
@@ -290,47 +282,47 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 901,
+        "totalCount": 165,
         "nodes": [
           {
-            "id": "0x11c3519a07d48ca7e9b3d77c9c288919e8786dfffaad76bdfd6ae554d2481a13",
-            "blockHeight": "3072",
-            "from": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "4390819482026157205",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x648205a34608e574a2de7bed21364c2a14709835e2d875194e45b43fb887c2dc",
+            "blockHeight": "8408065",
+            "from": "0x4A51Cb0A8fb5c45a7F2DDfB95CF3B8d58E9dAa67",
+            "to": "0x4DF37CC3C48eC3EB689c8Bf0D91249cE2506f73B",
+            "value": "201635067077558703872",
+            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
           },
           {
-            "id": "0x8d2eed830280b0e35165560f7234da3ccd02f9dc526434e874ccb0e5a464c4f6",
-            "blockHeight": "936",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0x267816F8789a28463cE10acD50ffeDDE57F318Ee",
-            "value": "3499686336793644484",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0xf468387e997af19aae847614c3b2fed43fa0d4ec0787b3374a327496c87a80a8",
+            "blockHeight": "8408085",
+            "from": "0x4DF37CC3C48eC3EB689c8Bf0D91249cE2506f73B",
+            "to": "0x4A51Cb0A8fb5c45a7F2DDfB95CF3B8d58E9dAa67",
+            "value": "199999999117730942120",
+            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
           },
           {
-            "id": "0x818086a329ca6cecfaf55ac6f3c5a34b985a97ef5439c15bb66f094b4e76a8e5",
-            "blockHeight": "2841",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "value": "3300395407835132030",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x113c5cbf0c99a8e69068ed37a17d40e07242be9d6758b7a7c5746bf92ea2e6c4",
+            "blockHeight": "8407056",
+            "from": "0x81b9FA50D5f5155Ee17817C21702C3AE4780AD09",
+            "to": "0xc9b290FF37fA53272e9D71A0B13a444010aF4497",
+            "value": "198693041920000000000",
+            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
           },
           {
-            "id": "0x08e395f3058c05141ab656e08fba91d47d52c9bc954e26f378e4edd3f4ef9d8d",
-            "blockHeight": "2435",
-            "from": "0x4b8f52c68594554DdF13aff5E2d8d788bC56Ca8c",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1794066117854317399",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0xd90361778969de6a3a730c2148d839de6da92a0e39b90ef52ac6242714cc20c0",
+            "blockHeight": "8407168",
+            "from": "0xf7906a45Be80aAd89399c3aB1e95a516B297f8c9",
+            "to": "0x4A51Cb0A8fb5c45a7F2DDfB95CF3B8d58E9dAa67",
+            "value": "131154997018739080801",
+            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
           },
           {
-            "id": "0x0ac0c00fd9c3bb4ee921e82fe32e658846497697447d9dadffaaec64b2c5ff4a",
-            "blockHeight": "2998",
-            "from": "0x7D9195077671B08F442B2A1b310858bDB1C4abcc",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1430946047728089377",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x702fcdf7c4fe1001929c29ace3cd410c9a26d3bbe78683f61643cd445088971f",
+            "blockHeight": "8406674",
+            "from": "0xa7F01B3B836d5028AB1F5Ce930876E7e2dda1dF8",
+            "to": "0xAf7063edA3A026e27963287FCbbb5cFDBc4ea7DE",
+            "value": "93257374246577228433",
+            "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
           }
         ]
       }
@@ -338,12 +330,44 @@ You will see the result similar to below:
     "approvals": {
       "nodes": [
         {
-          "id": "0xccec6946012d52a27fcae9790ade5a5e7314f934170483fecf2896e3448604bd",
+          "id": "0x788a80ec21535d6c7ff916e179e1c54daddf6ba5ff9bbb0470af0065210adb2d",
           "blockHeight": null,
-          "owner": "0x12680Ad2f3D80b162344Ba3FF3978daB7A565675",
-          "spender": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+          "owner": "0x90811C6839f1a792104B9eD1c54290ba1dD60D98",
+          "spender": "0x2d4F788fDb262a25161Aa6D6e8e1f18458da8441",
+          "value": "1290726706608877427",
+          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+        },
+        {
+          "id": "0x80116e7301b06b918ab7c88ed5018db3fc01399468a0eca7c34b5f691aa7057d",
+          "blockHeight": null,
+          "owner": "0x76C743184eD8F8b07762f1Af98B1EdaD953cdE6c",
+          "spender": "0x1fc37a909cB3997f96cE395B3Ee9ac268C9bCcdb",
           "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+        },
+        {
+          "id": "0x73940df7a0af12de0e2a2ec27e6461bed1b7a6330db159938b965fefa56c6398",
+          "blockHeight": null,
+          "owner": "0xe9030089F4617d4Aa6eE75b5fcA8685543F0e1A0",
+          "spender": "0x1fc37a909cB3997f96cE395B3Ee9ac268C9bCcdb",
+          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+        },
+        {
+          "id": "0x1ca0df7ee186db823b2fecb80b6fe21936dc2cdeaec3dab54ff33f145d87d58b",
+          "blockHeight": null,
+          "owner": "0x1F1e4e3B02268d87d3b6f9043f3B4D96aB244e34",
+          "spender": "0x1fc37a909cB3997f96cE395B3Ee9ac268C9bCcdb",
+          "value": "697763915137477220",
+          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+        },
+        {
+          "id": "0x81386da3bc1960b7e78ca9853d9141fddea6878fbf7aabb3c9324cff092b07be",
+          "blockHeight": null,
+          "owner": "0x90811C6839f1a792104B9eD1c54290ba1dD60D98",
+          "spender": "0x2d4F788fDb262a25161Aa6D6e8e1f18458da8441",
+          "value": "1301646906396793218",
+          "contractAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
         }
       ]
     }
@@ -352,7 +376,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter/).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Metis/metis-starter/).
 :::
 
 ## What's next?

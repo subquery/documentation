@@ -1,35 +1,24 @@
-# Aurora Quick Start (EVM)
-
-[Aurora](https://aurora.dev) is a next-generation Ethereum compatible blockchain and ecosystem that runs on the NEAR Protocol, and powers the innovations behind Aurora Cloud—the fastest path for Web2 businesses to capture the value of Web3.
-
-Since SubQuery fully supports NEAR and Aurora, you can index data from both execution environments in the same SubQuery project and into the same dataset.
+# Skale Europa Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index transfers and approvals for the [Wrapped NEAR smart contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d) on NEAR Aurora.
-
-<br/>
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/cjziTXhGBGw" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
+The goal of this quick start guide is to index all transfers and approval events from the [SKL Token](https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433) on [Skale Europa](https://skale.space/) Network.
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an NEAR Aurora project
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Skale project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-aurora-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Skale/skale-starter).
+
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Skale. Since Skale Europa is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-::: warning Important
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for NEAR Aurora. Since Aurora is a EVM implementation on NEAR, we can use the core Ethereum framework to index it.
-:::
-
-The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project). Note that these are different mapping handlers to that of [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
+The Project Manifest (`project.yaml`) file works as an entry point to your Skale project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -37,20 +26,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Auror
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals for the Wrapped NEAR smart contract, the first step is to import the contract abi definition which can be obtained from [here](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d/contracts#address-tabs). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the SKL Token contract on Skale network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
-This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
-
-**Since we are indexing all transfers and approvals for the Wrapped NEAR smart contract, you need to update the `datasources` section as follows:**
+**Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
-    startBlock: 42731897 # Block with the first interaction with NEAR https://explorer.aurora.dev/tx/0xc14305c06ef0a271817bb04b02e02d99b3f5f7b584b5ace0dab142777b0782b1
+  - kind: ethereum/Runtime # We use ethereum runtime since Skale Europa is EVM-compatible
+    startBlock: 3238500 # This is the block that the contract was deployed on https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d" # this is the contract address for wrapped NEAR https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d
+      address: "0x871bb56655376622a367ece74332c449e5bac433" # This is the contract address for SKL Token https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -58,14 +45,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Skale Europa is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 rawAmount)
+            function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Skale Europa  is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -74,7 +61,9 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-The above code indicates that you will be running a `handleTransaction` and `handlelog` mapping function whenever there is an `approve` or `Transfer` log on any transaction from the [Wrapped NEAR contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d/contracts#address-tabs).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [SKL Token](https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433).
+
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [SKL Token](https://elated-tan-skat.explorer.mainnet.skalenodes.com/token/0x871Bb56655376622A367ece74332C449e5bAc433).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -82,12 +71,11 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id and the blockHeight along with addresses such as to, from, owner and spender, along with the contract address and value as well.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight, transfer receiver and transfer sender along with an approvals and all of the attributes related to them (such as owner and spender etc.).
 
 ```graphql
-type Transaction @entity {
+type Transfer @entity {
   id: ID! # Transaction hash
-  txHash: String
   blockHeight: BigInt
   to: String!
   from: String!
@@ -97,16 +85,13 @@ type Transaction @entity {
 
 type Approval @entity {
   id: ID! # Transaction hash
-  value: BigInt!
+  blockHeight: BigInt
   owner: String!
   spender: String!
+  value: BigInt!
   contractAddress: String!
 }
 ```
-
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
 
 SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
 
@@ -128,7 +113,7 @@ npm run-script codegen
 This will create a new directory (or update the existing one) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, and read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
-import { Approval, Transaction } from "../types";
+import { Approval, Transfer } from "../types";
 ```
 
 As you're creating a new EVM based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
@@ -144,30 +129,25 @@ import {
 } from "../types/abi-interfaces/Erc20Abi";
 ```
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+::: warning Important
+When you make any changes to the schema file, please ensure that you regenerate your types directory using the SubQuery CLI prompt `yarn codegen` or `npm run-script codegen`.
+:::
 
-Now that you have made essential changes to the GraphQL Schema file, let’s proceed ahead with the Mapping Function’s configuration.
+Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
 
 ## 3. Add a Mapping Function
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
 
-Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
+Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleLog` and `handleTransaction`:
 
 ```ts
-import { Approval, Transaction } from "../types";
-import {
-  ApproveTransaction,
-  TransferLog,
-} from "../types/abi-interfaces/Erc20Abi";
-import assert from "assert";
-
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   assert(log.args, "No log.args");
-  const transaction = Transaction.create({
+
+  const transaction = Transfer.create({
     id: log.transactionHash,
-    txHash: log.transactionHash,
     blockHeight: BigInt(log.blockNumber),
     to: log.args.to,
     from: log.args.from,
@@ -194,7 +174,9 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 }
 ```
 
-The `handleTransaction` function receives a `tx` parameter of type `ApproveTransaction` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
+The `handleLog` function receives a `log` parameter of type `TransferLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
+
+The `handleTransaction` function receives a `tx` parameter of type `ApproveTransaction` which includes transaction data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
 
@@ -268,17 +250,26 @@ Try the following query to understand how it works for your new SubQuery starter
 # Write your query or mutation here
 {
   query {
-    transactions(first: 2, orderBy: BLOCK_HEIGHT_ASC) {
+    transfers(first: 5, orderBy: VALUE_DESC) {
       totalCount
       nodes {
         id
-        txHash
         blockHeight
-        to
         from
+        to
         value
         contractAddress
       }
+    }
+  }
+  approvals(first: 5, orderBy: BLOCK_HEIGHT_DESC) {
+    nodes {
+      id
+      blockHeight
+      owner
+      spender
+      value
+      contractAddress
     }
   }
 }
@@ -290,25 +281,38 @@ You will see the result similar to below:
 {
   "data": {
     "query": {
-      "transactions": {
-        "totalCount": 1,
+      "transfers": {
+        "totalCount": 2,
         "nodes": [
           {
-            "id": "0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6-5",
-            "txHash": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "value": "12373884174795780000"
+            "id": "0x16893fed2e2039962210d32c09f23e695be2abe6830992108746531150c9a8f3",
+            "blockHeight": "3238561",
+            "from": "0x762446eea81874C7CAC10dda5854E1d13BD25e54",
+            "to": "0x8a8514e4b0D96Ef66Df57421d9cc64eecA349287",
+            "value": "1000000000000000000",
+            "contractAddress": "0x871Bb56655376622A367ece74332C449e5bAc433"
           },
           {
-            "id": "0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6-5",
-            "txHash": "0x9fd50776f133751e8ae6abe1be124638bb917e05",
-            "value": "12373884174795780000"
+            "id": "0x66929d3ff88d0effb04f6f7728408cb8c6809d43fb3aee9c96b77dc02107e960",
+            "blockHeight": "3238506",
+            "from": "0x762446eea81874C7CAC10dda5854E1d13BD25e54",
+            "to": "0x8a8514e4b0D96Ef66Df57421d9cc64eecA349287",
+            "value": "1000000000000000000",
+            "contractAddress": "0x871Bb56655376622A367ece74332C449e5bAc433"
           }
         ]
       }
+    },
+    "approvals": {
+      "nodes": []
     }
   }
 }
 ```
+
+::: tip Note
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Skale/skale-starter/).
+:::
 
 ## What's next?
 

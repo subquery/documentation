@@ -4,6 +4,11 @@
 
 The goal of this quick start guide is to index all token deposits and transfers from the Avalanche's [Pangolin token](https://snowtrace.io/address/0x88afdae1a9f58da3e68584421937e5f564a0135b).
 
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/i0glKaQOIbM" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ::: warning
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Avalanche project**
 :::

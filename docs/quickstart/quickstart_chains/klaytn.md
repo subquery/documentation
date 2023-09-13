@@ -1,24 +1,24 @@
-# Polygon zkEVM Quick Start
+# Klaytn Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9) on [Polygon zkEVM](https://zkevm.polygonscan.com) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [Orbit ETH](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396) on [Klaytn](https://scope.klaytn.com) Network .
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Polygon zkEVM project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Klaytn project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Klaytn/klaytn-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Polygon zkEVM. Since Polygon zkEVM is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Klaytn Network. Since Klaytn is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Polygon zkEVM project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.yaml`) file works as an entry point to your Klaytn project. It defines most of the details on how SubQuery will index and transform the chain data. For Klaytn, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,18 +26,18 @@ The Project Manifest (`project.yaml`) file works as an entry point to your Polyg
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Polygon zkEVM network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Orbit ETH contract on Klaytn network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```yaml
 dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Polygon is EVM-compatible
-    startBlock: 1 # This is the block that the contract was deployed on https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
+  - kind: ethereum/Runtime # We use ethereum runtime since Klaytn is EVM-compatible
+    startBlock: 131206820 # This is the block that the contract was deployed on https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
     options:
       # Must be a key of assets
       abi: erc20
-      address: "0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9" # This is the contract address for Wrapped Ether https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
+      address: "0x34d21b1e550d73cee41151c77f3c73359527a396" # This is the contract address for Orbit Ether https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
     assets:
       erc20:
         file: "./abis/erc20.abi.json"
@@ -45,14 +45,14 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Base is EVM-compatible
+          kind: ethereum/TransactionHandler # We use ethereum handlers since Klaytn is EVM-compatible
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: approve(address spender, uint256 amount)
         - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Base is EVM-compatible
+          kind: ethereum/LogHandler # We use ethereum handlers since Klaytn  is EVM-compatible
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -61,9 +61,9 @@ dataSources:
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Orbit ETH contract](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Orbit ETH](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
 
@@ -116,11 +116,7 @@ This will create a new directory (or update the existing one) `src/types` which 
 import { Approval, Transfer } from "../types";
 ```
 
-As you're creating a new EVM based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
-
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. Read about how this is done in [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis).
-
-In this example SubQuery project, you would import these types like so.
+If you're creating a new EVM-based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In this example SubQuery project, you would import these types like so.
 
 ```ts
 import {
@@ -142,13 +138,6 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleLog` and `handleTransaction`:
 
 ```ts
-import { Approval, Transfer } from "../types";
-import {
-  ApproveTransaction,
-  TransferLog,
-} from "../types/abi-interfaces/Erc20Abi";
-import assert from "assert";
-
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   assert(log.args, "No log.args");
@@ -179,7 +168,6 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
   await approval.save();
 }
-
 ```
 
 The `handleLog` function receives a `log` parameter of type `TransferLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
@@ -290,47 +278,47 @@ You will see the result similar to below:
   "data": {
     "query": {
       "transfers": {
-        "totalCount": 901,
+        "totalCount": 8,
         "nodes": [
           {
-            "id": "0x11c3519a07d48ca7e9b3d77c9c288919e8786dfffaad76bdfd6ae554d2481a13",
-            "blockHeight": "3072",
-            "from": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "4390819482026157205",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x19a332808b2642af38d84951bbe17c044b021be6e587a2f8799ff90419279672",
+            "blockHeight": "131207180",
+            "from": "0xd3e2Fd9dB41Acea03f0E0c22d85D3076186f4f24",
+            "to": "0xa03990511B6ee8BDb24C1693f9f8BD90DDfFd19D",
+            "value": "1813529233975307",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x8d2eed830280b0e35165560f7234da3ccd02f9dc526434e874ccb0e5a464c4f6",
-            "blockHeight": "936",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0x267816F8789a28463cE10acD50ffeDDE57F318Ee",
-            "value": "3499686336793644484",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x12581a3f5dcb67a4d5017fa877c1971f130539ceb81949478cf3710f27802c44",
+            "blockHeight": "131207054",
+            "from": "0x6B0177E96C3623B6F6940dA18378d52f78CeA12D",
+            "to": "0x88Fe4fB118c954c11A359AbcE9dc887F7399bE1c",
+            "value": "1731405454880983",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x818086a329ca6cecfaf55ac6f3c5a34b985a97ef5439c15bb66f094b4e76a8e5",
-            "blockHeight": "2841",
-            "from": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "to": "0xC6c893a0dCf31b5766Ac5c103AF9e9805A6d0774",
-            "value": "3300395407835132030",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x8df838f5f6e0710c43a15512c353c62ca7ef90b19e77db72f832835d2eab76b1",
+            "blockHeight": "131207096",
+            "from": "0xc3DA629c518404860c8893a66cE3Bb2e16bea6eC",
+            "to": "0xd3e2Fd9dB41Acea03f0E0c22d85D3076186f4f24",
+            "value": "160321797378530",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x08e395f3058c05141ab656e08fba91d47d52c9bc954e26f378e4edd3f4ef9d8d",
-            "blockHeight": "2435",
-            "from": "0x4b8f52c68594554DdF13aff5E2d8d788bC56Ca8c",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1794066117854317399",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0xc4f94437900be853cc03e0fae2c18650fdde00bd8a26cd080d45dd9051edad42",
+            "blockHeight": "131206820",
+            "from": "0x6B0177E96C3623B6F6940dA18378d52f78CeA12D",
+            "to": "0x71B59e4bC2995B57aA03437ed645AdA7Dd5B1890",
+            "value": "18574153690448",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           },
           {
-            "id": "0x0ac0c00fd9c3bb4ee921e82fe32e658846497697447d9dadffaaec64b2c5ff4a",
-            "blockHeight": "2998",
-            "from": "0x7D9195077671B08F442B2A1b310858bDB1C4abcc",
-            "to": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
-            "value": "1430946047728089377",
-            "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+            "id": "0x6e4c46dad80fa9c55f4d1e6048317f12614b7405321ce36ed7bec8b0e624dffb",
+            "blockHeight": "131207283",
+            "from": "0xAebFAe557F3948B91c9cb25fc650A26F728C5C9d",
+            "to": "0x09267e3E96925C76DfcC2CE39479559A2AB9B8a2",
+            "value": "2000000000000",
+            "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
           }
         ]
       }
@@ -338,12 +326,12 @@ You will see the result similar to below:
     "approvals": {
       "nodes": [
         {
-          "id": "0xccec6946012d52a27fcae9790ade5a5e7314f934170483fecf2896e3448604bd",
+          "id": "0x61e162fa7e5bbc5edfb462627eaf6d96aaf240ccde102bb0a04ef868bab54c07",
           "blockHeight": null,
-          "owner": "0x12680Ad2f3D80b162344Ba3FF3978daB7A565675",
-          "spender": "0xd8E1E7009802c914b0d39B31Fc1759A865b727B1",
+          "owner": "0x88Fe4fB118c954c11A359AbcE9dc887F7399bE1c",
+          "spender": "0x51D233B5aE7820030A29c75d6788403B8B5d317B",
           "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
-          "contractAddress": "0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9"
+          "contractAddress": "0x34d21b1e550D73cee41151c77F3c73359527a396"
         }
       ]
     }
@@ -352,7 +340,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter/).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Klaytn/klaytn-starter).
 :::
 
 ## What's next?
