@@ -519,7 +519,7 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
             },
             {
-              text: "Stellar Soroban",
+              text: "Stellar & Soroban",
               link: `${locale}/quickstart/quickstart_chains/stellar.md`,
             },
             {

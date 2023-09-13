@@ -7,6 +7,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - The mappings files are reference in `project.yaml` under the mapping handlers.
 
 There are different classes of mapping functions for Stellar; [Block handlers](#block-handler), [Operation Handlers](#operation-handler), and [Effect Handlers](#effect-handler).
+
 Soroban has two classes of mapping functions; [Transaction Handlers](#transaction-handler), and [Event Handlers](#event-handler).
 
 ## Block Handler
