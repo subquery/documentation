@@ -1,9 +1,5 @@
 # Stellar & Soroban Manifest File [Beta]
 
-::: warning Stellar and Soroban is in Beta
-Stellar and Soroban support is still in beta and is not ready for production use. You can track progress of [Stellar support](https://github.com/subquery/subql-stellar/issues/2) and [Soroban support](https://github.com/subquery/subql-stellar/issues/3).
-:::
-
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
@@ -37,7 +33,7 @@ network:
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   endpoint: ["https://horizon-futurenet.stellar.org:443"]
-  soroban: "https://rpc-futurenet.stellar.org"
+  sorobanEndpoint: "https://rpc-futurenet.stellar.org"
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
   # dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
 
@@ -96,7 +92,9 @@ If you start your project by using the `subql init` command, you'll generally re
 
 The `chainId` is the network identifier of the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases). Examples in Stellar are `Public Global Stellar Network ; September 2015` for mainnet and `Test SDF Future Network ; October 2022` for Future Network.
 
-Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
+A unique aspect of Stellar's Soroban network is that there is an additional seperate RPC for the Soroban smart contract layer. If you are indexing using the `soroban/TransactionHandler` or `soroban/EventHandler`, you will need to provide an HTTP RPC Soroban endpoint under the `sorobanEndpoint` property - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**. This only accepts a single endpoint.
+
+You will need to update the `endpoint`. This defines the HTTP RPC endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
 - Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
@@ -104,14 +102,14 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
-| Field            | Type   | Description                                                                                                                                                                              |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
-| **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                             |
-| **soroban**      | String | Defines the soroban endpoint - **This must be a full archive node**.                    
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                          |                                                                        
-| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| Field               | Type               | Description                                                                                                                                                                              |
+| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**         | String             | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
+| **endpoint**        | String or String[] | Defines the endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical datae**.                     |
+| **sorobanEndpoint** | String             | Defines the soroban RPC endpoint - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                                          |
+| **port**            | Number             | Optional port number on the `endpoint` to connect to                                                                                                                                     |
+| **dictionary**      | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
+| **bypassBlocks**    | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
 
 ### Runner Spec
 
@@ -168,23 +166,37 @@ dataSources:
 
 The following table explains filters supported by different handlers.
 
-| Handler                                                     | Supported filter                                                           |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [stellar/BlockHandler](../mapping/stellar.md#block-handler) | `modulo` and `timestamp`                                                   |
-| [stellar/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address) |
-| [soroban/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address) |
-| [stellar/OperationHandler](../mapping/stellar.md#operation-handler) | `type`, `sourceAccount` |
-| [stellar/EffectHandler](../mapping/stellar.md#effect-handler) | `type`, `account` |
-| [soroban/EventHandler](../mapping/stellar.md#event-handler) | Up to 4 `topics` filters applied as an array, and an optional `contractId` |
+| Handler                                                                 | Supported filter                                                                               |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [stellar/BlockHandler](../mapping/stellar.md#block-handler)             | `modulo` and `timestamp`                                                                       |
+| [stellar/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address from)                                                                       |
+| [soroban/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address from)                                                                       |
+| [stellar/OperationHandler](../mapping/stellar.md#operation-handler)     | `type`, `sourceAccount`                                                                        |
+| [stellar/EffectHandler](../mapping/stellar.md#effect-handler)           | `type`, `account` (address from)                                                               |
+| [soroban/EventHandler](../mapping/stellar.md#event-handler)             | `contractId` and/or up to 4 `topics` filters applied as an array, and an optional `contractId` |
 
 ```yml
-# Example filter from EventHandler
-- handler: handleEvent
-  kind: stellar/EventHandler
-  filter:
-    # contractId: "" # You can optionally specify a smart contract address here
-    topics:
-      - "transfer" # Topic signature(s) for the events, there can be up to 4
+handlers:
+  - handler: handleBlock
+    kind: soroban/BlockHandler
+  - handler: handleTransaction
+    kind: soroban/TransactionHandler
+    filter:
+      account: "GAKNXHJ5PCZYFIBNBWB4RCQHH6GDEO7Z334N74BOQUQCHKOURQEPMXCH"
+  - handler: handleOperation
+    kind: stellar/OperationHandler
+    filter:
+      type: "payment"
+  - handler: handleEffect
+    kind: stellar/EffectHandler
+    filter:
+      type: "account_credited"
+  - handler: handleEvent
+    kind: soroban/EventHandler
+    filter:
+      # contractId: "" # You can optionally specify a smart contract address here
+      topics:
+        - "transfer" # Topic signature(s) for the events, there can be up to 4
 ```
 
 Default runtime mapping filters are an extremely useful feature to decide what event will trigger a mapping handler.
@@ -215,5 +227,3 @@ network:
 ## Validating
 
 You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.
-
-

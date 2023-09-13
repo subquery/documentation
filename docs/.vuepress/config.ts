@@ -519,6 +519,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
             },
             {
+              text: "Stellar Soroban",
+              link: `${locale}/quickstart/quickstart_chains/stellar.md`,
+            },
+            {
               text: "ZkSync Era",
               link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
             },
@@ -550,6 +554,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/manifest/optimism.md`,
             `${locale}/build/manifest/polkadot.md`,
             `${locale}/build/manifest/polygon.md`,
+            `${locale}/build/manifest/stellar.md`,
             `${locale}/build/manifest/terra.md`,
           ],
         },
@@ -570,6 +575,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/optimism.md`,
             `${locale}/build/mapping/polkadot.md`,
             `${locale}/build/mapping/polygon.md`,
+            `${locale}/build/mapping/stellar.md`,
             `${locale}/build/mapping/terra.md`,
             `${locale}/build/mapping/store.md`,
           ],
