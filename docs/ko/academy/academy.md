@@ -1,6 +1,6 @@
 # 서브쿼리 과정에 오신 것을 환영합니다!
 
-![SubQuery Academy Banner](/assets/img/academy.png)
+![서브쿼리 아카데미 배너](/assets/img/academy.png)
 
 서브쿼리 아카데미는 서브쿼리 생태계에서 개발자들을 역량 강화할 수 있도록 모듈식 프로그램을 제공합니다. 이 프로그램의 내용은 야심찬 블록체인 개발자를 초급에서 고급 수준으로 이끌 것입니다. 모든 과정은 100% 무료이며 온라인으로 수강할 수 있습니다.
 
@@ -28,4 +28,4 @@
 
 ---
 
-> “서브쿼리는 개발자들이 블록체인 데이터에서 가치를 쉽게 빠르게 잠금 해제할 수 있도록 설계되었습니다. 그래서 새로운 개발자를 온보딩하고 그들에게 내일의 dApp을 구축하는 데 필요한 기술을 가르치는 것은 우리 커뮤니티의 성공에 매우 중요합니다. The SubQuery Hero Course is going to be the first of many courses teaching valuable skills in our new SubQuery Academy”</em> — [James Bayly](https://twitter.com/jamesabayly) (Chief Operating Officer at SubQuery)
+> “서브쿼리는 개발자들이 블록체인 데이터에서 가치를 쉽게 빠르게 잠금 해제할 수 있도록 설계되었습니다. 그래서 새로운 개발자를 온보딩하고 그들에게 내일의 dApp을 구축하는 데 필요한 기술을 가르치는 것은 우리 커뮤니티의 성공에 매우 중요합니다. 서브쿼리 영웅 코스는 저희의 새로운 서브쿼리 아카데미에서 유익한 기술을 가르치는 많은 코스 중 첫 번째가 될 것입니다."</em> — [ 제임스 베일리 ](https://twitter.com/jamesabayly) (SubQuery의 최고 운영 책임자)
