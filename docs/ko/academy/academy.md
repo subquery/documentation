@@ -1,31 +1,31 @@
-# Welcome to SubQuery's Courses
+# 서브쿼리 과정에 오신 것을 환영합니다!
 
 ![SubQuery Academy Banner](/assets/img/academy.png)
 
-The SubQuery Academy helps developers to upskill in the SubQuery ecosystem by providing them with a modular programme. The content of this programme will take an aspiring blockchain developer from beginning to advanced level. Each course is 100% free and accessible online.
+서브쿼리 아카데미는 서브쿼리 생태계에서 개발자들을 역량 강화할 수 있도록 모듈식 프로그램을 제공합니다. 이 프로그램의 내용은 야심찬 블록체인 개발자를 초급에서 고급 수준으로 이끌 것입니다. 모든 과정은 100% 무료이며 온라인으로 수강할 수 있습니다.
 
-**SubQuery offers the following courses with more coming soon**
+**서브쿼리는 다음과 같은 과정을 제공하며, 더 많은 과정이 곧 출시될 예정입니다.**
 
-## The SubQuery Hero Course (Polkadot)
+## 서브쿼리 영웅 코스 (폴카닷)
 
-The course is designed in a way that even if you are a beginner and know very little about SubQuery, you will become an expert in building a SubQuery data source for your new Polkadot blockchain application. And that even includes developing complex SubQuery Projects and deploying them in SubQuery's Managed Service.
+이 과정은 초보자이거나 서브쿼리에 대해 거의 모르는 경우에도 새로운 폴카닷 블록체인 애플리케이션을 위해 서브쿼리 데이터 소스를 구축하는 전문가가 될 수 있도록 설계되었습니다. 그리고 그것은 심지어 복잡한 서브쿼리 프로젝트를 개발하고 서브쿼리의 관리 서비스에 배포하는 것을 포함합니다.
 
-Each module consists of 5-10 minutes video lessons. Each video is explained by industry experts and will guide you step by step. Moreover, to make it easier for you, each video content is followed by written tutorials, slides, lab workbooks, and links to the finished GitHub code repository. It focuses on the mantra of "learning by doing".
+각 모듈은 5-10분 분량의 비디오 강좌로 구성됩니다. 각 비디오는 업계 전문가가 설명하고 단계별로 안내해 드립니다. 또한, 각 비디오 콘텐츠는 이를 더 쉽게 이해할 수 있도록 서면 튜토리얼, 슬라이드, 실험실 워크북 및 완성된 GitHub 코드 저장소에 대한 링크를 제공합니다. 그것은 "실천을 통해 배운다"는 격언에 초점을 맞춥니다.
 
-[**Start Now**](./herocourse/welcome.md)
+[**시작하기**](./herocourse/welcome.md)
 
-## The SubQuery Moonbeam Course (Moonbeam)
+## 서브쿼리 문빔 코스 (문빔)
 
-This course is focused on the Moonbeam and SubQuery integration and is crafted specifically for Moonbeam developers who are looking to index EVM (Ethereum Virtual Machine) data alognside Substrate data. It is a result of SubQuery's latest collaboration with Moonbeam to release a new course for web3 developers, who want to learn how to build a decentralised application on Moonbeam with the help of SubQuery. SubQuery was proud to be the first project to launch a course under Moonbeam’s very own Moonbuilders Academy. We are happy to feature this content here a part of SubQuery Academy.
+이 과정은 문빔과 서브쿼리 통합에 중점을 두고 있으며, 서브스트레이트 데이터와 함께 EVM(이더리움 가상 머신) 데이터를 인덱싱하려는 문빔 개발자를 위해 특별히 제작되었습니다. 이는 서브쿼리와 문빔의 최신 협력의 결과로, 문빔에서 서브쿼리의 도움으로 분산 애플리케이션을 구축하는 방법을 배우고자 하는 웹3 개발자를 위한 새로운 과정을 출시하게 되었습니다. 서브쿼리는 문빔의 자체 문빌더스 아카데미에서 첫 번째 코스를 출시한 프로젝트가 된 것을 자랑스럽게 생각합니다. 우리는 이 콘텐츠를 SubQuery Academy의 일부로 여기에서 소개하게 된 것을 기쁘게 생각합니다.
 
-[**Start Now**](./moonbeam_course/welcome.md)
+[**지금 시작하기**](./moonbeam_course/welcome.md)
 
-## Tutorials and Examples
+## 튜토리얼과 예제
 
-There are a collection of example projects that you can view to how certain topics are done using SubQuery. For example, find out how we can index custom Substrate chains or how to index many-to-many events.
+서브쿼리를 사용하여 특정 주제가 어떻게 구현되는지 볼 수 있는 샘플 프로젝트 모음이 있습니다. 예를 들어, 커스텀 서브스트레이트 체인을 인덱싱하는 방법이나 다대다 이벤트를 인덱싱하는 방법을 알아보세요.
 
-[**Read More**](./tutorials_examples/introduction.md)
+[**더 읽어보기**](./tutorials_examples/introduction.md)
 
 ---
 
-> _“SubQuery has been designed to help developers unlock value from blockchain data easily and quickly. That’s why onboarding new developers and teaching them the skills they need to build the dApps of tomorrow is incredibly important to the success of our community. The SubQuery Hero Course is going to be the first of many courses teaching valuable skills in our new SubQuery Academy”_ — [James Bayly](https://twitter.com/jamesabayly) (Chief Operating Officer at SubQuery)
+> “서브쿼리는 개발자들이 블록체인 데이터에서 가치를 쉽게 빠르게 잠금 해제할 수 있도록 설계되었습니다. 그래서 새로운 개발자를 온보딩하고 그들에게 내일의 dApp을 구축하는 데 필요한 기술을 가르치는 것은 우리 커뮤니티의 성공에 매우 중요합니다. The SubQuery Hero Course is going to be the first of many courses teaching valuable skills in our new SubQuery Academy”</em> — [James Bayly](https://twitter.com/jamesabayly) (Chief Operating Officer at SubQuery)
