@@ -1,82 +1,82 @@
-# Frequently Asked Questions
+# Faq (에프에이큐)
 
 ## SubQuery란?
 
-SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
+서브쿼리(SubQuery) 는 개발자를 위한 오픈 소스 블록체인 데이터 인덱서입니다. 빠르고 유연하며 안정적이고 탈중앙화된 API를 제공하여 선도적인 멀티체인 애플리케이션을 구동합니다.
 
-Our goal is to save developers' time and money by eliminating the need of building their own indexing solution. Now, they can fully focus on developing their applications. SubQuery helps developers create the decentralised products of the future.
+개발자가 자체 인덱싱 솔루션을 구축할 필요가 없도록 함으로써 개발자의 시간과 비용을 절약하는 것이 우리의 목표입니다. 이제 그들은 애플리케이션 개발에 전념할 수 있습니다. 서브쿼리는 개발자들이 미래의 분산형 제품을 만들도록 지원합니다.
 
 <br/>
 <figure class="video_container">
-<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="Introducing The SubQuery Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
+<iframe src="https://www.youtube.com/embed/gCpVz_mkWdo" title="하위 쿼리 네트워크 소개" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree="true"></iframe>
 </figure>
 
-**SubQuery Managed Service**
+**서브쿼리 관리 서비스**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+서브쿼리(SubQuery) 는 개발자들을 위해 무료로 생산 수준의 프로젝트 호스팅을 제공합니다. 우리 Managed Service는 인프라를 관리하는 책임을 제거하여 개발자들이 가장 잘하는 일인 개발에 집중할 수 있도록 합니다. 더 알아보기[여기](/run_publish/publish.md)
 
-**The SubQuery Network**
+**서브쿼리 네트워크**
 
-The SubQuery Network allows developers to completely decentralise their infrastructure stack. It is the most open, performant, reliable, and scalable data service for dApps. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+서브쿼리 네트워크는 개발자들이 인프라 스택을 완전히 탈중앙화할 수 있도록 합니다. 이것은 dApp을 위한 가장 개방적이고, 성능이 뛰어나고, 안정적이며, 확장 가능한 데이터 서비스입니다. 이것은 dApp을 위한 가장 개방적이고, 성능이 뛰어나고, 안정적이며, 확장 가능한 데이터 서비스입니다. 당신의 프로젝트를 SubQuery 네트워크에 게시하면 누구나 인덱싱하고 호스트할 수 있습니다. 이를 통해 전 세계 사용자에게 데이터를 더 빠르고 안정적으로 제공할 수 있습니다.
 
-More information [here](/subquery_network/introduction.md).
+추가 정보[여기](/subquery_network/introduction.md)
 
 ## SubQuery를 시작하는 가장 좋은 방법은 무엇입니까?
 
-The best way to get started with SubQuery is to try out our [Hello World tutorial](/assets/pdf/Hello_World_Lab.pdf). This is a simple 5 min walk through exercise. Download the starter template, build the project, use Docker to run a node on your localhost, and run a simple query.
+서브쿼리 시작하는 가장 좋은 방법은 저희를 사용해보는 것입니다. [안녕하세요 세계 지도 시간 ](/assets/pdf/Hello_World_Lab.pdf) 이것은 간단한 5분 걷기 운동입니다. 시작 템플릿을 다운로드하고, 프로젝트를 빌드하고, Docker를 사용하여 로컬 호스트에서 노드를 실행하고, 간단한 쿼리를 실행하세요.
 
 ## SubQuery에 기여하거나 피드백을 하려면 어떻게 해야하나요?
 
-We love contributions and feedback from the community. To contribute the code, fork the repository of your interest and make your changes. Then submit a PR or Pull Request. Don't forget to test as well. Also check out our [contributions guidelines](../miscellaneous/contributing.html).
+우리는 커뮤니티의 기여와 피드백을 좋아합니다. 코드를 제공하려면 관심 있는 저장소를 포크하고 변경하세요. 그런 다음 PR 또는 Pull Request를 제출하세요. 테스트하는 것도 잊지 마세요. 또한 우리의 [기부 지침](../miscellaneous/contributing.html)
 
-To give feedback, contact us at hello@subquery.network or jump onto our [discord channel](https://discord.com/invite/78zg8aBSMG).
+피드백을 제공하려면 hello@subquery.network로 문의하거나 다음 페이지로 이동하세요. [디스코드 채널](https://discord.com/invite/78zg8aBSMG)
 
-## How much does it cost to host my project in SubQuery's Managed Service?
+## SubQuery의 관리형 서비스에서 내 프로젝트를 호스팅하는 데 비용이 얼마나 드나요?
 
-This service is being provided to the community with a generous free tier! You can host your first two SubQuery projects for absolutely free!
+이 서비스는 넉넉한 무료 등급으로 커뮤니티에 제공됩니다! 처음 두 개의 SubQuery 프로젝트를 무료로 호스팅할 수 있습니다!
 
-## What are deployment slots?
+## 배포 슬롯이란 무엇입니까?
 
-Deployment slots are a feature in [SubQuery Managed Service](https://managedservice.subquery.network) that is the equivalent of a development environment. For example, in any software organisation there is normally a development environment and a production environment as a minimum (ignoring localhost that is). Typically additional environments such as staging and pre-prod or even QA are included depending on the needs of the organisation and their development set up.
+배포 슬롯은 다음의 기능입니다. [하위 쿼리 관리 서비스](https://managedservice.subquery.network) 이는 개발 환경과 동일합니다. 예를 들어, 모든 소프트웨어 조직에는 일반적으로 개발 환경과 프로덕션 환경이 최소한으로 존재합니다(즉, localhost는 무시함). 일반적으로 조직의 요구 사항과 개발 설정에 따라 준비, 사전 제작 또는 QA와 같은 추가 환경이 포함됩니다.
 
-SubQuery currently has two slots available. A staging slot and a production slot. This allows developers to deploy their SubQuery to the staging environment and all going well, "promote to production" at the click of a button.
+SubQuery에는 현재 두 개의 슬롯을 사용할 수 있습니다. 스테이징 슬롯과 프로덕션 슬롯. 이를 통해 개발자는 SubQuery를 스테이징 환경에 배포할 수 있으며 버튼 클릭만으로 "프로덕션으로 승격"할 수 있습니다.
 
-## What is the advantage of a staging slot?
+## 스테이징 슬롯의 장점은 무엇입니까?
 
-The main benefit of using a staging slot is that it allows you to prepare a new release of your SubQuery project without exposing it publicly. You can wait for the staging slot to reindex all data without affecting your production applications.
+스테이징 슬롯 사용의 주요 이점은 SubQuery 프로젝트를 공개적으로 노출하지 않고도 새 릴리스를 준비할 수 있다는 것입니다. 프로덕션 애플리케이션에 영향을 주지 않고 스테이징 슬롯이 모든 데이터를 다시 색인화할 때까지 기다릴 수 있습니다.
 
-The staging slot is not shown to the public in the [Explorer](https://explorer.subquery.network/) and has a unique URL that is visible only to you. And of course, the separate environment allows you to test your new code without affecting production.
+스테이징 슬롯은 공개적으로 표시되지 않습니다.[탐침](https://explorer.subquery.network/)귀하에게만 표시되는 고유한 URL이 있습니다. 물론 별도의 환경을 사용하면 프로덕션에 영향을 주지 않고 새 코드를 테스트할 수 있습니다.
 
-## What are Polkadot's Extrinsics?
+## Polkadot의 외인성 제품은 무엇입니까?
 
-If you are already familiar with blockchain concepts, you can think of extrinsics as comparable to transactions. More formally though, an extrinsic is a piece of information that comes from outside the chain and is included in a block. There are three categories of extrinsics. They are inherents, signed transactions, and unsigned transactions.
+블록체인 개념에 이미 익숙하다면 외부를 트랜잭션과 비교할 수 있다고 생각할 수 있습니다. 좀 더 공식적으로 말하면, 외부 정보는 체인 외부에서 제공되고 블록에 포함된 정보 조각입니다. 외인성에는 세 가지 범주가 있습니다. 이는 고유성, 서명된 트랜잭션 및 서명되지 않은 트랜잭션입니다.
 
-Inherent extrinsics are pieces of information that are not signed and only inserted into a block by the block author.
+고유한 외부 요소는 서명되지 않고 블록 작성자가 블록에 삽입하기만 하는 정보 조각입니다.
 
-Signed transaction extrinsics are transactions that contain a signature of the account that issued the transaction. They stands to pay a fee to have the transaction included on chain.
+서명된 트랜잭션 외부 항목은 트랜잭션을 발행한 계정의 서명이 포함된 트랜잭션입니다. 그들은 거래가 체인에 포함되도록 수수료를 지불합니다.
 
-Unsigned transactions extrinsics are transactions that do not contain a signature of the account that issued the transaction. Unsigned transactions extrinsics should be used with care because there is nobody paying a fee, becaused they are not signed. Because of this, the transaction queue lacks economic logic to prevent spam.
+서명되지 않은 트랜잭션 외부 항목은 트랜잭션을 발행한 계정의 서명이 포함되지 않은 트랜잭션입니다. 서명되지 않은 거래 외부 항목은 서명되지 않았기 때문에 수수료를 지불하는 사람이 없으므로 주의해서 사용해야 합니다. 이로 인해 트랜잭션 대기열에는 스팸을 방지할 수 있는 경제적 논리가 부족합니다.
 
-For more information, click [here](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
+자세한 내용을 보려면 클릭하세요.[여기](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics).
 
-## What is the endpoint for the Kusama network?
+## Kusama 네트워크의 엔드포인트는 무엇입니까?
 
-The network.endpoint for the Kusama network is `wss://kusama.api.onfinality.io/public-ws`.
+Kusama 네트워크의 network.endpoint는 다음과 같습니다. `wss://kusama.api.onfinality.io/public-ws`.
 
-## What is the endpoint for the Polkadot mainnet network?
+## Polkadot 메인넷 네트워크의 엔드포인트는 무엇입니까?
 
-The network.endpoint for the Polkadot network is `wss://polkadot.api.onfinality.io/public-ws`.
+Polkadot 네트워크의 network.endpoint는 다음과 같습니다. `wss://polkadot.api.onfinality.io/public-ws`.
 
-## How do I iteratively develop my project schema?
+## 프로젝트 스키마를 반복적으로 개발하려면 어떻게 해야 합니까?
 
-A known issue with developing a changing project schema is that when lauching your Subquery node for testing, the previously indexed blocks will be incompatible with your new schema. In order to iteratively develop schemas the indexed blocks stored in the database must be cleared, this can be achieved by launching your node with the `--force-clean` flag. For example:
+변경되는 프로젝트 스키마를 개발할 때 알려진 문제는 테스트를 위해 하위 쿼리 노드를 시작할 때 이전에 인덱싱된 블록이 새 스키마와 호환되지 않는다는 것입니다. 스키마를 반복적으로 개발하려면 데이터베이스에 저장된 인덱싱된 블록을 지워야 합니다. 이는 다음과 같이 노드를 시작하여 달성할 수 있습니다.`--강제 청소`깃발. 예를 들어:
 
 ```shell
-subql-node -f . --force-clean --subquery-name=<project-name>
+subql-노드 -f . --force-clean --subquery-name=<project-name>
 ```
 
-Note that it is recommended to use `--force-clean` when changing the `startBlock` within the project manifest (`project.yaml`) in order to begin reindexing from the configured block. If `startBlock` is changed without a `--force-clean` of the project, then the indexer will continue indexing with the previously configured `startBlock`.
+사용을 권장하니 참고하세요 `--force-clean` 변경할 때 `startBlock` 프로젝트 매니페스트 내에서 (`project.yaml`) 구성된 블록에서 재인덱싱을 시작합니다. 만약에 `startBlock` 없이 변경됩니다 `--force-clean` 그러면 인덱서는 이전에 구성한 항목으로 인덱싱을 계속합니다 `startBlock`.
 
-## How can I optimise my project to speed it up?
+## 프로젝트 속도를 높이기 위해 어떻게 프로젝트를 최적화할 수 있나요?
 
-Performance is a crucial factor in each project. Fortunately, there are several things you could do to improve it. You can find our recommendations in the [Project Optimisation](../build/optimisation.md).
+성능은 각 프로젝트에서 중요한 요소입니다. 다행히도 이를 개선하기 위해 할 수 있는 몇 가지 작업이 있습니다. 다음에서 권장 사항을 찾을 수 있습니다.[프로젝트 최적화](../build/optimisation.md)
