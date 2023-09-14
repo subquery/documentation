@@ -11,12 +11,14 @@ Following is a summary of the `Store` interface:
 ```typescript
 export interface Store {
   get(entity: string, id: string): Promise<Entity | null>;
+
   getByField(
     entity: string,
     field: string,
     value: any,
     options?: { limit?: number; offset?: number }
   ): Promise<Entity[]>;
+
   getByFields<T extends Entity>(
     entity: string,
     filter: [
@@ -26,15 +28,21 @@ export interface Store {
     ][],
     options?: { offset?: number; limit?: number }
   ): Promise<T[]>;
+
   getOneByField(
     entity: string,
     field: string,
     value: any
   ): Promise<Entity | null>;
+
   set(entity: string, id: string, data: Entity): Promise<void>;
+
   bulkCreate(entity: string, data: Entity[]): Promise<void>;
+
   bulkUpdate(entity: string, data: Entity[], fields?: string[]): Promise<void>;
+
   remove(entity: string, id: string): Promise<void>;
+
   count(
     entity: string,
     field?: string,
