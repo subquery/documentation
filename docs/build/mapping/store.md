@@ -11,21 +11,38 @@ Following is a summary of the `Store` interface:
 ```typescript
 export interface Store {
   get(entity: string, id: string): Promise<Entity | null>;
+
   getByField(
     entity: string,
     field: string,
     value: any,
     options?: { limit?: number; offset?: number }
   ): Promise<Entity[]>;
+
+  getByFields<T extends Entity>(
+    entity: string,
+    filter: [
+      field: keyof T,
+      operator: "=" | "!=" | "in" | "!in",
+      value: T[keyof T] | Array<T[keyof T]>
+    ][],
+    options?: { offset?: number; limit?: number }
+  ): Promise<T[]>;
+
   getOneByField(
     entity: string,
     field: string,
     value: any
   ): Promise<Entity | null>;
+
   set(entity: string, id: string, data: Entity): Promise<void>;
+
   bulkCreate(entity: string, data: Entity[]): Promise<void>;
+
   bulkUpdate(entity: string, data: Entity[], fields?: string[]): Promise<void>;
+
   remove(entity: string, id: string): Promise<void>;
+
   count(
     entity: string,
     field?: string,
@@ -35,7 +52,7 @@ export interface Store {
 }
 ```
 
-## Get Record
+## Get Record by ID
 
 `get(entity: string, id: string): Promise<Entity | null>;`
 
@@ -43,27 +60,67 @@ This allows you to get a record of the entity with its `id`.
 
 ```typescript
 const id = block.block.header.hash.toString();
-await store.get(`StarterEntity`, id);
+await store.get(`TransactionEntity`, id);
 ```
 
-## Get All Records by Field
+## Get Records by a Single Field
 
 `getByField(entity: string, field: string, value: any, options?: { limit?: number; offset?: number }): Promise<Entity[]>;`
 
-This returns matching records for the specific entity that matches a given search. By default it will return the first 100 results.
+This returns matching records for the specific entity that matches an equality comparison. By default it will return the first 100 results.
 The number of results can be changed via the `query-limit` flag for the node or via the options field. If you need more than the number of results provided you can also specify an `offset` and page your results.
 
 ```typescript
-// Get all records with field1 == 50
-await store.getByField(`StarterEntity`, "field1", 50);
+// Get all records with ChainID == 50
+await store.getByField(`TransactionEntity`, "ChainID", 50);
 ```
 
 Please note, the third parameter also accepts array, you can consider this similar like `bulkGet` with OR search.
-To get a list of records with `field1` equal to 50, 100 or 150:
+To get a list of records with `ChainID` equal to 50, 100 or 150:
 
 ```typescript
-// Get all records with field1 == 50 OR field1 == 100 OR field1 == 150
-await store.getByField("StarterEntity", "field1", [50, 100, 150]);
+// Get all records with ChainID == 50 OR ChainID == 100 OR ChainID == 150
+await store.getByField("TransactionEntity", "ChainID", [50, 100, 150]);
+```
+
+## Get Records by Field
+
+```ts
+getByFields<T extends Entity>(
+    entity: string,
+    filter: [field: keyof T, operator: '=' | '!=' | 'in' | '!in', value: T[keyof T] | Array<T[keyof T]>][],
+    options?: {offset?: number; limit?: number}
+  ): Promise<T[]>;
+```
+
+This returns all matching records for the specific entity that matches the given filter(s). Each entry in the filter is an AND operation. By default it will return the first 100 results.
+The number of results can be changed via the `query-limit` flag for the node or via the options field. If you need more than the number of results provided, we recommend you specify an `offset` and paginate through your results.
+
+Using the store directly:
+
+```ts
+// Get all records with ChainID == 50 AND AccountID == '0xSomeAddress'
+await store.getByFields(`TransactionEntity`, [
+  ["ChainID", "=", 50],
+  ["AccountID", "=", "0xSomeAddress"],
+]);
+```
+
+Using an entity, this will provide better type safety:
+
+```ts
+// Get all records with ChainID == 50 AND AccountID == '0xSomeAddress'
+await TransactionEntity.getByFields([
+  ["ChainID", "=", 50],
+  ["AccountID", "=", "0xSomeAddress"],
+]);
+```
+
+It's also possible to match multiple values to a field (in this case an OR operation is applied):
+
+```ts
+// Get all records with ChainID == 50 OR ChainID == 51
+await TransactionEntity.getByFields([["ChainID", "=", [50, 51]]]);
 ```
 
 ## Get First Record by Field
@@ -73,8 +130,8 @@ await store.getByField("StarterEntity", "field1", [50, 100, 150]);
 This returns the first matching record for the specific entity that matches a given search.
 
 ```typescript
-const field1Value = 50;
-await store.getOneByField(`StarterEntity`, `field1`, field1Value);
+const ChainIDValue = 50;
+await store.getOneByField(`TransactionEntity`, `ChainID`, 50);
 ```
 
 ## Upsert (Create and Update) Record
@@ -85,7 +142,7 @@ This allows user to create a single record, if the record already exist this wil
 
 ```typescript
 const id = block.block.header.hash.toString();
-await store.set(`StarterEntity`,id, {field1: 50, ...})
+await store.set(`TransactionEntity`,id, {ChainID: 50, ...})
 ```
 
 ## Bulk Create Records
@@ -95,10 +152,10 @@ await store.set(`StarterEntity`,id, {field1: 50, ...})
 This allows to create multiple records for specified entity, but it will not overwrite existing records.
 
 ```typescript
-await store.bulkCreate(`StarterEntity`,[
-    {id: 1, field1: 50, ...},
-    {id: 2, field1: 100, ...},
-    {id: 3, field1: 150, ...}
+await store.bulkCreate(`TransactionEntity`,[
+    {id: 1, ChainID: 50, ...},
+    {id: 2, ChainID: 100, ...},
+    {id: 3, ChainID: 150, ...}
 ])
 ```
 
@@ -109,22 +166,22 @@ await store.bulkCreate(`StarterEntity`,[
 This allows to update multiple records for specified entity, it will create the records if they are not exist.
 
 ```typescript
-await store.bulkUpdate(`StarterEntity`,[
-    {id: 1, field1: 99, ...},
-    {id: 2, field1: 199, ...},
-    {id: 3, field1: 299, ...}
+await store.bulkUpdate(`TransactionEntity`,[
+    {id: 1, ChainID: 99, ...},
+    {id: 2, ChainID: 199, ...},
+    {id: 3, ChainID: 299, ...}
 ])
 ```
 
 The 3rd parameter is optional, and allows user to provide a list of fields they wish to be updated, and other fields will be ignored.
 
-For example, only `field5` will be updated.
+For example, only the `Success` property will be updated.
 
 ```typescript
-await store.bulkUpdate(`StarterEntity`,[
-    {id: 1, field1: 99, field5: true, ...},
-    {id: 2, field1: 199, field5: false,...},
-    ['field5']
+await store.bulkUpdate(`TransactionEntity`,[
+    {id: 1, ChainID: 99, Success: true, ...},
+    {id: 2, ChainID: 199, Success: false,...},
+    ['Success']
 ])
 ```
 
@@ -138,7 +195,7 @@ This allows to remove a single record of the entity with its `id`.
 
 ```typescript
 const id = block.block.header.hash.toString();
-await store.remove(`StarterEntity`, id);
+await store.remove(`TransactionEntity`, id);
 ```
 
 ## Bulk Remove Record
@@ -149,5 +206,5 @@ This allows to remove a number of entities with their `ids`.
 
 ```typescript
 const ids = ["1", "2", "3"];
-await store.remove(`StarterEntity`, ids);
+await store.remove(`TransactionEntity`, ids);
 ```
