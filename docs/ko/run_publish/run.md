@@ -279,7 +279,7 @@ Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-sta
 node --inspect-brk <path to subql-node> -f <path to subQuery project>
 ```
 
-For example:
+예를 들어:
 
 ```shell
 node --inspect-brk /usr/local/bin/subql-node -f ~/Code/subQuery/projects/subql-helloworld/
