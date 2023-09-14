@@ -71,7 +71,7 @@ Place this file in the same directory as the project. Then in the current projec
 **String** - This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
 
 ```shell
-subql-node -f . --db-schema=test2
+subql-노드 -f . --db-schema=test2
 ```
 
 ### --debug
@@ -102,7 +102,7 @@ subql-node -f . --db-schema=test2
 **Boolean** - Use this flag to start the SubQuery project.
 
 ```shell
-subql-node -f . // OR
+subql-노드 -f . // OR
 subql-node --subquery .
 ```
 
@@ -155,7 +155,7 @@ For more info, visit [Multi-Chain Support](../build/multi-chain.md).
 Typically this would be set in your manifest file but below shows an example of using it as an argument in the command line.
 
 ```shell
-subql-node -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+subql-노드 -f . -d "https://api.subquery.network/sq/subquery/dictionary-polkadot"
 ```
 
 For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorials_examples/dictionary.md)
@@ -165,13 +165,13 @@ For more info, visit [How does a SubQuery Dictionary works?](../academy/tutorial
 **String (default: Network endpoint from your manifest)** - This flag allows users to override the network RPC API endpoint configuration from the manifest file.
 
 ```shell
-subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
+subql-노드 -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws"
 ```
 
 To provide multiple network endpoints (recommended for reliability and performance), you can repeat this command:
 
 ```shell
-subql-node -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" --network-endpoint="wss://rpc.polkadot.io"
+subql-노드 -f . --network-endpoint="wss://polkadot.api.onfinality.io/public-ws" --network-endpoint="wss://rpc.polkadot.io"
 ```
 
 Note that this must also be set in the manifest file, otherwise you'll get:
@@ -221,7 +221,7 @@ An instance of ProjectManifestImpl has failed the validation:
 **Boolean** - This shows profiler information.
 
 ```shell
-subql-node -f . --local --profiler
+subql-노드 -f . --local --profiler
 2021-08-10T10:57:07.234Z <profiler> INFO FetchService, fetchMeta, 3876 ms
 2021-08-10T10:57:08.095Z <profiler> INFO FetchService, fetchMeta, 774 ms
 2021-08-10T10:57:10.361Z <profiler> INFO SubstrateUtil, fetchBlocksBatches, 2265 ms
@@ -346,7 +346,7 @@ Note that the number of available CPU cores strictly limits the usage of worker 
 It can increase performance by up to 4 times. Give it a try and let us know your feedback!
 :::
 
-On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
+On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). 예를 들어:
 
 - Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
 - Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
