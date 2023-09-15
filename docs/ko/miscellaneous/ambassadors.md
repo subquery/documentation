@@ -42,9 +42,9 @@
 
 ## 앰배서더 활동
 
-SubQuery Ambassadors are able to contribute through four main areas, including event management, content creation, translation, and community moderation. You can participate in as many areas as you want, you’re not bound to any single one.
+SubQuery 대사는 이벤트 관리, 콘텐츠 생성, 번역 및 커뮤니티 조정을 포함한 네 가지 주요 영역을 통해 기여할 수 있습니다. 원하는 만큼 많은 영역에 참여할 수 있으며 어느 하나의 영역에만 국한되지는 않습니다.
 
-**Event Management:** Build local communities by hosting, organising, and managing different events. Building a local community will be a key part of growing the SubQuery community. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**이벤트 관리:** 다양한 이벤트를 주최, 조직, 관리하여 지역 커뮤니티를 구축하세요. 지역 커뮤니티를 구축하는 것은 SubQuery 커뮤니티 성장의 핵심 부분이 될 것입니다. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
 
 **Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
 
