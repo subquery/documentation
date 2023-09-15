@@ -44,12 +44,12 @@
 
 SubQuery 대사는 이벤트 관리, 콘텐츠 생성, 번역 및 커뮤니티 조정을 포함한 네 가지 주요 영역을 통해 기여할 수 있습니다. 원하는 만큼 많은 영역에 참여할 수 있으며 어느 하나의 영역에만 국한되지는 않습니다.
 
-**이벤트 관리:** 다양한 이벤트를 주최, 조직, 관리하여 지역 커뮤니티를 구축하세요. 지역 커뮤니티를 구축하는 것은 SubQuery 커뮤니티 성장의 핵심 부분이 될 것입니다. SubQuery will support you by providing funding for events, sending swag/merchandise to be given away, as well as attending Q&As or online events as speakers or in AMA sessions.
+**이벤트 관리:** 다양한 이벤트를 주최, 조직, 관리하여 지역 커뮤니티를 구축하세요. 지역 커뮤니티를 구축하는 것은 SubQuery 커뮤니티 성장의 핵심 부분이 될 것입니다. SubQuery는 이벤트에 자금을 제공하고 선물/상품을 보내며 참석할 수 있도록 지원합니다 Q&As 또는 연사 또는 AMA 세션의 온라인 이벤트.
 
-**Content Creation:** We have a long list of content and support material that we need help creating. Remember, our success relies on the ability of our customers to build amazing things on our service, so we need your help to make that easier. Content includes videos, infographics, tutorials, animations, or any other related material, to inform, educate, or inspire community members within the SubQuery Ecosystem. SubQuery will support Content Creators by providing branding assets and expertise. We’ll also use SubQuery’s marketing channels to increase awareness of your content (and yourself).
+**콘텐츠 제작:** 우리는 제작에 도움이 필요한 콘텐츠와 지원 자료의 목록을 많이 보유하고 있습니다. 우리의 성공은 우리 서비스에 놀라운 기능을 구축하는 고객의 능력에 달려 있으므로 이를 더 쉽게 만들려면 여러분의 도움이 필요합니다. 콘텐츠에는 SubQuery 생태계 내의 커뮤니티 구성원에게 정보를 제공하고, 교육하고, 영감을 주기 위한 비디오, 인포그래픽, 튜토리얼, 애니메이션 또는 기타 관련 자료가 포함됩니다. SubQuery는 브랜딩 자산과 전문 지식을 제공하여 콘텐츠 제작자를 지원합니다. 또한 SubQuery의 마케팅 채널을 사용하여 귀하의 콘텐츠(및 귀하 자신) 에 대한 인지도를 높일 것입니다.
 
-**Translation:** Our customers don’t just speak English! We need your help making SubQuery more accessible by translating our content into your own language, as well as helping sharing the word to our international community.
+**번역:** 우리 고객은 영어만 구사하는 것이 아닙니다! 우리 콘텐츠를 귀하의 언어로 번역하고 국제 커뮤니티에 해당 내용을 공유함으로써 SubQuery에 대한 접근성을 높이는 데 도움이 필요합니다.
 
-**Community Moderation:** Moderators will help grow the SubQuery community by ensuring that official community channels are active and engaging. SubQuery will support Moderators by promoting the channels that they monitor, as well as provide guidelines for our expectations.
+**커뮤니티 조정:** 중재자는 공식 커뮤니티 채널이 활성화되고 참여하도록 보장하여 SubQuery 커뮤니티를 성장시키는 데 도움을 줍니다. SubQuery는 모니터링하는 채널을 홍보하여 중재자를 지원하고 기대치에 대한 지침을 제공합니다.
 
 [지금 신청하세요!](https://forms.gle/GXBbJ6LDpNfM2v1X6)
