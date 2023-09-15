@@ -449,6 +449,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/flare.md`,
             },
             {
+              text: "Heco Chain",
+              link: `${locale}/quickstart/quickstart_chains/heco.md`,
+            },
+            {
               text: "Gnosis",
               link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
             },
