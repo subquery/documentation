@@ -4,7 +4,7 @@
 
 Within the domain of DeFi, the objective of indexing Uniswap entities is both crucial and versatile. Essentially, indexing serves as the foundation for transparency and ease of use in the Uniswap system. By systematically organizing tokens, liquidity pools, transactions, and other essential information, indexing provides users with a quick and efficient means to search, find, and analyze data.
 
-The objective of this article is to offer a detailed, step-by-step guide on setting up a Subquery indexer for Uniswap data indexing. We will comprehensively cover the necessary configurations and delve into the intricacies of the underlying logic.
+The objective of this article is to offer a detailed, step-by-step guide on setting up a SubQuery indexer for Uniswap data indexing. We will comprehensively cover the necessary configurations and delve into the intricacies of the underlying logic.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
