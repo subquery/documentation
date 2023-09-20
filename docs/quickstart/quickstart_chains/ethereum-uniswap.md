@@ -21,7 +21,7 @@ In this Uniswap indexing project, our main focus is on configuring the indexer t
 To gain a deeper understanding of how these core mechanisms work, you can refer to the official [Uniswap documentation](https://docs.uniswap.org/contracts/v3/reference/deployments).
 
 ::: warning
-We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The ENS project is a lot more complicated and introduces some more advanced concepts
+We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The Ethereum Uniswap project is a lot more complicated and introduces some more advanced concepts
 :::
 
 Let's explore the setup for each of these smart contracts to get a complete grasp of their specifics.
@@ -185,7 +185,7 @@ You can conveniently import all these entities from the following directory:
 import { Factory, Pool, Token } from "../types";
 ```
 
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories. In the example Gravatar SubQuery project, you can import these types as follows:
+It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
 
 #### 3. Writing the Mappings
 
