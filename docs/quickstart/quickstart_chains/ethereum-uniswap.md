@@ -862,7 +862,8 @@ Next, let's query our project. Follow these three simple steps to query your Sub
 
 Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
 
-### Pools
+<details>
+<summary>Pools</summary>
 
 #### Request
 
@@ -922,7 +923,10 @@ query {
 }
 ```
 
-### Swaps
+</details>
+
+<details>
+<summary>Swaps</summary>
 
 #### Request
 
@@ -986,7 +990,10 @@ query {
 }
 ```
 
-### Positions
+</details>
+
+<details>
+<summary>Positions</summary>
 
 #### Request
 
@@ -1046,7 +1053,10 @@ query {
 }
 ```
 
-### uniswapDayData (statistical data)
+</details>
+
+<details>
+<summary>uniswapDayData (statistical data)</summary>
 
 #### Request
 
@@ -1097,6 +1107,8 @@ query {
   }
 }
 ```
+
+</details>
 
 ## What's next?
 
