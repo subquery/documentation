@@ -309,7 +309,7 @@ As we discussed in the introduction of [Configuring the Indexer](#configuring-th
 
 #### 1. Configuring the Manifest File
 
-Additionally, to handle situations where a contract factory generates fresh contract instances for each new pool, we should utilize [dynamic data sources](../../build/dynamicdatasources.md). Consequently, the following adjustments need to be made in the manifest:
+The contract factory generates fresh contract instances for each new pool, therefore we use [dynamic data sources](../../build/dynamicdatasources.md) to create indexers for each new contract:
 
 ```yaml
 templates:
