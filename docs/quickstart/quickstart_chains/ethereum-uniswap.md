@@ -1,10 +1,10 @@
-# Ethereum Quick Start - Uniswap (Medium)
+# Ethereum Quick Start - Uniswap (Complex)
 
 ## Goals
 
-Within the domain of DeFi, the objective of indexing Uniswap entities is both crucial and versatile. Essentially, indexing serves as the foundation for transparency and ease of use in the Uniswap system. By systematically organizing tokens, liquidity pools, transactions, and other essential information, indexing provides users with a quick and efficient means to search, find, and analyze data.
+Uniswap is one of the leading decentralised exchange (DEX) in web3 and is one that relies on indexers to serve data to it's UI so users can interact with it. By systematically organizing tokens, liquidity pools, transactions, and other essential information, Indexers like SubQuery provide users with a quick and efficient means to search, find, and analyze data within Uniswap.
 
-The objective of this article is to offer a detailed, step-by-step guide on setting up a SubQuery indexer for Uniswap data indexing. We will comprehensively cover the necessary configurations and delve into the intricacies of the underlying logic.
+The objective of this article is to offer a detailed, step-by-step guide on setting up a SubQuery indexer for Uniswap v3 protocol. We will comprehensively cover the necessary configurations and delve into the intricacies of the underlying logic. It's an excellent example of how to do indexing for a complex DEX like Uniswap.
 
 ## Setting Up the Indexer
 
@@ -18,7 +18,7 @@ In this Uniswap indexing project, our main focus is on configuring the indexer t
 
 To gain a deeper understanding of how these core mechanisms work, you can refer to the official [Uniswap documentation](https://docs.uniswap.org/contracts/v3/reference/deployments).
 
-::: warning
+::: warning Important
 We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The Ethereum Uniswap project is a lot more complicated and introduces some more advanced concepts
 :::
 
