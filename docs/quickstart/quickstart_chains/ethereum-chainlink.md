@@ -146,6 +146,7 @@ As a reminder from the configuration step outlined in the [Manifest File](#1conf
 export async function handleFeedConfirmed(
   event: EthereumLog<FeedConfirmedEvent["args"]>
 ): Promise<void> {
+  assert(event.args);
   // Feed Confirmed event is emitted when a feed is added, updated, or removed
   let prevFeed = await DataFeed.get(event.args.previousAggregator);
   // if we haven't since this previous feed before, or the next feed is not the zero address, then this is a new feed and we need to create it
@@ -273,6 +274,7 @@ As evident from the manifest file, the sole handler that should be included is `
 export async function handleAnswerUpdated(
   event: EthereumLog<AnswerUpdatedEvent["args"]>
 ): Promise<void> {
+  assert(event.args);
   const datasource = FeedRegistry__factory.connect(event.address, api);
   let dataFeed = await DataFeed.get(datasource.address);
   if (dataFeed) {
