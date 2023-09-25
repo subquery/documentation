@@ -1,20 +1,22 @@
 # Ethereum Quick Start - Chainlink (Medium)
 
+[Chainlink](https://chain.link/) is a groundbreaking decentralized oracle network that empowers smart contracts to interact with real-world data seamlessly. At the heart of Chainlink's capabilities lies its [Data Feeds](https://chain.link/data-feeds), an essential component that bridges the gap between blockchain and external data sources.
+
 ## Goals
 
-Welcome to the world of [Chainlink](https://chain.link/), a groundbreaking decentralized oracle network that empowers smart contracts to interact with real-world data seamlessly. At the heart of Chainlink's capabilities lies its [Data Feeds](https://chain.link/data-feeds), an essential component that bridges the gap between blockchain and external data sources.
+This guide serves as your gateway to a comprehensive guide on setting up a SubQuery indexer specifically tailored to index data from Chainlink Data Feeds. Our mission is to provide you with a detailed, step-by-step journey through the indexer setup process. We'll delve deep into the necessary configurations and explore the intricacies of the underlying logic. By the end of this guide, you'll have a clear understanding of how to index data for a complex oracle network like Chainlink.
 
-This guide serves as your gateway to a comprehensive guide on setting up a SubQuery indexer specifically tailored for Chainlink Data Feeds. Our mission is to provide you with a detailed, step-by-step journey through the indexer setup process. We'll delve deep into the necessary configurations and explore the intricacies of the underlying logic. By the end of this guide, you'll have a clear understanding of how to index data for a complex oracle network like Chainlink.
+This project is an excellent example of [SubQuery's Dynamic Data sources](../../build/dynamicdatasources.md). Chainlink has a `ChainlinkFeedRegistry`, a factory contract that creates other chainlink aggregator contracts. It also gives a real life example of how you can use SubQuery's contract type-generation to access contract functions on the ABI smart contracts.
 
 ## Setting Up the Indexer
 
 In this ChainLink indexing project, our primary focus centers on configuring the indexer to exclusively capture logs originating from two specific categories of Chainlink smart contracts:
 
-1. **ChainlinkFeedRegistry** (contract address: `0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf`): This contract empowers you to retrieve Chainlink data feeds directly from asset addresses, eliminating the need to be aware of the feed contract addresses. Essentially, it functions as a smart contract that maps all data feeds.
+1. `ChainlinkFeedRegistry` (contract address: `0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf`): This contract empowers you to retrieve Chainlink data feeds directly from asset addresses, eliminating the need to be aware of the feed contract addresses. Essentially, it functions as a smart contract that maps all data feeds.
 
-2. **Data Feed Aggregator Contracts**: These contracts represent individual data feeds.
+2. Data Feed Aggregator Contracts: These contracts represent individual data feeds.
 
-For a more comprehensive understanding of how these fundamental mechanisms operate, you can consult the official [ChainLink documentation](https://docs.chain.link/data-feeds/feed-registry).
+For a more comprehensive understanding of how these fundamental mechanisms operate, you can consult the official [Chainlink documentation](https://docs.chain.link/data-feeds/feed-registry).
 
 ::: warning Important
 We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The Ethereum Chainlink Data Feeds project is a bit more complicated and introduces some more advanced concepts
@@ -32,7 +34,7 @@ Consider the registry smart contract as a dictionary that comprehensively maps a
 
 #### 1.Configuring the Manifest File
 
-In plain language, you only need to set up one event, which is the `FeedConfirmed` event. Once you add this event to the manifest file, it will look like this:
+In plain language, you only need to set up one handler to index a specific type of log from this contract, which is the `FeedConfirmed` log. Update your manifest file to look like this:
 
 ```yaml
 dataSources:
@@ -178,7 +180,7 @@ It first retrieves the previous data feed using the address provided in the even
 
 ### Data Feed Aggregator Contracts
 
-As mentioned in the introduction to [Indexer Configuration](#setting-up-the-indexer), a fresh contract is linked to the [feed registry smart contract](#chainlinkfeedregistry) whenever a new feed is confirmed.
+As mentioned in the introduction to [Indexer Configuration](#setting-up-the-indexer), a fresh contract is linked to the [feed registry smart contract](#chainlinkfeedregistry) whenever a new feed is confirmed. We use SubQuery's [Dynamic Data Sources](../../build/dynamicdatasources.md) to create a new listener for each new price feed using the following template.
 
 #### 1. Configuring the Manifest File
 
