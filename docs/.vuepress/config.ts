@@ -439,6 +439,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/ethereum-chainlink.md`,
                 },
                 {
+                  text: "Ethereum Opensea (Medium)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-opensea.md`,
+                },
+                {
                   text: "Ethereum Uniswap (Complex)",
                   link: `${locale}/quickstart/quickstart_chains/ethereum-uniswap.md`,
                 },
