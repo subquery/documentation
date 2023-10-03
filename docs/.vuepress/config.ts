@@ -560,6 +560,7 @@ function getSidebar(locale: string): SidebarOptions {
         },
         `${locale}/build/testing.md`,
         `${locale}/build/graph-migration.md`,
+        `${locale}/build/project-upgrades.md`,
         `${locale}/build/multi-chain.md`,
         `${locale}/build/dynamicdatasources.md`,
         `${locale}/build/substrate-evm.md`,
