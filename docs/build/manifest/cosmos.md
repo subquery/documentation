@@ -125,10 +125,11 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Node Spec
 
-| Field       | Type   | Description                                                                                                                                                                                                          |
-| ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String | `@subql/node-cosmos`                                                                                                                                                                                                 |
-| **version** | String | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
+| Field       | Type                                        | Description                                                                                                                                                                                                          |
+| ----------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String                                      | `@subql/node-cosmos`                                                                                                                                                                                                 |
+| **version** | String                                      | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
+| **options** | [Runner Node Options](#runner-node-options) | Runner specific options for how to run your project. These will have an impact on the data your project produces. CLI flags can be used to override these.                                                           |
 
 ### Runner Query Spec
 
@@ -136,6 +137,14 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **name**    | String | We currently support `@subql/query`                                                                                                                                                              |
 | **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+
+### Runner Node Options
+
+| Field                 | v1.0.0 (default) | Description                                                                                                                                                                            |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **historical**        | Boolean (true)   | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                         |
+| **unfinalizedBlocks** | Boolean (false)  | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                               |
+| **unsafe**            | Boolean (false)  | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic. |
 
 ### Datasource Spec
 
