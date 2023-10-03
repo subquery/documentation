@@ -1,12 +1,16 @@
 # Ethereum Quick Start - Opensea (Medium)
 
-Welcome to our comprehensive step-by-step guide dedicated to constructing a Subquery indexer tailored for the OpenSea marketplace. OpenSea has emerged as a global epicenter for NFTs, establishing itself as a vibrant ecosystem for creators, collectors, and traders alike. Whether you're a developer seeking to construct applications that harness the power of NFT data or an enthusiast eager to immerse yourself in the realm of digital collectibles, this guide is designed to seamlessly lead you through the steps of configuring your personal OpenSea Subquery indexer.
+## Goals
+
+Welcome to our comprehensive step-by-step guide dedicated to constructing a SubQuery indexer tailored for the OpenSea marketplace. OpenSea has emerged as a global epicenter for NFTs, establishing itself as a vibrant ecosystem for creators, collectors, and traders alike.
+
+**This guide is designed to seamlessly lead you through the steps of configuring your personal OpenSea SubQuery indexer.**
 
 It's important to note that the indexing process discussed here is designed specifically for the Opensea protocol known as **Seaport**. Seaport represents a groundbreaking web3 marketplace protocol engineered for the secure and efficient buying and selling of NFTs. It's essential to recognize that this protocol extends its utility not solely to OpenSea but to all NFT builders, creators, and collectors. Its core smart contract adheres to open-source principles and operates with inherent decentralization.
 
 ## Setting Up the Indexer
 
-In this Seaport indexing project, our main goal is to set up the indexer to only collect information from one smart contract: `0x00000000006c3852cbef3e08e8df289169ede581`.
+In this Seaport indexing project, our main goal is to set up the indexer to only collect information from one smart contract: `0x00000000006c3852cbef3e08e8df289169ede581`, the [SeaportExchange contract](https://etherscan.io/address/0x00000000006c3852cbef3e08e8df289169ede581).
 
 For a more comprehensive understanding of how these fundamental protocol mechanisms operate, you can consult the official [Seaport documentation](https://docs.opensea.io/reference/seaport-overview).
 
@@ -62,15 +66,11 @@ Now, let's think about what information we can get from this smart contract for 
 type Marketplace @entity {
   " Smart contract address of the protocol's main contract (Factory, Registry, etc) "
   id: ID!
-
   " Number of collections listed on the marketplace. "
   collectionCount: Int!
-
   ...
-
   " Sum of marketplaceRevenueETH and creatorRevenueETH. "
   totalRevenueETH: Float!
-
   " Cumulative unique traders "
   cumulativeUniqueTraders: Int!
 }
@@ -78,21 +78,15 @@ type Marketplace @entity {
 type Collection @entity {
   " Contract address. "
   id: ID!
-
   " Collection name, mirrored from the smart contract. Leave null if not available. "
   name: String
-
   " Collection symbol, mirrored from the smart contract. Leave null if not available. "
   symbol: String
-
   ...
-
   " Buyer count. "
   buyerCount: Int!
-
   " Seller count. "
   sellerCount: Int!
-
   " Trades of the collection. "
   trades: [Trade!]! @derivedFrom(field: "collection")
 }
@@ -101,18 +95,13 @@ type Collection @entity {
 type Trade @entity {
   " { Transaction hash }-{ Log index }-{ (optional) ID within bundle } "
   id: ID!
-
   " Event transaction hash. "
   transactionHash: String!
-
   ...
-
   " Collection involved "
   collection: Collection!
-
   " Stretegy that the trade is executed. "
   strategy: SaleStrategy!
-
   " Seller account address "
   seller: String!
 }
@@ -120,15 +109,11 @@ type Trade @entity {
 type MarketplaceDailySnapshot @entity {
   " { Contract address }-{# of days since Unix epoch time} "
   id: ID!
-
   " The marketplace that this snapshot belongs to. "
   marketplace: Marketplace!
-
   ...
-
   " Number of traded collections of the day "
   dailyTradedCollectionCount: Int!
-
   " Number of traded items of the day "
   dailyTradedItemCount: Int!
 }
@@ -136,15 +121,11 @@ type MarketplaceDailySnapshot @entity {
 type CollectionDailySnapshot @entity {
   " { Contract address }-{# of days since epoch unix time } "
   id: ID!
-
   " The collection that this snapshot belongs to. "
   collection: Collection!
-
   " Block number where the snapshot is taken. "
   blockNumber: BigInt!
-
   ...
-
   " Number of traded items of the day "
   dailyTradedItemCount: Int!
 }
@@ -152,10 +133,8 @@ type CollectionDailySnapshot @entity {
 " A helper entity that maps a trade's order fulfillment method"
 type _OrderFulfillment @entity {
   id: ID!
-
   " The trade being fulfilled"
   trade: Trade!
-
   " The order filfillment method"
   orderFulfillmentMethod: String
 }
