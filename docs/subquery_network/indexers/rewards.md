@@ -23,13 +23,20 @@ If an Indexer is caught misbehaving (such as by providing invalid, incomplete, o
 
 **Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. Indexers use these additional tokens to increase the amount they allocate to projects of their choice. This allows Indexers to increase their earnings as they will have a larger total stake.
+Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. 
+Indexers benefit from higher total stake in ways: 
+1. Unlock indexer to have more agreements at same time.
+2. Have advantage over other indexers when payment method is flex plan
+3. Have higher score in the sponsor plan.
+
+For indexers, since these benefits are delicate, it is always a challenge to consider the best strategy, how many delegator's stake do I need.
+Too many delegation will dilute the reward, small delegation will limit the opportunity of more rewards. By changing commission rate, indexer can adjust the delegation proportion to a balance point.  
 
 You should read more about how Delegators will pick Indexers [here](../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 
 The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
 
-You can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr).
+You can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), it takes about two era for the new value to take effect.
 
 ## Security & Performance considerations
 
