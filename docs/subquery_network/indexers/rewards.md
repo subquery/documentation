@@ -23,8 +23,8 @@ If an Indexer is caught misbehaving (such as by providing invalid, incomplete, o
 
 **Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Delegators are SQT token holders who can delegate their tokens to Indexers for additional rewards. 
-Indexers benefit from higher total stake in ways: 
+Delegators are SQT token holders who can delegate their tokens to Indexers for a fair share of indexers' rewards. 
+Indexers benefit from higher total stake (with the help of delegators) in ways: 
 1. Unlock indexer to have more agreements at same time.
 2. Have advantage over other indexers when payment method is flex plan
 3. Have higher score in the sponsor plan.
