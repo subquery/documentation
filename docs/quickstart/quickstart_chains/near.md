@@ -13,7 +13,7 @@ Now, let's move forward and update these configurations.
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/near_priceoracle_example).
+The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-priceoracle-example).
 :::
 
 ## 1. Update Your GraphQL Schema File
@@ -365,7 +365,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/near_priceoracle_example).
+The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-priceoracle-example).
 :::
 
 ## What's next?
