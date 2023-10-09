@@ -11,6 +11,8 @@ Firstly, we have moved some components to a new `subql-core` library (`logger` a
   "include": [ "src/**/*", "node_modules/@subql/types-core/dist/global.d.ts", "node_modules/@subql/types-ethereum/dist/global.d.ts" ]
 ```
 
+For Cosmos projects, in the new Typescript manifest, `chainTypes` have been renamed to `chaintypes`.
+
 ## What is SubQuery?
 
 SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
