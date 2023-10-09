@@ -69,6 +69,10 @@ export default defineUserConfig({
           "/subquery_network/indexers/indexer-security-guide.html",
         "/subquery_network/indexers/ssl-configuration.html":
           "/subquery_network/indexers/indexer-security-guide.html",
+        "/build/manifest/terra.html": "/build/manifest/cosmos.html",
+        "/build/mapping/terra.html": "/build/mapping/cosmos.html",
+        "/build/quickstart/quickstart_chains/terra.html":
+          "/build/quickstart/quickstart_chains/cosmos.html",
       },
     }),
   ],
