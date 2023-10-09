@@ -385,6 +385,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/bsc.md`,
             },
             {
+              text: "Celo",
+              link: `${locale}/quickstart/quickstart_chains/celo.md`,
+            },
+            {
               text: "Cosmos",
               collapsible: true,
               children: [
