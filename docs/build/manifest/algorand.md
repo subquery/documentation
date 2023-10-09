@@ -235,12 +235,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Algorand runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: algorand/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: dist/index.js # Entry path for this mapping
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: AlgorandDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -275,12 +285,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
-  endpoint: "https://mainnet-idx.algonode.cloud"
-  dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

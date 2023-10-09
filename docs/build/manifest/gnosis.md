@@ -279,34 +279,28 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Gnosis runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Gnosis is a layer-2 that is compatible
-    startBlock: 11566752 # The first block with a USDT transaction
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0xE2e73A1c69ecF83F464EFCE6A5be353a37cA09b2" # this is the contract address for ChainLink Token on xDai on Gnosis https://gnosisscan.io/token/0xe2e73a1c69ecf83f464efce6a5be353a37ca09b2
-    assets:
-      erc20:
-        file: "./abis/erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Gnosis is EVM compatible
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 rawAmount)
-        - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Gnosis is EVM compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256 amount)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      options: {
+        // Must be a Record of assets
+        abi: "erc20",
+        // # this is the contract address for your target contract
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      },
+    },
+  ];
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -346,11 +340,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://gnosis.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

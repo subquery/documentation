@@ -270,21 +270,28 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Arbitrum runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum is a layer-2 that is compatible
-    startBlock: 2591 # This is the block that the contract was deployed on https://arbiscan.io/tx/0x8ebe1945f039f865af8b3079df3819534340ee41a5e6b8bfefb9c36a857778c9
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f" # This is the contract address for wrapped BTC https://arbiscan.io/token/0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f
-    assets:
-      erc20:
-        file: "./abis/erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-      ...
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      options: {
+        // Must be a Record of assets
+        abi: "erc20",
+        // # this is the contract address for your target contract
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      },
+    },
+  ];
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -324,11 +331,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://eth.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

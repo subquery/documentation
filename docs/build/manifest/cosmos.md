@@ -264,12 +264,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Cosmos runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: dist/index.js # Entry path for this mapping
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: CosmosDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -361,12 +371,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: juno-1
-  endpoint: https://juno.api.onfinality.io/public
-  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ::: tip Indexing chains that have skipped blocks
