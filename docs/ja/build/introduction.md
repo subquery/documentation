@@ -90,7 +90,7 @@ exports フィールドで指定されているかどうかに関わらず、 `i
 
 `console.log` メソッドは **サポートされなくなりました**。 代わりに、 `logger` モジュールが型に組み込まれています。 つまり、さまざまなロガーレベルを受け入れるロガーをサポートすることができます。
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

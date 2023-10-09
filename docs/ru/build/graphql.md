@@ -67,7 +67,7 @@ type Title @entity {
 INSERT INTO заголовки (id, имя) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Обработчик в mapping функции
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

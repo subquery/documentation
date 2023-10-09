@@ -88,7 +88,7 @@ Weitere Informationen zur Verwendung einschließlich Flags finden Sie unter [CLI
 
 Die Methode `console.log` wird **nicht mehr unterstützt**. Stattdessen wurde ein `Logger`-Modul in die Typen eingefügt, was bedeutet, dass wir einen Logger unterstützen können, der verschiedene Protokollierungsebenen akzeptieren kann.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

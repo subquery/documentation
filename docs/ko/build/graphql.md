@@ -64,7 +64,7 @@ When code generation is run, this will automatically create a `getByName` under 
 제목 삽입 (id, name) 값 ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // 맵핑 기능의 Handler
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

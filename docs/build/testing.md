@@ -39,7 +39,7 @@ We recommend to generously use logging, including using the debug level when dev
 
 The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

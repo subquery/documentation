@@ -93,7 +93,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 เอกสารใน [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) มีวิธีการบางอย่างที่ใช้ `BlockHash` เป็นพารามิเตอร์อินพุต (เช่น `at?: BlockHash`) ซึ่งขณะนี้ได้รับอนุญาตให้ใช้แล้ว นอกจากนี้เรายังได้ปรับวิธีการเหล่านี้เพื่อให้การแฮช Indexing Block ปัจจุบัน กลายเป็นค่าเริ่มต้น
 
-```typescript
+```ts
 // Let's say we are currently indexing a block with this hash number
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -270,7 +270,7 @@ yarn generate:meta
 
 ในฟังก์ชัน Mapping เราสามารถแสดงให้เห็นว่า Metadata และประเภทต่าง ๆ จะเติมแต่ง API อย่างไร RPC Endpoint จะสนับสนุนโมดูลและวิธีการต่าง ๆ ที่เราประกาศไว้ข้างต้น และหากต้องการเรียกใช้ RPC แบบกำหนดเอง โปรดดูส่วน [การเรียกเรียกใช้ RPC ของเครือข่ายแบบกำหนดเอง](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

@@ -67,7 +67,7 @@ type Title @entity {
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Handler ในฟังก์ชัน Mapping
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

@@ -67,7 +67,7 @@ When code generation is run, this will automatically create a `getByName` under 
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Handler in der Mapping-Funktion
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

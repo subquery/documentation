@@ -92,7 +92,7 @@ Ayrıca, eşleme işlevinin gerçek düğüm, sorgu ve gönderim ile etkileşime
 
 [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc)’deki belgeler, `BlockHash` ‘i giriş parametresi olarak alan bazı yöntemler sağlar, (örn. `at?: BlockHash`) ki bunlara izin verilmez. Bu yöntemleri, varsayılan olarak geçerli indeksleyici bloğu karma işlevini alacak şekilde de değiştirdik.
 
-```typescript
+```ts
 // Diyelim ki şu anda bu karma numaraya sahip bir bloğu dizine ekleniyoruz
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -269,7 +269,7 @@ Bu komut meta verileri ve API'ler için yeni bir api-augment oluşturur. Yerleş
 
 Şimdi eşleme işlevinde, meta verilerin ve türlerin API'yi gerçekte nasıl dekore ederek süslediğini gösterebiliriz. RPC uç noktası yukarıda beyan ettiğimiz modülleri ve yöntemleri destekleyecektir. Ve özel rpc çağrısı kullanmak için, lütfen [Özel zincir rpc çağrıları](#custom-chain-rpc-calls) bölümüne bakın
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //KittyIndex türünü döndürme
   const nextKittyId = await api.query.kitties.nextKittyId();

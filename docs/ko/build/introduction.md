@@ -88,7 +88,7 @@ yarn codegen
 
 `console.log` 메서드는 **더 이상 지원되지 않습니다**. 대신, `logger` 모듈이 유형에 삽입되었습니다. 이는 다양한 로깅 수준을 수용할 수 있는 로거를 지원할 수 있음을 의미합니다.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

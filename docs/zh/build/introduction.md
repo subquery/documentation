@@ -53,7 +53,7 @@ yarn 编码器
 
 `console.log` 方法**不再受支持**。 相反， `Logger` 模块已被注入到类型中，这意味着我们可以支持一个可以接受不同日志级别的 logger。
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

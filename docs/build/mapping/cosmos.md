@@ -161,7 +161,7 @@ Some decoded message data from Cosmos Chains has nested message types that don't
 
 We inject the [`registry`](https://cosmos.github.io/cosmjs/latest/proto-signing/classes/Registry.html) globally into the sandbox so that users can decode more messages as they need.
 
-```typescript
+```ts
 import { MsgUpdateClient } from "cosmjs-types/ibc/core/client/v1/tx";
 
 registry.register("/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient);

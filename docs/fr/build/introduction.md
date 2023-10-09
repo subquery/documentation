@@ -87,7 +87,7 @@ Pour plus d'informations sur l'utilisation de ces drapeaux d'inclusion, voir la 
 
 La méthode `console.log` **n'**est **plus prise en charge**. À la place, un module `logger` a été injecté dans les types, ce qui signifie que nous pouvons prendre en charge un logger qui peut accepter différents niveaux de journalisation.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

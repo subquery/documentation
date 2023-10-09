@@ -66,7 +66,7 @@ When code generation is run, this will automatically create a `getByName` under 
 UNVANLARA EKLE (kimlik, ad) DEĞERLER ('id_1', 'Kaptan')
 ```
 
-```typescript
+```ts
 Eşleme işlevinde işleyici
 {User} içinden ".. /types/models/User"
 {Title} içinden ".. /types/models/Title"

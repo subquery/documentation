@@ -92,7 +92,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 Документите в [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) предоставят някои методи, които приема `BlockHash` като входен параметър (например `at?: BlockHash`), който вече е разрешен. Ние също така променихме тези методи, за да приемем хеш на текущия индексиращ блок по подразбиране.
 
-```typescript
+```ts
 // Да приемем, че в момента индексираме блок с този хеш номер
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -275,7 +275,7 @@ yarn generate:meta
 
 Сега във функцията за преобразуване можем да покажем как метаданните и типовете всъщност декорират API. RPC крайната точка ще поддържа модулите и методите, които декларирахме по-горе. И за да използвате персонализирано rpc повикване, моля, вижте раздел [Персонализирани верижни rpc повиквания](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

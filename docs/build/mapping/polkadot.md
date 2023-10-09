@@ -180,7 +180,7 @@ We also support some API RPC methods that are remote calls that allow the mappin
 Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted.
 We have also modified these methods to take the current indexing block hash by default.
 
-```typescript
+```ts
 // Let's say we are currently indexing a block with this hash number
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -337,7 +337,7 @@ After the updates, the paths in the config will look like this (without the comm
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above.
 And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

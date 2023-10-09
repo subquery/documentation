@@ -88,7 +88,7 @@ Bayraklar da dahil olmak üzere bunu kullanma hakkında daha fazla bilgi için b
 
 Bu `console.log`yöntem **artık desteklenmiyor**. Yerine, a `logger` türlere modül enjekte edildi, bu da çeşitli günlük seviyelerini kabul edebilen bir kaydediciyi destekleyebileceğimiz anlamına geliyor.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

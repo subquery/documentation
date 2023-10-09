@@ -71,7 +71,7 @@ Cuando se ejecuta la generación de código, esto creará automáticamente un `g
 INSERT INTO titles (id, name) VALUES ('id_1', 'capitán')
 ```
 
-```typescript
+```ts
 // Handler in mapping function
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

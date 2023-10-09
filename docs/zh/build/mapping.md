@@ -96,7 +96,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) 中的文档提供了一些方法, 以 `BlockHash` 作为输入参数 (比如, `at?: BlockHash`), 现在是被允许。 我们还修改了这些方法以默认使用当前索引区块哈希。
 
-```typescript
+```ts
 // 比如，我们正在用这个哈希值找到区块索引
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d0681148e9d41ef086f6a`;
 
@@ -258,7 +258,7 @@ yarn generate:meta
 
 现在，在映射函数中，我们可以演示元数据和类型如何实际装饰 API。 RPC 端点将支持我们在上面声明的模块和方法。 若要使用自定义的 rpc 调用，请查看 [Custom chain rpc calls](#custom-chain-rpc-calls)章节。
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();
