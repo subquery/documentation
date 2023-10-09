@@ -4,7 +4,9 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Flare `project.yaml`.
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -64,6 +66,8 @@ dataSources:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
               - HashSubmitted(address indexed submitter, uint256 indexed epochId, bytes32 hash, uint256 timestamp)
 ```
+
+:::
 
 ## Overview
 

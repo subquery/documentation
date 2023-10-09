@@ -10,6 +10,10 @@ The Manifest can be in either YAML or JSON format. In this document, we will use
 
 Below is a standard example of a basic Arbitrum One `project.yaml`. Arbitrum Nova is essentially the same but with different settings under `network`.
 
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
+
 ```yml
 specVersion: "1.0.0"
 
@@ -70,6 +74,8 @@ dataSources:
               - Transfer(address indexed from, address indexed to, uint256 amount)
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
+
+:::
 
 ## Overview
 

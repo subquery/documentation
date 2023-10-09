@@ -8,7 +8,9 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic Optimism `project.yaml`.
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: "1.0.0"
@@ -70,6 +72,8 @@ dataSources:
               - Claimed(uint256 index, address account, uint256 amount)
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
+
+:::
 
 ## Overview
 

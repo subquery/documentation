@@ -2,88 +2,96 @@
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either TYPESCRIPT, YAML or JSON format. 
+The Manifest can be in either TYPESCRIPT, YAML or JSON format.
 
 ### Typescript Manifest
-The project manifest can be more complex when we add more features it gets very hard to know how to write. It's now possible to write your manifest in typescript. 
+
+The project manifest can be more complex when we add more features it gets very hard to know how to write. It's now possible to write your manifest in typescript.
 This means that you get a fully typed project manifest with documentation and examples in your editor.
 
 Below is a standard example of a basic `project.ts`.
 
 ```typescript
 // This require @subql/types version 3.0.1 or later
-import { SubstrateDatasourceKind, SubstrateHandlerKind, SubstrateProject } from "@subql/types";
+import {
+  SubstrateDatasourceKind,
+  SubstrateHandlerKind,
+  SubstrateProject,
+} from "@subql/types";
 
 const project: SubstrateProject = {
-    specVersion: "1.0.0",
-    version: '1.0.0',
-    description: "This project can be use as a starting point for developing your Polkadot based SubQuery project",
-    repository: "https://github.com/subquery/subql-starter",
-    name:"subquery-starter",
-    runner: {
-        node: {
-            name: '@subql/node',
-            version: "*",
-        },
-        query: {
-            name: '@subql/query',
-            version: "*"
-        },
+  specVersion: "1.0.0",
+  version: "1.0.0",
+  description:
+    "This project can be use as a starting point for developing your Polkadot based SubQuery project",
+  repository: "https://github.com/subquery/subql-starter",
+  name: "subquery-starter",
+  runner: {
+    node: {
+      name: "@subql/node",
+      version: "*",
     },
-    schema: {
-        file: './schema.graphql'
+    query: {
+      name: "@subql/query",
+      version: "*",
     },
-    network: {
-        chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3',
-        bypassBlocks: [5, '1-10'],
-        endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    chainId:
+      "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
+    bypassBlocks: [5, "1-10"],
+    endpoint: "wss://polkadot.api.onfinality.io/public-ws",
+  },
+  dataSources: [
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Block,
+            handler: "handleBlock",
+            filter: {
+              modulo: 5,
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Call,
+            handler: "handleCall",
+            filter: {
+              module: "balances",
+              method: "Deposit",
+              success: true,
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleEvent",
+            filter: {
+              module: "balances",
+              method: "Deposit",
+            },
+          },
+        ],
+      },
     },
-    dataSources: [
-        {
-            kind: SubstrateDatasourceKind.Runtime,
-            startBlock: 1,
-            mapping: {
-                file: './dist/index.js',
-                handlers: [
-                    {
-                        kind: SubstrateHandlerKind.Block,
-                        handler: 'handleBlock',
-                        filter: {
-                            modulo: 5,
-                        }
-                    },
-                    {
-                        kind: SubstrateHandlerKind.Call,
-                        handler: 'handleCall',
-                        filter: {
-                            module: 'balances',
-                            method: 'Deposit',
-                            success: true,
-                        }
-                    },
-                    {
-                        kind: SubstrateHandlerKind.Event,
-                        handler: 'handleEvent',
-                        filter: {
-                            module: 'balances',
-                            method: 'Deposit',
-                        }
-                    }
-                ]
-            }
-        }
-    ],
-}
+  ],
+};
 
 // Must set default to the project instance
 export default project;
 ```
 
-Unlike create a YAML-formatted manifest, after editing of a TypeScript-formatted manifest, we need to execute the subql CLI (4.0.0 or later) [build command]() to automatically generate a compiled project object, and this object will be written into a YAML file with the same name. 
+Unlike create a YAML-formatted manifest, after editing of a TypeScript-formatted manifest, we need to execute the subql CLI (4.0.0 or later) [build command]() to automatically generate a compiled project object, and this object will be written into a YAML file with the same name.
 For example, if you provide "polkadot-project.ts," the generated file will be "polkadot-project.yaml."
 
-### Yaml Manifest
-Another example written in YAML format.
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -130,46 +138,7 @@ dataSources:
           kind: substrate/CallHandler
 ```
 
-## Migrating to v1.0.0 <Badge text="upgrade" type="warning"/>
-
-**If you have a project with specVersion below v1.0.0 you can use `subql migrate` to quickly upgrade. [See the CLI documentation](#cli-options) for more information.**
-
-### Change Log for v1.0.0
-
-**Under `runner`:**
-
-- Now that SubQuery supports multiple layer 1 networks, you must provide runner information for various services.
-- `runner.node` specify the node image that is used to run the current project [`@subql/node` or `@subql/node-avalanche`].
-- `runner.query` specify the query service image associate with the project database - use `@subql/query`.
-- `version` specifies the version of these service, they should follow the [SEMVER](https://semver.org/) rules and match a published version on our [package repository](https://www.npmjs.com/package/@subql/node). `Latest` and `Dev` are not supported.
-
-**Under `templates`:**
-
-Template are introduced from manifest v0.2.1, it allows creating datasources dynamically from these templates.
-This is useful when you don't know certain specific details when creating your project.
-A good example of this is when you know a contract will be deployed at a later stage but you don't know what the address will be.
-
-For a more detailed explanation head [here](../dynamicdatasources.md).
-
-### Change log for v0.2.0
-
-**Under `network`:**
-
-- There is a new **required** `genesisHash` field which helps to identify the chain being used.
-- For v0.2.0 and above, you are able to reference an external [chaintype file](#custom-chains) if you are referencing a custom chain.
-
-**Under `dataSources`:**
-
-- Can directly link an `index.js` entry point for mapping handlers. By default this `index.js` will be generated from `index.ts` during the build process.
-- Data sources can now be either a regular runtime data source or [custom data source](#custom-data-sources).
-
-### Migrating from v0.2.0 to v0.3.0 <Badge text="upgrade" type="warning"/>
-
-If you have a project with specVersion v0.2.0, The only change is a new **required** `chainId` field which helps to identify the chain being used.
-
-### CLI Options
-
-`subql migrate` can be run in an existing project to migrate the project manifest to the latest version.
+:::
 
 ## Overview
 
@@ -242,14 +211,14 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | **name**    | String                | We currently support `@subql/query`                                                                                                                                                              |
 | **version** | String                | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
-
 ### Runner Node Options
-| Field                 | v1.0.0 (default)  | Description                                                                                                                                                                                                                                                                                     |
-| --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **historical**        | Boolean (true)    | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                                                                                                                                  |
-| **unfinalizedBlocks** | Boolean (false)   | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                                                                                                                                        |
-| **unsafe**            | Boolean (false)   | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic.                                                                                                          |
-| **skipTransactions**  | Boolean (false)   | If your project contains only event handlers and you don't access any other block data except for the block header you can speed your project up. Handlers should be updated to use `LightSubstrateEvent` instead of `SubstrateEvent` to ensure you are not accessing data that is unavailable. |
+
+| Field                 | v1.0.0 (default) | Description                                                                                                                                                                                                                                                                                     |
+| --------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **historical**        | Boolean (true)   | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                                                                                                                                  |
+| **unfinalizedBlocks** | Boolean (false)  | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                                                                                                                                        |
+| **unsafe**            | Boolean (false)  | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic.                                                                                                          |
+| **skipTransactions**  | Boolean (false)  | If your project contains only event handlers and you don't access any other block data except for the block header you can speed your project up. Handlers should be updated to use `LightSubstrateEvent` instead of `SubstrateEvent` to ensure you are not accessing data that is unavailable. |
 
 ### Datasource Spec
 

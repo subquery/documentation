@@ -4,7 +4,9 @@ The Manifest `project.yaml` file can be seen as an entry point of your project a
 
 The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
 
-Below is a standard example of a basic `project.yaml`.
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -66,6 +68,8 @@ dataSources:
             #values: # A set of key/value pairs that are present in the message data
             #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
 ```
+
+:::
 
 ### Tested and Supported networks
 
