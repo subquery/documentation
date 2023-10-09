@@ -2,9 +2,88 @@
 
 The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either TYPESCRIPT, YAML or JSON format. 
 
-Below is a standard example of a basic `project.yaml`.
+### Typescript Manifest
+The project manifest can be more complex when we add more features it gets very hard to know how to write. It's now possible to write your manifest in typescript. 
+This means that you get a fully typed project manifest with documentation and examples in your editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```typescript
+// This require @subql/types version 3.0.1 or later
+import { SubstrateDatasourceKind, SubstrateHandlerKind, SubstrateProject } from "@subql/types";
+
+const project: SubstrateProject = {
+    specVersion: "1.0.0",
+    version: '1.0.0',
+    description: "This project can be use as a starting point for developing your Polkadot based SubQuery project",
+    repository: "https://github.com/subquery/subql-starter",
+    name:"subquery-starter",
+    runner: {
+        node: {
+            name: '@subql/node',
+            version: "*",
+        },
+        query: {
+            name: '@subql/query',
+            version: "*"
+        },
+    },
+    schema: {
+        file: './schema.graphql'
+    },
+    network: {
+        chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3',
+        bypassBlocks: [5, '1-10'],
+        endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+    },
+    dataSources: [
+        {
+            kind: SubstrateDatasourceKind.Runtime,
+            startBlock: 1,
+            mapping: {
+                file: './dist/index.js',
+                handlers: [
+                    {
+                        kind: SubstrateHandlerKind.Block,
+                        handler: 'handleBlock',
+                        filter: {
+                            modulo: 5,
+                        }
+                    },
+                    {
+                        kind: SubstrateHandlerKind.Call,
+                        handler: 'handleCall',
+                        filter: {
+                            module: 'balances',
+                            method: 'Deposit',
+                            success: true,
+                        }
+                    },
+                    {
+                        kind: SubstrateHandlerKind.Event,
+                        handler: 'handleEvent',
+                        filter: {
+                            module: 'balances',
+                            method: 'Deposit',
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+}
+
+// Must set default to the project instance
+export default project;
+```
+
+Unlike create a YAML-formatted manifest, after editing of a TypeScript-formatted manifest, we need to execute the subql CLI (4.0.0 or later) [build command]() to automatically generate a compiled project object, and this object will be written into a YAML file with the same name. 
+For example, if you provide "polkadot-project.ts," the generated file will be "polkadot-project.yaml."
+
+### Yaml Manifest
+Another example written in YAML format.
 
 ```yml
 specVersion: 1.0.0
