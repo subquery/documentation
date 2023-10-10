@@ -54,7 +54,7 @@ Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-d
 
 ## 2. The Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
+The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
@@ -69,29 +69,41 @@ For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md
 
 **Since we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    # This is the datasource for Moonbeam's Native Substrate processor
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-       - handler: handleCollatorJoined
-          kind: substrate/CallHandler
-          filter:
-            module: staking
-            method: joinCandidates
-        - handler: handleCollatorLeft
-          kind: substrate/CallHandler
-          filter:
-            module: staking
-            method: executeLeaveCandidates
+```ts
+{
+  dataSources: [
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: './dist/index.js',
+        handlers: [
+          {
+            handler: 'handleCollatorJoined',
+            kind: SubstrateHandlerKind.Call,
+            filter: {
+              module: 'staking',
+              method: 'joinCandidates'
+            }
+          },
+          {
+            handler: 'handleCollatorLeft',
+            kind: SubstrateHandlerKind.Call,
+            filter: {
+              module: 'staking',
+              method: 'executeLeaveCandidates'
+            }
+          }
+        ]
+      }
+    },
+  ],
+}
 ```
 
 This indicates that you will be running a `handleCollatorJoined` mapping function whenever the method `joinCandidates` is called on the `staking` pallet. Similarly, we will run `handleCollatorLeft` whenever the method `executeLeaveCandidates` is called on the staking pallet. This covers the most basic actions that Collators can do (requesting to join the candidates pool & leaving the candidates pool). For more information about other methods possible under the pallet `staking`in Moonbeam, the Moonbeam documentation provides a [list of possible functions to call](https://docs.moonbeam.network/builders/pallets-precompiles/pallets/staking/).
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ### EVM Manifest Section
 
@@ -101,37 +113,43 @@ We are indexing all transfers and approve contract call events from the $FRAX co
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing. We add another section the datasource beneath the above [substrate manifest section](#substrate-manifest-section).
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    # This is the datasource for Moonbeam's Native Substrate processor
-    ...
-  - kind: substrate/FrontierEvm
-    # This is the datasource for Moonbeam's EVM processor
-    startBlock: 189831
-    #This is the block at which $FRAX contract was deployed
-    processor:
-      file: ./node_modules/@subql/frontier-evm-processor/dist/bundle.js
-      options:
-        abi: erc20
-        contract: "0x322E86852e492a7Ee17f28a78c663da38FB33bfb" # Mainnet
-    assets:
-      erc20:
-        file: ./erc20.abi.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleErc20Transfer
-          kind: substrate/MoonbeamEvent
-          filter:
-            topics:
-              - Transfer(address indexed from,address indexed to,uint256 value)
-
+```ts
+{
+  dataSources: [
+    {
+      kind: 'substrate/FrontierEvm',
+      startBlock: 189831,
+      processor: {
+        file: './node_modules/@subql/frontier-evm-processor/dist/bundle.js',
+        options: {
+          abi: 'erc20',
+          // Contract address of $FRAX
+          address: '0x322E86852e492a7Ee17f28a78c663da38FB33bfb'
+        }
+      },
+      assets: new Map([['erc20', { file: './erc20.abi.json' }]]),
+      mapping: {
+        file: './dist/index.js',
+        handlers: [
+          {
+            handler: 'handleErc20Transfer',
+            kind: 'substrate/FrontierEvmEvent',
+            filter: {
+              topics: [
+                'Transfer(address indexed from,address indexed to,uint256 value)'
+              ]
+            }
+          },
+        ]
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleErc20Transfer` mapping function whenever there is an `Transfer` event on any transaction from the Moonbeam $FRAX contract.
 
-Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Substrate EVM contracts.
+Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get more information about the Project Manifest (`project.ts`) file for Substrate EVM contracts.
 
 ## 3. Mapping Functions
 
@@ -167,7 +185,7 @@ export async function handleCollatorLeft(
 }
 ```
 
-The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate event/call data from the native Substrate environment whenever an event/call matches the filters that were specified previously in the `project.yaml`. It extracts the various data from the event/call payload, then checks if an existing Collator record exists. If none exists (e.g. it's a new collator), then it instantiates a new one and then updates the total stake to reflect the new collators. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
+The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate event/call data from the native Substrate environment whenever an event/call matches the filters that were specified previously in the `project.ts`. It extracts the various data from the event/call payload, then checks if an existing Collator record exists. If none exists (e.g. it's a new collator), then it instantiates a new one and then updates the total stake to reflect the new collators. Then the `.save()` function is used to save the new/updated entity (_SubQuery will automatically save this to the database_).
 
 ```ts
 export async function erc20Transfer(
@@ -189,7 +207,7 @@ export async function erc20Transfer(
 }
 ```
 
-The `handleErc20Transfer` function receives event data from the EVM execution environment whenever an event matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
+The `handleErc20Transfer` function receives event data from the EVM execution environment whenever an event matches the filters that was specified previously in the `project.ts`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
 
 Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate Frontier EVM data processor](../../build/substrate-evm.md) to get detailed information on mapping functions for each type.
 

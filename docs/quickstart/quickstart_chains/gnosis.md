@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Gnosis. Since Gnosis is a EVM implementation, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Gnosis project. It defines most of the details on how SubQuery will index and transform the chain data. For Gnosis, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Gnosis project. It defines most of the details on how SubQuery will index and transform the chain data. For Gnosis, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/gnosis.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/gnosis.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -36,37 +36,57 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since we are indexing all mints and transfers for the POAP ERC721 contract, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Gnosis is a layer-2 that is compatible
-    startBlock: 12188423 # When the POAP contract was deployed https://gnosisscan.io/tx/0x2e4873cb1390f5328d389276624d1ffa833e3934657d5a791ee145defff663a2
-    options:
-      # Must be a key of assets
-      abi: poap
-      address: "0x22c1f6050e56d2876009903609a2cc3fef83b415" # this is the contract address for POAPs on Gnosis https://gnosisscan.io/token/0x22c1f6050e56d2876009903609a2cc3fef83b415
-    assets:
-      poap:
-        file: "./abis/poap.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTokenMint
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Gnosis is a layer-2 that is compatible
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0xaf68b302'
-            function: mintToken(uint256 eventId, address to)
-        - handler: handleTokenTransfer
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // When the POAP contract was deployed https://gnosisscan.io/tx/0x2e4873cb1390f5328d389276624d1ffa833e3934657d5a791ee145defff663a2
+      startBlock: 12188423,
+      options: {
+        // Must be a key of assets
+        abi: "poap",
+        // this is the contract address for POAPs on Gnosis https://gnosisscan.io/token/0x22c1f6050e56d2876009903609a2cc3fef83b415
+        address: "0x22c1f6050e56d2876009903609a2cc3fef83b415",
+      },
+      assets: new Map([["poap", { file: "./abis/poap.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTokenMint",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0xaf68b302'
+               */
+              function: "mintToken(uint256 eventId, address to)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running `handleTokenMint` and `handleTokenTransfer` mapping functions whenever there is a transaction with the function `mintToken` or a log with the signature `Transfer` on any transaction from the [POAP smart contract](https://gnosisscan.io/token/0x22c1f6050e56d2876009903609a2cc3fef83b415).
 
-Check out our [Manifest File](../../build/manifest/gnosis.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/gnosis.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

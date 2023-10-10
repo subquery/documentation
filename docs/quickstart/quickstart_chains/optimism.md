@@ -16,7 +16,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Optimism project. It defines most of the details on how SubQuery will index and transform the chain data. For Optimism, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Optimism project. It defines most of the details on how SubQuery will index and transform the chain data. For Optimism, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/optimism.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/optimism.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -28,32 +28,41 @@ As we are indexing all claim events from the Optimism airdrop contract, the firs
 
 **Update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Optimism is a layer-2 that is compatible
-    startBlock: 9277162 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
-    options:
-      # Must be a key of assets
-      abi: airdrop
-      address: "0xFeDFAF1A10335448b7FA0268F56D2B44DBD357de" # this is the contract address for Optimism Airdrop https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de
-    assets:
-      airdrop:
-        file: "./abis/airdrop.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleClaim
-          kind: ethereum/LogHandler # We use ethereum handlers since Optimism is a layer-2 that is compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Claimed(uint256 index, address account, uint256 amount)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 100316590, // When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
+      options: {
+        // Must be a key of assets
+        abi: "airdrop",
+        // this is the contract address for Optimism Airdrop https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de
+        address: "0xFeDFAF1A10335448b7FA0268F56D2B44DBD357de",
+      },
+      assets: new Map([["airdrop", { file: "./abis/airdrop.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleClaim",
+            filter: {
+              topics: [
+                "Claimed(uint256 index, address account, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleClaim` mapping function whenever there is a `Claimed` log on any transaction from the [Optimism airdrop contract](https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de#code).
 
-Check out our [Manifest File](../../build/manifest/optimism.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/optimism.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

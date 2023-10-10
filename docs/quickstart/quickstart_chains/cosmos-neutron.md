@@ -18,7 +18,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
@@ -27,28 +27,37 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 1 # This contract was instantiated at genesis
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleAirdropClaim
-          kind: cosmos/MessageHandler
-          filter:
-            # Filter to only messages with the MsgSetContractMetadata function call
-            # e.g. https://www.mintscan.io/neutron/txs/156FE31585BD75E06EE337CEA908C37EA0434CC49943B4860E7AABE2475B6B01?height=1437614
-            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
-            contractCall: "claim"
-            values: # A set of key/value pairs that are present in the message data
-              # This is the neutron airdrop contract
-              contract: "neutron198sxsrjvt2v2lln2ajn82ks76k97mj72mtgl7309jehd0vy8rezs7e6c56"
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleAirdropClaim",
+            kind: SubqlCosmosHandlerKind.Message,
+            filter: {
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract",
+              contractCall: "claim",
+              values: {
+                contract:
+                  "neutron198sxsrjvt2v2lln2ajn82ks76k97mj72mtgl7309jehd0vy8rezs7e6c56",
+              },
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code defines that you will be running one handler: A `handleAirdropClaim` message handler which will be triggered when a `claim` message is encountered on a `MsgExecuteContract` type. The `contract` value is the address of the neutron airdrop contract.
 
-Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

@@ -18,7 +18,7 @@ The final code of this project can be found [here](https://github.com/jamesbayly
 
 ## 1. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
@@ -27,26 +27,42 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers to look for on the blockchain to start indexing.
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 3246370 # The block when the first proposal in this fund was created
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTerraDeveloperFund
-          kind: cosmos/MessageHandler
-          filter:
-            type: "/cosmwasm.wasm.v1.MsgExecuteContract"
-            # Filter to only messages with the vote function call
-            contractCall: "vote" # The name of the contract function that was called
-            values: # This is the specific smart contract that we are subscribing to
-              contract: "juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2"
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 9700000,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleEvent",
+            kind: SubqlCosmosHandlerKind.Event,
+            filter: {
+              type: "execute",
+              messageFilter: {
+                type: "/cosmwasm.wasm.v1.MsgExecuteContract",
+              },
+            },
+          },
+          {
+            handler: "handleMessage",
+            kind: SubqlCosmosHandlerKind.Message,
+            filter: {
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code defines that you will be running a `handleTerraDeveloperFund` mapping function whenever there is a message with a `vote` contract call from the [Terra Developer Fund](https://daodao.zone/multisig/juno1lgnstas4ruflg0eta394y8epq67s4rzhg5anssz3rc5zwvjmmvcql6qps2) smart contract.
 
-Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 
@@ -97,7 +113,7 @@ Mapping functions determine how chain data is transformed into the optimised Gra
 
 Navigate to the default mapping function in the `src/mappings` directory. You will see four exported functions: `handleBlock`, `handleEvent`, `handleMessage`, `handleTransaction`. Delete `handleBlock`, `handleEvent`, and `handleTransaction` functions as you will only deal with the `handleMessage` function.
 
-The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
+The `handleMessage` function receives event data whenever an event matches the filters that you specified previously in the `project.ts`. Let’s update it to process all `vote` messages and save them to the GraphQL entity created earlier.
 
 Update the `handleMessage` function as follows (**note the additional imports**):
 

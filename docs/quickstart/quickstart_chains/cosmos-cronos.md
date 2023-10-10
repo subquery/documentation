@@ -25,7 +25,7 @@ The final code of this project can be found [here](https://github.com/deverka/cr
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
@@ -41,59 +41,103 @@ There are two versions of this file depending on your choice to index data via t
 ::: code-tabs
 @tab ETH
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 5120574 #NoteCro Crow Token started at 946
-    options:
-      abi: erc20
-      address: "0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5" #Cro Crow Token
-    assets:
-      erc20:
-        file: ./cro-crow.abi.json #ABI interface file specific for Cro Crow Token
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleTransfer
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - "Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
-              - null
-              - null
-              - null
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // Contract creation of Pangolin Token https://snowtrace.io/tx/0xfab84552e997848a43f05e440998617d641788d355e3195b6882e9006996d8f9
+      startBlock: 446,
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        address: "0x5c7f8a570d578ed84e63fdfa7b1ee72deae1ae23",
+        // Wrapped CRO https://cronos.org/explorer/address/0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address guy, uint256 wad)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: ["Transfer(address src, address dst, uint256 wad)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 @tab Cosmos RPC
 
-```yml
-dataSources:
-  - kind: cosmos/EthermintEvm
-    startBlock: 5120574 #NoteCro Crow Token started at 946
-    processor:
-      file: ./node_modules/@subql/ethermint-evm-processor/dist/bundle.js
-      options:
-        abi: erc20
-        address: "0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5" #Cro Crow Token
-    assets:
-      erc20:
-        file: ./cro-crow.abi.json #ABI interface file specific for Cro Crow Token
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleTransfer
-          kind: cosmos/EthermintEvmEvent
-          filter:
-            topics:
-              - "Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
-              - null
-              - null
-              - null
+```ts
+{
+  dataSources: [
+    {
+      kind: "cosmos/EthermintEvm",
+      startBlock: 446,
+      processor: {
+        file: "./node_modules/@subql/ethermint-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0x5c7f8a570d578ed84e63fdfa7b1ee72deae1ae23", // Wrapped CRO
+        },
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleEthermintEvmCall",
+            kind: "cosmos/EthermintEvmCall",
+            filter: {
+              // Either Function Signature strings or the function `sighash` to filter the function called on the contract
+              // https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment
+              method: "approve(address guy, uint256 wad)",
+            },
+          },
+          {
+            handler: "handleEthermintEvmEvent",
+            kind: "cosmos/EthermintEvmEvent",
+            filter: {
+              // The topics filter follows the Ethereum JSON-PRC log filters
+              // https://docs.ethers.io/v5/concepts/events
+              // Example valid values:
+              // - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
+              // - Transfer(address,address,u256)
+              topics: ["Transfer(address src, address dst, uint256 wad)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 :::
 
-The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ::: tip Note
 Please note that Cro Crow token requires a specific ABI interface. You need to:

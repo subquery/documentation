@@ -27,7 +27,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-chain is built on Ethereum's EVM, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -41,32 +41,40 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all Pangolin Rewards, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche C-Chain is EVM compatible
-    startBlock: 7906490 # Block when the first reward is made
-    options:
-      # Must be a key of assets
-      abi: erc20
-      ## Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
-      address: "0x88afdae1a9f58da3e68584421937e5f564a0135b"
-    assets:
-      erc20:
-        file: "./abis/PangolinRewards.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Avalanche C-Chain is EVM compatible
-          filter:
-            ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-            topics:
-              - RewardPaid(address user, uint256 reward)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // # Block when the first reward is made
+      startBlock: 7906490,
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // Pangolin reward contract https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b
+        address: "0x88afdae1a9f58da3e68584421937e5f564a0135b",
+      },
+      assets: new Map([["erc20", { file: "./abis/PangolinRewards.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              topics: ["RewardPaid(address user, uint256 reward)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin Rewards contract](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b).
 
-Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

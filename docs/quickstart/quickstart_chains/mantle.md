@@ -18,7 +18,7 @@ We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Mantle project. It defines most of the details on how SubQuery will index and transform the chain data. For Mantle, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Mantle project. It defines most of the details on how SubQuery will index and transform the chain data. For Mantle, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -30,42 +30,60 @@ As we are indexing all transfers and approvals from the [Mantle Native token](ht
 
 **Update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Mantle is EVM-compatible
-    startBlock: 1 # This contract was deployed on the genesis block
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" # This is the contract address for the Mantle native token https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers
-    assets:
-      erc20:
-        file: "./abis/erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Mantle is EVM-compatible
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 amount)
-        - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum handlers since Mantle is EVM-compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256
-                amount)
-              # address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 1,
+      // This is the contract address for the Mantle native token https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // this is the contract address for wrapped ether https://lineascan.build/token/0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f
+        address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
 The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Mantle Native token](https://explorer.mantle.xyz/token/0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000/token-transfers).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

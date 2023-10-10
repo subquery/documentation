@@ -62,7 +62,7 @@ Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-d
 
 ## 2. The Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
+The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
@@ -70,64 +70,41 @@ The Project Manifest (`project.yaml`) file works as an entry point to your proje
 
 We are indexing all attestations creation and revoking events from the Kilt Spiritnet blockchain. This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
-```yaml
-specVersion: 1.0.0
-name: kilt-spiritnet-starter
-version: 0.0.1
-runner:
-  node:
-    name: "@subql/node"
-    version: "*"
-  query:
-    name: "@subql/query"
-    version: "*"
-description: >-
-  This project can be used as a starting point for developing your SubQuery
-  project
-repository: "https://github.com/subquery/subql-starter"
-schema:
-  file: ./schema.graphql
-network:
-  # The genesis hash of the network (hash of block 0)
-  chainId: "0x411f057b9107718c9624d6aa4a3f23c1653898297f3d4d529d9bb6511a39dd21"
-  # This endpoint must be a public non-pruned archive node
-  # Public nodes may be rate limited, which can affect indexing speed
-  # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint:
-    ["wss://spiritnet.api.onfinality.io/public-ws", "wss://spiritnet.kilt.io"]
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/kilt-spiritnet-dictionary"
-  chaintypes:
-    file: ./dist/chaintypes.js
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleAttestationCreated
-          kind: substrate/EventHandler
-          filter:
-            module: attestation
-            method: AttestationCreated
-        - handler: handleAttestationRevoked
-          kind: substrate/EventHandler
-          filter:
-            module: attestation
-            method: AttestationRevoked
-        # We could not find any events for this module in the blocks explored
-        # - handler: handleAttestationRemoved
-        #   kind: substrate/EventHandler
-        #   filter:
-        #     module: attestation
-        #     method: AttestationRemoved
+```ts
+{
+  dataSources: [
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleAttestationCreated",
+            filter: {
+              module: "attestation",
+              method: "AttestationCreated",
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleAttestationRevoked",
+            filter: {
+              module: "attestation",
+              method: "AttestationRevoked",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleAttestationCreated` mapping function whenever there is an `AttestationCreated` event on any transaction from the Kilt Blockchain. Similarly, we will run the `handleAttestationRevoked` mapping function whenever there is a `AttestationRevoked` log on Kilt.
 
-Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file for Polkadot chains.
+Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file for Polkadot chains.
 
 ## 3. Mapping Functions
 
@@ -213,7 +190,7 @@ export async function handleDailyUpdate(
 }
 ```
 
-The `handleAttestationCreated` function receives event data from the Kilt execution environment whenever an call matches the filters that was specified previously in the `project.yaml`. It instantiates a new `Attestation` entity and populates the fields with data from the Substrate Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_). The same can be said for the `handleAttestationRevoked`. The only difference is for the attestations revoked we do not need to instantiate a new `Attestation` entity.
+The `handleAttestationCreated` function receives event data from the Kilt execution environment whenever an call matches the filters that was specified previously in the `project.ts`. It instantiates a new `Attestation` entity and populates the fields with data from the Substrate Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_). The same can be said for the `handleAttestationRevoked`. The only difference is for the attestations revoked we do not need to instantiate a new `Attestation` entity.
 
 There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 

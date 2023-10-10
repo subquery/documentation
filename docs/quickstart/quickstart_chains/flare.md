@@ -68,7 +68,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data. For Flare, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Flare project. It defines most of the details on how SubQuery will index and transform the chain data. For Flare, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/flare.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -106,7 +106,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardClaimed` log on any transaction from the [FTSO Reward Manager contract](https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925).
 
-Check out our [Manifest File](../../build/manifest/flare.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/flare.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -118,7 +118,7 @@ Follow these steps to add a mapping function:
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Delete both the `handleBlock` and `handleTransaction` functions as you will only deal with the `handleLog` function.
 
-The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all `RewardClaimed` transaction logs, and save them to the GraphQL entities created earlier.
+The `handleLog` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process all `RewardClaimed` transaction logs, and save them to the GraphQL entities created earlier.
 
 Update the `handleLog` function as follows (**note the additional imports**):
 

@@ -70,32 +70,49 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand, there are two types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand, there are two types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
-```yaml
-dataSources:
-  - kind: algorand/Runtime
-    startBlock: 8712119 # Block that planet was created on https://algoexplorer.io/tx/G66KX3TLKXUI547DFB4MNVY7SJVADOJKGP4SWMRC632GFHSFX5KQ
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleTransaction
-          kind: algorand/TransactionHandler
-          filter:
-            # payments from the Planet Watch Address for the PLANET asset
-            txType: axfer
-            assetId: 27165954
-            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+```ts
+{
+  dataSources: [
+    {
+      kind: AlgorandDataSourceKind.Runtime,
+      startBlock: 8712119,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          // {
+          //   block handlers are slow and we are best to avoid them if possible
+          //   handler: handleBlock,
+          //   kind: AlgorandHandlerKind.Block
+          // }
+          {
+            handler: "handleTransaction",
+            kind: AlgorandHandlerKind.Transaction,
+            filter: {
+              txType: "axfer", // From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
+              assetId: 27165954, // Planet watch asset
+              sender:
+                "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754",
+              // applicationId: 1
+              // receiver: "XXXXX"
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address. The `txType: axfer ` distinguishes the type of the transaction as an [asset transfer transaction](https://developer.algorand.org/docs/get-details/transactions/transactions/).
 
-Check out our [Manifest File](../../build/manifest/algorand.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/algorand.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -105,7 +122,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions: `handleBlock` and `handleTransaction`. Delete the `handleBlock` function.
 
-The `handleTransaction` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process all PLANET token transactions, and save them to the GraphQL entities created earlier.
+The `handleTransaction` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process all PLANET token transactions, and save them to the GraphQL entities created earlier.
 
 Update the `handleTransaction` function as follows (**note the additional imports**):
 

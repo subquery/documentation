@@ -18,7 +18,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 
 ## 1. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -32,37 +32,46 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all Gravatars, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 6175243 # This is when the Gravatar contract was deployed
-    options:
-      # Must be a key of assets
-      abi: gravity
-      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC" # The contract address of the Gravatar on Ethereum
-    assets:
-      gravity:
-        file: "./abis/Gravity.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleNewGravatar
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - NewGravatar(uint256,address,string,string)
-        - handler: handleUpdatedGravatar
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - UpdatedGravatar(uint256,address,string,string)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 6175243,
+
+      options: {
+        // Must be a key of assets
+        abi: "gravity",
+        address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC",
+      },
+      assets: new Map([["gravity", { file: "./abis/Gravity.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNewGravatar",
+            filter: {
+              topics: ["NewGravatar(uint256,address,string,string)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleUpdatedGravatar",
+            filter: {
+              topics: ["UpdatedGravatar(uint256,address,string,string)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `NewGravatar` or `UpdatedGravatar` log on any transaction from the [Gravatar contract](https://etherscan.io/address/0x2E645469f354BB4F5c8a05B3b30A929361cf77eC).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

@@ -235,7 +235,7 @@ export async function handleAcalaEvmCall(
 
 ## Data Source Example
 
-This is an extract from the `project.yaml` manifest file.
+This is an extract from the `project.ts` manifest file.
 
 ::: code-tabs
 @tab Frontier EVM

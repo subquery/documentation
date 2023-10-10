@@ -29,7 +29,7 @@ The final code of this project can be found [here](https://github.com/subquery/n
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for NEAR Aurora. Since Aurora is a EVM implementation on NEAR, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project). Note that these are different mapping handlers to that of [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
+The Project Manifest (`project.ts`) file works as an entry point to your Aurora project. It defines most of the details on how SubQuery will index and transform the chain data. For Aurora, there are three types of mapping handlers (and you can have more than one in each project). Note that these are different mapping handlers to that of [traditional NEAR projects](./near.md#2-update-your-project-manifest-file):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -43,40 +43,52 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since we are indexing all transfers and approvals for the Wrapped NEAR smart contract, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
-    startBlock: 42731897 # Block with the first interaction with NEAR https://explorer.aurora.dev/tx/0xc14305c06ef0a271817bb04b02e02d99b3f5f7b584b5ace0dab142777b0782b1
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d" # this is the contract address for wrapped NEAR https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d
-    assets:
-      erc20:
-        file: "./abis/erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTransaction
-          kind: ethereum/TransactionHandler # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            function: approve(address spender, uint256 rawAmount)
-        - handler: handleLog
-          kind: ethereum/LogHandler # We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256
-                amount)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
+      startBlock: 42731897, // Block with the first interaction with NEAR https://explorer.aurora.dev/tx/0xc14305c06ef0a271817bb04b02e02d99b3f5f7b584b5ace0dab142777b0782b1
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        address: "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d", // this is the contract address for wrapped NEAR https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleTransaction",
+            kind: EthereumHandlerKind.Call, // We use ethereum runtime since NEAR Aurora is a layer-2 that is compatible
+            filter: {
+              // The function can either be the function fragment or signature
+              // function: '0x095ea7b3'
+              // function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            handler: "handleLog",
+            kind: EthereumHandlerKind.Event,
+            filter: {
+              // address: "0x60781C2586D68229fde47564546784ab3fACA982"
+              topics: [
+                //Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleTransaction` and `handlelog` mapping function whenever there is an `approve` or `Transfer` log on any transaction from the [Wrapped NEAR contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d/contracts#address-tabs).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

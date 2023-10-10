@@ -18,7 +18,7 @@ We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -30,41 +30,58 @@ As we are indexing all dripped faucets from the USDC Faucet contract, the first 
 
 **Update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Base is a layer-2 that is compatible
-    startBlock: 1512049 # This is the block of the first claim dividend https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
-    options:
-      # Must be a key of assets
-      abi: faucet_abi
-      address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D" # this is the contract address for USDC faucet on Base Goerli
- https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d
-    assets:
-      faucet_abi:
-        file: "./abis/faucet.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleDrip
-          kind: ethereum/TransactionHandler # We use ethereum handlers since Base Goerli is EVM-Compatible
-          filter:
-            ## The function can either be the function fragment or signature
-            function: "0x6c81bd54"
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            # function: drip(address token, uint256 amount, address receiver)
-        # - handler: handleLog
-        ## No logs to index in this case, however, it is always possible to uncomment this section and add log handlers
-        # kind: ethereum/LogHandler # We use ethereum handlers since Base Goerli is EVM-Compatible
-        # filter:
-        # topics:
-        ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-        # - Transfer(address indexed from, address indexed to, uint256 amount)
-        # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 1512049,
+
+      options: {
+        // Must be a key of assets
+        abi: "faucet_abi",
+        // # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+        address: "0x298e0B0a38fF8B99bf1a3b697B0efB2195cfE47D",
+      },
+      assets: new Map([["faucet_abi", { file: "./abis/faucet.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleDrip",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               * function: drip(address token, uint256 amount, address receiver)
+               */
+              function: "0x6c81bd54",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleDrip` mapping function whenever there is a `drip` method being called on any transaction from the [USDC Faucet contract](https://goerli.basescan.org/address/0x298e0b0a38ff8b99bf1a3b697b0efb2195cfe47d).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

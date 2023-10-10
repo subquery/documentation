@@ -5,7 +5,7 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
 1. Initialise your project using `subql init PROJECT_NAME`.
-2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
+2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/polkadot.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/publish.md) your Starter Project in our quick start guide.
@@ -29,7 +29,7 @@ The following map provides an overview of the directory structure of a SubQuery 
   L README.md
   L docker-compose.yml
   L package.json
-  L project.yaml
+  L project.ts
   L schema.graphql
   L tsconfig.json
 ```
@@ -66,7 +66,7 @@ You will then be prompted to select what `events` and/or `functions` that you wa
 
 ### For an Existing SubQuery Project
 
-You can also generate additional scaffolded code new new contracts and append this code to your existing `project.yaml`. This is done using the `subql codegen:generate` command from within your project workspace.
+You can also generate additional scaffolded code new new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
 
 ```shell
 subql codegen:generate \
@@ -152,7 +152,7 @@ export async function handleUpdatedGravatarGravityLog(
 
 ## Working with the Manifest File
 
-The Manifest `project.yaml` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
+The Manifest `project.ts` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
 
 The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/ethereum.md) of what it looks like:
 
@@ -193,7 +193,7 @@ dataSources:
           kind: substrate/CallHandler
 ```
 
-The project.yaml file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
+The project.ts file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
 
 When setting up your own SubQuery project, you will need to update this file to match your specific requirements.
 
@@ -298,7 +298,7 @@ It will also generate a class for every contract event to provide easy access to
 
 **Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
 
-You will also need to include this in the project configuration file (`project.yaml`)
+You will also need to include this in the project configuration file (`project.ts`)
 
 ```yaml
 network:
@@ -339,7 +339,7 @@ export async function handleMessage(
 
 Codegen will also generate wrapper types from CosmWasm contract abis, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
-Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.yaml` configuration:
+Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.ts` configuration:
 
 ```yaml
 dataSources:
@@ -349,7 +349,7 @@ dataSources:
       abi: baseMinter
     assets:
       baseMinter:
-        file: './cosmwasm/base-minter/schema/base-minter.json'
+        file: "./cosmwasm/base-minter/schema/base-minter.json"
 ```
 
 All generated files could be found under `src/typs/cosmwasm-interfaces` and `src/typs/cosmwasm-interface-wrappers` directories.
@@ -358,7 +358,7 @@ All generated files could be found under `src/typs/cosmwasm-interfaces` and `src
 
 ## Mapping
 
-Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.yaml` under the mapping handlers.
+Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.ts` under the mapping handlers.
 
 In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 

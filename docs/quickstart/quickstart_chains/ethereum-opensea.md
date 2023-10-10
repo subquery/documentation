@@ -28,34 +28,44 @@ The code snippets provided further have been simplified for clarity. You can fin
 
 You only need to set up one handler to index a specific type of log from this contract, which is the `OrderFulfilled` log. Update your manifest file to look like this:
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 14946474
-    options:
-      # Must be a key of assets
-      abi: SeaportExchange
-      address: "0x00000000006c3852cbef3e08e8df289169ede581"
-    assets:
-      SeaportExchange:
-        file: "./abis/SeaportExchange.abi.json"
-      ERC165:
-        file: "./abis/ERC165.json"
-      NftMetadata:
-        file: "./abis/NftMetadata.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleOrderFulfilled
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 14946474,
+
+      options: {
+        // Must be a key of assets
+        abi: "SeaportExchange",
+        address: "0x00000000006c3852cbef3e08e8df289169ede581",
+      },
+      assets: new Map([
+        ["SeaportExchange", { file: "./abis/SeaportExchange.abi.json" }],
+        ["ERC165", { file: "./abis/ERC165.json" }],
+        ["NftMetadata", { file: "./abis/NftMetadata.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleOrderFulfilled",
+            filter: {
+              topics: [
+                "OrderFulfilled(bytes32,address,address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])\n",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 :::
 
 ### 2. Updating the GraphQL Schema File

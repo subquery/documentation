@@ -69,11 +69,11 @@ If your (or anyone else's Substrate chain) needs indexing support, we're pretty 
 
 Clone a project from: [https://github.com/subquery/subql-starter](https://github.com/subquery/subql-starter) to start with some standard boilerplate (it might be easiest to just fork that repo and copy an existing one that is most like your chain).
 
-**2. Update project.yaml & package.json file**
+**2. Update project.ts & package.json file**
 
 In the `package.json`, you will want to update the `name` and `description`.
 
-The majority of changes occur in the project manifest (`project.yaml`). This include the following:
+The majority of changes occur in the project manifest (`project.ts`). This include the following:
 
 - `name`
 - `description`

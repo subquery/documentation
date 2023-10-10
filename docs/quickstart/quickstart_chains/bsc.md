@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for BNB Smart Chain (BSC). Since BSC is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your BSC project. It defines most of the details on how SubQuery will index and transform the chain data. For BSC, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your BSC project. It defines most of the details on how SubQuery will index and transform the chain data. For BSC, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/bsc.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/bsc.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -36,37 +36,51 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all MOBOX Deposits and Withdrawls, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since BSC is an EVM compatible blockchain
-    startBlock: 17047980 # The block on which the Mobox Farming contract was deployed
-    options:
-      # Must be a key of assets
-      abi: mobox_abi
-      address: "0xa5f8c5dbd5f286960b9d90548680ae5ebff07652" # this is the contract address for Mobox Farming contract https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code
-    assets:
-      mobox_abi:
-        file: "mobox.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleDeposit
-          kind: ethereum/LogHandler # We use ethereum handlers since BSC is an EVM-compatible blockchain
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Deposit(address indexed user, uint256 indexed pid, uint256 amount)
-        - handler: handleWithdraw
-          kind: ethereum/LogHandler # We use ethereum handlers since BSC is a EVM-compatible blockchain
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Withdraw(address indexed user, uint256 indexed pid, uint256 amount)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 17047980, //The block on which the Mobox Farming contract was deployed
+
+      options: {
+        // Must be a key of assets
+        abi: "mobox_abi",
+        // this is the contract address for Mobox Farming contract https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652#code
+        address: "0xa5f8c5dbd5f286960b9d90548680ae5ebff07652",
+      },
+      assets: new Map([["mobox_abi", { file: "mobox.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleDeposit",
+            filter: {
+              topics: [
+                "Deposit(address indexed user, uint256 indexed pid, uint256 amount)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleWithdraw",
+            filter: {
+              topics: [
+                "Withdraw(address indexed user, uint256 indexed pid, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleDeposit` mapping function whenever there is an `Deposit` log on any transaction from the [MOBOX Farming contract](https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652). Simarly, you'll be running a `handleWithdraw` mapping function whenever there is an `Withdraw` logs.
 
-Check out our [Manifest File](../../build/manifest/bsc.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/bsc.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

@@ -21,7 +21,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Arbitrum project. It defines most of the details on how SubQuery will index and transform the chain data. For Arbitrum, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Arbitrum project. It defines most of the details on how SubQuery will index and transform the chain data. For Arbitrum, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/arbitrum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/arbitrum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -33,32 +33,48 @@ As we are indexing all claimed dividends from the WINR contract, the first step 
 
 **Update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Arbitrum is a layer-2 that is compatible
-    startBlock: 91573785 # This is the block of the first claim dividend https://arbiscan.io/tx/0x300b6199816f44029408efc850fb9d6f8751bbedec3e273909eac6f3a61ee3b3
-    options:
-      # Must be a key of assets
-      abi: winr-staking
-      address: "0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034" # This is the contract address for WINR Staking https://arbiscan.io/tx/0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6
-    assets:
-      winr-staking:
-        file: "./abis/winr-staking.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleDividendBatch
-          kind: ethereum/LogHandler # We use ethereum handlers since Arbitrum is a layer-2 that is compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - ClaimDividendBatch(address indexed user, uint256 reward)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // This is the block of the first claim dividend https://arbiscan.io/tx/0x300b6199816f44029408efc850fb9d6f8751bbedec3e273909eac6f3a61ee3b3
+      startBlock: 91573785,
+      options: {
+        // Must be a key of assets
+        abi: "winr-staking",
+        // This is the contract address for WINR Staking https://arbiscan.io/tx/0x44e9396155f6a90daaea687cf48c309128afead3be9faf20c5de3d81f6f318a6
+        address: "0xddAEcf4B02A3e45b96FC2d7339c997E072b0d034",
+      },
+      assets: new Map([
+        ["winr-staking", { file: "./abis/winr-staking.abi.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleDividendBatch",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "ClaimDividendBatch(address indexed user, uint256 reward)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleDividendBatch` mapping function whenever there is a `ClaimDividendBatch` log on any transaction from the [WINR contract](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code).
 
-Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

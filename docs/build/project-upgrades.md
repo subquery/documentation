@@ -6,10 +6,10 @@ It's particularly useful when you want to maintain the data of the previous proj
 
 ## How it works
 
-When defining a project upgrade, you clone the project manifest (project.yaml), and then link it to the original using the new `parent` definition which refers to the historical published project CID.
+When defining a project upgrade, you clone the project manifest (project.ts), and then link it to the original using the new `parent` definition which refers to the historical published project CID.
 
 1. A project already indexed with a CID from publishing via the CLI.
-2. Changes to your project have been made. You can refer to the currently deployed version by adding a parent to your `project.yaml`:
+2. Changes to your project have been made. You can refer to the currently deployed version by adding a parent to your `project.ts`:
 
 ```yaml
 ...
