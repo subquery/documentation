@@ -41,7 +41,7 @@ Wenn Ihr Projekt noch über GitHub bereitgestellt wird, lesen Sie den Migrations
 
 ### Wie kann man ein Projekt veröffentlichen?
 
-Run the following command, which will read the project's default manifest `project.yaml` for the required information.
+Run the following command, which will read the project's default manifest `project.ts` for the required information.
 
 ```
 // Veröffentlichen Sie es aus dem Stammverzeichnis Ihres Projekts
@@ -78,7 +78,7 @@ Auf IPFS hochgeladenes SubQuery-Projekt:
 QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.yaml. For example, if your manifest file is named `project.yaml`, the IPFS file will be named `.project-cid`.
+Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.ts. For example, if your manifest file is named `project.ts`, the IPFS file will be named `.project-cid`.
 
 ::: details What happens during IPFS Deployment?
 
@@ -216,7 +216,7 @@ Sie können auch `@subql/cli` verwenden, um eine neue Bereitstellung Ihres Proje
 
 With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
-- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.yaml` and include a private API key).
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.ts` and include a private API key).
 - Step 2: If you haven't already, create a project on [SubQuery Managed Service](https://managedservice.subquery.network). This can be done using the [UI](#using-the-ui) or [CLI](#using-the-cli).
 - Schritt 3: Navigieren Sie nach der Erstellung Ihres Projekts zur Seite „GitHub-Aktionen“ Ihres Projekts und wählen Sie den Workflow `CLI-Bereitstellung` aus.
 - Schritt 4: Sie sehen ein Eingabefeld, in das Sie den eindeutigen Code Ihres auf SubQuery Projects erstellten Projekts eingeben können. You can get the code from the URL in SubQuery's Managed Service [SubQuery Managed Service](https://managedservice.subquery.network). Der Code basiert auf dem Namen Ihres Projekts, wobei Leerzeichen durch Bindestriche `-` ersetzt werden. z.B. `my project name` wird zu `my-project-name`.
