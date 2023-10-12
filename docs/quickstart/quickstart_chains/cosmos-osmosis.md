@@ -1,6 +1,6 @@
 # Osmosis Quick Start
 
-[Osmosis](https://osmosis.zone/) is a DEX built on the Cosmos ecosystem. It is designed to allow users to trade tokens from different blockchains that are part of the Cosmos ecosystem. Osmosis uses the IBC protocol to enable the transfer of assets between different blockchains, including [Cosmos Hub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter), [Akash](https://github.com/subquery/cosmos-subql-starter/tree/main/Akash/akash-starter), and others.
+[Osmosis](https://osmosis.zone/) is a DEX built on the Cosmos ecosystem. It is designed to allow users to trade tokens from different blockchains that are part of the Cosmos ecosystem. Osmosis uses the IBC protocol to enable the transfer of assets between different blockchains, including [Cosmos Hub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter), [Akash](./cosmos-akash.md), and others.
 
 ## Goals
 
