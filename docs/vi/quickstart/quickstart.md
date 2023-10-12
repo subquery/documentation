@@ -94,7 +94,7 @@ You may want to refer to the [command line arguments](../run_publish/references.
 There are 3 important files that need to be modified. Đó là:
 
 1. The GraphQL Schema in `schema.graphql`.
-2. Tệp Kê khai dự án trong `project.yaml`.
+2. The Project Manifest in `project.ts`.
 3. Các hàm ánh xạ trong thư mục `src/mappings/`.
 
 SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp hướng dẫn riêng cho từng mạng. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
