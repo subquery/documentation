@@ -359,7 +359,7 @@ export async function kittyApiHandler(): Promise<void> {
 To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration.
 You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
 
-```yaml
+```ts
 ...
   types: {
     "KittyIndex": "u32",

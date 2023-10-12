@@ -11,14 +11,15 @@ When defining a project upgrade, you clone the project manifest (project.ts), an
 1. A project already indexed with a CID from publishing via the CLI.
 2. Changes to your project have been made. You can refer to the currently deployed version by adding a parent to your `project.ts`:
 
-```yaml
-...
-parent:
-  # The block height when you will switch from the previous reference project CID to the updated version
-  block: 1050
-  # The CID of your existing project that you wish to replace
-  reference: QmXw6FN6eScxvYXYceuCjKMpqmnuCxwY3Cx4HPhDXgUWe5
-  ...
+```ts
+{
+  parent: {
+    // The block height when you will switch from the previous reference project CID to the updated version
+    block: 1050,
+    // The CID of your existing project that you wish to replace
+    reference: "QmXw6FN6eScxvYXYceuCjKMpqmnuCxwY3Cx4HPhDXgUWe5",
+  },
+}
 ```
 
 3. When this new project is started, it will index using the previous project CID until it hits the defined block height, to which it will switch to this new upgraded project.

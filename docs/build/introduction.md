@@ -100,29 +100,39 @@ It initialises the correct manifest with Log Handlers included, as well a new ty
 
 :::details Manifest
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 6175243
-    options:
-      abi: Gravity
-      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
-    assets:
-      Gravity:
-        file: ./abis/Gravity.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleNewGravatarGravityLog
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - NewGravatar(uint256,address,string,string)
-        - handler: handleUpdatedGravatarGravityLog
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - UpdatedGravatar(uint256,address,string,string)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 6175243,
+      options: {
+        abi: "gravity",
+        address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC",
+      },
+      assets: new Map([["gravity", { file: "./abis/Gravity.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNewGravatar",
+            filter: {
+              topics: ["NewGravatar(uint256,address,string,string)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleUpdatedGravatar",
+            filter: {
+              topics: ["UpdatedGravatar(uint256,address,string,string)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 :::
@@ -154,43 +164,93 @@ export async function handleUpdatedGravatarGravityLog(
 
 The Manifest `project.ts` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
 
-The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/ethereum.md) of what it looks like:
+The Manifest can be in either TS, YAML, or JSON format. In all [our examples](./manifest), we use TS. Here is an [example](./manifest/ethereum.md) of what it looks like:
 
-```yml
-specVersion: 1.0.0
-name: subquery-starter
-version: 0.0.1
-runner:
-  node:
-    name: "@subql/node"
-    version: "*"
-  query:
-    name: "@subql/query"
-    version: "*"
-description: "This project can be used as a starting point for developing your Polkadot based SubQuery project"
-repository: https://github.com/subquery/subql-starter
-schema:
-  file: ./schema.graphql
-network:
-  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
-  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
-  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
-  bypassBlocks: [1, 2, 100, "200-500"]
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1 # Block to start indexing from
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+```ts
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "ethereum-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Ethereum SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for Ethereum this is 1
+     * https://chainlist.org/chain/1
+     */
+    chainId: "1",
+    /**
+     * This endpoint must be a public non-pruned archive node
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     * You can get them from OnFinality for free https://app.onfinality.io
+     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     */
+    endpoint: ["https://eth.api.onfinality.io/public"],
+    dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 4719568,
+
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
 ```
 
 The project.ts file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
@@ -300,25 +360,34 @@ It will also generate a class for every contract event to provide easy access to
 
 You will also need to include this in the project configuration file (`project.ts`)
 
-```yaml
-network:
-  chainTypes:
-    osmosis.gamm.v1beta1:
-      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
-      messages:
-        - MsgSwapExactAmountIn
+```ts
+{
+  chaintypes: new Map([
+    [
+      "osmosis.gamm.v1beta1",
+      {
+        file: "./proto/osmosis/gamm/v1beta1/tx.proto",
+        messages: ["MsgSwapExactAmountIn"],
+      },
+    ],
+  ]),
+}
 ```
 
 Once `codegen` is executed you will find the message types under `src/types/CosmosMessageTypes.ts`. If you wish to add more message types from the same proto, you will need to include them under the `messages` array.
 
-```yaml
-network:
-  chainTypes:
-    osmosis.gamm.v1beta1:
-      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
-      messages:
-        - MsgSwapExactAmountIn
-        - MsgSwapExactAmountOut
+```ts
+{
+  chaintypes: new Map([
+    [
+      "osmosis.gamm.v1beta1",
+      {
+        file: "./proto/osmosis/gamm/v1beta1/tx.proto",
+        messages: ["MsgSwapExactAmountIn", "MsgSwapExactAmountOut"],
+      },
+    ],
+  ]),
+}
 ```
 
 If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`. You import them into your message handlers like so:
@@ -341,15 +410,20 @@ Codegen will also generate wrapper types from CosmWasm contract abis, the `codeg
 
 Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.ts` configuration:
 
-```yaml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 6000000
-    options:
-      abi: baseMinter
-    assets:
-      baseMinter:
-        file: "./cosmwasm/base-minter/schema/base-minter.json"
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 6000000,
+      options: {
+        abi: "baseMinter",
+      },
+      assets: new Map([["baseMinter", { file: "./cosmwasm/base-minter/schema/base-minter.json" }]]),
+      mapping: {...},
+    },
+  ],
+}
 ```
 
 All generated files could be found under `src/typs/cosmwasm-interfaces` and `src/typs/cosmwasm-interface-wrappers` directories.

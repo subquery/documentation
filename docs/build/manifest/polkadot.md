@@ -87,9 +87,6 @@ const project: SubstrateProject = {
 export default project;
 ```
 
-Unlike create a YAML-formatted manifest, after editing of a TypeScript-formatted manifest, we need to execute the subql CLI (4.0.0 or later) [build command]() to automatically generate a compiled project object, and this object will be written into a YAML file with the same name.
-For example, if you provide "polkadot-project.ts," the generated file will be "polkadot-project.yaml."
-
 Below is a standard example of the legacy YAML version (`project.yaml`).
 
 :::details Legacy YAML Manifest
@@ -405,14 +402,23 @@ This is then exported in the `package.json` like so:
 }
 ```
 
-Finally, in the `project.yaml` manifest, we can import this official types bundle as per standard:
+Finally, in the `project.ts` manifest, we can import this official types bundle as per standard:
 
-```yaml
-network:
-  genesisHash: "0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c"
-  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
-  chaintypes:
-    file: ./dist/chaintypes.js
+```ts
+{
+  network: {
+    chainId:
+      "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
+    endpoint: [
+      "wss://acala-polkadot.api.onfinality.io/public-ws",
+      "wss://acala-rpc-0.aca-api.network",
+    ],
+    dictionary: "https://api.subquery.network/sq/subquery/acala-dictionary",
+    chaintypes: {
+      file: "./dist/chaintypes.js",
+    },
+  },
+}
 ```
 
 ## Real-time indexing (Unfinalised Blocks)

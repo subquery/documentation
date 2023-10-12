@@ -64,6 +64,7 @@ The manifest file contains the largest set of differences, but once you understa
 
 **Notable differences include:**
 
+- SubQuery has moved to by default offering a Typescript based manifest file for better type safety and feature discoverability. SubQuery does however allow you to define your manifest in YAML if you wish to do so.
 - SubQuery has a section in the manifest for the `network:`. This is where you define what network your SubQuery project indexes, and the RPC endpoints (non-pruned archive nodes) that it connects to in order to retrieve the data. Make sure to include the `dictionary:` endpoint in this section as it will speed up the indexing speed of your SubQuery project.
 - Both SubGraphs and SubQuery projects use the `dataSources:` section to list the mapping files.
 - Similarly, you can define the contract ABI information for the smart contract that you are indexing.
@@ -113,7 +114,69 @@ dataSources:
       file: ./src/mapping.ts
 ```
 
-@tab:active SubQuery
+@tab:active SubQuery (TS)
+
+```ts
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "subquery-example-gravatar",
+  description:
+    "This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum",
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    chainId: "1",
+    endpoint: ["https://eth.api.onfinality.io/public"],
+    dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 6175243,
+      options: {
+        abi: "gravity",
+        address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC",
+      },
+      assets: new Map([["gravity", { file: "./abis/Gravity.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNewGravatar",
+            filter: {
+              topics: ["NewGravatar(uint256,address,string,string)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleUpdatedGravatar",
+            filter: {
+              topics: ["UpdatedGravatar(uint256,address,string,string)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+export default project;
+```
+
+@tab SubQuery (YAML)
 
 ```yaml
 # ******* SubQuery *******
