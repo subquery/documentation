@@ -417,6 +417,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-neutron.md`,
                 },
                 {
+                  text: "Osmosis",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-osmosis.md`,
+                },
+                {
                   text: "Sei",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
                 },
@@ -441,6 +445,10 @@ function getSidebar(locale: string): SidebarOptions {
                 {
                   text: "Ethereum Gravatar (Simple)",
                   link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                },
+                {
+                  text: "Ethereum BAYC (Simple)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-bayc.md`,
                 },
                 {
                   text: "Ethereum Chainlink (Medium)",
