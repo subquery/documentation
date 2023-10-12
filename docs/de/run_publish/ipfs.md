@@ -17,13 +17,13 @@ Die Verwendung von IPFS bietet Entwicklern in mehrfacher Hinsicht ein besseres E
    - Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
 2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
 3. `src/index.ts`: For Substrate based projects, if updating from `@polkadot/api` v6 (or earlier), update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
-4. `project.yaml`:
+4. `project.ts`:
 
-   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.ts`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
    - Check that the `datasources: mapping: file:` references your code entrypoint correctly. Usually this is `./dist/index.js`
 
-   - Wenn Sie einen Datenquellenprozessor (jeden `Prozessor:` in der `project.yaml`) verwenden, müssen wir sicherstellen, dass er während des Erstellens und Veröffentlichens gebündelt wird. Aktualisieren Sie dazu bitte auf die neueste Version des Pakets, das jetzt eine gebündelte Version enthält. Sie können dies tun, indem Sie Ihrer `package.json` Exporte hinzufügen.
+   - If you're using a datasource processor (any `processor:` in the `project.ts`) we need to ensure that it gets bundled during build and publish. Aktualisieren Sie dazu bitte auf die neueste Version des Pakets, das jetzt eine gebündelte Version enthält. Sie können dies tun, indem Sie Ihrer `package.json` Exporte hinzufügen.
 
    ```json
    ...
@@ -36,7 +36,7 @@ Die Verwendung von IPFS bietet Entwicklern in mehrfacher Hinsicht ein besseres E
    }
    ```
 
-   Wir müssen den Verweis auf das Paket in Ihrer `project.yaml` aktualisieren. Dazu können Sie alle Prozessordateipfade auf `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` aktualisieren und `<processor-name>` durch die ersetzen Prozessor, den Sie verwenden. Wenn Sie `@subql/datasource-processors` verwenden, ist dieses Paket jetzt veraltet, Sie können den entsprechenden Ersatz im neuen [datasource-processors-Repository](https://github.com/subquery/datasource-processors/tree/main/packages) finden.
+   We need to update the reference to the bundle in your `project.ts`. Dazu können Sie alle Prozessordateipfade auf `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` aktualisieren und `<processor-name>` durch die ersetzen Prozessor, den Sie verwenden. Wenn Sie `@subql/datasource-processors` verwenden, ist dieses Paket jetzt veraltet, Sie können den entsprechenden Ersatz im neuen [datasource-processors-Repository](https://github.com/subquery/datasource-processors/tree/main/packages) finden.
 
    - Wenn Ihr Projekt js/ts-basierte benutzerdefinierte [Substratkettentypen](../build/manifest/polkadot.md#custom-chains) verwendet, müssen Sie die obigen Schritte wiederholen, jedoch unter Bezugnahme auf Ihre Kettentypen.
 
