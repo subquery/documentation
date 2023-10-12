@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this article is to provide a comprehensive guide to setting up an indexer for the Bored Ape Yacht Club (BAYC) smart contract. By the end of this guide, readers will have a clear understanding of the following what BAYC is and why its smart contract data is valuable for indexing and how to set up an indexer, step by step, to track and index data from the BAYC smart contract on the Ethereum blockchain.
+The goal of this article is to provide a comprehensive guide to setting up an indexer for the Bored Ape Yacht Club (BAYC) smart contract. By the end of this guide, readers will have a clear understanding of the following what BAYC is and why its smart contract data is valuable for indexing. This guide also shows how to set up an indexer, step by step, to track and index data from the BAYC smart contract on the Ethereum blockchain.
 
 **This guide is designed to seamlessly lead you through the steps of configuring your personal BAYC SubQuery indexer.**
 
