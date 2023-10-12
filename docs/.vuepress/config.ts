@@ -413,6 +413,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-neutron.md`,
                 },
                 {
+                  text: "Osmosis",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-osmosis.md`,
+                },
+                {
                   text: "Sei",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
                 },
