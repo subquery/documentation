@@ -17,13 +17,13 @@
    - Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
 2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
 3. `src/index.ts`: For Substrate based projects, if updating from `@polkadot/api` v6 (or earlier), update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
-4. `project.yaml`:
+4. `project.ts`:
 
-   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.ts`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
    - Check that the `datasources: mapping: file:` references your code entrypoint correctly. Usually this is `./dist/index.js`
 
-   - 如果您正在使用数据源处理器 (任何 `处理器： <code>项目中的` 处理器。 aml</code>我们需要确保它在构建和发布过程中被捆绑。 为此，请更新到现在包含捆绑版本的软件包的最新版本。 您可以通过将导出添加到您的 `package.json` 来实现这一点。
+   - If you're using a datasource processor (any `processor:` in the `project.ts`) we need to ensure that it gets bundled during build and publish. 为此，请更新到现在包含捆绑版本的软件包的最新版本。 您可以通过将导出添加到您的 `package.json` 来实现这一点。
 
    ```json
    ...
@@ -36,7 +36,7 @@
    }
    ```
 
-   我们需要更新您的 `project.yaml` 中的 bundle 的引用。 要做到这一点，您可以将任何处理器文件路径更新为 `file: ./node_modules/@subql/<processor-name>/dist/bundle。 s` 用您正在使用的处理器替换 `<processor-name>`。 如果您正在使用 `@subql/datasource-processor` 这个软件包现在已被废弃， 您可以从新的 [数据源处理器仓库中找到相关的替换](https://github.com/subquery/datasource-processors/tree/main/packages)
+   We need to update the reference to the bundle in your `project.ts`. 要做到这一点，您可以将任何处理器文件路径更新为 `file: ./node_modules/@subql/<processor-name>/dist/bundle。 s` 用您正在使用的处理器替换 `<processor-name>`。 如果您正在使用 `@subql/datasource-processor` 这个软件包现在已被废弃， 您可以从新的 [数据源处理器仓库中找到相关的替换](https://github.com/subquery/datasource-processors/tree/main/packages)
 
    - 如果你的项目使用基于 js/ts 的自定义 [Substrate 链类型](../build/manifest/polkadot.md#custom-chains) ，你将需要重复上面的步骤，但是要引用你的链类型。
 
