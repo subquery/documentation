@@ -443,6 +443,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
                 },
                 {
+                  text: "Ethereum BAYC (Simple)",
+                  link: `${locale}/quickstart/quickstart_chains/ethereum-bayc.md`,
+                },
+                {
                   text: "Ethereum Chainlink (Medium)",
                   link: `${locale}/quickstart/quickstart_chains/ethereum-chainlink.md`,
                 },
