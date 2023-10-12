@@ -15,7 +15,7 @@ Before we begin, make sure that you have initialised your project using the prov
 In every SubQuery project, there are 3 key files to update. Let's begin updating them one by one.
 
 ::: tip
-The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter).
+The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter). We also offer a [pre-recorded workshop](https://www.youtube.com/watch?v=Rp4d4NbVzo4) for this sample project, simplifying the process of keeping up with it.
 :::
 
 ## 1. Your Project Manifest File
