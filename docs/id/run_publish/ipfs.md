@@ -17,13 +17,13 @@ Menggunakan IPFS memberikan pengalaman yang lebih baik bagi para pengembang dala
    - Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
 2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
 3. `src/index.ts`: For Substrate based projects, if updating from `@polkadot/api` v6 (or earlier), update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
-4. `project.yaml`:
+4. `project.ts`:
 
-   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.yaml`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.ts`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
    - Check that the `datasources: mapping: file:` references your code entrypoint correctly. Usually this is `./dist/index.js`
 
-   - Jika Anda menggunakan prosesor sumber data (setiap `prosesor:` di `project.yaml`) kita perlu memastikan bahwa prosesor tersebut akan dibundel selama build dan publish. Untuk melakukannya, silakan perbarui ke versi terbaru dari paket yang sekarang menyertakan versi bundel. Anda dapat melakukan ini dengan menambahkan ekspor ke `package.json` Anda.
+   - If you're using a datasource processor (any `processor:` in the `project.ts`) we need to ensure that it gets bundled during build and publish. Untuk melakukannya, silakan perbarui ke versi terbaru dari paket yang sekarang menyertakan versi bundel. Anda dapat melakukan ini dengan menambahkan ekspor ke `package.json` Anda.
 
    ```json
    ...
@@ -36,7 +36,7 @@ Menggunakan IPFS memberikan pengalaman yang lebih baik bagi para pengembang dala
    }
    ```
 
-   Kita perlu memperbarui referensi ke bundel di `project.yaml` Anda. Untuk melakukan ini, Anda dapat memperbarui jalur file prosesor apa pun ke `file: ./node_modules/@subql/@subql/<processor-name>/dist/bundle.js` dan ganti `<processor-name>` dengan prosesor yang Anda gunakan. Jika Anda menggunakan `@subql/datasource-processors` paket ini sekarang sudah tidak digunakan lagi, Anda dapat menemukan penggantinya yang relevan dari repositori [datasource-processors](https://github.com/subquery/datasource-processors/tree/main/packages) yang baru.
+   We need to update the reference to the bundle in your `project.ts`. Untuk melakukan ini, Anda dapat memperbarui jalur file prosesor apa pun ke `file: ./node_modules/@subql/@subql/<processor-name>/dist/bundle.js` dan ganti `<processor-name>` dengan prosesor yang Anda gunakan. Jika Anda menggunakan `@subql/datasource-processors` paket ini sekarang sudah tidak digunakan lagi, Anda dapat menemukan penggantinya yang relevan dari repositori [datasource-processors](https://github.com/subquery/datasource-processors/tree/main/packages) yang baru.
 
    - Jika proyek Anda menggunakan [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) berbasis js/ts, Anda perlu mengulangi langkah-langkah di atas, tetapi dengan referensi ke chain types Anda.
 
