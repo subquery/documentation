@@ -12,7 +12,7 @@ When developing your project, if you don't want to use the SubQuery Testing Fram
 
 ### Choosing the starting block
 
-For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.yaml` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the following section.
+For the initial development of your project, if you're indexing a specific event, transaction, or log, update your `startBlock` in your `project.ts` to the block number proceeding a known event, transaction, or log and then proceed indexing from there. This means you immediately receive data into your project for indexing and this can significantly shorten the development iteration time. This can be done on the [manifest file](./manifest), in the following section.
 
 ```yml
 # ...
@@ -39,7 +39,7 @@ We recommend to generously use logging, including using the debug level when dev
 
 The `console.log` method is **not supported**. Instead, a `logger` module has been injected in the types, which means we support a logger that can accept various logging levels.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

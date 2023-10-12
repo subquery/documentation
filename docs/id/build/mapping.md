@@ -92,7 +92,7 @@ Kami juga mendukung beberapa method API RPC yang merupakan panggilan jarak jauh 
 
 Dokumen di [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) menyediakan beberapa metode yang menggunakan `BlockHash` sebagai parameter input (mis. `at?: BlockHash`), yang sekarang diizinkan. Kami juga telah memodifikasi metode ini untuk mengambil hash blok pengindeksan saat ini secara default.
 
-```typescript
+```ts
 // Anggap saja kita saat ini mengindeks balok dengan nomor hash ini
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -269,7 +269,7 @@ Perintah ini akan menghasilkan metadata dan api-augment baru untuk API. Karena k
 
 Sekarang dalam fungsi pemetaan, kita dapat menunjukkan bagaimana metadata dan tipe benar-benar menghiasi API. Endpoint RPC akan mendukung modul dan metode yang kita nyatakan di atas. Dan untuk menggunakan panggilan rpc kustom, mohon lihat bagian [Panggilan rpc chain kustom](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //mengembalikan jenis KittyIndex
   const nextKittyId = await api.query.kitties.nextKittyId();

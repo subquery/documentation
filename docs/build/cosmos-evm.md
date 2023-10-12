@@ -136,48 +136,51 @@ export async function handleEthermintEvmCall(
 
 ## Data Source Example
 
-This is an extract from the `project.yaml` manifest file.
+This is an extract from the `project.ts` manifest file.
 
-```yaml
-dataSources:
-  - kind: cosmos/EthermintEvm
-    startBlock: 1474211
-    processor:
-      file: "./node_modules/@subql/ethermint-evm-processor/dist/bundle.js"
-      options:
-        abi: erc20
-        address: "0xD4949664cD82660AaE99bEdc034a0deA8A0bd517" # wevmos
-    assets:
-      erc20:
-        file: "./erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
-        # - handler: handleBlock
-        #   kind: cosmos/BlockHandler
-        - handler: handleEthermintEvmEvent
-          kind: cosmos/EthermintEvmEvent
-          filter:
-            topics:
-              # The topics filter follows the Ethereum JSON-PRC log filters
-              # https://docs.ethers.io/v5/concepts/events
-              # Example valid values:
-              # - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
-              # - Transfer(address,address,u256)
-              # - Transfer(address from,address to,uint256 value)
-              - Transfer(address indexed src, address indexed dst, uint256 wad)
-              - null
-              - null
-              - null
-        - handler: handleEthermintEvmCall
-          kind: cosmos/EthermintEvmCall
-          filter:
-            # Either Function Signature strings or the function `sighash` to filter the function called on the contract
-            # ](https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment)
-            method: approve(address guy, uint256 wad)
-            # The transaction sender
-            from: "0x86ed94fb8fffe265caf38cbefb0431d2fbf862c1"
+```ts
+{
+  dataSources: [
+    {
+      kind: "cosmos/EthermintEvm",
+      startBlock: 446,
+      processor: {
+        file: "./node_modules/@subql/ethermint-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0x5c7f8a570d578ed84e63fdfa7b1ee72deae1ae23", // Wrapped CRO
+        },
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleEthermintEvmCall",
+            kind: "cosmos/EthermintEvmCall",
+            filter: {
+              // Either Function Signature strings or the function `sighash` to filter the function called on the contract
+              // https://docs.ethers.io/v5/api/utils/abi/fragments/#FunctionFragment
+              method: "approve(address guy, uint256 wad)",
+            },
+          },
+          {
+            handler: "handleEthermintEvmEvent",
+            kind: "cosmos/EthermintEvmEvent",
+            filter: {
+              // The topics filter follows the Ethereum JSON-PRC log filters
+              // https://docs.ethers.io/v5/concepts/events
+              // Example valid values:
+              // - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
+              // - Transfer(address,address,u256)
+              topics: ["Transfer(address src, address dst, uint256 wad)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ## Known Limitations

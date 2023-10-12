@@ -4,11 +4,110 @@
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for BNB Smart Chain (BSC). Since BSC is EVM-compatible, we can use the core Ethereum framework to index it.
 :::
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic Polygon `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  EthereumProject,
+  EthereumDatasourceKind,
+  EthereumHandlerKind,
+} from "@subql/types-ethereum";
+
+// Can expand the Datasource processor types via the generic param
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "bsc-mobox-rewards",
+  description:
+    "This project can be use as a starting point for developing your new BSC Testnet SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for BSC this is 56
+     * https://chainlist.org/chain/56
+     */
+    chainId: "56",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     # We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: ["https://bsc-dataseed1.binance.org"],
+    dictionary: "https://dict-tyk.subquery.network/query/binance",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 326031, //The block on which the Mobox Farming contract was deployed
+
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // this is the contract address for Binance-Peg Ethereum Token https://bscscan.com/address/0x2170ed0880ac9a755fd29b2688956bd959f933f8
+        address: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: "1.0.0"
@@ -70,6 +169,8 @@ dataSources:
               - Transfer(address indexed from, address indexed to, uint256 amount)
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
+
+:::
 
 ## Overview
 
@@ -167,21 +268,28 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default BSC runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since BSC is a layer-2 that is compatible
-    startBlock: 326031 # The block on which the Binance-Peg Ethereum token was deployed
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8" # this is the contract address for Binance-Peg Ethereum Token https://bscscan.com/address/0x2170ed0880ac9a755fd29b2688956bd959f933f8
-    assets:
-      erc20:
-        file: "erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-      ...
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      options: {
+        // Must be a Record of assets
+        abi: "erc20",
+        // # this is the contract address for your target contract
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      },
+    },
+  ];
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -221,11 +329,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://eth.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

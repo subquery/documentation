@@ -92,7 +92,7 @@ También soportamos algunos métodos RPC API que son llamadas remotas que permit
 
 Documentos en [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) proporcionan algunos métodos que toman `BlockHash` como parámetro de entrada (e.. `en?: BlockHash`), que ahora están permitidos. También hemos modificado estos métodos para tomar el hash del bloque de indexación actual por defecto.
 
-```typescript
+```ts
 // Digamos que actualmente estamos indexando un bloque con este número hash
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -271,7 +271,7 @@ Este comando generará los metadatos y un nuevo complemento para las APIs. Como 
 
 Ahora en la función de mapeo, podemos mostrar cómo los metadatos y los tipos realmente decoran la API. El endpoint RPC soportará los módulos y métodos que declaramos anteriormente. Y para usar una llamada rpc personalizada, por favor vea la sección [Llamadas rpc de cadena personalizadas](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   // devuelve el tipo de Kitty
   const nextKittyId = await api.rpc.kitties.nextKittyId();

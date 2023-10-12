@@ -92,7 +92,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc)のドキュメントでは、`BlockHash`を入力パラメータとして受け取るいくつかのメソッド（例：`at?: BlockHash`）がありますが、これが許可されるようになりました。 また、これらの関数は、現在のインデックスブロックハッシュをデフォルトで受け取るように変更しました。
 
-```typescript
+```ts
 // Let's say we are currently indexing a block with this hash number
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -269,7 +269,7 @@ yarn generate:meta
 
 マッピング関数では、メタデータと型が実際に API をどのようにデコレートするかを示すことができます。 RPC エンドポイントは、上記で宣言したモジュールと関数をサポートします。 カスタム RPC 呼び出しを使用するには、[カスタムチェーン RPC 呼び出し](#custom-chain-rpc-calls)のセクションを参照してください。
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

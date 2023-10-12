@@ -88,7 +88,7 @@ Para obtener más información sobre cómo usar esto incluyendo banderas, consul
 
 The `console.log` method is **no longer supported**. En su lugar, se ha inyectado un módulo `logger` en los tipos, lo que significa que podemos soportar un registrador que puede aceptar varios niveles de registro.
 
-```typescript
+```ts
 logger.info("Mensaje de nivel de información");
 logger.debug("Mensaje de nivel de depuración");
 logger.warn("Mensaje de nivel de advertencia");

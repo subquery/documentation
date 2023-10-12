@@ -88,7 +88,7 @@ Lưu ý rằng `subql build` sẽ xây dựng <0>index.ts</0> cho dù nó có đ
 
 Phương thức `console.log` **không còn được hỗ trợ**. Thay vào đó, mô-đun `logger` đã được đưa vào các kiểu dữ liệu, có nghĩa là chúng tôi có thể hỗ trợ trình ghi nhật ký có thể chấp nhận các cấp độ ghi nhật ký khác nhau.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

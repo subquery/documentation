@@ -8,7 +8,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- The mappings files are reference in `project.ts` under the mapping handlers.
 
 There are different classes of mappings functions for BSC; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 

@@ -88,7 +88,7 @@ yarn codegen
 
 `console.log` **จะไม่รองรับอีกต่อไป**. แต่โมดูล `logger` จะถูกแทนที่ลงไปแทน ซึ่งหมายความว่าเราสามารถรองรับ logger ที่เป็นตัวแปรในรูปแบบต่างๆ กันได้
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

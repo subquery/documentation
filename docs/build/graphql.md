@@ -183,7 +183,7 @@ which both can directly be accessed in the mapping function.
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Handler in mapping function
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

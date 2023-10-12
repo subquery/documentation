@@ -5,7 +5,7 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
 1. Initialise your project using `subql init PROJECT_NAME`.
-2. Update the Manifest file (`project.yaml`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
+2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/polkadot.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/publish.md) your Starter Project in our quick start guide.
@@ -29,7 +29,7 @@ The following map provides an overview of the directory structure of a SubQuery 
   L README.md
   L docker-compose.yml
   L package.json
-  L project.yaml
+  L project.ts
   L schema.graphql
   L tsconfig.json
 ```
@@ -66,7 +66,7 @@ You will then be prompted to select what `events` and/or `functions` that you wa
 
 ### For an Existing SubQuery Project
 
-You can also generate additional scaffolded code new new contracts and append this code to your existing `project.yaml`. This is done using the `subql codegen:generate` command from within your project workspace.
+You can also generate additional scaffolded code new new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
 
 ```shell
 subql codegen:generate \
@@ -100,29 +100,39 @@ It initialises the correct manifest with Log Handlers included, as well a new ty
 
 :::details Manifest
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 6175243
-    options:
-      abi: Gravity
-      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
-    assets:
-      Gravity:
-        file: ./abis/Gravity.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleNewGravatarGravityLog
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - NewGravatar(uint256,address,string,string)
-        - handler: handleUpdatedGravatarGravityLog
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - UpdatedGravatar(uint256,address,string,string)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 6175243,
+      options: {
+        abi: "gravity",
+        address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC",
+      },
+      assets: new Map([["gravity", { file: "./abis/Gravity.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNewGravatar",
+            filter: {
+              topics: ["NewGravatar(uint256,address,string,string)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleUpdatedGravatar",
+            filter: {
+              topics: ["UpdatedGravatar(uint256,address,string,string)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 :::
@@ -152,48 +162,98 @@ export async function handleUpdatedGravatarGravityLog(
 
 ## Working with the Manifest File
 
-The Manifest `project.yaml` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
+The Manifest `project.ts` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
 
-The Manifest can be in either YAML or JSON format. In all [our examples](./manifest), we use YAML. Here is an [example](./manifest/ethereum.md) of what it looks like:
+The Manifest can be in either TS, YAML, or JSON format. In all [our examples](./manifest), we use TS. Here is an [example](./manifest/ethereum.md) of what it looks like:
 
-```yml
-specVersion: 1.0.0
-name: subquery-starter
-version: 0.0.1
-runner:
-  node:
-    name: "@subql/node"
-    version: "*"
-  query:
-    name: "@subql/query"
-    version: "*"
-description: "This project can be used as a starting point for developing your Polkadot based SubQuery project"
-repository: https://github.com/subquery/subql-starter
-schema:
-  file: ./schema.graphql
-network:
-  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
-  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
-  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
-  bypassBlocks: [1, 2, 100, "200-500"]
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1 # Block to start indexing from
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
+```ts
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "ethereum-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Ethereum SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for Ethereum this is 1
+     * https://chainlist.org/chain/1
+     */
+    chainId: "1",
+    /**
+     * This endpoint must be a public non-pruned archive node
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     * You can get them from OnFinality for free https://app.onfinality.io
+     * https://documentation.onfinality.io/support/the-enhanced-api-service
+     */
+    endpoint: ["https://eth.api.onfinality.io/public"],
+    dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 4719568,
+
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
 ```
 
-The project.yaml file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
+The project.ts file holds the majority of the configuration settings for your SubQuery project. It includes details such as the data sources your project will be connecting to, the starting block for indexing, the specific handlers that will be used for different events, and more.
 
 When setting up your own SubQuery project, you will need to update this file to match your specific requirements.
 
@@ -298,27 +358,36 @@ It will also generate a class for every contract event to provide easy access to
 
 **Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
 
-You will also need to include this in the project configuration file (`project.yaml`)
+You will also need to include this in the project configuration file (`project.ts`)
 
-```yaml
-network:
-  chainTypes:
-    osmosis.gamm.v1beta1:
-      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
-      messages:
-        - MsgSwapExactAmountIn
+```ts
+{
+  chaintypes: new Map([
+    [
+      "osmosis.gamm.v1beta1",
+      {
+        file: "./proto/osmosis/gamm/v1beta1/tx.proto",
+        messages: ["MsgSwapExactAmountIn"],
+      },
+    ],
+  ]),
+}
 ```
 
 Once `codegen` is executed you will find the message types under `src/types/CosmosMessageTypes.ts`. If you wish to add more message types from the same proto, you will need to include them under the `messages` array.
 
-```yaml
-network:
-  chainTypes:
-    osmosis.gamm.v1beta1:
-      file: "./proto/osmosis/gamm/v1beta1/tx.proto"
-      messages:
-        - MsgSwapExactAmountIn
-        - MsgSwapExactAmountOut
+```ts
+{
+  chaintypes: new Map([
+    [
+      "osmosis.gamm.v1beta1",
+      {
+        file: "./proto/osmosis/gamm/v1beta1/tx.proto",
+        messages: ["MsgSwapExactAmountIn", "MsgSwapExactAmountOut"],
+      },
+    ],
+  ]),
+}
 ```
 
 If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`. You import them into your message handlers like so:
@@ -339,17 +408,22 @@ export async function handleMessage(
 
 Codegen will also generate wrapper types from CosmWasm contract abis, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
-Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.yaml` configuration:
+Similar to Ethereum ABI codegen, you will need to include the path and name for the contract ABI in this format. `project.ts` configuration:
 
-```yaml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 6000000
-    options:
-      abi: baseMinter
-    assets:
-      baseMinter:
-        file: './cosmwasm/base-minter/schema/base-minter.json'
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 6000000,
+      options: {
+        abi: "baseMinter",
+      },
+      assets: new Map([["baseMinter", { file: "./cosmwasm/base-minter/schema/base-minter.json" }]]),
+      mapping: {...},
+    },
+  ],
+}
 ```
 
 All generated files could be found under `src/typs/cosmwasm-interfaces` and `src/typs/cosmwasm-interface-wrappers` directories.
@@ -358,7 +432,7 @@ All generated files could be found under `src/typs/cosmwasm-interfaces` and `src
 
 ## Mapping
 
-Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.yaml` under the mapping handlers.
+Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.ts` under the mapping handlers.
 
 In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 

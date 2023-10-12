@@ -12,7 +12,7 @@ For example, you could capture XCM transaction data from all Polkadot parachains
 
 You can enable this feature by adding the `--multi-chain` [argument to the node](../run_publish/references.md#multi-chain) (you can do this in the `docker-compose.yml` or when running via command line), this must be done from the start, otherwise you will need to delete and reset your database.
 
-SubQuery will create an individual indexing node for each chain that you index in your SubQuery project. All multi-chain projects must point to the same [GraphQL schema](./graphql.md), ensure that they reference the same file in the individual `project.yaml`.
+SubQuery will create an individual indexing node for each chain that you index in your SubQuery project. All multi-chain projects must point to the same [GraphQL schema](./graphql.md), ensure that they reference the same file in the individual `project.ts`.
 
 Finally, the projects should index and save data to the same PostgreSQL database table schema. This will be set in your `docker-compose.yml` with the line `--db-schema=<enter-common-schema-name-here>`. You will need to add this same argument if you are running your project via the command line.
 
@@ -182,7 +182,7 @@ We suggest designing your entities to avoid or handle cross-chain race condition
 
 When enabling multi-chain indexing, SubQuery will create multiple metadata tables for each chain that you index. You can individually query these metadata tables using GraphQL using the chainId of the particular network ([see more below](/build/multi-chain.html#querying-metadata)).
 
-When querying metadata using GraphQL with multi-chain enabled, you need to pass the `chainId` (this is set in your `project.yaml`) as shown below:
+When querying metadata using GraphQL with multi-chain enabled, you need to pass the `chainId` (this is set in your `project.ts`) as shown below:
 
 ```graphql
   query {

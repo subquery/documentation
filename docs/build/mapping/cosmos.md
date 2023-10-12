@@ -4,7 +4,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.yaml` under the mapping handlers.
+- The mappings files are reference in `project.ts` under the mapping handlers.
 
 There are different classes of mappings functions for Cosmos; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
 
@@ -161,7 +161,7 @@ Some decoded message data from Cosmos Chains has nested message types that don't
 
 We inject the [`registry`](https://cosmos.github.io/cosmjs/latest/proto-signing/classes/Registry.html) globally into the sandbox so that users can decode more messages as they need.
 
-```typescript
+```ts
 import { MsgUpdateClient } from "cosmjs-types/ibc/core/client/v1/tx";
 
 registry.register("/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient);

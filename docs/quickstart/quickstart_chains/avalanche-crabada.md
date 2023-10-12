@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-chain is built on Ethereum's EVM, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -36,38 +36,51 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all Crabada NFTs, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Avalanche is compatible
-    startBlock: 30128346 # First mint https://snowtrace.io/tx/0x17336f3699f922c245663a50fba2d857c368f6c8137024b980cc2e7042e4df87
-    options:
-      # Must be a key of assets
-      abi: crabada
-      ## Crabada Legacy Contract https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c
-      address: "0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c"
-    assets:
-      crabada:
-        file: "./abis/crabada.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleERC721
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Transfer(address from, address to, uint256 tokenId)
-        - handler: handleNewCrab
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - NewCrab(address account, uint256 id, uint256 daddyId, uint256 mommyId, uint256 dna, uint64 birthday, uint8 breedingCount)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // First mint https://snowtrace.io/tx/0x17336f3699f922c245663a50fba2d857c368f6c8137024b980cc2e7042e4df87
+      startBlock: 30128346,
+      options: {
+        // Must be a key of assets
+        abi: "crabada",
+        // Crabada Legacy Contract https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c
+        address: "0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c",
+      },
+      assets: new Map([["erc20", { file: "./abis/crabada.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleERC721",
+            filter: {
+              topics: ["Transfer(address from, address to, uint256 tokenId)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNewCrab",
+            filter: {
+              topics: [
+                "NewCrab(address account, uint256 id, uint256 daddyId, uint256 mommyId, uint256 dna, uint64 birthday, uint8 breedingCount)\n",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleNewCrab` mapping function whenever there is an `NewCrab` log on any transaction from the [Crabada Legacy Contract](https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c).
 
 Additionally, whenever there is a `Transfer` log that relates to any token from the [Crabada Legacy Contract](https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c), we run a `handleERC721` mapping function.
 
-Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

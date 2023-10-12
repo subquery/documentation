@@ -18,7 +18,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
@@ -27,24 +27,40 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that the manifest file looks for on the blockchain to start indexing.
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 11364001
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleReward
-          kind: cosmos/EventHandler
-          filter:
-            type: withdraw_rewards
-            messageFilter:
-              type: "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward"
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 11364001,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleReward",
+            kind: SubqlCosmosHandlerKind.Event,
+            filter: {
+              type: "withdraw_rewards",
+              messageFilter: {
+                type: "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+              },
+              /*
+                contractCall field can be specified here too
+                values: # A set of key/value pairs that are present in the message data
+                contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
+              */
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 In the code above, we have defined a single handler, `handleReward`, that will be executed whenever a `withdraw_rewards` type is detected within a `MsgWithdrawDelegatorReward` type message. This handler is used to track the rewards transactions of delegators in the Akash network.
 
-Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

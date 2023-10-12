@@ -55,7 +55,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
@@ -65,23 +65,33 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 **Since we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Transfer
+```ts
+{
+  dataSources: [
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleEvent",
+            filter: {
+              module: "balances",
+              method: "Transfer",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 This indicates that you will be running a `handleEvent` mapping function whenever there is an event emitted from the `balances` module with the `transfer` method.
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -91,7 +101,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 Navigate to the default mapping function in the `src/mappings` directory. You will see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 
-The `handleEvent` function receives event data whenever an event matches the filters that you specified previously in the `project.yaml`. Let’s update it to process all `balances.Transfer` events and save them to the GraphQL entities created earlier.
+The `handleEvent` function receives event data whenever an event matches the filters that you specified previously in the `project.ts`. Let’s update it to process all `balances.Transfer` events and save them to the GraphQL entities created earlier.
 
 Update the `handleEvent` function as follows (**note the additional imports**):
 

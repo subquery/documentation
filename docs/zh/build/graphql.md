@@ -67,7 +67,7 @@ type Title @entity {
 INSERT INTO title (id, name) VALUES('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // 映射函数中的handler
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

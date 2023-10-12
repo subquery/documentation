@@ -1,10 +1,109 @@
 # Ethereum Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic Ethereum `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  EthereumProject,
+  EthereumDatasourceKind,
+  EthereumHandlerKind,
+} from "@subql/types-ethereum";
+
+// Can expand the Datasource processor types via the generic param
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "ethereum-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Ethereum SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for Ethereum this is 1
+     * https://chainlist.org/chain/1
+     */
+    chainId: "1",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     # We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: ["https://eth.api.onfinality.io/public"],
+    dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 4719568,
+
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: "1.0.0"
@@ -66,6 +165,8 @@ dataSources:
               - Transfer(address indexed from, address indexed to, uint256 amount)
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
+
+:::
 
 ## Overview
 
@@ -135,13 +236,13 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
-| Field                 | v1.0.0 (default)  | Description                                                                                                                                                                                                                                                                               |
-| --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **historical**        | Boolean (true)    | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                                                                                                                            |
-| **unfinalizedBlocks** | Boolean (false)   | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                                                                                                                                  |
-| **unsafe**            | Boolean (false)   | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic.                                                                                                    |
-| **skipTransactions**  | Boolean (false)   | If your project contains only event handlers and you don't access any other block data except for the block header you can speed your project up. Handlers should be updated to use `LightEthereumLog` instead of `EthereumLog` to ensure you are not accessing data that is unavailable. |
 
+| Field                 | v1.0.0 (default) | Description                                                                                                                                                                                                                                                                               |
+| --------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **historical**        | Boolean (true)   | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                                                                                                                            |
+| **unfinalizedBlocks** | Boolean (false)  | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                                                                                                                                  |
+| **unsafe**            | Boolean (false)  | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic.                                                                                                    |
+| **skipTransactions**  | Boolean (false)  | If your project contains only event handlers and you don't access any other block data except for the block header you can speed your project up. Handlers should be updated to use `LightEthereumLog` instead of `EthereumLog` to ensure you are not accessing data that is unavailable. |
 
 ### Datasource Spec
 
@@ -163,21 +264,28 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Ethereum runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 15695385
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
-    assets:
-      erc20:
-        file: "erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-      ...
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      options: {
+        // Must be a Record of assets
+        abi: "erc20",
+        // # this is the contract address for your target contract
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      },
+    },
+  ];
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -217,11 +325,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://eth.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

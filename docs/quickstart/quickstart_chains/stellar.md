@@ -93,7 +93,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Stellar and Soroban projects. It defines most of the details on how SubQuery will index and transform the chain data. For Stellar/Soroban, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Stellar and Soroban projects. It defines most of the details on how SubQuery will index and transform the chain data. For Stellar/Soroban, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHandler](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Stellar/Soroban transaction that matches optional filter criteria, run a mapping function
@@ -106,36 +106,58 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 **Since you are going to index all Payments (including credits and debits), as well as transfer events on Soroban, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: stellar/Runtime
-    startBlock: 400060 # Set this as a logical start block, it might be block 1 (genesis) or when your contract was deployed
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleOperation
-          kind: stellar/OperationHandler
-          filter:
-            type: "payment"
-        - handler: handleCredit
-          kind: stellar/EffectHandler
-          filter:
-            type: "account_credited"
-        - handler: handleCredit
-          kind: stellar/EffectHandler
-          filter:
-            type: "account_debited"
-        - handler: handleEvent
-          kind: soroban/EventHandler
-          filter:
-            # contractId: "" # You can optionally specify a smart contract address here
-            topics:
-              - "transfer" # Topic signature(s) for the events, there can be up to 4
+```ts
+{
+  dataSources: [
+    {
+      kind: StellarDatasourceKind.Runtime,
+      /* Set this as a logical start block, it might be block 1 (genesis) or when your contract was deployed */
+      startBlock: 1700000,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleOperation",
+            kind: StellarHandlerKind.Operation,
+            filter: {
+              type: Horizon.OperationResponseType.payment,
+            },
+          },
+          {
+            handler: "handleCredit",
+            kind: StellarHandlerKind.Effects,
+            filter: {
+              type: "account_credited",
+            },
+          },
+          {
+            handler: "handleDebit",
+            kind: StellarHandlerKind.Effects,
+            filter: {
+              type: "account_debited",
+            },
+          },
+          {
+            handler: "handleEvent",
+            kind: StellarHandlerKind.Event,
+            filter: {
+              /* You can optionally specify a smart contract address here
+                contractId: "" */
+              topics: [
+                "transfer", // Topic signature(s) for the events, there can be up to 4
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleOperation` mapping function whenever there is `payment` Stellar operation made. Additionally we run the `handleCredit`/`handleDebit` mapping functions whenever there are Stellar effects made of the respective types. Finally, we have a Soroban event handler, which looks for any smart contract events that match the provided topic filters, in this case it runs `handleEvent` whenever a event wth the `transfer` topic is detected.
 
-Check out our [Manifest File](../../build/manifest/stellar.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/stellar.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 

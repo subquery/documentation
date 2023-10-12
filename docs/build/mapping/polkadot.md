@@ -4,7 +4,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
-- The mappings files are referenced in `project.yaml` under the mapping handlers.
+- The mappings files are referenced in `project.ts` under the mapping handlers.
 
 There are different classes of mappings functions for Polkadot/Substrate; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
 
@@ -180,7 +180,7 @@ We also support some API RPC methods that are remote calls that allow the mappin
 Documents in [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) provide some methods that take `BlockHash` as an input parameter (e.g. `at?: BlockHash`), which are now permitted.
 We have also modified these methods to take the current indexing block hash by default.
 
-```typescript
+```ts
 // Let's say we are currently indexing a block with this hash number
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -337,7 +337,7 @@ After the updates, the paths in the config will look like this (without the comm
 Now in the mapping function, we can show how the metadata and types actually decorate the API. The RPC endpoint will support the modules and methods we declared above.
 And to use custom rpc call, please see section [Custom chain rpc calls](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();
@@ -359,7 +359,7 @@ export async function kittyApiHandler(): Promise<void> {
 To support customised chain RPC calls, we must manually inject RPC definitions for `typesBundle`, allowing per-spec configuration.
 You can define the `typesBundle` in the `project.yml`. And please remember only `isHistoric` type of calls are supported.
 
-```yaml
+```ts
 ...
   types: {
     "KittyIndex": "u32",

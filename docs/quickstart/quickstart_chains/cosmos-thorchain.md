@@ -20,7 +20,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/cosmos.md#mapping-handlers-and-filters): On each and every transaction, run a mapping function
@@ -29,20 +29,30 @@ The Project Manifest (`project.yaml`) file is an entry point to your project. It
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 7960001 # This is the lowest height on the current version of Thorchain
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleMessage
-          kind: cosmos/MessageHandler
-          filter:
-            type: /types.MsgDeposit
+```ts
+{
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 7960001,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleMessage",
+            kind: SubqlCosmosHandlerKind.Message,
+            filter: {
+              type: "/types.MsgDeposit",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
-The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

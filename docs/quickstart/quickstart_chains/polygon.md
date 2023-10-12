@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Polygon. Since Polygon is a layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Polygon project. It defines most of the details on how SubQuery will index and transform the chain data. For Polygon, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Polygon project. It defines most of the details on how SubQuery will index and transform the chain data. For Polygon, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/polygon.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/polygon.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -36,37 +36,50 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all Plasma Deposits and Withdrawls, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Polygon is a layer-2 that is compatible
-    startBlock: 849 # This is the block that the contract was deployed on https://polygonscan.com/tx/0x88e3ab569326b52e9dd8a5f72545d89d8426bbf536f3bfaf31e023fb459ca373
-    options:
-      # Must be a key of assets
-      abi: plasma
-      address: "0xD9c7C4ED4B66858301D0cb28Cc88bf655Fe34861" # Plasma contract
-    assets:
-      plasma:
-        file: "plasma.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleDeposit
-          kind: ethereum/LogHandler # We use ethereum handlers since Polygon is a layer-2 that is compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - TokenDeposited (address indexed rootToken, address indexed childToken, address indexed user, uint256 amount, uint256 depositCount)
-        - handler: handleWithdrawl
-          kind: ethereum/LogHandler # We use ethereum handlers since Polygon is a layer-2 that is compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - TokenWithdrawn (address indexed rootToken, address indexed childToken, address indexed user, uint256 amount, uint256 withrawCount)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 8323392,
+      options: {
+        // Must be a key of assets
+        abi: "plasma",
+        // Plasma contract
+        address: "0xd9c7c4ed4b66858301d0cb28cc88bf655fe34861",
+      },
+      assets: new Map([["plasma", { file: "./abis/plasma.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleDeposit",
+            filter: {
+              topics: [
+                "TokenDeposited (address indexed rootToken, address indexed childToken, address indexed user, uint256 amount, uint256 depositCount)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleDeposit",
+            filter: {
+              topics: [
+                "TokenWithdrawn (address indexed rootToken, address indexed childToken, address indexed user, uint256 amount, uint256 withrawCount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleDeposit` mapping function whenever there is an `TokenDeposited` log on any transaction from the [Plasma Bridge contract](https://polygonscan.com/tx/0x88e3ab569326b52e9dd8a5f72545d89d8426bbf536f3bfaf31e023fb459ca373). Simarly, you'll be running a `handleWithdrawl` mapping function whenever there is an `TokenWithdrawn` logs.
 
-Check out our [Manifest File](../../build/manifest/polygon.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/polygon.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

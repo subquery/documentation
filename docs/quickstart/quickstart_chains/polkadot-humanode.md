@@ -61,7 +61,7 @@ Now that you have made essential changes to the GraphQL Schema file let’s move
 
 ## 2. Updating Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every event that matches optional filter criteria, run a mapping function
@@ -71,28 +71,41 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 **Since we are planning to index all transfers, bioauthentication events, and online nodes, we need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleBioauthNewAuthenticationEvent
-          kind: substrate/EventHandler
-          filter:
-            module: bioauth
-            method: NewAuthentication
-        - handler: handleImonlineSomeOfflineEvent
-          kind: substrate/EventHandler
-          filter:
-            module: imOnline
-            method: SomeOffline
+```ts
+{
+  dataSources: [
+    {
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 1,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleBioauthNewAuthenticationEvent",
+            filter: {
+              module: "bioauth",
+              method: "NewAuthentication",
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleImonlineSomeOfflineEvent",
+            filter: {
+              module: "imOnline",
+              method: "SomeOffline",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 This indicates that you will be running a `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` mapping functions whenever there are events emitted from the `bioauth` and `imOnline modules` with the `NewAuthentication` and `SomeOffline` methods, respectively.
 
-Check out our [documentation](../../build/manifest/polkadot.md) to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [documentation](../../build/manifest/polkadot.md) to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -101,7 +114,7 @@ Next, let’s proceed ahead with the Mapping Function’s configuration.
 Mapping functions define how chain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
 Navigate to the default mapping function in the `src/mappings` directory. You will see two exported functions: `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent`.
 
-The `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` functions receive event data whenever an event matches the filters that you specified previously in the `project.yaml`.
+The `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` functions receive event data whenever an event matches the filters that you specified previously in the `project.ts`.
 
 Update the `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent` functions as follows (note the additional imports):
 

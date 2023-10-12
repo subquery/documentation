@@ -92,7 +92,7 @@ Chúng tôi cũng hỗ trợ một số phương thức API RPC là các lệnh 
 
 Các tài liệu trong [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) cung cấp một số phương thức sử dụng `BlockHash` làm tham số đầu vào (ví dụ: `at?:BlockHash`), hiện được cho phép. Chúng tôi cũng đã sửa đổi các phương pháp này để lấy băm khối lập chỉ mục hiện tại theo mặc định.
 
-```typescript
+```ts
 // Giả sử chúng tôi hiện đang lập chỉ mục một khối với số băm này
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -269,7 +269,7 @@ Lệnh này sẽ tạo metadata và một api-augment mới cho các API. Vì ch
 
 Bây giờ trong hàm ánh xạ, chúng tôi có thể hiển thị rõ ràng cách metadata và types thực sự minh họa cho API. Điểm cuối RPC sẽ hỗ trợ các mô-đun và phương thức mà chúng tôi đã khai báo ở trên. Và để sử dụng lệnh gọi rpc tùy chỉnh, vui lòng xem phần[Custom chain rpc calls](#custom-chain-rpc-calls)
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

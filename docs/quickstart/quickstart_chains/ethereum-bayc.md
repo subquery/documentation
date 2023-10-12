@@ -95,7 +95,7 @@ export default project;
 As evident in the manifest file, this project includes two handlers: firstly, a transaction handler responsible for capturing the `mintApe` function, and secondly, a log handler tasked with indexing the `Transfer` log.
 
 ::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 :::
 
 ### 2. Updating the GraphQL Schema File

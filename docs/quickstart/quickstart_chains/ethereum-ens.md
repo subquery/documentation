@@ -12,7 +12,7 @@ Now, let's move forward and fork the example code for this project from [here](h
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -22,44 +22,132 @@ The main concepts in this ENS project is that it only indexes logs from ENS' var
 
 Secondly, note that there are 7 different ABIs imported into this project. We give each different ABI it's own section under datasources since they all have their own unique smart contract address.
 
-```yaml
-dataSources:
-  # ENSRegistry
-  - kind: ethereum/Runtime
-    startBlock: 9380380
-    options:
-      abi: EnsRegistry
-      address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
-    assets:
-      EnsRegistry:
-        file: "./abis/Registry.json"
-    mapping:
-      ...
-  # ENSRegistryOld
-  - kind: ethereum/Runtime
-    startBlock: 3327417
-    options:
-      abi: EnsRegistry
-      address: "0x314159265dd8dbb310642f98f50c066173c1259b"
-    assets:
-      EnsRegistry:
-        file: "./abis/Registry.json"
-    mapping:
-      ...
-  # Resolver
-  - kind: ethereum/Runtime
-    startBlock: 3327417 #seems no transaction before this
-    options:
-      abi: Resolver
-    assets:
-      Resolver:
-        file: "./abis/PublicResolver.json"
-    mapping:
-      ...
-  ...
+```ts
+{
+  dataSources: [
+    // ENSRegistry
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 9380380,
+
+      options: {
+        // Must be a key of assets
+        abi: "EnsRegistry",
+        address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+      },
+      assets: new Map([["EnsRegistry", { file: "./abis/Registry.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // ENSRegistryOld
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 3327417,
+
+      options: {
+        // Must be a key of assets
+        abi: "EnsRegistry",
+        address: "0x314159265dd8dbb310642f98f50c066173c1259b",
+      },
+      assets: new Map([["EnsRegistry", { file: "./abis/Registry.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // Resolver
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 3327417,
+
+      options: {
+        // Must be a key of assets
+        abi: "Resolver",
+      },
+      assets: new Map([["Resolver", { file: "./abis/PublicResolver.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // BaseRegistrar
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 9380410,
+
+      options: {
+        // Must be a key of assets
+        abi: "BaseRegistrar",
+        address: "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85",
+      },
+      assets: new Map([
+        ["BaseRegistrar", { file: "./abis/BaseRegistrar.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // EthRegistrarControllerOld
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 9380471,
+      options: {
+        // Must be a key of assets
+        abi: "EthRegistrarControllerOld",
+        address: "0x283Af0B28c62C092C9727F1Ee09c02CA627EB7F5",
+      },
+      assets: new Map([
+        [
+          "EthRegistrarControllerOld",
+          { file: "./abis/EthRegistrarControllerOld.json" },
+        ],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // EthRegistrarController
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 3327417,
+      options: {
+        // Must be a key of assets
+        abi: "EthRegistrarController",
+      },
+      assets: new Map([
+        [
+          "EthRegistrarController",
+          { file: "./abis/EthRegistrarController.json" },
+        ],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+    // NameWrapper
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 3327417,
+      options: {
+        // Must be a key of assets
+        abi: "NameWrapper",
+      },
+      assets: new Map([["NameWrapper", { file: "./abis/NameWrapper.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [...],
+      },
+    },
+  ],
+}
 ```
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

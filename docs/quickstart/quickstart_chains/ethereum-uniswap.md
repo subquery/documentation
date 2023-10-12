@@ -36,37 +36,47 @@ The core role of the factory contract is to generate liquidity pool smart contra
 
 In simple terms, there's only one event that requires configuration, and that's the `PoolCreated` event. After adding this event to the manifest file, it will be represented as follows:
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 12369621
-    options:
-      # Must be a key of assets
-      abi: Factory
-      address: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
-    assets:
-      Factory:
-        file: "./abis/Factory.json"
-      ERC20:
-        file: "./abis/ERC20.json"
-      ERC20SymbolBytes:
-        file: "./abis/ERC20SymbolBytes.json"
-      ERC20NameBytes:
-        file: "./abis/ERC20NameBytes.json"
-      Pool:
-        file: "./abis/pool.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handlePoolCreated
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - PoolCreated(address indexed token0, address indexed token1, uint24 indexed fee, int24 tickSpacing, address pool)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 12369621,
+
+      options: {
+        // Must be a key of assets
+        abi: "Factory",
+        address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      },
+      assets: new Map([
+        ["Factory", { file: "./abis/factory.json" }],
+        ["ERC20", { file: "./abis/ERC20.json" }],
+
+        ["ERC20SymbolBytes", { file: "./abis/ERC20SymbolBytes.json" }],
+        ["ERC20NameBytes", { file: "./abis/ERC20NameBytes.json" }],
+        ["Pool", { file: "./abis/pool.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handlePoolCreated",
+            filter: {
+              topics: [
+                "PoolCreated(address indexed token0, address indexed token1, uint24 indexed fee, int24 tickSpacing, address pool)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 :::
 
 #### 2. Updating the GraphQL Schema File
@@ -311,47 +321,71 @@ As we discussed in the introduction of [Configuring the Indexer](#configuring-th
 
 The contract factory generates fresh contract instances for each new pool, therefore we use [dynamic data sources](../../build/dynamicdatasources.md) to create indexers for each new contract:
 
-```yaml
-templates:
-  - name: Pool
-    kind: ethereum/Runtime
-    options:
-      abi: Pool
-    assets:
-      Pool:
-        file: "./abis/pool.json"
-      Factory:
-        file: "./abis/factory.json"
-      ERC20:
-        file: "./abis/ERC20.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleInitialize
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Initialize (uint160,int24)
-        - handler: handleSwap
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Swap (address sender, address recipient, int256 amount0, int256 amount1, uint160 sqrtPriceX96, uint128 liquidity, int24 tick)
-        - handler: handleMint
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Mint(address sender, address owner, int24 tickLower, int24 tickUpper, uint128 amount, uint256 amount0, uint256 amount1)
-        - handler: handleBurn
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Burn(indexed address,indexed int24,indexed int24,uint128,uint256,uint256)
-        - handler: handleFlash
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - Flash(indexed address,indexed address,uint256,uint256,uint256,uint256)
+```ts
+{
+  templates: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      name: "Pool",
+      options: {
+        abi: "Pool",
+      },
+      assets: new Map([
+        ["Pool", { file: "./abis/pool.json" }],
+        ["ERC20", { file: "./abis/ERC20.json" }],
+        ["Factory", { file: "./abis/factory.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleInitialize",
+            filter: {
+              topics: ["Initialize (uint160,int24)"],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleSwap",
+            filter: {
+              topics: [
+                "Swap (address sender, address recipient, int256 amount0, int256 amount1, uint160 sqrtPriceX96, uint128 liquidity, int24 tick)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleMint",
+            filter: {
+              topics: [
+                "Mint(address sender, address owner, int24 tickLower, int24 tickUpper, uint128 amount, uint256 amount0, uint256 amount1)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleBurn",
+            filter: {
+              topics: [
+                "Burn(indexed address,indexed int24,indexed int24,uint128,uint256,uint256)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleFlash",
+            filter: {
+              topics: [
+                "Flash(indexed address,indexed address,uint256,uint256,uint256,uint256)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 #### 2. Updating the GraphQL Schema File
@@ -610,44 +644,71 @@ As you may already know, swaps in UniswapV3 are executed within the context of p
 
 For the NonfungiblePositionManager smart contract, we want to introduce the following updates to the manifest file:
 
-```yaml
-- kind: ethereum/Runtime
-  startBlock: 12369651
-  options:
-    abi: NonfungiblePositionManager
-    address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
-  assets:
-    NonfungiblePositionManager:
-      file: ./abis/NonfungiblePositionManager.json
-    Pool:
-      file: ./abis/pool.json
-    Factory:
-      file: ./abis/factory.json
-    ERC20:
-      file: ./abis/ERC20.json
-  mapping:
-    file: "./dist/index.js"
-    handlers:
-      - handler: handleIncreaseLiquidity
-        kind: ethereum/LogHandler
-        filter:
-          topics:
-            - IncreaseLiquidity (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)
-      - handler: handleDecreaseLiquidity
-        kind: ethereum/LogHandler
-        filter:
-          topics:
-            - DecreaseLiquidity (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)
-      - handler: handleCollect
-        kind: ethereum/LogHandler
-        filter:
-          topics:
-            - Collect (uint256 tokenId, address recipient, uint256 amount0, uint256 amount1)
-      - handler: handleTransfer
-        kind: ethereum/LogHandler
-        filter:
-          topics:
-            - Transfer (address from, address to, uint256 tokenId)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 12369651,
+
+      options: {
+        // Must be a key of assets
+        abi: "NonfungiblePositionManager",
+        address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      },
+      assets: new Map([
+        [
+          "NonfungiblePositionManager",
+          { file: "./abis/NonfungiblePositionManager.json" },
+        ],
+        ["Pool", { file: "./abis/pool.json" }],
+        ["ERC20", { file: "./abis/ERC20.json" }],
+
+        ["Factory", { file: "./abis/factory.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleIncreaseLiquidity",
+            filter: {
+              topics: [
+                "IncreaseLiquidity (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleDecreaseLiquidity",
+            filter: {
+              topics: [
+                "DecreaseLiquidity (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)",
+              ],
+            },
+          },
+
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleCollect",
+            filter: {
+              topics: [
+                "Collect (uint256 tokenId, address recipient, uint256 amount0, uint256 amount1)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleTransfer",
+            filter: {
+              topics: ["Transfer (address from, address to, uint256 tokenId)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The configuration process closely resembles what we've seen earlier. However, we now have a completely new smart contract that we'll be handling events from. This entails different ABI, address, and start block values. Naturally, it also introduces new events, which are listed under the `handlers` object.

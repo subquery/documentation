@@ -92,7 +92,7 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
 
 [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc)의 문서는 `BlockHash`를 입력 매개변수로 사용하는 몇 가지 방법을 제공합니다(예: `at?: BlockHash`). 또한 기본적으로 현재의 인덱스 블록 해시를 사용하도록 방법을 수정하였습니다.
 
-```typescript
+```ts
 // 현재 이 해시 번호로 블록을 인덱싱한다고 가정해 보겠습니다.
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -269,7 +269,7 @@ yarn generate:meta
 
 이제 맵핑 기능에서 메타데이터와 유형이 실제로 API를 장식하는 방법을 보여줄 수 있습니다. RPC 엔드포인트는 위에서 선언한 모듈 및 방식을 지원합니다. 커스텀 RPC 콜을 사용하려면, [Custom chain rpc calls](#custom-chain-rpc-calls) 섹션을 참조해 주세요.
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   //return the KittyIndex type
   const nextKittyId = await api.query.kitties.nextKittyId();

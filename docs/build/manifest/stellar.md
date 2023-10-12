@@ -1,10 +1,112 @@
 # Stellar & Soroban Manifest File [Beta]
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic Optimism `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  StellarDatasourceKind,
+  StellarHandlerKind,
+  StellarProject,
+} from "@subql/types-stellar";
+import { Horizon } from "stellar-sdk";
+
+/* This is your project configuration */
+const project: StellarProject = {
+  specVersion: "1.0.0",
+  name: "soroban-testnet-starter",
+  version: "0.0.1",
+  runner: {
+    node: {
+      name: "@subql/node-stellar",
+      version: "*",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  description:
+    "This project can be use as a starting point for developing your new Stellar SubQuery project (testnet)",
+  repository: "https://github.com/subquery/stellar-subql-starter",
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /* Stellar and Soroban uses the network passphrase as the chainId
+      'Test SDF Network ; September 2015' for testnet
+      'Public Global Stellar Network ; September 2015' for mainnet
+      'Test SDF Future Network ; October 2022' for Future Network */
+    chainId: "Test SDF Network ; September 2015",
+    /* This Stellar endpoint must be a public non-pruned archive node
+      We recommend providing more than one endpoint for improved reliability, performance, and uptime
+      Public nodes may be rate limited, which can affect indexing speed
+      When developing your project we suggest getting a private API key */
+    endpoint: ["https://horizon-testnet.stellar.org"],
+    /* This is a specific Soroban endpoint
+      It is only required when you are using a soroban/EventHandler */
+    sorobanEndpoint: "https://soroban-testnet.stellar.org",
+    /* Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
+      dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary" */
+  },
+  dataSources: [
+    {
+      kind: StellarDatasourceKind.Runtime,
+      /* Set this as a logical start block, it might be block 1 (genesis) or when your contract was deployed */
+      startBlock: 1700000,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleOperation",
+            kind: StellarHandlerKind.Operation,
+            filter: {
+              type: Horizon.OperationResponseType.payment,
+            },
+          },
+          {
+            handler: "handleCredit",
+            kind: StellarHandlerKind.Effects,
+            filter: {
+              type: "account_credited",
+            },
+          },
+          {
+            handler: "handleDebit",
+            kind: StellarHandlerKind.Effects,
+            filter: {
+              type: "account_debited",
+            },
+          },
+          {
+            handler: "handleEvent",
+            kind: StellarHandlerKind.Event,
+            filter: {
+              /* You can optionally specify a smart contract address here
+                contractId: "" */
+              topics: [
+                "transfer", // Topic signature(s) for the events, there can be up to 4
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: "1.0.0"
@@ -62,6 +164,8 @@ dataSources:
             topics:
               - "transfer" # Topic signature(s) for the events, there can be up to 4
 ```
+
+:::
 
 ## Overview
 
@@ -161,14 +265,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Stellar runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: stellar/Runtime
-    startBlock: 270000 # This is the start block from which you begin indexing
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-      ...
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: StellarDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -226,11 +338,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://eth.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

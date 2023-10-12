@@ -70,7 +70,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 ## 2. Update Your Project Manifest File
 
-The Project Manifest (`project.yaml`) file works as an entry point to your NEAR project. It defines most of the details on how SubQuery will index and transform the chain data. For NEAR, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your NEAR project. It defines most of the details on how SubQuery will index and transform the chain data. For NEAR, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHandler](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -84,30 +84,44 @@ This section in the Project Manifest now imports all the correct definitions and
 
 **Since you are going to index all `priceoracle.near` transactions, you need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: near/Runtime
-    startBlock: 50838152 # You can set any start block you want here. This block was when app.nearcrowd.near was created https://nearblocks.io/txns/6rq4BNMpr8RwxKjfGYbruHhrL1ETbNzeFwcppGwZoQBY
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleNewOracle
-          kind: near/ActionHandler
-          filter:
-            type: FunctionCall
-            methodName: add_oracle
-            receiver: priceoracle.near
-        - handler: handleNewPrice
-          kind: near/ActionHandler
-          filter:
-            type: FunctionCall
-            methodName: report_prices
-            receiver: priceoracle.near
+```ts
+{
+  dataSources: [
+    {
+      kind: NearDatasourceKind.Runtime,
+      // You can set any start block you want here. This block was when app.nearcrowd.near was created https://nearblocks.io/txns/6rq4BNMpr8RwxKjfGYbruHhrL1ETbNzeFwcppGwZoQBY
+      startBlock: 84662303,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleNewOracle",
+            kind: NearHandlerKind.Action,
+            filter: {
+              type: "FunctionCall",
+              methodName: "add_oracle",
+              receiver: "priceoracle.near",
+            },
+          },
+          {
+            handler: "handleNewPrice",
+            kind: NearHandlerKind.Action,
+            filter: {
+              type: "FunctionCall",
+              methodName: "report_prices",
+              receiver: "priceoracle.near",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleNewPrice` mapping function whenever there is transaction made to the `priceoracle.near` address that includes an action with the method name `report_prices`. Additionally we run the `handleNewOracle` mapping function whenever there is transaction made to the `priceoracle.near` address that includes an action with the method name `add_oracle`.
 
-Check out our [Manifest File](../../build/manifest/near.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/near.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -119,7 +133,7 @@ Follow these steps to add a mapping function:
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleAction`, and `handleAction`. Delete both the `handleBlock` and `handleAction` functions as you will only deal with the `handleAction` function.
 
-The `handleAction` function receives event data whenever an event matches the filters, which you specified previously in the `project.yaml`. Let’s make changes to it, process the relevant transaction action, and save them to the GraphQL entities created earlier.
+The `handleAction` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process the relevant transaction action, and save them to the GraphQL entities created earlier.
 
 Update the `handleAction` function as follows (**note the additional imports and renaming of functions to `handleNewOracle` and `handleNewPrice`**):
 

@@ -67,7 +67,7 @@ Ketika pembuatan kode dijalankan, ini akan secara otomatis membuat `getByName` d
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Handler dalam fungsi mapping
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

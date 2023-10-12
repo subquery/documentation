@@ -36,31 +36,46 @@ Consider the registry smart contract as a dictionary that comprehensively maps a
 
 In plain language, you only need to set up one handler to index a specific type of log from this contract, which is the `FeedConfirmed` log. Update your manifest file to look like this:
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime
-    name: FeedRegistry
-    options:
-      address: "0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf"
-      abi: FeedRegistry
-    startBlock: 12864088
-    assets:
-      FeedRegistry:
-        file: "./abis/FeedRegistry.json"
-      AccessControlledOffchainAggregator:
-        file: "./abis/AccessControlledOffchainAggregator.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleFeedConfirmed
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - FeedConfirmed(address,address,address,address,uint16,address)
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 12864088,
+
+      options: {
+        // Must be a key of assets
+        abi: "FeedRegistry",
+        address: "0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf",
+      },
+      assets: new Map([
+        ["FeedRegistry", { file: "./abis/FeedRegistry.json" }],
+        [
+          "AccessControlledOffchainAggregator",
+          { file: "./abis/AccessControlledOffchainAggregator.json" },
+        ],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleFeedConfirmed",
+            filter: {
+              topics: [
+                "FeedConfirmed(address,address,address,address,uint16,address)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 :::
 
 #### 2. Updating the GraphQL Schema File
@@ -186,23 +201,37 @@ As mentioned in the introduction to [Indexer Configuration](#setting-up-the-inde
 
 The feed registry smart contract establishes a connection with a data feed contract for each new data feed. Consequently, we utilize [dynamic data sources](../../build/dynamicdatasources.md) to generate indexers for each new contract:
 
-```yaml
-templates:
-  - name: DataFeed
-    kind: ethereum/Runtime
-    options:
-      abi: AccessControlledOffchainAggregator
-    assets:
-      AccessControlledOffchainAggregator:
-        file: "./abis/AccessControlledOffchainAggregator.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleAnswerUpdated
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              - AnswerUpdated(int256,uint256,uint256)
+```ts
+{
+  templates: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      name: "DataFeed",
+      options: {
+        // Must be a key of assets
+        abi: "AccessControlledOffchainAggregator",
+      },
+      assets: new Map([
+        [
+          "AccessControlledOffchainAggregator",
+          { file: "./abis/AccessControlledOffchainAggregator.json" },
+        ],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleAnswerUpdated",
+            filter: {
+              topics: ["AnswerUpdated(int256,uint256,uint256)"],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 #### 2. Updating the GraphQL Schema File

@@ -67,7 +67,7 @@ type Example @entity {
 INSERT INTO (id, ім'я) VALUES ('id_1', 'Капітан')
 ```
 
-```typescript
+```ts
 // Handler in mapping function
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

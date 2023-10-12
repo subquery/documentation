@@ -67,7 +67,7 @@ Khi quá trình tạo mã được chạy, thao tác này sẽ tự động tạ
 INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 ```
 
-```typescript
+```ts
 // Xử lý trong hàm ánh xạ
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";

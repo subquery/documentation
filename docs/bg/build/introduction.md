@@ -88,7 +88,7 @@ yarn codegen
 
 `console.log` метод **вече не се поддържа**. Вместо това `logger` модул е инжектиран в types, което означава, че можем да поддържаме регистратор, приемащ различни нива на логване.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");

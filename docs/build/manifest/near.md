@@ -1,10 +1,133 @@
 # NEAR Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic NEAR `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  NearDatasourceKind,
+  NearHandlerKind,
+  NearProject,
+} from "@subql/types-near";
+
+const project: NearProject = {
+  // This project can be use as a starting point for developing your new NEAR SubQuery project
+  specVersion: "1.0.0",
+  name: "near-subql-starter",
+  version: "0.0.1",
+  runner: {
+    node: {
+      name: "@subql/node-near",
+      version: "*",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  description:
+    "This project can be use as a starting point for developing your new NEAR SubQuery project",
+  repository: "https://github.com/subquery/near-subql-starter",
+  schema: {
+    // This endpoint must be a public non-pruned archive node
+    // We recommend providing more than one endpoint for improved reliability, performance, and uptime
+    // Public nodes may be rate limited, which can affect indexing speed
+    // When developing your project we suggest getting a private API key from a commercial provider
+    file: "./schema.graphql",
+  },
+  network: {
+    chainId: "mainnet",
+    endpoint: ["https://archival-rpc.mainnet.near.org"],
+    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+    dictionary: "https://api.subquery.network/sq/subquery/near-dictionary",
+    // This is a missing block from the NEAR mainnet chain that we are skipping
+    bypassBlocks: [81003306],
+  },
+  dataSources: [
+    {
+      kind: NearDatasourceKind.Runtime,
+      // You can set any start block you want here. This block was when the sweat_welcome.near address was created
+      startBlock: 80980000,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          // Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
+          // {
+          //   handler: "handleBlock",
+          //   kind: "near/BlockHandler",
+          //   filter: {
+          //     modulo: 10,
+          //   },
+          // },
+          {
+            handler: "handleTransaction",
+            kind: NearHandlerKind.Transaction,
+            filter: {
+              sender: "sweat_welcome.near",
+              receiver: "token.sweat",
+            },
+          },
+          {
+            handler: "handleAction",
+            kind: NearHandlerKind.Action,
+            filter: {
+              type: "FunctionCall",
+              methodName: "storage_deposit",
+              receiver: "token.sweat",
+            },
+          },
+          // Some other filter examples
+          // {
+          //   handler: "handleAction",
+          //   kind: NearHandlerKind.Action,
+          //   filter: {
+          //     type: "DeleteAccount",
+          //     beneficiaryId: "",
+          //   },
+          // },
+          // {
+          //   handler: "handleAction",
+          //   kind: NearHandlerKind.Action,
+          //   filter: {
+          //     type: "AddKey",
+          //     publicKey: "",
+          //     accessKey: "",
+          //   },
+          // },
+          // {
+          //   handler: "handleAction",
+          //   kind: NearHandlerKind.Action,
+          //   filter: {
+          //     type: "DeleteKey",
+          //     publicKey: "",
+          //   },
+          // },
+          // {
+          //   handler: "handleAction",
+          //   kind: NearHandlerKind.Action,
+          //   filter: {
+          //     type: "Stake",
+          //     publicKey: "",
+          //   },
+          // },
+        ],
+      },
+    },
+  ],
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -57,6 +180,8 @@ dataSources:
             methodName: storage_deposit
             receiver: token.sweat
 ```
+
+:::
 
 ## Overview
 
@@ -153,12 +278,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default NEAR runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: near/Runtime # Indicates that this is default runtime
-    startBlock: 9820210 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: dist/index.js # Entry path for this mapping
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: NearDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -206,12 +341,12 @@ Bypass Blocks allow you to skip the stated blocks, this is useful when there are
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: mainnet
-  endpoint: https://archival-rpc.mainnet.near.org
-  dictionary: https://api.subquery.network/sq/subquery/near-dictionary
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

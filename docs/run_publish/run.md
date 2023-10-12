@@ -215,7 +215,7 @@ subql-node-near -c your-project-config.yml
 
 :::
 
-This will point the query node to a manifest file which can be in YAML or JSON format.
+This will point the query node to a manifest file which can be in TS, YAML or JSON format.
 
 #### Change the block fetching batch size
 

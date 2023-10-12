@@ -1,10 +1,92 @@
 # Algorand Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  AlgorandDataSourceKind,
+  AlgorandHandlerKind,
+  AlgorandProject,
+} from "@subql/types-algorand";
+
+// Can expand the Datasource processor types via the genreic param
+const project: AlgorandProject = {
+  specVersion: "1.0.0",
+  name: "algorand-subql-starter",
+  version: "1.0.0",
+  runner: {
+    node: {
+      name: "@subql/node-algorand",
+      version: ">=1.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  description:
+    "This project can be used as a starting point for developing your Algorand SubQuery project",
+  repository: "https://github.com/subquery/algorand-subql-starter",
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    // For the testnet use the following
+    // chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
+    chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+    // This endpoint must be a public non-pruned archive node
+    // We recommend providing more than one endpoint for improved reliability, performance, and uptime
+    // Public nodes may be rate limited, which can affect indexing speed
+    // When developing your project we suggest getting a private API key
+    // You can get them from OnFinality for free https://app.onfinality.io
+    // https://documentation.onfinality.io/support/the-enhanced-api-service
+    endpoint: ["https://mainnet-idx.algonode.cloud"],
+    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+    dictionary: "https://api.subquery.network/sq/subquery/Algorand-Dictionary",
+  },
+  dataSources: [
+    {
+      kind: AlgorandDataSourceKind.Runtime,
+      startBlock: 8712119,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          // {
+          //   block handlers are slow and we are best to avoid them if possible
+          //   handler: handleBlock,
+          //   kind: AlgorandHandlerKind.Block
+          // }
+          {
+            handler: "handleTransaction",
+            kind: AlgorandHandlerKind.Transaction,
+            filter: {
+              txType: "axfer", // From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
+              assetId: 27165954, // Planet watch asset
+              sender:
+                "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754",
+              // applicationId: 1
+              // receiver: "XXXXX"
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -56,6 +138,8 @@ dataSources:
             txType: acfg # From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
             applicationId: 1
 ```
+
+:::
 
 ## Overview
 
@@ -151,12 +235,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Algorand runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: algorand/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: dist/index.js # Entry path for this mapping
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: AlgorandDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -191,12 +285,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8="
-  endpoint: "https://mainnet-idx.algonode.cloud"
-  dictionary: https://api.subquery.network/sq/subquery/Algorand-Dictionary
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

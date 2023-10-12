@@ -92,7 +92,7 @@ Nous prenons également en charge certaines méthodes API RPC qui sont des appel
 
 Les documents en [JSON-RPC](https://polkadot.js.org/docs/substrate/rpc/#rpc) fournissent certaines méthodes qui prennent `BlockHash` comme paramètre d'entrée (par exemple, `at? : BlockHash`), qui sont maintenant autorisées. Nous avons également modifié ces méthodes pour qu'elles prennent par défaut le hachage du bloc d'indexation actuel.
 
-```typescript
+```ts
 // Disons que nous indexons actuellement un bloc avec ce numéro de hachage
 const blockhash = `0x844047c4cf1719ba6d54891e92c071a41e3dfe789d064871148e9d41ef086f6a`;
 
@@ -276,7 +276,7 @@ Cette commande va générer les métadonnées et un nouvel api-augment pour les 
 
 Maintenant, dans la fonction de mappage, nous pouvons montrer comment les métadonnées et les types décorent réellement l'API. Le point de terminaison RPC supportera les modules et les méthodes que nous avons déclarés ci-dessus. Et pour utiliser un appel RPC personnalisé, veuillez consulter la section [Appels RPC personnalisés de la chaîne](#custom-chain-rpc-calls).
 
-```typescript
+```ts
 export async function kittyApiHandler(): Promise<void> {
   // retourne le type de KittyIndex
   const nextKittyId = await api.query.kitties.nextKittyId();

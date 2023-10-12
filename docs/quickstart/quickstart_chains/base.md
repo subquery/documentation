@@ -22,7 +22,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
-The Project Manifest (`project.yaml`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Base project. It defines most of the details on how SubQuery will index and transform the chain data. For Base, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -34,32 +34,45 @@ As we are indexing all user claims from the Bridge to Base NFT contract, the fir
 
 **Update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Base is EVM-compatible
-    startBlock: 2155076 # Preferably use the block at which the contract was deployed
-    options:
-      # Must be a key of assets
-      abi: erc721base
-      address: "0xea2a41c02fa86a4901826615f9796e603c6a4491" # This is the contract address for Bridge To Base NFT Collection 0xea2a41c02fa86a4901826615f9796e603c6a4491
-    assets:
-      erc721base:
-        file: "./abis/erc721base.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleNftClaim
-          kind: ethereum/LogHandler # We use ethereum handlers since Base is EVM-compatible
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - TokensClaimed (uint256 claimConditionIndex, address claimer, address receiver, uint256 startTokenId, uint256 quantityClaimed)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 2155076,
+
+      options: {
+        // Must be a key of assets
+        abi: "erc721base",
+        // This is the contract address for Bridge To Base NFT Collection 0xea2a41c02fa86a4901826615f9796e603c6a4491
+        address: "0xea2a41c02fa86a4901826615f9796e603c6a4491",
+      },
+      assets: new Map([["erc721base", { file: "./abis/erc721base.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleNftClaim",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               */
+              topics: [
+                " TokensClaimed (uint256 claimConditionIndex, address claimer, address receiver, uint256 startTokenId, uint256 quantityClaimed)\n",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleNftClaim` mapping function whenever there is a `TokensClaimed` event being logged on any transaction from the [Bridge to Base NFT contract](https://basescan.org/token/0xEa2a41c02fA86A4901826615F9796e603C6a4491).
 
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.yaml`) file.
+Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ## 2. Update Your GraphQL Schema File
 

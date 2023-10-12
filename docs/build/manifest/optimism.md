@@ -4,11 +4,116 @@
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Optimism. Since Optimism is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic Optimism `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  EthereumProject,
+  EthereumDatasourceKind,
+  EthereumHandlerKind,
+} from "@subql/types-ethereum";
+
+// Can expand the Datasource processor types via the generic param
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "Optimism-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Optimism SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for optimism this is 10
+     * https://chainlist.org/chain/10
+     */
+    chainId: "10",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     # We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: [
+      "https://optimism.api.onfinality.io/public",
+      "https://mainnet.optimism.io",
+      "https://endpoints.omniatech.io/v1/op/mainnet/public",
+      "https://opt-mainnet.g.alchemy.com/v2/demo",
+      "https://rpc.ankr.com/optimism",
+    ],
+    // Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
+    dictionary: "https://dict-tyk.subquery.network/query/optimism-mainnet",
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 2485, // This is the block that the contract was deployed on
+      options: {
+        // Must be a key of assets
+        abi: "erc20",
+        // this is the contract address for USDT on Optimism https://optimistic.etherscan.io/address/0x94b008aa00579c1307b0ef2c499ad98a8ce58e58
+        address: "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 rawAmount)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: "1.0.0"
@@ -70,6 +175,8 @@ dataSources:
               - Claimed(uint256 index, address account, uint256 amount)
               # address: "0x60781C2586D68229fde47564546784ab3fACA982"
 ```
+
+:::
 
 ## Overview
 
@@ -169,22 +276,28 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Optimism runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: ethereum/Runtime # We use ethereum runtime since Optimism is a layer-2 that is compatible
-    startBlock: 100316590
-    # startBlock: 9277162 # When the airdrop contract was deployed https://optimistic.etherscan.io/tx/0xdd10f016092f1584912a23e544a29a638610bdd6cb42a3e8b13030fd78334eba
-    options:
-      # Must be a key of assets
-      abi: airdrop
-      address: "0xFeDFAF1A10335448b7FA0268F56D2B44DBD357de" # this is the contract address for Optimism Airdrop https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de
-    assets:
-      airdrop:
-        file: "./abis/airdrop.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-      ...
+```ts
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      options: {
+        // Must be a Record of assets
+        abi: "erc20",
+        // # this is the contract address for your target contract
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      },
+    },
+  ];
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -224,11 +337,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: "1"
-  endpoint: "https://optimism.api.onfinality.io/public"
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ## Validating

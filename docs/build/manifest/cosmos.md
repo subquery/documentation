@@ -1,10 +1,106 @@
 # Cosmos Manifest File
 
-The Manifest `project.yaml` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-The Manifest can be in either YAML or JSON format. In this document, we will use YAML in all the examples.
+The Manifest can be in either Typescript, Yaml, or JSON format.
 
-Below is a standard example of a basic `project.yaml`.
+With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
+
+Below is a standard example of a basic `project.ts`.
+
+```ts
+import {
+  SubqlCosmosDatasourceKind,
+  SubqlCosmosHandlerKind,
+  CosmosProject,
+} from "@subql/types-cosmos";
+
+// Can expand the Datasource processor types via the genreic param
+const project: CosmosProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "osmosis-starter",
+  description:
+    "This project can be use as a starting point for developing your Cosmos osmosis based SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-cosmos",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /* The genesis hash of the network (hash of block 0) */
+    chainId: "osmosis-1",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     * We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: ["https://osmosis.api.onfinality.io/public"],
+    // # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
+    dictionary:
+      "https://api.subquery.network/sq/subquery/cosmos-osmosis-dictionary",
+    chaintypes: new Map([
+      [
+        "osmosis.gamm.v1beta1",
+        {
+          file: "./proto/osmosis/gamm/v1beta1/tx.proto",
+          messages: ["MsgSwapExactAmountIn"],
+        },
+      ],
+      [
+        " osmosis.poolmanager.v1beta1",
+        {
+          // needed by MsgSwapExactAmountIn
+          file: "./proto/osmosis/poolmanager/v1beta1/swap_route.proto",
+          messages: ["SwapAmountInRoute"],
+        },
+      ],
+      [
+        "cosmos.base.v1beta1",
+        {
+          // needed by MsgSwapExactAmountIn
+          file: "./proto/cosmos/base/v1beta1/coin.proto",
+          messages: ["Coin"],
+        },
+      ],
+    ]),
+  },
+  dataSources: [
+    {
+      kind: SubqlCosmosDatasourceKind.Runtime,
+      startBlock: 9798050,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleMessage",
+            kind: SubqlCosmosHandlerKind.Message,
+            filter: {
+              type: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+// Must set default to the project instance
+export default project;
+```
+
+Below is a standard example of the legacy YAML version (`project.yaml`).
+
+:::details Legacy YAML Manifest
 
 ```yml
 specVersion: 1.0.0
@@ -66,6 +162,8 @@ dataSources:
             #values: # A set of key/value pairs that are present in the message data
             #contract: "juno1v99ehkuetkpf0yxdry8ce92yeqaeaa7lyxr2aagkesrw67wcsn8qxpxay0"
 ```
+
+:::
 
 ### Tested and Supported networks
 
@@ -166,12 +264,22 @@ Defines the data that will be filtered and extracted and the location of the map
 
 In this section, we will talk about the default Cosmos runtime and its mapping. Here is an example:
 
-```yml
-dataSources:
-  - kind: cosmos/Runtime # Indicates that this is default runtime
-    startBlock: 1 # This changes your indexing start block, set this higher to skip initial blocks with less data
-    mapping:
-      file: dist/index.js # Entry path for this mapping
+```ts
+{
+  ...
+  dataSources: [
+    {
+      kind: CosmosDataSourceKind.Runtime, // Indicates that this is default runtime
+      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
+      mapping: {
+        file: "./dist/index.js", // Entry path for this mapping
+        handlers: [
+          /* Enter handers here */
+        ],
+      }
+    }
+  ]
+}
 ```
 
 ### Mapping Handlers and Filters
@@ -263,12 +371,12 @@ Bypass Blocks allows you to skip the stated blocks, this is useful when there ar
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 
-```yaml
-network:
-  chainId: juno-1
-  endpoint: https://juno.api.onfinality.io/public
-  dictionary: https://api.subquery.network/sq/subquery/cosmos-juno-dictionary
-  bypassBlocks: [1, 2, 3, "105-200", 290]
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
 ```
 
 ::: tip Indexing chains that have skipped blocks

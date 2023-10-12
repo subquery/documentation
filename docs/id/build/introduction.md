@@ -88,7 +88,7 @@ Untuk informasi lebih lanjut tentang menggunakan ini termasuk tanda, lihat [refe
 
 Metode `console.log` **tidak lagi didukung**. Sebagai gantinya, modul `logger` telah disuntikkan ke dalam tipe, yang berarti kami dapat mendukung logger yang dapat menerima berbagai level logging.
 
-```typescript
+```ts
 logger.info("Info level message");
 logger.debug("Debugger level message");
 logger.warn("Warning level message");
