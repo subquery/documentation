@@ -23,14 +23,15 @@ If an Indexer is caught misbehaving (such as by providing invalid, incomplete, o
 
 **Indexers can increase the potential rewards that they receive by attracting Delegators.**
 
-Delegators are SQT token holders who can delegate their tokens to Indexers for a fair share of indexers' rewards. 
-Indexers benefit from higher total stake (with the help of delegators) in ways: 
+Delegators are SQT token holders who can delegate their tokens to Indexers for a fair share of indexers' rewards.
+Indexers benefit from higher total stake (with the help of delegators) in ways:
+
 1. Unlock indexer to have more agreements at same time.
 2. Have advantage over other indexers when payment method is flex plan
 3. Have higher score in the sponsor plan.
 
 For indexers, since these benefits are delicate, it is always a challenge to consider the best strategy, how many delegator's stake do I need.
-Too many delegation will dilute the reward, small delegation will limit the opportunity of more rewards. By changing commission rate, indexer can adjust the delegation proportion to a balance point.  
+Too many delegation will dilute the reward, small delegation will limit the opportunity of more rewards. By changing commission rate, indexer can adjust the delegation proportion to a balance point.
 
 You should read more about how Delegators will pick Indexers [here](../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 
