@@ -4,18 +4,15 @@ We provide a custom data source processor for [Parity's Frontier EVM](https://gi
 
 **Tested and Supported networks**
 
-| Network Name   | Websocket Endpoint                                 | Dictionary Endpoint                                                     |
-| -------------- | -------------------------------------------------- | ----------------------------------------------------------------------- |
-| Moonbeam       | `wss://moonbeam.api.onfinality.io/public-ws`       | `https://api.subquery.network/sq/subquery/moonbeam-dictionary`          |
-| Moonriver      | `wss://moonriver.api.onfinality.io/public-ws`      | `https://api.subquery.network/sq/subquery/moonriver-dictionary`         |
-| Moonbase Alpha | `wss://moonbeam-alpha.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary`    |
-| Astar          | `wss://astar.api.onfinality.io/public-ws`          | `https://explorer.subquery.network/subquery/subquery/astar-dictionary`  |
-| Shiden         | `wss://shiden.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/shiden-dictionary` |
-| Acala          | `wss://acala-polkadot.api.onfinality.io/public-ws` | `https://explorer.subquery.network/subquery/subquery/acala-dictionary`  |
-| Karura         | `wss://karura.api.onfinality.io/public-ws`         | `https://explorer.subquery.network/subquery/subquery/karura-dictionary` |
+Theoretically all the following networks (and more) should also be supported since they implement Parity's Frontier EVM. Please let us know if you verify this and we can add them to the known support:
 
-Theoretically the following networks should also be supported since they implement Parity's Frontier EVM. Please let us know if you verify this and we can add them to the known support:
-
+- Moonbeam
+- Moonriver
+- Moonbase Alpha
+- Acala
+- Karura
+- Astar
+- Shiden
 - Automata
 - Bitcountry
 - Clover
@@ -41,7 +38,7 @@ Theoretically the following networks should also be supported since they impleme
 1. Add the custom datasource as a dependency:
 
 - Create a new project from an EVM template though `subql init` OR
-- For existing projects, `yarn add @subql/frontier-evm-processor` or `npm i @subql/acala-evm-processor`.
+- For existing projects, `yarn add -D @subql/frontier-evm-processor` or `npm i @subql/acala-evm-processor --save-dev`.
 
 2. Add exports to your `package.json` like below in order for IPFS deployments to work
 
@@ -52,6 +49,32 @@ Theoretically the following networks should also be supported since they impleme
     //"acalaEvm": "./node_modules/@subql/acala-evm-processor/dist/index.js",
     "chaintypes": "./src/chaintypes.ts" // chain types if required
   }
+```
+
+3. Import processor file to your `project.ts` like below
+
+```ts
+import { FrontierEvmDatasource } from "@subql/frontier-evm-processor";
+
+const project: SubstrateProject<FrontierEvmDatasource> = {
+  ...
+  dataSources: [
+    {
+      // This is the datasource for Moonbeam's Native Substrate processor
+      kind: "substrate/FrontierEvm",
+      startBlock: 752073,
+      processor: {
+        file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7", // FLARE token https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7
+        },
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {...},
+    },
+  ],
+}
 ```
 
 3. Add a custom data source as described below.
@@ -240,74 +263,88 @@ This is an extract from the `project.ts` manifest file.
 ::: code-tabs
 @tab Frontier EVM
 
-```yaml
-dataSources:
-  - kind: substrate/FrontierEvm
-    startBlock: 752073
-    processor:
-      file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js"
-      options:
-        # Must be a key of assets
-        abi: erc20
-        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
-    assets:
-      erc20:
-        file: ./erc20.abi.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleFrontierEvmEvent
-          kind: substrate/FrontierEvmEvent
-          filter:
-            topics:
-              - "Transfer(address indexed from,address indexed to,uint256 value)"
-              - null
-              - null
-              - null
-        - handler: handleFrontierEvmCall
-          kind: substrate/FrontierEvmCall
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            # function: approve(address,uint256)
-            function: "approve(address to,uint256 value)"
+```ts
+{
+  dataSources: [
+    {
+      // This is the datasource for Moonbeam's Native Substrate processor
+      kind: "substrate/FrontierEvm",
+      startBlock: 752073,
+      processor: {
+        file: "./node_modules/@subql/frontier-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7", // FLARE token https://moonscan.io/token/0xe3e43888fa7803cdc7bea478ab327cf1a0dc11a7
+        },
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleEvmEvent",
+            kind: "substrate/FrontierEvmEvent",
+            filter: {
+              topics: [
+                "Transfer(address indexed from,address indexed to,uint256 value)",
+              ],
+            },
+          },
+          {
+            handler: "handleEvmCall",
+            kind: "substrate/FrontierEvmCall",
+            filter: {
+              function: "approve(address to,uint256 value)",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 @tab Acala EVM+
 
-```yaml
-dataSources:
-  - kind: substrate/AcalaEvm
-    startBlock: 752073
-    processor:
-      file: "./node_modules/@subql/contract-processors/dist/acalaEvm.js"
-      options:
-        # Must be a key of assets
-        abi: erc20
-        # Contract address (or recipient if transfer) to filter, if `null` should be for contract creation
-        address: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
-    assets:
-      erc20:
-        file: "./erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleAcalaEvmEvent
-          kind: substrate/AcalaEvmEvent
-          filter:
-            topics:
-              - Transfer(address indexed from,address indexed to,uint256 value)
-        - handler: handleAcalaEvmCall
-          kind: substrate/AcalaEvmCall
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            # function: approve(address,uint256)
-            function: approve(address to,uint256 value)
-            from: "0x6bd193ee6d2104f14f94e2ca6efefae561a4334b"
+```ts
+{
+  dataSources: [
+    {
+      // This is the datasource for Acala's EVM processor
+      kind: "substrate/AcalaEvm",
+      startBlock: 1000000,
+      processor: {
+        file: "./node_modules/@subql/acala-evm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          address: "0x0000000000000000000100000000000000000000", // ACA Token https://blockscout.acala.network/address/0x0000000000000000000100000000000000000000
+        },
+      },
+      assets: new Map([["erc20", { file: "./erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleAcalaEvmEvent",
+            kind: "substrate/AcalaEvmEvent",
+            filter: {
+              topics: [
+                "Transfer(address indexed from,address indexed to,uint256 value)",
+              ],
+            },
+          },
+          {
+            handler: "handleAcalaEvmCall",
+            kind: "substrate/AcalaEvmCall",
+            filter: {
+              function: "approve(address to,uint256 value)",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 :::

@@ -6,29 +6,35 @@ We provide a custom data source processor for [Substrate WASM contract](https://
 There is a [friendly quick start guide that introduces SubQuery's Substrate WASM support by using an example project in Astar Network](../quickstart/quickstart_chains/polkadot-astar.md). This guide covers most of the topics shown in the following guide in a format more easy to understand. You can return here when you need specific technical support for the Substrate WASM data source processor.
 :::
 
-**Tested and Supported networks**
-
-| Network Name | Websocket Endpoint                           | Dictionary Endpoint                                            |
-| ------------ | -------------------------------------------- | -------------------------------------------------------------- |
-| Astar        | Coming soon                                  | Coming soon                                                    |
-| Shiden       | `wss://shiden.api.onfinality.io/public-ws`   | `https://api.subquery.network/sq/subquery/shiden-dictionary`   |
-| Shibuya      |                                              | `https://api.subquery.network/sq/subquery/shibuya-dictionary`  |
-| Edgeware     | `wss://edgeware.api.onfinality.io/public-ws` | `https://api.subquery.network/sq/subquery/edgeware-dictionary` |
-
-**You can also refer to the basic [Substrate WASM](https://github.com/subquery/subql-starter/tree/main/Astar/astar-evm-starter) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
+**You can also refer to the basic [Substrate WASM](../quickstart/quickstart_chains/polkadot-astar.md) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
 
 ## Getting started
 
-1. Add the custom datasource as a dependency. Create a new project from an WASM starter template though `subql init` OR for existing projects, `yarn add @subql/substrate-wasm-processor`.
+1. Add the custom datasource as a dependency. Create a new project from an WASM starter template though `subql init` OR for existing projects, `yarn add -D @subql/substrate-wasm-processor`.
 2. Import processor file to your `project.ts` like below
 
-```yaml
+```ts
+import { WasmDatasource } from "@subql/substrate-wasm-processor";
+
+const project: SubstrateProject<WasmDatasource> = {
   ...
-  dataSources:
-    - kind: substrate/Wasm
-      startBlock: 970733
-      processor:
-        file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
+  dataSources: [
+    {
+      // This is the datasource for Astar's Wasm processor
+      kind: "substrate/Wasm",
+      startBlock: 3281780,
+      processor: {
+        file: "./node_modules/@subql/substrate-wasm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc", // Mainnet,
+        },
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20Metadata.abi.json" }]]),
+      mapping: {...},
+    },
+  ],
+}
 ```
 
 3. Add a custom data source as described below.
@@ -172,32 +178,48 @@ export async function handleSubstrateWasmEvent(
 
 This is an extract from the `project.ts` manifest file.
 
-```yaml
-dataSources:
-  - kind: substrate/Wasm
-    startBlock: 970733
-    processor:
-      file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
-      options:
-        abi: erc20
-        contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
-    assets:
-      erc20:
-        file: ./erc20Metadata.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleSubstrateWasmEvent
-          kind: substrate/WasmEvent
-          filter:
-            # from: 'xxxx'
-            contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H"
-            identifier: "Transfer"
-        - handler: handleSubstrateCall
-          kind: substrate/WasmCall
-          filter:
-            selector: "0x681266a0"
-            method: "approve"
+```ts
+{
+  dataSources: [
+    {
+      // This is the datasource for Astar's Native Substrate processor
+      kind: "substrate/Wasm",
+      // This is the datasource for Astar's Wasm processor
+      startBlock: 3281780,
+      processor: {
+        file: "./node_modules/@subql/substrate-wasm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          // contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" // Shibuya
+          contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc", // Mainnet,
+        },
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20Metadata.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleWasmEvent",
+            kind: "substrate/WasmEvent",
+            filter: {
+              // contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" // Shibuya
+              contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc", // Mainnet
+              identifier: "Transfer",
+            },
+          },
+          {
+            handler: "handleWasmCall",
+            kind: "substrate/WasmEvent",
+            filter: {
+              selector: "0x681266a0",
+              method: "approve",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 ## Querying contracts

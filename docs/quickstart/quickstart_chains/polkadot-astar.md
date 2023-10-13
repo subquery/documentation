@@ -4,6 +4,12 @@
 
 This quick start guide introduces SubQuery's Substrate WASM support by using an example project in Astar Network. The example project indexes all Transactions and Approvals from the [Astar Wasm based lottery contract](https://astar.subscan.io/account/bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc), as well as dApp staking events from [Astar's dApp Staking](https://docs.astar.network/docs/dapp-staking/) functions.
 
+::: tip Note
+
+The final code of this project can be found [here](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter).
+
+:::
+
 This project is unique, as it indexes data from both Astar's Substrate execution layer (native Astar pallets and runtime), with smart contract data from Astar's WASM smart contract layer, within the same SubQuery project and into the same dataset. A very similar approach can be take with indexing Astar's EVM layer too.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
@@ -92,34 +98,53 @@ For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md
 
 **Since we are planning to index all Polkadot transfers, we need to update the `datasources` section as follows:**
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    # This is the datasource for Astar's Native Substrate processor
-    startBlock: 1
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleNewContract
-          kind: substrate/EventHandler
-          filter:
-            module: dappsStaking
-            method: NewContract
-        - handler: handleBondAndStake
-          kind: substrate/EventHandler
-          filter:
-            module: dappsStaking
-            method: BondAndStake
-        - handler: handleUnbondAndUnstake
-          kind: substrate/EventHandler
-          filter:
-            module: dappsStaking
-            method: UnbondAndUnstake
-        - handler: handleReward
-          kind: substrate/EventHandler
-          filter:
-            module: dappsStaking
-            method: Reward
+```ts
+{
+  dataSources: [
+    {
+      // This is the datasource for Astar's Native Substrate processor
+      kind: SubstrateDatasourceKind.Runtime,
+      startBlock: 87073,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleNewContract",
+            filter: {
+              module: "dappsStaking",
+              method: "NewContract",
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleBondAndStake",
+            filter: {
+              module: "dappsStaking",
+              method: "BondAndStake",
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleUnbondAndUnstake",
+            filter: {
+              module: "dappsStaking",
+              method: "UnbondAndUnstake",
+            },
+          },
+          {
+            kind: SubstrateHandlerKind.Event,
+            handler: "handleReward",
+            filter: {
+              module: "dappsStaking",
+              method: "Reward",
+            },
+          },
+        ],
+      },
+    },
+  ];
+}
 ```
 
 This indicates that you will be running a `handleNewContract` mapping function whenever there is an event emitted from the `NewContract` method on the `dappsStaking` pallet. Similarly we will run other mapping functions for the three other events being emitted from the `dappsStaking` to other mapping functions. This covers most interactions with the dApp staking feature that we are interested in.
@@ -130,41 +155,51 @@ Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to
 
 If you're not using the [WASM starter template](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter) then please add the Wasm Datasource as a dependency using `yarn add @subql/substrate-wasm-processor`.
 
-We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First, you will need to import the contract ABI defintion. You can copy the entire JSON and save it as a file `./erc20Metadata.json` in the `abis` directory.
+We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First, you will need to import the contract ABI defintion. You can copy the entire JSON and save it as a file `./erc20Metadata.abi.json` in the `abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing. We add another section the datasource beneath the above [substrate manifest section](#substrate-manifest-section).
 
-```yaml
-dataSources:
-  - kind: substrate/Runtime
-    # This is the datasource for Astar's Native Substrate processor
-    ...
-  - kind: substrate/Wasm
-    # This is the datasource for Astar's Wasm processor
-    startBlock: 3281780
-    processor:
-      file: ./node_modules/@subql/substrate-wasm-processor/dist/bundle.js
-      options:
-        abi: erc20
-        # contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" # Shibuya
-        contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" # Mainnet
-    assets:
-      erc20:
-        file: ./abis/erc20Metadata.json
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleWasmEvent
-          kind: substrate/WasmEvent
-          filter:
-            # contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" # Shibuya
-            contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc" # Mainnet
-            identifier: "Transfer"
-        - handler: handleWasmCall
-          kind: substrate/WasmCall
-          filter:
-            selector: "0x681266a0"
-            method: "approve"
+```ts
+{
+  dataSources: [
+    {
+      // This is the datasource for Astar's Wasm processor
+      kind: "substrate/Wasm",
+      startBlock: 3281780,
+      processor: {
+        file: "./node_modules/@subql/substrate-wasm-processor/dist/bundle.js",
+        options: {
+          abi: "erc20",
+          // contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" // Shibuya
+          contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc", // Mainnet,
+        },
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20Metadata.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleWasmEvent",
+            kind: "substrate/WasmEvent",
+            filter: {
+              // contract: "a6Yrf6jAPUwjoi5YvvoTE4ES5vYAMpV55ZCsFHtwMFPDx7H" // Shibuya
+              contract: "bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc", // Mainnet
+              identifier: "Transfer",
+            },
+          },
+          {
+            handler: "handleWasmCall",
+            kind: "substrate/WasmEvent",
+            filter: {
+              selector: "0x681266a0",
+              method: "approve",
+            },
+          },
+        ],
+      },
+    },
+  ],
+}
 ```
 
 The above code indicates that you will be running a `handleWasmEvent` mapping function whenever there is an `Transfer` event on any transaction from the Astar contract. Similarly, we will run the `handleWasmCall` mapping function whenever there is a `approve` log on the same contract.
@@ -351,6 +386,12 @@ You should see results similar to below:
   }
 }
 ```
+
+::: tip Note
+
+The final code of this project can be found [here](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter).
+
+:::
 
 ## What's next?
 
