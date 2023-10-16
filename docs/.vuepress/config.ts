@@ -565,6 +565,10 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/polygon.md`,
                 },
                 {
+                  text: "Polygon Lens",
+                  link: `${locale}/quickstart/quickstart_chains/polygon-lens.md`,
+                },
+                {
                   text: "Polygon zkEVM",
                   link: `${locale}/quickstart/quickstart_chains/polygon-zkevm.md`,
                 },
