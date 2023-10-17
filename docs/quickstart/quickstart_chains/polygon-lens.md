@@ -35,48 +35,50 @@ The Project Manifest (`project.ts`) file works as an entry point to your Polygon
 Then, you need to update the `datasources` section as follows:
 
 ```ts
-dataSources: [
-  {
-    kind: EthereumDatasourceKind.Runtime,
-    startBlock: 28384641, // This is the block that the contract was deployed on
-    options: {
-      // Must be a key of assets
-      abi: "LensHub",
-      address: "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d",
+{
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 28384641, // This is the block that the contract was deployed on
+      options: {
+        // Must be a key of assets
+        abi: "LensHub",
+        address: "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d",
+      },
+      assets: new Map([["LensHub", { file: "./abis/LensHub.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handlePostCreated",
+            filter: {
+              topics: [
+                "PostCreated(uint256,uint256,string,address,bytes,address,bytes,uint256)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleProfileCreated",
+            filter: {
+              topics: [
+                "ProfileCreated(uint256,address,address,string,string,address,bytes,string,uint256)",
+              ],
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleFollowed",
+            filter: {
+              topics: ["Followed(address,uint256[],bytes[],uint256)"],
+            },
+          },
+        ],
+      },
     },
-    assets: new Map([["LensHub", { file: "./abis/LensHub.abi.json" }]]),
-    mapping: {
-      file: "./dist/index.js",
-      handlers: [
-        {
-          kind: EthereumHandlerKind.Event,
-          handler: "handlePostCreated",
-          filter: {
-            topics: [
-              "PostCreated(uint256,uint256,string,address,bytes,address,bytes,uint256)",
-            ],
-          },
-        },
-        {
-          kind: EthereumHandlerKind.Event,
-          handler: "handleProfileCreated",
-          filter: {
-            topics: [
-              "ProfileCreated(uint256,address,address,string,string,address,bytes,string,uint256)",
-            ],
-          },
-        },
-        {
-          kind: EthereumHandlerKind.Event,
-          handler: "handleFollowed",
-          filter: {
-            topics: ["Followed(address,uint256[],bytes[],uint256)"],
-          },
-        },
-      ],
-    },
-  },
-];
+  ];
+}
 ```
 
 This setup establishes an manifest file to gather and manage information from a particular smart contract on the Polygon network, specified by its unique address. It has three handlers:
@@ -205,13 +207,12 @@ import {
 } from "../types/abi-interfaces/LensHubAbi";
 import { Account, Post, Profile, Follow } from "../types";
 import assert from "assert";
-import { BigNumber } from "ethers";
 
 export async function getOrCreateAccount(
   accountAddress: string
 ): Promise<Account> {
   let account = await Account.get(accountAddress);
-  if (account == null) {
+  if (!account) {
     account = Account.create({
       id: accountAddress,
     });
@@ -223,7 +224,7 @@ export async function getOrCreateFollow(
   accountAddress: string
 ): Promise<Follow> {
   let follow = await Follow.get(accountAddress);
-  if (follow == null) {
+  if (!follow) {
     follow = Follow.create({ id: accountAddress });
   }
   return follow;
@@ -235,7 +236,7 @@ export function getNewPublicactionId(profileId: BigInt, pubId: BigInt): string {
 
 export async function getOrCreatePost(pubId: BigInt): Promise<Post> {
   let post = await Post.get(pubId.toString());
-  if (post === undefined) {
+  if (!post) {
     post = await Post.create({
       id: pubId.toString(),
     });
@@ -245,7 +246,7 @@ export async function getOrCreatePost(pubId: BigInt): Promise<Post> {
 
 export async function getOrCreateProfile(profileId: string): Promise<Profile> {
   let profile = await Profile.get(profileId);
-  if (profile === undefined) {
+  if (!profile) {
     profile = Profile.create({
       id: profileId,
     });
@@ -268,9 +269,7 @@ export async function handleProfileCreated(
   profile.followNFTURI = event.args.followNFTURI;
   profile.handle = event.args.handle;
   profile.imageURI = event.args.imageURI;
-  creator.save();
-  to.save();
-  profile.save();
+  Promise.all([creator.save(), to.save(), profile.save()]);
 }
 
 export async function handlePostCreated(event: PostCreatedLog): Promise<void> {
@@ -281,8 +280,7 @@ export async function handlePostCreated(event: PostCreatedLog): Promise<void> {
   post.profileId = profile.id;
   post.timestamp = event.args.timestamp.toBigInt();
   post.contentURI = event.args.contentURI;
-  profile.save();
-  post.save();
+  Promise.all([profile.save(), post.save()]);
 }
 
 export async function handleFollowed(event: FollowedLog): Promise<void> {
@@ -303,9 +301,7 @@ export async function handleFollowed(event: FollowedLog): Promise<void> {
     follow.fromAccountId = follower.id;
     follow.toProfileId = profile.id;
     follow.timestamp = event.args.timestamp.toBigInt();
-    profile.save();
-    follow.save();
-    follower.save();
+    Promise.all([profile.save(), follow.save(), follower.save()]);
   }
 }
 ```
