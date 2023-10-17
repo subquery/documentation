@@ -425,10 +425,6 @@ function getSidebar(locale: string): SidebarOptions {
                   link: `${locale}/quickstart/quickstart_chains/cosmos-sei.md`,
                 },
                 {
-                  text: "Terra",
-                  link: `${locale}/quickstart/quickstart_chains/terra.md`,
-                },
-                {
                   text: "Thorchain",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-thorchain.md`,
                 },
@@ -619,7 +615,6 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/manifest/polkadot.md`,
             `${locale}/build/manifest/polygon.md`,
             `${locale}/build/manifest/stellar.md`,
-            `${locale}/build/manifest/terra.md`,
           ],
         },
         `${locale}/build/graphql.md`,
@@ -640,7 +635,6 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/polkadot.md`,
             `${locale}/build/mapping/polygon.md`,
             `${locale}/build/mapping/stellar.md`,
-            `${locale}/build/mapping/terra.md`,
             `${locale}/build/mapping/store.md`,
           ],
         },
