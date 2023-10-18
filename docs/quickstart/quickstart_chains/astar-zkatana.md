@@ -1,11 +1,11 @@
-# Astar zKatana Quick Start
+# Astar zKatana Testnet Quick Start
 
 ## Goals
 
-The goal of this quick start guide is to index all transfers and approval events from the [Wrapped Eth](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9) on [Polygon zkEVM](https://zkevm.polygonscan.com) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
 
 ::: warning
-Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an a Polygon zkEVM project.
+Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Astar zKatana project.
 :::
 
 In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-changes-to-your-project) to update. Let's begin updating them one by one.
@@ -13,12 +13,12 @@ In every SubQuery project, there are [3 key files](../quickstart.md#_3-make-chan
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Polygon zkEVM. Since Polygon zkEVM is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Astar zKatana. Since Astar zKatana is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 ## 1. Your Project Manifest File
 
-The Project Manifest (`project.ts`) file works as an entry point to your Polygon zkEVM project. It defines most of the details on how SubQuery will index and transform the chain data. For Poltgon zkEVM, there are three types of mapping handlers (and you can have more than one in each project):
+The Project Manifest (`project.ts`) file works as an entry point to your Astar zKatana project. It defines most of the details on how SubQuery will index and transform the chain data. For Astar zKatana, there are three types of mapping handlers (and you can have more than one in each project):
 
 - [BlockHanders](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
@@ -26,7 +26,7 @@ The Project Manifest (`project.ts`) file works as an entry point to your Polygon
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Polygon zkEVM network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the GACHA contract on Astar zKatana test network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
@@ -35,12 +35,12 @@ As we are indexing all transfers and approvals from the Wrapped ETH contract on 
   dataSources: [
     {
       kind: EthereumDatasourceKind.Runtime,
-      startBlock: 1, // This is the block that the contract was deployed on https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
+      startBlock: 53, // This is the block that the contract was deployed on https://zkatana.blockscout.com/tx/0x625fd9f365a1601486c4176bc34cf0fdf04bf06b2393fd5dd43e8dd7a62d9ec5
       options: {
         // Must be a key of assets
         abi: "erc20",
-        // This is the contract address for Wrapped Ether https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9
-        address: "0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9",
+        // This is the contract address for GACHA Token https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F
+        address: "0x28687c2A4638149745A0999D523f813f63b4786F",
       },
       assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
       mapping: {
@@ -78,9 +78,9 @@ As we are indexing all transfers and approvals from the Wrapped ETH contract on 
 }
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WETH contract](https://zkevm.polygonscan.com/token/0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
 
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
@@ -368,7 +368,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Polygon/polygon-zkevm-starter/).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-testnet-starter).
 :::
 
 ## What's next?
