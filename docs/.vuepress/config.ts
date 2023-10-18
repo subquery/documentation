@@ -588,6 +588,16 @@ function getSidebar(locale: string): SidebarOptions {
             },
           ],
         },
+        {
+          text: "3. Multi-Chain",
+          collapsible: true,
+          children: [
+            {
+              text: "Snapshot",
+              link: `${locale}/quickstart/quickstart-multichain/snapshot.md`,
+            },
+          ],
+        },
         `${locale}/quickstart/whats-next.md`,
       ],
     },
