@@ -25,11 +25,11 @@ Now, let's explore how to run the Indexing Service Locally step-by-step.
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
-curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/docker-compose.yml -o docker-compose.yml
 
 # extra steps to use local ipfs node
 mkdir ipfs
-curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/ipfs/ipfs.sh -o ipfs/ipfs.sh
+curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/ipfs/ipfs.sh -o ipfs/ipfs.sh
 chmod +x ipfs/ipfs.sh
 ```
 
