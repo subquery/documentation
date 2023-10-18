@@ -83,4 +83,6 @@ We highly recommend setting up SSL on your new server. [Follow the guide here](.
 
 :::tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
+
+If you want to use a separated database for the Indexing service, you can follow [this guide](./separated-db.md) to set up the database and install the Indexing service.
 :::
