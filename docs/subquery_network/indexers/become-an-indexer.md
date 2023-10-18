@@ -67,7 +67,7 @@ Login to your VM and create a folder, such as `kepler-indexer`
 2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
-curl https://raw.githubusercontent.com/subquery/indexer-services/kepler/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/docker-compose.yml -o docker-compose.yml
 ```
 
 This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release versions at your own risk).
