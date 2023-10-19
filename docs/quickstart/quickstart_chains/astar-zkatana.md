@@ -286,16 +286,6 @@ Try the following query to understand how it works for your new SubQuery starter
       }
     }
   }
-  approvals(first: 5, orderBy: BLOCK_HEIGHT_DESC) {
-    nodes {
-      id
-      blockHeight
-      owner
-      spender
-      value
-      contractAddress
-    }
-  }
 }
 ```
 
