@@ -16,7 +16,7 @@ Ensuring the security of Indexers is paramount, not only in the traditional infr
 
 The diagram below illustrates a suggested network topology of the Indexer's infrastructure. It's crucial to understand the architecture to identify potential security threats and vulnerabilities.
 
-![Suggested Topology](../kepler/assets/img/sq-indexer-stack-topology.png)
+![Suggested Topology](/assets/img/network/indexer_topology.png)
 
 ### Ports and Interfaces
 

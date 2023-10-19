@@ -6,7 +6,7 @@ You can use the same SubQuery project, which includes the same GraphQL schema an
 
 For example, you could capture XCM transaction data from all Polkadot parachains or monitoring IBC messages across Cosmos Zones in a single project, with a single database, and a single query endpoint.
 
-![Multi-chain](/assets/img/multi_chain.jpg)
+![Multi-chain](/assets/img/build/multi_chain.jpg)
 
 ## How it Works
 
@@ -40,7 +40,7 @@ In our example project, we have [altered the standard `docker-compose.yml`](http
 ```
 
 ::: warning Warning
-This feature is not compatible with [Historical State](./historical.md) and will be disabled if `--multi-chain` is used.
+This feature is not compatible with [Historical State](../run_publish/historical.md) and will be disabled if `--multi-chain` is used.
 :::
 
 ::: warning Warning
@@ -104,7 +104,7 @@ subquery-node-newchain:
 
 Use `subql publish` command to publish all the projects listed in the `subquery-multichain.yaml` manifest to a single IPFS directory.
 
-![image](../.vuepress/public/assets/img/multichain_publish.png)
+![image](../.vuepress/public/assets/img/build/multi_chain_publish.png)
 
 ### See the Example Project
 

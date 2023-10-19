@@ -15,7 +15,7 @@ Welcome to this guide on how to become an Indexer. Let's take an overview of the
 | 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                      |
 | 6     | [Setting an Indexer Commission Rate](#6-configure-an-indexer-commission-rate-icr)                                |
 |       | [Troubleshooting](./troubleshooting-indexers.md)                                                                 |
-|       | [FAQs](./faqs-indexers.md)                                                                                       |
+|       | [FAQs](./faq.md)                                                                                                 |
 
 ## Understanding how Kepler will Operate for Indexers
 
@@ -28,7 +28,7 @@ In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council
 - We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](./index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
 - Finally, we also assess pricing when creating agreements with Indexers, so Indexers with lower plan prices can expect a higher chance of being selected.
 
-![Indexer Excellency](/assets/img/indexer-excellency.png)
+![Indexer Excellency](/assets/img/network/indexer-excellency.png)
 
 ## 1. Select an environment
 
@@ -135,8 +135,8 @@ Head to `http://<indexer-endpoint>:3000`, your username will be `admin` and pass
 
 Once you have successfully logged in, look for 'dashboards' on the left-hand side of the screen. Under the 'general' section, you will find a dashboard that looks like this:
 
-![grafana_query_count](/assets/img/grafana_query_count.png)
-![grafana_query_stats](/assets/img/grafana_query_stats.png)
+![grafana_query_count](/assets/img/network/grafana_query_count.png)
+![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
 ### Upgrade indexer services
 
@@ -178,14 +178,14 @@ For the initial stages of Kepler, the SubQuery Council will set some default pla
 
 Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](./rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
 
-![Viewing your ICR](/assets/img/icr1.png)
+![Viewing your ICR](/assets/img/network/indexer_icr.png)
 
 Enter a new value (in a percent) and submit via Metamask.
 
-![Changing your ICR](/assets/img/icr2.png)
+![Changing your ICR](/assets/img/network/indexer_icr_change.png)
 
 Changes will come into effect at the start of the next Era.
 
 ## Additional Notes
 
-Visit [Troubleshooting](./troubleshooting-indexers.md) or [FAQs](./faqs-indexers.md) if you run into technical issues.
+Visit [Troubleshooting](./troubleshooting-indexers.md) or [FAQs](./faq.md) if you run into technical issues.

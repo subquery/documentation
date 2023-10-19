@@ -6,9 +6,9 @@ The `network.dictionary` endpoint is an optional parameter that if present, the 
 
 Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) project as an example, the schema file defines 3 entities; extrinsic, events, specVersion. These 3 entities contain 6, 4, and 2 fields respectively. When this project is run, these fields are reflected in the database tables.
 
-![extrinsics table](/assets/img/extrinsics_table.png)
-![events table](/assets/img/events_table.png)
-![specversion table](/assets/img/specversion_table.png)
+![extrinsics table](/assets/img/academy/extrinsics_table.png)
+![events table](/assets/img/academy/events_table.png)
+![specversion table](/assets/img/academy/specversion_table.png)
 
 Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery's Managed Service and the API endpoint is available to be added to the manifest file.
 
@@ -32,7 +32,7 @@ When a dictionary IS used, the indexer will first take the call and event filter
 
 For example, imagine a situation where you're indexing transfer events. Not all blocks have this event (in the image below there are no transfer events in blocks 3 and 4).
 
-![dictionary block](/assets/img/dictionary_blocks.png)
+![dictionary block](/assets/img/academy/dictionary_blocks.png)
 
 The dictionary allows your project to skip this so rather than looking in each block for a transfer event, it skips to just blocks 1, 2, and 5. This is because the dictionary is a pre-computed reference to all calls and events in each block.
 

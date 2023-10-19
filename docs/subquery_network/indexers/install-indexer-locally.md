@@ -55,7 +55,7 @@ Please check that the Docker is already running. The images will be pulled from 
 - `indexer_cache`
 - (Optional) `indexer_ipfs`
 
-![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
+![docker compose-up command line](/assets/img/network/indexer_docker_services.png)
 
 ### Step 3 - Check Local IPFS
 
@@ -69,17 +69,13 @@ docker exec indexer_ipfs ipfs swarm peers | grep -E "(12D3KooWHEEjciF2JmDukCkWW9
 
 ### Step 4 - Open the Indexer Admin Page
 
-Open `http://localhost:8000/` in your browser and you will get to see:
-
-![Indexer Admin Page - Asking to Connect with Metatask](/assets/img/admin_page_installlocally.png)
-
----
+Open `http://localhost:8000/` in your browser to view the Indexer App.
 
 ## Next Steps
 
 **You have successfully installed and started the Indexer Service locally.**
 
-We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
+We highly recommend setting up SSL on your new server. [Follow the guide here](./indexer-security-guide.md#ssl-certificate-configuration).
 
 :::tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).

@@ -8,7 +8,7 @@ Total Supply: The total supply will be 10 Billion SQT tokens.
 
 Inflation: The inflation is expected to be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
 
-![token allocation](/assets/img/token_allocation.png)
+![token allocation](/assets/img/network/token_allocation.png)
 
 From the start, SubQuery has been focused on building value within the community and this aim continues with the largest allocation of tokens (~51%) being apportioned to the Community, SubQuery Foundation, and for the public sale.
 
@@ -22,7 +22,7 @@ Finally, the SubQuery Team and Launch Partners have been allocated 20% of the to
 
 We have designed our vesting schedule to demonstrate the commitment of various stakeholders. The graphic below illustrates the planned release of the SQT tokens to each participant over time culminating in the full circulation of tokens occurring 5 years (60 months) after launch.
 
-![vesting schedule](/assets/img/vesting_schedule.png)
+![vesting schedule](/assets/img/network/vesting_schedule.png)
 
 The vesting schedules for each participant has been designed to create long-term value for the project and generate confidence to token-holders. Perhaps most significantly, the core team will have a 24 month lock-up period which will then vest over another 24 months while some Public Sale participants can freely use the utility of their token upon launch.
 

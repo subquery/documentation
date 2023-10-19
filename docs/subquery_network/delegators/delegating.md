@@ -2,46 +2,38 @@
 
 ## How to delegate to an Indexer
 
-After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-indexers-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Stake & Delegate` -> `Indexers`(on the left sidebar).
+After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-indexers-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Delegator` -> `Indexers`(on the left sidebar). Then select `Delegate` in the last column next to your desired Indexer.
 
-- Then select `Delegate` in the last column `Action`.
+![Delegate Indexer List](/assets/img/network/delegate_indexers.png)
 
-![Delegate to an Indexer](/assets/img/delegate_to_indexer_a.png)
+Select your source for the delegation (it can be your wallet, or from an existing delegation amoutn) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
 
-- Now, select your wallet and your delegation amount. Click on `Delegate`.
-
-![Delegate to an Indexer part 2](/assets/img/delegate_to_indexer_with_amount.png)
-
-- You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
+![Delegate to an Indexer part 2](/assets/img/network/delegate_action.png)
 
 Note that some Indexers cannot be delegated to, until they collect all the early era's rewards. You will have to contact the Indexer to resolve the issue.
 
-![Cannot delegate](/assets/img/cannot_delegate.png)
+![Cannot delegate](/assets/img/network/delegate_cannot.png)
 
 ## How to undelegate from an Indexer
 
-- To undelegate from an Indexer, navigate to `Stake & Delegate` -> `My profile`. Then select the `Delegating` tab.
+::: info You can redelegate without waiting for the unlocking period
 
-![Undelegate from an Indexer](/assets/img/undelegate_from_indexer_a.png)
+If you want to switch your delegation from one indexer to another, you can avoid the undelegation lock period by instead redelegating. When you initially delegate to an Indexer, you can instead select another Indexer's delegation as the source of funds to redelegate.
 
-- Click on `Undelegate` and enter the amount of SQT you want to undelegate. Then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask. Confirm it and wait for a few seconds.
+:::
 
-![Confirm undelegate](/assets/img/confirm_undelegation_amount_and_metamask.png)
+To undelegate from an Indexer, navigate to `Delegator` -> `Delegating`.
 
-- You can notice the change in the Delegation Amount under the `Your DELEGATION AMOUNT` column.
+![Undelegate from an Indexer](/assets/img/network/delegate_status.png)
 
-## How to withdraw an undelegated amount from an Indexer
+Click on `Undelegate` and enter the amount of SQT you want to undelegate. Then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask. Confirm it and wait for a few seconds.
 
-- When you undelegate from an Indexer, the tokens are locked for a specific period before they can be withdrawn. This period is indicated by the `START AT` and `END AT` columns.
+![Confirm undelegate](/assets/img/network/delegate_undelegate.png)
 
-- To withdraw the undelegated amount from an Indexer, navigate to `Stake & Delegate` -> `My profile`. Then select the `Locked` tab.
+You can notice the change in the Delegation Amount under the `Your DELEGATION AMOUNT` column (note the unlocking period on funds).
 
-- When the tokens are unlocked, the `Withdraw` button will be available.
+## How to withdraw undelegated tokens
 
-![Withdraw delegated tokens](/assets/img/withdraw_tokens.png)
+When you undelegate from an Indexer, the tokens are locked for a specific period before they can be withdrawn. You can see pending unlocks and execute withdrawls in the `My profile` -> `Withdrawls`. When the tokens are unlocked, the `Withdraw` button will be available. Alternatively you can cancel the withdrawl here and redelegate your tokens.
 
-- Hit the `Withdraw` button and confirm the withdrawal. You will be asked to confirm the transaction with MetaMask as well.
-
-![Confirm withdraw](/assets/img/confirm_withdrawal.png)
-
-- Confirm the transaction.
+![Withdraw delegated tokens](/assets/img/network/profile_withdrawls.png)

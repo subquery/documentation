@@ -2,7 +2,7 @@
 
 # Network
 
-![terminology](/assets/img/terminology.png)
+![terminology](/assets/img/glossary/terminology.png)
 
 ## **Service Agreements**
 

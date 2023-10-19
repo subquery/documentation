@@ -42,7 +42,7 @@ curl -o dictionary.tar <Download_URL>
 
 ## Restoring the Database Snapshot
 
-This assumes that you have an indexer [running locally](../../../run_publish/run.md) with admin access to a PostgresQL database (you will be using the `pg_restore` command).
+This assumes that you have an indexer [running locally](../../run_publish/run.md) with admin access to a PostgresQL database (you will be using the `pg_restore` command).
 
 1. First extract the downloaded snapshot and then extract it using the following command:
 

@@ -32,8 +32,8 @@ Debugger attached.
 
 Open up Chrome DevTools and navigate to the Sources tab. Note that clicking on the green icon will open up a new window.
 
-![node inspect](/assets/img/node_inspect.png)
+![node inspect](/assets/img/academy/node_inspect.png)
 
 Navigate to Filesystem and add your project folder to the workspace. Then open the dist > mappings folder and select the code you wish to debug. Then step through the code as with any standard debugging tool.
 
-![debugging projects](/assets/img/debugging_projects.png)
+![debugging projects](/assets/img/academy/debugging_projects.png)

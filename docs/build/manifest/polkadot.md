@@ -167,7 +167,7 @@ If you start your project by using the `subql init` command, you'll generally re
 
 The `chainId` or `genesisHash` is the network identifier of the blockchain. In Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** (see the image below).
 
-![Genesis Hash](/assets/img/genesis-hash.jpg)
+![Genesis Hash](/assets/img/build/genesis-hash.jpg)
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 

@@ -11,7 +11,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://kepler.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 
-![Competitor Comparison](/assets/img/competitor_comparison.jpg)
+![Competitor Comparison](/assets/img/build/competitor_comparison.jpg)
 
 The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 

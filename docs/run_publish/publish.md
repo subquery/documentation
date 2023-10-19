@@ -124,15 +124,15 @@ To create your first project, head to [SubQuery Managed Service](https://managed
 
 On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![Revoke approval from a GitHub account](/assets/img/run_publish/project_auth_request.png)
 
 SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
 
-![Projects Login](/assets/img/projects_dashboard.png)
+![Projects Login](/assets/img/run_publish/projects_dashboard.png)
 
 If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
-![Switch between GitHub accounts](/assets/img/projects_account_switcher.png)
+![Switch between GitHub accounts](/assets/img/run_publish/projects_account_switcher.png)
 
 ## Create Your First Project
 
@@ -149,11 +149,11 @@ Start by clicking on "Create Project". You'll be taken to the new project form. 
 - **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
 - **Visible in Explorer:** If selected, this will show the project from the public SubQuery explorer to share with the community.
 
-![Create your first Project](/assets/img/projects_create.png)
+![Create your first Project](/assets/img/run_publish/projects_create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. Next, we just need to deploy a new version of it.
 
-![Project created](/assets/img/project_created.png)
+![Project created](/assets/img/run_publish/project_created.png)
 
 ### Using the CLI
 
@@ -176,7 +176,7 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 - **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 - **Advanced Settings:** There are numerous advanced settings which are explained via the inbuild help feature.
 
-![Deploy your first Project](/assets/img/projects_first_deployment.png)
+![Deploy your first Project](/assets/img/run_publish/projects_first_deployment.png)
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
@@ -205,7 +205,7 @@ The staging slot is perfect for:
 - Warming up and indexing data for an updated SubQuery project to eliminate downtime in your dApp.
 - Preparing a new release for your SubQuery Project without exposing it publicly. The staging slot is not shown to the public in the Explorer and has a unique URL that is visible only to you.
 
-![Staging slot](/assets/img/staging_slot.png)
+![Staging slot](/assets/img/run_publish/projects_staging_slot.png)
 
 Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documentation to publish to IPFS [here](#publish-your-subquery-project-to-ipfs). This will cause a longer downtime depending on the time it takes to index the current chain. You can always report back here for progress.
 
@@ -222,8 +222,10 @@ With the introduction of the deployment feature for the CLI, we've added a **Def
 - Step 3: Once your project is created, navigate to the GitHub Actions page of your project, and select the workflow `CLI deploy`.
 - Step 4: You'll see an input field where you can enter the unique code of your project created on SubQuery Projects. You can get the code from the URL in SubQuery's Managed Service [SubQuery Managed Service](https://managedservice.subquery.network). The code is based on the name of your project, where spaces are replaced with hyphens `-`. e.g. `my project name` becomes `my-project-name`.
 
-::: tips Tip
+::: tip Tip
+
 Once the workflow is complete, you should be able to see your project deployed to our Managed Service.
+
 :::
 
 A common approach is to extend the default GitHub Action to automatically deploy changes to our Managed Service when code is merged into the main branch. The following change to the GitHub Action workflow do this:
@@ -243,11 +245,11 @@ jobs:
 
 Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
-![Project being deployed and synced](/assets/img/projects_deploy_sync.png)
+![Project being deployed and synced](/assets/img/run_publish/projects_deploy_sync.png)
 
 Alternatively, you can click on the three dots next to the title of your project, and view it on SubQuery Explorer. There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
+![Projects in SubQuery Explorer](/assets/img/run_publish/projects_explorer.png)
 
 ## Project Alert Notifications
 
@@ -293,7 +295,7 @@ It is common to publish your SubQuery project under the name of your GitHub Orga
 
 If you can't see your GitHub Organization account listed in the switcher, then you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. Then, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/run_publish/project_auth_revoke.png)
 
 Once you have revoked access, log out of [SubQuery Managed Service](https://managedservice.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an administrator to enable this for you.
 

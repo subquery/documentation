@@ -87,7 +87,7 @@ Each project you start indexing will create 2 extra containers `node_qm---------
 
 Now, check the service status:
 
-![docker compose-up command line](/assets/img/docker_compose_up_commandline_installlocally.png)
+![docker compose-up command line](/assets/img/network/indexer_docker_services.png)
 
 ### Step 5 - Set Up Auto Start
 
@@ -133,7 +133,7 @@ systemctl status subquery.service
 
 **You have successfully installed and started the Indexer Service on Linux.**
 
-We highly recommend setting up SSL on your new server. [Follow the guide here](./ssl-configuration.md).
+We highly recommend setting up SSL on your new server. [Follow the guide here](./indexer-security-guide.md#ssl-certificate-configuration).
 
 ::: tip Tip
 Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).

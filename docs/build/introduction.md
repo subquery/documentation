@@ -36,7 +36,7 @@ The following map provides an overview of the directory structure of a SubQuery 
 
 For example:
 
-![SubQuery directory structure](/assets/img/subQuery_directory_stucture.png)
+![SubQuery directory structure](/assets/img/build/directory_stucture.png)
 
 ## EVM and Cosmos Project Scaffolding
 
@@ -58,9 +58,9 @@ Followed by prompt on the path to your ABI file (absolute or relative to your cu
 ? Path to ABI ../../../hello/world/abis/erc721.abi.json
 ```
 
-So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
+So for example, If I wanted to create the [Ethereum Gravatar indexer](../quickstart/quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
 
-![Project Scaffolding EVM](/assets/img/project-scaffold-evm.png)
+![Project Scaffolding EVM](/assets/img/build/project-scaffold-evm.png)
 
 You will then be prompted to select what `events` and/or `functions` that you want to index from the provided ABI.
 

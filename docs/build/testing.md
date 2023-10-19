@@ -59,11 +59,11 @@ The default log level is `info` and above. To use `logger.debug`,you must add `-
 
 If you are running a docker container, add this line to your `docker-compose.yaml` file.
 
-![logging.debug](/assets/img/logging_debug.png)
+![logging.debug](/assets/img/build/logging_debug.png)
 
 You should now see the new logging in the terminal screen.
 
-![logging.debug](/assets/img/subquery_logging.png)
+![logging.debug](/assets/img/build/subquery_logging.png)
 
 ## The SubQuery Testing Framework
 
@@ -145,15 +145,15 @@ npm run-script test
 
 An example of a passing test:
 
-![image](../.vuepress/public/assets/img/tf-pass-test.png)
+![image](../.vuepress/public/assets/img/build/tf-pass-test.png)
 
 An example of a failing test:
 
-![image](../.vuepress/public/assets/img/tf-fail-test.png)
+![image](../.vuepress/public/assets/img/build/tf-fail-test.png)
 
 The output will include a summary of the total tests run, passing tests, and failing tests. If any tests fail, a detailed summary of the failed tests will also be displayed:
 
-![image](../.vuepress/public/assets/img/tf-fail-summary.png)
+![image](../.vuepress/public/assets/img/build/tf-fail-summary.png)
 
 ### Example Project
 

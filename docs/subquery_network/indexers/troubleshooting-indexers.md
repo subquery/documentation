@@ -29,15 +29,11 @@ sudo docker-compose up
 
 You get this error because the endpoint is pinged for validity.
 
-<!--- ![Invalid Endpoint](/assets/img/invalid_endpoint_troubleshooting.png) --->
-<img src="/assets/img/invalid_endpoint_troubleshooting.png" alt="Invalid Endpoint"  height="50%" width="50%">
+<img src="/assets/img/network/indexer_endpoint_invalid.png" alt="Invalid Endpoint"  height="50%" width="30%">
 
-**Solution:**
-Use a valid endpoint such as:
+**Solution:** Use a valid endpoint such as:
 
-<!--- ![Valid Proxy EndPoint](/assets/img/valid_proxy_endpoint_troubleshooting.png) --->
-
-<img src="/assets/img/valid_proxy_endpoint_troubleshooting.png" alt="Valid Proxy EndPoint"  height="50%" width="50%">
+<img src="/assets/img/network/indexer_endpoint_valid.png" alt="Valid Proxy EndPoint"  height="50%" width="70%">
 
 ## initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 
@@ -71,7 +67,7 @@ fork/exec /usr/local/bin/docker-compose-v1: bad CPU type in executable
 **Solution:**
 To work around this issue in Docker, select “Use Docker Compose V2” in preferences.
 
-![Use Docker Compose V2](/assets/img/Use_Docker_Compose_V2.troubleshooting.png)
+![Use Docker Compose V2](/assets/img/network/indexer_docker_compose_v2.png)
 
 ## You need to enable JavaScript to run this app.
 
@@ -80,8 +76,6 @@ If you have JavaScript disabled, you will see this error message. Turn on or ena
 ```jsx
 You need to enable JavaScript to run this app.
 ```
-
-![Enable Javascript](/assets/img/enable_javascript_troubleshooting.png)
 
 ## ERROR Network chainId doesn't match expected genesisHash
 
@@ -96,9 +90,7 @@ actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
 
 This error indicates that you are trying to index one network while using the endpoint of another network. eg:
 
-![Deploy ID Kusama](/assets/img/deployid_kusama_troubleshooting.png)
-
-![Polkadot EndPoint](/assets/img/polkadot_endpoint_troubleshooting.png)
+![Deploy ID Kusama](/assets/img/network/indexer_project_deployment_id_error.png)
 
 **Solution:**
 To fix this, check you are using an endpoint consistent with the network.
@@ -141,7 +133,7 @@ coordinator_db       | 2022-05-07 20:17:57.675 UTC [949] LOG:
 unexpected EOF on client connection with an open transaction
 ```
 
-![EOF Error - Client Connection with Open Transaction](/assets/img/eof_error_client_connection_troubleshooting.png)
+![EOF Error - Client Connection with Open Transaction](/assets/img/network/indexer_eof_error_client_connection_troubleshooting.png)
 
 ## (WIP) FATAL: could not open file global/pg_filenode.map"
 

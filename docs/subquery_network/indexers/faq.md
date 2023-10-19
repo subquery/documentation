@@ -11,7 +11,7 @@ The Indexer Service is comprised of:
 
 If the indexing node is unhealthy, first visit the service log to determine if any errors are present.
 
-![Service Logs](/assets/img/service_logs_indexerfaqs.png)
+![Service Logs](/assets/img/network/indexer_service_logs.png)
 
 The other option is to restart the service and/or servers involved.
 
@@ -19,13 +19,13 @@ The other option is to restart the service and/or servers involved.
 
 The same Indexer can index 2 **different** projects on 2 **different** hosting providers.
 
-![Same Indexer - 2 Projects - 2 Different Services - Without DB ](/assets/img/same_indexers_twoservices_without_db_indexerfaqs.png)
+![Same Indexer - 2 Projects - 2 Different Services - Without DB ](/assets/img/network/indexer_setup_distributed.png)
 
 If the same Indexer wants to index the same project across 2 different hosting providers then the database needs to be shared.
 
 **However, this is currently not supported, and it’s on our roadmap.**
 
-![Same Indexer - Same Project - 2 Different Hosting Providers](/assets/img/two_indexers_with_db_indexerfaqs.png)
+![Same Indexer - Same Project - 2 Different Hosting Providers](/assets/img/network/indexer_setup_distributed_2.png)
 
 # Database
 
@@ -62,7 +62,7 @@ docker rm query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 
 Not currently, but this is on our roadmap and we will try to incorporate it soon.
 
-![Connect Docker Node to Externally Hosted Database](/assets/img/connect_node_externalDB_indexerfaqs.png)
+![Connect Docker Node to Externally Hosted Database](/assets/img/network/indexer_setup_connect_node.png)
 
 # Upgrading
 

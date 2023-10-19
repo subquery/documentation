@@ -22,7 +22,7 @@ kSQT is deployed on the Polygon network with the following contract address:
 
 You can add it to your wallet from the wallet selector in the [Kepler App](https://kepler.subquery.network/explorer).
 
-![Add kSQT to Wallet](/assets/img/kSQT_add_wallet.png)
+![Add kSQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
 
 ### How do I Receive kSQT?
 

@@ -106,12 +106,6 @@ Note, you need to wait for the Era completes before the rewards can be claimed. 
 
 To claim your rewards, head to `Rewards` under your profile. Then click `Claim`.
 
-![Claim Reward](/assets/img/claim_rewards.png)
-
-Then confirm the transaction with MetaMask as asked.
-
-![Confirm Claim Rewards](/assets/img/confirm_claim_rewrads.png)
+![Claim Reward](/assets/img/network/profile_rewards.png)
 
 Wait for a few seconds and you will see the status as `claimed` under the `Action` column.
-
-![Reward Claimed](/assets/img/reward_confirmed.png)

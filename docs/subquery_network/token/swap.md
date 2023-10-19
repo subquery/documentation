@@ -16,8 +16,8 @@ The reward tokens acquired by the swap contract become available for release to 
 
 To swap your kSQT token rewards (note that you are not able to swap airdropped tokens), navigate to `Swap`. You can then switch between `USDC → kSQT` and `kSQT → USDC`.
 
-![Swap UI](/assets/img/swap1.png)
+![Swap UI](/assets/img/network/swap.png)
 
 Enter your desired swap amount and click `Swap` before confirming the transaction in Metamask.
 
-![Confirming a swap](/assets/img/swap2.png)
+![Confirming a swap](/assets/img/network/swap_confirm.png)

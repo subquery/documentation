@@ -10,10 +10,10 @@ Running an indexer node is another option outside of using Docker or having a pr
 
 To delete a project from the staging slot, click on the 3 dots in the staging slot section within the deployment details on your project detail dashboard page and select delete.
 
-![Deleting a project from the staging slot](/assets/img/delete_staging.png)
+![Deleting a project from the staging slot](/assets/img/academy/delete_staging.png)
 
 ## Deleting a project from the production slot
 
 To delete a project from the production slot, you'll have to delete the entire project instead. Navigate to the top right corner and click on the 3 dots which is the settings for the entire project. Then select "Delete Project".
 
-![Deleting a project from the production slot](/assets/img/delete_production.png)
+![Deleting a project from the production slot](/assets/img/academy/delete_production.png)

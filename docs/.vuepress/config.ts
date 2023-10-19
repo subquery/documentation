@@ -125,6 +125,7 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
+    /*
     "/zh/": {
       lang: "zh-CN",
       title: "SubQuery Academy (Documentation)",
@@ -156,7 +157,6 @@ export default defineUserConfig({
        description:
          "Explore and transform your chain data to build intuitive dApps faster!.",
      },
-     */
     "/ja/": {
       lang: "ja",
       title: "SubQuery Academy (Documentation)",
@@ -175,14 +175,12 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
-    /*
     "/th/": {
        lang: "th",
        title: "SubQuery Academy (Documentation)",
        description:
          "Explore and transform your chain data to build intuitive dApps faster!.",
      },
-     */
     "/tr/": {
       lang: "tr",
       title: "SubQuery Academy (Documentation)",
@@ -201,6 +199,7 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!.",
     },
+    */
   },
   theme: hopeTheme({
     hostname,
@@ -211,6 +210,7 @@ export default defineUserConfig({
       "/": {
         sidebar: getSidebar(""),
       },
+      /*
       "/de/": {
         sidebar: getSidebar("/de"),
       },

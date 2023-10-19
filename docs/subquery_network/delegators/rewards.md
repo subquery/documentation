@@ -48,14 +48,8 @@ After the unlocking period has been completed, tokens become available for withd
 
 ## How to claim your rewards
 
-To claim rewards, head to `Stake & Delegate` -> `My Profile`. Then select `Claim` in the last column.
+To claim rewards, head to `My Profile` -> `Rewards`. Then select `Claim` in the last column.
 
-![Claim Reward](/assets/img/claim_rewards.png)
-
-You will be asked to confirm the transaction with MetaMask.
-
-![Confirm Claim Rewards](/assets/img/confirm_claim_rewrads.png)
+![Reward Claimed](/assets/img/network/profile_rewards.png)
 
 Wait for a few seconds and you will see the status as `claimed` under the `Action` column.
-
-![Reward Claimed](/assets/img/reward_confirmed.png)

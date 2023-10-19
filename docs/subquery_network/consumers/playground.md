@@ -6,7 +6,7 @@ Once you have purchased an offer using any of the above methods, head to `Plan &
 
 Under the `Ongoing` tab, you will see a list of service agreements for respective purchased plans. Select the playground of your preferred plan in the last column `Action`.
 
-![Service Agreements](/assets/img/service_agreement.png)
+![Service Agreements](/assets/img/network/service_agreement.png)
 
 You will be redirected to a page, known as the Playground.
 
