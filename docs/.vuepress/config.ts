@@ -596,6 +596,10 @@ function getSidebar(locale: string): SidebarOptions {
               text: "Snapshot",
               link: `${locale}/quickstart/quickstart-multichain/snapshot.md`,
             },
+            {
+              text: "Safe",
+              link: `${locale}/quickstart/quickstart-multichain/safe.md`,
+            },
           ],
         },
         `${locale}/quickstart/whats-next.md`,
