@@ -12,7 +12,7 @@ Welcome and a big thank you for considering contributing to this SubQuery projec
 
 > This documentation is actively maintained by the SubQuery team. We welcome your contributions, you can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory.
 
-You can read more about contribution guidelines [here](https://doc.subquery.network/miscellaneous/contributing).
+You can read more about contribution guidelines [here](https://academy.subquery.network/miscellaneous/contributing).
 
 ## About SubQuery
 
