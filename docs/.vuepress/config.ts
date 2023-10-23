@@ -594,11 +594,11 @@ function getSidebar(locale: string): SidebarOptions {
           children: [
             {
               text: "Snapshot",
-              link: `${locale}/quickstart/quickstart-multichain/snapshot.md`,
+              link: `${locale}/quickstart/quickstart_multichain/snapshot.md`,
             },
             {
               text: "Safe",
-              link: `${locale}/quickstart/quickstart-multichain/safe.md`,
+              link: `${locale}/quickstart/quickstart_multichain/safe.md`,
             },
           ],
         },
