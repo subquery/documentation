@@ -350,7 +350,7 @@ In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ether
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-### Cosmos Codegen from CosmWasm Protobufs
+### Cosmos Codegen from Protobufs
 
 Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
