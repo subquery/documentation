@@ -127,6 +127,31 @@ After that, verify that the service is running:
 systemctl status subquery.service
 ```
 
+## Advanced Settings
+### Docker Log Rotating
+If you've done the above setup, you surely see everything is running in docker, both indexer services and subquery jobs.
+With the time going, log will swallow a huge of your local disk and you may have to stop the service to clean it up.
+
+To avoid running into this situation, you can do the following settings.
+
+#### 1. Change log driver to journald
+Depends how you install docker on your server, you may find your docker config in `/etc/docker/daemon.json` or `/var/snap/docker/<version>/config/daemon.json`
+
+Open it and add `log-driver` settings
+```json
+{
+    ...
+    "log-driver": "journald"
+}
+
+```
+then restart docker.
+
+### 2. setup journald log rotate
+Add space limit to journald by set up `SystemMaxUse` and `RuntimeMaxUse`
+
+[see here for details](https://www.freedesktop.org/software/systemd/man/latest/journald.conf.html#SystemMaxUse=)
+
 ---
 
 ## Next Steps
