@@ -343,6 +343,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
             },
             {
+              text: "Astar zKatana",
+              link: `${locale}/quickstart/quickstart_chains/astar-zkatana.md`,
+            },
+            {
               text: "Avalanche",
               collapsible: true,
               children: [
