@@ -2,7 +2,7 @@
 
 ## Goals
 
-The objective of this article is to provide a comprehensive, step-by-step manual for establishing an indexer compatible with [Snapshot](https://docs.snapshot.org/), a voting platform that facilitates effortless and gas-free voting for DAOs, DeFi protocols, and NFT communities.
+The objective of this article is to provide a comprehensive, step-by-step manual for establishing a multi-chain indexer compatible with [Snapshot](https://docs.snapshot.org/), a voting platform that facilitates effortless and gas-free voting for DAOs, DeFi protocols, and NFT communities.
 
 An integral component of this platform is the concept of delegations, which allows users to entrust their voting authority to another wallet. Unlike other actions within Snapshot, the act of delegation occurs directly on the blockchain.
 
@@ -13,10 +13,14 @@ By the conclusion of this guide, you will gain the insights into Snapshot, under
 Snapshot has been implemented across multiple blockchain networks, occasionally with distinct contract addresses. However, because the identical smart contract was employed, each instance maintains an identical set of methods and events.
 
 ::: warning Important
-This project operates across multiple chains, making it somewhat more intricate compared to single-chain projects. Therefore, if you are a newcomer to SubQuery, we recommend commencing your learning journey with single-chain examples, such as the [Ethereum Gravatar example](./ethereum-gravatar). After understanding the fundamentals, you can then advance to exploring the multi-chain features [here](../../build/multi-chain.md).
+**This project operates across multiple chains, making it more complex than other single chain examples.**
+
+If you are new to SubQuery, we recommend starting your learning journey with single-chain examples, such as the [Ethereum Gravatar example](../quickstart_chains/ethereum-gravatar.md). After understanding the fundamentals, you can then advance to exploring the multi-chain examples.
 :::
 
-In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialisation description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Snapshot Ethereum smart contract at the bottom of [this page](https://etherscan.io/address/0x469788fE6E9E9681C6ebF3bF78e7Fd26Fc015446#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**. Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+
+As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Snapshot Ethereum smart contract at the bottom of [this page](https://etherscan.io/address/0x469788fE6E9E9681C6ebF3bF78e7Fd26Fc015446#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/snapshot) to observe the integration of all previously mentioned configurations into a unified codebase.
@@ -292,7 +296,7 @@ For more information on mapping functions, please refer to our [Mappings](../../
 
 Creating mappings for this smart contract is a simple procedure. For added clarity, we have organised individual files for each event in the `src/mappings` directory, specifically `clearDelegate.ts` and `setDelegate.ts`. Let's examine them individually.
 
-#### `setDelegrate.ts`
+**setDelegate.ts**
 
 The following TypeScript code is contained within this file:
 
@@ -384,7 +388,7 @@ This code handles Ethereum and other chains' `setDelegate` events by routing the
 
 This code essentially centralises the handling of SetDelegate events for various networks and ensures that they are correctly recorded in the `Delegation` object with network-specific attributes, facilitating data tracking and analysis for each network.
 
-#### `clearDelegrate.ts`
+**clearDelegrate.ts**
 
 The following TypeScript code is contained within this file:
 

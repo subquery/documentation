@@ -2,7 +2,7 @@
 
 ## Goals
 
-This page explains how to create an indexer for [Safe](https://safe.global/), a system that makes secure wallets requiring multiple authorisations. This boosts security and lowers the risk of unauthorised use.
+This page explains how to create an multi-chain indexer for [Safe](https://safe.global/), a system that makes secure wallets requiring multiple authorisations. This boosts security and lowers the risk of unauthorised use.
 
 After reading this guide, you'll understand the protocol, know about multi-signature setups, and learn how to set up a SubQuery indexer to monitor and track signed message events on different EVM blockchains.
 
@@ -11,10 +11,14 @@ After reading this guide, you'll understand the protocol, know about multi-signa
 Safe factory contracts have been deployed on various blockchain networks, sometimes using different contract addresses. Nevertheless, as the same smart contract was utilised, every instance retains the same collection of functions and events.
 
 ::: warning Important
-This project operates across multiple chains, making it somewhat more intricate compared to single-chain projects. Therefore, if you are a newcomer to SubQuery, we recommend commencing your learning journey with single-chain examples, such as the [Ethereum Gravatar example](./ethereum-gravatar). After understanding the fundamentals, you can then advance to exploring the multi-chain features [here](../../build/multi-chain.md).
+**This project operates across multiple chains, making it more complex than other single chain examples.**
+
+If you are new to SubQuery, we recommend starting your learning journey with single-chain examples, such as the [Ethereum Gravatar example](../quickstart_chains/ethereum-gravatar.md). After understanding the fundamentals, you can then advance to exploring the multi-chain examples.
 :::
 
-In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialisation description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Safe Ethereum smart contract at the bottom of [this page](https://etherscan.io/address/0x12302fE9c02ff50939BaAaaf415fc226C078613C#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**. Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+
+As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Safe Ethereum smart contract at the bottom of [this page](https://etherscan.io/address/0x12302fE9c02ff50939BaAaaf415fc226C078613C#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/safe) to observe the integration of all previously mentioned configurations into a unified codebase.
