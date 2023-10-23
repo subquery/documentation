@@ -1,4 +1,4 @@
-# 3. Какво следва?
+# 4. Какво следва?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
