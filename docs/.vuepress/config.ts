@@ -635,6 +635,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/polkadot.md`,
             `${locale}/build/mapping/polygon.md`,
             `${locale}/build/mapping/stellar.md`,
+            `${locale}/build/mapping/cache.md`,
             `${locale}/build/mapping/store.md`,
           ],
         },
