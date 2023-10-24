@@ -31,14 +31,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 {
   dataSources: [
     {
-      kind: SubqlCosmosDatasourceKind.Runtime,
+      kind: CosmosDatasourceKind.Runtime,
       startBlock: 24596905,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
             handler: "handleFundingRateChangeEvent",
-            kind: SubqlCosmosHandlerKind.Event,
+            kind: CosmosHandlerKind.Event,
             filter: {
               // https://sei.explorers.guru/transaction/9A5D1FB99CDFB03282459355E4C7221D93D9971160AE79E201FA2B2895952878
               type: "wasm-funding-rate-change",
@@ -49,7 +49,7 @@ Note that the manifest file has already been set up correctly and doesn’t requ
           },
           {
             handler: "handleSpotPriceEvent",
-            kind: SubqlCosmosHandlerKind.Event,
+            kind: CosmosHandlerKind.Event,
             filter: {
               type: "wasm-spot-price",
               messageFilter: {

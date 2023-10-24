@@ -32,14 +32,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 ```ts
 dataSources: [
   {
-    kind: SubqlCosmosDatasourceKind.Runtime,
+    kind: CosmosDatasourceKind.Runtime,
     startBlock: 11253914,
     mapping: {
       file: "./dist/index.js",
       handlers: [
         {
           handler: "handleMessage",
-          kind: SubqlCosmosHandlerKind.Message,
+          kind: CosmosHandlerKind.Message,
           filter: {
             type: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
           },

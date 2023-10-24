@@ -33,14 +33,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 {
   dataSources: [
     {
-      kind: SubqlCosmosDatasourceKind.Runtime,
+      kind: CosmosDatasourceKind.Runtime,
       startBlock: 7960001,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
             handler: "handleMessage",
-            kind: SubqlCosmosHandlerKind.Message,
+            kind: CosmosHandlerKind.Message,
             filter: {
               type: "/types.MsgDeposit",
             },

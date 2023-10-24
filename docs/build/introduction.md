@@ -414,7 +414,7 @@ Similar to Ethereum ABI codegen, you will need to include the path and name for 
 {
   dataSources: [
     {
-      kind: SubqlCosmosDatasourceKind.Runtime,
+      kind: CosmosDatasourceKind.Runtime,
       startBlock: 6000000,
       options: {
         abi: "baseMinter",

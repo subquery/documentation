@@ -31,14 +31,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 {
   dataSources: [
     {
-      kind: SubqlCosmosDatasourceKind.Runtime,
+      kind: CosmosDatasourceKind.Runtime,
       startBlock: 1338,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
             handler: "handleRewardsWithdrawEvent",
-            kind: SubqlCosmosHandlerKind.Event,
+            kind: CosmosHandlerKind.Event,
             filter: {
               type: "archway.rewards.v1.RewardsWithdrawEvent",
               messageFilter: {
@@ -53,7 +53,7 @@ Note that the manifest file has already been set up correctly and doesn’t requ
           },
           {
             handler: "handleSetContractMetadata",
-            kind: SubqlCosmosHandlerKind.Message,
+            kind: CosmosHandlerKind.Message,
             filter: {
               /*
                 Filter to only messages with the MsgSetContractMetadata function call

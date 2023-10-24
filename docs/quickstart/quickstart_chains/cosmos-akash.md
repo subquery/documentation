@@ -31,14 +31,14 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 {
   dataSources: [
     {
-      kind: SubqlCosmosDatasourceKind.Runtime,
+      kind: CosmosDatasourceKind.Runtime,
       startBlock: 11364001,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
             handler: "handleReward",
-            kind: SubqlCosmosHandlerKind.Event,
+            kind: CosmosHandlerKind.Event,
             filter: {
               type: "withdraw_rewards",
               messageFilter: {
