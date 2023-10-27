@@ -1,7 +1,14 @@
 # Project Optimisation
 
 Performance is a crucial factor in each project. So, how to optimise your SubQuery project to speed it up?
-Fortunately, there are several things you could do to improve it.
+
+Fortunately, there are several things you can do to improve indexing and query speed.
+
+::: info Optimisation for Production Hosting
+
+If you're looking for advice on how to run high performance SubQuery infrastructure in a production environment, please read [Running High Performance SubQuery Infrastructure](../run_publish/optimisation.md).
+
+:::
 
 ## Common Issues and Top Suggestions
 
@@ -79,7 +86,7 @@ type Transfer @entity {
 
 ## Running High Performance SubQuery Infrastructure
 
-There is more information focussed on the DevOps and configuration of [running high performance SubQuery projects here](../run_publish/run.md#running-high-performance-subquery-infrastructure).
+There is more information focussed on the DevOps and configuration of [running high performance SubQuery projects here](../run_publish/optimisation.md).
 
 ## Review Project Architecture
 
