@@ -250,7 +250,8 @@ The following table explains filters supported by different handlers.
 | [concordium/SpecialEventHandler](../mapping/concordium.md#special-event-handler) | `type`, `values` |
 
 `type` is type of transaction, transaction event or special event to filter by.
-`values` is a map whose keys are the same as the ones found in a transaction, transaction event or special event. These keys will be matched against the keys in data object.
+
+The `values` filter is a map where the keys correspond to the keys found in a transaction, transaction event, or special event. This filter allows you to search for transactions or events that have specific values for these keys. The `values` filter matches the keys in the filter against the keys in the data object. If a match is found, the corresponding transaction, event, or special event is included in the query result.
 
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, transaction event or special event will trigger a mapping handler.
 
