@@ -1,4 +1,4 @@
-# Прапори командного рядка
+# Command Line Reference
 
 All booleans are by default `false` unless explicitly mentioned.
 
