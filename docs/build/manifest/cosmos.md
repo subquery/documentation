@@ -389,7 +389,3 @@ Some Cosmos chains, like Juno, have hard forks that intentionally skip blocks. T
 5. Continue indexing
 
 :::
-
-## Validating
-
-You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.

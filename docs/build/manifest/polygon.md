@@ -337,7 +337,3 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
   }
 }
 ```
-
-## Validating
-
-You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.

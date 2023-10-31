@@ -456,7 +456,3 @@ Here is a list of supported custom datasources:
 | Kind                                         | Supported Handlers                                                                                                               | Filters                         | Description                                                                                                                                           |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [substrate/FrontierEvm](../substrate-evm.md) | [substrate/FrontierEvmEvent](../substrate-evm.md#event-handlers), [substrate/FrontierEvmCall](../substrate-evm.md#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
-
-## Validating
-
-You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.
