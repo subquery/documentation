@@ -597,16 +597,20 @@ function getSidebar(locale: string): SidebarOptions {
           collapsible: true,
           children: [
             {
+              text: "Galxe NFTs",
+              link: `${locale}/quickstart/quickstart_multichain/galxe-nft.md`,
+            },
+            {
+              text: "Polygon Plasma Bridge",
+              link: `${locale}/quickstart/quickstart_multichain/polygon-plasma-bridge.md`,
+            },
+            {
               text: "Snapshot",
               link: `${locale}/quickstart/quickstart_multichain/snapshot.md`,
             },
             {
               text: "Safe",
               link: `${locale}/quickstart/quickstart_multichain/safe.md`,
-            },
-            {
-              text: "Polygon Plasma Bridge",
-              link: `${locale}/quickstart/quickstart_multichain/polygon-plasma-bridge.md`,
             },
           ],
         },
