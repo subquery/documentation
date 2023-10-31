@@ -1,10 +1,8 @@
 # Multichain Quick Start - Plasma Bridge
 
-## Goals
+This page explains how to create an multi-chain indexer to index the bridge transfer that are coming from Polygon to Ethereum via the Polygon Plasma Bridge. After reading this guide, you'll understand how to match the events across several networks and learn how to set up a SubQuery indexer to monitor, track and aggregate those events from different EVM blockchains within a single entity.
 
 There are two types of bridge on Polygon for asset transfer, the Proof of Stake (PoS) Bridge and the Plasma Bridge. The PoS Bridge, as the name suggests, adopts the Proof of Stake (PoS) consensus algorithm to secure its network. Deposits on the PoS Bridge are completed almost instantly, but withdrawals may take a while to confirm. On the other hand, the Plasma Bridge supports the transfer of Polygon's native token `MATIC` and certain Ethereum tokens (`ETH`, ERC-20, and ERC-721). It uses the Ethereum Plasma scaling solution to offer increased security.
-
-This page explains how to create an multi-chain indexer to index the bridge transfer that are coming from Polygon to Ethereum via a Plasma Bridge. After reading this guide, you'll understand how to match the events across several networks and learn how to set up a SubQuery indexer to monitor, track and aggregate those events from different EVM blockchains within a single entity.
 
 ## Setting Up the Indexer
 

@@ -605,8 +605,8 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_multichain/safe.md`,
             },
             {
-              text: "Plasma Bridge",
-              link: `${locale}/quickstart/quickstart_multichain/plasma-bridge.md`,
+              text: "Polygon Plasma Bridge",
+              link: `${locale}/quickstart/quickstart_multichain/polygon-plasma-bridge.md`,
             },
           ],
         },
