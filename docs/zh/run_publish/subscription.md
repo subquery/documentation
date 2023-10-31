@@ -1,4 +1,4 @@
-# 订阅
+# GraphQL Subscriptions
 
 ## 什么是 GraphQL 订阅
 
