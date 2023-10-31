@@ -6,13 +6,15 @@
 
 По-долу ви предоставяме набор от насоки (не правила) за принос към SubQuery. Следването на тези указания ще ни помогне да направим процеса на принос лесен и ефективен за всички участници. Това също означава, че се съгласявате да уважавате времето на разработчиците, които управляват и разработват този проект. В замяна ние ще отвърнем на това с доза уважение, като разгледаме проблема ви, ще разгледаме промените, ще си сътрудничим за подобрения и ще ви помогнем да финализирате заявките си.
 
+::: info Contributing to the SubQuery Network There are specific contribution guidelines for the SubQuery Network [here](../subquery_network/community.md#contributing-to-codebases). :::
+
 ## Кодекс на поведение
 
-Ние приемаме много на сериозно нашите проекти от общността с отворен код и изискваме от себе си и другите участници на високи стандарти на комуникация. Чрез участие и принос към този проект, вие се съгласявате да спазвате нашия [Кодекс за поведение](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Нека да започнем
 
-Приносът към нашите хранилища се осъществява чрез Issues and Pull Requests (PRs). Няколко общи насоки, които обхващат и двата варианта:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Потърсете съществуващи проблеми и заявки за изтегляне, преди да създадете свои собствени.
 - Работим усилено, за да гарантираме, че проблемите се решават бързо, но в зависимост от въздействието може да отнеме известно време, за да се проучи основната причина. Приятелското @ споменаване в коментарите към подателя или сътрудника, може да ви помогне да привлечете внимание, в случай че проблемът ви блокира.
@@ -21,7 +23,7 @@
 
 ### Докладване на грешки
 
-Грешките се проследяват като проблеми с GitHub. Когато регистрирате проблем, обяснете проблема и включете допълнителни подробности, за да помогнете на съпорта за възпроизвеждане на проблема:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 - Използвайте ясно и описателно заглавие на проблема, за да идентифицирате проблема.
 - Опишете точните стъпки за възпроизвеждане на проблема.
