@@ -489,6 +489,10 @@ Try the following queries to understand how it works for your new SubQuery start
 
 :::
 
+::: tip Note
+Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/polygon-plasma-bridge).
+:::
+
 ## What's next?
 
 Well done! You've successfully set up a SubQuery project that's locally running. This project indexes the Plasma Bridge smart contracts. What's even more impressive is that it accomplishes this from multiple blockchains and allows GraphQL API requests to be made from a single endpoint.
