@@ -1,4 +1,4 @@
-# Abonnements
+# GraphQL Subscriptions
 
 ## Was ist ein GraphQL-Abonnement
 
