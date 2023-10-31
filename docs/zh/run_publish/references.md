@@ -346,7 +346,7 @@ Also review the [--unsafe command on the query service](#unsafe-query-service).
 它可以提高性能最多4次。 试试一下，让我们知道你的反馈！
 :::
 
-On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). For example:
+On initialisation, once the main thread is established, then the fetching and processing workload is distributed across all worker threads. Each worker has their own buffer (a set of blocks that they are responsible to fetch/process). 例如：
 
 - Worker A: Will execute the `fetch` and `indexing` of blocks `[n,..n+10]`
 - Worker B: Will execute the `fetch` and `indexing` of blocks `[n+11,..n+20]`
