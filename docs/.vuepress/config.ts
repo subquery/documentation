@@ -73,6 +73,7 @@ export default defineUserConfig({
         "/build/mapping/terra.html": "/build/mapping/cosmos.html",
         "/build/quickstart/quickstart_chains/terra.html":
           "/build/quickstart/quickstart_chains/cosmos.html",
+        "/run_publish/ipfs.html": "/miscellaneous/ipfs.html",
       },
     }),
   ],
@@ -683,10 +684,16 @@ function getSidebar(locale: string): SidebarOptions {
       children: [
         `${locale}/run_publish/run.md`,
         `${locale}/run_publish/publish.md`,
-        `${locale}/run_publish/monitor.md`,
+        `${locale}/run_publish/optimisation.md`,
+        {
+          text: "Monitoring",
+          link: `${locale}/run_publish/monitor.md`,
+        },
         `${locale}/run_publish/cli.md`,
-        `${locale}/run_publish/query.md`,
-        `${locale}/run_publish/ipfs.md`,
+        {
+          text: "Querying using GraphQL",
+          link: `${locale}/run_publish/query.md`,
+        },
         `${locale}/run_publish/aggregate.md`,
         `${locale}/run_publish/subscription.md`,
         `${locale}/run_publish/historical.md`,
@@ -835,6 +842,7 @@ function getSidebar(locale: string): SidebarOptions {
         `${locale}/miscellaneous/branding.md`,
         `${locale}/miscellaneous/ambassadors.md`,
         `${locale}/miscellaneous/avalanche-eth-migration.md`,
+        `${locale}/miscellaneous/ipfs.md`,
         `${locale}/miscellaneous/vulnerability-reporting.md`,
       ],
     },
