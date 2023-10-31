@@ -394,7 +394,7 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --max-connection
 
-**Positive Integer (default: `10`)** - The maximum simultaneous connections allowed to this GraphQL query service expressed as a positive integer.
+**Positive Integer (default: `10`)** - The maximum simultaneous DB connections created by the GraphQL query service expressed as a positive integer.
 
 ### -n, --name
 
