@@ -1,4 +1,4 @@
-# Berlangganan
+# GraphQL Subscriptions
 
 ## Apa itu Berlangganan GraphQL
 
