@@ -182,7 +182,8 @@ Defines the data that will be filtered and extracted and the location of the map
 | Field | Type | Description
 | --------------- |-------------|-------------|
 | **kind** | String | [ConcordiumDatasourceKind.Runtime](#data-sources-and-mapping) |
-| **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
+| **startBlock** | Integer | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data |
+| **endBlock** | Integer | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping** | Mapping Spec | |
 
 ### Mapping Spec
