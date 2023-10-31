@@ -1,4 +1,4 @@
-# Абонаменти
+# GraphQL Subscriptions
 
 ## Какво е абонамент за GraphQL
 
