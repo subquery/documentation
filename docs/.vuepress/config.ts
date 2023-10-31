@@ -605,13 +605,8 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_multichain/safe.md`,
             },
             {
-              text: "Galxe",
-              children: [
-                {
-                  text: "Galxe NFTs",
-                  link: `${locale}/quickstart/quickstart_multichain/galxe.md`,
-                },
-              ],
+              text: "Galxe NFTs",
+              link: `${locale}/quickstart/quickstart_multichain/galxe-nft.md`,
             },
           ],
         },

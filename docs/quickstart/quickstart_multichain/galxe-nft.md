@@ -1,12 +1,10 @@
 # Multichain Quick Start - Galxe
 
-## Goals
-
 The purpose of this article is to present a comprehensive, step-by-step guide on how to establish a multi-chain indexer that is compatible with [Galxe](https://galxe.com/), a prominent platform for creating web3 communities.
 
-A vital aspect of this platform revolves around the concept of campaigns. These campaigns serve as a collaborative credential infrastructure, enabling brands to enhance their web3 communities and products. What Galxe essentially does is utilise both on-chain and off-chain credentials to assist brands and protocols in their growth hacking campaigns. Users who complete campaign tasks receive on-chain proof of their accomplishments, which allows them to mint a Galxe NFT OAT (On-Chain Achievement Token).
-
 By the end of this guide, you will gain a deep understanding of Galxe NFTs, grasp the intricacies of the protocol, and acquire the knowledge required to configure a SubQuery indexer capable of monitoring and indexing Galxe campaigns and their NFT-related events across multiple blockchains.
+
+A vital aspect of the Galxe platform revolves around the concept of campaigns. These campaigns serve as a collaborative credential infrastructure, enabling brands to enhance their web3 communities and products. What Galxe essentially does is utilise both on-chain and off-chain credentials to assist brands and protocols in their growth hacking campaigns. Users who complete campaign tasks receive on-chain proof of their accomplishments, which allows them to mint a Galxe NFT OAT (On-Chain Achievement Token).
 
 ## Setting Up the Indexer
 
@@ -35,8 +33,6 @@ Let's start by setting up an Ethereum indexer that we can later use for differen
 Because there are numerous handlers with various configurations for each network, involving differences in available smart contracts, their addresses, start blocks, and protocol versions, the manifest files will be quite extensive. As a solution, we've developed a script that can generate the manifest files with the correct configurations automatically. You can find the steps to do this [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Multi-Chain/galxe/README.md#add-your-chain).
 
 By running `yarn run prepare:ethereum`, you will generate a file named `ethereum.yaml` which will contain the following configuration details regarding NFT claims:
-
-::: details Configuration for Ethereum
 
 ::: code-tabs
 
@@ -197,7 +193,7 @@ dataSources:
 Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest file.
 :::
 
-Then, create a [multi-chain manifest file](../../build/multi-chain#1-create-a-multi-chain-manifest-file). After, following the steps outlined [here](../../build/multi-chain#3-add-a-new-network-to-the-multi-chain-manifest), start adding the new networks. After you Successfuly apply the correct entities for each chain, you will end up with a single `subquery-multichain.yaml` file that we'll map to the individual chain manifest files. This multi-chain manifest file will look something like this:
+Then, create a [multi-chain manifest file](../../build/multi-chain#1-create-a-multi-chain-manifest-file). By following the steps outlined [here](../../build/multi-chain#3-add-a-new-network-to-the-multi-chain-manifest) (using the `subql multi-chain:add` command), start adding the new networks. After you successfuly apply the correct entities for each chain, you will end up with a single `subquery-multichain.yaml` file that we'll map to the individual chain manifest files. This multi-chain manifest file will look something like this:
 
 ::: code-tabs
 
@@ -1545,6 +1541,10 @@ Try the following queries to understand how it works for your new SubQuery start
 }
 ```
 
+:::
+
+::: tip Note
+Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/galxe).
 :::
 
 ## What's next?
