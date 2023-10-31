@@ -6,13 +6,15 @@ Selamat datang dan terima kasih banyak telah mempertimbangkan untuk berkontribus
 
 Berikut ini adalah seperangkat pedoman (bukan aturan) untuk berkontribusi pada SubQuery. Mengikuti panduan ini akan membantu kami membuat proses kontribusi menjadi mudah dan efektif untuk semua orang yang terlibat. Ini juga menyampaikan bahwa Anda setuju untuk menghormati waktu dari developer yang mengelola dan mengembangkan proyek ini. Sebagai imbalannya, kami akan membalas rasa hormat itu dengan mengatasi masalah Anda, mempertimbangkan perubahan, berkolaborasi dalam peningkatan, dan membantu Anda menyelesaikan pull request Anda.
 
+::: info Contributing to the SubQuery Network There are specific contribution guidelines for the SubQuery Network [here](../subquery_network/community.md#contributing-to-codebases). :::
+
 ## Kode Etik
 
-Kami menganggap serius proyek dan tanggung jawab komunitas open source kami dan menjaga diri kami dan kontributor lain pada standar komunikasi yang tinggi. Dengan berpartisipasi dan berkontribusi pada proyek ini, Anda setuju untuk menjunjung [Kode Etik](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md) kami.
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Memulai
 
-Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). Beberapa pedoman umum yang mencakup keduanya:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Cari Issue and PR yang ada terlebih dahulu sebelum membuat milik Anda sendiri.
 - Kami bekerja keras untuk memastikan issue ditangani dengan segera, tetapi tergantung pada dampaknya, mungkin bisa memakan waktu cukup lama untuk menyelidiki akar masalahnya. Sebuah @ sebutan ramah di utas komentar kepada pengirim atau kontributor dapat membantu menarik perhatian jika issue Anda terblokir.
@@ -21,7 +23,7 @@ Kontribusi ke repositori kami dilakukan melalui Issue and Pull Request (PR). Beb
 
 ### Melaporkan Bug
 
-Bug dilacak sebagai issue GitHub. Saat mencatatkan log issue, jelaskan masalahnya dan sertakan detail tambahan untuk membantu pengelola mereproduksi masalah itu:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 - Gunakan judul issue yang jelas dan deskriptif untuk mengidentifikasi masalah.
 - Jelaskan langkah-langkah yang akurat untuk mereproduksi masalah.
