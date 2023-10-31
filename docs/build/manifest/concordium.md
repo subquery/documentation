@@ -9,120 +9,97 @@ With the number of new features we are adding to SubQuery, and the slight differ
 Below is a standard example of a basic `project.ts`.
 
 ```ts
-import { TransactionEventTag, TransactionSummaryType } from "@concordium/node-sdk";
-import { ConcordiumDatasourceKind, ConcordiumHandlerKind, ConcordiumProject } from "@subql/types-concordium"
+import {
+  TransactionEventTag,
+  TransactionSummaryType,
+} from "@concordium/node-sdk";
+import {
+  ConcordiumDatasourceKind,
+  ConcordiumHandlerKind,
+  ConcordiumProject,
+} from "@subql/types-concordium";
 
 const project: ConcordiumProject = {
-    specVersion: "1.0.0",
-    name: "concordium-subql-starter",
-    version: "0.0.1",
-    runner: {
-      node: {
-        name: "@subql/node-concordium",
-        version: "*"
+  specVersion: "1.0.0",
+  name: "concordium-testnet-starter",
+  version: "0.0.1",
+  runner: {
+    node: {
+      name: "@subql/node-concordium",
+      version: "*",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  description:
+    "This project can be use as a starting point for developing your new Concordium SubQuery project",
+  repository: "https://github.com/subquery/concordium-subql-starter",
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the network identifier of the blockchain
+     * In Concordium it is always the genesis hash of the network (hash of the first block)
+     */
+    chainId: "4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796",
+    /**
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     */
+    endpoint: ["node.testnet.concordium.com:20000"],
+  },
+  dataSources: [
+    {
+      kind: ConcordiumDatasourceKind.Runtime,
+      startBlock: 490000,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          /**
+           * Avoid using block handlers where possible as they slow the indexing speed of your project
+          {
+            handler: "handleBlock",
+            kind: ConcordiumHandlerKind.Block,
+          },
+           */
+          {
+            handler: "handleTransaction",
+            kind: ConcordiumHandlerKind.Transaction,
+            filter: {
+              type: TransactionSummaryType.AccountTransaction,
+              values: {
+                transactionType: "transfer",
+              },
+            },
+          },
+          {
+            handler: "handleTransactionEvent",
+            kind: ConcordiumHandlerKind.TransactionEvent,
+            filter: {
+              type: TransactionEventTag.Updated,
+            },
+          },
+          {
+            handler: "handleSpecialEvent",
+            kind: ConcordiumHandlerKind.SpecialEvent,
+            filter: {
+              type: "blockAccrueReward",
+            },
+          },
+        ],
       },
-      query: {
-        name: "@subql/query",
-        version: "*"
-      }
     },
-    description: "This project can be use as a starting point for developing your new Concordium Soroban Future Network SubQuery project",
-    repository: "https://github.com/subquery/concordium-subql-starter",
-    schema: {
-      file: "./schema.graphql"
-    },
-    network: {
-      chainId: "4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796",
-      endpoint: ["node.testnet.concordium.com:20000"]
-    },
-    dataSources: [
-      {
-        kind: ConcordiumDatasourceKind.Runtime,
-        startBlock: 490000,
-        mapping: {
-          file: "./dist/index.js",
-          handlers: [
-            {
-              handler: "handleTransaction",
-              kind: ConcordiumHandlerKind.Transaction,
-              filter: {
-                type: TransactionSummaryType.AccountTransaction,
-                values: {
-                  transactionType: 'transfer'
-                }
-              }
-            },
-            {
-              handler: "handleTransactionEvent",
-              kind: ConcordiumHandlerKind.TransactionEvent,
-              filter: {
-                type: TransactionEventTag.Updated
-              }
-            },
-            {
-              handler: "handleSpecialEvent",
-              kind: ConcordiumHandlerKind.SpecialEvent,
-              filter: {
-                type: 'blockAccrueReward'
-              }
-            }
-          ]
-        }
-      }
-    ]
-  };
+  ],
+};
 
-  export default project;
+// Must set default to the project instance
+export default project;
 ```
-
-Below is a standard example of the legacy YAML version (`project.yaml`).
-
-:::details Legacy YAML Manifest
-
-```yml
-specVersion: 1.0.0
-name: concordium-subql-starter
-version: 0.0.1
-runner:
-  node:
-    name: '@subql/node-concordium'
-    version: '*'
-  query:
-    name: '@subql/query'
-    version: '*'
-description: >-
-  This project can be use as a starting point for developing your new Concordium
-  Soroban Future Network SubQuery project
-repository: https://github.com/subquery/concordium-subql-starter
-schema:
-  file: ./schema.graphql
-network:
-  chainId: 4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796
-  endpoint:
-    - node.testnet.concordium.com:20000
-dataSources:
-  - kind: concordium/Runtime
-    startBlock: 490000
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleTransaction
-          kind: concordium/TransactionHandler
-          filter:
-            type: accountTransaction
-            values:
-              transactionType: transfer
-        - handler: handleTransactionEvent
-          kind: concordium/TransactionEventHandler
-          filter:
-            type: Updated
-        - handler: handleSpecialEvent
-          kind: concordium/SpecialEventHandler
-          filter:
-            type: blockAccrueReward
-```
-
-:::
 
 ## Overview
 
@@ -151,9 +128,9 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. In Concordium it is always the genesis hash of the network (hash of the first block).
+The `chainId` is the network identifier of the blockchain. In Concordium it is always the genesis hash of the network (hash of the first block). This is `4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796` for testnet.
 
-Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
+You will need to update the `endpoint`. This defines the HTTP RPC endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
 - Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
@@ -164,7 +141,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | Field            | Type   | Description                                                                                                                                                                              |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String | A network identifier for the blockchain                                                                                                                                                  |
-| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                   |
+| **endpoint**     | String | Defines the endpoint of the blockchain to be indexed - **This should be a full archive node**.                                                                                           |
 | **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
 | **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
 | **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
@@ -180,7 +157,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 | Field       | Type                                        | Description                                                                                                                                                                                                          |
 | ----------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String                                      | `@subql/node-concordium`                                                                                                                                                                                               |
+| **name**    | String                                      | `@subql/node-concordium`                                                                                                                                                                                             |
 | **version** | String                                      | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 | **options** | [Runner Node Options](#runner-node-options) | Runner specific options for how to run your project. These will have an impact on the data your project produces. CLI flags can be used to override these.                                                           |
 
@@ -204,14 +181,14 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 | Field | Type | Description
 | --------------- |-------------|-------------|
-| **kind** | String | [concordium/Runtime](#data-sources-and-mapping) |
+| **kind** | String | [ConcordiumDatasourceKind.Runtime](#data-sources-and-mapping) |
 | **startBlock** | Integer | This changes your indexing start block, set this higher to skip initial blocks with less data|  
 | **mapping** | Mapping Spec | |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                      |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Field                  | Type                         | Description                                                                                                                        |
+| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/concordium.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -240,20 +217,33 @@ In this section, we will talk about the default Concordium runtime and its mappi
 
 The following table explains filters supported by different handlers.
 
-**Your SubQuery project will be much more efficient when you only use `TransactionHandler` with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
+**Your SubQuery project will be much more efficient when you only use `ConcordiumHandlerKind.Transaction`, `ConcordiumHandlerKind.TransactionEvent`, or `ConcordiumHandlerKind.SpecialEvent` with appropriate mapping filters (e.g. NOT a `ConcordiumHandlerKind.Block`).**
 
-| Handler                                                                   | Supported filter                                                                                                            |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| [concordium/BlockHandler](../mapping/concordium.md#block-handler)             | `modulo`                                                                                                                    |
-| [concordium/TransactionHandler](../mapping/concordium.md#transaction-handler) | `type`, `values` |
-| [concordium/TransactionEventHandler](../mapping/concordium.md#transaction-event-handler) | `type`, `values` |
-| [concordium/SpecialEventHandler](../mapping/concordium.md#special-event-handler) | `type`, `values` |
+| Handler                                                                                      | Supported filter |
+| -------------------------------------------------------------------------------------------- | ---------------- |
+| [ConcordiumHandlerKind.Block](../mapping/concordium.md#block-handler)                        | `modulo`         |
+| [ConcordiumHandlerKind.Transaction](../mapping/concordium.md#transaction-handler)            | `type`, `values` |
+| [ConcordiumHandlerKind.TransactionEvent](../mapping/concordium.md#transaction-event-handler) | `type`, `values` |
+| [ConcordiumHandlerKind.SpecialEvent](../mapping/concordium.md#special-event-handler)         | `type`, `values` |
 
-`type` is type of transaction, transaction event or special event to filter by.
+`type` is type of transaction, transaction event, or special event to filter by (case sensitive). The `values` filter is a map where the keys correspond to the keys found in a transaction, transaction event, or special event. This filter allows you to search for transactions or events that have specific values for these keys. The `values` filter matches the keys in the filter against the keys in the data object. If a match is found, the corresponding transaction, event, or special event is included in the query result. For example:
 
-The `values` filter is a map where the keys correspond to the keys found in a transaction, transaction event, or special event. This filter allows you to search for transactions or events that have specific values for these keys. The `values` filter matches the keys in the filter against the keys in the data object. If a match is found, the corresponding transaction, event, or special event is included in the query result.
+```ts
+import { TransactionSummaryType } from "@concordium/node-sdk";
 
-Default runtime mapping filters are an extremely useful feature to decide what block, transaction, transaction event or special event will trigger a mapping handler.
+{
+  handler: "handleTransaction",
+  kind: ConcordiumHandlerKind.Transaction,
+  filter: {
+    type: TransactionSummaryType.AccountTransaction,
+    values: {
+      transactionType: "transfer",
+    },
+  },
+},
+```
+
+Default runtime mapping filters are an extremely useful feature to decide what block, transaction, transaction event, or special events will trigger a mapping handler.
 
 Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
@@ -277,7 +267,3 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
   }
 }
 ```
-
-## Validating
-
-You can validate your project manifest by running `subql validate`. This will check that it has the correct structure, valid values where possible and provide useful feedback as to where any fixes should be made.

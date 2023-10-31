@@ -37,6 +37,9 @@ import { ConcordiumTransaction } from "@subql/types-concordium";
 export async function handleTransaction(
   tx: ConcordiumTransaction
 ): Promise<void> {
+  logger.info(
+    `Handling transaction at block ${tx.block.blockHeight.toString()}`
+  );
   const record = TransactionEntity.create({
     id: tx.hash,
     field1: tx.type,
@@ -56,6 +59,9 @@ import { ConcordiumTransactionEvent } from "@subql/types-concordium";
 export async function handleTransactionEvent(
   txEvent: ConcordiumTransactionEvent
 ): Promise<void> {
+  logger.info(
+    `Handling event at block ${txEvent.block.blockHeight.toString()}`
+  );
   const record = TransactionEventEntity.create({
     id: txEvent.id,
     field1: txEvent.tag,
@@ -75,6 +81,9 @@ import { ConcordiumSpecialEvent } from "@subql/types-concordium";
 export async function handleSpecialEvent(
   specialEvent: ConcordiumSpecialEvent
 ): Promise<void> {
+  logger.info(
+    `Handling special event at block ${specialEvent.block.blockHeight.toString()}`
+  );
   const record = SpecialEventEntity.create({
     id: specialEvent.id,
     field1: specialEvent.tag,
@@ -83,7 +92,6 @@ export async function handleSpecialEvent(
   await record.save();
 }
 ```
-
 
 ## Third-party Library Support - the Sandbox
 
