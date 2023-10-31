@@ -6,13 +6,15 @@
 
 Ниже приводится набор рекомендаций (не правил) по внесению вклада в SubQuery. Соблюдение этих рекомендаций поможет нам сделать процесс внесения взносов простым и эффективным для всех участников. Это также означает, что вы согласны уважать время разработчиков, управляющих и развивающих этот проект. В свою очередь, мы ответим на это уважением, учитывая изменения, рассматривая изменения, сотрудничая в улучшении и помогая вам дорабатывать ваши запросы.
 
+::: info Contributing to the SubQuery Network There are specific contribution guidelines for the SubQuery Network [here](../subquery_network/community.md#contributing-to-codebases). :::
+
 ## Нормы поведения
 
-Мы серьезно относимся к проектам и ответственности нашего сообщества с открытым исходным кодом и требуем от себя и других участников высоких стандартов общения. Участвуя и внося свой вклад в этот проект, вы соглашаетесь соблюдать наш [Кодекс поведения](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
+We take our open source community projects and responsibility seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [Code of Conduct](https://github.com/subquery/subql/blob/main/CODE_OF_CONDUCT.md).
 
 ## Приступая к работе
 
-Вклад в наши репозитории осуществляется через Issues и Pull Requests (PRs). Несколько общих рекомендаций, которые охватывают оба варианта:
+Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Ищите существующие Замечания и PR, прежде чем создавать собственные.
 - Мы прилагаем все усилия, чтобы обеспечить своевременное решение проблем, но, в зависимости от последствий, может потребоваться некоторое время, чтобы исследовать основную причину. Дружественное @ упоминание в ветке комментариев отправителю или участнику может помочь привлечь внимание, если ваша задача блокируется.
@@ -21,7 +23,7 @@
 
 ### Сообщить об ошибках
 
-Ошибки отслеживаются как проблемы на GitHub. При регистрации проблемы объясните ее суть и включите дополнительные сведения, которые помогут специалистам по сопровождению воспроизвести проблему:
+Bugs are tracked as GitHub issues. When logging an issue, explain the problem and include additional details to help maintainers reproduce the problem:
 
 - Чтобы идентифицировать проблему, используйте понятное и описательное название.
 - Опишите точные шаги для воспроизведения проблемы.
