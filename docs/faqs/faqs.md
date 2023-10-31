@@ -25,6 +25,38 @@ You can see examples of the new manifest in the Build > Manifest section of this
 
 For Cosmos projects, in the new Typescript manifest, `chainTypes` have been renamed to `chaintypes`.
 
+## Inserting Seed Data at Project Initiation
+
+Some customers would like to insert specific data into the store, or initiate the database state correctly, when they start their project and begin indexing for the first time.
+
+The best way to do this is use a combination of `startBlock`, `endBlock`, and a block handler like as follows in your project manifest. In the below example, the `initiateStoreAndDatabase` mapping function will be run once and once only on block 320 (this could be the block that your contract was deployed on):
+
+```ts
+{
+  dataSources: [
+    {
+      // Project initiation/genesis datasource
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 320, // Set this and the endBlock to whatever block you want it to be run on
+      endBlock: 320,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Block,
+            handler: "initiateStoreAndDatabase",
+          }
+        ],
+      },
+    },
+    // Add other handlers for regular indexing after this
+    {
+      ...
+    }
+  ],
+}
+```
+
 ## What is SubQuery?
 
 SubQuery is an open source blockchain data indexer for developers that provides fast, flexible, reliable, and decentralised APIs to power leading multi-chain apps.
