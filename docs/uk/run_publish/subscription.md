@@ -1,4 +1,4 @@
-# Підписки
+# GraphQL Subscriptions
 
 ## Що таке Підписка GraphQL
 
