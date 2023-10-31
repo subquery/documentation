@@ -1,4 +1,4 @@
-# Các theo dõi
+# GraphQL Subscriptions
 
 ## Theo dõi GraphQL là gì
 
