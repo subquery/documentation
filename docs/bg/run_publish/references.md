@@ -1,4 +1,4 @@
-# Флагове на командния ред
+# Command Line Reference
 
 All booleans are by default `false` unless explicitly mentioned.
 
