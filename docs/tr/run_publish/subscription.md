@@ -1,4 +1,4 @@
-# Abonelikler
+# GraphQL Subscriptions
 
 ## GraphQL Aboneliği Nedir
 
