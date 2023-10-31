@@ -21,7 +21,7 @@ When deploying to SubQuery's Managed Service, you must first host your codebase 
 
 :::warning GitHub Deployment flows have been deprecated for IPFS
 
-If your project is still being deployed via GitHub, read the migration guide for IPFS deployments [here](./ipfs.md) :::
+If your project is still being deployed via GitHub, read the migration guide for IPFS deployments [here](../miscellaneous/ipfs.md) :::
 
 ### 安装要求
 
@@ -122,15 +122,15 @@ To create your first project, head to [SubQuery Managed Service](https://managed
 
 On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
 
-![Revoke approval from a GitHub account](/assets/img/project_auth_request.png)
+![Revoke approval from a GitHub account](/assets/img/run_publish/project_auth_request.png)
 
 SubQuery Projects is where you manage all your hosted projects uploaded to the SubQuery platform. You can create, delete, and even upgrade projects all from this application.
 
-![Projects Login](/assets/img/projects_dashboard.png)
+![Projects Login](/assets/img/run_publish/projects_dashboard.png)
 
 If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
-![Switch between GitHub accounts](/assets/img/projects_account_switcher.png)
+![Switch between GitHub accounts](/assets/img/run_publish/projects_account_switcher.png)
 
 ## Create Your First Project
 
@@ -147,11 +147,11 @@ Start by clicking on "Create Project". You'll be taken to the new project form. 
 - **Database:** Premium customers can access dedicated databases to host production SubQuery projects from. If this interests you, you can contact [sales@subquery.network](mailto:sales@subquery.network) to have this setting enabled.
 - **Visible in Explorer:** If selected, this will show the project from the public SubQuery explorer to share with the community.
 
-![Create your first Project](/assets/img/projects_create.png)
+![Create your first Project](/assets/img/run_publish/projects_create.png)
 
 Create your project and you'll see it on your SubQuery Project's list. Next, we just need to deploy a new version of it.
 
-![Project created](/assets/img/project_created.png)
+![Project created](/assets/img/run_publish/project_created.png)
 
 ### Using the CLI
 
@@ -174,7 +174,7 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 - **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
 - **Advanced Settings:** There are numerous advanced settings which are explained via the inbuild help feature.
 
-![Deploy your first Project](/assets/img/projects_first_deployment.png)
+![Deploy your first Project](/assets/img/run_publish/projects_first_deployment.png)
 
 If deployed successfully, you'll see the indexer start working and report back progress on indexing the current chain. This process may take time until it reaches 100%.
 
@@ -203,7 +203,7 @@ Although you have the freedom to always upgrade and deploy new versions of your 
 - 为更新的 SubQuery 项目预热和索引数据，以消除 dApp 中的停机时间。
 - 为您的SubQuery Project准备一个新版本，而不公开它。 中转插槽不会在Explorer中显示给公众，它有一个唯一的URL，仅对您可见。
 
-![暂存槽位](/assets/img/staging_slot.png)
+![暂存槽位](/assets/img/run_publish/projects_staging_slot.png)
 
 Fill in the IPFS CID of the new version of your SubQuery project codebase that you want deployed (see the documentation to publish to IPFS [here](#publish-your-subquery-project-to-ipfs). 这将导致更长的停机时间，取决于索引当前链所需的时间。 您可以一直在这里报告进度。
 
@@ -215,13 +215,15 @@ You can also use `@subql/cli` to create a new deployment of your project to our 
 
 With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
-- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](../run_publish/ipfs.md#prepare-your-subql-access-token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.ts` and include a private API key).
+- Step 1: After pushing your project to GitHub, create `DEPLOYMENT` environment on GitHub, and add the secret [SUBQL_ACCESS_TOKEN](#prepare-your-subql_access_token) and another secret with the name `ENDPOINT` which matches the RPC API endpoint that you want to connect (you can retrieve this from your `project.ts` and include a private API key).
 - Step 2: If you haven't already, create a project on [SubQuery Managed Service](https://managedservice.subquery.network). This can be done using the [UI](#using-the-ui) or [CLI](#using-the-cli).
 - 第 3 步：一旦您的项目被创建，导航到您项目的 GitHub 动作页面，并选择工作流程 `CLI 部署`。
 - 第 4 步：您将看到一个输入字段，您可以在这里输入在 SubQuery 项目上创建的项目的唯一代码。 You can get the code from the URL in SubQuery's Managed Service [SubQuery Managed Service](https://managedservice.subquery.network). 代码基于您项目的名称, 其中空格被连线替换 `-`。 例如： `我的项目名称` 变成 `我的项目名称`。
 
-::: 提示
-一旦工作流完成，你应该能够看到你的项目部署到我们的管理服务。
+::: tip Tip
+
+Once the workflow is complete, you should be able to see your project deployed to our Managed Service.
+
 :::
 
 一个常见的方法是扩展默认的 GitHub 动作，以便在代码合并到主页时自动对我们的管理服务进行更改。 以下对 GitHub 行动流程的更改做到这一点：
@@ -241,11 +243,11 @@ jobs:
 
 一旦您的部署成功完成并且我们的节点已经从该链中为您的数据编制了索引， 您可以通过显示的 GraphQL 查询端点连接到您的项目。
 
-![正在部署和同步的项目](/assets/img/projects_deploy_sync.png)
+![正在部署和同步的项目](/assets/img/run_publish/projects_deploy_sync.png)
 
 您也可以点击项目标题旁边的三个小点图标，从而在 SubQuery 浏览器上查看项目， 在这里您可以使用我们的区块链浏览器开始—— [阅读更多关于如何在这里使用](../query/query.md) 的信息。 There you can use the in browser playground to get started - [read more about how to use our Explorer's GraphQL playground here](../run_publish/query.md).
 
-![Projects in SubQuery Explorer](/assets/img/projects_explorer.png)
+![Projects in SubQuery Explorer](/assets/img/run_publish/projects_explorer.png)
 
 ## Project Alert Notifications
 
@@ -295,7 +297,7 @@ It is common to publish your SubQuery project under the name of your GitHub Orga
 
 If you can't see your GitHub Organization account listed in the switcher, then you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. Then, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 
-![Revoke access to GitHub account](/assets/img/project_auth_revoke.png)
+![Revoke access to GitHub account](/assets/img/run_publish/project_auth_revoke.png)
 
 Once you have revoked access, log out of [SubQuery Managed Service](https://managedservice.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an administrator to enable this for you.
 
