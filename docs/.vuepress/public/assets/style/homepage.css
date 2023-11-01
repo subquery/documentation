@@ -176,7 +176,7 @@ body .theme-hope-content:not(.custom) {
 
 .bannerImageBg {
   border-radius: 474.22px;
-  background: #008BE7;
+  background: #008be7;
   filter: blur(100px);
   width: 474.22px;
   height: 56.855px;
@@ -185,7 +185,6 @@ body .theme-hope-content:not(.custom) {
   bottom: 75px;
   left: 50%;
   transform: translateX(-50%);
-
 }
 
 .dark .banner {
@@ -259,13 +258,13 @@ body .theme-hope-content:not(.custom) {
   display: flex;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid var(--dark-mode-border, #34414B);
-  background: var(--dark-mode-background, #060F32);
+  border: 1px solid var(--dark-mode-border, #34414b);
+  background: var(--dark-mode-background, #060f32);
   color: #fff;
   text-decoration: none;
   padding: 24px;
   box-sizing: border-box;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 .quickStartList .itemGroup a:hover {
@@ -307,7 +306,7 @@ body .theme-hope-content:not(.custom) {
   display: flex;
   justify-content: space-between;
   padding: 40px 0;
-  border-top: 1px solid #34414B;
+  border-top: 1px solid #34414b;
 }
 .journeyItem .icon {
   width: 56px;
@@ -466,7 +465,6 @@ body .theme-hope-content:not(.custom) {
 .advancedFeatures .cardList p {
   font-size: 20px;
   color: #fff;
-
 }
 .dark .advancedFeatures .cardList h5,
 .dark .advancedFeatures .cardList p {
@@ -483,7 +481,7 @@ body .theme-hope-content:not(.custom) {
 }
 
 .wantMoreDepth {
-  background: url('/assets/img/wantMoreDepthBg.png');
+  background: url("/assets/img/wantMoreDepthBg.png");
   padding: 40px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -533,7 +531,6 @@ body .theme-hope-content:not(.custom) {
 footer {
   display: none;
 }
-
 
 @media screen and (min-width: 1920px) {
   .layout {
