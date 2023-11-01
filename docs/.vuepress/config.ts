@@ -77,7 +77,7 @@ export default defineUserConfig({
       },
     }),
   ],
-  title: "SubQuery Academy",
+  title: "SubQuery Academy (Documentation)",
   description:
     "Learn how to build with SubQuery. SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project. Build your API anywhere across multiple chains in minutes with our open-source SDK.",
   head: [
@@ -122,7 +122,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "SubQuery Academy",
+      title: "SubQuery Academy (Documentation)",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
@@ -252,7 +252,7 @@ export default defineUserConfig({
       */
     },
     // themeColor: true,
-    darkmode: 'enable',
+    darkmode: "enable",
     logo: "/assets/img/logo.png",
     plugins: {
       mdEnhance: {
@@ -297,11 +297,6 @@ export default defineUserConfig({
     docsRepo: "https://github.com/subquery/documentation",
     docsDir: "docs",
     docsBranch: "master",
-    navbarLayout: {
-      start: ["Brand"],
-      center: undefined,
-      end: ["Outlook", "Search", "Links", "Languages"]
-    }
   }),
 });
 

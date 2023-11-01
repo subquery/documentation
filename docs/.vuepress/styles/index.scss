@@ -1,20 +1,25 @@
 // place your custom styles here
 @font-face {
-  font-family: 'Inter';
-  src: local('Inter-Regular'), url('https://static.subquery.network/design/fonts/Inter-Regular.ttf') format('truetype');
+  font-family: "Inter";
+  src: local("Inter-Regular"),
+    url("https://static.subquery.network/design/fonts/Inter-Regular.ttf")
+      format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter-SemiBold';
-  src: local('Inter-SemiBold'),
-    url('https://static.subquery.network/design/fonts/Inter-SemiBold.ttf') format('truetype');
+  font-family: "Inter-SemiBold";
+  src: local("Inter-SemiBold"),
+    url("https://static.subquery.network/design/fonts/Inter-SemiBold.ttf")
+      format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter-Bold';
-  src: local('Inter-Bold'), url('https://static.subquery.network/design/fonts/Inter-Bold.ttf') format('truetype');
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"),
+    url("https://static.subquery.network/design/fonts/Inter-Bold.ttf")
+      format("truetype");
   font-display: swap;
 }
 
@@ -38,9 +43,6 @@ iframe {
 }
 
 #navbar {
-  padding: 16px 24px;
-  box-shadow: none;
-
   .vp-navbar-start {
     .vp-site-name {
       font-family: var(--font-family-heading);
@@ -60,11 +62,10 @@ iframe {
     margin: 0;
     .nav-link {
       padding: 16px;
-      transition: color .3s;
+      transition: color 0.3s;
       &.active {
         &::after {
           display: none;
-
         }
       }
 
@@ -78,7 +79,7 @@ iframe {
   }
 
   .DocSearch {
-    width: 226px;
+    width: 12rem;
     border-radius: 8px;
     border: 1px solid var(--gray-300);
     background: #fff;
@@ -105,7 +106,7 @@ iframe {
 
 #sidebar {
   .vp-link {
-    transition: color .3s;
+    transition: color 0.3s;
   }
 
   .vp-sidebar-link:hover {
@@ -118,17 +119,17 @@ iframe {
   }
 }
 
-html[data-theme=dark] {
+html[data-theme="dark"] {
   --dark-grey: #fff;
   --primary-color: var(--theme-color);
-  --secondary-color: #FF4581;
+  --secondary-color: #ff4581;
   --light-grey: var(--gray-400);
   --theme-color-mask: transparent;
   --dark-mode-card: #1b2545;
-  --dark-mode-border: #34414B;
+  --dark-mode-border: #34414b;
   --dark-mode-background: var(--bg-color);
-  --gray-300: #EFE3e8;
+  --gray-300: #efe3e8;
   --gray-400: #c4cdd5;
-  --gray-500: #919EAb;
+  --gray-500: #919eab;
   --gray-700: #454f58;
 }
