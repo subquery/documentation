@@ -12,7 +12,11 @@ Firstly, we have moved some components to a new `subql-core` library (`logger` a
 
 ```json
   ...
-  "include": [ "src/**/*", "node_modules/@subql/types-core/dist/global.d.ts", "node_modules/@subql/types-ethereum/dist/global.d.ts" ]
+  "include": [
+    "src/**/*",
+    "node_modules/@subql/types-core/dist/global.d.ts",
+    "node_modules/@subql/types-ethereum/dist/global.d.ts"
+  ],
 ```
 
 ## Typescript Manifest
