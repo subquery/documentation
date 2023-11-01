@@ -1,6 +1,6 @@
 # In-Memory Cache
 
-The in-memory cache is an injected class granting access to a temporary store of data that can be accessed and shared between mapping handlers. This feature is helpful for commonly accessed data in scenarios where data persistence is not necessary, but the data is required to be accessed inside projects across subquent calls of handlers.
+The in-memory cache is an injected class granting access to a temporary store of data that can be accessed and shared between mapping handlers. This feature is helpful for commonly accessed data in scenarios where data persistence is not necessary, but the data is required to be accessed inside projects across subsequent calls of handlers.
 
 This cache is globally accessible and is introduced alongside `logger` and `store` etc.
 
@@ -44,16 +44,9 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     `New transfer event found at block ${event.block.block.header.number.toString()}`
   );
 
-  let numEvents =
-    (await cache.get(event.block.block.header.number.toString())) ?? 0;
-  await cache.set(event.block.block.header.number.toString(), ++numEvents);
-
-  logger.info(
-    `${event.block.block.header.number.toString()}: ${await cache.get(
-      event.block.block.header.number.toString()
-    )}`
-  );
+  let dailyCount = (await cache.get("dailyCount")) + 1 ?? 1;
+  await cache.set("dailyCount", dailyCount);
 }
 ```
 
-In this example, the number of events for a specific block is stored in the cache. Each time a new event for the block is found, the number of events is incremented. The final number of events for the block is then logged.
+In this example, the count of events in the given day is stored in the cache as `dailyCount`. Each time a new event for the day is found, the number of events is incremented - we cau use this elsewhere, e.g. for daily aggregations in the mapping function.
