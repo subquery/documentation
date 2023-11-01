@@ -4,7 +4,7 @@
 
 Version 3.0 adds some major improvements to SubQuery's SDK that have been requested and developed in partnership with key customers in the SubQuery ecosystem.
 
-## Changes to tsconfig
+## Changes to tsConfig
 
 Firstly, we have moved some components to a new `subql-core` library (`logger` and others). You will need to update your `tsconfig.json` to look like the following:
 
