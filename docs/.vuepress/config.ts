@@ -405,6 +405,10 @@ function getSidebar(locale: string): SidebarOptions {
               link: `${locale}/quickstart/quickstart_chains/celo.md`,
             },
             {
+              text: "Concordium",
+              link: `${locale}/quickstart/quickstart_chains/concordium.md`,
+            },
+            {
               text: "Cosmos",
               collapsible: true,
               children: [
@@ -640,6 +644,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/manifest/algorand.md`,
             `${locale}/build/manifest/arbitrum.md`,
             `${locale}/build/manifest/bsc.md`,
+            `${locale}/build/manifest/concordium.md`,
             `${locale}/build/manifest/cosmos.md`,
             `${locale}/build/manifest/ethereum.md`,
             `${locale}/build/manifest/flare.md`,
@@ -660,6 +665,7 @@ function getSidebar(locale: string): SidebarOptions {
             `${locale}/build/mapping/algorand.md`,
             `${locale}/build/mapping/arbitrum.md`,
             `${locale}/build/mapping/bsc.md`,
+            `${locale}/build/mapping/concordium.md`,
             `${locale}/build/mapping/cosmos.md`,
             `${locale}/build/mapping/ethereum.md`,
             `${locale}/build/mapping/flare.md`,
