@@ -94,7 +94,7 @@ subql codegen:generate \
 
 Once completed, you will have a scaffolded project structure from your chosen ABI `functions`/`events`.
 
-In the previous example for the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to scaffold.
+In the previous example for the [Ethereum Gravatar indexer](../quickstart/quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to scaffold.
 
 It initialises the correct manifest with Log Handlers included, as well a new typescript file `<abiName>Handler.ts` containing mapping functions and imports with the appropriate typing..
 
