@@ -4,7 +4,7 @@
 
 Version 3.0 adds some major improvements to SubQuery's SDK that have been requested and developed in partnership with key customers in the SubQuery ecosystem.
 
-## Changes to tsconfig
+## Changes to tsConfig
 
 Firstly, we have moved some components to a new `subql-core` library (`logger` and others). You will need to update your `tsconfig.json` to look like the following:
 
@@ -12,7 +12,11 @@ Firstly, we have moved some components to a new `subql-core` library (`logger` a
 
 ```json
   ...
-  "include": [ "src/**/*", "node_modules/@subql/types-core/dist/global.d.ts", "node_modules/@subql/types-ethereum/dist/global.d.ts" ]
+  "include": [
+    "src/**/*",
+    "node_modules/@subql/types-core/dist/global.d.ts",
+    "node_modules/@subql/types-ethereum/dist/global.d.ts"
+  ],
 ```
 
 ## Typescript Manifest
@@ -24,6 +28,38 @@ The manifest in version 3 is now written in Typescript by default, which include
 You can see examples of the new manifest in the Build > Manifest section of this documentation, for example; [Ethereum](../build/manifest/ethereum.md), [Cosmos](../build/manifest/cosmos.md), and [Polkadot](../build/manifest/polkadot.md).
 
 For Cosmos projects, in the new Typescript manifest, `chainTypes` have been renamed to `chaintypes`.
+
+## Inserting Seed Data at Project Initiation
+
+Some customers would like to insert specific data into the store, or initiate the database state correctly, when they start their project and begin indexing for the first time.
+
+The best way to do this is use a combination of `startBlock`, `endBlock`, and a block handler like as follows in your project manifest. In the below example, the `initiateStoreAndDatabase` mapping function will be run once and once only on block 320 (this could be the block that your contract was deployed on):
+
+```ts
+{
+  dataSources: [
+    {
+      // Project initiation/genesis datasource
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 320, // Set this and the endBlock to whatever block you want it to be run on
+      endBlock: 320,
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Block,
+            handler: "initiateStoreAndDatabase",
+          }
+        ],
+      },
+    },
+    // Add other handlers for regular indexing after this
+    {
+      ...
+    }
+  ],
+}
+```
 
 ## Qu'est-ce que SubQuery ?
 
