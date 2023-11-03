@@ -532,6 +532,15 @@ footer {
   display: none;
 }
 
+.overflow3 {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+}
+
 @media screen and (min-width: 1920px) {
   .layout {
     max-width: 1185px;

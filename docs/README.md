@@ -21,20 +21,22 @@ editLink: false
     <h3>Get Started with our Quick Start Guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
     <div class="quickStartList">
-      <div class="col" v-for="networkFamily in quickStartJson" :key="networkFamily.code">
+      <div class="col" v-for="networkFamily in quickStartJson" :key="networkFamily.name">
         <div class="itemGroup">
           <div style="display: flex; justify-content: center;">
             <img :src="networkFamily.logo" :alt="networkFamily.name" width="32" height="32">
             <span style="font-size: 18px;">{{ networkFamily.name }}</span>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-            <router-link v-for="network in networkFamily.networks" :key="network.code" :to="network.guides[0].link.replace('https://academy.subquery.network/', '')"> 
-              <div style="display: flex; align-items: center;">
-                <img v-if="network.logo" :src="network.logo" width="24" height="24">
-                <div v-if="!network.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
-                <span style="margin-left: 8px">{{network.name  }}</span>
-              </div>
-            </router-link>
+            <div v-for="network in networkFamily.quick_start_data" :key="network.name" style="display:flex; gap: 16px; flex-wrap: wrap; display: contents;">
+              <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')"> 
+                <div style="display: flex; align-items: center;">
+                  <img v-if="quickStart.logo" :src="network.logo" width="24" height="24">
+                  <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
+                  <span style="margin-left: 8px" class="overflow3">{{ quickStart.name  }}</span>
+                </div>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -225,13 +227,11 @@ import { ref, onMounted } from 'vue'
 const quickStartJson = ref([])
 
 const fetchAllQuickStart = () => {
-  fetch("https://templates.subquery.network/all").then(async (data) => {
+  fetch("https://templates.subquery.network/guides").then(async (data) => {
     const json = await data.json()
-    quickStartJson.value = json.templates.map((item) => {
-      item.networks = item.networks.filter((i) => i.guides.length >= 1)
-      return item
-    }).sort((a,b) => b.networks.length - a.networks.length)
-  })
+    quickStartJson.value = json.results.sort((a,b) => b.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0) - a.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0))
+    }
+  )
 }
 
 onMounted(() => {
