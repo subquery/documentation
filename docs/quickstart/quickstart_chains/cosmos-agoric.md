@@ -2,7 +2,7 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all transfer events and messages on the [Agoric network](https://agoric.com/) 
+The goal of this quick start guide is to index all transfer events and messages on the [Agoric network](https://agoric.com/).
 
 ::: info
 The Agoric network is a chain based on the Cosmos SDK, which means you can index chain data via the standard Cosmos RPC interface.
