@@ -219,79 +219,52 @@ body .theme-hope-content:not(.custom) {
 }
 
 .quickStartList {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.quickStartList .col {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-self: stretch;
-}
-.quickStartList a {
-  width: 218px;
-  height: 75px;
+  columns: 2 100px;
+  column-gap: 1rem;
 }
 
-.quickStartList a img:first-child {
-  display: block;
-}
 .quickStartList .itemGroup {
-  box-sizing: border-box;
-  max-width: 472px;
-  min-width: 472px;
+  margin: 0 0 1rem 0;
   border-radius: 8px;
-  row-gap: 24px;
+  display: flex;
   padding: 16px;
-  flex-direction: column;
+  flex-flow: column;
+  row-gap: 1em;
   align-items: center;
   display: flex;
   background: var(--dark-mode-card);
-  flex: 1;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
-.quickStartList .itemGroup a {
-  max-width: 172px;
-  max-height: 75px;
-  flex-shrink: 0;
+
+.quickStartList .itemGroup .itemGroupHeader {
   display: flex;
-  align-items: center;
-  border-radius: 4px;
-  border: 1px solid var(--dark-mode-border, #34414b);
-  background: var(--dark-mode-background, #060f32);
-  color: #fff;
-  text-decoration: none;
-  padding: 24px;
-  box-sizing: border-box;
-  transition: color 0.3s;
-}
-
-.quickStartList .itemGroup a:hover {
-  color: var(--primary-color);
-}
-
-.quickStartList .itemGroup a:hover img {
-  /* filter:invert(65%) sepia(74%) saturate(4874%) hue-rotate(194deg) brightness(93%) contrast(85%); */
-}
-
-.quickStartList .itemGroup > div {
-  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   width: 100%;
   align-items: center;
+}
+
+.quickStartList .itemGroup .itemGroupContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.quickStartList .itemGroup .itemGroupContent div {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex-flow: row wrap;
   gap: 16px;
 }
-@media screen and (max-width: 480px) {
-  .quickStart {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .quickStartList .itemGroup {
-    max-width: 95vw;
-  }
+
+@media screen and (max-width: 640px) {
   .quickStartList {
-    flex-direction: column;
-    align-items: center;
+    columns: 1;
   }
 }
 
@@ -533,7 +506,7 @@ footer {
 }
 
 .overflow3 {
-  overflow : hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -552,10 +525,5 @@ footer {
 
   .journey {
     max-width: 952px;
-  }
-
-  .quickStartList .itemGroup {
-    max-width: 580px;
-    min-width: 580px;
   }
 }

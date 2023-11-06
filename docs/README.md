@@ -21,26 +21,24 @@ editLink: false
     <h3>Get Started with our Quick Start Guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
     <div class="quickStartList">
-      <div class="col" v-for="networkFamily in quickStartJson" :key="networkFamily.name">
-        <div class="itemGroup">
-          <div style="display: flex; justify-content: center;">
-            <img :src="networkFamily.logo" :alt="networkFamily.name" width="32" height="32">
-            <span style="font-size: 18px;">{{ networkFamily.name }}</span>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-            <div v-for="network in networkFamily.quick_start_data" :key="network.name" style="display:flex; gap: 16px; flex-wrap: wrap; display: contents;">
-              <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')"> 
-                <div style="display: flex; align-items: center;">
-                  <img v-if="quickStart.logo" :src="network.logo" width="24" height="24">
-                  <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
-                  <span style="margin-left: 8px" class="overflow3">{{ quickStart.name  }}</span>
-                </div>
-              </router-link>
-            </div>
+      <div class="itemGroup" v-for="networkFamily in quickStartJson" :key="networkFamily.name">
+        <div class="itemGroupHeader">
+          <img :src="networkFamily.logo" :alt="networkFamily.name" width="32" height="32">
+          <span style="font-size: 18px;">{{ networkFamily.name }}</span>
+        </div>
+        <div class="itemGroupContent">
+          <div v-for="network in networkFamily.quick_start_data" :key="network.name">
+            <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')">
+              <div>
+                <img v-if="quickStart.logo" :src="network.logo" width="24" height="24">
+                <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
+                <span style="margin-left: 8px" class="overflow3">{{ quickStart.name  }}</span>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
-    </div>
+  </div>
   </div>
   <div class="journey layout mt80">
     <h3>Your Journey with SubQuery</h3>
@@ -103,12 +101,12 @@ editLink: false
     <p>We built the best, fully-featured indexer, so you don’t have to!</p>
     <div class="cardList">
       <router-link class="item" :to="{path: '/build/substrate-evm.html'}">
-        <h5>EVM, WASM, Stellar</h5>
+        <h5>EVM, WASM, and more</h5>
         <p>Supports most smart contract execution languages.</p>
       </router-link>
       <router-link class="item" :to="{path: '/build/multi-chain.html'}">
         <h5>Write once, run anywhere</h5>
-        <p>Large multichain support and your gateway to Polkadot.</p>
+        <p>Index multiple networks into one database.</p>
       </router-link>
       <router-link class="item" :to="{path: '/build/optimisation.html'}">
         <h5>Absolute performance</h5>
