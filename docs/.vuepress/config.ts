@@ -580,8 +580,18 @@ function getSidebar(locale: string): SidebarOptions {
               ],
             },
             {
-              text: "Scroll Sepolia",
-              link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+              text: "Scroll",
+              collapsible: true,
+              children: [
+                {
+                  text: "Scroll Mainnet",
+                  link: `${locale}/quickstart/quickstart_chains/scroll.md`,
+                },
+                {
+                  text: "Scroll Sepolia",
+                  link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+                },
+              ],
             },
             {
               text: "Skale",
