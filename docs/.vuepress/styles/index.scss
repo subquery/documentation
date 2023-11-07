@@ -120,6 +120,7 @@ iframe {
 }
 
 html[data-theme="dark"] {
+  --bg-color: #060f32 !important;
   --dark-grey: #fff;
   --primary-color: var(--theme-color);
   --secondary-color: #ff4581;
