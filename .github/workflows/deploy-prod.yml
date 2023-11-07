@@ -9,20 +9,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          # choose node.js version to use
-          node-version: 16
-      - run: npm install -g yarn
-      - run: yarn install
-      - run: yarn docs:build
+          run_install: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Build docs
+        run: pnpm docs:build
+
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
+
       - run: aws s3 sync ./docs/.vuepress/dist s3://doc.subquery.network/ --delete
+
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
