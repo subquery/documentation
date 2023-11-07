@@ -1,4 +1,28 @@
 // place your custom styles here
+@font-face {
+  font-family: "Inter";
+  src: local("Inter-Regular"),
+    url("https://static.subquery.network/design/fonts/Inter-Regular.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: local("Inter-SemiBold"),
+    url("https://static.subquery.network/design/fonts/Inter-SemiBold.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"),
+    url("https://static.subquery.network/design/fonts/Inter-Bold.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
 .video_container {
   margin: 0;
   position: relative;
@@ -16,4 +40,97 @@ iframe {
   right: 0;
   width: 100%;
   height: 100%;
+}
+
+#navbar {
+  .vp-navbar-start {
+    .vp-site-name {
+      font-family: var(--font-family-heading);
+    }
+  }
+
+  .nav-item {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--font-family);
+  }
+  .external-link-icon {
+    display: none;
+  }
+
+  .nav-item {
+    margin: 0;
+    .nav-link {
+      padding: 16px;
+      transition: color 0.3s;
+      &.active {
+        &::after {
+          display: none;
+        }
+      }
+
+      &:hover {
+        &::after {
+          display: none;
+        }
+        color: var(--theme-color);
+      }
+    }
+  }
+
+  .DocSearch {
+    width: 12rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-300);
+    background: #fff;
+
+    --docsearch-text-color: var(--gray-500);
+  }
+
+  .DocSearch-Button-Placeholder {
+    color: var(--docsearch-text-color);
+  }
+
+  .DocSearch-Search-Icon {
+    color: var(--gray-700);
+  }
+
+  .DocSearch-Button:hover {
+    box-shadow: none;
+  }
+
+  .DocSearch-Button-Keys {
+    display: none;
+  }
+}
+
+#sidebar {
+  .vp-link {
+    transition: color 0.3s;
+  }
+
+  .vp-sidebar-link:hover {
+    background: transparent;
+    color: var(--theme-color);
+  }
+  .vp-sidebar-heading.clickable:hover {
+    background: transparent;
+    color: var(--theme-color);
+  }
+}
+
+html[data-theme="dark"] {
+  --dark-grey: #fff;
+  --primary-color: var(--theme-color);
+  --secondary-color: #ff4581;
+  --light-grey: var(--gray-400);
+  --theme-color-mask: transparent;
+  --dark-mode-card: #1b2545;
+  --dark-mode-border: #34414b;
+  --dark-mode-background: var(--bg-color);
+  --gray-300: #efe3e8;
+  --gray-400: #c4cdd5;
+  --gray-500: #919eab;
+  --gray-700: #454f58;
+  --balloon-color: var(--dark-mode-card);
 }

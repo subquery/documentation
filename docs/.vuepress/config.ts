@@ -251,6 +251,8 @@ export default defineUserConfig({
       },
       */
     },
+    // themeColor: true,
+    darkmode: "enable",
     logo: "/assets/img/logo.png",
     plugins: {
       mdEnhance: {
