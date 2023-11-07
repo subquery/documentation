@@ -9,7 +9,10 @@ $font-family: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxy
 $navbar-height: 80px;
 $navbar-horizontal-padding: 24px;
 $navbar-vertical-padding: 16px;
-$bg-color: #060f32;
+$bg-color: (
+  light: #060f32,
+  dark: #060f32,
+);
 $font-family-heading: "Futura";
 $text-color: #fff;
 $border-color: #34414b;
