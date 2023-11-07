@@ -36,12 +36,6 @@ Note that the manifest file has already been set up correctly and doesn’t requ
       mapping: {
         file: "./dist/index.js",
         handlers: [
-          // {
-          //     Using block handlers slows your project down as they can be executed with each and every block.
-          //     Only use if you need to
-          //     handler: 'handleEvent',
-          //     kind: CosmosHandlerKind.Block,
-          // },
           {
             handler: "handleEvent",
             kind: CosmosHandlerKind.Event,
@@ -74,8 +68,9 @@ Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to g
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
 
-For this project, you'll need to modify your schema.graphql file as follows. Since we're indexing all [reward transactions](https://www.mintscan.io/akash/txs/808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217?height=11797219) for delegators in the Akash network, we have a DelegatorReward entity that comprises a number of properties, including reward amount, delegator information, validator's address, and so forth.
-We also have a Delegator entity, which keeps track of the total rewards of each delegator.
+index all transfer events and messages
+
+For this project, you'll need to modify your schema.graphql file as follows. Since we're indexing all [transfer events & messages](https://agoric.explorers.guru/transaction/69D296C6E643621429959A5B25D2F3DE1F1A67A5481FC1B7986322DBEA61BF8D) on the Agoric network, we have a TransferEvent and Message entity that contain a number of fields, including blockHeight, recipient/to, sender/from, and amount
 
 ```graphql
 type TransferEvent @entity {
@@ -330,6 +325,10 @@ You will see the result similar to below:
   }
 }
 ```
+
+::: tip
+The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Agoric/agoric-starter).
+:::
 
 ## What’s Next?
 
