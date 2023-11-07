@@ -262,6 +262,15 @@ body .theme-hope-content:not(.custom) {
   gap: 16px;
 }
 
+.quickStartList .itemGroup .itemGroupContent span {
+  margin-left: 8px;
+  color: white;
+}
+
+.quickStartList .itemGroup .itemGroupContent span:hover {
+  color: var(--theme-color);
+}
+
 @media screen and (max-width: 640px) {
   .quickStartList {
     columns: 1;

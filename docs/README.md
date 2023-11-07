@@ -24,7 +24,7 @@ editLink: false
       <div class="itemGroup" v-for="networkFamily in quickStartJson" :key="networkFamily.name">
         <div class="itemGroupHeader">
           <img :src="networkFamily.logo" :alt="networkFamily.name" width="32" height="32">
-          <span style="font-size: 18px;">{{ networkFamily.name }}</span>
+          <span style="font-size: 18px; margin-left: 8px">{{ networkFamily.name }}</span>
         </div>
         <div class="itemGroupContent">
           <div v-for="network in networkFamily.quick_start_data" :key="network.name">
@@ -32,7 +32,7 @@ editLink: false
               <div>
                 <img v-if="quickStart.logo" :src="network.logo" width="24" height="24">
                 <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
-                <span style="margin-left: 8px" class="overflow3">{{ quickStart.name  }}</span>
+                <span class="overflow3">{{ quickStart.name  }}</span>
               </div>
             </router-link>
           </div>
