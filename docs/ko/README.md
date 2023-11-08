@@ -27,7 +27,7 @@ footer: false lastUpdated: false contributors: false editLink: false
           <div v-for="network in networkFamily.quick_start_data" :key="network.name">
             <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')">
               <div>
-                <img v-if="quickStart.logo" :src="network.logo" width="24" height="24">
+                <img v-if="quickStart.logo" :src="network.logo" width="24" height="24" style="pointer-events: none;">
                 <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
                 <span class="overflow3">{{ quickStart.name  }}</span>
               </div>
