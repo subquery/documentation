@@ -2,17 +2,20 @@
   "name": "subql-docs",
   "private": true,
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "node --max_old_space_size=4096 ./node_modules/vuepress/bin/vuepress.js build docs"
+    "build:serve": "http-server -a localhost docs/.vuepress/dist -o",
+    "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress dev docs",
+    "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress build docs"
   },
   "packageManager": "pnpm@8.10.2",
   "devDependencies": {
     "@vuepress/client": "2.0.0-beta.67",
     "@vuepress/plugin-docsearch": "2.0.0-beta.67",
     "@vuepress/plugin-google-analytics": "2.0.0-beta.67",
+    "cross-env": "7.0.3",
+    "http-server": "14.1.1",
     "vue": "^3.3.8",
     "vuepress": "2.0.0-beta.67",
-    "vuepress-theme-hope": "2.0.0-beta.246",
-    "vuepress-plugin-redirect": "2.0.0-beta.246"
+    "vuepress-theme-hope": "2.0.0-beta.247",
+    "vuepress-plugin-redirect": "2.0.0-beta.247"
   }
 }
