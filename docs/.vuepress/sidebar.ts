@@ -72,7 +72,16 @@ export const getSidebar = (locale: string) =>
             },
             {
               text: "BNB Smart Chain (BSC)",
-              link: `${locale}/quickstart/quickstart_chains/bsc.md`,
+              children: [
+                {
+                  link: `${locale}/quickstart/quickstart_chains/bsc.md`,
+                  text: "Mobox Pools",
+                },
+                {
+                  link: `${locale}/quickstart/quickstart_chains/bsc-pancakeswap-v3.md`,
+                  text: "PancakeSwap",
+                },
+              ],
             },
             {
               text: "Celo",
