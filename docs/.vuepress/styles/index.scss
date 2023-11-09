@@ -54,15 +54,18 @@ iframe {
     font-weight: 500;
     font-family: var(--font-family);
   }
+
   .external-link-icon {
     display: none;
   }
 
   .nav-item {
     margin: 0;
+
     .nav-link {
       padding: 16px;
       transition: color 0.3s;
+
       &.active {
         &::after {
           display: none;
@@ -120,7 +123,6 @@ iframe {
 }
 
 html[data-theme="dark"] {
-  --bg-color: #060f32 !important;
   --dark-grey: #fff;
   --primary-color: var(--theme-color);
   --secondary-color: #ff4581;

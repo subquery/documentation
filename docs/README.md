@@ -3,6 +3,7 @@ footer: false
 lastUpdated: false
 contributors: false
 editLink: false
+photoSwipe: false
 ---
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
@@ -218,7 +219,7 @@ editLink: false
   </div>
   <div class="footer layout">SubQuery © 2023</div>
 </div>
-<component :is="'script'" src="/assets/js/welcome.js"></component>
+<component is="script" src="/assets/js/welcome.js" />
 
 <script setup>
 import { ref, onMounted } from 'vue'

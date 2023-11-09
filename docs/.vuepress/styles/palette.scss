@@ -1,18 +1,13 @@
-// you can change colors here
-@font-face {
-  font-family: Inter;
-  src: url("/assets/fonts/Inter-Regular.ttf");
-}
-
 $theme-color: #4388dd;
-$font-family: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
+$primary-color: $theme-color;
+
+$bg-color: #060f32;
+$text-color: #fff;
+$border-color: #34414b;
+
 $navbar-height: 80px;
 $navbar-horizontal-padding: 24px;
 $navbar-vertical-padding: 16px;
-$bg-color: (
-  light: #060f32,
-  dark: #060f32,
-);
+
+$font-family: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
 $font-family-heading: "Futura";
-$text-color: #fff;
-$border-color: #34414b;
