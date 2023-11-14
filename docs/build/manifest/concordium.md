@@ -244,6 +244,42 @@ import { TransactionSummaryType } from "@concordium/node-sdk";
 },
 ```
 
+Or to filter transactions by their sender:
+
+```ts
+import { TransactionSummaryType } from "@concordium/node-sdk";
+
+{
+  handler: "handleTransaction",
+  kind: ConcordiumHandlerKind.Transaction,
+  filter: {
+    type: TransactionSummaryType.AccountTransaction,
+    values: {
+      sender: '4AuT5RRmBwcdkLMA6iVjxTDb1FQmxwAh3wHBS22mggWL8xH6s3',
+    },
+  },
+},
+```
+
+Or to filter events by instigator for a specific contract address:
+
+```ts
+import { TransactionEventTag } from "@concordium/node-sdk";
+
+{
+  handler: "handleTransaction",
+  kind: ConcordiumHandlerKind.Transaction,
+  filter: {
+    type: TransactionEventTag.Updated,
+    values: {
+      instigator: '4AuT5RRmBwcdkLMA6iVjxTDb1FQmxwAh3wHBS22mggWL8xH6s3',
+      address: '6536',
+      amount: '0',
+    },
+  },
+},
+```
+
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, transaction event, or special events will trigger a mapping handler.
 
 Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
