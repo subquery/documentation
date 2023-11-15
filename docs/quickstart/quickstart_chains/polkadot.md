@@ -12,6 +12,12 @@ Now, let's move forward and update these configurations.
 
 Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
+#### Check out how to get the Polkadot starter project running
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/cEHA2E3crZ8" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ## 1. Update Your GraphQL Schema File
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).

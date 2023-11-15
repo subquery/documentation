@@ -16,6 +16,12 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/BNB%20Smart%20Chain/bsc-mobox-rewards).
 :::
 
+#### Check out how to get the BSC starter project running
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/2sxpy4NCcS0" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ## 1. Update Your Project Manifest File
 
 ::: warning Important

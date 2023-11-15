@@ -16,6 +16,12 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-gravatar).
 :::
 
+#### Check out how to get the Ethereum starter project running
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/pAYjuGGf8kQ" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ## 1. Update Your Project Manifest File
 
 The Project Manifest (`project.ts`) file works as an entry point to your Ethereum project. It defines most of the details on how SubQuery will index and transform the chain data. For Ethereum, there are three types of mapping handlers (and you can have more than one in each project):
