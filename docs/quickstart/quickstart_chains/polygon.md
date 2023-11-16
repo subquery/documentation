@@ -16,6 +16,12 @@ Previously, in the [1. Create a New Project](../quickstart.md) section, you must
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Polygon/polygon-plasma-bridge).
 :::
 
+#### Check out how to get the Polygon starter project running
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/1qN7KeCtg6U" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ## 1. Update Your Project Manifest File
 
 ::: warning Important

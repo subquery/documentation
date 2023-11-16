@@ -5,14 +5,15 @@ Although we only list quick start guides for [Juno](./cosmos-juno.md), [Cronos](
 CosmWasm Projects:
 
 - [Axelar](https://github.com/subquery/cosmos-subql-starter/tree/main/Axelar/axelar-starter)
-- [COMDEX](https://github.com/subquery/cosmos-subql-starter/tree/main/Comdex/comdex-starter)
-- [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter)
-- [Fetch.ai](https://github.com/subquery/cosmos-subql-starter/tree/main/Fetch.ai/fetchhub-starter)
-- [Injective](https://github.com/subquery/cosmos-subql-starter/tree/main/Injective/injective-starter)
+- [COMDEX](https://github.com/subquery/cosmos-subql-starter/tree/main/Comdex/comdex-starter) ([Quick start video](https://www.youtube.com/watch?v=uAhE4SxcbGk))
+- [CosmosHub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter) 
+- [Evmos](https://github.com/subquery/cosmos-subql-starter/tree/main/Evmos/evmos-starter) ([Quick start video](https://www.youtube.com/watch?v=tfB8hi0cHy4))
+- [Fetch.ai](https://github.com/subquery/cosmos-subql-starter/tree/main/Fetch.ai/fetchhub-starter) ([Quick start video](https://www.youtube.com/watch?v=lqU0Ivpn3Ww))
+- [Injective](https://github.com/subquery/cosmos-subql-starter/tree/main/Injective/injective-starter) ([Quick start video](https://www.youtube.com/watch?v=Z9TSJaiHS70))
 - [Juno](https://github.com/subquery/cosmos-subql-starter/tree/main/Juno/juno-starter)
-- [Kava](https://github.com/subquery/cosmos-subql-starter/tree/main/Kava/kava-starter)
-- [Osmosis](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter)
-- [Persistence](https://github.com/subquery/cosmos-subql-starter/tree/main/Persistence/persistence-starter)
+- [Kava](https://github.com/subquery/cosmos-subql-starter/tree/main/Kava/kava-starter)  ([Quick start video](https://www.youtube.com/watch?v=B9DUS0brLoI))
+- [Osmosis](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter) ([Quick start video](https://www.youtube.com/watch?v=W9nriCvgQvM))
+- [Persistence](https://github.com/subquery/cosmos-subql-starter/tree/main/Persistence/persistence-starter) ([Quick start video](https://www.youtube.com/watch?v=pgSlo41LW84))
 - [Stargaze](https://github.com/subquery/cosmos-subql-starter/tree/main/Stargaze/stargaze-starter)
 - [Thorchain](https://github.com/subquery/cosmos-subql-starter/tree/main/Thorchain/thorchain-starter)
 

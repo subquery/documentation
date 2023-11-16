@@ -18,6 +18,13 @@ In every SubQuery project, there are 3 key files to update. Let's begin updating
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Osmosis/osmosis-starter). We also offer a [pre-recorded workshop](https://www.youtube.com/watch?v=Rp4d4NbVzo4) for this sample project, simplifying the process of keeping up with it.
 :::
 
+#### Check out how to get the Cosmos Osmosis starter project running
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/W9nriCvgQvM" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
+
 ## 1. Your Project Manifest File
 
 The Project Manifest (`project.ts`) file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
