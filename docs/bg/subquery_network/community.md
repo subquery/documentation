@@ -97,3 +97,19 @@ Links
 
 - [Documentation](https://forum.subquery.network/t/indexer-toolkit/484)
 - [Github](https://github.com/web3cdnservices/subquery-indexer-toolkit)
+
+### Kepler Network Dashboard (by DappLooker)
+
+To monitor the progress and performance of the Kepler Network, DappLooker has created a dashboard that displays the following key metrics:
+- Active Indexers / Delegators: The number of Indexers and Delegators who are actively participating in the Kepler Network.
+- Weekly Indexer Stake / Delegation: The amount of kSQT that Indexers and Delegators have staked on the Kepler Network in the past week.
+- Weekly Rewards: The amount of kSQT that Indexers have earned as rewards for serving data requests on the Kepler Network in the past week.
+- Stake Distribution: The distribution of kSQT stakes between Indexers and Delegators on the Kepler Network.
+
+To make the data more accessible and user-friendly, DappLooker has also made the SubQuery Kepler data publicly available for everyone. This means that anyone can create custom dashboards tailored to their needs using the indexed data from the Kepler Network.
+
+Links
+
+- [Dashboard](https://dapplooker.com/dashboard/subquery-kepler-network-dashboard-577)
+- [Indexed Dataset](https://analytics.dapplooker.com/browse/2/schema/subquery_kepler)
+- [Announcement Article](https://blog.dapplooker.com/dapplooker-integrates-subquery-kepler-network-to-provide-analytics-and-dashboard-solution-to-web3-fb0c5aeea899)
