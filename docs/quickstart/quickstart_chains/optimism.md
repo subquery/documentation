@@ -2,7 +2,12 @@
 
 ## Goals
 
-The goal of this quick start guide is to index all claim events from the Optimism airdrop contract.
+The goal of this quick start guide is to index all claim events from the Optimism airdrop contract. Check out the video or follow the step by step instructions below.
+
+<br/>
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/lGm0wJWQQMA" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
 
 ::: warning
 Before we begin, **make sure that you have initialised your project** using the provided steps in the [Start Here](../quickstart.md) section. Please initialise an Optimism project
