@@ -1,4 +1,4 @@
-# 1. Create a New Project
+# 1. Initialise a New Project
 
 The goal of this quick start guide is to provide you with working SubQuery project in your chosen layer-1 network and a basic understanding of how SubQuery works, it should take around 10-15 minutes.
 

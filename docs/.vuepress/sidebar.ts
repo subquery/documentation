@@ -13,80 +13,202 @@ export const getSidebar = (locale: string) =>
       children: [
         `${locale}/quickstart/quickstart.md`,
         {
-          text: "2. Specific Chains",
+          text: "2. Edit your Project",
           collapsible: true,
           children: [
+            {
+              text: "EVM Networks",
+              collapsible: true,
+              children: [
+                {
+                  text: "Arbitrum",
+                  link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
+                },
+                {
+                  text: "Astar zKatana",
+                  link: `${locale}/quickstart/quickstart_chains/astar-zkatana.md`,
+                },
+                {
+                  text: "Avalanche",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Avalanche (Pangolin Rewards)",
+                      link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
+                    },
+                    {
+                      text: "Avalanche (Crabada NFTs)",
+                      link: `${locale}/quickstart/quickstart_chains/avalanche-crabada.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "Base",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Base (Mainnet)",
+                      link: `${locale}/quickstart/quickstart_chains/base.md`,
+                    },
+                    {
+                      text: "Base (Goerli Testnet)",
+                      link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "Boba",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Boba (ETH)",
+                      link: `${locale}/quickstart/quickstart_chains/boba-eth.md`,
+                    },
+                    {
+                      text: "Boba (BNB)",
+                      link: `${locale}/quickstart/quickstart_chains/boba-bnb.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "BNB Smart Chain (BSC)",
+                  collapsible: true,
+                  children: [
+                    {
+                      link: `${locale}/quickstart/quickstart_chains/bsc.md`,
+                      text: "Mobox Pools",
+                    },
+                    {
+                      link: `${locale}/quickstart/quickstart_chains/bsc-pancakeswap-v3.md`,
+                      text: "PancakeSwap",
+                    },
+                  ],
+                },
+                {
+                  text: "Celo",
+                  link: `${locale}/quickstart/quickstart_chains/celo.md`,
+                },
+                {
+                  text: "Ethereum",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Ethereum Gravatar (Simple)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                    },
+                    {
+                      text: "Ethereum BAYC (Simple)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-bayc.md`,
+                    },
+                    {
+                      text: "Ethereum Chainlink (Medium)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-chainlink.md`,
+                    },
+                    {
+                      text: "Ethereum Opensea (Medium)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-opensea.md`,
+                    },
+                    {
+                      text: "Ethereum Uniswap (Complex)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-uniswap.md`,
+                    },
+                    {
+                      text: "Ethereum ENS (Complex)",
+                      link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "Fantom",
+                  link: `${locale}/quickstart/quickstart_chains/fantom.md`,
+                },
+                {
+                  text: "Flare",
+                  link: `${locale}/quickstart/quickstart_chains/flare.md`,
+                },
+                {
+                  text: "Heco Chain",
+                  link: `${locale}/quickstart/quickstart_chains/heco.md`,
+                },
+                {
+                  text: "Gnosis",
+                  link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
+                },
+                {
+                  text: "Harmony",
+                  link: `${locale}/quickstart/quickstart_chains/harmony.md`,
+                },
+                {
+                  text: "Immutable (Testnet)",
+                  link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
+                },
+                {
+                  text: "Klaytn",
+                  link: `${locale}/quickstart/quickstart_chains/klaytn.md`,
+                },
+                {
+                  text: "Mantle",
+                  link: `${locale}/quickstart/quickstart_chains/mantle.md`,
+                },
+                {
+                  text: "Meter",
+                  link: `${locale}/quickstart/quickstart_chains/meter.md`,
+                },
+                {
+                  text: "Metis",
+                  link: `${locale}/quickstart/quickstart_chains/metis.md`,
+                },
+                {
+                  text: "Optimism",
+                  link: `${locale}/quickstart/quickstart_chains/optimism.md`,
+                },
+                {
+                  text: "Polygon",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Polygon Mainnet",
+                      link: `${locale}/quickstart/quickstart_chains/polygon.md`,
+                    },
+                    {
+                      text: "Polygon Lens",
+                      link: `${locale}/quickstart/quickstart_chains/polygon-lens.md`,
+                    },
+                    {
+                      text: "Polygon zkEVM",
+                      link: `${locale}/quickstart/quickstart_chains/polygon-zkevm.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "Scroll",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Scroll Mainnet",
+                      link: `${locale}/quickstart/quickstart_chains/scroll.md`,
+                    },
+                    {
+                      text: "Scroll Sepolia",
+                      link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
+                    },
+                  ],
+                },
+                {
+                  text: "Skale",
+                  link: `${locale}/quickstart/quickstart_chains/skale.md`,
+                },
+                {
+                  text: "ZkSync Era",
+                  link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
+                },
+              ],
+            },
             {
               text: "Algorand",
               link: `${locale}/quickstart/quickstart_chains/algorand.md`,
             },
-            {
-              text: "Arbitrum",
-              link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
-            },
-            {
-              text: "Astar zKatana",
-              link: `${locale}/quickstart/quickstart_chains/astar-zkatana.md`,
-            },
-            {
-              text: "Avalanche",
-              collapsible: true,
-              children: [
-                {
-                  text: "Avalanche (Pangolin Rewards)",
-                  link: `${locale}/quickstart/quickstart_chains/avalanche.md`,
-                },
-                {
-                  text: "Avalanche (Crabada NFTs)",
-                  link: `${locale}/quickstart/quickstart_chains/avalanche-crabada.md`,
-                },
-              ],
-            },
-            {
-              text: "Base",
-              collapsible: true,
-              children: [
-                {
-                  text: "Base (Mainnet)",
-                  link: `${locale}/quickstart/quickstart_chains/base.md`,
-                },
-                {
-                  text: "Base (Goerli Testnet)",
-                  link: `${locale}/quickstart/quickstart_chains/base-goerli.md`,
-                },
-              ],
-            },
-            {
-              text: "Boba",
-              collapsible: true,
-              children: [
-                {
-                  text: "Boba (ETH)",
-                  link: `${locale}/quickstart/quickstart_chains/boba-eth.md`,
-                },
-                {
-                  text: "Boba (BNB)",
-                  link: `${locale}/quickstart/quickstart_chains/boba-bnb.md`,
-                },
-              ],
-            },
-            {
-              text: "BNB Smart Chain (BSC)",
-              children: [
-                {
-                  link: `${locale}/quickstart/quickstart_chains/bsc.md`,
-                  text: "Mobox Pools",
-                },
-                {
-                  link: `${locale}/quickstart/quickstart_chains/bsc-pancakeswap-v3.md`,
-                  text: "PancakeSwap",
-                },
-              ],
-            },
-            {
-              text: "Celo",
-              link: `${locale}/quickstart/quickstart_chains/celo.md`,
-            },
+
             {
               text: "Concordium",
               link: `${locale}/quickstart/quickstart_chains/concordium.md`,
@@ -138,74 +260,26 @@ export const getSidebar = (locale: string) =>
               ],
             },
             {
-              text: "Ethereum",
+              text: "Multi-Chain",
               collapsible: true,
               children: [
                 {
-                  text: "Ethereum Gravatar (Simple)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-gravatar.md`,
+                  text: "Galxe NFTs",
+                  link: `${locale}/quickstart/quickstart_multichain/galxe-nft.md`,
                 },
                 {
-                  text: "Ethereum BAYC (Simple)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-bayc.md`,
+                  text: "Polygon Plasma Bridge",
+                  link: `${locale}/quickstart/quickstart_multichain/polygon-plasma-bridge.md`,
                 },
                 {
-                  text: "Ethereum Chainlink (Medium)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-chainlink.md`,
+                  text: "Snapshot",
+                  link: `${locale}/quickstart/quickstart_multichain/snapshot.md`,
                 },
                 {
-                  text: "Ethereum Opensea (Medium)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-opensea.md`,
-                },
-                {
-                  text: "Ethereum Uniswap (Complex)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-uniswap.md`,
-                },
-                {
-                  text: "Ethereum ENS (Complex)",
-                  link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
+                  text: "Safe",
+                  link: `${locale}/quickstart/quickstart_multichain/safe.md`,
                 },
               ],
-            },
-            {
-              text: "Fantom",
-              link: `${locale}/quickstart/quickstart_chains/fantom.md`,
-            },
-            {
-              text: "Flare",
-              link: `${locale}/quickstart/quickstart_chains/flare.md`,
-            },
-            {
-              text: "Heco Chain",
-              link: `${locale}/quickstart/quickstart_chains/heco.md`,
-            },
-            {
-              text: "Gnosis",
-              link: `${locale}/quickstart/quickstart_chains/gnosis.md`,
-            },
-            {
-              text: "Harmony",
-              link: `${locale}/quickstart/quickstart_chains/harmony.md`,
-            },
-            {
-              text: "Immutable (Testnet)",
-              link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
-            },
-            {
-              text: "Klaytn",
-              link: `${locale}/quickstart/quickstart_chains/klaytn.md`,
-            },
-            {
-              text: "Mantle",
-              link: `${locale}/quickstart/quickstart_chains/mantle.md`,
-            },
-            {
-              text: "Meter",
-              link: `${locale}/quickstart/quickstart_chains/meter.md`,
-            },
-            {
-              text: "Metis",
-              link: `${locale}/quickstart/quickstart_chains/metis.md`,
             },
             {
               text: "NEAR",
@@ -221,10 +295,7 @@ export const getSidebar = (locale: string) =>
                 },
               ],
             },
-            {
-              text: "Optimism",
-              link: `${locale}/quickstart/quickstart_chains/optimism.md`,
-            },
+
             {
               text: "Polkadot/Substrate",
               collapsible: true,
@@ -256,70 +327,8 @@ export const getSidebar = (locale: string) =>
               ],
             },
             {
-              text: "Polygon",
-              collapsible: true,
-              children: [
-                {
-                  text: "Polygon Mainnet",
-                  link: `${locale}/quickstart/quickstart_chains/polygon.md`,
-                },
-                {
-                  text: "Polygon Lens",
-                  link: `${locale}/quickstart/quickstart_chains/polygon-lens.md`,
-                },
-                {
-                  text: "Polygon zkEVM",
-                  link: `${locale}/quickstart/quickstart_chains/polygon-zkevm.md`,
-                },
-              ],
-            },
-            {
-              text: "Scroll",
-              collapsible: true,
-              children: [
-                {
-                  text: "Scroll Mainnet",
-                  link: `${locale}/quickstart/quickstart_chains/scroll.md`,
-                },
-                {
-                  text: "Scroll Sepolia",
-                  link: `${locale}/quickstart/quickstart_chains/scroll-sepolia.md`,
-                },
-              ],
-            },
-            {
-              text: "Skale",
-              link: `${locale}/quickstart/quickstart_chains/skale.md`,
-            },
-            {
               text: "Stellar & Soroban",
               link: `${locale}/quickstart/quickstart_chains/stellar.md`,
-            },
-            {
-              text: "ZkSync Era",
-              link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
-            },
-          ],
-        },
-        {
-          text: "3. Multi-Chain",
-          collapsible: true,
-          children: [
-            {
-              text: "Galxe NFTs",
-              link: `${locale}/quickstart/quickstart_multichain/galxe-nft.md`,
-            },
-            {
-              text: "Polygon Plasma Bridge",
-              link: `${locale}/quickstart/quickstart_multichain/polygon-plasma-bridge.md`,
-            },
-            {
-              text: "Snapshot",
-              link: `${locale}/quickstart/quickstart_multichain/snapshot.md`,
-            },
-            {
-              text: "Safe",
-              link: `${locale}/quickstart/quickstart_multichain/safe.md`,
             },
           ],
         },
