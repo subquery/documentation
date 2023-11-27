@@ -1,4 +1,4 @@
-# 4. Tiếp theo là gì?
+# 3. Tiếp theo là gì?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
