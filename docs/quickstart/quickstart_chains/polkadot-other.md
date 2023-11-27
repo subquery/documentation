@@ -1,52 +1,6 @@
 # Other Supported Polkadot/Substrate Chains
 
-Although we only list quick start guides for [Polkadot](./polkadot.md), [Astar](./polkadot-astar.md), and [Humanode](./polkadot-humanode.md) - SubQuery has been tested to support all the following Polkadot parachains and standalone Substrate chains and you can quickly initialise a new project in any of them using the `subql init` command:
-
-- [Acala](https://github.com/subquery/subql-starter/tree/main/Acala)
-- [Ajuna](https://github.com/subquery/subql-starter/tree/main/Ajuna/ajuna-starter)
-- [Altair](https://github.com/subquery/subql-starter/tree/main/Altair/altair-starter)
-- [Astar](https://github.com/subquery/subql-starter/tree/main/Astar)
-- [Automata](https://github.com/subquery/subql-starter/tree/main/Automata/automata-starter)
-- [Basilisk](https://github.com/subquery/subql-starter/tree/main/Basilisk/basilisk-starter)
-- [Bifrost](https://github.com/subquery/subql-starter/tree/main/Bifrost/bifrost-starter)
-- [Bitcountry](https://github.com/subquery/subql-starter/tree/main/Bitcountry/bitcountry-starter)
-- [Bitgreen](https://github.com/subquery/subql-starter/tree/main/Bitgreen/bitgreen-starter)
-- [Calamari](https://github.com/subquery/subql-starter/tree/main/Calamari/calamari-starter)
-- [Centrifuge](https://github.com/subquery/subql-starter/tree/main/Centrifuge/centrifuge-starter)
-- [Clover](https://github.com/subquery/subql-starter/tree/main/Clover/clover-starter)
-- [Composable](https://github.com/subquery/subql-starter/tree/main/ComposableFinance/composable-finance-starter)
-- [ContextFree](https://github.com/subquery/subql-starter/tree/main/Contextfree/contextfree-starter)
-- [Darwinia](https://github.com/subquery/subql-starter/tree/main/Darwinia/darwinia-starter)
-- [Efinity](https://github.com/subquery/subql-starter/tree/main/Efinity/efinity-starter)
-- [Encointer](https://github.com/subquery/subql-starter/tree/main/Encointer/Encointer-starter)
-- [Equilibrium](https://github.com/subquery/subql-starter/tree/main/Equilibrium/equilibrium-starter)
-- [Frequency](https://github.com/subquery/subql-starter/tree/main/Frequency/frequency-starter)
-- [Hashed](https://github.com/subquery/subql-starter/tree/main/HashedNetwork/hashed-network-starter)
-- [Humanode](https://github.com/subquery/subql-starter/tree/main/Humanode/Humanode-starter)
-- [HydraDX](https://github.com/subquery/subql-starter/tree/main/HydraDX/hydradx-starter)
-- [Integritee](https://github.com/subquery/subql-starter/tree/main/IntegriteeShell/integritee-shell-starter)
-- [Interlay](https://github.com/subquery/subql-starter/tree/main/Interlay/interlay-starter)
-- [Kapex](https://github.com/subquery/subql-starter/tree/main/Kapex/kapex-starter)
-- [Karura](https://github.com/subquery/subql-starter/tree/main/Karura)
-- [Khala](https://github.com/subquery/subql-starter/tree/main/Khala/khala-starter)
-- [KILT](https://github.com/subquery/subql-starter/tree/main/Kilt/kilt-spiritnet-starter)
-- [Kusama](https://github.com/subquery/subql-starter/tree/main/Kusama/kusama-starter)
-- [Kylin](https://github.com/subquery/subql-starter/tree/main/Kylin/kylin-starter)
-- [Moonbeam](https://github.com/subquery/subql-starter/tree/main/Moonbeam)
-- [Moonriver](https://github.com/subquery/subql-starter/tree/main/Moonriver)
-- [Nodle](https://github.com/subquery/subql-starter/tree/main/Nodle/nodle-starter)
-- [Origin Trail](https://github.com/subquery/subql-starter/tree/main/OriginTrail/origintrail-starter)
-- [Parallel](https://github.com/subquery/subql-starter/tree/main/Parallel)
-- [Polkadex](https://github.com/subquery/subql-starter/tree/main/Polkadex/polkadex-starter)
-- [Polkadot](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter)
-- [Quartz](https://github.com/subquery/subql-starter/tree/main/Quartz/quartz-subql-starter)
-- [Shiden](https://github.com/subquery/subql-starter/tree/main/Shiden/shiden-starter)
-- [Statemine](https://github.com/subquery/subql-starter/tree/main/Statemine/statemine-starter)
-- [Statemint](https://github.com/subquery/subql-starter/tree/main/Statemint/statemint-starter)
-- [Unique](https://github.com/subquery/subql-starter/tree/main/Unique/unique-starter)
-- [Vara](https://github.com/subquery/subql-starter/tree/main/Vara/vara-starter)
-- [Watr](https://github.com/subquery/subql-starter/tree/main/Watr/watr-starter)
-- [Westend](https://github.com/subquery/subql-starter/tree/main/Westend/westend-starter)
+Although we only list quick start guides for select Polkadot networks - SubQuery has been tested to support most Polkadot parachains and standalone Substrate chains and you can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `subql init` command.
 
 View the full list of tested projects in [the subql-starter repository](https://github.com/subquery/subql-starter).
 
@@ -88,7 +42,7 @@ Update the README file with a description and a sample GraphQL query of your pro
 
 **4. Contribute back to our starter projects**
 
-Please contribute your new chain back to our starter projects by making a PR back to [https://github.com/subquery/subql-starter](https://github.com/subquery/subql-starter).
+Please contribute your new chain back to our example projects by making a PR back to [https://github.com/subquery/subql-starter](https://github.com/subquery/subql-starter).
 
 We really appreciate it, and will absolutely give you a shout out for your effort on social media to our community!
 

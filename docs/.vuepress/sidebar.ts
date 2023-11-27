@@ -202,6 +202,10 @@ export const getSidebar = (locale: string) =>
                   text: "ZkSync Era",
                   link: `${locale}/quickstart/quickstart_chains/zksync-era.md`,
                 },
+                {
+                  text: "And more EVM networks",
+                  link: `${locale}/quickstart/quickstart_chains/evm.md`,
+                },
               ],
             },
             {
