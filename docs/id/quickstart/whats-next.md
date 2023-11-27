@@ -1,4 +1,4 @@
-# 4. Apa berikutnya?
+# 3. Apa berikutnya?
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
