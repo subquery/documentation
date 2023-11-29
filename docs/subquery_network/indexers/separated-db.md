@@ -12,8 +12,6 @@ To setup the database, you can choose one of the following options:
 
 ### Choice 1: Install PostgreSQL With Docker Compose
 
-#### Database Setup
-
 - Create a `docker-compose.yml` file with the following content:
 
 ```bash
