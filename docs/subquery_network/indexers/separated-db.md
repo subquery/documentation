@@ -8,7 +8,19 @@ If you want to use a separated database for the Indexing service, you can follow
 
 ## Setup Database
 
-### Install PostgreSQL With Docker Compose
+### Choice 1: Setup PostgreSQL From An External Service
+
+To set up PostgreSQL from an external service, you need to follow these steps:
+
+1. **Create a PostgreSQL Database on the External Service**: Sign up and create a new PostgreSQL database on your chosen external service. Some popular options include Amazon RDS, Google Cloud SQL, and Heroku Postgres.
+
+2. **Configure Database Settings**: Configure the database settings as per your requirements. This usually includes setting the username, password, database name, and other connection parameters.
+
+3. **Get the Connection Credentials**: Get the connection credentials for your database. This usually includes the database host, port, username, password, and database name.
+
+### Choice 2: Install PostgreSQL With Docker Compose
+
+#### Database Setup
 
 - Create a `docker-compose.yml` file with the following content:
 
@@ -39,7 +51,7 @@ services:
 docker compose up -d
 ```
 
-### Datebase Safety
+#### Datebase Safety
 
 Install and setup your firewall to only allow connections from the IP address of the machine running the Indexing service.
 
@@ -76,7 +88,10 @@ chmod +x ipfs/ipfs.sh
 
 # 2. update the following fields in coordinator section
 - --postgres-host=<replace with your database host>
+- --postgres-port=<replace with your database port>
+- --postgres-username=<replace with your database username>
 - --postgres-password=<replace with your database password>
+- --postgres-database=<replace with your database name>
 ```
 
 ### Step 3 - Start the Indexing Service
