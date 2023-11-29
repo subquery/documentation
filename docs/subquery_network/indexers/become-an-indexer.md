@@ -104,7 +104,7 @@ Navigate to the directory where your `docker-compose.yml` file is located (this 
 ```bash
 cd indexer-services-folder
 # Note the next step will overwrite your existing docker-compose.yml, make sure you have a backup
-curl -L https://api.github.com/repos/subquery/indexer-services/tarball/kepler | tar -xzf - --strip-components=1 -C .
+mkdir network-indexer-services-temp && curl -L https://api.github.com/repos/subquery/network-indexer-services/tarball/main | tar -xzf - --strip-components=1 -C ./network-indexer-services-temp && rm -rf ./ipfs ./metrics && mv ./network-indexer-services-temp/deploy/* . && rm -rf ./network-indexer-services-temp
 ```
 
 This will generate a folder named `metrics` containing all the necessary setup files for your Dashboard.
