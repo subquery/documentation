@@ -18,9 +18,7 @@ In this Uniswap indexing project, our main focus is on configuring the indexer t
 
 To gain a deeper understanding of how these core mechanisms work, you can refer to the official [Uniswap documentation](https://docs.uniswap.org/contracts/v3/reference/deployments).
 
-::: warning Important
-We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The Ethereum Uniswap project is a lot more complicated and introduces some more advanced concepts
-:::
+<!-- @include: ./snippets/gravatar_note.md -->
 
 In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for **UniswapV3Factory** at the bottom of [this page](https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract, as described in sections [1](#1-configuring-the-manifest-file), [2](#1-configuring-the-manifest-file-1), and [3](#1configuring-the-manifest-file).
 

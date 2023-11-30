@@ -4,9 +4,7 @@
 
 This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all ENS Records in the ENS registry
 
-::: warning
-We suggest starting with the Ethereum Gravatar example. The ENS project is a lot more complicated and introduces some more advanced concepts
-:::
+<!-- @include: ./snippets/gravatar_note.md -->
 
 Now, let's move forward and fork the example code for this project from [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens)
 
