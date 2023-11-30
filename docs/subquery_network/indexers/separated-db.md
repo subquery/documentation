@@ -8,36 +8,16 @@ If you want to use a separated database for the Indexing service, you can follow
 
 ## Setup Database
 
-### Install PostgreSQL With Docker Compose
+To setup the database, you can choose one of the following options:
 
-- Create a `docker-compose.yml` file with the following content:
+### Setup PostgreSQL From An Existing Database Service
 
-```bash
-version: '3'
-
-services:
-  postgres:
-    image: postgres:16-alpine
-    container_name: indexer_db
-    restart: always
-    ports:
-      - 5432:5432
-    volumes:
-      - .data/postgres:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: <replace with you own password>
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
-      interval: 5s
-      timeout: 5s
-      retries: 5
-```
-
-- Run the following command to start the PostgreSQL service:
-
-```bash
-docker compose up -d
-```
+- Make sure you have a PostgreSQL database service running.
+- Create a database for the Indexing service.
+- Create a user for the Indexing service.
+- Grant the user access to the database, and permission to create databases.
+- Get the credentials of the database, including the host, port, username, password, and database name.
+- Make sure the database is accessible from the machine running the Indexing service.
 
 ### Datebase Safety
 
@@ -76,7 +56,10 @@ chmod +x ipfs/ipfs.sh
 
 # 2. update the following fields in coordinator section
 - --postgres-host=<replace with your database host>
+- --postgres-port=<replace with your database port>
+- --postgres-username=<replace with your database username>
 - --postgres-password=<replace with your database password>
+- --postgres-database=<replace with your database name>
 ```
 
 ### Step 3 - Start the Indexing Service
