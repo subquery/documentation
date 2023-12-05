@@ -297,6 +297,10 @@ export const getSidebar = (locale: string) =>
                   text: "Aurora (EVM)",
                   link: `${locale}/quickstart/quickstart_chains/near-aurora.md`,
                 },
+                {
+                  text: "Ref Finance",
+                  link: `${locale}/quickstart/quickstart_chains/near-ref-finance.md`,
+                },
               ],
             },
 
