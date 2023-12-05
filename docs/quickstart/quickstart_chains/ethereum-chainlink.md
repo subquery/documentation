@@ -18,9 +18,11 @@ In this ChainLink indexing project, our primary focus centers on configuring the
 
 For a more comprehensive understanding of how these fundamental mechanisms operate, you can consult the official [Chainlink documentation](https://docs.chain.link/data-feeds/feed-registry).
 
-<!-- @include: ./snippets/ethereum-gravatar.md -->
+<!-- @include: ./snippets/gravatar-note.md -->
 
-In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for **ChainlinkFeedRegistry** at the bottom of [this page](https://etherscan.io/address/0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+<!-- @include: ./snippets/quickstart-reference.md -->
+
+For instance, you can locate the ABI for **ChainlinkFeedRegistry** at the bottom of [this page](https://etherscan.io/address/0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 The code snippets provided further have been simplified for clarity. You can find the full and detailed code [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-chainlink) to see all the intricate details.
@@ -72,9 +74,7 @@ In plain language, you only need to set up one handler to index a specific type 
 }
 ```
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
-:::
+<!-- @include: ./snippets/evm-manifest-note.md -->
 
 #### 2. Updating the GraphQL Schema File
 
@@ -100,28 +100,9 @@ type DataFeed @entity {
 
 As you look into these features, you'll see that there's only one connection mentioned, which is in the `prices` part, and it links to another thing called `DataPoint`. We'll talk about this entity in the [next section](#data-feed-aggregator-contracts).
 
-::: tip Note
-Importantly, these relationships not only establish one-to-many connections but also extend to include many-to-many associations. To delve deeper into entity relationships, you can refer to [this section](../../build/graphql.md#entity-relationships). If you prefer a more example-based approach, our dedicated [Hero Course Module](../../academy/herocourse/module3.md) can provide further insights.
-:::
+<!-- @include: ./snippets/note-on-entity-relationships.md -->
 
-SubQuery simplifies and ensures type-safety when working with GraphQL entities, smart contracts, events, transactions, and logs. The SubQuery CLI will generate types based on your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This action will generate a new directory (or update the existing one) named `src/types`. Inside this directory, you will find automatically generated entity classes corresponding to each type defined in your `schema.graphql`. These classes facilitate type-safe operations for loading, reading, and writing entity fields. You can learn more about this process in [the GraphQL Schema section](../../build/graphql.md).
+<!-- @include: ./snippets/evm-codegen.md -->
 
 You can conveniently import all these entities from the following directory:
 
@@ -139,11 +120,7 @@ import { FeedConfirmedEvent } from "./types/contracts/FeedRegistry";
 
 #### 3. Writing the Mappings
 
-Mapping functions define how blockchain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
-
-::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
-:::
+<!-- @include: ./snippets/evm-mapping-intro.md -->
 
 Writing mappings for this smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `feed-registry.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
 
@@ -189,7 +166,7 @@ Explaining the code provided above, the `handleFeedConfirmed` function accepts a
 
 It first retrieves the previous data feed using the address provided in the event. Then, it checks if the previous data feed is null (meaning it doesn't exist) or if the latest aggregator address in the event is not a zero address. If either condition is true, it creates a new data feed with various attributes and saves it to the database. If the previous data feed exists and the latest aggregator address is not a zero address, it updates the live status of the previous data feed and, if it's set to false, records the deprecation time.
 
-🎉 Now, you've effectively developed the handling logic for the data feed registry smart contract and populated queryable entity `DataFeed`. This means you're ready to move on to the [construction phase](#build-your-project) to test the indexer's functionality thus far.
+🎉 Now, you've effectively developed the handling logic for the data feed registry smart contract and populated queryable entity `DataFeed`. This means you're ready to move on to the [build phase](#build-your-project) to test the indexer's functionality thus far.
 
 ### Data Feed Aggregator Contracts
 
@@ -249,24 +226,7 @@ type DataPoint @entity {
 
 In addition to the core attributes, we can observe the connection to the entity established in the [previous step](#chainlinkfeedregistry), which is `DataFeed`. As evident, there exists only one data feed for each data point, while multiple data points are associated with a single data feed.
 
-Now, the next step involves instructing the SubQuery CLI to generate types based on your project's updated GraphQL schema:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This will create update the existing `src/types` directory. All new entites can now be imported from the following directory:
+<!-- @include: ./snippets/evm-codegen.md -->
 
 ```ts
 import { AnswerUpdatedEvent } from "./types/contracts/AccessControlledOffchainAggregator";
@@ -351,69 +311,15 @@ Check the final code repository [here](https://github.com/subquery/ethereum-subq
 
 ## Build Your Project
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
+<!-- @include: ./snippets/build.md -->
 
 ## Run Your Project Locally with Docker
 
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
+<!-- @include: ./snippets/run-locally.md -->
 
 ## Query your Project
 
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ./snippets/query-intro.md -->
 
 ::: details Query `dataFeeds`
 
@@ -591,10 +497,4 @@ If you take the value listed under `price` and divide it by 10 to the power of t
 
 Congratulations! You have now a locally running SubQuery project that indexes the major Chainlink Data Feeds entities and accepts GraphQL API requests for transferring data.
 
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ./snippets/whats-next.md -->
