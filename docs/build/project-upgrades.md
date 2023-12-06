@@ -30,3 +30,34 @@ When defining a project upgrade, you clone the project manifest (project.ts), an
 
 - In order for this feature to work you need to have [automated historical state tracking](../run_publish/historical.md) enabled in case the project needs to rewind to a block where the upgrade happens.
 - If you're running the project yourself you need to specify the `--db-schema` flag otherwise they will default to the CID or directory name.
+
+## Schema Migrations (beta)
+
+`schema-migration` allows you to make updates to your schema, it will work with the project upgrade feature.
+When project upgrade is executed, it will compare your current schema with the following schema(the one you are upgrading too), and these changes will be reflected in your database.
+If you decide to run from a previous project, it will rewind your schema.
+
+#### Requirements (extending ProjectUpgrades)
+- To enable this feature, ensure `--allow-schema-migration` flag is passed when running your project.
+- `--unfinalizedBlocks` must be disabled
+
+### Limitations
+#### Supported features
+- Adding new `entities`
+- Removing `entities`
+- Adding new `fields` (Only `nullable` fields are supported)
+- Removing `fields` (Primary keys `ID` is not supported)
+- Index creation and removal
+- Updating existing `fields`
+  - You will not be able to update non-nullable `field` to nullable
+  - How it works:
+    - When `field` update is detected, original `field` column will be dropped (along side all data on that column), and a new column will be created with the new `field` types.
+
+#### UnSupported features
+- Only supports `postgreSQL`
+- New relations
+- Enum creation and removal
+- Migration is not support if `unfinalizedBlocks` is enabled
+- Subscription is currently not supported
+
+This is still currently a beta feature.
