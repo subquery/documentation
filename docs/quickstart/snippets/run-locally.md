@@ -4,7 +4,7 @@ Whenever you create a new SubQuery Project, first, you must run it locally on yo
 
 The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
 
-However, visit the [Running SubQuery Locally](../../../run_publish/run.md) to get more information on the file and the settings.
+However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
 
 Run the following command under the project directory:
 
