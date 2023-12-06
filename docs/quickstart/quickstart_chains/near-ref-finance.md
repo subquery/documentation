@@ -4,15 +4,15 @@
 
 The objective of this project is to catalog the `swap` actions performed by the `v2.ref-finance.near` contract on the NEAR mainnet. It serves as an excellent opportunity to gain practical experience in understanding Graph's functionality through a real-world example.
 
-<!-- @include: ./snippets/quickstart-reference.md -->
+<!-- @include: ../snippets/quickstart-reference.md -->
 
-<!-- @include: ./snippets/near-quickstart-reference.md -->
+<!-- @include: ../snippets/near-quickstart-reference.md -->
 
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-ref-finance).
 :::
 
-<!-- @include: ./snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro.md -->
 
 ::: code-tabs
 @tab:active `schema.graphql`
@@ -38,13 +38,13 @@ type Pool @entity {
 
 The schema include `Swap` entity with a unique identifier, associated with a specific `Pool` and involve two tokens (`firstToken` and `secondToken`). The `Token` type represents a generic token with a unique identifier, and the `Pool` type represents a pool with a unique identifier.
 
-<!-- @include: ./snippets/note-on-entity-relationships.md -->
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-<!-- @include: ./snippets/near-codegen.md -->
+<!-- @include: ../snippets/near-codegen.md -->
 
 ## 2. Update Your Project Manifest File
 
-<!-- @include: ./snippets/manifest-near-intro.md -->
+<!-- @include: ../snippets/manifest-near-intro.md -->
 
 We are indexing all actions with a method name equal to `swap` and the `v2.ref-finance.near` contract as the recipient.
 
@@ -84,7 +84,7 @@ Check out our [Manifest File](../../build/manifest/near.md) documentation to get
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
-<!-- @include: ./snippets/mapping-near-intro.md -->
+<!-- @include: ../snippets/mapping-near-intro.md -->
 
 The `handleAction` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process the relevant transaction action, and save them to the GraphQL entities created earlier.
 
@@ -149,11 +149,11 @@ The `handleAction` function processes a Near Protocol action, specifically relat
 
 The `getOrCreateToken` and `getOrCreatePool` functions are used to retrieve existing tokens/pools or create new ones if they don't exist. These functions are utility functions used by `handleAction`.
 
-<!-- @include: ./snippets/build.md -->
+<!-- @include: ../snippets/build.md -->
 
-<!-- @include: ./snippets/run-locally.md -->
+<!-- @include: ../snippets/run-locally.md -->
 
-<!-- @include: ./snippets/query-intro.md -->
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 {
@@ -215,4 +215,4 @@ You will see the result similar to below:
 The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-ref-finance).
 :::
 
-<!-- @include: ./snippets/whats-next.md -->
+<!-- @include: ../snippets/whats-next.md -->
