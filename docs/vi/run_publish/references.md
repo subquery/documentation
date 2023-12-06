@@ -32,6 +32,10 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 **Boolean** - This shows all the current command options for your current version of `subql-node`.
 
+### --allow-schema-migration
+
+**boolean** - This allows SubQuery to perform automated schema migrations on project upgrades, [see Project Upgrades and Schema Migrations](../build/project-upgrades.md#schema-migrations).
+
 ### --batch-size
 
 **Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. This setting is overridden on the Managed service to `30`.
@@ -76,7 +80,7 @@ subql-node -f . --db-schema=test2
 
 ### --debug
 
-**String** - Enable debug logging for specific scopes, this will override log-level. "*" will enable debug everywhere, or comma separated strings for specific scopes. e.g. "SQL,dictionary". To disable specific scopes you can prefix them with '-'. e.g. "*,-SQL"
+**String** - Enable debug logging for specific scopes, this will override log-level. `"*"` will enable debug everywhere, or comma separated strings for specific scopes. e.g. `"SQL,dictionary"`. To disable specific scopes you can prefix them with `"-"`. e.g. `"*,-SQL"`
 
 ```shell
 > subql-node -f . --debug="*"
