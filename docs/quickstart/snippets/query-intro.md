@@ -1,4 +1,4 @@
-## 6. Query your Project
+## Query your Project
 
 Next, let's query our project. Follow these three simple steps to query your SubQuery project:
 

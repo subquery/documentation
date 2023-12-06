@@ -283,6 +283,10 @@ export const getSidebar = (locale: string) =>
                   text: "Safe",
                   link: `${locale}/quickstart/quickstart_multichain/safe.md`,
                 },
+                {
+                  text: "IBC transfers",
+                  link: `${locale}/quickstart/quickstart_multichain/ibc-transfers.md`,
+                },
               ],
             },
             {
