@@ -1,0 +1,1 @@
+In the earlier [Quickstart](../../quickstart.md) section , you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialisation description](../../quickstart.md#2-initialise-a-new-subquery-project).
