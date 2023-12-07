@@ -1,6 +1,6 @@
 # Multichain Quick Start - IBC Transfers
 
-This tutorial provides a comprehensive guide on establishing a multi-chain indexer for indexing Inter-Blockchain Communication (IBC) activities among Cosmos Zones. The tutorial demonstrates the integration of bi-directional transfers between Osmosis and Cosmoshub, while also highlighting the flexibility to effortlessly include additional chains.
+This tutorial provides a comprehensive guide on establishing a multi-chain indexer for indexing Inter-Blockchain Communication (IBC) activities among Cosmos Zones. The tutorial demonstrates the integration of bi-directional transfers between Osmosis and Cosmos Hub, while also highlighting the flexibility to effortlessly include additional chains.
 
 Upon completing this guide, you will gain insights into effectively correlating event data across multiple networks. Furthermore, you'll acquire the knowledge to configure a SubQuery indexer, enabling the monitoring, tracking, and aggregation of events from various Cosmos blockchains within a unified entity.
 
@@ -63,7 +63,7 @@ projects:
 
 :::
 
-Now, we have to indicate that we want to handle the same data from Cosmoshub, which data will be matched with Osmosis's smart contract data. The manifest file for Cosmoshub will have the following look:
+Now, we have to indicate that we want to handle the same data from Cosmos Hub, which data will be matched with Osmosis's smart contract data. The manifest file for Cosmos Hub will have the following look:
 
 ::: code-tabs
 
