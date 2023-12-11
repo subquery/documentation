@@ -4,7 +4,7 @@ This tutorial provides a comprehensive guide on establishing a multi-chain index
 
 Upon completing this guide, you will gain insights into effectively correlating event data across multiple networks. Furthermore, you'll acquire the knowledge to configure a SubQuery indexer, enabling the monitoring, tracking, and aggregation of events from various Cosmos blockchains within a unified entity.
 
-<!-- @include: ../snippets/multi-chain-cosmos-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-cosmos-quickstart-reference.md -->
 
 <!-- @include: ../snippets/cosmos-quickstart-reference.md -->
 
@@ -12,7 +12,7 @@ Upon completing this guide, you will gain insights into effectively correlating 
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Multi-Chain/osmosis-cosmos-bridge).
 :::
 
-<!-- @include: ../snippets/multi-chain-manifest-cosmos-intro.md -->
+<!-- @include: ./snippets/multi-chain-manifest-cosmos-intro.md -->
 
 Beginning with Osmosis, the manifest file for this will be as follows:
 
@@ -45,7 +45,7 @@ dataSources:
 
 As evident, we are in search of two types of events – namely, `send_packet` and `recv_packet` – representing outgoing and incoming transfers, respectively. The information from these logs will subsequently undergo comparison with the data emitted on the opposite end of the transfer.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -117,7 +117,7 @@ The primary event is the `BridgeEvent`, which contains information about the exe
 
 <!-- @include: ../snippets/cosmos-codegen.md -->
 
-<!-- @include: ../snippets/mapping-cosmos-intro.md -->
+<!-- @include: ../snippets/cosmos-mapping-intro.md -->
 
 ::: code-tabs
 @tab:active `mappingHandlers.ts`
