@@ -20,7 +20,7 @@ Finally, interested parties should be prepared to invest time in maintaining the
 
 ### Staking requirements
 
-Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](../design/design-philosophy.md) that this be as low and as accessible as possible.
+Indexers are expected to stake and maintain a minimum amount of tokens. This is to ensure that Indexers have some skin in the game and are committed to supporting the network. SubQuery is yet to determine this but it is one of our [design philosophies](../../design/design-philosophy.md) that this be as low and as accessible as possible.
 
 Should an Indexer experience a slashable event and their staked SQT balance fall below the minimum required, they will have to top up their staked SQT in order to continue to earn rewards from their work.
 

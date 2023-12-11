@@ -34,7 +34,7 @@ chmod +x ipfs/ipfs.sh
 ```
 
 ::: warning Important
-DO NOT skip checking the indexer version after you finish the installation process. Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) to check the latest indexer version is used and to to complete the set up process.
+DO NOT skip checking the indexer version after you finish the installation process. Visit [this section](./become-an-indexer.md#_2-1-check-indexer-version) to check the latest indexer version is used and to to complete the set up process.
 
 Also, please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field in the docker-compose.yml file.
 :::
@@ -78,7 +78,7 @@ Open `http://localhost:8000/` in your browser to view the Indexer App.
 We highly recommend setting up SSL on your new server. [Follow the guide here](./indexer-security-guide.md#ssl-certificate-configuration).
 
 :::tip Tip
-Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
+Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](./troubleshooting-indexers.md).
 
 If you want to use a separated database for the Indexing service, you can follow [this guide](./separated-db.md) to set up the database and install the Indexing service.
 :::
