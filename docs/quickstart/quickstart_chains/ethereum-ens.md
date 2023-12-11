@@ -4,7 +4,7 @@
 
 This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all ENS Records in the ENS registry
 
-<!-- @include: ./snippets/gravatar_note.md -->
+<!-- @include: ./snippets/ethereum-gravatar.md -->
 
 Now, let's move forward and fork the example code for this project from [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens)
 

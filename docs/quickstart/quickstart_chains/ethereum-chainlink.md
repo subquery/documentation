@@ -18,7 +18,7 @@ In this ChainLink indexing project, our primary focus centers on configuring the
 
 For a more comprehensive understanding of how these fundamental mechanisms operate, you can consult the official [Chainlink documentation](https://docs.chain.link/data-feeds/feed-registry).
 
-<!-- @include: ./snippets/gravatar_note.md -->
+<!-- @include: ./snippets/ethereum-gravatar.md -->
 
 In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for **ChainlinkFeedRegistry** at the bottom of [this page](https://etherscan.io/address/0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
