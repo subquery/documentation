@@ -465,6 +465,10 @@ export const getSidebar = (locale: string) =>
           collapsible: true,
           children: [
             {
+              text: "Introduction to Node Operators",
+              link: `${locale}/subquery_network/node_operators/introduction.md`,
+            },
+            {
               text: "Data Indexers",
               link: `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               collapsible: true,
