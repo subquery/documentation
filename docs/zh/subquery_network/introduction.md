@@ -10,9 +10,11 @@ The SubQuery Network is facilitating an open web3 data revolution by allowing yo
 
 **Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](./consumers/introduction.md).
 
-**Indexers** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Indexers](./node_operators/indexers/introduction.md).
+**RPC Providers (a Node Operator)** run the optimised SubQuery Data Node and are rewarded in SQT for providing reliable, scalable, and affordable RPC services to the network. Learn more about [RPC Providers](./node_operators/rpc_providers/introduction.md)
 
-**Delegators** will participate in the Network by supporting their favourite Indexers to earn rewards based on the work those indexers do. Learn more about [Delegators](./delegators/introduction.md).
+**Data Indexers (a Node Operator)** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Data Indexers](./node_operators/indexers/introduction.md).
+
+**Delegators** will participate in the Network by supporting their favourite Node Operators to earn rewards based on the work those Node Operators do. Learn more about [Delegators](./delegators/introduction.md).
 
 ## SubQuery Kepler Network
 
