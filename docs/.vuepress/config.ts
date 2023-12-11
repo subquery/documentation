@@ -213,7 +213,9 @@ export default defineUserConfig({
           // only check links in dev mode
           status: "dev",
         },
-        include: true,
+        include: {
+          deep: true,
+        },
       },
 
       pwa: {
