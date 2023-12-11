@@ -26,7 +26,7 @@ There are plenty of online guies on how to launch a compute engine on various cl
 DO NOT skip checking the Indexer Version after you finish the SSH process.
 :::
 
-- Visit [this section](../indexers/become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
+- Visit [this section](./become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
 
 ::: warning Important
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
@@ -167,5 +167,5 @@ Add space limit to journald by set up `SystemMaxUse` and `RuntimeMaxUse`
 We highly recommend setting up SSL on your new server. [Follow the guide here](./indexer-security-guide.md#ssl-certificate-configuration).
 
 ::: tip Tip
-Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](../indexers/troubleshooting-indexers.md).
+Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](./troubleshooting-indexers.md).
 :::

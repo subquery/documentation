@@ -6,7 +6,7 @@ Please note that everything below is still subject to change.
 
 Total Supply: The total supply will be 10 Billion SQT tokens.
 
-Inflation: The inflation is expected to be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Indexers during the early launch phase where Consumers numbers will still be growing.
+Inflation: The inflation is expected to be ~2% per annum. This will be used to help the SubQuery Foundation bootstrap the network by supporting Node Operators during the early launch phase where Consumers numbers will still be growing.
 
 ![token allocation](/assets/img/network/token_allocation.png)
 

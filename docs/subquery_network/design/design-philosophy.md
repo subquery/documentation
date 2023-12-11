@@ -1,6 +1,6 @@
 # Design Philosophy of the SubQuery Network
 
-The guiding principle of the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Indexers, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
+The guiding principle of the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Node Operators, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
 
 ## Multi-Chain by Design
 
@@ -36,16 +36,16 @@ Unlike other “unified” decentralised API service providers, SubQuery is open
 
 With marketplaces like what SubQuery is proposing, where there are both buyers and sellers attempting to commoditise data, signalling demand for future supply tends to be a tricky issue. Other networks create an artificial role in an attempt to predict future demand, and they’re rewarded when that future demand materialises. The plan is to take a different approach, one that requires up-front natural demand signalling.
 
-A Consumer can take advantage of either Open or Closed Service Agreements to concretely indicate and commit demand for a new SubQuery Project. This will facilitate and encourage supply at a fixed price and volume (essentially helping secure pre-allocated rewards for Indexers of a SubQuery Project) and provide price and service certainty to both parties. This can be used both to attract Indexers to new SubQuery Projects, or to attract additional Indexers to existing and uncompetitive SubQuery Projects.
+A Consumer can take advantage of either Open or Closed Service Agreements to concretely indicate and commit demand for a new SubQuery Project. This will facilitate and encourage supply at a fixed price and volume (essentially helping secure pre-allocated rewards for Data Indexers of a SubQuery Project) and provide price and service certainty to both parties. This can be used both to attract Data Indexers to new SubQuery Projects, or to attract additional Data Indexers to existing and uncompetitive SubQuery Projects.
 
 It additionally provides several advanced subscription based options for Consumers and Indexers. Some parties may benefit from the certainty of rewards provided by Closed Agreements and the predictability of recurring costs. Some may instead prefer to hunt out the most affordable data by going for high volume recurring agreements or low spot prices on the Pay as you Go market.
 
-## Indexer/Delegator Imbalance
+## Node Operator/Delegator Imbalance
 
-Among some competitors, it is observed that there is a serious imbalance between Indexers and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Indexer advertise an increase to the Indexer Commission Rate for an entire staking Era. Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
+Among some competitors, it is observed that there is a serious imbalance between Node Operators and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Node Operator advertise an increase to the Node Operator Commission Rate for an entire staking Era. Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
 
 ## Incentives for Query Performance
 
-To become a high-performing, mission-critical platform - the SubQuery Network must operate at the highest level. That is why the Indexer discovery process will include performance data (latency and uptime) for all Indexers, and we will take steps to ensure that Consumers report on query speed and performance as often as possible.
+To become a high-performing, mission-critical platform - the SubQuery Network must operate at the highest level. That is why the Node Operator discovery process will include performance data (latency and uptime) for all Node Operators, and we will take steps to ensure that Consumers report on query speed and performance as often as possible.
 
-Tools may also be provided to limit the availability of Indexers to a certain geographical region so that they can focus on providing the best service to that region, attract the most requests, and potentially maximise rewards for their contributions. This will allow larger and more mature Indexers to run location specific infrastructure all around the world.
+Tools may also be provided to limit the availability of Node Operators to a certain geographical region so that they can focus on providing the best service to that region, attract the most requests, and potentially maximise rewards for their contributions. This will allow larger and more mature Node Operators to run location specific infrastructure all around the world.

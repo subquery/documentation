@@ -94,7 +94,7 @@ The following projects are available for indexing on the Kepler network. Some pr
 | Astar     | Astar Dictionary        | `QmUmnKPhcE6JwGMYvY3Yitb5j8qxbQBMxgpkHpVQuXqxDH` | ~65G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
 
 ::: info Note
-If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](../indexers/dictionary-restore.md)
+If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](./dictionary-restore.md)
 :::
 
 Enter the project deployment ID when addding the new project.
@@ -177,6 +177,6 @@ On the network page, the Indexer can check the era information and confirm that 
 
 Congratulations! You have successfully indexed your SubQuery Project.
 
-- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../indexers/troubleshooting-indexers.md)) and find all your solutions in one place.
+- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](./troubleshooting-indexers.md)) and find all your solutions in one place.
 
 - Find the list of [FAQs](./faq.md), and resolve your query.

@@ -14,9 +14,7 @@ In this Seaport indexing project, our main goal is to set up the indexer to only
 
 For a more comprehensive understanding of how these fundamental protocol mechanisms operate, you can consult the official [Seaport documentation](https://docs.opensea.io/reference/seaport-overview).
 
-::: warning Important
-We suggest starting with the [Ethereum Gravatar example](./ethereum-gravatar). The Ethereum Opensea project is a bit more complicated and introduces some more advanced concepts
-:::
+<!-- @include: ./snippets/ethereum-gravatar.md -->
 
 In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for the main Seaport smart contract at the bottom of [this page](https://etherscan.io/address/0x00000000006c3852cbef3e08e8df289169ede581#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
