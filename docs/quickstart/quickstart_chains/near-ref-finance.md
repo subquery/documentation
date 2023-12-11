@@ -44,7 +44,7 @@ The schema include `Swap` entity with a unique identifier, associated with a spe
 
 ## 2. Update Your Project Manifest File
 
-<!-- @include: ../snippets/manifest-near-intro.md -->
+<!-- @include: ../snippets/near-manifest-intro.md -->
 
 We are indexing all actions with a method name equal to `swap` and the `v2.ref-finance.near` contract as the recipient.
 
@@ -84,7 +84,7 @@ Check out our [Manifest File](../../build/manifest/near.md) documentation to get
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
-<!-- @include: ../snippets/mapping-near-intro.md -->
+<!-- @include: ../snippets/near-mapping-intro.md -->
 
 The `handleAction` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process the relevant transaction action, and save them to the GraphQL entities created earlier.
 
