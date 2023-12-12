@@ -1,4 +1,4 @@
-## 4. Build Your Project
+## Build Your Project
 
 Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
 
