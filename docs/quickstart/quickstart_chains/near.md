@@ -1,7 +1,5 @@
 # NEAR Quick Start
 
-## Goals
-
 The goal of this quick start guide is to index all price submissions from priceoracle.near on NEAR's mainnet - it's a great way to quickly learn how SubQuery works on a real world hands-on example.
 
 ::: warning Important

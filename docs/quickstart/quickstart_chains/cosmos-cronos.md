@@ -1,7 +1,5 @@
 # Cronos Quick Start
 
-## Goals
-
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 <br/>

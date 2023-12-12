@@ -1,6 +1,4 @@
-## Your Project Manifest File
-
-The Project Manifest file is an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data.
+<!-- @include: ./manifest-intro.md -->
 
 For Cosmos chains, there are four types of mapping handlers (and you can have more than one in each project):
 

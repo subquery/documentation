@@ -1,7 +1,5 @@
 # Multichain Quick Start - Snapshot
 
-## Goals
-
 The objective of this article is to provide a comprehensive, step-by-step manual for establishing a multi-chain indexer compatible with [Snapshot](https://docs.snapshot.org/), a voting platform that facilitates effortless and gas-free voting for DAOs, DeFi protocols, and NFT communities.
 
 An integral component of this platform is the concept of delegations, which allows users to entrust their voting authority to another wallet. Unlike other actions within Snapshot, the act of delegation occurs directly on the blockchain.

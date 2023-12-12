@@ -1,5 +1,11 @@
 # Multichain Quick Start - IBC Transfers
 
+<!-- @include: ../snippets/final-code.md#start -->
+
+[IBC Starter Example](https://github.com/subquery/cosmos-subql-starter/tree/main/Multi-Chain/osmosis-cosmos-bridge)
+
+<!-- @include: ../snippets/final-code.md#end -->
+
 This tutorial provides a comprehensive guide on establishing a multi-chain indexer for indexing Inter-Blockchain Communication (IBC) activities among Cosmos Zones. The tutorial demonstrates the integration of bi-directional transfers between Osmosis and Cosmos Hub, while also highlighting the flexibility to effortlessly include additional chains.
 
 Upon completing this guide, you will gain insights into effectively correlating event data across multiple networks. Furthermore, you'll acquire the knowledge to configure a SubQuery indexer, enabling the monitoring, tracking, and aggregation of events from various Cosmos blockchains within a unified entity.
@@ -8,11 +14,7 @@ Upon completing this guide, you will gain insights into effectively correlating 
 
 <!-- @include: ../snippets/cosmos-quickstart-reference.md -->
 
-::: tip
-The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Multi-Chain/osmosis-cosmos-bridge).
-:::
-
-<!-- @include: ./snippets/multi-chain-manifest-cosmos-intro.md -->
+<!-- @include: ./snippets/multi-chain-cosmos-manifest-intro.md -->
 
 Beginning with Osmosis, the manifest file for this will be as follows:
 

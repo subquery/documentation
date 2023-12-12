@@ -1,7 +1,5 @@
 # Concordium Quick Start
 
-## Goals
-
 The goal of this quick start guide is to give a quick intro to all features of our Concordium indexer. This SubQuery project indexes all transfer transactions, updated transaction events, and block rewards on the Concordium Test Network - it's a great way to quickly learn how SubQuery works on a real world hands-on example.
 
 ::: warning Important

@@ -1,7 +1,5 @@
 # Agoric Quick Start
 
-## Goals
-
 The goal of this quick start guide is to index all transfer events and messages on the [Agoric network](https://agoric.com/).
 
 ::: info
@@ -178,7 +176,7 @@ In the Agoric SubQuery project, we have two main functions, namely `handleMessag
 
 The `handleMessage` function is triggered when a `/cosmos.bank.v1beta1.MsgSend` type message is detected. It receives a message of type `CosmosMessage`, and then extracts key data points such as blockHeight, transaction hash, from, to and amount from the `msg` object.
 
-The `handleEvent` function is also triggered when a `/cosmos.bank.v1beta1.MsgSend` type message is detected for a transfer.  It receives an event of type `CosmosEvent`, and then it also extracts blockHeight, transaction hash, from, to and amount from the `event` object.
+The `handleEvent` function is also triggered when a `/cosmos.bank.v1beta1.MsgSend` type message is detected for a transfer. It receives an event of type `CosmosEvent`, and then it also extracts blockHeight, transaction hash, from, to and amount from the `event` object.
 
 Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
 

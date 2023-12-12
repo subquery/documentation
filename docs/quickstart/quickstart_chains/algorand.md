@@ -1,7 +1,5 @@
 # Algorand Quick Start
 
-## Goals
-
 The goal of this quick guide is to adapt the standard starter project and start indexing [all the PLANET token transfers](https://algoexplorer.io/address/ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754) from Algorand. Check out the video or follow the step by step instructions below.
 
 <br/>

@@ -4,8 +4,6 @@
 
 Since SubQuery fully supports NEAR and Aurora, you can index data from both execution environments in the same SubQuery project and into the same dataset.
 
-## Goals
-
 The goal of this quick start guide is to index transfers and approvals for the [Wrapped NEAR smart contract](https://explorer.aurora.dev/address/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d) on NEAR Aurora.
 
 <br/>

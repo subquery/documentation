@@ -1,7 +1,5 @@
 # Polygon Quick Start
 
-## Goals
-
 The goal of this quick start guide is to index all token deposits from the Polygon Plasma Bridge.
 
 ::: warning

@@ -1,7 +1,5 @@
 # Archway Quick Start
 
-## Goals
-
 The goal of this quick start guide is to index all [Archway contract metadata](https://docs.archway.io/developers/rewards/managing-rewards#contract-metadata) as well as all rewards paid out to contract developers.
 
 ::: info

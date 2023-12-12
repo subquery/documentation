@@ -1,7 +1,5 @@
 # Thorchain Quick Start
 
-## Goals
-
 The goal of this quick start guide is to indexing all deposit messages of Thorchain.
 
 ::: warning Important

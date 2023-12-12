@@ -2,8 +2,6 @@
 
 [Osmosis](https://osmosis.zone/) is a DEX built on the Cosmos ecosystem. It is designed to allow users to trade tokens from different blockchains that are part of the Cosmos ecosystem. Osmosis uses the IBC protocol to enable the transfer of assets between different blockchains, including [Cosmos Hub](https://github.com/subquery/cosmos-subql-starter/tree/main/CosmosHub/cosmoshub-starter), [Akash](./cosmos-akash.md), and others.
 
-## Goals
-
 This guide acts as your entrance to a detailed tutorial for configuring a SubQuery indexer that is specifically designed to index swaps occurring on Osmosis. Upon completing this guide, you will possess a solid understanding of the process for indexing data related to a complex DEX such as Osmosis.
 
 ::: info
@@ -23,7 +21,6 @@ The final code of this project can be found [here](https://github.com/subquery/c
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/W9nriCvgQvM" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
-
 
 ## 1. Your Project Manifest File
 

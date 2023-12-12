@@ -1,7 +1,5 @@
 # Multichain Quick Start - Safe
 
-## Goals
-
 This page explains how to create an multi-chain indexer for [Safe](https://safe.global/), a system that makes secure wallets requiring multiple authorisations. This boosts security and lowers the risk of unauthorised use.
 
 After reading this guide, you'll understand the protocol, know about multi-signature setups, and learn how to set up a SubQuery indexer to monitor and track signed message events on different EVM blockchains.

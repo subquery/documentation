@@ -4,11 +4,11 @@ This project can be use as a starting point for developing your new Ethereum Sub
 
 <!-- @include: ./snippets/gravatar-note.md -->
 
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
+
 Now, let's move forward and fork the example code for this project from [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens)
 
-## 1. Your Project Manifest File
-
-<!-- @include: ./snippets/manifest-evm-intro.md -->
+<!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
 The main concepts in this ENS project is that it only indexes logs from ENS' various smart contracts, LogHandlers are the most common type of handlers for Ethereum, and it shows here in this example project. There are a total of 31 different log handlers in this project.
 
@@ -139,11 +139,9 @@ Secondly, note that there are 7 different ABIs imported into this project. We gi
 }
 ```
 
-<!-- @include: ./snippets/manifest-evm-note.md -->
+<!-- @include: ../snippets/evm-manifest-note.md -->
 
-## 2. Update Your GraphQL Schema File
-
-<!-- @include: ./snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro-level2.md -->
 
 You'll see that there are 33 GraphQL entities in the ENS project with many foreign key relationships between them. Take for example the `Domain` and `DomainEvent` entities. There is a one to many relationship between `Domain` and `DomainEvent`, and there is also a one to many relationship that `Domain` has with itself (via the `parent` property), we've event created a virtual `subdomains` field that can be used to navigate via the GraphQL entities.
 
@@ -164,9 +162,9 @@ type DomainEvent @entity {
 }
 ```
 
-<!-- @include: ./snippets/types-regeneration-warning.md -->
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-<!-- @include: ./snippets/evm-codegen.md -->
+<!-- @include: ../snippets/evm-codegen.md -->
 
 All entites can be imported from the following directory:
 
@@ -181,12 +179,6 @@ import {
   NewResolver,
   NewTTL,
 } from "../types";
-```
-
-<!-- @include: ./snippets/evm-abi.md -->
-
-```ts
-// Import event types from the registry contract ABI
 import {
   NewOwnerEvent,
   TransferEvent,
@@ -195,25 +187,19 @@ import {
 } from "../types/contracts/Registry";
 ```
 
-## 3. Add a Mapping Function
+<!-- @include: ../snippets/schema-note.md -->
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
+<!-- @include: ../snippets/mapping-intro-level2.md -->
 
 They operate in a similar way to SubGraphs, and you can see wiht ENS that they are contained in 4 different files with the addition of a helper `utils.ts`.
 
-<!-- @include: ./snippets/mapping-evm.md -->
+<!-- @include: ../snippets/evm-mapping-note.md -->
 
-## 4. Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-<!-- @include: ./snippets/build.md -->
+<!-- @include: ../snippets/run-locally.md -->
 
-## 5. Run Your Project Locally with Docker
-
-<!-- @include: ./snippets/run-locally.md -->
-
-## 6. Query your Project
-
-<!-- @include: ./snippets/query-intro.md -->
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 query {
@@ -306,8 +292,4 @@ query {
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-ens).
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data.
-
-<!-- @include: ./snippets/whats-next.md -->
+<!-- @include: ../snippets/whats-next.md -->

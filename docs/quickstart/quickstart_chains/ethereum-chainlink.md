@@ -2,8 +2,6 @@
 
 [Chainlink](https://chain.link/) is a groundbreaking decentralized oracle network that empowers smart contracts to interact with real-world data seamlessly. At the heart of Chainlink's capabilities lies its [Data Feeds](https://chain.link/data-feeds), an essential component that bridges the gap between blockchain and external data sources.
 
-## Goals
-
 This guide serves as your gateway to a comprehensive guide on setting up a SubQuery indexer specifically tailored to index data from Chainlink Data Feeds. Our mission is to provide you with a detailed, step-by-step journey through the indexer setup process. We'll delve deep into the necessary configurations and explore the intricacies of the underlying logic. By the end of this guide, you'll have a clear understanding of how to index data for a complex oracle network like Chainlink.
 
 This project is an excellent example of [SubQuery's Dynamic Data sources](../../build/dynamicdatasources.md). Chainlink has a `ChainlinkFeedRegistry`, a factory contract that creates other chainlink aggregator contracts. It also gives a real life example of how you can use SubQuery's contract type-generation to access contract functions on the ABI smart contracts.
@@ -32,7 +30,7 @@ The code snippets provided further have been simplified for clarity. You can fin
 
 Consider the registry smart contract as a dictionary that comprehensively maps all the available feeds. When a new feed is added, this smart contract triggers an event, from which you can extract the address of the respective feed's smart contract.
 
-#### 1.Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 In plain language, you only need to set up one handler to index a specific type of log from this contract, which is the `FeedConfirmed` log. Update your manifest file to look like this:
 
@@ -74,9 +72,9 @@ In plain language, you only need to set up one handler to index a specific type 
 }
 ```
 
-<!-- @include: ./snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/evm-manifest-note.md -->
 
-#### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro-level4.md -->
 
 Now, let's think about what information we can get from this smart contract for later searching. The only piece of information we can obtain is the 'DataFeed':
 
@@ -100,27 +98,19 @@ type DataFeed @entity {
 
 As you look into these features, you'll see that there's only one connection mentioned, which is in the `prices` part, and it links to another thing called `DataPoint`. We'll talk about this entity in the [next section](#data-feed-aggregator-contracts).
 
-<!-- @include: ./snippets/note-on-entity-relationships.md -->
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-<!-- @include: ./snippets/evm-codegen.md -->
-
-You can conveniently import all these entities from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 // Import entity types generated from the GraphQL schema
 import { DataFeed } from "./types";
-```
-
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
-
-```ts
-// Import a smart contract event class generated from provided ABIs
 import { FeedConfirmedEvent } from "./types/contracts/FeedRegistry";
 ```
 
-#### 3. Writing the Mappings
+<!-- @include: ../snippets/mapping-intro-level4.md -->
 
-<!-- @include: ./snippets/evm-mapping-intro.md -->
+<!-- @include: ../snippets/evm-mapping-note.md -->
 
 Writing mappings for this smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `feed-registry.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
 
@@ -172,7 +162,7 @@ It first retrieves the previous data feed using the address provided in the even
 
 As mentioned in the introduction to [Indexer Configuration](#setting-up-the-indexer), a fresh contract is linked to the [feed registry smart contract](#chainlinkfeedregistry) whenever a new feed is confirmed. We use SubQuery's [Dynamic Data Sources](../../build/dynamicdatasources.md) to create a new listener for each new price feed using the following template.
 
-#### 1. Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 The feed registry smart contract establishes a connection with a data feed contract for each new data feed. Consequently, we utilize [dynamic data sources](../../build/dynamicdatasources.md) to generate indexers for each new contract:
 
@@ -209,7 +199,7 @@ The feed registry smart contract establishes a connection with a data feed contr
 }
 ```
 
-#### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro-level4.md -->
 
 Once more, from each newly linked smart contract, we will extract a single entity known as a `DataPoint`. You can expand the `schema.graphql` file to include it in the following way:
 
@@ -233,7 +223,7 @@ import { AnswerUpdatedEvent } from "./types/contracts/AccessControlledOffchainAg
 import { DataFeed, DataPoint } from "./types";
 ```
 
-#### 3. Writing the Mappings
+<!-- @include: ../snippets/mapping-intro-level4.md -->
 
 In this scenario, the mapping process involves two substeps:
 
@@ -309,17 +299,11 @@ This code defines a function, `handleAnswerUpdated`, which handles events relate
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-chainlink) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-## Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-<!-- @include: ./snippets/build.md -->
+<!-- @include: ../snippets/run-locally.md -->
 
-## Run Your Project Locally with Docker
-
-<!-- @include: ./snippets/run-locally.md -->
-
-## Query your Project
-
-<!-- @include: ./snippets/query-intro.md -->
+<!-- @include: ../snippets/query-intro.md -->
 
 ::: details Query `dataFeeds`
 
@@ -493,8 +477,4 @@ If you take the value listed under `price` and divide it by 10 to the power of t
 
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that indexes the major Chainlink Data Feeds entities and accepts GraphQL API requests for transferring data.
-
-<!-- @include: ./snippets/whats-next.md -->
+<!-- @include: ../snippets/whats-next.md -->

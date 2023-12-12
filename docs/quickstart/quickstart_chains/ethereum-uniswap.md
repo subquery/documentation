@@ -1,7 +1,5 @@
 # Ethereum Quick Start - Uniswap (Complex)
 
-## Goals
-
 Uniswap is one of the leading decentralised exchange (DEX) in web3 and is one that relies on indexers to serve data to it's UI so users can interact with it. By systematically organizing tokens, liquidity pools, transactions, and other essential information, Indexers like SubQuery provide users with a quick and efficient means to search, find, and analyze data within Uniswap.
 
 The objective of this article is to offer a detailed, step-by-step guide on setting up a SubQuery indexer for Uniswap v3 protocol. We will comprehensively cover the necessary configurations and delve into the intricacies of the underlying logic. It's an excellent example of how to do indexing for a complex DEX like Uniswap.
@@ -20,7 +18,7 @@ To gain a deeper understanding of how these core mechanisms work, you can refer 
 
 <!-- @include: ./snippets/gravatar-note.md -->
 
-In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for **UniswapV3Factory** at the bottom of [this page](https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract, as described in sections [1](#1-configuring-the-manifest-file), [2](#1-configuring-the-manifest-file-1), and [3](#1configuring-the-manifest-file).
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
 The code snippets provided further have been simplified for clarity. You can find the full and detailed code [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-uniswap-v3) to see all the intricate details.
@@ -30,7 +28,7 @@ The code snippets provided further have been simplified for clarity. You can fin
 
 The core role of the factory contract is to generate liquidity pool smart contracts. Each pool comprises a pair of two tokens, uniting to create an asset pair, and is associated with a specific fee rate. It's important to emphasize that multiple pools can exist with the same asset pair, distinguished solely by their unique swap fees.
 
-#### 1.Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 In simple terms, there's only one event that requires configuration, and that's the `PoolCreated` event. After adding this event to the manifest file, it will be represented as follows:
 
@@ -73,11 +71,9 @@ In simple terms, there's only one event that requires configuration, and that's 
 }
 ```
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
-:::
+<!-- @include: ../snippets/evm-manifest-note.md -->
 
-#### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro-level4.md -->
 
 Now, let's consider the entities that we can extract from the factory smart contract for subsequent querying. The most obvious ones include:
 
@@ -161,50 +157,13 @@ The attributes mentioned above represent only a subset of the available attribut
 
 As you explore these attributes, you may notice the relationship between the `Pool` and `Token` entities. Additionally, you'll find numerous derived attributes like `mints` or `swaps`.
 
-::: tip Note
-Importantly, these relationships not only establish one-to-many connections but also extend to include many-to-many associations. To delve deeper into entity relationships, you can refer to [this section](../../build/graphql.md#entity-relationships). If you prefer a more example-based approach, our dedicated [Hero Course Module](../../academy/herocourse/module3.md) can provide further insights.
-:::
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-SubQuery simplifies and ensures type-safety when working with GraphQL entities, smart contracts, events, transactions, and logs. The SubQuery CLI will generate types based on your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This action will generate a new directory (or update the existing one) named `src/types`. Inside this directory, you will find automatically generated entity classes corresponding to each type defined in your `schema.graphql`. These classes facilitate type-safe operations for loading, reading, and writing entity fields. You can learn more about this process in [the GraphQL Schema section](../../build/graphql.md).
-
-You can conveniently import all these entities from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 // Import entity types generated from the GraphQL schema
 import { Factory, Pool, Token } from "../types";
-```
-
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
-
-#### 3. Writing the Mappings
-
-Mapping functions define how blockchain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
-
-::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
-:::
-
-Writing mappings for the factory smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `factory.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
-
-```ts
-// Import event types from the registry contract ABI
 import {
   Pool,
   Token,
@@ -214,6 +173,10 @@ import {
 import { EthereumLog } from "@subql/types-ethereum";
 import { PoolCreatedEvent } from "../types/contracts/Factory";
 ```
+
+<!-- @include: ../snippets/mapping-intro-level4.md -->
+
+<!-- @include: ../snippets/evm-mapping-note.md -->
 
 `Pool`, `Factory`, and `Token` are models that were generated in a [prior step](#2-updating-graphql-schema-file). `PoolCreatedEvent` and `EthereumLog` are TypeScript models generated by the SubQuery SDK to facilitate event handling.
 
@@ -315,7 +278,7 @@ Throughout this mapping and those that follow, numerous utility functions are em
 
 As we discussed in the introduction of [Configuring the Indexer](#configuring-the-indexer), a new contract is created by the [factory contract](#uniswapv3factory) for each newly created pool.
 
-#### 1. Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 The contract factory generates fresh contract instances for each new pool, therefore we use [dynamic data sources](../../build/dynamicdatasources.md) to create indexers for each new contract:
 
@@ -386,7 +349,7 @@ The contract factory generates fresh contract instances for each new pool, there
 }
 ```
 
-#### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro-level4.md -->
 
 Numerous entities can be derived from each newly created pool smart contract. To highlight some of the most crucial ones, you'll need to extend the `schema.graphql` file with the following entities:
 
@@ -493,24 +456,7 @@ type Transaction @entity {
 
 Similar to the previously imported entities, we observe various relationships here. In this case, each new entity references both the `Token` and `Pool` entities, establishing a one-to-one relationship. Additionally, each new entity references a `Transaction` entity, which is the only one among the newly added entities not derived from logs. Instead, it's derived from an event to a specific transaction, showcasing the capabilities of the Subquery SDK.
 
-Now, the next step involves instructing the SubQuery CLI to generate types based on your project's updated GraphQL schema:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This will create update the existing `src/types` directory. All new entites can now be imported from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { Burn, Mint, Swap } from "../types";
@@ -523,7 +469,7 @@ import {
 } from "../types/contracts/Pool";
 ```
 
-#### 3. Writing the Mappings
+<!-- @include: ../snippets/mapping-intro-level4.md -->
 
 In this scenario, the mapping process involves two substeps:
 
@@ -638,7 +584,7 @@ Finally, the function saves the updated data for the swap, factory, pool, token0
 
 As you may already know, swaps in UniswapV3 are executed within the context of pools. To enable swaps, these pools must be liquid, and users provide liquidity to each specific pool. Each liquidity provision results in a Liquidity Position, essentially an NFT. This design enables a broader range of DeFi use cases. And the contract responsible for managing these provisions is known as the NonfungiblePositionManager.
 
-#### 1. Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 For the NonfungiblePositionManager smart contract, we want to introduce the following updates to the manifest file:
 
@@ -711,7 +657,7 @@ For the NonfungiblePositionManager smart contract, we want to introduce the foll
 
 The configuration process closely resembles what we've seen earlier. However, we now have a completely new smart contract that we'll be handling events from. This entails different ABI, address, and start block values. Naturally, it also introduces new events, which are listed under the `handlers` object.
 
-#### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro-level4.md -->
 
 From this smart contract, the only new entity we'll emphasize is the `Position`:
 
@@ -737,26 +683,7 @@ type Position @entity {
 }
 ```
 
-Once more, we encounter connections to various entities like `Pool` and `Token`.
-
-Now, the next step involves instructing the SubQuery CLI to generate types based on your project's updated GraphQL schema:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This will create update the existing `src/types` directory. All new entites can now be imported from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { Position } from "../types";
@@ -768,7 +695,7 @@ import {
 } from "../types/contracts/NonfungiblePositionManager";
 ```
 
-#### 3. Writing the Mappings
+<!-- @include: ../snippets/mapping-intro-level4.md -->
 
 For this contract, we will craft the mappings in a file named `position-manager.ts`. Once again, this separation provides context and clarity.
 
@@ -853,71 +780,11 @@ To briefly clarify the code provided above: the handler function `handleIncrease
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-uniswap-v3) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-## Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
-
-## Run Your Project Locally with Docker
-
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-## Query your Project
-
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ../snippets/query-intro.md -->
 
 :::details Pools
 
@@ -1163,14 +1030,4 @@ query {
 
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that indexes the major Uniswap entities and accepts GraphQL API requests for transferring data.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

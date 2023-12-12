@@ -1,7 +1,5 @@
 # Polkadot/Substrate Quick Start
 
-## Goals
-
 The goal of this quick guide is to adapt the standard starter project and start indexing all transfers from Polkadot.
 
 ::: warning Important
