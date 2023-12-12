@@ -33,7 +33,7 @@ Indexers benefit from higher total stake (with the help of delegators) in ways:
 For indexers, since these benefits are delicate, it is always a challenge to consider the best strategy, how many delegator's stake do I need.
 Too many delegation will dilute the reward, small delegation will limit the opportunity of more rewards. By changing commission rate, indexer can adjust the delegation proportion to a balance point.
 
-You should read more about how Delegators will pick Indexers [here](../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
+You should read more about how Delegators will pick Indexers [here](../../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 
 The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
 
