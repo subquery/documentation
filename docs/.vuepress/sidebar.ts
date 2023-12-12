@@ -238,6 +238,10 @@ export const getSidebar = (locale: string) =>
                   link: `${locale}/quickstart/quickstart_chains/cosmos-cronos.md`,
                 },
                 {
+                  text: "Dymension",
+                  link: `${locale}/quickstart/quickstart_chains/cosmos-dymension.md`,
+                },
+                {
                   text: "Juno",
                   link: `${locale}/quickstart/quickstart_chains/cosmos-juno.md`,
                 },
