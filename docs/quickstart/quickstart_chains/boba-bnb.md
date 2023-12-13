@@ -68,7 +68,7 @@ The above code indicates that you will be running a `handleTransaction` mapping 
 
 The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [WBOBA contract](https://bobascan.com/token/0xC58aaD327D6D58D979882601ba8DDa0685B505eA?chainid=56288).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -156,7 +156,7 @@ The `handleLog` function receives a `log` parameter of type `TransferLog` which 
 
 The `handleTransaction` function receives a `tx` parameter of type `ApproveTransaction` which includes transaction data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

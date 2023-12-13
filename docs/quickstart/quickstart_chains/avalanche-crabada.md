@@ -63,7 +63,7 @@ The above code indicates that you will be running a `handleNewCrab` mapping func
 
 Additionally, whenever there is a `Transfer` log that relates to any token from the [Crabada Legacy Contract](https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c), we run a `handleERC721` mapping function.
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/avalanche-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -230,7 +230,7 @@ For the `handleNewCrab` mapping function, it receives a `NewCrabLog` which inclu
 
 In `handleERC721`, we recieve a `TransferLog` from the token transfer, and then retrieve the `nftId`, `fromAddress`, and `toAddress` from it. After checking that we have a Crab entity (and creating one if not), we then create a new `Transfer` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/avalanche-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

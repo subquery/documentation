@@ -54,7 +54,7 @@ As we are indexing all user claims from the Bridge to Base NFT contract, the fir
 
 The above code indicates that you will be running a `handleNftClaim` mapping function whenever there is a `TokensClaimed` event being logged on any transaction from the [Bridge to Base NFT contract](https://basescan.org/token/0xEa2a41c02fA86A4901826615F9796e603C6a4491).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -138,7 +138,7 @@ export async function handleDailyAggregation(
 
 The `handleNftClaim` function receives a `log` parameter of type `TokensClaimedLog` which includes log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

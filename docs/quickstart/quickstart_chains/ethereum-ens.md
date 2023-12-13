@@ -139,7 +139,7 @@ Secondly, note that there are 7 different ABIs imported into this project. We gi
 }
 ```
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -193,7 +193,7 @@ import {
 
 They operate in a similar way to SubGraphs, and you can see wiht ENS that they are contained in 4 different files with the addition of a helper `utils.ts`.
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

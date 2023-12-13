@@ -55,7 +55,7 @@ As we are indexing all claim events from the Optimism airdrop contract, the firs
 
 The above code indicates that you will be running a `handleClaim` mapping function whenever there is a `Claimed` log on any transaction from the [Optimism airdrop contract](https://optimistic.etherscan.io/address/0xfedfaf1a10335448b7fa0268f56d2b44dbd357de#code).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -145,7 +145,7 @@ export async function handleClaim(log: ClaimedLog): Promise<void> {
 
 The `handleClaim` function receives a `log` parameter of type `ClaimedLog` which includes transaction log data in the payload. We extract this data, assign it to our newClaim object, and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_). We also call the `checkGetDailyClaim` function to retrieve the existing day aggregation (and create a new one if we need to), and the update the `total_claimed` on it.
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

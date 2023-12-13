@@ -72,7 +72,7 @@ In plain language, you only need to set up one handler to index a specific type 
 }
 ```
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level4.md -->
 
@@ -110,7 +110,7 @@ import { FeedConfirmedEvent } from "./types/contracts/FeedRegistry";
 
 <!-- @include: ../snippets/mapping-intro-level4.md -->
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 Writing mappings for this smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `feed-registry.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
 

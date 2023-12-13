@@ -92,7 +92,7 @@ export default project;
 
 As evident in the manifest file, this project includes two handlers: firstly, a transaction handler responsible for capturing the `mintApe` function, and secondly, a log handler tasked with indexing the `Transfer` log.
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -306,7 +306,7 @@ Both handlers use `getOrCreateApe` function. It attempts to retrieve a `BoredApe
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-bayc) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

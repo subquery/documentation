@@ -10,11 +10,9 @@ The final code of this project can be found [here](https://github.com/subquery/s
 
 This project is unique, as it indexes data from both Astar's Substrate execution layer (native Astar pallets and runtime), with smart contract data from Astar's WASM smart contract layer, within the same SubQuery project and into the same dataset. A very similar approach can be take with indexing Astar's EVM layer too.
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
+<!-- @include: ../snippets/quickstart-reference.md -->
 
-## 1. GraphQL Schema File
-
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+<!-- @include: ../snippets/schema-intro-level2.md -->
 
 The Astar-wasm-starter project has four entities. A Transaction, Approval, DApp, and DAppReward (which has a [foreign key](../../build/graphql.md#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, heigh and hash along with from and contract addresses and the value.
 
@@ -56,30 +54,11 @@ type DAppReward @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
+<!-- @include: ../snippets/codegen.md -->
 
-::: code-tabs
-@tab:active yarn
+<!-- @include: ../snippets/schema-note.md -->
 
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
-
-## 2. The Project Manifest File
+## The Project Manifest File
 
 The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
@@ -147,7 +126,7 @@ For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md
 
 This indicates that you will be running a `handleNewContract` mapping function whenever there is an event emitted from the `NewContract` method on the `dappsStaking` pallet. Similarly we will run other mapping functions for the three other events being emitted from the `dappsStaking` to other mapping functions. This covers most interactions with the dApp staking feature that we are interested in.
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+<!-- @include: ../snippets/polkadot-manifest-note.md -->
 
 ### WASM Manifest Section
 
@@ -204,9 +183,7 @@ The above code indicates that you will be running a `handleWasmEvent` mapping fu
 
 Check out our [Substrate Wasm](../../build/substrate-wasm.md) documentation to get more information about the Project Manifest (`project.ts`) file for Substrate WASM contracts.
 
-## 3. Mapping Functions
-
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
+<!-- @include: ../snippets/mapping-intro-level2.md -->
 
 Navigate to the default mapping function in the `src/mappings` directory. There are multiple other exported functions such as `handleWasmCall`, `handleWasmEvent`, `handleNewContract`, `handleBondAndStake`, `handleUnbondAndUnstake`, and `handleReward`.
 
@@ -263,61 +240,11 @@ The `handleBondAndStake` function receives Substrate event data from the native 
 
 Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate WASM data processor](../../build/substrate-wasm.md) to get detailed information on mapping functions for each type.
 
-## 4. Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, make sure to rebuild your project.
-:::
-
-## 5. Run Your Project Locally with Docker
-
-SubQuery provides a Docker container to run projects very quickly and easily for development purposes.
-
-The docker-compose.yml file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-Visit [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-## 6. Query Your Project
-
-Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 query {
@@ -390,15 +317,3 @@ You should see results similar to below:
 The final code of this project can be found [here](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter).
 
 :::
-
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for events from the lottery smart contract at [`bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`](https://astar.subscan.io/account/bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc?tab=wasm_transaction).
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.

@@ -18,7 +18,9 @@ If you are new to SubQuery, we recommend starting your learning journey with sin
 
 Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**. Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
 
-As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Galxy Ethereum SpaceStationV2 smart contract at the bottom of [this page](https://etherscan.io/address/0x75cdA57917E9F73705dc8BCF8A6B2f99AdBdc5a5#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners.
+
+For instance, you can locate the ABI for the Galxy Ethereum SpaceStationV2 smart contract at the bottom of [this page](https://etherscan.io/address/0x75cdA57917E9F73705dc8BCF8A6B2f99AdBdc5a5#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 The configuration code snippets shared below have been made simpler to improve clarity and will focus exclusively on the NFT claim handling logic.

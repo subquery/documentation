@@ -58,7 +58,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardPaid` log on any transaction from the [Pangolin Rewards contract](https://snowtrace.io/token/0x88afdae1a9f58da3e68584421937e5f564a0135b).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/avalanche-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -94,7 +94,7 @@ import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
 
 <!-- @include: ../snippets/mapping-intro-level2.md -->
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/avalanche-mapping-note.md -->
 
 Follow these steps to add a mapping function:
 
@@ -143,7 +143,7 @@ Let’s understand how the above code works.
 
 The mapping function here receives an `RewardPaidLog` which includes transaction log data in the payload. We extract this data and first read and confirm that we have a `User` record via `checkGetUser`. We then create a new `PangolinRewards` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

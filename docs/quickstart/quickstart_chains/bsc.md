@@ -72,7 +72,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running a `handleDeposit` mapping function whenever there is an `Deposit` log on any transaction from the [MOBOX Farming contract](https://bscscan.com/address/0xa5f8c5dbd5f286960b9d90548680ae5ebff07652). Simarly, you'll be running a `handleWithdraw` mapping function whenever there is an `Withdraw` logs.
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/bsc-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -182,7 +182,7 @@ For `handleDeposit`, the function here receives an `DepositLog` which includes t
 
 For `handleWithdraw`, the function here receives an `WithdrawLog` which includes transaction log data in the payload. We extract this data and first confirm if we have a `Pool` record via `checkGetPool`. We then create a new `PoolEvent` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_). We also decrease the total pool size by the new withdraw value.
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/bsc-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

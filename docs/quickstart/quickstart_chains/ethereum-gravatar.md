@@ -61,7 +61,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `NewGravatar` or `UpdatedGravatar` log on any transaction from the [Gravatar contract](https://etherscan.io/address/0x2E645469f354BB4F5c8a05B3b30A929361cf77eC).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -161,7 +161,7 @@ For `handleNewGravatar`, the function here receives an `NewGravatarEvent` which 
 
 For `handleUpdatedGravatar`, the function here receives an `UpdatedGravatarEvent` which includes transaction log data in the payload. We extract this data and then first check that the Gravatar already exists, if not we instantiate a new one and then update that Gravatar with the correct updated details. This is then saved to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

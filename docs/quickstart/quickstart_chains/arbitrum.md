@@ -64,7 +64,7 @@ The above code indicates that you will be running a `handleDividendBatch` mappin
 
 Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/arbitrum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -100,7 +100,7 @@ import { Dividend, User } from "../types";
 
 <!-- @include: ../snippets/mapping-intro-level2.md -->
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/arbitrum-mapping-note.md -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 

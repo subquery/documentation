@@ -43,7 +43,7 @@ dataSources:
 
 The above code indicates that you will be running a `handleLog` mapping function whenever there is an `RewardClaimed` log on any transaction from the [FTSO Reward Manager contract](https://songbird-explorer.flare.network/address/0xc5738334b972745067fFa666040fdeADc66Cb925).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/flare-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -136,7 +136,7 @@ Let’s understand how the above code works.
 
 The function here receives an `FlareLog` which includes transaction log data in the payload. We extract this data and then first ensure that our account entities (foreign keys) exist. We then instantiate a new `Reward` entity defined earlier in the `schema.graphql` file. After that, we add additional information and then use the `.save()` function to save the new entity (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/flare-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

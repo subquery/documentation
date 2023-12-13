@@ -72,7 +72,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running `handleTokenMint` and `handleTokenTransfer` mapping functions whenever there is a transaction with the function `mintToken` or a log with the signature `Transfer` on any transaction from the [POAP smart contract](https://gnosisscan.io/token/0x22c1f6050e56d2876009903609a2cc3fef83b415).
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/gnosis-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -238,7 +238,7 @@ The `handleTokenMint` function receives a `tx` parameter of type `MintTokenTrans
 
 The `handleTokenTransfer` receives a typed `TransferLog` that contains information about a transfer event of a specific POAP token. It extracts this, ignores if the transfer is from the root account (`0x0000000000000000000000000000000000000000`), and then saves this transfer data. It also retrieves and updates the `currentHolderId` of the token itself.
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/gnosis-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

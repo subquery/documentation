@@ -77,9 +77,7 @@ This setup establishes an manifest file to gather and manage information from a 
 
 3. `handleFollowed`: This handler is designed to handle data stemming from the `Followed` event, which tracks user interactions related to following other users.
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/polygon.md) documentation to get more information about the Project Manifest (`project.ts`) file.
-:::
+<!-- @include: ../snippets/polygon-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
@@ -277,7 +275,7 @@ Let's dive into an explanation of the code above. The code includes three distin
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Polygon/polygon-lens) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/polygon-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

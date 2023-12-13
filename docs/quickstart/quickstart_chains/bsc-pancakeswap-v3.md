@@ -76,7 +76,7 @@ In simple terms, there's only one event that requires configuration, and that's 
 }
 ```
 
-<!-- @include: ../snippets/evm-manifest-note.md -->
+<!-- @include: ../snippets/bsc-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level4.md -->
 
@@ -173,7 +173,7 @@ import { Factory, Pool, Token } from "../types";
 
 <!-- @include: ../snippets/mapping-intro-level4.md -->
 
-<!-- @include: ../snippets/evm-mapping-note.md -->
+<!-- @include: ../snippets/bsc-mapping-note.md -->
 
 Writing mappings for the factory smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `factory.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
 
