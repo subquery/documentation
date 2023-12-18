@@ -17,9 +17,7 @@ Cronos is an EVM compatible (Ethermint) chain, as such there are two options for
 The final code of this project can be found [here](https://github.com/deverka/cronos_crow_token_transfers).
 :::
 
-## Your Project Manifest File
-
-<!-- @include: ../snippets/manifest-intro.md -->
+<!-- @include: ../snippets/cosmos-manifest-intro.md#level2 -->
 
 ::: warning Important
 There are two versions of this file depending on your choice to index data via the ETH or Cosmos RPC

@@ -16,7 +16,7 @@ In this Uniswap indexing project, our main focus is on configuring the indexer t
 
 To gain a deeper understanding of how these core mechanisms work, you can refer to the official [Uniswap documentation](https://docs.uniswap.org/contracts/v3/reference/deployments).
 
-<!-- @include: ./snippets/gravatar-note.md -->
+<!-- @include: ../snippets/gravatar-note.md -->
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 

@@ -317,3 +317,5 @@ You should see results similar to below:
 The final code of this project can be found [here](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter).
 
 :::
+
+<!-- @include: ../snippets/whats-next.md -->

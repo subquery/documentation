@@ -62,8 +62,6 @@ As we are indexing all claimed dividends from the WINR contract, the first step 
 
 The above code indicates that you will be running a `handleDividendBatch` mapping function whenever there is a `ClaimDividendBatch` log on any transaction from the [WINR contract](https://arbiscan.io/address/0xddaecf4b02a3e45b96fc2d7339c997e072b0d034#code).
 
-Check out our [Manifest File](../../build/manifest/arbitrum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
-
 <!-- @include: ../snippets/arbitrum-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
@@ -90,8 +88,6 @@ type User @entity {
 
 <!-- @include: ../snippets/evm-codegen.md -->
 
-All entities can be imported from the following directory:
-
 ```ts
 import { Dividend, User } from "../types";
 ```
@@ -99,8 +95,6 @@ import { Dividend, User } from "../types";
 <!-- @include: ../snippets/schema-note.md -->
 
 <!-- @include: ../snippets/mapping-intro-level2.md -->
-
-<!-- @include: ../snippets/arbitrum-mapping-note.md -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 
@@ -146,6 +140,8 @@ export async function handleDividendBatch(
 The `handleDividendBatch` function receives a `batchDividendLog` parameter of type `ClaimDividendBatchLog` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
 Check out our [Mappings](../../build/mapping/arbitrum.md) documentation to get more information on mapping functions.
+
+<!-- @include: ../snippets/arbitrum-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

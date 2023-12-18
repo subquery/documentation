@@ -58,6 +58,10 @@ The above code indicates that you will be running a `handleNftClaim` mapping fun
 
 <!-- @include: ../snippets/schema-intro-level2.md -->
 
+::: tip Etheruem
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+:::
+
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight, claimer and claim receiver along with an aggregation of the total quantity of NFTs claimed per day.
 
 ```graphql

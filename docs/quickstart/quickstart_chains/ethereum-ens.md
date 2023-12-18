@@ -2,7 +2,7 @@
 
 This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all ENS Records in the ENS registry.
 
-<!-- @include: ./snippets/gravatar-note.md -->
+<!-- @include: ../snippets/gravatar-note.md -->
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 

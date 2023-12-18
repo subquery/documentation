@@ -1,6 +1,6 @@
 # NEAR Ref Finance. Quickstart Guide
 
-The objective of this project is to catalog the `swap` actions performed by the `v2.ref-finance.near` contract on the NEAR mainnet. It serves as an excellent opportunity to gain practical experience in understanding Graph's functionality through a real-world example.
+The objective of this project is to catalog the `swap` actions performed by the `v2.ref-finance.near` contract on the NEAR mainnet. It serves as an excellent opportunity to gain practical experience in understanding SubQuery's functionality through a real-world example.
 
 <!-- @include: ../snippets/quickstart-reference.md -->
 

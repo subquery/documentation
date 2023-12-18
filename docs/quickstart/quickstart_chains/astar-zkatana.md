@@ -4,6 +4,10 @@ The goal of this quick start guide is to index all transfers and approval events
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
+::: tip Note
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-testnet-starter).
+:::
+
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Astar zKatana. Since Astar zKatana is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->

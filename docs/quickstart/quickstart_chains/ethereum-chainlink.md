@@ -16,9 +16,9 @@ In this ChainLink indexing project, our primary focus centers on configuring the
 
 For a more comprehensive understanding of how these fundamental mechanisms operate, you can consult the official [Chainlink documentation](https://docs.chain.link/data-feeds/feed-registry).
 
-<!-- @include: ./snippets/gravatar-note.md -->
+<!-- @include: ../snippets/gravatar-note.md -->
 
-<!-- @include: ./snippets/quickstart-reference.md -->
+<!-- @include: ../snippets/quickstart-reference.md -->
 
 For instance, you can locate the ABI for **ChainlinkFeedRegistry** at the bottom of [this page](https://etherscan.io/address/0x47fb2585d2c56fe188d0e6ec628a38b74fceeedf#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
@@ -216,7 +216,7 @@ type DataPoint @entity {
 
 In addition to the core attributes, we can observe the connection to the entity established in the [previous step](#chainlinkfeedregistry), which is `DataFeed`. As evident, there exists only one data feed for each data point, while multiple data points are associated with a single data feed.
 
-<!-- @include: ./snippets/evm-codegen.md -->
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { AnswerUpdatedEvent } from "./types/contracts/AccessControlledOffchainAggregator";

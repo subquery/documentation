@@ -94,8 +94,6 @@ import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
 
 <!-- @include: ../snippets/mapping-intro-level2.md -->
 
-<!-- @include: ../snippets/avalanche-mapping-note.md -->
-
 Follow these steps to add a mapping function:
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code (**note the additional imports**):
@@ -143,7 +141,7 @@ Let’s understand how the above code works.
 
 The mapping function here receives an `RewardPaidLog` which includes transaction log data in the payload. We extract this data and first read and confirm that we have a `User` record via `checkGetUser`. We then create a new `PangolinRewards` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-<!-- @include: ../snippets/ethereum-mapping-note.md -->
+<!-- @include: ../snippets/avalanche-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

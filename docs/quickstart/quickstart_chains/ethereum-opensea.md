@@ -12,9 +12,11 @@ In this Seaport indexing project, our main goal is to set up the indexer to only
 
 For a more comprehensive understanding of how these fundamental protocol mechanisms operate, you can consult the official [Seaport documentation](https://docs.opensea.io/reference/seaport-overview).
 
-<!-- @include: ./snippets/gravatar-note.md -->
+<!-- @include: ../snippets/gravatar-note.md -->
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
+
+For instance, you can locate the ABI for the main Seaport smart contract at the bottom of [this page](https://etherscan.io/address/0x00000000006c3852cbef3e08e8df289169ede581#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 The code snippets provided further have been simplified for clarity. You can find the full and detailed code [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-opensea) to see all the intricate details.

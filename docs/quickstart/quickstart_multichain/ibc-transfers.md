@@ -47,7 +47,7 @@ dataSources:
 
 As evident, we are in search of two types of events – namely, `send_packet` and `recv_packet` – representing outgoing and incoming transfers, respectively. The information from these logs will subsequently undergo comparison with the data emitted on the opposite end of the transfer.
 
-<!-- @include: ./snippets/multi-chain-creation.md -->
+<!-- @include: ../snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
