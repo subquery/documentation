@@ -10,7 +10,7 @@ The goal of this quick start guide is to index all transfer events and messages 
 The final code of this project can be found [here](https://github.com/subquery/cosmos-subql-starter/tree/main/Dymension/dymension-starter).
 :::
 
-<!-- @include: ../snippets/manifest-cosmos-intro.md -->
+<!-- @include: ../snippets/cosmos-manifest-intro.md -->
 
 ::: code-tabs
 
@@ -44,7 +44,7 @@ dataSources: [
 
 Here we are in search of a single type of – namely, `transfer` representing the transfers.
 
-<!-- @include: ../snippets/manifest-cosmos-note.md -->
+<!-- @include: ../snippets/cosmos-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md -->
 
@@ -63,7 +63,7 @@ The single enity is the `Transfer`.
 
 <!-- @include: ../snippets/cosmos-codegen.md -->
 
-<!-- @include: ../snippets/mapping-cosmos-intro.md -->
+<!-- @include: ../snippets/cosmos-mapping-intro.md -->
 
 ::: code-tabs
 @tab:active `mappingHandlers.ts`
