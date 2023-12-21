@@ -15,14 +15,13 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 - Infinitely scalable - As your user base grows, more indexers will serve you data allowing you to infinitely scale without interruption.
 - Seamless transition - We're here to help you migrate, and we've made it easy to integrate in your dApps with our network client SDKs.
 
-**With the SubQuery Kepler Network, you can now go to your community and say with confidence** **_"our dApp is truly decentralised"._**
+**With the SubQuery Kepler Network, you can now go to your community and say with confidence _"our dApp is truly decentralised"._**
 
 ## Prerequisites for your project running on Kepler
 
-1.  Your project must be running in safe mode, you cannot be running it with the `--unsafe` [command line argument](../run_publish/references.md#unsafe-node-service).
-2.  Kepler does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../run_publish/subscription.md)
-3.  Your client application (the one that will query data from Kepler) must be able to run a JS library
-4.  Your project can generate stable proof of indexing results. This means you should avoid:
+1.  Kepler does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../run_publish/subscription.md)
+2.  Your client application (the one that will query data from Kepler) must be able to run a JS library
+3.  Your project can generate stable proof of indexing results. This means you should avoid:
     1.  Random ordered DB operations, e.g. avoid using `Promise.all()` in your mapping functions.
     2.  Introducing external data dependent on runtime, e.g. initialising a new current date using `new Date()`.
 
