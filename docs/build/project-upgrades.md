@@ -75,4 +75,3 @@ Other notes:
 - Migrations will not succeed `--unfinalizedBlocks` is enabled
 - [GraphQL subscriptions](../run_publish/subscription.md) are not supported
 - [Rewind](../run_publish/historical.md) will only be supported if the new schema does not drop any `fields` or `entity`. Note that [automated historical state tracking](../run_publish/historical.md) must be enabled to support rewind.
-- Historical must be enabled to support rewind
