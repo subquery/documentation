@@ -64,7 +64,7 @@ You only need to set up one handler to index a specific type of log from this co
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Now, let's think about what information we can get from this smart contract for later searching.
 
@@ -173,7 +173,7 @@ import {
 import { OrderFulfilledLog } from "../types/abi-interfaces/SeaportExchangeAbi";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 <!-- @include: ../snippets/ethereum-mapping-note.md -->
 

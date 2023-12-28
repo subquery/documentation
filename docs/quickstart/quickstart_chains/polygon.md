@@ -71,7 +71,7 @@ The above code indicates that you will be running a `handleDeposit` mapping func
 
 <!-- @include: ../snippets/polygon-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
 
@@ -115,7 +115,7 @@ import {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Follow these steps to add a mapping function:
 

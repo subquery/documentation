@@ -78,7 +78,7 @@ The above code indicates that you will be running a `handleTransaction` and `han
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id and the blockHeight along with addresses such as to, from, owner and spender, along with the contract address and value as well.
 
@@ -116,7 +116,7 @@ import {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see three exported functions: `handleBlock`, `handleLog`, and `handleTransaction`. Replace these functions with the following code:
 

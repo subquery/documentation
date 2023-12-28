@@ -56,7 +56,7 @@ The above code indicates that you will be running a `handleNftClaim` mapping fun
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ::: tip Etheruem
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Base. Since Base is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
@@ -93,7 +93,7 @@ import { TokensClaimedLog } from "../types/abi-interfaces/Erc721baseAbi";
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleNftClaim` and `handleDailyAggregation`:
 

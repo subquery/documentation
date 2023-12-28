@@ -45,7 +45,7 @@ The above code indicates that you will be running a `handleLog` mapping function
 
 <!-- @include: ../snippets/flare-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all rewards and also addresses that those rewards go to/are claimed from:
 
@@ -74,7 +74,7 @@ Since we have a [many-to-many relationship](../../build/graphql.md#many-to-many-
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Follow these steps to add a mapping function:
 

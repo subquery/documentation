@@ -10,7 +10,7 @@ The goal of this quick guide is to adapt the standard starter project and start 
   <iframe src="https://www.youtube.com/embed/cEHA2E3crZ8" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all transfers from Polkadot:
 
@@ -60,7 +60,7 @@ This indicates that you will be running a `handleEvent` mapping function wheneve
 
 <!-- @include: ../snippets/polkadot-manifest-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will see three exported functions: `handleBlock`, `handleEvent`, and `handleCall`. Delete both the `handleBlock` and `handleCall` functions as you will only deal with the `handleEvent` function.
 

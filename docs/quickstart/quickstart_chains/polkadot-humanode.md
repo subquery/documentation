@@ -4,7 +4,7 @@ This quick guide aims to adapt the standard starter project and index all transf
 
 <!-- @include: ../snippets/quickstart-reference.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all transfers, bioauthentication events, and online validator nodes from Humanode:
 
@@ -66,7 +66,7 @@ This indicates that you will be running a `handleBioauthNewAuthenticationEvent` 
 
 <!-- @include: ../snippets/polkadot-manifest-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Mapping functions define how chain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
 Navigate to the default mapping function in the `src/mappings` directory. You will see two exported functions: `handleBioauthNewAuthenticationEvent` and `handleImonlineSomeOfflineEvent`.

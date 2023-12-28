@@ -79,7 +79,7 @@ This setup establishes an manifest file to gather and manage information from a 
 
 <!-- @include: ../snippets/polygon-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows:
 
@@ -148,7 +148,7 @@ import {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Follow these steps to add a mapping function:
 

@@ -51,7 +51,7 @@ The above code defines that you will be running two handlers. A `handleFundingRa
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Update the `schema.graphql` file as follows. In this project, since we are indexing all ETH-USD exchange rates provided to [Levana’s Sei DEX protocol](https://blog.levana.finance/levana-perpetual-swap-beta-now-live-on-sei-networks-testnet-a-new-era-for-decentralized-crypto-fc0930ea4b9) by the Pyth price oracle, we have a `ExchangeRate` entity that includes a number of properties, including exchange rate data such as the notional and USD price, the long and short rate and also contract details.
 
@@ -87,7 +87,7 @@ type DailyAggregation @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

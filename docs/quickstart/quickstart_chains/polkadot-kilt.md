@@ -6,7 +6,7 @@ This quick start guide introduces SubQuery's Substrate Kilt Spiritnet support by
 
 The project that we are developing throughout this guide can be found [here](https://github.com/subquery/subql-starter/tree/main/Kilt/kilt-spiritnet-credentials-example)
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 The Kilt-spiritinet-credentials-example project has two entities: Attestation and Aggregation (which has a [foreign key](../../build/graphql.md#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, height, and hash along with some other attributes related to the event.
 
@@ -77,7 +77,7 @@ Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get
 
 <!-- @include: ../snippets/polkadot-manifest-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 

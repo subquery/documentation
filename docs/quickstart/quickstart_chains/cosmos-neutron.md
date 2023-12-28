@@ -42,7 +42,7 @@ The above code defines that you will be running one handler: A `handleAirdropCla
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Update the `schema.graphql` file as follows. In this project, since we are indexing all [airdrop claims](https://www.mintscan.io/neutron/wasm/contract/neutron198sxsrjvt2v2lln2ajn82ks76k97mj72mtgl7309jehd0vy8rezs7e6c56) on Neutron, we have a `Claim` entity that includes a number of properties, including transaction hash and block data as well as date, amount and receiver data.
 
@@ -70,7 +70,7 @@ type DailyClaimSummary @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

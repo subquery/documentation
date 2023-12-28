@@ -135,7 +135,7 @@ Please note that Cro Crow token requires a specific ABI interface. You need to:
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Update the `schema.graphql` file as follows. The aim is to index all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
@@ -160,7 +160,7 @@ It will also generate a class for every contract event to provide easy access to
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will see setup types for ABI `TransferEventArgs` and `ApproveCallArgs`. Delete those for approvals. You will also see two exported functions: `handleEthermintEvmEvent` & `handleEthermintEvmCall` or `handleLog` & `handleTransaction`. Delete them as well.
 

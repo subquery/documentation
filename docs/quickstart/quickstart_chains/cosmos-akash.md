@@ -45,7 +45,7 @@ In the code above, we have defined a single handler, `handleReward`, that will b
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 For this project, you'll need to modify your schema.graphql file as follows. Since we're indexing all [reward transactions](https://www.mintscan.io/akash/txs/808FED7F3FE680EEF8E005EC1927C0CF00D2975E4B26CEE7A098D5DA7DEA8217?height=11797219) for delegators in the Akash network, we have a DelegatorReward entity that comprises a number of properties, including reward amount, delegator information, validator's address, and so forth.
 We also have a Delegator entity, which keeps track of the total rewards of each delegator.
@@ -74,7 +74,7 @@ type Delegator @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

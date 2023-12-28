@@ -71,7 +71,7 @@ Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing block information such as the id, blockHeight and drip receiver along with an aggregation of the total value of the drip per day.
 
@@ -103,7 +103,7 @@ import { DripTransaction } from "../types/abi-interfaces/FaucetAbi";
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. You will be able to see two exported functions `handleDrip` and `handleDailyDrips`:
 

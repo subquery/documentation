@@ -10,7 +10,7 @@ The objective of this project is to catalog the `swap` actions performed by the 
 The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-ref-finance).
 :::
 
-<!-- @include: ../snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ::: code-tabs
 @tab:active `schema.graphql`

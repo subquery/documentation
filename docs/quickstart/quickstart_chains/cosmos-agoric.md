@@ -49,7 +49,7 @@ In the code above we have defined two handlers. `handleEvent` will be executed w
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 For this project, you'll need to modify your schema.graphql file as follows. Since we're indexing all [transfer events & messages](https://agoric.explorers.guru/transaction/69D296C6E643621429959A5B25D2F3DE1F1A67A5481FC1B7986322DBEA61BF8D) on the Agoric network, we have a TransferEvent and Message entity that contain a number of fields, including blockHeight, recipient/to, sender/from, and amount
 
@@ -79,7 +79,7 @@ type Message @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

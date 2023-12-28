@@ -141,7 +141,7 @@ Secondly, note that there are 7 different ABIs imported into this project. We gi
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 You'll see that there are 33 GraphQL entities in the ENS project with many foreign key relationships between them. Take for example the `Domain` and `DomainEvent` entities. There is a one to many relationship between `Domain` and `DomainEvent`, and there is also a one to many relationship that `Domain` has with itself (via the `parent` property), we've event created a virtual `subdomains` field that can be used to navigate via the GraphQL entities.
 
@@ -189,7 +189,7 @@ import {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 They operate in a similar way to SubGraphs, and you can see wiht ENS that they are contained in 4 different files with the addition of a helper `utils.ts`.
 

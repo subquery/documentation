@@ -60,7 +60,7 @@ The above code indicates that you will be running a `handleLog` mapping function
 
 <!-- @include: ../snippets/avalanche-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing two entities, `PangolineRewards` and `Users` where receiver is of type `User` and rewards contains a reverse look up to the receiver field.
 
@@ -92,7 +92,7 @@ import { RewardPaidLog } from "../types/abi-interfaces/PangolinRewards";
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Follow these steps to add a mapping function:
 

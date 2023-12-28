@@ -10,7 +10,7 @@ The goal of this quick start guide is to index all price submissions from priceo
 The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-priceoracle-example).
 :::
 
-<!-- @include: ../snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing all oracles that submit prices on the chain, as well as each individual price submission made to NEAR's price oracle:
 

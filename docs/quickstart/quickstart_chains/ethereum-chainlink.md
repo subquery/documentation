@@ -74,7 +74,7 @@ In plain language, you only need to set up one handler to index a specific type 
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Now, let's think about what information we can get from this smart contract for later searching. The only piece of information we can obtain is the 'DataFeed':
 
@@ -108,7 +108,7 @@ import { DataFeed } from "./types";
 import { FeedConfirmedEvent } from "./types/contracts/FeedRegistry";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 <!-- @include: ../snippets/ethereum-mapping-note.md -->
 
@@ -199,7 +199,7 @@ The feed registry smart contract establishes a connection with a data feed contr
 }
 ```
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Once more, from each newly linked smart contract, we will extract a single entity known as a `DataPoint`. You can expand the `schema.graphql` file to include it in the following way:
 
@@ -223,7 +223,7 @@ import { AnswerUpdatedEvent } from "./types/contracts/AccessControlledOffchainAg
 import { DataFeed, DataPoint } from "./types";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 In this scenario, the mapping process involves two substeps:
 

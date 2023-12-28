@@ -56,7 +56,7 @@ The above code defines that you will be running two handlers. A `handleRewardsWi
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Update the `schema.graphql` file as follows. In this project, since we are indexing all [Archway's contract metadata](https://docs.archway.io/developers/rewards/managing-rewards#contract-metadata) as well as all rewards paid to contract developers, we define one entity for each to record each instance of this. Each entity has a number of properties, including id, blockheight, transaction hash and the timestamp, we are also indexing contract, owner and reward addresses.
 
@@ -88,7 +88,7 @@ type RewardWithdrawl @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

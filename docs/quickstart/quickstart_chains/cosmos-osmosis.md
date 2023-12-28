@@ -43,7 +43,7 @@ Within the provided code snippet, we've established a single handler `handleMess
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 For this project, you'll need to modify your `schema.graphql` file as follows.
 
@@ -125,7 +125,7 @@ import { MsgSwapExactAmountInMessage } from "../types/CosmosMessageTypes";
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 

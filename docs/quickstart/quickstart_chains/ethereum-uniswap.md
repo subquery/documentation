@@ -73,7 +73,7 @@ In simple terms, there's only one event that requires configuration, and that's 
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Now, let's consider the entities that we can extract from the factory smart contract for subsequent querying. The most obvious ones include:
 
@@ -174,7 +174,7 @@ import { EthereumLog } from "@subql/types-ethereum";
 import { PoolCreatedEvent } from "../types/contracts/Factory";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 <!-- @include: ../snippets/ethereum-mapping-note.md -->
 
@@ -349,7 +349,7 @@ The contract factory generates fresh contract instances for each new pool, there
 }
 ```
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Numerous entities can be derived from each newly created pool smart contract. To highlight some of the most crucial ones, you'll need to extend the `schema.graphql` file with the following entities:
 
@@ -469,7 +469,7 @@ import {
 } from "../types/contracts/Pool";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 In this scenario, the mapping process involves two substeps:
 
@@ -657,7 +657,7 @@ For the NonfungiblePositionManager smart contract, we want to introduce the foll
 
 The configuration process closely resembles what we've seen earlier. However, we now have a completely new smart contract that we'll be handling events from. This entails different ABI, address, and start block values. Naturally, it also introduces new events, which are listed under the `handlers` object.
 
-<!-- @include: ../snippets/schema-intro-level4.md -->
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 From this smart contract, the only new entity we'll emphasize is the `Position`:
 
@@ -695,7 +695,7 @@ import {
 } from "../types/contracts/NonfungiblePositionManager";
 ```
 
-<!-- @include: ../snippets/mapping-intro-level4.md -->
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
 For this contract, we will craft the mappings in a file named `position-manager.ts`. Once again, this separation provides context and clarity.
 

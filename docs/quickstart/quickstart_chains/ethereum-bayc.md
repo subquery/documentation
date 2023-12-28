@@ -94,7 +94,7 @@ As evident in the manifest file, this project includes two handlers: firstly, a 
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Now, let's think about what information we can get from this smart contract for later searching.
 
@@ -153,7 +153,7 @@ import { MintApeTransaction } from "../types/abi-interfaces/BaycAbi";
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 ::: tip Note
 For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.

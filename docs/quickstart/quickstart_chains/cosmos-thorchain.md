@@ -39,7 +39,7 @@ The above code defines that you will be running a `handleMessage` mapping functi
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
-<!-- @include: ../snippets/schema-intro-level2.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Update the `schema.graphql` file as follows. The aim is to index all deposit messages. Since each deposit can include multiple tokens, we need to define a [many-to-many relationship](../../build/graphql.md#man) between the Deposit and Coin - we use the DepositCoin entity to link these two entities.
 
@@ -74,7 +74,7 @@ type Coin @entity {
 
 <!-- @include: ../snippets/schema-note.md -->
 
-<!-- @include: ../snippets/mapping-intro-level2.md -->
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory and update your mapping files to match the following (**note the additional imports**):
 
