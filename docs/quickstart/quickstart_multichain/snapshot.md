@@ -6,25 +6,17 @@ An integral component of this platform is the concept of delegations, which allo
 
 By the conclusion of this guide, you will gain the insights into Snapshot, understand the intricacies of delegation, and acquire the knowledge necessary to configure a SubQuery indexer capable of monitoring and indexing delegation-related events across multiple blockchains.
 
-## Setting Up the Indexer
+<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
 
 Snapshot has been implemented across multiple blockchain networks, occasionally with distinct contract addresses. However, because the identical smart contract was employed, each instance maintains an identical set of methods and events.
 
-::: warning Important
-**This project operates across multiple chains, making it more complex than other single chain examples.**
-
-If you are new to SubQuery, we recommend starting your learning journey with single-chain examples, such as the [Ethereum Gravatar example](../quickstart_chains/ethereum-gravatar.md). After understanding the fundamentals, you can then advance to exploring the multi-chain examples.
-:::
-
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**. Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
-
-As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners. For instance, you can locate the ABI for the Snapshot Ethereum smart contract at the bottom of [this page](https://etherscan.io/address/0x469788fE6E9E9681C6ebF3bF78e7Fd26Fc015446#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/snapshot) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-### 1.Configuring the Manifest Files
+<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 Let's start by setting up an Ethereum indexer that we can later use for different chains. To do this, you only need to configure two handlers to index specific logs from the contract, namely the `SetDelegate` and `ClearDelegate` logs. Update your manifest file as shown below:
 
@@ -59,13 +51,11 @@ dataSources:
 
 :::
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest file.
-:::
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
 Next, change the name of the file mentioned above to `ethereum.yaml` to indicate that this file holds the Ethereum configuration.
 
-Then, create a [multi-chain manifest file](../../build/multi-chain#1-create-a-multi-chain-manifest-file). After, following the steps outlined [here](../../build/multi-chain#3-add-a-new-network-to-the-multi-chain-manifest), start adding the new networks. After you Successfuly apply the correct entities for each chain, you will end up with a single `subquery-multichain.yaml` file that we'll map to the individual chain manifest files. This multi-chain manifest file will look something like this:
+<!-- @include: ../snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -233,11 +223,9 @@ repository: https://github.com/subquery/ethereum-subql-starter
 
 :::
 
-As evident from the examples above, we employ various handlers for different chains, while keeping the indexed event logs the same. This approach is adopted to facilitate the identification of the originating network for each specific event (refer to this [tip](../../build/multi-chain#handling-network-specific-logic)). This strategy will prove beneficial later, as it allows us to incorporate a `network` field into the entities. This will simplify the execution of filtering, aggregation, and other data manipulation tasks.
+<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
 
-### 2. Updating the GraphQL Schema File
-
-For the sake of simplicity, the schema will consist of just one object, which will appear as follows.
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ```graphql
 type Delegation @entity {
@@ -252,45 +240,15 @@ type Delegation @entity {
 
 This single object is `Delegation`, containing several parameters to be filled from on-chain data. Additionally, it will include a `network` attribute explicitly provided through mapping logic.
 
-SubQuery simplifies and ensures type-safety when working with GraphQL entities, smart contracts, events, transactions, and logs. The SubQuery CLI will generate types based on your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This action will generate a new directory (or update the existing one) named `src/types`. Inside this directory, you will find automatically generated entity classes corresponding to each type defined in your `schema.graphql`. These classes facilitate type-safe operations for loading, reading, and writing entity fields. You can learn more about this process in [the GraphQL Schema section](../../build/graphql.md).
-
-You can conveniently import all these entities from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { Delegation } from "../types";
-```
-
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
-
-```ts
 // Import a smart contract event class generated from provided ABIs
 import { SetDelegateLog } from "../types/abi-interfaces/DelegateRegistry";
 ```
 
-### 3. Writing the Mappings
-
-Mapping functions define how blockchain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
-
-::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
-:::
+<!-- @include: ../snippets/evm-mapping-intro.md#level2 -->
 
 Creating mappings for this smart contract is a simple procedure. For added clarity, we have organised individual files for each event in the `src/mappings` directory, specifically `clearDelegate.ts` and `setDelegate.ts`. Let's examine them individually.
 
@@ -472,71 +430,11 @@ Similar to the approach taken in the [`setDelegate.ts`](#setdelegratets) file, t
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/snapshot) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-## Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
-
-## Run Your Project Locally with Docker
-
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-## Query your Project
-
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ../snippets/query-intro.md -->
 
 ::: details Delegations
 
@@ -664,14 +562,4 @@ Try the following queries to understand how it works for your new SubQuery start
 
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that indexes the Snapshot delegation entitiy from multiple blockchains and accepts GraphQL API requests.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

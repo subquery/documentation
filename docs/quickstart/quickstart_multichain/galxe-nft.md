@@ -6,19 +6,11 @@ By the end of this guide, you will gain a deep understanding of Galxe NFTs, gras
 
 A vital aspect of the Galxe platform revolves around the concept of campaigns. These campaigns serve as a collaborative credential infrastructure, enabling brands to enhance their web3 communities and products. What Galxe essentially does is utilise both on-chain and off-chain credentials to assist brands and protocols in their growth hacking campaigns. Users who complete campaign tasks receive on-chain proof of their accomplishments, which allows them to mint a Galxe NFT OAT (On-Chain Achievement Token).
 
-## Setting Up the Indexer
+<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
 
 Galxe has been deployed on different blockchain networks, sometimes with different contract addresses. But because the same smart contract code was used, each one has the same methods and events.
 
-::: warning Important
-**This project operates across multiple chains, making it more complex than other single chain examples.**
-
-If you are new to SubQuery, we recommend starting your learning journey with single-chain examples, such as the [Ethereum Gravatar example](../quickstart_chains/ethereum-gravatar.md). After understanding the fundamentals, you can then advance to exploring the multi-chain examples.
-:::
-
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Ethereum project**. Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
-
-As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on blockchain scanners.
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 For instance, you can locate the ABI for the Galxy Ethereum SpaceStationV2 smart contract at the bottom of [this page](https://etherscan.io/address/0x75cdA57917E9F73705dc8BCF8A6B2f99AdBdc5a5#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
@@ -28,9 +20,7 @@ The configuration code snippets shared below have been made simpler to improve c
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/galxe) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-### 1.Configuring the Manifest Files
-
-Let's start by setting up an Ethereum indexer that we can later use for different chains. To do this, you need to configure handlers to index specific logs from the contracts.
+<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 Because there are numerous handlers with various configurations for each network, involving differences in available smart contracts, their addresses, start blocks, and protocol versions, the manifest files will be quite extensive. As a solution, we've developed a script that can generate the manifest files with the correct configurations automatically. You can find the steps to do this [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Multi-Chain/galxe/README.md#add-your-chain).
 
@@ -191,11 +181,9 @@ dataSources:
 
 :::
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest file.
-:::
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-Then, create a [multi-chain manifest file](../../build/multi-chain#1-create-a-multi-chain-manifest-file). By following the steps outlined [here](../../build/multi-chain#3-add-a-new-network-to-the-multi-chain-manifest) (using the `subql multi-chain:add` command), start adding the new networks. After you successfuly apply the correct entities for each chain, you will end up with a single `subquery-multichain.yaml` file that we'll map to the individual chain manifest files. This multi-chain manifest file will look something like this:
+<!-- @include: ../snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -594,11 +582,9 @@ dataSources:
 
 :::
 
-As evident from the examples above, we employ various handlers for different chains, while keeping the indexed event logs the same. This approach is adopted to facilitate the identification of the originating network for each specific event (refer to this [tip](../../build/multi-chain#handling-network-specific-logic)). This strategy will prove beneficial later, as it allows us to incorporate a `network` field into the entities. This will simplify the execution of filtering, aggregation, and other data manipulation tasks.
+<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
 
-### 2. Updating the GraphQL Schema File
-
-The schema will consist of several objects, which will appear as follows:
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ```graphql
 type SpaceStation @entity {
@@ -655,35 +641,10 @@ type NFTMintTransaction @entity {
 
 The configuration defines several types for managing space stations, star NFTs, NFTs, campaigns, claim records, and NFT mint transactions. These types include fields like ID, version, claim, network, number, owner, campaign, verifyID, CID, user, transaction, block, timestamp, and more, all of which are used to organise and store information related to NFTs, their ownership, and related transactions on a blockchain network.
 
-SubQuery simplifies and ensures type-safety when working with GraphQL entities, smart contracts, events, transactions, and logs. The SubQuery CLI will generate types based on your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This action will generate a new directory (or update the existing one) named `src/types`. Inside this directory, you will find automatically generated entity classes corresponding to each type defined in your `schema.graphql`. These classes facilitate type-safe operations for loading, reading, and writing entity fields. You can learn more about this process in [the GraphQL Schema section](../../build/graphql.md).
-
-You can conveniently import all these entities from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { StarNFT, NFT, ClaimRecord } from "../types";
-```
-
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
-
-```ts
-// Import a smart contract event class generated from provided ABIs
 import {
   EventClaimLog,
   EventClaimBatchLog,
@@ -693,13 +654,7 @@ import {
 } from "../types/abi-interfaces/SpaceStationV2";
 ```
 
-### 3. Writing the Mappings
-
-Mapping functions define how blockchain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
-
-::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
-:::
+<!-- @include: ../snippets/evm-mapping-intro.md#level2 -->
 
 Creating mappings for this smart contract is a simple procedure. For added clarity, we have organised individual files for each protocol version in the `src/mappings` directory, specifically `spacestationv2.ts` and `spacestationv1.ts`. In essence, these files are not fundamentally different; they primarily vary in how they manage on-chain data. Let's analyse them separately, beginning with `spacestationv2.ts` since the second version is more pertinent.
 
@@ -1315,71 +1270,11 @@ The code you provided is similar to the code for the second version of the proto
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/galxe) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-## Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
-
-## Run Your Project Locally with Docker
-
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-## Query your Project
-
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ../snippets/query-intro.md -->
 
 ::: details Network Metadatas
 
@@ -1549,14 +1444,4 @@ Try the following queries to understand how it works for your new SubQuery start
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/galxe).
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that indexes the Galxe NFTs from multiple blockchains and accepts GraphQL API requests.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

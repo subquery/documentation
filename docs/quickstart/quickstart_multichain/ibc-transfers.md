@@ -14,7 +14,7 @@ Upon completing this guide, you will gain insights into effectively correlating 
 
 <!-- @include: ../snippets/cosmos-quickstart-reference.md -->
 
-<!-- @include: ../snippets/multi-chain-cosmos-manifest-intro.md -->
+<!-- @include: ../snippets/multi-chain-cosmos-manifest-intro.md#level2 -->
 
 Beginning with Osmosis, the manifest file for this will be as follows:
 
@@ -96,7 +96,7 @@ dataSources:
 
 Here, again we are relying to the data of the same events. Events of both chanins will be processed asynchronously, without a specific order, and will be matched according to their data.
 
-<!-- @include: ../snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ```graphql
 type BridgeEvent @entity {
@@ -119,7 +119,7 @@ The primary event is the `BridgeEvent`, which contains information about the exe
 
 <!-- @include: ../snippets/cosmos-codegen.md -->
 
-<!-- @include: ../snippets/cosmos-mapping-intro.md -->
+<!-- @include: ../snippets/cosmos-mapping-intro.md#level2 -->
 
 ::: code-tabs
 @tab:active `mappingHandlers.ts`
