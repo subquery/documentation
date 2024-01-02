@@ -103,7 +103,7 @@ SubQuery hỗ trợ các mạng blockchain khác nhau và cung cấp hướng d�
 
 Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
-When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you have select an compatiable network type (EVM), it will prompt
+When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatiable network type (EVM), it will prompt
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
