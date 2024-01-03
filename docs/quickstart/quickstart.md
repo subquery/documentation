@@ -104,13 +104,13 @@ SubQuery supports various blockchain networks and provides a dedicated guide for
 
 Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
-When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatiable network type (EVM), it will prompt
+When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatible network type (EVM), it will prompt:
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
 ```
 
-So for example, If I wanted to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
+For example, to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following:
 
 ![Project Scaffolding EVM](/assets/img/build/project-scaffold-evm.png)
 
