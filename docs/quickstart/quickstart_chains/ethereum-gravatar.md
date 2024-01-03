@@ -32,7 +32,7 @@ The Project Manifest (`project.ts`) file works as an entry point to your Ethereu
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
 
-Since we are indexing all Gravatars from the Gravatar contract, the first step is to import the contract abi defintion. Copy the entire JSON and save it as a file called `./Gravity.json` in the `/abis` directory.
+Since we are indexing all Gravatars from the Gravatar contract, the first step is to import the contract abi definition. Copy the entire JSON and save it as a file called `./Gravity.json` in the `/abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
@@ -116,7 +116,7 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entites can be imported from the following directory:
+This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
 import { Gravatar } from "../types";
