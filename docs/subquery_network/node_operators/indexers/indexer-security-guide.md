@@ -55,6 +55,7 @@ Expose the port 8000 allow Only My IP (change 192.168.10.1 to your IP Address):
 ufw route allow proto tcp from 192.168.10.1 to 172.18.0.28 port 8000 comment 'allow indexer_coordinator 8000/tcp indexer_services'
 ```
 :::tip Tip
+
 You can find IPAddress Mapping ex `172.18.0.10`, `172.18.0.28` with 
 ```
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id_or_name>
