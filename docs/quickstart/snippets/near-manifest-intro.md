@@ -1,5 +1,19 @@
-The Project Manifest (`project.ts`) file works as an entry point to your NEAR project. It defines most of the details on how SubQuery will index and transform the chain data. For NEAR, there are three types of mapping handlers (and you can have more than one in each project):
+<!-- #region level2 -->
 
-- [BlockHandler](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [ActionHandlers](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every transaction action that matches optional filter criteria, run a mapping function
+<!-- @include: ./manifest-intro.md#level2 -->
+
+For NEAR, there are three types of mapping handlers (and you can have more than one in each project):
+
+<!-- @include: ./near-handlers.md -->
+
+<!-- #endregion level2 -->
+
+<!-- #region level4 -->
+
+<!-- @include: ./manifest-intro.md#level4 -->
+
+For NEAR, there are three types of mapping handlers (and you can have more than one in each project):
+
+<!-- @include: ./near-handlers.md -->
+
+<!-- #endregion level4 -->

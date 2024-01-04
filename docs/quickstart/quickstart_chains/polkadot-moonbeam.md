@@ -1,16 +1,12 @@
 # Moonbeam (EVM) Quick Start
 
-## Goals
-
 This quick start guide introduces SubQuery's Substrate EVM support by using an example project in Moonbeam Network. The example project indexes all Transfers from the [Moonbeam EVM FRAX ERC-20 contract](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb), as well as Collators joining and leaving events from [Moonbeam's Staking functions](https://docs.moonbeam.network/builders/pallets-precompiles/pallets/staking/).
 
 This project is unique, as it indexes data from both Moonbeam's Substrate execution layer (native Moonbeam pallets and runtime), with smart contract data from Moonbeam's EVM smart contract layer, within the same SubQuery project and into the same dataset. A very similar approach was taken with [indexing Astar's WASM layer too](https://academy.subquery.network/quickstart/quickstart_chains/polkadot-astar.html).
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
+<!-- @include: ../snippets/quickstart-reference.md -->
 
-## 1. GraphQL Schema File
-
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 The Moonbeam-evm-substrate-starter project has two entities. An Erc20Transfer and Collator. These two entities index ERC-20 transfers related to [the $FRAX contract](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb), as well as any [collators joining or leaving](https://docs.moonbeam.network/node-operators/networks/collators/activities/) the Moonbeam Parachain.
 
@@ -29,30 +25,13 @@ type Collator @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
+<!-- @include: ../snippets/codegen.md -->
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+<!-- @include: ../snippets/schema-note.md -->
 
-## 2. The Project Manifest File
+## The Project Manifest File
 
 The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
@@ -103,7 +82,7 @@ For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md
 
 This indicates that you will be running a `handleCollatorJoined` mapping function whenever the method `joinCandidates` is called on the `staking` pallet. Similarly, we will run `handleCollatorLeft` whenever the method `executeLeaveCandidates` is called on the staking pallet. This covers the most basic actions that Collators can do (requesting to join the candidates pool & leaving the candidates pool). For more information about other methods possible under the pallet `staking`in Moonbeam, the Moonbeam documentation provides a [list of possible functions to call](https://docs.moonbeam.network/builders/pallets-precompiles/pallets/staking/).
 
-Check out our [Manifest File](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+<!-- @include: ../snippets/polkadot-manifest-note.md -->
 
 ### EVM Manifest Section
 
@@ -151,9 +130,7 @@ The above code indicates that you will be running a `handleErc20Transfer` mappin
 
 Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get more information about the Project Manifest (`project.ts`) file for Substrate EVM contracts.
 
-## 3. Mapping Functions
-
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. There are the exported functions `handleCollatorJoined`, `handleCollatorLeft` and `handleErc20Transfer`.
 
@@ -211,63 +188,11 @@ The `handleErc20Transfer` function receives event data from the EVM execution en
 
 Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate Frontier EVM data processor](../../build/substrate-evm.md) to get detailed information on mapping functions for each type.
 
-## 4. Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, make sure to rebuild your project.
-:::
-
-## 5. Run Your Project Locally with Docker
-
-SubQuery provides a Docker container to run projects very quickly and easily for development purposes.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-Visit [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-## 6. Query Your Project
-
-Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from this project.
-
-Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the Astar-wasm-starter project.
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 query {
@@ -328,14 +253,6 @@ You should see results similar to below:
 }
 ```
 
-## What's next?
-
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transfer events from the $FRAX smart contract at [`0x322E86852e492a7Ee17f28a78c663da38FB33bfb`](https://moonscan.io/token/0x322e86852e492a7ee17f28a78c663da38fb33bfb).
 
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

@@ -1,35 +1,18 @@
 # Avalanche Quick Start - Crabada NFTs
 
-## Goals
-
 The goal of this quick start guide is to index all Crabada NFTs on Avalanche's C-chain.
 
-::: warning
-Before we begin, make sure that you have initialised your project using the provided steps in the [Start Here](../quickstart.md) section. **Please initialise a Avalanche project**
-:::
-
-Now, let's move forward and update these configurations.
-
-Previously, in the [1. Create a New Project](../quickstart.md) section, you must have noted [3 key files](../quickstart.md#_3-make-changes-to-your-project). Let's begin updating them one by one.
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Avalanche/crabada-nft).
 :::
 
-## 1. Update Your Project Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
 ::: warning Important
 We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Avalanche. Since Avalanche's C-chain is built on Ethereum's EVM, we can use the core Ethereum framework to index it.
 :::
-
-The Project Manifest (`project.ts`) file works as an entry point to your Avalanche project. It defines most of the details on how SubQuery will index and transform the chain data. For Avalanche, there are three types of mapping handlers (and you can have more than one in each project):
-
-- [BlockHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHanders](../../build/manifest/avalanche.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
-
-Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to import the correct contract definitions and update the datasource handlers.
-
 We are indexing actions from the Crabada NFT contract, first you will need to import the contract abi defintion from https://snowtrace.io/address/0xe48b3a0dc82be39bba7b895c9ff1d788a54edc47#code. You can copy the entire JSON and save as a file `./abis/crabada.json` in the root directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
@@ -80,11 +63,9 @@ The above code indicates that you will be running a `handleNewCrab` mapping func
 
 Additionally, whenever there is a `Transfer` log that relates to any token from the [Crabada Legacy Contract](https://snowtrace.io/address/0xCB7569a6Fe3843c32512d4F3AB35eAE65bd1D50c), we run a `handleERC721` mapping function.
 
-Check out our [Manifest File](../../build/manifest/avalanche.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+<!-- @include: ../snippets/avalanche-manifest-note.md -->
 
-## 2. Update Your GraphQL Schema File
-
-The `schema.graphql` file determines the shape of your data from SubQuery due to the mechanism of the GraphQL query language. Hence, updating the GraphQL Schema file is the perfect place to start. It allows you to define your end goal right at the start.
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
 
@@ -120,50 +101,18 @@ type Address @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-SubQuery makes it easy and type-safe to work with your GraphQL entities, as well as smart contracts, events, transactions, and logs. SubQuery CLI will generate types from your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../../build/graphql.md). All entites can be imported from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 import { Crab, Transfer, Address } from "../types";
-```
-
-As you're creating a new EVM based project, this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
-
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. Read about how this is done in [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis).
-
-In the example Crabada SubQuery project, you would import these types like so.
-
-```ts
 import { NewCrabLog, TransferLog } from "../types/abi-interfaces/Crabada";
 ```
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+<!-- @include: ../snippets/schema-note.md -->
 
-Now that you have made essential changes to the GraphQL Schema file, let’s proceed ahead with the Mapping Function’s configuration.
-
-## 3. Add a Mapping Function
-
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Follow these steps to add a mapping function:
 
@@ -281,73 +230,13 @@ For the `handleNewCrab` mapping function, it receives a `NewCrabLog` which inclu
 
 In `handleERC721`, we recieve a `TransferLog` from the token transfer, and then retrieve the `nftId`, `fromAddress`, and `toAddress` from it. After checking that we have a Crab entity (and creating one if not), we then create a new `Transfer` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/avalanche.md) documentation to get more information on mapping functions.
+<!-- @include: ../snippets/avalanche-mapping-note.md -->
 
-## 4. Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
-
-## 5. Run Your Project Locally with Docker
-
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-## 6. Query your Project
-
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following query to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 query {
@@ -517,14 +406,4 @@ You will see the result similar to below:
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Avalanche/crabada-nft).
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for transferring data.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->
