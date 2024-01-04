@@ -10,6 +10,8 @@ We’re building the most open, performant, reliable, and scalable web3 infrastr
 
 The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
 
+_SubQuery will aim to power the future plethora of serverless applications in different blockchain ecosystems and accelerate our transition to a decentralised future._
+
 ![The vision for SubQuery Network to encompass key web3 infrastructure components in a completely decentralised manner](/assets/img/network/technical_stack.png)
 
 网络中的每个人都有一个角色，从高技术开发人员到非高技术开发人员。 SubQuery 网络中包括四个主要参与者.
