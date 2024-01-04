@@ -6,15 +6,17 @@ To attract Delegators to support their work, Node Operators (Data Indexers or RP
 
 :::info Node Operator Commission Rate (NOCR)
 
-_Node Operator's Commission Rate (ICR)_: This is a percentage share of the rewards received by Node Operators from serving requests to Consumers. After deducting the ICR from total rewards, the remaining rewards will be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
+_Node Operator's Commission Rate (NOCR)_: This is a percentage share of the rewards received by Node Operators from serving requests to Consumers. After deducting the NOCR from total rewards, the remaining rewards will be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
 
-Node Operators are free to set this rate to any value they desire. A higher NOCR indicates that Node Operators keep more of the rewards. A lower ICR indicates that the Node Operators share more of their rewards with their Delegators.
+Node Operators are free to set this rate to any value they desire. A higher NOCR indicates that Node Operators keep more of the rewards. A lower NOCR indicates that the Node Operators share more of their rewards with their Delegators.
 
 :::
 
 Delegators will only receive revenue for staking Eras that they were a part of for the entire period. For example, if they join a staking Era in the middle of the relevant period, then they will not earn any Query Fee revenue for that particular Era.
 
 If an Node Operator wishes to increase the Node Operator Commission Rate that they offer to their Delegators, they must advertise this for an entire staking Era. The Node Operator will be able to decrease their Node Operator Commission Rate at any point to raise more delegated SQT for staking in the short term. Delegators can withdraw or undelegate their staked amount at any time, but they will forfeit any rewards earned within the staking Era (as they were not part of the delegation pool for the entire duration of the staking Era).
+
+![Token economic flow](/assets/img/network/token_economy.png)
 
 ## How to select what Node Operators to delegate to
 
@@ -32,9 +34,9 @@ For Data Indexers, we've made it easier for you to see other data about all Data
 
 Besides the period when Delegators can effectively earn money, a non-reward period also occurs. Delegators receive rewards for staking Eras that they were a part of for the entire duration. For example, if a Delegator joins a staking era halfway through, they will not earn any rewards for that particular era.
 
-Delegators can change the Node Operator that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the Era and no thawing period will occur.
+Delegators can change the Node Operator that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the Era and no lock period will occur.
 
-If a Delegator decides to undelegate their SQT, a 28 day thawing period starts. The tokens cannot be used during this period, no fees can be accrued or any reward gained.
+If a Delegator decides to undelegate their SQT, a 28 day lock period starts. The tokens cannot be used during this period, no fees can be accrued, and no rewards will be gained.
 
 ## Delegation Lifecycle
 

@@ -8,6 +8,8 @@ The network is designed to provide value where Node Operators can index, aggrega
 
 There is no intention for SQT to be used as a medium of exchange for goods or services outside of the SubQuery Network. SQT does not in any way represent or confer upon its holders any right to, title of, interest or participation in, the ownership, shareholding and/or management of SubQuery whatsoever. SQT will not entitle holders to any promise of fees, dividends, revenue, profits, or investment returns.
 
+![Token economic flow](/assets/img/network/token_economy.png)
+
 ## KSQT
 
 kSQT is the name of the token that is used by participants who operate within the Kepler Network. This token mimics the properties of the eventual SubQuery Network token (SQT) in that tokens will be rewarded to Node Operators for performing tasks and Delegators can allocate their tokens to Node Operators to secure the network and receive rewards.

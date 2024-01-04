@@ -468,7 +468,7 @@ export const getSidebar = (locale: string) =>
           ],
         },
         {
-          text: "Node Operators",
+          text: "Node Operators / Indexers",
           link: `${locale}/subquery_network/node_operators/introduction.md`,
           collapsible: true,
           children: [
