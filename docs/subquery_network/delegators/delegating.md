@@ -1,12 +1,18 @@
-# Delegating to an Indexer
+# Delegating to a Node Operator
+
+:::info Kepler
+
+In Kepler, you can only delegate to Indexers. When mainnet launches we will rename this section to Node Operators
+
+:::
 
 ## How to delegate to an Indexer
 
-After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-indexers-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Delegator` -> `Indexers`(on the left sidebar). Then select `Delegate` in the last column next to your desired Indexer.
+After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-node-operators-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Delegator` -> `Indexers`(on the left sidebar). Then select `Delegate` in the last column next to your desired Indexer.
 
 ![Delegate Indexer List](/assets/img/network/delegate_indexers.png)
 
-Select your source for the delegation (it can be your wallet, or from an existing delegation amoutn) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
+Select your source for the delegation (it can be your wallet, or from an existing delegation amount) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
 
 ![Delegate to an Indexer part 2](/assets/img/network/delegate_action.png)
 

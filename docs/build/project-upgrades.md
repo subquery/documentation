@@ -59,7 +59,6 @@ These are in addition to [Project Upgrade requirements](#requirements):
 ### Supported Migrations
 
 Supported migrations:
-
 - Adding new entities
 - Removing entities (this is destructive)
 - Adding new fields (however only [nullable fields](./graphql.md#entities) are supported)
@@ -70,9 +69,9 @@ Supported migrations:
   - Please note: When field update is detected, the original field column will be dropped (with all existing data in that field), and a new column will be created with the new field types.
 
 Other notes:
-
 - Only supports PostgreSQL stores
 - Does not support adding new [foreign key relations](./graphql.md#entity-relationships)
 - Does not support enum creation or removal
 - Migrations will not succeed `--unfinalizedBlocks` is enabled
 - [GraphQL subscriptions](../run_publish/subscription.md) are not supported
+- [Rewind](../run_publish/historical.md) will only be supported if the new schema does not drop any `fields` or `entity`. Note that [automated historical state tracking](../run_publish/historical.md) must be enabled to support rewind.

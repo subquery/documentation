@@ -42,7 +42,7 @@ It additionally provides several advanced subscription based options for Consume
 
 ## Node Operator/Delegator Imbalance
 
-Among some competitors, it is observed that there is a serious imbalance between Node Operators and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Node Operator advertise an increase to the Node Operator Commission Rate for an entire staking Era. Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
+Among some competitors, it is observed that there is a serious imbalance between Node Operators and Delegators in terms of the ability to change delegation rates without warning. SubQuery has tried to equalise this imbalance by requiring that the Node Operator advertise an increase to the Node Operator Commission Rate for an entire staking [Era](./era.md). Delegators are also free to withdraw their delegated tokens at any point during the staking Era, but they will lose any rewards that they could have been eligible for during that Era.
 
 ## Incentives for Query Performance
 

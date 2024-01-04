@@ -2,7 +2,7 @@
 
 ## What is an Architect?
 
-An Architect is a SubQuery network participant who creates SubQuery projects for Indexers to index.
+An Architect is a SubQuery network participant who creates SubQuery indexing projects for Indexers to index.
 
 ## Requirements to become an Architect
 
@@ -17,8 +17,8 @@ Architects may be dApp developers, data analytics experts, or someone with a sol
 
 ## How Architects are rewarded?
 
-Architects can sell their services for creating SubQuery projects. Here, Architects can determine what SubQuery projects the Consumer market demands and build projects specifically for these Consumers. Alternatively, Architects can also index their own projects, and thus also become an Indexer and gain rewards from serving query data to Consumers.
+Architects can sell their services for creating SubQuery projects. Here, Architects can determine what SubQuery projects the Consumer market demands and build projects specifically for these Consumers. Commonly, Architects might also index their own projects, and thus also become an Indexer and gain rewards from serving valuable query data to Consumers.
 
 ## Next steps
 
-You can already become an architect today, all you need to do is learn how to build a SubQuery project. View the quick start guide [here](../../quickstart/quickstart.md) to get started!
+You can already become an architect today, all you need to do is learn how to build a SubQuery project. View the [quick start guide here](../../quickstart/quickstart.md) to get started!

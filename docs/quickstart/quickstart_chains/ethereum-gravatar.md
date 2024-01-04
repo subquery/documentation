@@ -16,7 +16,7 @@ The final code of this project can be found [here](https://github.com/subquery/e
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-We are indexing all Gravatars from the Gravatar contract, first you will need to import the contract abi defintion. You can copy the entire JSON and save as a file `./Gravity.json` in the `/abis` directory.
+Since we are indexing all Gravatars from the Gravatar contract, the first step is to import the contract abi definition. Copy the entire JSON and save it as a file called `./Gravity.json` in the `/abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 

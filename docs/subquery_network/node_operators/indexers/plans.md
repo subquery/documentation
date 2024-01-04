@@ -4,7 +4,7 @@ For the initial stages of Kepler, the SubQuery Council will recommend various pl
 
 ## Creating a Fixed Price Plan
 
-All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks). Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period.
+All plans will be orientated around the length of an [Era](../../design/era.md), which is currently one week. Towards the end of each era, we will release the suggested plan templates, recommended pricing, an and other instructions for the start of the next period.
 
 **We strongly recommend not exceeding our recommended pricing when setting your price, otherwise you might not be picked for the next era**
 

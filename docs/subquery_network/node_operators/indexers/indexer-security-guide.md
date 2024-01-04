@@ -54,6 +54,14 @@ Expose the port 8000 allow Only My IP (change 192.168.10.1 to your IP Address):
 ```bash
 ufw route allow proto tcp from 192.168.10.1 to 172.18.0.28 port 8000 comment 'allow indexer_coordinator 8000/tcp indexer_services'
 ```
+:::tip Tip
+
+You can find IPAddress Mapping ex `172.18.0.10`, `172.18.0.28` with 
+```
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_id_or_name>
+```
+
+:::
 
 Show the current firewall allowed forward rules
 
@@ -103,7 +111,7 @@ sudo apt install -y nginx
 ```shell
 # docker-compose.yml
 proxy:
-    image: subquerynetwork/indexer-proxy:v1.2.0
+    image: subquerynetwork/indexer-proxy:v1.3.9
     container_name: indexer_proxy
     restart: always
     ports:

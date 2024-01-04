@@ -468,7 +468,7 @@ export const getSidebar = (locale: string) =>
           ],
         },
         {
-          text: "Node Operators",
+          text: "Node Operators / Indexers",
           link: `${locale}/subquery_network/node_operators/introduction.md`,
           collapsible: true,
           children: [
@@ -516,7 +516,9 @@ export const getSidebar = (locale: string) =>
           collapsible: true,
           children: [
             `${locale}/subquery_network/design/design-philosophy.md`,
+            `${locale}/subquery_network/design/era.md`,
             `${locale}/subquery_network/design/payment-methods.md`,
+            `${locale}/subquery_network/design/reward-distribution.md`,
           ],
         },
         {
