@@ -21,7 +21,7 @@ Welcome to this guide on how to become an Indexer. Let's take an overview of the
 
 In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
 
-- All plans will be orientated around the length of an Era, which is currently one week but may be increased to a fortnight (two weeks).
+- All plans will be orientated around the length of an [Era](../../design/era.md), which is currently one week.
 - Indexers should only index from a list of standardised projects that will be listed [here](./index-project.md#2-add-a-project). You won't be rewarded for indexing any projects that are not on this list.
 - Towards the end of each era, we will release the suggested plan templates, recommended pricing, and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
 - We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank Indexers and plans will be allocated to Indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
@@ -74,7 +74,7 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 | Service                                                                                             | Version Tag |
 | :-------------------------------------------------------------------------------------------------- | :---------- |
-| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v1.4.10`    |
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v1.4.10`   |
 | [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v1.3.9`    |
 
 ::: warning Important
@@ -184,7 +184,7 @@ Enter a new value (in a percent) and submit via Metamask.
 
 ![Changing your ICR](/assets/img/network/indexer_icr_change.png)
 
-Changes will come into effect at the start of the next Era.
+Changes will come into effect at the start of the next [Era](../../design/era.md).
 
 ## Additional Notes
 

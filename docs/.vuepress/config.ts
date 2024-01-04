@@ -216,6 +216,10 @@ export default defineUserConfig({
         include: {
           deep: true,
         },
+        // Enable Subscript
+        sub: true,
+        // Enable  Superscript
+        sup: true,
       },
 
       pwa: {
