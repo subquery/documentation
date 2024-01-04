@@ -6,7 +6,7 @@ By the end of this guide, you will gain a deep understanding of Galxe NFTs, gras
 
 A vital aspect of the Galxe platform revolves around the concept of campaigns. These campaigns serve as a collaborative credential infrastructure, enabling brands to enhance their web3 communities and products. What Galxe essentially does is utilise both on-chain and off-chain credentials to assist brands and protocols in their growth hacking campaigns. Users who complete campaign tasks receive on-chain proof of their accomplishments, which allows them to mint a Galxe NFT OAT (On-Chain Achievement Token).
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 Galxe has been deployed on different blockchain networks, sometimes with different contract addresses. But because the same smart contract code was used, each one has the same methods and events.
 
@@ -20,7 +20,7 @@ The configuration code snippets shared below have been made simpler to improve c
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/galxe) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
+<!-- @include: ./snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 Because there are numerous handlers with various configurations for each network, involving differences in available smart contracts, their addresses, start blocks, and protocol versions, the manifest files will be quite extensive. As a solution, we've developed a script that can generate the manifest files with the correct configurations automatically. You can find the steps to do this [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Multi-Chain/galxe/README.md#add-your-chain).
 
@@ -183,7 +183,7 @@ dataSources:
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -582,7 +582,7 @@ dataSources:
 
 :::
 
-<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
+<!-- @include: ./snippets/multi-chain-network-origin-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 

@@ -6,7 +6,7 @@ An integral component of this platform is the concept of delegations, which allo
 
 By the conclusion of this guide, you will gain the insights into Snapshot, understand the intricacies of delegation, and acquire the knowledge necessary to configure a SubQuery indexer capable of monitoring and indexing delegation-related events across multiple blockchains.
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 Snapshot has been implemented across multiple blockchain networks, occasionally with distinct contract addresses. However, because the identical smart contract was employed, each instance maintains an identical set of methods and events.
 
@@ -16,7 +16,7 @@ Snapshot has been implemented across multiple blockchain networks, occasionally 
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/snapshot) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
+<!-- @include: ./snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 Let's start by setting up an Ethereum indexer that we can later use for different chains. To do this, you only need to configure two handlers to index specific logs from the contract, namely the `SetDelegate` and `ClearDelegate` logs. Update your manifest file as shown below:
 
@@ -55,7 +55,7 @@ dataSources:
 
 Next, change the name of the file mentioned above to `ethereum.yaml` to indicate that this file holds the Ethereum configuration.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -223,7 +223,7 @@ repository: https://github.com/subquery/ethereum-subql-starter
 
 :::
 
-<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
+<!-- @include: ./snippets/multi-chain-network-origin-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 

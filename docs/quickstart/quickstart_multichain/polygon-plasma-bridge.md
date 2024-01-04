@@ -4,7 +4,7 @@ This page explains how to create an multi-chain indexer to index the bridge tran
 
 There are two types of bridge on Polygon for asset transfer, the Proof of Stake (PoS) Bridge and the Plasma Bridge. The PoS Bridge, as the name suggests, adopts the Proof of Stake (PoS) consensus algorithm to secure its network. Deposits on the PoS Bridge are completed almost instantly, but withdrawals may take a while to confirm. On the other hand, the Plasma Bridge supports the transfer of Polygon's native token `MATIC` and certain Ethereum tokens (`ETH`, ERC-20, and ERC-721). It uses the Ethereum Plasma scaling solution to offer increased security.
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 Plasma bridge contracts have been deployed on both networks. In order to establish an indexer, we will need to asynchronously align the events from both of those smart contracts.
 
@@ -14,7 +14,7 @@ Plasma bridge contracts have been deployed on both networks. In order to establi
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Multi-Chain/polygon-plasma-bridge) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
+<!-- @include: ./snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 ::: code-tabs
 
@@ -50,7 +50,7 @@ As you can see, we are only looking for a signle log - `TokenDeposited`. Data fr
 
 Next, change the name of the file mentioned above to `polygon.yaml` to indicate that this file holds the Ethereum configuration.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -100,7 +100,7 @@ dataSources:
 
 Here, again we are relying to the data of the single log, `NewDepositBlock`. Both logs will be processed asynchronously, without a specific order, and will be matched according to their data.
 
-<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
+<!-- @include: ./snippets/multi-chain-network-origin-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 

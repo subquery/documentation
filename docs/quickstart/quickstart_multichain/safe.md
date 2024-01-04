@@ -4,7 +4,7 @@ This page explains how to create an multi-chain indexer for [Safe](https://safe.
 
 After reading this guide, you'll understand the protocol, know about multi-signature setups, and learn how to set up a SubQuery indexer to monitor and track signed message events on different EVM blockchains.
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 Safe factory contracts have been deployed on various blockchain networks, sometimes using different contract addresses. Nevertheless, as the same smart contract was utilised, every instance retains the same collection of functions and events.
 
@@ -26,7 +26,7 @@ In this Safe indexing project, our primary focus lies in configuring the indexer
 
 2. **Individual Safe Smart Contracts**: These contracts encompass all the essential functionality needed for establishing and executing Safe transactions.
 
-<!-- @include: ../snippets/multi-chain-evm-manifest-intro.md#level2 -->
+<!-- @include: ./snippets/multi-chain-evm-manifest-intro.md#level2 -->
 
 To begin, we will establish an Ethereum indexer. As Safe proxies have undergone multiple updates, the indexing process necessitates the configuration of three handlers. In this illustration, we introduce specific smart contracts along with their respective addresses and logs:
 
@@ -125,7 +125,7 @@ templates:
 
 Next, change the name of the file mentioned above to `ethereum.yaml` to indicate that this file holds the Ethereum configuration.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -363,7 +363,7 @@ repository: https://github.com/subquery/ethereum-subql-starter
 
 :::
 
-<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
+<!-- @include: ./snippets/multi-chain-network-origin-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 

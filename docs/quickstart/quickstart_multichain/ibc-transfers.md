@@ -10,11 +10,11 @@ This tutorial provides a comprehensive guide on establishing a multi-chain index
 
 Upon completing this guide, you will gain insights into effectively correlating event data across multiple networks. Furthermore, you'll acquire the knowledge to configure a SubQuery indexer, enabling the monitoring, tracking, and aggregation of events from various Cosmos blockchains within a unified entity.
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 <!-- @include: ../snippets/cosmos-quickstart-reference.md -->
 
-<!-- @include: ../snippets/multi-chain-cosmos-manifest-intro.md#level2 -->
+<!-- @include: ./snippets/multi-chain-cosmos-manifest-intro.md#level2 -->
 
 Beginning with Osmosis, the manifest file for this will be as follows:
 
@@ -47,7 +47,7 @@ dataSources:
 
 As evident, we are in search of two types of events – namely, `send_packet` and `recv_packet` – representing outgoing and incoming transfers, respectively. The information from these logs will subsequently undergo comparison with the data emitted on the opposite end of the transfer.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
