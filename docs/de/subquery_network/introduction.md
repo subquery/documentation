@@ -1,10 +1,16 @@
 # Die Einführung
 
-**Das SubQuery-Netzwerk ist die Zukunft der web3-Infrastruktur**
+**_Decentralisation without Compromise - the SubQuery Network is the future of web3 infrastructure_**
 
-We’re building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
+We not just simply indexing web3 data, we're pioneering a complete web3 infrastructure revolution. Web3 middleware services like indexers and RPC providers are pivotal in blockchain dApp development, but there is a hidden truth behind the mask of _“decentralisation”_ most of these middleware services wear. The reality is a significant reliance on centralised middleware components, which poses a substantial threat to the envisioned unstoppability of a web3 future.
+
+We need to decentralise these services, without compromise. We’ve already delivered breakthroughs in decentralised data indexing, but our next steps will focus on enhancing the performance of RPCs with the SubQuery Data Node, and then to bring RPCs to the masses, with SubQuery’s Sharded Data Nodes. These steps together, will help unlock the next level of performance increases in web3.
+
+We’re building the most open, performant, reliable, and scalable web3 infrastructure service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way.
 
 The SubQuery Network is facilitating an open web3 data revolution by allowing you to completely decentralise your infrastructure stack.
+
+![The vision for SubQuery Network to encompass key web3 infrastructure components in a completely decentralised manner](/assets/img/network/technical_stack.png)
 
 Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis hin zu denen, die es nicht sind. The SubQuery network includes four main network participants.
 
@@ -16,9 +22,11 @@ Es gibt eine Rolle für jeden im Netzwerk, von hochtechnischen Entwicklern bis h
 
 **Delegators** will participate in the Network by supporting their favourite Node Operators to earn rewards based on the work those Node Operators do. Learn more about [Delegators](./delegators/introduction.md).
 
+![Token economic flow](/assets/img/network/token_economy.png)
+
 ## SubQuery Kepler Network
 
-SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network is deploying the Kepler Network.
+SubQuery’s mission is to help developers create the decentralised products of the future. In order to realise this, we are focused on the release of the [decentralised SubQuery Network](https://subquery.network/network). The final phase before launching the SubQuery Network was deploying the Kepler Network.
 
 :::note
 
@@ -26,9 +34,9 @@ SubQuery’s mission is to help developers create the decentralised products of 
 
 :::
 
-### Why Are We Launching Kepler?
+### Why Did We Launching Kepler?
 
-You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.
+You can think of Kepler as a pre-mainnet, a controlled phase that helped us bootstrap the mainnet with participants and activity.
 
 In order to launch our decentralised network (The SubQuery Network), there are several technical milestones that must be met. The first significant milestone was achieved in 2022, with three successful ‘seasons’ (or phases) of our Frontier testnet which stress-tested the network in a test environment. After taking these learnings, we elected to take a novel approach by allowing participants in our testnet to get started on real world projects now via Kepler rather than waiting for the launching of our token.
 
