@@ -1,8 +1,6 @@
 # NEAR Ref Finance. Quickstart Guide
 
-## Goals
-
-The objective of this project is to catalog the `swap` actions performed by the `v2.ref-finance.near` contract on the NEAR mainnet. It serves as an excellent opportunity to gain practical experience in understanding Graph's functionality through a real-world example.
+The objective of this project is to catalog the `swap` actions performed by the `v2.ref-finance.near` contract on the NEAR mainnet. It serves as an excellent opportunity to gain practical experience in understanding SubQuery's functionality through a real-world example.
 
 <!-- @include: ../snippets/quickstart-reference.md -->
 
@@ -12,7 +10,7 @@ The objective of this project is to catalog the `swap` actions performed by the 
 The final code of this project can be found [here](https://github.com/subquery/near-subql-starter/tree/main/Near/near-ref-finance).
 :::
 
-<!-- @include: ../snippets/schema-intro.md -->
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 ::: code-tabs
 @tab:active `schema.graphql`
@@ -42,9 +40,7 @@ The schema include `Swap` entity with a unique identifier, associated with a spe
 
 <!-- @include: ../snippets/near-codegen.md -->
 
-## 2. Update Your Project Manifest File
-
-<!-- @include: ../snippets/near-manifest-intro.md -->
+<!-- @include: ../snippets/near-manifest-intro.md#level2 -->
 
 We are indexing all actions with a method name equal to `swap` and the `v2.ref-finance.near` contract as the recipient.
 
@@ -80,11 +76,11 @@ We are indexing all actions with a method name equal to `swap` and the `v2.ref-f
 
 In the provided configuration, when the specified action is indexed, it will be forwarded to a handler known as `handleAction`.
 
-Check out our [Manifest File](../../build/manifest/near.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+<!-- @include: ../snippets/near-manifest-note.md -->
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
-<!-- @include: ../snippets/near-mapping-intro.md -->
+<!-- @include: ../snippets/near-mapping-intro.md#level2 -->
 
 The `handleAction` function receives event data whenever an event matches the filters, which you specified previously in the `project.ts`. Let’s make changes to it, process the relevant transaction action, and save them to the GraphQL entities created earlier.
 
@@ -148,6 +144,8 @@ This code snippet demonstrates how swap within Ref Finance are processed and ind
 The `handleAction` function processes a Near Protocol action, specifically related to a swap. It, first, checks whether the action belongs to a transaction or a receipt. If it's part of a transaction, it extracts a list of actions and iterates through them. For each action, it creates a `Swap` entity and saves it to the database.
 
 The `getOrCreateToken` and `getOrCreatePool` functions are used to retrieve existing tokens/pools or create new ones if they don't exist. These functions are utility functions used by `handleAction`.
+
+<!-- @include: ../snippets/near-mapping-note.md -->
 
 <!-- @include: ../snippets/build.md -->
 

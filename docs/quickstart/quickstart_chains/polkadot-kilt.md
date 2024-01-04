@@ -1,16 +1,12 @@
 # Kilt Quick Start
 
-## Goals
-
 This quick start guide introduces SubQuery's Substrate Kilt Spiritnet support by using an example project in Kilt Spiritnet. The example project indexes all Attestations [created](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationCreated) and [revoked](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationRevoked) on the [Kilt Spiritnet Blockchain](https://www.kilt.io/).
 
-Previously, in the [1. Create a New Project](../quickstart.md) section, [3 key files](../quickstart.md#_3-make-changes-to-your-project) were mentioned. Let's take a closer look at these files.
+<!-- @include: ../snippets/quickstart-reference.md -->
 
 The project that we are developing throughout this guide can be found [here](https://github.com/subquery/subql-starter/tree/main/Kilt/kilt-spiritnet-credentials-example)
 
-## 1. GraphQL Schema File
-
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+<!-- @include: ../snippets/schema-intro.md#level2 -->
 
 The Kilt-spiritinet-credentials-example project has two entities: Attestation and Aggregation (which has a [foreign key](../../build/graphql.md#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, height, and hash along with some other attributes related to the event.
 
@@ -37,36 +33,9 @@ type Aggregation @entity {
 }
 ```
 
-::: warning Important
-When you make any changes to the schema file, please ensure that you regenerate your types directory.
-:::
+<!-- @include: ../snippets/codegen.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-You will find the generated models in the `/src/types/models` directory.
-
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
-
-## 2. The Project Manifest File
-
-The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
-
-- [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+<!-- @include: ../snippets/polkadot-manifest-intro.md#level2 -->
 
 We are indexing all attestations creation and revoking events from the Kilt Spiritnet blockchain. This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing.
 
@@ -106,9 +75,9 @@ The above code indicates that you will be running a `handleAttestationCreated` m
 
 Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file for Polkadot chains.
 
-## 3. Mapping Functions
+<!-- @include: ../snippets/polkadot-manifest-note.md -->
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we previously defined in the `schema.graphql` file.
+<!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 Navigate to the default mapping function in the `src/mappings` directory. There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 
@@ -194,63 +163,13 @@ The `handleAttestationCreated` function receives event data from the Kilt execut
 
 There is one more function that was created in the mapping file `handleDailyUpdate`. This function allows us to calculate daily aggregated attestations created and revoked.
 
-Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) to get detailed information on mapping functions for each type.
+<!-- @include: ../snippets/polkadot-mapping-note.md -->
 
-## 4. Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, make sure to rebuild your project.
-:::
-
-## 5. Run Your Project Locally with Docker
-
-SubQuery provides a Docker container to run projects very quickly and easily for development purposes.
-
-The docker-compose.yml file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-Visit [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-## 6. Query Your Project
-
-Once the container is running, navigate to http://localhost:3000 in your browser and run the sample GraphQL command provided in the README file. Below is an example query from the kilt-example project.
+<!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
 query {
@@ -321,14 +240,6 @@ You should see results similar to below:
 }
 ```
 
-## What's next?
-
 Congratulations! You have now a locally running SubQuery project that accepts GraphQL API requests for events related to attestations [created](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationCreated) and [revoked](https://spiritnet.subscan.io/event?module=Attestation&event=AttestationRevoked) on the [Kilt Spiritnet Blockchain](https://www.kilt.io/).
 
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

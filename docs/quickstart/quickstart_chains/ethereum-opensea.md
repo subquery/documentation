@@ -1,7 +1,5 @@
 # Ethereum Quick Start - Opensea (Medium)
 
-## Goals
-
 Welcome to our comprehensive step-by-step guide dedicated to constructing a SubQuery indexer tailored for the OpenSea marketplace. OpenSea has emerged as a global epicenter for NFTs, establishing itself as a vibrant ecosystem for creators, collectors, and traders alike.
 
 **This guide is designed to seamlessly lead you through the steps of configuring your personal OpenSea SubQuery indexer.**
@@ -14,15 +12,17 @@ In this Seaport indexing project, our main goal is to set up the indexer to only
 
 For a more comprehensive understanding of how these fundamental protocol mechanisms operate, you can consult the official [Seaport documentation](https://docs.opensea.io/reference/seaport-overview).
 
-<!-- @include: ./snippets/ethereum-gravatar.md -->
+<!-- @include: ../snippets/gravatar-note.md -->
 
-In the earlier section titled "Create a New Project" (refer to [quickstart.md](../quickstart.md)), you should have taken note of three crucial files. To initiate the setup of a project from scratch, you can proceed to follow the steps outlined in the [initialization description](../quickstart.md#2-initialise-a-new-subquery-project). As a prerequisite, you will need to generate types from the ABI files of each smart contract. You can obtain these ABI files by searching for the ABIs of the mentioned smart contract addresses on Etherscan. For instance, you can locate the ABI for the main Seaport smart contract at the bottom of [this page](https://etherscan.io/address/0x00000000006c3852cbef3e08e8df289169ede581#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
+<!-- @include: ../snippets/evm-quickstart-reference.md -->
+
+For instance, you can locate the ABI for the main Seaport smart contract at the bottom of [this page](https://etherscan.io/address/0x00000000006c3852cbef3e08e8df289169ede581#code). Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
 
 ::: tip Note
 The code snippets provided further have been simplified for clarity. You can find the full and detailed code [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-opensea) to see all the intricate details.
 :::
 
-### 1.Configuring the Manifest File
+<!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
 You only need to set up one handler to index a specific type of log from this contract, which is the `OrderFulfilled` log. Update your manifest file to look like this:
 
@@ -62,11 +62,9 @@ You only need to set up one handler to index a specific type of log from this co
 }
 ```
 
-::: tip Note
-Check out our [Manifest File](../../build/manifest/ethereum.md) documentation to get more information about the Project Manifest (`project.ts`) file.
-:::
+<!-- @include: ../snippets/ethereum-manifest-note.md -->
 
-### 2. Updating the GraphQL Schema File
+<!-- @include: ../snippets/schema-intro.md#level4 -->
 
 Now, let's think about what information we can get from this smart contract for later searching.
 
@@ -155,30 +153,9 @@ type _Item @entity {
 
 From the single log we're working with, there's a wealth of information to extract. Notably, there's the `Trade` entity, which signifies the buying and selling activities within a protocol. This entity, as shown in the schema, serves as a link to other entities like `Collection` and `SaleStrategy`. Furthermore, we've included statistical entities, such as `CollectionDailySnapshot` and `MarketplaceDailySnapshot`, to streamline the overall analysis of the protocol's economic dynamics.
 
-::: tip Note
-Importantly, these relationships not only establish one-to-many connections but also extend to include many-to-many associations. To delve deeper into entity relationships, you can refer to [this section](../../build/graphql.md#entity-relationships). If you prefer a more example-based approach, our dedicated [Hero Course Module](../../academy/herocourse/module3.md) can provide further insights.
-:::
+<!-- @include: ../snippets/note-on-entity-relationships.md -->
 
-SubQuery simplifies and ensures type-safety when working with GraphQL entities, smart contracts, events, transactions, and logs. The SubQuery CLI will generate types based on your project's GraphQL schema and any contract ABIs included in the data sources.
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn codegen
-```
-
-@tab npm
-
-```shell
-npm run-script codegen
-```
-
-:::
-
-This action will generate a new directory (or update the existing one) named `src/types`. Inside this directory, you will find automatically generated entity classes corresponding to each type defined in your `schema.graphql`. These classes facilitate type-safe operations for loading, reading, and writing entity fields. You can learn more about this process in [the GraphQL Schema section](../../build/graphql.md).
-
-You can conveniently import all these entities from the following directory:
+<!-- @include: ../snippets/evm-codegen.md -->
 
 ```ts
 // Import entity types generated from the GraphQL schema
@@ -193,22 +170,12 @@ import {
   _OrderFulfillmentMethod,
   NftStandard,
 } from "../types";
-```
-
-It will also generate a class for every contract event, offering convenient access to event parameters, as well as information about the block and transaction from which the event originated. You can find detailed information on how this is achieved in the [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis) section. All of these types are stored in the `src/types/abi-interfaces` and `src/types/contracts` directories.
-
-```ts
-// Import a smart contract event class generated from provided ABIs
 import { OrderFulfilledLog } from "../types/abi-interfaces/SeaportExchangeAbi";
 ```
 
-### 3. Writing the Mappings
+<!-- @include: ../snippets/mapping-intro.md#level4 -->
 
-Mapping functions define how blockchain data is transformed into the optimized GraphQL entities that we previously defined in the `schema.graphql` file.
-
-::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
-:::
+<!-- @include: ../snippets/ethereum-mapping-note.md -->
 
 Writing mappings for this smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `mapping.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
 
@@ -342,71 +309,11 @@ This code snippet demonstrates how trade events within the Seaport marketplace a
 Check the final code repository [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Ethereum/ethereum-opensea) to observe the integration of all previously mentioned configurations into a unified codebase.
 :::
 
-## Build Your Project
+<!-- @include: ../snippets/build.md -->
 
-Next, build your work to run your new SubQuery project. Run the build command from the project's root directory as given here:
+<!-- @include: ../snippets/run-locally.md -->
 
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn build
-```
-
-@tab npm
-
-```shell
-npm run-script build
-```
-
-:::
-
-::: warning Important
-Whenever you make changes to your mapping functions, you must rebuild your project.
-:::
-
-Now, you are ready to run your first SubQuery project. Let’s check out the process of running your project in detail.
-
-## Run Your Project Locally with Docker
-
-Whenever you create a new SubQuery Project, first, you must run it locally on your computer and test it and using Docker is the easiest and quickiest way to do this.
-
-The `docker-compose.yml` file defines all the configurations that control how a SubQuery node runs. For a new project, which you have just initialised, you won't need to change anything.
-
-However, visit the [Running SubQuery Locally](../../run_publish/run.md) to get more information on the file and the settings.
-
-Run the following command under the project directory:
-
-::: code-tabs
-@tab:active yarn
-
-```shell
-yarn start:docker
-```
-
-@tab npm
-
-```shell
-npm run-script start:docker
-```
-
-:::
-
-::: tip Note
-It may take a few minutes to download the required images and start the various nodes and Postgres databases.
-:::
-
-## Query your Project
-
-Next, let's query our project. Follow these three simple steps to query your SubQuery project:
-
-1. Open your browser and head to `http://localhost:3000`.
-
-2. You will see a GraphQL playground in the browser and the schemas which are ready to query.
-
-3. Find the _Docs_ tab on the right side of the playground which should open a documentation drawer. This documentation is automatically generated and it helps you find what entities and methods you can query.
-
-Try the following queries to understand how it works for your new SubQuery starter project. Don’t forget to learn more about the [GraphQL Query language](../../run_publish/query.md).
+<!-- @include: ../snippets/query-intro.md -->
 
 ::: details Trades
 
@@ -507,14 +414,4 @@ query {
 
 :::
 
-## What's next?
-
-Congratulations! You have now a locally running SubQuery project that indexes the major Opensea Seaport entities and accepts GraphQL API requests for transferring data.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->

@@ -72,14 +72,4 @@ Please contribute your new chain back to our example projects by making a PR bac
 
 We really appreciate it, and will absolutely give you a shout out for your effort on social media to our community!
 
-## What’s Next?
-
-Congratulations! You have now a locally running Cosmos SubQuery project that accepts GraphQL API requests.
-
-::: tip Tip
-
-Find out how to build a performant SubQuery project and avoid common mistakes in [Project Optimisation](../../build/optimisation.md).
-
-:::
-
-Click [here](../../quickstart/whats-next.md) to learn what should be your **next step** in your SubQuery journey.
+<!-- @include: ../snippets/whats-next.md -->
