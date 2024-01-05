@@ -79,4 +79,4 @@ The SubQuery Foundation will manage all kSQT token exchanges and distribute rewa
 
 ## What's Next
 
-If you're interested in moving your SubQuery project to the Kepler Decentralised Network please reach out to your SubQuery contact, or email [sales@subquery.network](mailto:sales@subquery.network).
+If you're interested in moving your SubQuery project to the Kepler Decentralised Network please reach out to your SubQuery contact, or email [start@subquery.network](mailto:start@subquery.network).
