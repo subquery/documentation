@@ -19,7 +19,7 @@ The migration from a SubGraph to a SubQuery Project is (by design) easy and quic
 
 **Want Support During Migration?**
 
-Reach out to our team at [sales@subquery.network](mailto:sales@subquery.network) and get a professional service to manage the migration for you.
+Reach out to our team at [professionalservices@subquery.network](mailto:professionalservices@subquery.network) and get a professional service to manage the migration for you.
 
 :::
 
@@ -537,4 +537,4 @@ As you can clearly see, it's only a small amount of work to migrate your SubGrap
 
 Moreover, SubQuery is multi-chain by design. Hence, the same project can be easily extended across chains and the SubQuery Network supports them all. Indexing across different chains is incredibly easy with SubQuery's unified design.
 
-Finally, be assured that we're right behind you. Thousands of supporters and builders on our [Discord server](https://discord.com/invite/subquery) can provide you with the technical support that you need. Additionally, please reach out via support@subquery.network, we'd love to chat, hear what you're building, and work with you to make your migration easier.
+Finally, be assured that we're right behind you. Thousands of supporters and builders on our [Discord server](https://discord.com/invite/subquery) can provide you with the technical support that you need. Additionally, please reach out via [start@subquery.network](mailto:start@subquery.network), we'd love to chat, hear what you're building, and work with you to make your migration easier.
