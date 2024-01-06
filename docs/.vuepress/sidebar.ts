@@ -291,6 +291,10 @@ export const getSidebar = (locale: string) =>
                   text: "IBC transfers",
                   link: `${locale}/quickstart/quickstart_multichain/ibc-transfers.md`,
                 },
+                {
+                  text: "Kava Multi-Chain (EVM & Cosmos)",
+                  link: `${locale}/quickstart/quickstart_multichain/kava-multi-chain.md`,
+                },
               ],
             },
             {

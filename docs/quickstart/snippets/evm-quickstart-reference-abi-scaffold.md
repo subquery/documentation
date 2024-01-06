@@ -1,0 +1,1 @@
+As a prerequisite, you will need to generate types from the ABI files of each smart contract. Additionally, you can kickstart your project by using the EVM Scaffolding approach (detailed [here](../quickstart.md#evm-project-scaffolding)). You'll find all the relevant events to be scaffolded in the documentation for each type of smart contract.
