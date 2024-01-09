@@ -116,6 +116,10 @@ export const getSidebar = (locale: string) =>
                       text: "Ethereum ENS (Complex)",
                       link: `${locale}/quickstart/quickstart_chains/ethereum-ens.md`,
                     },
+                    {
+                      text: "Ethscriptions",
+                      link: `${locale}/quickstart/quickstart_chains/ethsriptions.md`,
+                    },
                   ],
                 },
                 {
