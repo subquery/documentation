@@ -445,10 +445,21 @@ export const getSidebar = (locale: string) =>
     },
     {
       text: "SubQuery Network",
-      link: `${locale}/subquery_network/introduction`,
+      link: `${locale}/subquery_network/introduction/introduction.md`,
       collapsible: true,
       children: [
-        `${locale}/subquery_network/introduction.md`,
+        {
+          text: "Introduction",
+          link: `${locale}/subquery_network/introduction/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/introduction/introduction.md`,
+            `${locale}/subquery_network/introduction/design-philosophy.md`,
+            `${locale}/subquery_network/introduction/era.md`,
+            `${locale}/subquery_network/introduction/payment-methods.md`,
+            `${locale}/subquery_network/introduction/reward-distribution.md`,
+          ],
+        },
         {
           text: "The SubQuery Tokens",
           link: `${locale}/subquery_network/token/token.md`,
@@ -522,17 +533,6 @@ export const getSidebar = (locale: string) =>
         },
         `${locale}/subquery_network/architects/introduction.md`,
         `${locale}/subquery_network/foundation.md`,
-        {
-          text: "Design Philosophy",
-          link: `${locale}/subquery_network/design/design-philosophy.md`,
-          collapsible: true,
-          children: [
-            `${locale}/subquery_network/design/design-philosophy.md`,
-            `${locale}/subquery_network/design/era.md`,
-            `${locale}/subquery_network/design/payment-methods.md`,
-            `${locale}/subquery_network/design/reward-distribution.md`,
-          ],
-        },
         {
           text: "Publish your Project",
           link: `${locale}/subquery_network/publish.md`,

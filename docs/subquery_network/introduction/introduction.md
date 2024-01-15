@@ -16,13 +16,13 @@ _SubQuery will aim to power the future plethora of serverless applications in di
 
 There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
 
-**Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](./consumers/introduction.md).
+**Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](../consumers/introduction.md).
 
-**RPC Providers (a Node Operator)** run the optimised SubQuery Data Node and are rewarded in SQT for providing reliable, scalable, and affordable RPC services to the network. Learn more about [RPC Providers](./node_operators/rpc_providers/introduction.md)
+**RPC Providers (a Node Operator)** run the optimised SubQuery Data Node and are rewarded in SQT for providing reliable, scalable, and affordable RPC services to the network. Learn more about [RPC Providers](../node_operators/rpc_providers/introduction.md)
 
-**Data Indexers (a Node Operator)** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Data Indexers](./node_operators/indexers/introduction.md).
+**Data Indexers (a Node Operator)** will run and maintain high quality SubQuery projects in their own infrastructure, running both the indexer and query service, and will be rewarded in SQT for the requests that they serve. Learn more about [Data Indexers](../node_operators/indexers/introduction.md).
 
-**Delegators** will participate in the Network by supporting their favourite Node Operators to earn rewards based on the work those Node Operators do. Learn more about [Delegators](./delegators/introduction.md).
+**Delegators** will participate in the Network by supporting their favourite Node Operators to earn rewards based on the work those Node Operators do. Learn more about [Delegators](../delegators/introduction.md).
 
 ![Token economic flow](/assets/img/network/token_economy.png)
 

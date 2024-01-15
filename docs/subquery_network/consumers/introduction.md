@@ -29,4 +29,4 @@ As a Consumer, you can interact with performant RPCs or receive indexed data fro
 
 The cost of making RPC calls or querying indexed data on the network will be based on supply and demand and ideally will be lower than other similar centralised and decentralised services currently available. The advantage of an open and transparent network and ecosystem is that competition is encouraged to provide the best service to the Consumer.
 
-For flexibility, Consumers have multiple payment options to pay for blockchain data and RPC queries, you can read more about these, how they work, and the advantages/disadvantages on the [Payment Methods article](../design/payment-methods.md).
+For flexibility, Consumers have multiple payment options to pay for blockchain data and RPC queries, you can read more about these, how they work, and the advantages/disadvantages on the [Payment Methods article](../introduction/payment-methods.md).

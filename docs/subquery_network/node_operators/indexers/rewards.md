@@ -4,7 +4,7 @@
 
 Indexers are rewarded in SQT in two ways:
 
-- Rewards from SQT reward pools based on distribution defined by the [Cobb-Douglas Production Function](../../design/reward-distribution.md).
+- Rewards from SQT reward pools based on distribution defined by the [Cobb-Douglas Production Function](../../introduction/reward-distribution.md).
 - Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
 
 Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
@@ -13,9 +13,9 @@ There may be multiple reward pools simultaneously active for a given Indexer. Th
 
 ## Indexer Staking
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The [Cobb-Douglas production function](../../design/reward-distribution.md#cobb-douglas-production-function) will be used to determine the rewards distributed to each Indexer.
+In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The [Cobb-Douglas production function](../../introduction/reward-distribution.md#cobb-douglas-production-function) will be used to determine the rewards distributed to each Indexer.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per [Era](../../design/era.md) reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
+SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per [Era](../../introduction/era.md) reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
 
 If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
 
@@ -37,7 +37,7 @@ You should read more about how Delegators will pick Indexers [here](../../delega
 
 The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
 
-You can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), it takes an entire [Era](../../design/era.md) for the new value to take effect.
+You can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), it takes an entire [Era](../../introduction/era.md) for the new value to take effect.
 
 ## Security & Performance considerations
 
@@ -102,7 +102,7 @@ Indexers are highly encouraged to provide a communication method for its custome
 
 ## Claiming Rewards from a Plan Agreement
 
-Note, you need to wait for the [Era](../../design/era.md) completes before the rewards can be claimed. So if you receive rewards during Era 1, you can only claim them after Era 2 starts. This gives consumers sufficient time to lodge any disputes.
+Note, you need to wait for the [Era](../../introduction/era.md) completes before the rewards can be claimed. So if you receive rewards during Era 1, you can only claim them after Era 2 starts. This gives consumers sufficient time to lodge any disputes.
 
 To claim your rewards, head to `Rewards` under your profile. Then click `Claim`.
 

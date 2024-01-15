@@ -258,10 +258,16 @@ export default defineUserConfig({
           "/subquery_network/indexers.html":
             "/subquery_network/node_operators/indexers/introduction.html",
           "/subquery_network/token.html": "/subquery_network/token/token.html",
+          "/subquery_network/introduction.html":
+            "/subquery_network/introduction/introduction.html",
           "/subquery_network/design-philosophy.html":
-            "/subquery_network/design/design-philosophy.html",
+            "/subquery_network/introduction/design-philosophy.html",
           "/subquery_network/payment-methods.html":
-            "/subquery_network/design/payment-methods.html",
+            "/subquery_network/introducton/payment-methods.html",
+          "/subquery_network/design/era.html":
+            "/subquery_network/introduction/era.html",
+          "/subquery_network/design/reward-distribution.html":
+            "/subquery_network/introduction/reward-distribution.html",
           "/subquery_network/kepler/welcome.html":
             "/subquery_network/introduction.html",
           "/subquery_network/kepler/ksqt.html":
