@@ -18,7 +18,7 @@ The reward tokens acquired by the swap contract become available for release to 
 
 :::info
 
-Only participants that have been KYC’d and whitelisted can participate in the SubQuery Kepler Swap. You check if your account has been KYC'd and whitelisted, please enter `/kepler-ksqt-swap-kyc <your_wallet_address>` in the `#kepler-swap-support` channel in our Discord.
+Only participants that have been KYC’d and registered can participate in the SubQuery Kepler Swap. You check if your account has been KYC'd and registered, please enter `/kepler-ksqt-swap-kyc <your_wallet_address>` in the `#kepler-swap-support` channel in our Discord.
 
 If you’re new here, check out [this article](https://blog.subquery.network/kepler-milestone-your-invitation-to-join) and follow the instructions on how to join.
 
