@@ -2,7 +2,7 @@
 
 **_Decentralisation without Compromise - the SubQuery Network is the future of web3 infrastructure_**
 
-We not just simply indexing web3 data, we're pioneering a complete web3 infrastructure revolution. Web3 middleware services like indexers and RPC providers are pivotal in blockchain dApp development, but there is a hidden truth behind the mask of _“decentralisation”_ most of these middleware services wear. The reality is a significant reliance on centralised middleware components, which poses a substantial threat to the envisioned unstoppability of a web3 future.
+We are not just simply indexing web3 data, we're pioneering a complete web3 infrastructure revolution. Web3 middleware services like indexers and RPC providers are pivotal in blockchain dApp development, but there is a hidden truth behind the mask of _“decentralisation”_ most of these middleware services wear. The reality is a significant reliance on centralised middleware components, which poses a substantial threat to the envisioned unstoppability of a web3 future.
 
 We need to decentralise these services, without compromise. We’ve already delivered breakthroughs in decentralised data indexing, but our next steps will focus on enhancing the performance of RPCs with the SubQuery Data Node, and then to bring RPCs to the masses, with SubQuery’s Sharded Data Nodes. These steps together, will help unlock the next level of performance increases in web3.
 
