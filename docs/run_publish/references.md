@@ -126,6 +126,31 @@ Similar to `reindex` command, the application would exit upon completion.
 subql-node force-clean -f /example/subql-project
 ```
 
+### export-csv
+
+This subcommand will allow you to export your postgres data to CSV.
+The command takes in two flags:
+
+`--outPath` the directory you wish to export your CSV to.
+
+`--entities` the tables you wish to export. If you wish to export all tables you can use `--entities='*'`, otherwise you can separate the entities with `,` e.g. `--entities='Transfer,Account,User'`
+
+::: tip Note
+The entities should match the entity names on your `schema.graphql`
+:::
+
+`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
+
+
+```shell
+subql-node export-csv --outPath=/example/csv-dir/ --entities='*' -f /example/subql-project
+```
+
+::: Note
+`_metadata` table will be exported on default
+:::
+
+
 ### --log-level
 
 **String (default: `info`)** - There are 7 options to choose from. `fatal`, `error`, `warn`, `info`, `debug`, `trace`, `silent`. The example below shows silent. Nothing will be printed in the terminal so the only way to tell if the node is working or not is to query the database for row count (select count(\*) from subquery_1.starter_entities) or query the block height.
