@@ -126,30 +126,22 @@ Similar to `reindex` command, the application would exit upon completion.
 subql-node force-clean -f /example/subql-project
 ```
 
-### export-csv
+### --csv-outPath
 
-This subcommand will allow you to export your postgres data to CSV.
-The command takes in two flags:
+This will allow you to output your data to `.csv` file alongside postgres DB.
 
-`--outPath` the directory you wish to export your CSV to.
+Limitations:
+- The `.csv` output will be append only, any `UPDATE` will be appended, whereas `DELETE` executions will be invalid.
+- `_metadata` table will be not be exported.
 
-`--entities` the tables you wish to export. If you wish to export all tables you can use `--entities='*'`, otherwise you can separate the entities with `,` e.g. `--entities='Transfer,Account,User'`
-
-::: tip Note
-The entities should match the entity names on your `schema.graphql`
-:::
-
-`-f`, `--subquery` flag must be passed in, to set path of the targeted project.
-
+Data Mutations:
+-  Date type will be converted to Unix Timestamps.
+- UUID fields will be ignored on the CSV files.
+- Historical `__block_range` will only state blockHeight
 
 ```shell
-subql-node export-csv --outPath=/example/csv-dir/ --entities='*' -f /example/subql-project
+subql-node --csv-outPath=/example/csv-dir/ -f /example/subql-project
 ```
-
-::: Note
-`_metadata` table will be exported on default
-:::
-
 
 ### --log-level
 
