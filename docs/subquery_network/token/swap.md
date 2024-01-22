@@ -1,5 +1,11 @@
 # Swap kSQT for USDC
 
+:::warning
+
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest wiating for SubQuery TGE, and then swapping your kSQT for SQT at a premium when the network launches.
+
+:::
+
 Swaps allows users to swap USDC to kSQT and vice versa.
 
 :::info
@@ -16,13 +22,9 @@ The reward tokens acquired by the swap contract become available for release to 
 
 ## How to Swap
 
-:::info
+:::warning
 
-Only participants that have been KYC’d and registered can participate in the SubQuery Kepler Swap. You check if your account has been KYC'd and registered, please enter `/kepler-ksqt-swap-kyc <your_wallet_address>` in the `#kepler-swap-support` channel in our Discord.
-
-If you’re new here, check out [this article](https://blog.subquery.network/kepler-milestone-your-invitation-to-join) and follow the instructions on how to join.
-
-If you need any help, you can reach out on the `#kepler-swap-support` channel in our Discord.
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest wiating for SubQuery TGE, and then swapping your kSQT for SQT at a premium when the network launches.
 
 :::
 
@@ -33,3 +35,9 @@ To swap your kSQT token rewards (note that you are not able to swap airdropped t
 Enter your desired swap amount and click `Swap` before confirming the transaction in Metamask.
 
 ![Confirming a swap](/assets/img/network/swap_confirm.png)
+
+:::info
+
+If you need any help, you can reach out on the `#kepler-swap-support` channel in our Discord.
+
+:::
