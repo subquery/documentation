@@ -458,10 +458,10 @@ export const getSidebar = (locale: string) =>
           collapsible: true,
           children: [
             `${locale}/subquery_network/introduction/introduction.md`,
+            `${locale}/subquery_network/introduction/reward-distribution.md`,
             `${locale}/subquery_network/introduction/design-philosophy.md`,
             `${locale}/subquery_network/introduction/era.md`,
             `${locale}/subquery_network/introduction/payment-methods.md`,
-            `${locale}/subquery_network/introduction/reward-distribution.md`,
           ],
         },
         {
@@ -480,6 +480,7 @@ export const getSidebar = (locale: string) =>
           collapsible: true,
           children: [
             `${locale}/subquery_network/consumers/introduction.md`,
+            `${locale}/subquery_network/consumers/boosting.md`,
             `${locale}/subquery_network/consumers/playground.md`,
             `${locale}/subquery_network/consumers/faq.md`,
           ],
