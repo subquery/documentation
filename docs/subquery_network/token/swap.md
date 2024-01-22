@@ -2,15 +2,15 @@
 
 :::warning
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest wiating for SubQuery TGE, and then swapping your kSQT for SQT at a premium when the network launches.
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for SubQuery's TGE, and then swapping your kSQT for SQT at a premium when the network launches.
 
 :::
 
-Swaps allows users to swap USDC to kSQT and vice versa.
+Swaps allows users to swap kSQT to USDC.
 
 :::info
 
-Please note that airdropped kSQT will not be swappable by the swap contract, only kSQT received as indexing or delegation rewards can be swapped for USDC.
+Please note that airdropped kSQT will not be swappable by the swap contract. Only kSQT that has been acquired using the swap tool, or received as indexing or delegation rewards can be swapped for USDC.
 
 :::
 
@@ -24,7 +24,7 @@ The reward tokens acquired by the swap contract become available for release to 
 
 :::warning
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest wiating for SubQuery TGE, and then swapping your kSQT for SQT at a premium when the network launches.
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for SubQuery's TGE, and then swapping your kSQT for SQT at a premium when the network launches.
 
 :::
 
