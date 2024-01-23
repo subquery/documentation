@@ -9,6 +9,8 @@ Project upgrades allow you to safely make changes to your project at a specified
 
 It's particularly useful when you want to maintain the data of the previous project (e.g. when the previous project takes a long time to index from scratch), and you only want to add a new feature from a specific point in time.
 
+Some other projects call this feature "Project Grafting".
+
 ## Requirements
 
 - In order for this feature to work you need to have [automated historical state tracking](../run_publish/historical.md) enabled in case the project needs to rewind to a block where the upgrade happens.
@@ -59,6 +61,7 @@ These are in addition to [Project Upgrade requirements](#requirements):
 ### Supported Migrations
 
 Supported migrations:
+
 - Adding new entities
 - Removing entities (this is destructive)
 - Adding new fields (however only [nullable fields](./graphql.md#entities) are supported)
@@ -69,6 +72,7 @@ Supported migrations:
   - Please note: When field update is detected, the original field column will be dropped (with all existing data in that field), and a new column will be created with the new field types.
 
 Other notes:
+
 - Only supports PostgreSQL stores
 - Does not support adding new [foreign key relations](./graphql.md#entity-relationships)
 - Does not support enum creation or removal
