@@ -1,43 +1,46 @@
-# Indexer Rewards
+# Node Operator Rewards
 
-## How are Indexers rewarded?
+## How are Node Operator rewarded?
 
-Indexers are rewarded in SQT in two ways:
+Node Operator are rewarded in SQT in two ways:
 
-- Rewards from SQT reward pools based on distribution defined by the [Cobb-Douglas Production Function](../../introduction/reward-distribution.md).
-- Direct SQT query fee rewards from Closed Agreements that an indexer is party to.
+- For running a project, it is known as Allocation Rewards.
+- For serving requests for a project, it can either via Closed Agreement or PAYG.
 
-Indexers are rewarded the fees that Consumers pay for providing blockchain data that the Consumer has reqested. An Indexer will receive all the fees from a Closed Agreement. Otherwise, the fees are split based on the amount of work performed (requests served) and the amount of delegated SQT - this split is determined by applying the Cobb-Douglas Production Function.
+Check out [reward distribution](../../introduction/reward-distribution.md) for more details.
 
-There may be multiple reward pools simultaneously active for a given Indexer. The indexer’s job is to allocate their staked and delegated SQT amongst these pools (in terms of a percentage of their total SQT). There will be a reward pool for each project that the Indexer accepts PAYG, and a reward pool for each Market Agreement that the Indexer is a party of.
+## Staking
 
-## Indexer Staking
+In order to register and become a Node Operator, a minimum SQT is required to stake in the staking contract.
+If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable
+to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation
+Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward.
 
-In order to earn rewards from query revenue as an Indexer it is proposed that Indexers must stake SQT against a particular SubQuery Project that they are providing the service to. The [Cobb-Douglas production function](../../introduction/reward-distribution.md#cobb-douglas-production-function) will be used to determine the rewards distributed to each Indexer.
+There are multiple reasons why Node Operators should consider stake more SQT or attract more Delegation.
 
-SubQuery plans to add a constraint to the network where an indexer must stake a minimum amount of SQT on the relevant reward pool to be able to participate in its matching Open Agreement. They must also stake a minimum amount on an equivalent staking contract for any Closed Agreements in the same fashion. This indexer staked minimum value must be a certain percentage of the Agreement’s per [Era](../../introduction/era.md) reward value, which means in order to renew the Agreement to higher volumes, the indexer must also increase their stake. When an indexer’s stake decreases beneath this minimum amount, they will be unable to renew the Agreement at the existing price.
-
-If an Indexer is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool ip) reallocated to the SubQuery Foundation Treasury, diminishing their holdings of staked SQT in the network and therefore their potential reward. Since the indexer’s allocated stake is determined by a percentage of their total SQT, this will have a flow on effect to all other reward pools that the indexer is party to.
+* The maximum allowed delegation is decided by self stake. So only increasing self stake can increase the total possible
+  stake.
+* More total stake means more SQT to allocate on different deployments the Node Operator runs and more Allocation
+  Rewards to earn.
+* Have advantage over other Node Operators when payment method is flex plan (PAYG)
 
 ## How to attract Delegators?
 
-**Indexers can increase the potential rewards that they receive by attracting Delegators.**
+**Node Operator can increase the potential rewards that they receive by attracting Delegators.**
 
-Delegators are SQT token holders who can delegate their tokens to Indexers for a fair share of indexers' rewards.
-Indexers benefit from higher total stake (with the help of delegators) in ways:
+Delegators are SQT token holders who can delegate their tokens to Node Operator for a fair share of their rewards.
 
-1. Unlock indexer to have more agreements at same time.
-2. Have advantage over other indexers when payment method is flex plan
-3. Have higher score in the sponsor plan.
+Although reputation, service quality, total self stake are all important factors in Delegators' decision,
+eventually it all reflects to ROI. Node Operator should be alert to where Consumer's demands, the rewards is usually
+larger when there is less competition from other Node Operators. Node Operator should also set the commission rate
+properly to raise the ROI of his delegators.
 
-For indexers, since these benefits are delicate, it is always a challenge to consider the best strategy, how many delegator's stake do I need.
-Too many delegation will dilute the reward, small delegation will limit the opportunity of more rewards. By changing commission rate, indexer can adjust the delegation proportion to a balance point.
+You should read more about how Delegators will pick Node
+Operator [here](../../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 
-You should read more about how Delegators will pick Indexers [here](../../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
-
-The main two aspects of how Delegators will pick indexers is the [Indexer Score from the Indexer Leaderboard](https://kepler.subquery.network/delegator/indexers/top), and the Indexer Commission Rate (ICR). The Indexer’s Commission Rate (ICR) is the percentage Indexers earn. The remaining is then shared amongst the Indexer and all Delegators propotionally by staked/delegated amount. Therefore, Indexers need to decide on the proportion of rewards an Indexer wishes to retain versus the amount to share with their Delegators. A lower ICR will be more attractive for Delegators.
-
-You can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), it takes an entire [Era](../../introduction/era.md) for the new value to take effect.
+Note, you can [change this rate at any time](./become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), but it
+takes an
+entire [Era](../../introduction/era.md) for the new value to take effect.
 
 ## Security & Performance considerations
 
@@ -45,64 +48,83 @@ Security and performance considerations are as follows.
 
 ### Operator Wallets
 
-Secure storage of an Indexer’s wallet recovery seed phrase is highly recommended.
+Secure storage of the wallet recovery seed phrase is highly recommended.
 
 ### Firewalls
 
-Indexers need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+Node Operator need to keep security front of mind. Infrastructure security, in particular firewalls, should be
+implemented to prevent public exposure to personal ports.
 
 Secure passwords should be used by default and password rotation policies should be considered.
 
-### Indexer’s Performance
+### Node Operator’s Performance
 
-In order to generate desirable performances, Indexers need to consider various factors such as:
+In order to generate desirable performances, Node Operator need to consider various factors such as:
 
-- the balance between their own stake and that of Delegators.
-- the type of contract being served. The Indexer will receive all the query fees if it is a closed contract. If it is open, then an Indexer’s reward will depend on how many other Indexers there are.
-- fulfilling of the Service Level Agreement (SLA) specifications (to avoid slashing penalties).
-- the accuracy of the data being served to avoid slashing penalties.
+- the balance between their own stake and that of Delegators, using tool like commission for adjustments.
+- the infra cost and infra use rate.
+- act quick and index projects quick
+- quick response to consumers support questions on discord
 
-## Selecting SubQuery Projects to Index
+## Selecting Deployments to Work on
 
-There are several indicators that an Indexer needs to consider when selecting a SubQuery project to index.
+There are several indicators that needs to consider when selecting a project to work on.
+
+### Boosted SQT and Booster Rewards
+
+When a deployment has larger Boosted SQT, it means larger Booster Rewards for all Node Operators running this
+deployment, and higher allocation usage rate. Allocation rewards is usually the largest source of rewards in early stage
+of the network.
 
 ### Query Fee Opportunities
 
-Some projects will have open or closed plans advertised by consumers.
+Some projects will have agreement offers advertised by consumers.
 
-When a Consumer advertises an open or closed plan for a project, they ultimately specify how much they are willing to pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
+When a Consumer advertises an agreement offer for a project, they ultimately specify how much they are willing to
+pay for a set volume of requests. The more a Consumer is willing to pay, the more attractive the project will be for an
+Indexer. It also provides confidence that there will likely be recurring revenue from this SubQuery project.
 
-### Project complexity
+### Deployment complexity (SubQuery Project or Subgraphs)
 
-Projects will vary in computation requirements. Simple projects will only index a few parameters whereas more complicated projects will require more computation resources and more bandwidth. Indexers need to understand the complexity of the project and its hardware capabilities.
+Deployments will vary in computation requirements. Simple projects will only index a few parameters whereas more
+complicated projects will require more computation resources and more bandwidth. Node Operator need to understand the
+complexity of the project and its hardware capabilities.
 
-### Indexer Competition
+### Node Operator Competition
 
-Popular projects offering a high query volume that attract a large number of Indexers. This also implies that the rewards will be shared amongst more people. A single Indexer’s share may be less than a less popular project with a slightly lower query fee but with far fewer Indexers.
+Popular projects offering a high query volume that attract a large number of Node Operator. This also implies that the
+rewards will be shared amongst more people. A single Node Operator’s share may be less than a less popular project with a
+slightly lower query fee but with far fewer Node Operator.
 
 ### Pricing Strategy
 
-Indexers need to be aware of their operation cost and expected incomes to understand their break-even point. Some considerations are:
+Node Operator need to be aware of their operation cost and expected incomes to understand their break-even point. Some
+considerations are:
 
-- How should Indexers set their plan prices?
-- At what price can Indexers accept a service agreement or not?
+- How should Node Operator set their plan prices?
+- What is the cost of running the project? Which price is the price can make profit. 
+- What is the price of competitors'?
 
 ### Advertisements
 
-Indexers need to advertise themselves to Delegators as well as Consumers. Indexers may do this from their own website, in the SubQuery forums or any other places deemed necessary. Some examples of the information to provide are:
+Node Operator need to advertise themselves to Delegators as well as Consumers. Node Operator may do this from their own
+website, in the SubQuery forums or any other places deemed necessary. Some examples of the information to provide are:
 
-- The background and experience of the Indexer or Indexer’s team.
+- The background and experience of the Node Operator or the team.
 - The hardware approach and why it provides superior performance.
 - The customer support policy or SLA.
 - Evidence of historical performances.
 
 ### Customer support
 
-Indexers are highly encouraged to provide a communication method for its customers to report inavailability and also to provide feedback.
+Node Operator are highly encouraged to provide a communication method for its customers to report inavailability and
+also to provide feedback.
 
-## Claiming Rewards from a Plan Agreement
+## Claiming Rewards by Eras
 
-Note, you need to wait for the [Era](../../introduction/era.md) completes before the rewards can be claimed. So if you receive rewards during Era 1, you can only claim them after Era 2 starts. This gives consumers sufficient time to lodge any disputes.
+Note, you need to wait for the [Era](../../introduction/era.md) completes before the rewards can be claimed. So if you
+receive rewards during Era 1, you can only claim them after Era 2 starts. This gives consumers sufficient time to lodge
+any disputes.
 
 To claim your rewards, head to `Rewards` under your profile. Then click `Claim`.
 
