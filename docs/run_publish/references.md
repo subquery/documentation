@@ -126,21 +126,25 @@ Similar to `reindex` command, the application would exit upon completion.
 subql-node force-clean -f /example/subql-project
 ```
 
-### --csv-outPath
+### --csv-out-dir
 
-This will allow you to output your data to `.csv` file alongside postgres DB.
+This will allow you to output your data to `.csv` file alongside postgres DB. While continuously appending to the generated csv file.
+
+:::tip Note csv files will be generated per table:::
+The `.csv` will be created under the provided directory, under the Entity names (e.g. `Transfer.csv`). 
 
 Limitations:
-- The `.csv` output will be append only, any `UPDATE` will be appended, whereas `DELETE` executions will be invalid.
-- `_metadata` table will be not be exported.
+- The `.csv` output will be appended only, any `UPDATE` will be appended, whereas `DELETE` will not be executed.
+- `_metadata` and `_poi` table will be not be exported.
+:::tip Note `rewind` features such as `reindex`, `unfinalized-block` will not reflect on the csv:::
 
 Data Mutations:
--  Date type will be converted to Unix Timestamps.
+- Date type will be converted to Unix Timestamps.
 - UUID fields will be ignored on the CSV files.
-- Historical `__block_range` will only state blockHeight
+- Historical `__block_range` will be replaced by `__block_number`
 
 ```shell
-subql-node --csv-outPath=/example/csv-dir/ -f /example/subql-project
+subql-node --csv-out-dir=/example/csv-dir/ -f /example/subql-project
 ```
 
 ### --log-level
