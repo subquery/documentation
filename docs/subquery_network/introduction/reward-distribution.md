@@ -11,37 +11,31 @@ In our vision, as the network matures, rewards for productive work will dominate
 
 ## Rewards for Product Work
 
-In order to earn rewards from query revenue as a Node Operator, Node Operators only need to send an on-chain tx to switch their service status on. The Cobb-Douglas production function will be used to adjust the rewards distributed to each Node Operator to encourage higher total stake.
+In order to earn rewards from query revenue as a Node Operator, Node Operators only need to send an on-chain transaction to switch their service status on and stake a minimum amount of SQT. The Cobb-Douglas production function will be used to determine the rewards distributed to each Node Operator and to encourage a higher total stake.
 
 There is a reward pool for each deployments Node Operator runs where the adjustment applies, then it goes to the Node Operator's final rewards pool, where all rewards like Close Agreement Reward, PAYG Reward and Allocation Reward eventually go to. At the moment, the total stake of Node Operator is used for all these pools. Note, for a [Closed Agreement](./payment-methods.md#closed-plans-and-agreements), the Cobb-Douglas production is not used to allocate rewards to Node Operators.
 
 ![Reward Pools](/assets/img/network/reward_pools.png)
 
-## Deployment Booster Rewards
+## Network Inflation Rewards
 
-As Node Operator, running projects occurs costs. Without secure the Consumer, there are risks that the time and resources can be wasted. In order to address this challenge and offer Consumers a way to bootstrap a deployment, we now enable Deployment Booster Rewards, which will accumulate rewards for a deployment based on the total boosted SQT on it, the rewards then will be shared by Node Operators and people who boost the deployment. The former one is known as Allocation Rewards, the later one Booster Query Rewards.
+Some projects in our network are considered “Public Good” projects, for example; network dictionaries and the various SubQuery projects that the [official Network app](https://kepler.subquery.network) runs on. In these cases, we need to ensure Node Operators will run and host them, but generally there will be no single customer that will take the lead in financing these requests
 
-In the following cases, Node Operators can earn allocation rewards.
+Additionally, for Node Operators, running projects incurs significant costs. Without clear demand, Node Operators might not want to risk the time and resources to setup a new project.
 
-1. There are boosted SQT for the deployment so that it can accumulate rewards.
-2. Node Operator start their service of this deployment by sending a tx.
-3. Node Operator allocate SQT to the deployment.
-4. Node Operator is online and available to public, the progress is 100%.
-5. Node Operator is not under over-allocated status.
+The solution to this comes from network inflation as a reward source for Indexer rewards, in addition to rewards for productive work. We allow Consumers to use [Boosting](../consumers/boosting.md) to direct Network Inflation Rewards, which distributed to Node Operators proportionally based on the total boosted SQT on their projects.
 
-For people who boosted the deployment, let's assume they are Consumers. For them, they are rewarded with Booster Query Rewards which they can spend on any state channel they have with Node Operators for this deployment. Do note, Booster Query Rewards can only be spent but not withdraw.
+In order to recieve network inflaton rewards, Node Operators must be running a project that has a non-zero amount of consumer boosting, and be online/available to the public with a sync progress of 100%. Node Operators will not receive all of the network inflation rewards, some rewards are distributed to the Consumers that boosted the project, as described in [Consumer Boosting](../consumers/boosting.md#how-are-boosters-rewarded).
 
-As network operator, we will act as a normal Consumer now, boost SQT to projects which are identified as “Public Good” projects, for example; network dictionaries and the various SubQuery projects that the [official Network app](https://kepler.subquery.network) runs on. In these cases, we need to ensure Node Operators will run and host them, but generally there will be no single customer that will take the lead in financing these requests Utilizing Deployment Booster Rewards is considered more efficient in the sense of management efforts and budget spending.
+Network inflation rewards are allocated to all project types supported by the SubQuery Network, e.g data indexing projects and RPC endpoints. The split of network inflation rewards between the Consumer that boosted the project, and the Node Operator may vary by project type.
 
-This rewards type is available for all project types supported by Subquery Network, e.g SubQuery Projects, Rpc Projects, SubGraphs. But there is a difference amongst them. The ratio of allocation rewards and booster query rewards varies by project types. It makes sense for rpc projects that booster query rewards has larger proportion than allocation rewards.
-
-In the SubQuery Network, the inflation rate is expected to be `1.2%`. The majority of these rewards acts as deployment booster rewards (`1%`), while the remainder is allocated to the SubQuery Treasury to fund projects in other payment methods.
+In the SubQuery Network, the inflation rate is expected to be `1.2%`. The majority of these rewards acts as network inflation rewards (`1%`), while the remainder is allocated to the SubQuery Treasury to fund various programmes.
 
 ## Cobb-Douglas Production Function
 
 ![Cobb Douglas production Function](/assets/img/network/cobb_douglas.png)
 
-The query fee revenue that Node Operator (**_i_** ) can receive for the PAYG reward pool (**_p_**) is defined by the Cobb-Douglas production function. Where **_Reward~p~_** is the total SQT in the reward pool, **_p_**, **_σ~ip~_** is the number of requests provided by Node Operator **_i_** for the reward pool, **_p_**, **_θ~ip~_** is the total stake of the Node Operator **_i_**, **_p_**, **_θ~p~_** the total staked amount for the reward pool **_p_** across all participating Node Operators. **_α_** is a constant that changes the weight of these two parameters and how they affect total rewards.
+The query fee revenue that Node Operator (**_i_** ) can receive for the Flex Plan (PAYG) reward pool (**_p_**) is defined by the Cobb-Douglas production function. Where **_Reward~p~_** is the total SQT in the reward pool **_p_**, **_σ~ip~_** is the number of requests provided by Node Operator **_i_** for the reward pool **_p_**, **_σ~p~_** is the number of requests for reward pool **_p_**, **_θ~ip~_** is the staked amount for Node Operator **_i_** for reward pool **_p_**, **_θ~p~_** the total staked amount for the reward pool **_p_** across all participating Node Operators. **_α_** is a constant that changes the weight of these two parameters and how they affect total rewards.
 
 This approach was championed by the 0x team, and in simple terms, means that revenue is allocated to competing Node Operators as a proportion of both requests answered and revenues staked.
 
@@ -49,7 +43,7 @@ This approach was championed by the 0x team, and in simple terms, means that rev
 
 The beauty of the Cobb Douglas equation (above) is that a rational Node Operator must maintain a stable level of staked SQT relative to the work they do in order in each reward pool in order to receive optimal rewards from either of the reward sources. As a result, the SubQuery Network does not need to enforce arbitrary staking requirements because Node Operators are incentivised to self-manage and maintain a stake or skin in the game.
 
-SubQuery does require Node Operator must allocate SQT on the deployment they run, so they can earn Allocation Rewards. a. When a Node Operator's stake decreases beneath the amount they have allocated, they will stop earning Allocation Rewards until they either increase their stake or reduce the allocated SQT to recover from this status.
+SubQuery does require Node Operator must allocate their staked and delegated SQT on the deployment they run, so they can earn Allocation Rewards. When a Node Operator's stake decreases beneath the amount they have allocated, they will stop earning Allocation Rewards until they either increase their stake or reduce the allocated SQT to recover from this status.
 
 :::warning
 

@@ -176,7 +176,7 @@ For the initial stages of Kepler, the SubQuery Council will set some default pla
 
 ## 6. Configure an Indexer Commission Rate (ICR)
 
-Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](./rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
+Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your ICR](/assets/img/network/indexer_icr.png)
 
