@@ -2,7 +2,9 @@
 
 :::warning
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for SubQuery's TGE, and then swapping your kSQT for SQT at a premium when the network launches.
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for when we retire Kepler when the mainnet launch.
+
+When we retire Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
 
 :::
 
@@ -24,7 +26,9 @@ The reward tokens acquired by the swap contract become available for release to 
 
 :::warning
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for SubQuery's TGE, and then swapping your kSQT for SQT at a premium when the network launches.
+Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for when we retire Kepler when the mainnet launch.
+
+When we retire Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
 
 :::
 
