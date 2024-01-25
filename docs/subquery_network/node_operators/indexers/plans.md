@@ -55,4 +55,4 @@ You can also update your existing flex plans just the same way. Note that consum
 
 ## Claiming Rewards from a Plan Agreement
 
-Read more at [claiming rewards from a plan agreement](./rewards.md#claiming-rewards-from-a-plan-agreement).
+Read more at [claiming rewards from a plan agreement](../rewards.md#claiming-rewards-by-eras).

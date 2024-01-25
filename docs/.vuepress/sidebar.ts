@@ -504,13 +504,13 @@ export const getSidebar = (locale: string) =>
               text: "Introduction to Node Operators",
               link: `${locale}/subquery_network/node_operators/introduction.md`,
             },
+            `${locale}/subquery_network/node_operators/rewards.md`,
             {
               text: "Data Indexers",
               link: `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               collapsible: true,
               children: [
                 `${locale}/subquery_network/node_operators/indexers/introduction.md`,
-                `${locale}/subquery_network/node_operators/indexers/rewards.md`,
                 {
                   text: "Becoming an Indexer",
                   link: `${locale}/subquery_network/node_operators/indexers/become-an-indexer.md`,

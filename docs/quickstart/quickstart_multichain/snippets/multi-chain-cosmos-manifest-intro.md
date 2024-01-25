@@ -4,7 +4,7 @@
 
 The Multichain project contains multiple manifest files, with support for the following handlers:
 
-<!-- @include: ./cosmos-handlers.md -->
+<!-- @include: ../../snippets/cosmos-handlers.md -->
 
 <!-- #endregion level2 -->
 
@@ -14,7 +14,7 @@ The Multichain project contains multiple manifest files, with support for the fo
 
 The Multichain project contains multiple manifest files, with support for the following handlers:
 
-<!-- @include: ./cosmos-handlers.md -->
+<!-- @include: ../../snippets/cosmos-handlers.md -->
 
 <!-- #endregion level3 -->
 
@@ -24,6 +24,6 @@ The Multichain project contains multiple manifest files, with support for the fo
 
 The Multichain project contains multiple manifest files, with support for the following handlers:
 
-<!-- @include: ./cosmos-handlers.md -->
+<!-- @include: ../../snippets/cosmos-handlers.md -->
 
 <!-- #endregion level4 -->

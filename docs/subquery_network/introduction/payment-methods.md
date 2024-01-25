@@ -8,36 +8,33 @@ The first, and a standard amongst the web3 industry, is pay-as-you-go (we call i
 
 Consumers making requests will have to lock the tokens necessary to make that request in a state channel, and at the end of an [Era](./era.md), these tokens will be distributed to the Node Operators based on the [Cobb-Douglas production function](./reward-distribution.md).
 
-## Closed Plans and Agreements
+When Consumers lock their SQT to boost a deployment, they not only incentivise Node Operators to work on the project, but also allow them to earn network rewards which they can spend on state channel to pay Node Operators. This makes PAYG the best option for most Consumers to use. With enough SQT to boost the deployment, they may not need extra SQT in querying the data from Node Operators.
+
+Operating a state channel requires off-chain communication between the consumer and node operator, and local states management. Even though we open-sourced the software for whoever wants to run on their own environment, we also offer a gateway and consumer host service so we can manage the state channel on user's behalf at the cost of some fees.
+
+## Closed Agreements and Agreement Offer
 
 Closed Agreements represent an agreement between only one Node Operator and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.
 
-Closed Agreements are designed to give Node Operators confidence that there is a market and ROI for data from a particular SubQuery Project, and essentially signal to them which Projects should be indexed.
+Closed Agreements are designed to offer a similar experience for consumers like what they can find in web2 world. It gives Node Operators confidence that there is a market and ROI for data from a particular SubQuery Network Project, and a long term expectation so that they are willing to offer a lower average price.
 
-Closed Plans can also be placed on existing SubQuery Projects to attract additional Node Operators to that SubQuery Project. This may be useful in situations where the existing monopolistic Node Operator may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+Agreement Offer can be placed on existing SubQuery Projects to attract additional Node Operators to that SubQuery Project. This may be useful in situations where the existing monopolistic Node Operator may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
 
-## Open Service Agreement
-
-Open Market Service Agreements are similar to Closed Market Service Agreements, but allow multiple Node Operators to join and compete to provide data to the Consumer. An Open Market Service Agreement may start as a contract between 1 Consumer and 1 Node Operator, but more parties may join the contract resulting in _n_ Consumers and _n_ Node Operators.
-
-Each Open Market Service Agreement results in a new reward pool being created for that contract, and SQT is distributed amongst participating Node Operators by the [Cobb-Douglas production function](./reward-distribution.md#cobb-douglas-production-function).
-
-Open Agreements provide favourable terms for both Node Operators and Consumers, but enable better performance and reliability for Consumers by attracting more Node Operators to compete and serve the same data. If Consumers are running large scale applications with users around the world, then Open Agreements are ideal.
+There is an unsaid access threshold though, it requires certain level of trust from consumer that the Node Operator is professional and can offer the service as he stated according to the agreement terms.
 
 ## Comparison of Payment Methods
 
-SubQuery is intended to function as a marketplace where both Consumers and Node Operators can meet to exchange data for SQT tokens. However, there are a lot of up-front costs that an Node Operators must incur before they are able to sell data from a new SubQuery Project or act as an RPC provider.
+SubQuery Network is intended to function as a marketplace where both Consumers and Node Operators can meet to exchange data for SQT tokens. However, there are a lot of up-front costs that a Node Operators must incur before they are able to sell data from a new SubQuery Project or act as an RPC provider.
 
-Closed and Open Agreements are designed to give Node Operators confidence that there is a market for data from a particular SubQuery Project or network, and essentially signal to them which Indexer Projects or RPC endpoints should be indexed. Plans can also be placed on existing Indexer Projects or RPC endpoints to attract additional Node Operators to that Indexer Projects or RPC endpoints. This may be useful in situations where the existing monopolistic Node Operator may be charging an unreasonable amount for the data or there is a lack of competition to drive prices to equilibrium.
+We want to build a platform where professional Node Operators are rewarded for their skills as well as the hardware resources they devote to run the service. With the time that proofs their professional and quality of service, some of the runners can have stable customers and stable rewards flow.
 
-When a Consumer exceeds the limitations of the Open or Closed Agreement that they have in place, then all subsequent requests that do not come under the Open or Closed Agreement’s terms may automatically occur under a Flex Plan. This can be used to prevent service interruptions after usage exceeds the prescribed daily limit.
+A combination of close agreement and PAYG can be the best solution reconcile both cost efficiency and service stability and scalability.
 
-| Comparison                                 | Pay as you Go     | Open Agreement    | Closed Agreement |
-| ------------------------------------------ | ----------------- | ----------------- | ---------------- |
-| **Favours who?**                           | Both              | Indexers          | Consumers        |
-| **Reward Distribution**                    | Cobb-Douglas Pool | Cobb-Douglas Pool | Direct           |
-| **Number of Node Operators per agreement** | >=1               | >=1               | 1                |
-| **Number of Consumers per agreement**      | >=1               | >=1               | 1                |
+| Comparison              | Pay as you Go                 | Closed Agreement     |
+| ----------------------- | ----------------------------- | -------------------- |
+| **Cost Per Request**    | relatively high               | lower at high volume |
+| **Reward Distribution** | Cobb-Douglas Pool             | Direct               |
+| **Source of Funds**     | From wallet or Booster Reward | From wallet          |
 
 ## SubQuery’s Innovation in Payment Methods
 
