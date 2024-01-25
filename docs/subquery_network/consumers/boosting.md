@@ -22,7 +22,7 @@ These rewards are distributed to each project deployment based on the proportion
 This reward pool is then split into two groups:
 
 - Allocation rewards are rewards provided to Node Operators (and their Delegators) based off their staking proportion on that project deployment, this encourages more Node Operators to run infrastructure for this project deployment, as they get a larger set of rewards into their reward pool. These rewards are distributed the end of each Era and shared between Node Operator and their delegators following the same rule as other Node Operator rewards.
-- Query rewards are rewards that are granted back to those that boosted the project deployment, they are granted when they open a state channel with that project deployment.
+- Query rewards are rewards that are granted back to those that boosted the project deployment, they are granted when they open a state channel with that project deployment - you can only use query rewards within state channels for the given project deployment that you boosted.
 
 ## When might you boost a project deployment
 
@@ -30,7 +30,7 @@ This reward pool is then split into two groups:
 - Architects (Project Creators) may boost to encourage Node Operators to run their project so the market can observe their data.
 - Node Operators could boost projects they are profitable in to potentially receive more rewards for that project from network inflation, though this is discouraged and may be treated as misbehaviour.
 
-Note that since boosting rewards for the Booster are in free query units, rather than in SQT, if an individual is looking to maximise rewards and yield from their spare SQT, they should instead look to [delegate](../delegators/introduction.md), rather than boost.
+Note that since query rewards for the Booster can only be redeemed for queries for the given project deployment that you boosted, if an individual is looking to maximise rewards and yield from their spare SQT, they should instead look to [delegate](../delegators/introduction.md), rather than boost.
 
 - Consumers receive no direct SQT reward for boosting a project, and there is no corresponding risk to boosted tokens as well. The rewards that you receive are in a higher likelihood of more node operators serving the project deployment, and free query units.
 - There is no withdrawal lockup period, and Consumers will receive exactly the same amount of SQT that was originally locked to boost the project.

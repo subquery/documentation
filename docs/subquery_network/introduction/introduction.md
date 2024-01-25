@@ -14,6 +14,8 @@ _SubQuery will aim to power the future plethora of serverless applications in di
 
 ![The vision for SubQuery Network to encompass key web3 infrastructure components in a completely decentralised manner](/assets/img/network/technical_stack.png)
 
+## Network Participants
+
 There’s a role for everyone in the network, from highly technical developers to those that are not. The SubQuery network includes four main network participants.
 
 **Consumers** will ask the SubQuery Network for specific data for their dApps or tools, and pay an advertised amount of SQT for each request. Learn more about [Consumers](../consumers/introduction.md).
