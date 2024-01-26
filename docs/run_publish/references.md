@@ -71,6 +71,28 @@ Place this file in the same directory as the project. Then in the current projec
 > subql-node -c ./subquery_config.yml
 ```
 
+### --csv-out-dir
+
+This allows you to output data in parallel to a `.csv` file alongside the standard postgres DB. This provides a secondary output format and allows easier integration with external services, data warehouses, and analytics providers.
+
+A different CSV file will be generated for each entity defined in your GraphQL schema file table. E.g. record for the `Transfer` entity will be saved in `Transfer.csv`.
+
+Limitations:
+
+- Data in the CSV output will be appended only. For example, any `UPDATE` operations will be appended, whereas `DELETE` operations will not be reflected in the CSV.
+- `_metadata` and `_poi` data will be not be exported.
+- Certain historical features that rely on mutations will not be supported, such as `reindex`, `unfinalized-block`, and `block-confirmations` will not reflect on the csv
+
+Data Mutations:
+
+- Date type will be converted to Unix Timestamps.
+- UUID fields will be ignored on the CSV files.
+- Historical `__block_range` will be replaced by `__block_number` and reflect the block this data was created only (rather than a range).
+
+```shell
+subql-node --csv-out-dir=/csv-dir/ -f subql-project.ts
+```
+
 ### --db-schema
 
 **String** - This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
