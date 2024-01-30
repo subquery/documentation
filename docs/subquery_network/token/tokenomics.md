@@ -24,15 +24,15 @@ The vesting schedules for each participant has been designed to create long-term
 
 The Foundation and Community will have approximately 20% of their allocation unlocked from the start (as part of mainnet incentives) to meet the operational needs of launching and promoting the SubQuery Network with the rest of the allocation vesting gradually over 5 years.
 
-| Group                  | Size  | Vesting Terms                          |
-| ---------------------- | ----- | -------------------------------------- |
-| Seed                   | 11.7% | 12 month lock-up with 24 month vesting |
-| Series A               | 14.5% | 6 month lock-up with 18 month vesting  |
-| Series B               | 3.2%  | 3 month lock-up with 9 month vesting   |
-| Strategic Round        | 5.5%  | 24 month lock-up with 24 month vesting |
-| Team and Advisers      | 15.0% | 34 month lock-up with 24 month vesting |
-| Foundation & Community | 32.3% | No lock-up with 60 month vesting       |
-| Mainnet Incentives     | 8.0%  | No lock-up or vesting                  |
-| Liquidity              | 5.0%  | No lock-up or vesting                  |
-| Public Sale            | 4.2%  | No lock-up or vesting                  |
-| SQT Airdrops and kSQT  | 0.9%  | No lock-up or vesting                  |
+| Group                            | Size  | Vesting Terms                          |
+| -------------------------------- | ----- | -------------------------------------- |
+| Seed                             | 11.7% | 12 month lock-up with 24 month vesting |
+| Series A                         | 14.5% | 6 month lock-up with 18 month vesting  |
+| Series B (and 2022 Private Sale) | 3.2%  | 3 month lock-up with 9 month vesting   |
+| Strategic Round                  | 5.5%  | 24 month lock-up with 24 month vesting |
+| Team and Advisers                | 15.0% | 34 month lock-up with 24 month vesting |
+| Foundation & Community           | 32.3% | No lock-up with 60 month vesting       |
+| Mainnet Incentives               | 8.0%  | No lock-up or vesting                  |
+| Liquidity                        | 5.0%  | No lock-up or vesting                  |
+| Public Sale                      | 4.2%  | No lock-up or vesting                  |
+| SQT Airdrops and kSQT            | 0.9%  | No lock-up or vesting                  |
