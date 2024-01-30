@@ -23,8 +23,9 @@ When defining a project upgrade, you clone the project manifest (`project.ts`), 
 ```ts
 {
   parent: {
-    // The block height when you will switch from the previous reference project CID to the updated version
-    block: 1050,
+    // The block height the parent project will run until before switching to the current project.
+    // `block` is also supported but deprectated, it behaves as an alias for `untilBlock`
+    untilBlock: 1050,
     // The CID of your existing project that you wish to replace
     reference: "QmXw6FN6eScxvYXYceuCjKMpqmnuCxwY3Cx4HPhDXgUWe5",
   },
