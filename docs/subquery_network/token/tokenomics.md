@@ -35,4 +35,5 @@ The Foundation and Community will have approximately 20% of their allocation unl
 | Mainnet Incentives               | 8.0%  | No lock-up or vesting                  |
 | Liquidity                        | 5.0%  | No lock-up or vesting                  |
 | Public Sale                      | 4.2%  | No lock-up or vesting                  |
-| SQT Airdrops and kSQT            | 0.9%  | No lock-up or vesting                  |
+| kSQT Conversion                  | 0.2%  | No lock-up or vesting                  |
+| SQT Airdrops                     | 0.6%  | No lock-up with 6 month vesting        |
