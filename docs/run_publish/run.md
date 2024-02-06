@@ -23,7 +23,7 @@ It may take some time to download the required packages ([`@subql/node`](https:/
 
 Requirements:
 
-- [Postgres](https://www.postgresql.org/) database (version 12 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
+- [Postgres](https://www.postgresql.org/) database (version 16 or higher). While the [SubQuery node](run.md#start-a-local-subquery-node) is indexing the blockchain, the extracted data is stored in an external database instance.
 
 A SubQuery node is an implementation that extracts Substrate/Polkadot-based blockchain data per the SubQuery project and saves it into a Postgres database.
 
@@ -45,18 +45,11 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 npm install -g @subql/node
 ```
 
-@tab Terra
+@tab EVM
 
 ```shell
 # NPM
-npm install -g @subql/node-terra
-```
-
-@tab Avalanche
-
-```shell
-# NPM
-npm install -g @subql/node-avalanche
+npm install -g @subql/node-ethereum
 ```
 
 @tab Cosmos
@@ -71,6 +64,27 @@ npm install -g @subql/node-cosmos
 ```shell
 # NPM
 npm install -g @subql/node-algorand
+```
+
+@tab Near
+
+```shell
+# NPM
+npm install -g @subql/node-near
+```
+
+@tab stellar
+
+```shell
+# NPM
+npm install -g @subql/node-stellar
+```
+
+@tab Concordium
+
+```shell
+# NPM
+npm install -g @subql/node-concordium
 ```
 
 :::
@@ -88,16 +102,10 @@ Once installed, you can start a node with the following command:
 subql-node <command>
 ```
 
-@tab Terra
+@tab EVM
 
 ```shell
-subql-node-terra <command>
-```
-
-@tab Avalanche
-
-```shell
-subql-node-avalanche <command>
+subql-node-ethereum <command>
 ```
 
 @tab Cosmos
@@ -110,6 +118,24 @@ subql-node-cosmos <command>
 
 ```shell
 subql-node-algorand <command>
+```
+
+@tab Near
+
+```shell
+subql-node-near <command>
+```
+
+@tab Stellar
+
+```shell
+subql-node-stellar <command>
+```
+
+@tab Concordium
+
+```shell
+subql-node-concordium <command>
 ```
 
 :::
@@ -128,16 +154,10 @@ To find out more, you can always run `--help`.
 subql-node -f your-project-path
 ```
 
-@tab Terra
+@tab EVM
 
 ```shell
-subql-node-terra -f your-project-path
-```
-
-@tab Avalanche
-
-```shell
-subql-node-avalanche -f your-project-path
+subql-node-ethereum -f your-project-path
 ```
 
 @tab Cosmos
@@ -150,6 +170,24 @@ subql-node-cosmos -f your-project-path
 
 ```shell
 subql-node-algorand -f your-project-path
+```
+
+@tab Near
+
+```shell
+subql-node-near -f your-project-path
+```
+
+@tab Stellar
+
+```shell
+subql-node-stellar -f your-project-path
+```
+
+@tab Concordium
+
+```shell
+subql-node-concordium -f your-project-path
 ```
 
 :::
@@ -223,11 +261,16 @@ This will point the query node to a manifest file which can be in TS, YAML or JS
 subql-node -f your-project-path --batch-size 200
 
 Result:
-[IndexerManager] fetch block [203, 402]
-[IndexerManager] fetch block [403, 602]
+<BlockDispatcherService> INFO Enqueueing blocks 203...402, total 200 blocks
+<BlockDispatcherService> INFO Enqueueing blocks 403...602, total 200 blocks
 ```
 
 When the indexer first indexes the chain, fetching single blocks will significantly decrease the performance. Increasing the batch size to adjust the number of blocks fetched will decrease the overall processing time. The current default batch size is 100.
+
+
+::: tip Note
+SubQuery uses Node.js, by default this will use 4GB of memory. If you are running into memory issues or wish to get the most performance out of indexing you can increase the memory that will be used by setting the following environment variable `export NODE_OPTIONS=--max_old_space_size=<memory-in-MB>`. It's best to make sure this only applies to the node and not the query service.
+:::
 
 #### Check your node health
 
