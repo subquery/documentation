@@ -73,6 +73,7 @@ const project: EthereumProject = {
                * The function can either be the function fragment or signature
                * function: '0x095ea7b3'
                * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               * function: null - this will filter for native transfers that have no contract calls
                */
               function: "approve(address spender, uint256 rawAmount)",
             },
@@ -156,6 +157,7 @@ dataSources:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+            # function: null - this will filter for native transfers that have no contract calls
             function: approve(address spender, uint256 rawAmount)
         - handler: handleLog
           kind: ethereum/LogHandler
