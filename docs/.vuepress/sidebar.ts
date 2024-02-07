@@ -57,18 +57,8 @@ export const getSidebar = (locale: string) =>
                   ],
                 },
                 {
-                  text: "Boba",
-                  collapsible: true,
-                  children: [
-                    {
-                      text: "Boba (ETH)",
-                      link: `${locale}/quickstart/quickstart_chains/boba-eth.md`,
-                    },
-                    {
-                      text: "Boba (BNB)",
-                      link: `${locale}/quickstart/quickstart_chains/boba-bnb.md`,
-                    },
-                  ],
+                  text: "BEVM",
+                  link: `${locale}/quickstart/quickstart_chains/bevm.md`,
                 },
                 {
                   text: "BNB Smart Chain (BSC)",
@@ -81,6 +71,20 @@ export const getSidebar = (locale: string) =>
                     {
                       link: `${locale}/quickstart/quickstart_chains/bsc-pancakeswap-v3.md`,
                       text: "PancakeSwap",
+                    },
+                  ],
+                },
+                {
+                  text: "Boba",
+                  collapsible: true,
+                  children: [
+                    {
+                      text: "Boba (ETH)",
+                      link: `${locale}/quickstart/quickstart_chains/boba-eth.md`,
+                    },
+                    {
+                      text: "Boba (BNB)",
+                      link: `${locale}/quickstart/quickstart_chains/boba-bnb.md`,
                     },
                   ],
                 },
