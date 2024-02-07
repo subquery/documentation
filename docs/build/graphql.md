@@ -154,7 +154,9 @@ We currently support the following scalar types:
 
 To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field (you can also use [composite indexes](#composite-index)).
 
-However, we don't allow users to add `@index` annotation on any [JSON](graphql.md#json-type) object. By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
+`@index` annotations are not supported on any [JSON](graphql.md#json-type) object or a boolean field.
+
+By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
 Here is an example.
 
