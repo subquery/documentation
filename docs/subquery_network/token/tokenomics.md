@@ -30,7 +30,7 @@ The Foundation and Community will have approximately 8% of their allocation unlo
 | Series A                                    | 14.5% | 6 month lock-up with 18 month vesting  |
 | Series B (and 2022 Private Sale)            | 3.2%  | 3 month lock-up with 9 month vesting   |
 | Strategic Round                             | 5.5%  | 24 month lock-up with 24 month vesting |
-| Team and Advisers                           | 15.0% | 34 month lock-up with 24 month vesting |
+| Team and Advisers                           | 15.0% | 24 month lock-up with 24 month vesting |
 | Foundation & Community - Mainnet Incentives | 8.0%  | No lock-up or vesting                  |
 | Foundation & Community - Vested             | 31.9% | No lock-up with 60 month vesting       |
 | Liquidity                                   | 5.0%  | No lock-up or vesting                  |
