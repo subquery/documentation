@@ -68,6 +68,8 @@ Supported migrations:
 - Adding new fields (however only [nullable fields](./graphql.md#entities) are supported)
 - Removing fields (primary key `ID` can't be removed)
 - Index creation and removal
+- Enum creation or removal
+- Adding or removing new [foreign key relations](./graphql.md#entity-relationships)
 - Updating existing fields (this is destructive)
   - You can not update a [non-nullable fields](./graphql.md#entities) field to nullable
   - Please note: When field update is detected, the original field column will be dropped (with all existing data in that field), and a new column will be created with the new field types.
@@ -75,8 +77,7 @@ Supported migrations:
 Other notes:
 
 - Only supports PostgreSQL stores
-- Does not support adding new [foreign key relations](./graphql.md#entity-relationships)
-- Does not support enum creation or removal
 - Migrations will not succeed `--unfinalizedBlocks` is enabled
+- Does not support Enum modification
 - [GraphQL subscriptions](../run_publish/subscription.md) are not supported
 - [Rewind](../run_publish/historical.md) will only be supported if the new schema does not drop any `fields` or `entity`. Note that [automated historical state tracking](../run_publish/historical.md) must be enabled to support rewind.
