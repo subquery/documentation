@@ -36,4 +36,5 @@ The Foundation and Community will have approximately 8% of their allocation unlo
 | Liquidity                                   | 5.0%  | No lock-up or vesting                  |
 | Public Sale                                 | 4.4%  | No lock-up or vesting                  |
 | kSQT Conversion                             | 0.2%  | No lock-up or vesting                  |
-| SQT Airdrops                                | 0.6%  | No lock-up with 6 month vesting        |
+| SQT Airdrops                                | 0.1%  | No lock-up or vesting                  |
+| SQT Seekers Programme                       | 0.5%  | No lock-up with 6 month vesting        |
