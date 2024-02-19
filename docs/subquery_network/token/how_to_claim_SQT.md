@@ -59,5 +59,7 @@ If you get an “Unknown error”, check that you have opened the Ethereum accou
 
 ![unknown_error](/assets/img/unknown_error.png)
 
+### Further help
+If you have any other issues, please contact our technical support channel on [Discord](https://discord.com/invite/subquery).
 
 <!---Check out our video guide on How to delegate your SQT to help you get started on the SubQery Network.--->
