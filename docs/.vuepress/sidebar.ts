@@ -442,11 +442,22 @@ export const getSidebar = (locale: string) =>
         },
         `${locale}/run_publish/cli.md`,
         {
-          text: "Querying using GraphQL",
-          link: `${locale}/run_publish/query.md`,
+          text: "Querying",
+          children: [
+            {
+              text: "GraphQL",
+              children: [
+                `${locale}/run_publish/query.md`,
+                `${locale}/run_publish/aggregate.md`,
+                `${locale}/run_publish/subscription.md`,
+              ],
+            },
+            {
+              text: "Other Tools",
+              children: [`${locale}/run_publish/other_tools/metabase.md`],
+            },
+          ],
         },
-        `${locale}/run_publish/aggregate.md`,
-        `${locale}/run_publish/subscription.md`,
         `${locale}/run_publish/historical.md`,
         `${locale}/run_publish/references.md`,
       ],
