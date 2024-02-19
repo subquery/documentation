@@ -1,6 +1,6 @@
-# The SubQuery Tokens (SQT and kSQT)
+# The SubQuery Token 9SQT)
 
-The SubQuery Network is powered by the SubQuery Token (SQT). Kepler has it's own token for the Kepler network with its own supply and contract address, please read more about it there under [kSQT](#ksqt).
+The SubQuery Network is powered by the SubQuery Token (SQT).
 
 The SubQuery Token (SQT) is designed as a utility token that powers the SubQuery Network, providing an incentive for participation, as well as serving as a medium of exchange for transactions within the SubQuery Network. Consumers of data will commit SQT in exchange for RPC queries from RPC Providers or indexed data from Data Indexers and this SQT will be distributed among Node Operators based on the payment method selected.
 
@@ -10,24 +10,14 @@ There is no intention for SQT to be used as a medium of exchange for goods or se
 
 ![Token economic flow](/assets/img/network/token_economy.png)
 
+### Adding SQT to your Wallet
+
+SQT is an ERC20 token deployed on the Ethereum mainnet, and is commonly bridged over to Base. It has the following contract address on both the [Ethereum mainnet](https://etherscan.io/token/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85) and Base: `0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85`
+
+You can add it to your wallet from the wallet selector in the [Network App](https://app.subquery.network/explorer).
+
+![Add SQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
+
 ## KSQT
 
-kSQT is the name of the token that is used by participants who operate within the Kepler Network. This token mimics the properties of the eventual SubQuery Network token (SQT) in that tokens will be rewarded to Node Operators for performing tasks and Delegators can allocate their tokens to Node Operators to secure the network and receive rewards.
-
-Kepler is designed to enable participants to provide value to real projects which are migrated from SubQuery’s managed service to the decentralised offering and receive incentives via the Kepler token (kSQT). The kSQT token is issued with a very limited supply, but users can swap kSQT to USDC using our [Swap feature](./swap.md).
-
-### Adding kSQT to your Wallet
-
-kSQT is deployed on the Polygon network with the following contract address:
-
-`0xcEE50Ee839a2ab3914cF4c3cbAc78f6F11E0c937` ([PolygonScan](https://polygonscan.com/address/0xcEE50Ee839a2ab3914cF4c3cbAc78f6F11E0c937)).
-
-You can add it to your wallet from the wallet selector in the [Kepler App](https://kepler.subquery.network/explorer).
-
-![Add kSQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
-
-### How do I Receive kSQT?
-
-The supply of kSQT is intentionally heavily restricted and has been airdropped to Node Operators and Ambassadors to help launch the network and show our appreciation for their support. For users that did not receive an airdrop, kSQT can be swapped using our [Swap feature](./swap.md).
-
-Upon the retirement of Kepler, all kSQT can be burnt in exchange for SQT after SubQuery Network launch.
+kSQT was the name of our pre-mainnet token, it is now retired, all holders can swap their kSQT for SQT via the official [Kepler Swap Mechanism](./swap.md).

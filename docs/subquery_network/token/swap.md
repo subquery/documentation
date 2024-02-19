@@ -1,10 +1,8 @@
-# Swap kSQT for USDC
+# Swap kSQT for SQT
 
 :::warning
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for when we retire Kepler when the mainnet launch.
-
-When we retire Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
+Now that we have retired Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
 
 :::
 
