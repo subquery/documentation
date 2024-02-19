@@ -76,7 +76,7 @@ In this scenario, there's a mapping file containing a pre-established handler. A
 
 ```ts
 export async function handleTransaction(
-  tx: EthereumTransaction
+  tx: EthereumTransaction,
 ): Promise<void> {
   if (tx.to && tx.input) {
     let inscription: Inscription;
@@ -111,7 +111,7 @@ export function hexToUTF8(hexString: string): string {
     const byte = Number.parseInt(hexByte, 16);
     if (Number.isNaN(byte) || byte < 0)
       throw new Error(
-        `Invalid byte sequence ("${hexByte}" in "${hexString}").`
+        `Invalid byte sequence ("${hexByte}" in "${hexString}").`,
       );
     bytes[index] = byte;
   }

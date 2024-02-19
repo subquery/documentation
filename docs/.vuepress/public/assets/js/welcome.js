@@ -8,7 +8,7 @@ newFaqListTitle.forEach(function (thisDom) {
     if (isActive) {
       thisDom.parentElement.className = thisDom.parentElement.className.replace(
         "active",
-        ""
+        "",
       );
     } else {
       thisDom.parentElement.className = thisDom.parentElement.className +=

@@ -100,7 +100,7 @@ import { Balance, AccountId } from "@polkadot/types/interfaces/runtime";
 type ApproveCallArgs = [AccountId, Balance];
 
 export async function handleWasmCall(
-  call: WasmCall<ApproveCallArgs>
+  call: WasmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(`${call.blockNumber}-${call.idx}`);
   approval.hash = call.hash;
@@ -159,11 +159,11 @@ import { Option } from "@polkadot/types-codec";
 type TransferEventArgs = [Option<AccountId>, Option<AccountId>, Balance];
 
 export async function handleSubstrateWasmEvent(
-  event: WasmEvent<TransferEventArgs>
+  event: WasmEvent<TransferEventArgs>,
 ): Promise<void> {
   const [from, to, value] = event.args;
   const transaction = new Transaction(
-    `${event.blockNumber}-${event.eventIndex}`
+    `${event.blockNumber}-${event.eventIndex}`,
   );
   transaction.transactionHash = event.transactionHash;
   transaction.value = value.toBigInt();

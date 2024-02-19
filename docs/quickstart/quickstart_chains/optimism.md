@@ -100,7 +100,7 @@ import { Claim } from "../types/models/Claim";
 import { DailyClaimSummary } from "../types/models/DailyClaimSummary";
 
 async function checkGetDailyClaim(
-  timestamp: bigint
+  timestamp: bigint,
 ): Promise<DailyClaimSummary> {
   // Create the ID from the iso date string (e.g. '2023-03-26')
   // Timestamps are in seconds, need to convert to ms

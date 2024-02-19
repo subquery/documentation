@@ -41,7 +41,7 @@ Below is an example of how the cache can be used within your mapping functions:
 ```ts
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `New transfer event found at block ${event.block.block.header.number.toString()}`
+    `New transfer event found at block ${event.block.block.header.number.toString()}`,
   );
 
   let dailyCount = (await cache.get("dailyCount")) + 1 ?? 1;

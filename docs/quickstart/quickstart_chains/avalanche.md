@@ -121,7 +121,7 @@ export async function handleLog(event: RewardPaidLog): Promise<void> {
     const user = await checkGetUser(args.user);
 
     const pangolinRewardRecord = new PangolinRewards(
-      `${event.blockHash}-${event.logIndex}`
+      `${event.blockHash}-${event.logIndex}`,
     );
 
     pangolinRewardRecord.transactionHash = event.transactionHash;

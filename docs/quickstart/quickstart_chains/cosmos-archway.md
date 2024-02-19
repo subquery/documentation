@@ -98,16 +98,16 @@ import { ContractMetadata, RewardWithdrawl } from "../types";
 import { MsgSetContractMetadata } from "../types/proto-interfaces/archway/rewards/v1/tx";
 
 export async function handleSetContractMetadata(
-  msg: CosmosMessage<MsgSetContractMetadata>
+  msg: CosmosMessage<MsgSetContractMetadata>,
 ): Promise<void> {
   // Example https://archway.explorers.guru/transaction/485EC908712CCDC0D65918F0E8E90E291D32720F2D0C691CCC055544B98C14A1
   logger.info(
-    `New Set contract metadata at block ${msg.block.header.height.toString()}`
+    `New Set contract metadata at block ${msg.block.header.height.toString()}`,
   );
 
   // contract metadata can be set and updated on the same contract call
   let contractMetadataRecord = await ContractMetadata.get(
-    msg.msg.decodedMsg.metadata.contractAddress
+    msg.msg.decodedMsg.metadata.contractAddress,
   );
   if (!contractMetadataRecord) {
     // we are creating a new one
@@ -136,19 +136,19 @@ export async function handleSetContractMetadata(
 }
 
 export async function handleRewardsWithdrawEvent(
-  event: CosmosEvent
+  event: CosmosEvent,
 ): Promise<void> {
   // Example https://archway.explorers.guru/transaction/CB3AF6F8F38A6628A22E45CAD178D435D42D5A1CAAC431D16CBE64557F2CBEC3
   logger.info(
-    `New Reward Withdraw event at block ${event.block.header.height.toString()}`
+    `New Reward Withdraw event at block ${event.block.header.height.toString()}`,
   );
 
   // Attributes are stored as key value pairs
   const rewardAddress = event.event.attributes.find(
-    (a) => a.key === "reward_address"
+    (a) => a.key === "reward_address",
   )?.value;
   const rewardsString = event.event.attributes.find(
-    (a) => a.key === "rewards"
+    (a) => a.key === "rewards",
   )?.value;
 
   if (rewardAddress && rewardsString) {

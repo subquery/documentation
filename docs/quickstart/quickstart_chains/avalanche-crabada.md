@@ -137,7 +137,7 @@ async function checkCreateAddress(id: string): Promise<Address> {
 
 export async function handleNewCrab(newCrabLog: NewCrabLog): Promise<void> {
   logger.info(
-    "encountered New Crab Log on block " + newCrabLog.blockNumber.toString()
+    "encountered New Crab Log on block " + newCrabLog.blockNumber.toString(),
   );
   // Process remainder
   assert(newCrabLog.args, "Requires args");
@@ -178,7 +178,7 @@ export async function handleNewCrab(newCrabLog: NewCrabLog): Promise<void> {
 export async function handleERC721(transferLog: TransferLog): Promise<void> {
   logger.info(
     "encountered crabada transfer on block " +
-      transferLog.blockNumber.toString()
+      transferLog.blockNumber.toString(),
   );
 
   assert(transferLog.args, "No event args on erc721");
@@ -194,7 +194,7 @@ export async function handleERC721(transferLog: TransferLog): Promise<void> {
     logger.info(`We have not seen crab ${nftId} before`);
     const account = await checkCreateAddress(transferLog.address.toLowerCase());
     const minterAddress = await checkCreateAddress(
-      transferLog.transaction.from
+      transferLog.transaction.from,
     );
     // We create a minimal version so we can proceed
     crab = Crab.create({

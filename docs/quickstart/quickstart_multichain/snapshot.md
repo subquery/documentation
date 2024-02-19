@@ -262,62 +262,62 @@ import { Delegation } from "../types";
 import { SetDelegateLog } from "../types/abi-interfaces/DelegateRegistry";
 
 export async function handleEthereumSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "ethereum");
 }
 
 export async function handleBSCSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "bsc");
 }
 
 export async function handleArbitrumSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "arbitrum");
 }
 
 export async function handleFantomSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "fantom");
 }
 
 export async function handleGnosisSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "gnosis");
 }
 
 export async function handleGoerliSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "goerli");
 }
 
 export async function handleMaticSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "matic");
 }
 
 export async function handleOPSetDelegateEvent(
-  event: SetDelegateLog
+  event: SetDelegateLog,
 ): Promise<void> {
   await handleSetDelegate(event, "op");
 }
 
 export async function handleSetDelegate(
   event: SetDelegateLog,
-  network: string
+  network: string,
 ): Promise<void> {
   assert(event.args, "No logs in args");
   logger.warn(
     `Handling SetDelegateLog from ${network.toString()}; txhash: ${
       event.transactionHash
-    }`
+    }`,
   );
 
   let delegator = event.args.delegator;
@@ -353,62 +353,62 @@ import { ClearDelegateLog } from "../types/abi-interfaces/DelegateRegistry";
 import assert from "assert";
 
 export async function handleEthereumClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "ethereum");
 }
 
 export async function handleBSCClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "bsc");
 }
 
 export async function handleArbitrumClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "arbitrum");
 }
 
 export async function handleFantomClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "fantom");
 }
 
 export async function handleGnosisClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "gnosis");
 }
 
 export async function handleGoerliClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "goerli");
 }
 
 export async function handleMaticClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "matic");
 }
 
 export async function handleOPClearDelegateEvent(
-  event: ClearDelegateLog
+  event: ClearDelegateLog,
 ): Promise<void> {
   await handleClearDelegate(event, "op");
 }
 
 export async function handleClearDelegate(
   event: ClearDelegateLog,
-  network: string
+  network: string,
 ): Promise<void> {
   assert(event.args, "No logs in args");
   logger.warn(
     `Handling ClearDelegateLog from ${network.toString()}; txhash: ${
       event.transactionHash
-    }`
+    }`,
   );
   let delegator = event.args.delegator;
   let space = event.args.id;

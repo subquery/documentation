@@ -84,7 +84,7 @@ import { Coin, Deposit, DepositCoin } from "../types";
 import { MsgDeposit } from "../types/proto-interfaces/thorchain/v1/x/thorchain/types/msg_deposit";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgDeposit>
+  msg: CosmosMessage<MsgDeposit>,
 ): Promise<void> {
   // Create Deposit record
   const depositEntity = Deposit.create({

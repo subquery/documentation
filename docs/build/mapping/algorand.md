@@ -35,7 +35,7 @@ You can use transaction handlers to capture information about each of the transa
 import { AlgorandTransaction } from "@subql/types-algorand";
 
 export async function handleTransaction(
-  tx: AlgorandTransaction
+  tx: AlgorandTransaction,
 ): Promise<void> {
   const record = TransactionEntity.create({
     id: tx.id,
@@ -55,7 +55,7 @@ You can get groups of transactions from within your mapping functions with the `
 ```ts
 // tx.block.getTransactionsByGroup(string groupID): AlgorandTransaction[]
 const txGroup: AlgorandTransaction[] = tx.block.getTransactionsByGroup(
-  tx.group!
+  tx.group!,
 );
 ```
 
@@ -83,7 +83,7 @@ import { AlgorandTransaction } from "@subql/types-algorand";
 import fetch from "node-fetch";
 
 export async function handleTransaction(
-  tx: AlgorandTransaction
+  tx: AlgorandTransaction,
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);

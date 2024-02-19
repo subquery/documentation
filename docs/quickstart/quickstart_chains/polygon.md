@@ -161,10 +161,10 @@ export async function handleDeposit(deposit: TokenDepositedLog): Promise<void> {
 }
 
 export async function handleWithdrawl(
-  withdrawl: TokenWithdrawnLog
+  withdrawl: TokenWithdrawnLog,
 ): Promise<void> {
   logger.info(
-    `New Withdrawl transaction log at block ${withdrawl.blockNumber}`
+    `New Withdrawl transaction log at block ${withdrawl.blockNumber}`,
   );
   const userId = withdrawl.args[2].toLowerCase();
   const userRecord = await checkGetUser(userId);

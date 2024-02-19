@@ -413,7 +413,7 @@ async function handleProxyCreation(proxyAddress: string): Promise<void> {
 }
 
 export async function handleProxyCreation_1_0_0(
-  event: ProxyCreation_v1_0_0
+  event: ProxyCreation_v1_0_0,
 ): Promise<void> {
   assert(event.args, "No args in log");
   logger.warn("handleProxyCreation_1_0_0 is tiggered");
@@ -421,7 +421,7 @@ export async function handleProxyCreation_1_0_0(
 }
 
 export async function handleProxyCreation_1_1_1(
-  event: ProxyCreation_v1_1_1
+  event: ProxyCreation_v1_1_1,
 ): Promise<void> {
   assert(event.args, "No args in log");
   logger.warn("handleProxyCreation_1_1_0 is tiggered");
@@ -429,7 +429,7 @@ export async function handleProxyCreation_1_1_1(
 }
 
 export async function handleProxyCreation_1_3_0(
-  event: ProxyCreation_v1_3_0
+  event: ProxyCreation_v1_3_0,
 ): Promise<void> {
   assert(event.args, "No args in log");
   logger.warn("handleProxyCreation_1_3_0 is tiggered");

@@ -35,10 +35,10 @@ You can use transaction handlers to capture information about each of the transa
 import { ConcordiumTransaction } from "@subql/types-concordium";
 
 export async function handleTransaction(
-  tx: ConcordiumTransaction
+  tx: ConcordiumTransaction,
 ): Promise<void> {
   logger.info(
-    `Handling transaction at block ${tx.block.blockHeight.toString()}`
+    `Handling transaction at block ${tx.block.blockHeight.toString()}`,
   );
   const record = TransactionEntity.create({
     id: tx.hash,
@@ -57,10 +57,10 @@ You can use transaction event handlers to capture information about each of the 
 import { ConcordiumTransactionEvent } from "@subql/types-concordium";
 
 export async function handleTransactionEvent(
-  txEvent: ConcordiumTransactionEvent
+  txEvent: ConcordiumTransactionEvent,
 ): Promise<void> {
   logger.info(
-    `Handling event at block ${txEvent.block.blockHeight.toString()}`
+    `Handling event at block ${txEvent.block.blockHeight.toString()}`,
   );
   const record = TransactionEventEntity.create({
     id: txEvent.id,
@@ -79,10 +79,10 @@ You can use special event handlers to capture information about each of the spec
 import { ConcordiumSpecialEvent } from "@subql/types-concordium";
 
 export async function handleSpecialEvent(
-  specialEvent: ConcordiumSpecialEvent
+  specialEvent: ConcordiumSpecialEvent,
 ): Promise<void> {
   logger.info(
-    `Handling special event at block ${specialEvent.block.blockHeight.toString()}`
+    `Handling special event at block ${specialEvent.block.blockHeight.toString()}`,
   );
   const record = SpecialEventEntity.create({
     id: specialEvent.id,
@@ -117,7 +117,7 @@ import { ConcordiumTransaction } from "@subql/types-concordium";
 import fetch from "node-fetch";
 
 export async function handleTransaction(
-  tx: ConcordiumTransaction
+  tx: ConcordiumTransaction,
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);

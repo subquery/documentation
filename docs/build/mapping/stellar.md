@@ -41,7 +41,7 @@ Soroban transactions are transactions that call a Soroban contract, they are pas
 import { StellarTransaction } from "@subql/types-stellar";
 
 export async function handleTransaction(
-  transaction: StellarTransaction
+  transaction: StellarTransaction,
 ): Promise<void> {
   const record = new TransactionEntity(transaction.id);
   record.height = BigInt(transaction.ledger.sequence);
@@ -57,7 +57,7 @@ Operation handlers can be used to capture information about specific operations 
 
 ```ts
 export async function handleOperation(
-  op: StellarOperation<Horizon.PaymentOperationResponse>
+  op: StellarOperation<Horizon.PaymentOperationResponse>,
 ): Promise<void> {
   logger.info(`Indexing operation ${op.id}, type: ${op.type}`);
 
@@ -79,7 +79,7 @@ Effect handlers can be used to capture information about the effects of operatio
 
 ```ts
 export async function handleCredit(
-  effect: StellarEffect<AccountCredited>
+  effect: StellarEffect<AccountCredited>,
 ): Promise<void> {
   logger.info(`Indexing effect ${effect.id}, type: ${effect.type}`);
 

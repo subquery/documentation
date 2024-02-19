@@ -184,7 +184,7 @@ async function checkGetUser(user: string): Promise<User> {
 }
 
 export async function handlePolygonDeposit(
-  deposit: TokenDepositedLog
+  deposit: TokenDepositedLog,
 ): Promise<void> {
   assert(deposit.args, "No args on deposit");
   const userId = deposit.args[2].toLowerCase();
@@ -204,7 +204,7 @@ export async function handlePolygonDeposit(
   await userRecord.save();
 
   let bridgeTransactionRecord = await BridgeTransaction.get(
-    deposit.args.depositCount.toString()
+    deposit.args.depositCount.toString(),
   );
   if (!bridgeTransactionRecord) {
     bridgeTransactionRecord = BridgeTransaction.create({
@@ -217,7 +217,7 @@ export async function handlePolygonDeposit(
 }
 
 export async function handleEthereumDepositBlock(
-  deposit: NewDepositBlockLog
+  deposit: NewDepositBlockLog,
 ): Promise<void> {
   assert(deposit.args, "No args on deposit");
   const userId = deposit.args.owner.toLocaleLowerCase();
@@ -236,7 +236,7 @@ export async function handleEthereumDepositBlock(
   await userRecord.save();
 
   let bridgeTransactionRecord = await BridgeTransaction.get(
-    deposit.args.depositBlockId.toString()
+    deposit.args.depositBlockId.toString(),
   );
   if (!bridgeTransactionRecord) {
     bridgeTransactionRecord = BridgeTransaction.create({

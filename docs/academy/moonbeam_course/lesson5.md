@@ -88,7 +88,7 @@ Change your `handleFrontierEvmEvent()` function to achieve the following:
 ```ts
 // Create Transaction
 export async function handleFrontierEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>
+  event: FrontierEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   // Get data from the event
   const from = event.args.from;
@@ -141,7 +141,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 
 // Create Transaction
 export async function handleFrontierEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>
+  event: FrontierEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   // Get data from the event
   const from = event.args.from;
@@ -171,7 +171,7 @@ export async function handleFrontierEvmEvent(
 
 // Create Approval
 export async function handleFrontierEvmCall(
-  event: FrontierEvmCall<ApproveCallArgs>
+  event: FrontierEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(event.hash);
 

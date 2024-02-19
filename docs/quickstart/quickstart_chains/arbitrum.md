@@ -114,7 +114,7 @@ async function checkGetUser(userID: string): Promise<User> {
 }
 
 export async function handleDividendBatch(
-  batchDividendLog: ClaimDividendBatchLog
+  batchDividendLog: ClaimDividendBatchLog,
 ): Promise<void> {
   if (batchDividendLog.args) {
     logger.info(`New dividend at block ${batchDividendLog.blockNumber}`);

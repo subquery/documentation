@@ -83,10 +83,10 @@ Navigate to the default mapping function in the `src/mappings` directory. There 
 
 ```ts
 export async function handleAttestationCreated(
-  event: SubstrateEvent
+  event: SubstrateEvent,
 ): Promise<void> {
   logger.info(
-    `New attestation created at block ${event.block.block.header.number}`
+    `New attestation created at block ${event.block.block.header.number}`,
   );
   // A new attestation has been created.\[attester ID, claim hash, CType hash, (optional) delegation ID\]
   const {
@@ -112,10 +112,10 @@ export async function handleAttestationCreated(
 }
 
 export async function handleAttestationRevoked(
-  event: SubstrateEvent
+  event: SubstrateEvent,
 ): Promise<void> {
   logger.info(
-    `New attestation revoked at block ${event.block.block.header.number}`
+    `New attestation revoked at block ${event.block.block.header.number}`,
   );
   // An attestation has been revoked.\[account id, claim hash\]
   const {
@@ -138,7 +138,7 @@ export async function handleAttestationRevoked(
 
 export async function handleDailyUpdate(
   date: Date,
-  type: "CREATED" | "REVOKED"
+  type: "CREATED" | "REVOKED",
 ): Promise<void> {
   const id = date.toISOString().slice(0, 10);
   let aggregation = await Aggregation.get(id);

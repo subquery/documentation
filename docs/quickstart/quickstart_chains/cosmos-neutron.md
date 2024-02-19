@@ -107,11 +107,11 @@ async function checkGetDailyClaim(date: Date): Promise<DailyClaimSummary> {
 }
 
 export async function handleAirdropClaim(
-  msg: CosmosMessage<AirdropClaimMessageType>
+  msg: CosmosMessage<AirdropClaimMessageType>,
 ): Promise<void> {
   // Example https://www.mintscan.io/neutron/txs/156FE31585BD75E06EE337CEA908C37EA0434CC49943B4860E7AABE2475B6B01?height=1437614
   logger.info(
-    `New Airdrop Claim at block ${msg.block.header.height.toString()}`
+    `New Airdrop Claim at block ${msg.block.header.height.toString()}`,
   );
 
   // Claim records are created from on chain data

@@ -53,7 +53,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
   const record = new starterEntity(
-    extrinsic.block.block.header.hash.toString()
+    extrinsic.block.block.header.hash.toString(),
   );
   record.field4 = extrinsic.block.timestamp;
   await record.save();
@@ -268,7 +268,7 @@ export async function kittyApiHandler(): Promise<void> {
   //Custom rpc, set undefined to blockhash
   const kittyPrice = await api.rpc.kitties.getKittyPrice(
     undefined,
-    nextKittyId
+    nextKittyId,
   );
 }
 ```

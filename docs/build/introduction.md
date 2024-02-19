@@ -146,13 +146,13 @@ import {
 } from "../types/abi-interfaces/Gravity";
 
 export async function handleNewGravatarGravityLog(
-  log: NewGravatarLog
+  log: NewGravatarLog,
 ): Promise<void> {
   // Place your code logic here
 }
 
 export async function handleUpdatedGravatarGravityLog(
-  log: UpdatedGravatarLog
+  log: UpdatedGravatarLog,
 ): Promise<void> {
   // Place your code logic here
 }
@@ -397,7 +397,7 @@ import { CosmosMessage } from "@subql/types-cosmos";
 import { MsgSwapExactAmountIn } from "../types/proto-interfaces/osmosis/gamm/v1beta1/tx";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgSwapExactAmountIn>
+  msg: CosmosMessage<MsgSwapExactAmountIn>,
 ): Promise<void> {
   // Do something with typed event
   const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;

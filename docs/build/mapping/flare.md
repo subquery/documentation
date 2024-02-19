@@ -39,7 +39,7 @@ type SubmitHashCallArgs = [BigNumber, string] & {
 };
 
 export async function handleTransaction(
-  transaction: FlareTransaction<SubmitHashCallArgs>
+  transaction: FlareTransaction<SubmitHashCallArgs>,
 ): Promise<void> {
   const approval = SubmitHash.create({
     id: transaction.hash,
@@ -68,7 +68,7 @@ type HashSubmittedEventArgs = [string, BigNumber, string, BigNumber] & {
 };
 
 export async function handleLog(
-  log: FlareLog<HashSubmittedEventArgs>
+  log: FlareLog<HashSubmittedEventArgs>,
 ): Promise<void> {
   const transaction = HashSubmittedEvent.create({
     id: log.transactionHash,
