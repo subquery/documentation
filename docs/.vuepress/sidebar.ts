@@ -487,7 +487,7 @@ export const getSidebar = (locale: string) =>
             `${locale}/subquery_network/token/token.md`,
             `${locale}/subquery_network/token/tokenomics.md`,
             `${locale}/subquery_network/token/swap.md`,
-            `${locale}/subquery_network/token/how_to_claim_SQT.md`,
+            `${locale}/subquery_network/token/claim.md`,
           ],
         },
         {
