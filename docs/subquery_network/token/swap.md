@@ -44,7 +44,7 @@ You will want to brige from `Polygon POS`, not `Polygon zkEVM` - the token addre
 
 ### 4. Bridge SQT from Ethereum to Base
 
-Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base.
+Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](./token.md#bridging-tokens-from-base-to-ethereum-mainnet).
 
 :::info
 
