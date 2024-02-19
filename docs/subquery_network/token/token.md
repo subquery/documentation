@@ -1,4 +1,4 @@
-# The SubQuery Token 9SQT)
+# The SubQuery Token (SQT)
 
 The SubQuery Network is powered by the SubQuery Token (SQT).
 
