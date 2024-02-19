@@ -1,6 +1,8 @@
-# How to claim your SQT tokens?
+# Claiming your SQT tokens?
 
-To claim your subquery tokens head over to [https://claim.subquery.foundation](https://claim.subquery.foundation). Please check the URL carefully. Another option is to head over to [https://www.subquery.foundation](https://www.subquery.foundation/) and click on the SQT Claim link in the top navigation bar. This will open up the SubQuery Token Claim page and ask for a wallet to be connected. 
+## How to claim your SubQuery (SQT) tokens?
+
+To claim your subquery tokens, visit [https://claim.subquery.foundation](https://claim.subquery.foundation). Please check the URL carefully. Another option is to head over to [https://www.subquery.foundation](https://www.subquery.foundation/) and click on the SQT Claim link in the top navigation bar. This will open up the SubQuery Token Claim page and ask for a wallet to be connected. 
 
 ![SQT claim page](/assets/img/SQT_claim_page.png)
 
@@ -22,6 +24,40 @@ The SubQuery Token Claim claim page should load up showing any token allocation 
 
 ![claim page](/assets/img/claim_page.png)
 
+## How to connect with a hardware wallet? 
+
+To connect a hardware wallet, select your account and then select “Add account or hardware wallet. 
+
+<img style="vertical-align:middle" src="/assets/img/choose_account.png" width="200" />
+ ->
+<img style="vertical-align:middle" src="/assets/img/add_hardware_wallet.png" width="200" />
+->
+<img style="vertical-align:middle" src="/assets/img/add_hardware_wallet_2.png" width="200" />
+
+Connect and log into your hardware wallet and it should appear on the list. If it doesn’t, refresh your screen and try again. 
+
+
+![connect hardware wallet](/assets/img/connect_hardware_wallet.png)
+
+Finally, select your account and unlock it. 
+
+![unlock](/assets/img/unlock.png)
+
 Immediately after claiming your tokens, you can put them to productive use on the SubQuery Network mainnet - for example by delegating to your favourite indexer or boosting your favourite project to earn rewards.
+
+## Troubleshooting
+
+### Wrong network
+
+If you are connected to the wrong network, you will be asked to switch to the Base network.
+
+![wrong_network](/assets/img/wrong_network.png)
+
+### “Unknown error” when connecting to a hardware wallet
+
+If you get an “Unknown error”, check that you have opened the Ethereum account on your hardware wallet. 
+
+![unknown_error](/assets/img/unknown_error.png)
+
 
 <!---Check out our video guide on How to delegate your SQT to help you get started on the SubQery Network.--->
