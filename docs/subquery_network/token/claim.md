@@ -1,5 +1,10 @@
 # Claiming SQT Tokens and NFTs
 
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/vVHbrxIA5KE" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
+
 To claim your subquery tokens, visit [https://claim.subquery.foundation](https://claim.subquery.foundation). Please check the URL carefully. Another option is to head over to [https://www.subquery.foundation](https://www.subquery.foundation/) and click on the SQT Claim link in the top navigation bar. This will open up the SubQuery Token Claim page and ask for a wallet to be connected.
 
 ![SQT claim page](/assets/img/network/claim_page.png)
