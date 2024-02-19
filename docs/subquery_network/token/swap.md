@@ -6,37 +6,45 @@ Now that we have retired Kepler we will make it easy to swap your kSQT for SQT a
 
 :::
 
-Swaps allows users to swap kSQT to USDC.
-
-:::info
-
-Please note that airdropped kSQT will not be swappable by the swap contract. Only kSQT that has been acquired using the swap tool, or received as indexing or delegation rewards can be swapped for USDC.
-
-:::
+Swaps allows users to swap kSQT to SQT.
 
 While kSQT will not have transfer restrictions, we do not envision it as a free-float token, hence will not provide or support liquidity. kSQT will have a controlled supply that is intended to be just enough for the minimum viable network running with limited capabilities.
 
-SubQuery will offer a basic swap mechanism for kSQT rewards (but not the airdrop itself). You will be able to use this swap mechanism to convert rewards earned via indexing and delegation into USDC at a predetermined rate. The swap contract will be seeded with just enough USDC to purchase all reward emissions over the lifetime of Kepler. This is done with the sole purpose of reimbursing infrastructure costs incurred by the Node Operators, hopefully at a profit - this exercise will allow us to calibrate reward emissions in conditions close to the real market.
-
-The reward tokens acquired by the swap contract become available for release to potential delegators, who wish to get hold of kSQT and participate in the Kepler Network. The swap contract will also have a spread between the acquiring and releasing rates discouraging idle swapping and speculation.
-
 ## How to Swap
 
-:::warning
+There are three steps for swapping kSQT to SQT and then being able to use it on the network
 
-Now that the SubQuery Public Sale terms have been announced, we have stopped allowing swaps of USDC.e -> kSQT. You can still swap kSQT -> USDC.e, but we suggest waiting for when we retire Kepler when the mainnet launch.
-
-When we retire Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
-
-:::
-
-To swap your kSQT token rewards (note that you are not able to swap airdropped tokens), navigate to `Swap`. You can then switch between `USDC → kSQT` and `kSQT → USDC`.
+1. Ensure that all remaining kSQT is unlocked and swappable
+2. Swap kSQT to SQT on Polygon
+3. Bridge SQT from Polygon to Ethereum
+4. Bridge SQT from Ethereum to Base
 
 ![Swap UI](/assets/img/network/swap.png)
 
-Enter your desired swap amount and click `Swap` before confirming the transaction in Metamask.
+### 1. Unlock Remaining kSQT
 
-![Confirming a swap](/assets/img/network/swap_confirm.png)
+To unlock your kSQT tokens for swapping, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network). On the left side of the swap page, you can see any remaining kSQT that you have locked in the app. This includes unclaimed rewards, delegation, staking, and pending withdrawls. Please make sure there is no remaining kSQT in each section by following in the associated instructions.
+
+- [Claim kSQT Rewards](../node_operators/rewards.md#claiming-rewards-by-eras)
+- [Undelegate kSQT](../delegators/delegating.md#how-to-undelegate-from-an-indexer)
+- [Unstake kSQT](../node_operators/rewards.md#staking)
+- [Complete kSQT Withdrawls](../delegators/delegating.md#how-to-withdraw-undelegated-tokens)
+
+### 2. Swap kSQT to SQT
+
+To swap your kSQT tokens for SQT, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network). Then on the right slide, enter an amount of kSQT that you want to swap, and click `Swap` - we recommend inputting the maximum amount.
+
+After this step, you will now have kSQT on Polygon - the contract address of SQT on Polygon is [`0xabcd`]().
+
+### 3. Bridge SQT from Polygon to Ethereum
+
+We recommend using official bridges like [Polygon Portal](https://portal.polygon.technology/). SubQuery can't be responsible for the use of any third party bridges.
+
+You will want to brige from `Polygon POS`, not `Polygon zkEVM` - the token address for SQT on Polygon POS is [`0xabcd`]().
+
+### 4. Bridge SQT from Ethereum to Base
+
+Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base.
 
 :::info
 
