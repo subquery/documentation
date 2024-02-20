@@ -33,6 +33,14 @@ You can use certain hardware wallets with Metamask by following [the offical Met
 
 Immediately after claiming your tokens, you can put them to productive use on the SubQuery Network mainnet - for example by delegating to your favourite indexer or boosting your favourite project to earn rewards.
 
+## How to obtain Ether on Base?
+
+Because SQT uses the Base network (which is EVM compatible), ether is required for gas fees. However, there are different flavours of ether and selecting the correct one is crucial. 
+
+Ether on Base is required and this can be obtained via Base’s official [bridge](https://bridge.base.org/deposit) or from any other 3rd party bridge that can be found via a quick Google search. 
+
+![ether on base](/assets/img/network/ether_on_base.png)
+
 ## Troubleshooting
 
 ### Wrong network
