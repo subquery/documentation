@@ -8,6 +8,10 @@ In Kepler, you can only delegate to Indexers. When mainnet launches we will rena
 
 ## How to delegate to an Indexer
 
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/7GKWO5wEdtc" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 After you have [selected what indexer to delegate to](./rewards.md#how-to-select-what-node-operators-to-delegate-to), to delegate to an Indexer of your choice, navigate to `Delegator` -> `Indexers`(on the left sidebar). Then select `Delegate` in the last column next to your desired Indexer.
 
 ![Delegate Indexer List](/assets/img/network/delegate_indexers.png)
