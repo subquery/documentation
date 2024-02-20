@@ -1,4 +1,4 @@
-# The SubQuery Token 9SQT)
+# The SubQuery Token (SQT)
 
 The SubQuery Network is powered by the SubQuery Token (SQT).
 
@@ -12,7 +12,10 @@ There is no intention for SQT to be used as a medium of exchange for goods or se
 
 ## Adding SQT to your Wallet
 
-SQT is an ERC20 token deployed on the Ethereum mainnet, and is commonly bridged over to Base. It has the following contract address on both the [Ethereum mainnet](https://etherscan.io/token/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85) and Base: `0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85`
+SQT is an ERC20 token deployed on the Ethereum mainnet, and is commonly bridged over to Base. It has the following contract addresses:
+
+- [Ethereum mainnet](https://etherscan.io/token/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85): `0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85`
+- [Base](https://basescan.org/token/0x858c50C3AF1913b0E849aFDB74617388a1a5340d): `0x858c50C3AF1913b0E849aFDB74617388a1a5340d`
 
 You can add it to your wallet from the wallet selector in the [Network App](https://app.subquery.network/explorer).
 
@@ -25,6 +28,8 @@ Although SQT is an ERC20 token minted on Ethereum Mainnet, the SubQuery Network 
 We recommend using official bridges like [Base Bridge](https://bridge.base.org/deposit). Although there are other [quicker third-party bridges](https://base.org/ecosystem?tag=bridge), SubQuery can't be responsible for the use of any third party bridges.
 
 Head to [Base Bridge](https://bridge.base.org/deposit) and select the correct direction (deposit or withdraw). Then select SQT as your token, and initiate a bridging action.
+
+On Base, SQT has the following wallet address [`0x858c50C3AF1913b0E849aFDB74617388a1a5340d`](https://basescan.org/address/0x858c50C3AF1913b0E849aFDB74617388a1a5340d).
 
 ## KSQT
 
