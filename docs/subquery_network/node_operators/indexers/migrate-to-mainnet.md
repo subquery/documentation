@@ -1,6 +1,6 @@
 # Migrate To Mainnet
 
-The SubQuery Network projects are currently running on the Polkadot network. The network will be migrated to the Base mainnet. This guide will help you prepare for the migration.
+The SubQuery Network projects are currently running on the Polygon network. The network will be migrated to the Base mainnet. This guide will help you prepare for the migration.
 
 ## How to Migrate
 
