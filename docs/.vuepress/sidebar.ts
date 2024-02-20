@@ -527,6 +527,7 @@ export const getSidebar = (locale: string) =>
                     `${locale}/subquery_network/node_operators/indexers/indexer-security-guide.md`,
                     `${locale}/subquery_network/node_operators/indexers/index-project.md`,
                     `${locale}/subquery_network/node_operators/indexers/dictionary-restore.md`,
+                    `${locale}/subquery_network/node_operators/indexers/migrate-to-mainnet.md`,
                     `${locale}/subquery_network/node_operators/indexers/troubleshooting-indexers.md`,
                   ],
                 },
