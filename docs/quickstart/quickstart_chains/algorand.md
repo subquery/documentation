@@ -123,7 +123,7 @@ import { AlgorandTransaction } from "@subql/types-algorand";
 import { Transaction, Address } from "../types";
 
 export async function handleTransaction(
-  tx: AlgorandTransaction
+  tx: AlgorandTransaction,
 ): Promise<void> {
   // logger.info(JSON.stringify(tx));
   if (tx.assetTransferTransaction && tx.id && tx.confirmedRound) {
@@ -134,11 +134,11 @@ export async function handleTransaction(
     }
 
     const receiverAddress = await Address.get(
-      tx.assetTransferTransaction.receiver.toLowerCase()
+      tx.assetTransferTransaction.receiver.toLowerCase(),
     );
     if (!receiverAddress) {
       await new Address(
-        tx.assetTransferTransaction.receiver.toLowerCase()
+        tx.assetTransferTransaction.receiver.toLowerCase(),
       ).save();
     }
 

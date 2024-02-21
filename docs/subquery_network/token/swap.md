@@ -2,7 +2,7 @@
 
 :::warning
 
-Now that we have retired Kepler we will make it easy to swap your kSQT for SQT and move straight to the mainnet. This will be at a rate of 1:1.83 for kSQT:SQT - a 10% premium over the current price of kSQT.
+Now that the SubQuery Mainet have been announced, we have disabled swaps of USDC.e -> kSQT and kSQT -> USDC.e. After SubQuery's TGE on the 23rd of February we will allow direct swaps of kSQT for SQT at a premium rate (1:1.83) when the network launches.
 
 :::
 

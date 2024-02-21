@@ -205,7 +205,7 @@ As a reminder from the configuration step outlined in the [Manifest File](#1conf
 
 ```ts
 export async function handleOrderFulfilled(
-  event: OrderFulfilledLog
+  event: OrderFulfilledLog,
 ): Promise<void> {
   // Assert event parameters
   assert(event.args);
@@ -222,7 +222,7 @@ export async function handleOrderFulfilled(
     offerer,
     recipient,
     offer,
-    consideration
+    consideration,
   );
   if (!saleResult) {
     return;
@@ -239,7 +239,7 @@ export async function handleOrderFulfilled(
     BIGDECIMAL_HUNDRED;
   const totalNftAmount = saleResult.nfts.amounts.reduce(
     (acc, curr) => acc + BigInt(curr.toString()),
-    BIGINT_ZERO
+    BIGINT_ZERO,
   );
   const volumeETH = saleResult.money.amount / MANTISSA_FACTOR;
   const priceETH = volumeETH / Number(totalNftAmount);
@@ -288,13 +288,13 @@ export async function handleOrderFulfilled(
   // Take collection and marketplace snapshots
   const collectionSnapshot = await getOrCreateCollectionDailySnapshot(
     collectionAddr,
-    event.block.timestamp
+    event.block.timestamp,
   );
 
   // ... (Additional snapshot updates) ...
 
   const marketplaceSnapshot = await getOrCreateMarketplaceDailySnapshot(
-    event.block.timestamp
+    event.block.timestamp,
   );
 
   // ... (Additional snapshot updates) ...

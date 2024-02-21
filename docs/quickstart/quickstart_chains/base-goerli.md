@@ -131,7 +131,7 @@ export async function handleDrip(tx: DripTransaction): Promise<void> {
 
 export async function handleDailyDrips(
   date: Date,
-  dripValue: bigint
+  dripValue: bigint,
 ): Promise<void> {
   const id = date.toISOString().slice(0, 10);
   let aggregateDrips = await DailyUSDCDrips.get(id);

@@ -199,7 +199,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 
 // Create Transaction
 export async function handleFrontierEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>
+  event: FrontierEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -213,7 +213,7 @@ export async function handleFrontierEvmEvent(
 
 // Create Approval
 export async function handleFrontierEvmCall(
-  event: FrontierEvmCall<ApproveCallArgs>
+  event: FrontierEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(event.hash);
 

@@ -141,14 +141,14 @@ import { Transfer } from "../types";
 import { MsgExecuteContract } from "@terra-money/terra.js";
 
 export async function handleEvent(
-  event: TerraEvent<MsgExecuteContract>
+  event: TerraEvent<MsgExecuteContract>,
 ): Promise<void> {
   // Debugging-Daten aus dem Ereignis drucken
   // logger.info(JSON.stringify(event));
 
   // Erstellen Sie die neue Übertragungsentität mit einer eindeutigen ID
   const transfer = new Transfer(
-    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`,
   );
   transfer.blockHeight = BigInt(event.block.block.block.header.height);
   transfer.txHash = event.tx.tx.txhash;

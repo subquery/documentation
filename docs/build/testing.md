@@ -120,7 +120,7 @@ subqlTest(
       field3: BigInt(2303515439),
     }),
   ], // expected entities
-  "handleEvent" //handler name
+  "handleEvent", //handler name
 );
 ```
 

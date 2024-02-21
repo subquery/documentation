@@ -716,7 +716,7 @@ The mapping functions in this file can be extensive. In this example, we will pr
 
 ```ts
 export async function handleIncreaseLiquidity(
-  event: EthereumLog<IncreaseLiquidityEvent["args"]>
+  event: EthereumLog<IncreaseLiquidityEvent["args"]>,
 ): Promise<void> {
   const position = await getPosition(event, event.args.tokenId);
 
@@ -734,21 +734,21 @@ export async function handleIncreaseLiquidity(
 
 async function getPosition(
   event: EthereumLog,
-  tokenId: BigNumber
+  tokenId: BigNumber,
 ): Promise<Position> | null {
   let position = await Position.get(tokenId.toString());
 
   if (position === undefined) {
     const contract = NonfungiblePositionManager__factory.connect(
       event.address,
-      api
+      api,
     );
     let positionResult;
     try {
       positionResult = await contract.positions(tokenId);
     } catch (e) {
       logger.warn(
-        `Contract ${event.address}, could not get position with tokenId ${tokenId}`
+        `Contract ${event.address}, could not get position with tokenId ${tokenId}`,
       );
       return null;
     }
@@ -757,7 +757,7 @@ async function getPosition(
       factoryContract.getPool(
         positionResult[2],
         positionResult[3],
-        positionResult[4]
+        positionResult[4],
       ),
       loadTransaction(event),
     ]);

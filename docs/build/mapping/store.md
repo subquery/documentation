@@ -16,7 +16,7 @@ export interface Store {
     entity: string,
     field: string,
     value: any,
-    options?: { limit?: number; offset?: number }
+    options?: { limit?: number; offset?: number },
   ): Promise<Entity[]>;
 
   getByFields<T extends Entity>(
@@ -24,15 +24,15 @@ export interface Store {
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>
+      value: T[keyof T] | Array<T[keyof T]>,
     ][],
-    options?: { offset?: number; limit?: number }
+    options?: { offset?: number; limit?: number },
   ): Promise<T[]>;
 
   getOneByField(
     entity: string,
     field: string,
-    value: any
+    value: any,
   ): Promise<Entity | null>;
 
   set(entity: string, id: string, data: Entity): Promise<void>;
@@ -47,7 +47,7 @@ export interface Store {
     entity: string,
     field?: string,
     value?: any,
-    options?: { distinct?: boolean; col?: string }
+    options?: { distinct?: boolean; col?: string },
   ): Promise<number>;
 }
 ```

@@ -308,7 +308,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 }
 
 export async function handleUpdatedGravatar(
-  log: UpdatedGravatarLog
+  log: UpdatedGravatarLog,
 ): Promise<void> {
   const id: string = log.args.id.toHexString()!;
   let gravatar = await Gravatar.get(id);

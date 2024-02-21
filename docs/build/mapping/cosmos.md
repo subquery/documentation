@@ -36,7 +36,7 @@ import { CosmosEvent } from "@subql/types-cosmos";
 
 export async function handleEvent(event: CosmosEvent): Promise<void> {
   const record = new EventEntity(
-    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`
+    `${event.tx.tx.txhash}-${event.msg.idx}-${event.idx}`,
   );
   record.blockHeight = BigInt(event.block.block.block.header.height);
   record.txHash = event.tx.tx.txhash;
@@ -75,7 +75,7 @@ import { Coin, Deposit, DepositCoin } from "../types";
 import { MsgDeposit } from "../types/proto-interfaces/thorchain/v1/x/thorchain/types/msg_deposit";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgDeposit>
+  msg: CosmosMessage<MsgDeposit>,
 ): Promise<void> {
   // Create Deposit record
   const depositEntity = Deposit.create({

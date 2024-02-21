@@ -142,7 +142,7 @@ export async function handleTransfer(event: SubstrateEvent): Promise<void> {
 
   // Buat entitas transfer baru
   const transfer = new Transfer(
-    `${event.block.block.header.number.toNumber()}-${event.idx}`
+    `${event.block.block.header.number.toNumber()}-${event.idx}`,
   );
   transfer.blockNumber = event.block.block.header.number.toBigInt();
   transfer.from = from.toString();

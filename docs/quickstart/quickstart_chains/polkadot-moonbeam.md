@@ -136,7 +136,7 @@ Navigate to the default mapping function in the `src/mappings` directory. There 
 
 ```ts
 export async function handleCollatorJoined(
-  call: SubstrateExtrinsic
+  call: SubstrateExtrinsic,
 ): Promise<void> {
   //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateEvent at ${call.block.block.header.number}`);
@@ -152,7 +152,7 @@ export async function handleCollatorJoined(
 }
 
 export async function handleCollatorLeft(
-  call: SubstrateExtrinsic
+  call: SubstrateExtrinsic,
 ): Promise<void> {
   //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing SubstrateCall at ${call.block.block.header.number}`);
@@ -168,7 +168,7 @@ The `handleCollatorJoined` and `handleCollatorLeft` functions receives Substrate
 export async function erc20Transfer(
   event: MoonbeamEvent<
     [string, string, BigNumber] & { from: string; to: string; value: BigNumber }
-  >
+  >,
 ): Promise<void> {
   //We added a logger to the top of this function, in order to see the block number of the event we are processing.
   logger.info(`Processing MoonbeamEvent at ${event.blockNumber.toString()}`);

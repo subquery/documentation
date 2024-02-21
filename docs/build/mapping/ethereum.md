@@ -110,7 +110,7 @@ import { EthereumTransaction } from "@subql/types-ethereum";
 import fetch from "node-fetch";
 
 export async function handleTransaction(
-  tx: EthereumTransaction
+  tx: EthereumTransaction,
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);

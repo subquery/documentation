@@ -144,7 +144,7 @@ async function checkGetPool(id: string): Promise<Pool> {
 }
 
 export async function handleMessage(
-  msg: MsgSwapExactAmountInMessage
+  msg: MsgSwapExactAmountInMessage,
 ): Promise<void> {
   // You can see an example record here https://www.mintscan.io/osmosis/txs/6A22C6C978A96D99FCB08826807C6EB1DCBDCEC6044C35105B624A81A1CB6E24?height=9798771
   logger.info(`New Swap Message received at block ${msg.block.header.height}`);

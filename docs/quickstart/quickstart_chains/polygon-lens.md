@@ -164,7 +164,7 @@ import { Account, Post, Profile, Follow } from "../types";
 import assert from "assert";
 
 export async function getOrCreateAccount(
-  accountAddress: string
+  accountAddress: string,
 ): Promise<Account> {
   let account = await Account.get(accountAddress);
   if (!account) {
@@ -176,7 +176,7 @@ export async function getOrCreateAccount(
 }
 
 export async function getOrCreateFollow(
-  accountAddress: string
+  accountAddress: string,
 ): Promise<Follow> {
   let follow = await Follow.get(accountAddress);
   if (!follow) {
@@ -210,7 +210,7 @@ export async function getOrCreateProfile(profileId: string): Promise<Profile> {
 }
 
 export async function handleProfileCreated(
-  event: ProfileCreatedLog
+  event: ProfileCreatedLog,
 ): Promise<void> {
   logger.warn("Handling ProfileCreatedLog");
   assert(event.args, "No log args");
@@ -250,7 +250,7 @@ export async function handleFollowed(event: FollowedLog): Promise<void> {
         .concat("-")
         .concat(event.transaction.hash)
         .concat("-")
-        .concat(profileId.toString())
+        .concat(profileId.toString()),
     );
     let follower = await getOrCreateAccount(event.args.follower);
     follow.fromAccountId = follower.id;

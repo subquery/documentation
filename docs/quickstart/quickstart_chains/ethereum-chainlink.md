@@ -126,7 +126,7 @@ As a reminder from the configuration step outlined in the [Manifest File](#1conf
 
 ```ts
 export async function handleFeedConfirmed(
-  event: EthereumLog<FeedConfirmedEvent["args"]>
+  event: EthereumLog<FeedConfirmedEvent["args"]>,
 ): Promise<void> {
   assert(event.args);
   // Feed Confirmed event is emitted when a feed is added, updated, or removed
@@ -251,7 +251,7 @@ As evident from the manifest file, the sole handler that should be included is `
 
 ```ts
 export async function handleAnswerUpdated(
-  event: EthereumLog<AnswerUpdatedEvent["args"]>
+  event: EthereumLog<AnswerUpdatedEvent["args"]>,
 ): Promise<void> {
   assert(event.args);
   const datasource = FeedRegistry__factory.connect(event.address, api);
@@ -261,7 +261,7 @@ export async function handleAnswerUpdated(
     if (dataFeed.name == null && dataFeed.id !== ZERO_ADDRESS) {
       let contract = AccessControlledOffchainAggregator__factory.connect(
         event.address,
-        api
+        api,
       );
       let description = await contract.description();
       if (description) {

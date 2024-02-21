@@ -109,7 +109,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleEthermintEvmEvent(
-  event: EthermintEvmEvent<TransferEventArgs>
+  event: EthermintEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -122,7 +122,7 @@ export async function handleEthermintEvmEvent(
 }
 
 export async function handleEthermintEvmCall(
-  event: EthermintEvmCall<ApproveCallArgs>
+  event: EthermintEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(event.hash);
   approval.owner = event.from;

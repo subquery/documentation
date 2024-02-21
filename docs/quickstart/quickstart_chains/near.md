@@ -119,7 +119,7 @@ export async function handleNewOracle(action: NearAction): Promise<void> {
   const payload: NewOracle = action.action.args.toJson();
   if (payload.account_id && action.transaction) {
     logger.info(
-      `Handling new oracle ${payload.account_id} at ${action.transaction.block_height}`
+      `Handling new oracle ${payload.account_id} at ${action.transaction.block_height}`,
     );
     await checkAndCreateOracle(payload.account_id, action.transaction);
   }
@@ -130,11 +130,11 @@ export async function handleNewPrice(action: NearAction): Promise<void> {
   const payload: NewPrices = action.action.args.toJson();
   if (action.transaction) {
     logger.info(
-      `Handling new price action at ${action.transaction.block_height}`
+      `Handling new price action at ${action.transaction.block_height}`,
     );
     await checkAndCreateOracle(
       action.transaction.signer_id,
-      action.transaction
+      action.transaction,
     );
     payload.prices.map(async (p, index) => {
       await Price.create({
@@ -152,7 +152,7 @@ export async function handleNewPrice(action: NearAction): Promise<void> {
 
 async function checkAndCreateOracle(
   account_id: string,
-  transaction: NearTransaction
+  transaction: NearTransaction,
 ): Promise<void> {
   const oracle = await Oracle.get(account_id.toLowerCase());
   if (!oracle) {

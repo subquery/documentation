@@ -304,10 +304,10 @@ export default defineUserConfig({
             app.pages.map(({ path }) => [
               path.replace(
                 "/subquery_network/node_operators/indexers/",
-                "/subquery_network/indexers/"
+                "/subquery_network/indexers/",
               ),
               path,
-            ])
+            ]),
           ),
         };
       },

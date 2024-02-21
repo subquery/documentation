@@ -252,13 +252,13 @@ async function getOrCreateApe(event: TransferLog): Promise<BoredApe> {
 }
 
 export async function handleMint(
-  transaction: MintApeTransaction
+  transaction: MintApeTransaction,
 ): Promise<void> {
   assert(transaction.logs);
   let transferLog: TransferLog = transaction.logs.find(
     (e) =>
       e.topics[0] ===
-      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+      "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
   ) as TransferLog;
   let boredApe = await getOrCreateApe(transferLog);
   let mint = Mint.create({

@@ -43,7 +43,7 @@ export async function handleEvent(event: SubstrateEvent): Promise<void> {
     },
   } = event;
   const record = new EventEntity(
-    event.extrinsic.block.block.header.hash.toString()
+    event.extrinsic.block.block.header.hash.toString(),
   );
   record.field2 = account.toString();
   record.field3 = (balance as Balance).toBigInt();
@@ -84,7 +84,7 @@ From `@subql/types` version `X.X.X` onwards `SubstrateExtrinsic` is now generic.
 
 ```ts
 async function handleEvmCall(
-  call: SubstrateExtrinsic<[TransactionV2 | EthTransaction]>
+  call: SubstrateExtrinsic<[TransactionV2 | EthTransaction]>,
 ): Promise<void> {
   // `tx` will be of type `TransactionV2 | EthTransaction` before it would have been `Codec`
   const [tx] = original.extrinsic.method.args;
@@ -347,7 +347,7 @@ export async function kittyApiHandler(): Promise<void> {
   //Custom rpc, set undefined to blockhash
   const kittyPrice = await api.rpc.kitties.getKittyPrice(
     undefined,
-    nextKittyId
+    nextKittyId,
   );
 }
 ```

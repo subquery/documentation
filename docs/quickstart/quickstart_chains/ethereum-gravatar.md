@@ -128,7 +128,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 }
 
 export async function handleUpdatedGravatar(
-  log: UpdatedGravatarLog
+  log: UpdatedGravatarLog,
 ): Promise<void> {
   logger.info("Updated Gravar at block " + log.blockNumber.toString());
 

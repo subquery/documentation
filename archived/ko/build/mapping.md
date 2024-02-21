@@ -52,7 +52,7 @@ Call handlers는 특정 Substrate 외부의 정보를 캡처할 경우에 사용
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
   const record = new starterEntity(
-    extrinsic.block.block.header.hash.toString()
+    extrinsic.block.block.header.hash.toString(),
   );
   record.field4 = extrinsic.block.timestamp;
   await record.save();
@@ -279,7 +279,7 @@ export async function kittyApiHandler(): Promise<void> {
   //Custom rpc, set undefined to blockhash
   const kittyPrice = await api.rpc.kitties.getKittyPrice(
     undefined,
-    nextKittyId
+    nextKittyId,
   );
 }
 ```

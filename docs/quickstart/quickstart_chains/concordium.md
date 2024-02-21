@@ -163,7 +163,7 @@ import {
 
 export async function handleTransaction(tx: ConcordiumTransaction) {
   logger.info(
-    `Handling Transaction at block ${tx.block.blockHeight.toString()}`
+    `Handling Transaction at block ${tx.block.blockHeight.toString()}`,
   );
   const record = Transfer.create({
     id: `${tx.block.blockHeight}-${tx.hash}`,
@@ -178,10 +178,10 @@ export async function handleTransaction(tx: ConcordiumTransaction) {
 }
 
 export async function handleTransactionEvent(
-  txEvent: ConcordiumTransactionEvent
+  txEvent: ConcordiumTransactionEvent,
 ) {
   logger.info(
-    `Handling Transaction Event at block ${txEvent.block.blockHeight.toString()}`
+    `Handling Transaction Event at block ${txEvent.block.blockHeight.toString()}`,
   );
   const record = Updated.create({
     id: `${txEvent.transaction.hash}-${txEvent.id}`,
@@ -198,7 +198,7 @@ export async function handleTransactionEvent(
 
 export async function handleSpecialEvent(specialEvent: ConcordiumSpecialEvent) {
   logger.info(
-    `Handling special event at block ${specialEvent.block.blockHeight.toString()}`
+    `Handling special event at block ${specialEvent.block.blockHeight.toString()}`,
   );
   const record = BlockAccrueReward.create({
     id: `${specialEvent.block.blockHeight}-${specialEvent.id}`,

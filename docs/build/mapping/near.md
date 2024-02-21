@@ -39,7 +39,7 @@ You can use transaction handlers to capture information about each of the transa
 import { NearTransaction } from "@subql/types-near";
 
 export async function handleTransaction(
-  transaction: NearTransaction
+  transaction: NearTransaction,
 ): Promise<void> {
   logger.info(`Handling transaction at ${transaction.block_height}`);
 
@@ -63,7 +63,7 @@ You can use action handlers to capture information from each action in a transac
 import { NearAction, Transfer } from "@subql/types-near";
 
 export async function handleAction(
-  action: NearAction<Transfer>
+  action: NearAction<Transfer>,
 ): Promise<void> {
   // An Action can belong to either a transaction or a receipt
   // To check which one, we can check if action.transaction is null
@@ -73,7 +73,7 @@ export async function handleAction(
       action.transaction
         ? action.transaction.block_height
         : action.receipt.block_height
-    }`
+    }`,
   );
 
   const id = action.transaction
@@ -130,7 +130,7 @@ import { NearAction, Transfer } from "@subql/types-near";
 import fetch from "node-fetch";
 
 export async function handleAction(
-  action: NearAction<Transfer>
+  action: NearAction<Transfer>,
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
