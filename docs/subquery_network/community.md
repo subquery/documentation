@@ -101,6 +101,7 @@ Links
 ### Kepler Network Dashboard (by DappLooker)
 
 To monitor the progress and performance of the Kepler Network, DappLooker has created a dashboard that displays the following key metrics:
+
 - Active Indexers / Delegators: The number of Indexers and Delegators who are actively participating in the Kepler Network.
 - Weekly Indexer Stake / Delegation: The amount of kSQT that Indexers and Delegators have staked on the Kepler Network in the past week.
 - Weekly Rewards: The amount of kSQT that Indexers have earned as rewards for serving data requests on the Kepler Network in the past week.
