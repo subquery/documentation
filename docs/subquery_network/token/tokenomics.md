@@ -24,17 +24,17 @@ The vesting schedules for each participant has been designed to create long-term
 
 The Foundation and Community will have approximately 8% of their allocation unlocked from the start (as part of mainnet incentives) to meet the operational needs of launching and promoting the SubQuery Network with the rest of the allocation vesting gradually over 5 years.
 
-| Group                                       | Size  | Vesting Terms                          |
-| ------------------------------------------- | ----- | -------------------------------------- |
-| Seed                                        | 11.7% | 12 month lock-up with 24 month vesting |
-| Series A                                    | 14.5% | 6 month lock-up with 18 month vesting  |
-| Series B (and 2022 Private Sale)            | 3.2%  | 3 month lock-up with 9 month vesting   |
-| Strategic Round                             | 5.5%  | 24 month lock-up with 24 month vesting |
-| Team and Advisers                           | 15.0% | 24 month lock-up with 24 month vesting |
-| Foundation & Community - Mainnet Incentives | 8.0%  | No lock-up or vesting                  |
-| Foundation & Community - Vested             | 31.9% | No lock-up with 60 month vesting       |
-| Liquidity                                   | 5.0%  | No lock-up or vesting                  |
-| Public Sale                                 | 4.4%  | No lock-up or vesting                  |
-| kSQT Conversion                             | 0.2%  | No lock-up or vesting                  |
-| SQT Airdrops                                | 0.1%  | No lock-up or vesting                  |
-| SQT Seekers Programme                       | 0.5%  | No lock-up with 6 month vesting        |
+| Group                                       | Size (exact) | Vesting Terms                          |
+| ------------------------------------------- | ------------ | -------------------------------------- |
+| Seed                                        | 11.65%       | 12 month lock-up with 24 month vesting |
+| Series A                                    | 14.49%       | 6 month lock-up with 18 month vesting  |
+| Series B (and 2022 Private Sale)            | 3.20%        | 3 month lock-up with 9 month vesting   |
+| Strategic Round                             | 5.50%        | 24 month lock-up with 24 month vesting |
+| Team and Advisers                           | 15.00%       | 24 month lock-up with 24 month vesting |
+| Foundation & Community - Mainnet Incentives | 8.06%        | No lock-up or vesting                  |
+| Foundation & Community - Vested             | 31.81%       | No lock-up with 60 month vesting       |
+| Liquidity                                   | 5.00%        | No lock-up or vesting                  |
+| Public Sale                                 | 4.39%        | No lock-up or vesting                  |
+| kSQT Conversion                             | 0.22%        | No lock-up or vesting                  |
+| SQT Airdrops                                | 0.18%        | No lock-up or vesting                  |
+| SQT Seekers Programme                       | 0.50%        | No lock-up with 6 month vesting        |
