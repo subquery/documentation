@@ -4,7 +4,6 @@
   <iframe src="https://www.youtube.com/embed/vVHbrxIA5KE" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-
 To claim your subquery tokens, visit [https://claim.subquery.foundation](https://claim.subquery.foundation). Please check the URL carefully. Another option is to head over to [https://www.subquery.foundation](https://www.subquery.foundation/) and click on the SQT Claim link in the top navigation bar. This will open up the SubQuery Token Claim page and ask for a wallet to be connected.
 
 ![SQT claim page](/assets/img/network/claim_page.png)
@@ -33,11 +32,13 @@ You can use certain hardware wallets with Metamask by following [the offical Met
 
 Immediately after claiming your tokens, you can put them to productive use on the SubQuery Network mainnet - for example by delegating to your favourite indexer or boosting your favourite project to earn rewards.
 
-## How to obtain Ether on Base?
+## How to obtain Ether on Base for Gas?
 
-Because SQT uses the Base network (which is EVM compatible), ether is required for gas fees. However, there are different flavours of ether and selecting the correct one is crucial. 
+Because SQT uses the Base network (which is EVM compatible), ether is required for gas fees. However, you must use ether that is on the Base mainnet for Gas - ether on Ethereum will not work.
 
-Ether on Base is required and this can be obtained via Base’s official [bridge](https://bridge.base.org/deposit) or from any other 3rd party bridge that can be found via a quick Google search. 
+Ether can be withdrawn from many exchanges to Base, or can be bridged across from Ethereum mainnet via Base’s official [bridge](https://bridge.base.org/deposit) or from any other 3rd party bridge that can be found via a quick Google search.
+
+You know you have ether on Base when your wallet is connected to Base Mainnet, and Ethereum is showing. Some wallets, for example Metamask, show bridged ether with a small `B` as shown below.
 
 ![ether on base](/assets/img/network/ether_on_base.png)
 
