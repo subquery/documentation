@@ -12,6 +12,12 @@ While kSQT will not have transfer restrictions, we do not envision it as a free-
 
 ## How to Swap
 
+:::warning
+
+kSQT -> SQT Swap will only be open from when the mainnet launches, expected to be around 8am Friday 23rd February UTC.
+
+:::
+
 There are three steps for swapping kSQT to SQT and then being able to use it on the network
 
 1. Ensure that all remaining kSQT is unlocked and swappable
@@ -51,7 +57,7 @@ Once you have added SQT to the Polygon Bridge, you are free to bridge over your 
 
 ### 4. Bridge SQT from Ethereum to Base
 
-Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](./token.md#bridging-tokens-from-base-to-ethereum-mainnet).
+Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](./token.md#bridging-tokens-to-base).
 
 :::info
 
