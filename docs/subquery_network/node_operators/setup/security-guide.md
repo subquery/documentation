@@ -113,7 +113,7 @@ sudo apt install -y nginx
 ```shell
 # docker-compose.yml
 proxy:
-    image: subquerynetwork/indexer-proxy:v1.3.9
+    image: subquerynetwork/indexer-proxy:v2.0.0
     container_name: indexer_proxy
     restart: always
     ports:
@@ -125,7 +125,7 @@ proxy:
       - --jwt-secret=<...>
       - --secret-key=<...>
       - --service-url=http://indexer_coordinator:8000
-      - --network=kepler                                  # network type, need to be same with coordinator
+      - --network=mainnet                                  # network type, need to be same with coordinator
       - --network-endpoint=https://polygon-rpc.com
       - --token-duration=24                                 # query auth token validity [hours]
       - --redis-endpoint=redis://indexer_cache

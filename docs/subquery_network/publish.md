@@ -1,5 +1,11 @@
 # Publishing your Project to the SubQuery Network
 
+:::warning
+
+This guide is outdated as we have now moved to the mainnet. We will update it shortly with instructions on how anyone can submit a new project deployment to the SubQuery network.
+
+:::
+
 We're building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably.
 
 The final phase before launching the SubQuery Network is deploying the Kepler Network. You can think of Kepler as a pre-mainnet, a controlled phase that will help us bootstrap the mainnet with participants and activity.

@@ -21,7 +21,7 @@ If claiming your public sale tokens, you must use the same wallet address you pa
 
 Select the appropriate account and then click next. You may have to approve to switch the network connection to the Base network.
 
-The SubQuery Token Claim claim page should load up showing any token allocation that you have permission to claim. Note that the balance may show 0 prior to TGE. Once the tokens have been generated and allocated on the token generation date, the balance should reflect your correct amount.
+The SubQuery Token Claim claim page should load up showing any token allocation that you have permission to claim. Once the tokens have been generated and allocated on the token generation date, the balance should reflect your correct amount.
 
 ![claim page](/assets/img/network/claim_page_tokens.png)
 

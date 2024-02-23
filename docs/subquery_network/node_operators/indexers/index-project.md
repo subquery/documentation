@@ -2,11 +2,7 @@
 
 ## Introduction
 
-To become a SubQuery Indexer, you need to stake a minimum of 1000 SQT.
-
-::: info Note
-Only Indexers that have been airdropped kSQT will be able to join Kepler as an indexer. In the future, we may invite more indexers into the network.
-:::
+To become a SubQuery Indexer, you need to stake a minimum of 200,000 SQT.
 
 ## 1. Initial Set-Up
 

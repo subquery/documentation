@@ -1,11 +1,5 @@
 # Introduction to Consumers
 
-:::info
-
-The SubQuery Kepler Network does not yet have the Consumer role. Consumers will launch with the SubQuery Mainnet.
-
-:::
-
 ## What is a Consumer?
 
 A Consumer is a participant in the SubQuery Network and is either an individual or organisation that pays for processed and organised blockchain data and/or RPC queries from the SubQuery Network. Consumers effectively make requests to the SubQuery Network for specific data or the ability to submit transactions to RPC providers and pay an agreed amount of SQT in return.

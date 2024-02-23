@@ -1,24 +1,12 @@
 # Swap kSQT for SQT
 
-:::warning
-
-Now that the SubQuery Mainet have been announced, we have disabled swaps of USDC.e -> kSQT and kSQT -> USDC.e. After SubQuery's TGE on the 23rd of February we will allow direct swaps of kSQT for SQT at a premium rate (1:1.83) when the network launches.
-
-:::
-
-Swaps allows users to swap kSQT to SQT.
+Swaps allows users to swap kSQT to SQT at a fixed rate of 1:1.83.
 
 While kSQT will not have transfer restrictions, we do not envision it as a free-float token, hence will not provide or support liquidity. kSQT will have a controlled supply that is intended to be just enough for the minimum viable network running with limited capabilities.
 
 ## How to Swap
 
-:::warning
-
-kSQT -> SQT Swap will only be open from when the mainnet launches, expected to be around 8am Friday 23rd February UTC.
-
-:::
-
-There are three steps for swapping kSQT to SQT and then being able to use it on the network
+There are three steps for swapping kSQT to SQT and then being able to use it on the network, you can carry these actions out on the old [Kepler app](https://kepler.subquery.network/swapksqt).
 
 1. Ensure that all remaining kSQT is unlocked and swappable
 2. Swap kSQT to SQT on Polygon
@@ -29,7 +17,7 @@ There are three steps for swapping kSQT to SQT and then being able to use it on 
 
 ### 1. Unlock Remaining kSQT
 
-To unlock your kSQT tokens for swapping, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network). On the left side of the swap page, you can see any remaining kSQT that you have locked in the app. This includes unclaimed rewards, delegation, staking, and pending withdrawls. Please make sure there is no remaining kSQT in each section by following in the associated instructions.
+To unlock your kSQT tokens for swapping, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network/swapksqt). On the left side of the swap page, you can see any remaining kSQT that you have locked in the app. This includes unclaimed rewards, delegation, staking, and pending withdrawls. Please make sure there is no remaining kSQT in each section by following in the associated instructions.
 
 - [Claim kSQT Rewards](../node_operators/rewards.md#claiming-rewards-by-eras)
 - [Undelegate kSQT](../delegators/delegating.md#how-to-undelegate-from-an-indexer)
@@ -38,7 +26,7 @@ To unlock your kSQT tokens for swapping, navigate to the `Swap` page on the old 
 
 ### 2. Swap kSQT to SQT
 
-To swap your kSQT tokens for SQT, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network). Then on the right slide, enter an amount of kSQT that you want to swap, and click `Swap` - we recommend inputting the maximum amount.
+To swap your kSQT tokens for SQT, navigate to the `Swap` page on the old [Kepler app](https://kepler.subquery.network/swapksqt). Then on the right slide, enter an amount of kSQT that you want to swap, and click `Swap` - we recommend inputting the maximum amount.
 
 After this step, you will now have kSQT on Polygon - the contract address of SQT on Polygon is [`0xc52F0f8361835B53A18408BB44d7f4136f0EF69D`](https://polygonscan.com/token/0xc52F0f8361835B53A18408BB44d7f4136f0EF69D#balances) - you might need to add it to your wallet as a custom token.
 
@@ -61,6 +49,6 @@ Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](
 
 :::info
 
-If you need any help, you can reach out on the `#kepler-swap-support` channel in our Discord.
+If you need any help, you can reach out on the `#sqt-swap-support` channel in our Discord.
 
 :::

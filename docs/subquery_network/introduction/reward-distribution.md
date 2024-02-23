@@ -19,7 +19,7 @@ There is a reward pool for each deployments Node Operator runs where the adjustm
 
 ## Network Inflation Rewards
 
-Some projects in our network are considered “Public Good” projects, for example; network dictionaries and the various SubQuery projects that the [official Network app](https://kepler.subquery.network) runs on. In these cases, we need to ensure Node Operators will run and host them, but generally there will be no single customer that will take the lead in financing these requests
+Some projects in our network are considered “Public Good” projects, for example; network dictionaries and the various SubQuery projects that the [official Network app](https://app.subquery.network) runs on. In these cases, we need to ensure Node Operators will run and host them, but generally there will be no single customer that will take the lead in financing these requests
 
 Additionally, for Node Operators, running projects incurs significant costs. Without clear demand, Node Operators might not want to risk the time and resources to setup a new project.
 

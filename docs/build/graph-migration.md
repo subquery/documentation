@@ -9,7 +9,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to all you to run, monitor, and optimise your locally hosted project
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
-- **A decentralised network supporting all chains** - Our [decentralised network](https://kepler.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
+- **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 
 ![Competitor Comparison](/assets/img/build/competitor_comparison.jpg)
 
@@ -308,7 +308,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 }
 
 export async function handleUpdatedGravatar(
-  log: UpdatedGravatarLog,
+  log: UpdatedGravatarLog
 ): Promise<void> {
   const id: string = log.args.id.toHexString()!;
   let gravatar = await Gravatar.get(id);
