@@ -523,6 +523,10 @@ export const getSidebar = (locale: string) =>
             },
             `${locale}/subquery_network/node_operators/rewards.md`,
             {
+              text: "Becoming a Node Operator",
+              link: `${locale}/subquery_network/node_operators/becoming-a-node-operator.md`,
+            },
+            {
               text: "Data Indexers",
               link: `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               collapsible: true,

@@ -1,8 +1,8 @@
-# How to Become an Indexer
+# How to Become a Node Operator
 
 ## Introduction
 
-Welcome to this guide on how to become an Indexer. Let's take an overview of the basic steps involved in the process:
+Welcome to this guide on how to become a Node Operator. Let's take an overview of the basic steps involved in the process:
 
 ## Summary of Steps
 
@@ -10,31 +10,19 @@ Welcome to this guide on how to become an Indexer. Let's take an overview of the
 | ----- | ---------------------------------------------------------------------------------------------------------------- |
 | 1     | Set Up & Start Indexing [Locally](./install-indexer-locally.md) or [On Linux](./install-indexer-linux.md)        |
 | 2     | [Connect to MetaMask](#2-connect-to-metamask)                                                                    |
-| 3     | [Obtain Kepler Tokens](#3-obtain-ksqt-tokens)                                                                    |
-| 4     | [How to index a project](#4-how-to-index-a-project) or [restore dictionary databases](#4-how-to-index-a-project) |
-| 5     | [Create a Plan from a Plan Template](#5-create-a-plan-from-a-plan-template)                                      |
-| 6     | [Setting an Indexer Commission Rate](#6-configure-an-indexer-commission-rate-icr)                                |
+| 3     | [How to index a project](#3-how-to-index-a-project) or [restore dictionary databases](#3-how-to-index-a-project) |
+| 4     | [Create a Plan from a Plan Template](#4-create-a-plan-from-a-plan-template)                                      |
+| 5     | [Setting a Node Operator Commission Rate](#5-configure-an-indexer-commission-rate-icr)                                |
 |       | [Troubleshooting](./troubleshooting-indexers.md)                                                                 |
 |       | [FAQs](./faq.md)                                                                                                 |
 
-## Understanding how Kepler will Operate for Indexers
-
-In the first phase of Kepler, Indexers will be Sponsored by the SubQuery Council to run common good sponsored projects. These will be run using standardised plans so that the SubQuery Council can easily create agreements with each Indexer and sponsor them in bulk.
-
-- All plans will be orientated around the length of an [Era](../../introduction/era.md), which is currently one week.
-- Indexers should only index from a list of standardised projects that will be listed [here](./index-project.md#2-add-a-project). You won't be rewarded for indexing any projects that are not on this list.
-- Towards the end of each era, we will release the suggested plan templates, recommended pricing, and other instructions for the start of the next period. You can create plans under [step 5](#5-create-a-plan-from-a-plan-template). These will be shared on [Discord](https://discord.com/invite/subquery) in `kepler-indexer-chat`
-- We use the [Indexer Excellency programme](https://kepler.subquery.network/delegator/indexers/top) to rank Indexers and plans will be allocated to Indexers with a higher score. In order to maximise your rewards, we suggest trying to maximise your score in this programme (you can hover over the column header to see how each score is calculated).
-- We also constantly assess uptime from our Indexers, so if you have [announced that your indexing service is ready to use](./index-project.md#42-announcing-that-indexing-service-is-ready-to-use), then you will be penalised for any downtime.
-- Finally, we also assess pricing when creating agreements with Indexers, so Indexers with lower plan prices can expect a higher chance of being selected.
-
-![Indexer Excellency](/assets/img/network/indexer-excellency.png)
+![Node Operator Excellency](/assets/img/network/indexer-excellency.png)
 
 ## 1. Select an environment
 
 For those who are new to SubQuery, it is recommended to try running the Indexing Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your indexing service.
 
-**Select the appropriate link to follow the guide to setup an Indexer [Locally](./install-indexer-locally.md), or on [Linux](./install-indexer-linux.md) and then return here.**
+**Select the appropriate link to follow the guide to setup an Node Operator [Locally](./install-indexer-locally.md), or on [Linux](./install-indexer-linux.md) and then return here.**
 
 ### Recommend resources for the machine
 
@@ -46,7 +34,7 @@ For those who are new to SubQuery, it is recommended to try running the Indexing
 
 ### Port configurations
 
-Here are the recommended port configurations for running an Indexer service:
+Here are the recommended port configurations for running an Node Operator service:
 
 - Port `8000 / TCP`: This port should be configured to only allow access from your own IP address, used by `indexer_coordinator`.
 - Port `7370 / UDP`: This port can be opened to the public and used for broadcasting data to multiple clients or nodes in a peer-to-peer network, used by `indexer_proxy`.
@@ -61,9 +49,9 @@ Note that you may or may not need to install Docker. If you use the SubQuery com
 ### Running indexer services
 
 `Important:`
-Login to your VM and create a folder, such as `kepler-indexer`
+Login to your VM and create a folder, such as `subquery-indexer`
 
-1. Run `cd kepler-indexer`
+1. Run `cd subquery-indexer`
 2. Run the follow cmd to download the latest `docker-compose.yml`:
 
 ```sh
@@ -74,8 +62,8 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 | Service                                                                                             | Version Tag |
 | :-------------------------------------------------------------------------------------------------- | :---------- |
-| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v1.4.10`   |
-| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v1.3.9`    |
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.0.0`   |
+| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.0.0`    |
 
 ::: warning Important
 
@@ -156,13 +144,7 @@ By following these simple steps, you can upgrade your indexer services in Docker
 
 Once your Indexing Service is all set and running successfully, connect to your MetaMask wallet.
 
-## 3. Obtain kSQT tokens
-
-At this stage, only Indexers that received kSQT tokens via the airdrop can obtain and participate as Indexers in Kepler. This may change soon as we test and verify that aspects of the Kepler network are running smoothly.
-
-For Kepler, you can obtain kSQT tokens from the [Kepler Airdrop App](https://airdrop.subquery.foundation). Learn more about kSQT and how to add it to your wallet in [kSQT](../../token/token.md#ksqt).
-
-## 4. How to index a project
+## 3. How to index a project
 
 To index a project, please follow the instructions [here](./index-project.md#).
 
@@ -170,13 +152,13 @@ To index a project, please follow the instructions [here](./index-project.md#).
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](./dictionary-restore.md)
 :::
 
-## 5. Create a Plan from a Plan Template
+## 4. Create a Plan from a Plan Template
 
-For the initial stages of Kepler, the SubQuery Council will set some default plan templates to make plan management and creation easier, and speed up the test and analysis of various parameters of the network. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
+For the initial stages of Mainnet, the SubQuery Council will set some default plan templates to make plan management and creation easier. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](./plans.md#creating-a-plan).
 
-## 6. Configure an Indexer Commission Rate (ICR)
+## 5. Configure an Node Operator Commission Rate (ICR)
 
-Please update your Indexer Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Indexer Staking page, and you can change it by clicking `Change commission rate`
+Please update your Node Operator Commission Rate (ICR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Node Operator Staking page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your ICR](/assets/img/network/indexer_icr.png)
 
