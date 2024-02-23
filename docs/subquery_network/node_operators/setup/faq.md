@@ -1,8 +1,8 @@
 # Frequently Asked Questions
 
-## What does the Indexer Service comprise of?
+## What does the Node Operator Services comprise of?
 
-The Indexer Service is comprised of:
+The Node Operator Service is comprised of:
 
 - Co-ordinator service
 - Proxy service
@@ -15,17 +15,17 @@ If the indexing node is unhealthy, first visit the service log to determine if a
 
 The other option is to restart the service and/or servers involved.
 
-## Can the same Indexer run 2 services on different platforms?
+## Can the same Node Operator run 2 services on different platforms?
 
-The same Indexer can index 2 **different** projects on 2 **different** hosting providers.
+The same Node Operator can index 2 **different** projects on 2 **different** hosting providers.
 
-![Same Indexer - 2 Projects - 2 Different Services - Without DB ](/assets/img/network/indexer_setup_distributed.png)
+![Same Node Operator - 2 Projects - 2 Different Services - Without DB ](/assets/img/network/indexer_setup_distributed.png)
 
-If the same Indexer wants to index the same project across 2 different hosting providers then the database needs to be shared.
+If the same Node Operator wants to index the same project across 2 different hosting providers then the database needs to be shared.
 
 **However, this is currently not supported, and it’s on our roadmap.**
 
-![Same Indexer - Same Project - 2 Different Hosting Providers](/assets/img/network/indexer_setup_distributed_2.png)
+![Same Node Operator - Same Project - 2 Different Hosting Providers](/assets/img/network/indexer_setup_distributed_2.png)
 
 # Database
 
@@ -85,7 +85,7 @@ We do recommend that you upgrade to the latest version to take advantage of the 
 
 ## When I upgrade my version, do I need to reindex my project?
 
-There is no need to reindex your project when you upgrade your Indexer Service version.
+There is no need to reindex your project when you upgrade your Node Operator Service version.
 
 # Firewalls/Security
 

@@ -177,6 +177,6 @@ On the network page, the Indexer can check the era information and confirm that 
 
 Congratulations! You have successfully indexed your SubQuery Project.
 
-- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](./troubleshooting-indexers.md)) and find all your solutions in one place.
+- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../setup/troubleshooting.md)) and find all your solutions in one place.
 
-- Find the list of [FAQs](./faq.md), and resolve your query.
+- Find the list of [FAQs](../setup/faq.md), and resolve your query.

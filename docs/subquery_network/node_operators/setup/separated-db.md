@@ -1,6 +1,6 @@
-# Install Indexing Service With Separated Database
+# Install Node Operator Service With Separated Database
 
-If you want to use a separated database for the Indexing service, you can follow this guide to set up the database and install the Indexing service.
+If you want to use a separated database for the Node Operator services, you can follow this guide to set up the database and install the Node Operator services.
 
 ## Initial Preparation
 
@@ -19,7 +19,7 @@ To setup the database, you can choose one of the following options:
 - Get the credentials of the database, including the host, port, username, password, and database name.
 - Make sure the database is accessible from the machine running the Indexing service.
 
-### Datebase Safety
+### Database Security
 
 Install and setup your firewall to only allow connections from the IP address of the machine running the Indexing service.
 
@@ -62,14 +62,14 @@ chmod +x ipfs/ipfs.sh
 - --postgres-database=<replace with your database name>
 ```
 
-### Step 3 - Start the Indexing Service
+### Step 3 - Start the Node Operator Service
 
-Run the following command to start the Indexing service:
+Run the following command to start the Node Operator service:
 
 ```bash
 docker compose up -d
 ```
 
 :::tip Tip
-For extra information about starting the Indexing service, please visit from [this section](./install-indexer-locally.md#step-2-start-the-indexing-service).
+For extra information about starting the Node Operator service, please visit from [this section](../setup/becoming-a-node-operator.md).
 :::
