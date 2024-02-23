@@ -4,11 +4,11 @@ The key focus of the [SubQuery Foundation](./foundation.md) and community is to 
 
 ## Connecting with others
 
-Discord is our main community for talking about SubQuery and learning more. You can join with [this link here](https://discord.com/invite/subquery). People most interested in the SubQuery Kepler Network will want to join `#kepler-general`, and Indexers or Delegators should join `#kepler-indexer-chat` or `#kepler-delegator-chat` respectively.
+Discord is our main community for talking about SubQuery and learning more. You can join with [this link here](https://discord.com/invite/subquery). People most interested in the SubQuery Network will want to join `#network-general`, and Indexers or Delegators should join `#network-indexer-chat` or `#network-delegator-chat` respectively.
 
 ## Post on our Forum
 
-When the conversation is deeper and requires more thought, we move the conversation to [our Forum](https://forum.subquery.network/). Here you will find longer topics, a history of all announcements to Kepler, and deeper conversation about the direction of the network. Feel free to join and start posting at [forum.subquery.network](https://forum.subquery.network/)!
+When the conversation is deeper and requires more thought, we move the conversation to [our Forum](https://forum.subquery.network/). Here you will find longer topics, a history of all announcements to Network, and deeper conversation about the direction of the network. Feel free to join and start posting at [forum.subquery.network](https://forum.subquery.network/)!
 
 ## Contributing to Codebases
 
