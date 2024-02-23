@@ -486,6 +486,7 @@ export const getSidebar = (locale: string) =>
           children: [
             `${locale}/subquery_network/token/token.md`,
             `${locale}/subquery_network/token/tokenomics.md`,
+            `${locale}/subquery_network/token/bridge.md`,
             `${locale}/subquery_network/token/swap.md`,
             `${locale}/subquery_network/token/claim.md`,
           ],

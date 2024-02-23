@@ -57,7 +57,7 @@ Once you have added SQT to the Polygon Bridge, you are free to bridge over your 
 
 ### 4. Bridge SQT from Ethereum to Base
 
-Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](./token.md#bridging-tokens-to-base).
+Follow the guide on how to bridge your SQT from Ethereum Mainnet to Base [here](./bridge.md).
 
 :::info
 

@@ -22,7 +22,7 @@ The rationale is that we can demonstrate both the technical and commercial appli
 
 kSQT is the name of the token that is used by participants who operate within the Kepler Network. This token mimics the properties of the eventual SubQuery Network token (SQT) in that tokens will be rewarded to Node Operators for performing tasks and Delegators can allocate their tokens to Node Operators to secure the network and receive rewards.
 
-Kepler is designed to enable participants to provide value to real projects which are migrated from SubQuery’s managed service to the decentralised offering and receive incentives via the Kepler token (kSQT). The kSQT token is issued with a very limited supply, but users can swap kSQT to USDC using our [Swap feature](./swap.md).
+Kepler is designed to enable participants to provide value to real projects which are migrated from SubQuery’s managed service to the decentralised offering and receive incentives via the Kepler token (kSQT). The kSQT token is issued with a very limited supply, but users were able to swap kSQT to USDC using the Swap feature.
 
 ### Adding kSQT to your Wallet
 
@@ -36,6 +36,6 @@ You can add it to your wallet from the wallet selector in the [Kepler App](https
 
 ### How do I Receive kSQT?
 
-The supply of kSQT is intentionally heavily restricted and has been airdropped to Node Operators and Ambassadors to help launch the network and show our appreciation for their support. For users that did not receive an airdrop, kSQT can be swapped using our [Swap feature](./swap.md).
+The supply of kSQT is intentionally heavily restricted and has been airdropped to Node Operators and Ambassadors to help launch the network and show our appreciation for their support.
 
-Upon the retirement of Kepler, all kSQT can be burnt in exchange for SQT after SubQuery Network launch.
+Upon the retirement of Kepler, all kSQT can be burnt in exchange for SQT after SubQuery Network launch using our [swap mechanism](../token/swap.md).

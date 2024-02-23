@@ -21,12 +21,6 @@ You can add it to your wallet from the wallet selector in the [Network App](http
 
 ![Add SQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
 
-## Bridging Tokens to Base
-
-Although SQT is an ERC20 token minted on Ethereum Mainnet, the SubQuery Network operates on the Base Network. You will need to bridge your tokens between these networks, thankfully this is quite straightforward.
-
-The official bridge, [Base Bridge](https://bridge.base.org/deposit), does not yet support SubQuery and there are other [quicker third-party bridges](https://base.org/ecosystem?tag=bridge), for example [superbridge.app](https://superbridge.app/), SubQuery can't be responsible for the use of any third party bridges.
-
 ## KSQT
 
 kSQT was the name of our pre-mainnet token, it is now retired, all holders can swap their kSQT for SQT via the official [Kepler Swap Mechanism](./swap.md).

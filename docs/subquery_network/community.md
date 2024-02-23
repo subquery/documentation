@@ -34,6 +34,8 @@ Contracts for SubQuery Network.
 
 <https://github.com/subquery/network-contracts>
 
+You can find smart contract addresses for all network contracts here in [GitHub](https://github.com/subquery/network-contracts/blob/develop/publish/mainnet.json)
+
 ### `network-app-backend`
 
 SubQuery project for the backend of the SubQuery App.

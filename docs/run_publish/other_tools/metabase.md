@@ -28,7 +28,7 @@ The installation steps are thoroughly documented, ensuring a seamless configurat
 
 ![](/assets/img/run_publish/metabase/metabase-database-connection.png)
 
-If you are running your indexer project [locally](./run.md) through Docker, all the requisite information can be found in the `docker-compose.yml` file. When you provide the correct credentials, Metabase will attempt to establish a connection. It will only proceed if the connection is successful. This connection allows Metabase to access the indexed blockchain data, enabling robust analysis and visualisation capabilities.
+If you are running your indexer project [locally](../run.md) through Docker, all the requisite information can be found in the `docker-compose.yml` file. When you provide the correct credentials, Metabase will attempt to establish a connection. It will only proceed if the connection is successful. This connection allows Metabase to access the indexed blockchain data, enabling robust analysis and visualisation capabilities.
 
 ## Browse Data
 
