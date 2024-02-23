@@ -12,6 +12,11 @@ The first step token is to connect your ERC20 compatiable crypto wallet. We reco
 
 ![connect wallet](/assets/img/network/claim_connect_wallet.png)
 
+Please note:
+
+- Airdrops will be claimed on the Base network
+- Public sale, private sale, and all other vested tokens will be claimed on the Ethereum mainnet
+
 If claiming your public sale tokens, you must use the same wallet address you participated with in the sale. If claiming NFTs or airdropped tokens, make sure you are using the correct wallet address that the SubQuery team has distributed your tokens to
 
 Select the appropriate account and then click next. You may have to approve to switch the network connection to the Base network.
