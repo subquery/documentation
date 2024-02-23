@@ -29,7 +29,7 @@ Although reputation, service quality and total self stake are all important fact
 
 You can read more about how Delegators may pick Node Operators [here](../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 
-Note, a Node Operator can [change the commission rate at any time](./indexers/become-an-indexer.md#6-configure-an-indexer-commission-rate-icr), but it takes an entire [Era](../introduction/era.md) for the new value to take effect.
+Note, a Node Operator can [change the commission rate at any time](./setup/becoming-a-node-operator.md#6-configure-an-node-operator-commission-rate-nocr), but it takes an entire [Era](../introduction/era.md) for the new value to take effect.
 
 ## Security & Performance Considerations
 

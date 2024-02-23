@@ -1,8 +1,8 @@
-# Install Indexing Service on Linux
+# Install Node Operator Service on Linux
 
-Let's see how to run the Indexer Service on a cloud provider.
+Let's see how to run the Node Operator Service on a cloud provider.
 
-## Run Indexer Services on Cloud Linux Instance
+## Run Node Operator Services on Cloud Linux Instance
 
 We will use a Linux EC2 instance from AWS in the following examples.
 
@@ -23,13 +23,9 @@ There are plenty of online guies on how to launch a compute engine on various cl
 ```
 
 ::: warning Important
-DO NOT skip checking the Indexer Version after you finish the SSH process.
-:::
 
-- Visit [this section](./become-an-indexer.md#_2-1-check-indexer-version) and complete the process.
-
-::: warning Important
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
+
 :::
 
 - Then, install Docker and set auto start:
@@ -53,7 +49,7 @@ sudo chmod +x /usr/bin/docker-compose
 sudo docker-compose version
 ```
 
-### Step 3 - Download the Docker Compose File for Indexer Services
+### Step 3 - Download the Docker Compose File for Node Operator Services
 
 Run the following command:
 
@@ -66,7 +62,7 @@ curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/de
 Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coordinator-service to your own one
 :::
 
-### Step 4 - Start Indexer Services
+### Step 4 - Start Node Operator Services
 
 Run the service using the following command:
 
@@ -131,7 +127,7 @@ systemctl status subquery.service
 
 ### Docker Log Rotating
 
-If you've done the above setup, you surely see everything is running in docker, both indexer services and subquery jobs.
+If you've done the above setup, you surely see everything is running in docker, both Node Operator services and subquery jobs.
 With the time going, log will swallow a huge of your local disk and you may have to stop the service to clean it up.
 
 To avoid running into this situation, you can do the following settings.
@@ -162,10 +158,8 @@ Add space limit to journald by set up `SystemMaxUse` and `RuntimeMaxUse`
 
 ## Next Steps
 
-**You have successfully installed and started the Indexer Service on Linux.**
-
-We highly recommend setting up SSL on your new server. [Follow the guide here](./indexer-security-guide.md#ssl-certificate-configuration).
+**You have successfully installed and started the Node Operator Service on Linux, please return to the [previous page](./becoming-a-node-operator.md#1-deploy-an-environment)**
 
 ::: tip Tip
-Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](./troubleshooting-indexers.md).
+Having trouble running a command or setting up the service? Got stuck in the process? Find your solutions [here](./troubleshooting.md).
 :::
