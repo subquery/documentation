@@ -94,15 +94,15 @@ The following projects are available for indexing on the Mainnet network. Some p
 | Calamari | Calamari Dictionary      | `QmUpvkmvTRkMDCGDXnAVjCBZLzZEv9UCVKHH2s3gj3hYQK` | N/A           | N/A                                                                            | N/A |
 | Near     | Near Dictionary          | `QmSKrk3BpzjWzKfS8sZRS5vyjmtXvkJnK8nHUVBhiCmz41` | N/A           | N/A                                                                            | N/A |
 | Juno     | Juno Dictionary          | `QmPjq55mgUt9S8S491Q3wEbb87fXyEkdxymT6Gwe2xe1Z1` | N/A           | N/A                                                                            | N/A |
-| SQ       | SQ Mainnet Project       | `QmTMphPvRg143xWWKsdgZZgNc1HgDxH9fK9ZYpzLiQPet1` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova wallet - Polkadot   | `QmaTy1aG5uZfeyUXRu8bDci1P6AzbTYBEzM57yEYk3MPEt` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Kusama     | `QmWS4bvLU9Y1YBkrcDBq3Z7enZf8LykeyjSvgVKjB7FSVz` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Moonriver  | `QmPzEH1Juo7RQB2X37DvYATQdCQ7oBV8V1yX92DHD71ma5` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Moonbeam   | `QmegTE8BimTw5iTpBqtJSMC2jWApU4g2q5ojGZAL3iU1fr` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Astar      | `QmRonzFGNrsmpG2NrVhcVC6rCtCBqYFupX6MEECReWXWZT` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Aleph Zero | `QmZNNYQqBs3c9f3t7UUybt1Unr49F5gTEdvU3Byv6DntKo` | N/A           | N/A                                                                            | N/A |
-| Nova     | Nova Wallet - Polkadex   | `QmdzL852vGNgmdmk4UdvpPWeVsTtYJiMsjJd6ZxnSbQsfP` | N/A           | N/A                                                                            | N/A |
-| Nodle    | NodleWallet-Eden         | `QmQ77QHgkKa81cVXbiChfLCcivucQpVmbim8GnnXxzd2Lu` | N/A           | N/A                                                                            | N/A |
+| SQ       | SQ Mainnet Project       | `QmTMphPvRg143xWWKsdgZZgNc1HgDxH9fK9ZYpzLiQPet1` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova wallet - Polkadot   | `QmaTy1aG5uZfeyUXRu8bDci1P6AzbTYBEzM57yEYk3MPEt` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Kusama     | `QmWS4bvLU9Y1YBkrcDBq3Z7enZf8LykeyjSvgVKjB7FSVz` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Moonriver  | `QmPzEH1Juo7RQB2X37DvYATQdCQ7oBV8V1yX92DHD71ma5` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Moonbeam   | `QmegTE8BimTw5iTpBqtJSMC2jWApU4g2q5ojGZAL3iU1fr` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Astar      | `QmRonzFGNrsmpG2NrVhcVC6rCtCBqYFupX6MEECReWXWZT` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Aleph Zero | `QmZNNYQqBs3c9f3t7UUybt1Unr49F5gTEdvU3Byv6DntKo` | N/A           | Yes                                                                            | N/A |
+| Nova     | Nova Wallet - Polkadex   | `QmdzL852vGNgmdmk4UdvpPWeVsTtYJiMsjJd6ZxnSbQsfP` | N/A           | Yes                                                                            | N/A |
+| Nodle    | NodleWallet-Eden         | `QmQ77QHgkKa81cVXbiChfLCcivucQpVmbim8GnnXxzd2Lu` | N/A           |Yes                                                                            | N/A |
 | RPC      | Eth Mainnet Rpc - Archive Node | `Qmf6uZkxuNzpcNvnhReXrz1BTzMWgmtkdFQrSNByPytkuk` | N/A     | N/A                                                                            | N/A |
 | RPC      | Eth Mainnet Rpc - Full Node | `QmNa36oZ4zRS1i2wQhiFznU5DjEuNP3wopV6U3VcUWMUKu` | N/A        | N/A                                                                            | N/A |
 | RPC      | Base Rpc - Archive Node  | `QmTfhYrb3wusYS715KvHfaL56R8M1SrM8vwhuLyYVehfKB` | N/A           | N/A                                                                            | N/A |
