@@ -1,6 +1,6 @@
 # Restoring Dictionary Projects
 
-Below are the [Dictionary Projects](../../../academy/tutorials_examples/dictionary.md) supported on Kepler. These projects are commonly used, are simple to index and create, but create large datasets.
+Below are the [Dictionary Projects](../../../academy/tutorials_examples/dictionary.md) supported on Mainnet. These projects are commonly used, are simple to index and create, but create large datasets.
 
 In order to speed up the onboarding of Indexers, we are providing database snapshots for most of these dictionaries
 
