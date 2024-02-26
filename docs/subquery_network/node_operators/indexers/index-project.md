@@ -40,7 +40,7 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 The Controller, a distinct and seperate account that must be created, holds a small amount of Base tokens to facilitate Indexer configuration updates and run day to day operations.
 
-Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in BASE).
+Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in Eth).
 
 Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
 
