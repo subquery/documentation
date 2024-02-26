@@ -102,7 +102,6 @@ The following projects are available for indexing on the Mainnet network. Some p
 | Nova     | Nova Wallet - Astar      | `QmRonzFGNrsmpG2NrVhcVC6rCtCBqYFupX6MEECReWXWZT` | N/A           | Yes                                                                            | N/A |
 | Nova     | Nova Wallet - Aleph Zero | `QmZNNYQqBs3c9f3t7UUybt1Unr49F5gTEdvU3Byv6DntKo` | N/A           | Yes                                                                            | N/A |
 | Nova     | Nova Wallet - Polkadex   | `QmdzL852vGNgmdmk4UdvpPWeVsTtYJiMsjJd6ZxnSbQsfP` | N/A           | Yes                                                                            | N/A |
-| Nodle    | NodleWallet-Eden         | `QmQ77QHgkKa81cVXbiChfLCcivucQpVmbim8GnnXxzd2Lu` | N/A           |Yes                                                                            | N/A |
 | RPC      | Eth Mainnet Rpc - Archive Node | `Qmf6uZkxuNzpcNvnhReXrz1BTzMWgmtkdFQrSNByPytkuk` | N/A     | N/A                                                                            | N/A |
 | RPC      | Eth Mainnet Rpc - Full Node | `QmNa36oZ4zRS1i2wQhiFznU5DjEuNP3wopV6U3VcUWMUKu` | N/A        | N/A                                                                            | N/A |
 | RPC      | Base Rpc - Archive Node  | `QmTfhYrb3wusYS715KvHfaL56R8M1SrM8vwhuLyYVehfKB` | N/A           | N/A                                                                            | N/A |
