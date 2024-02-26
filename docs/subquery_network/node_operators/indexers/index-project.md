@@ -38,7 +38,7 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 ### 1.6 Add a Controller Account
 
-The Controller, a distinct and seperate account that must be created, holds a small amount of Base tokens to facilitate Indexer configuration updates and run day to day operations.
+The Controller, a distinct and seperate account that must be created, holds a small amount of Eth tokens to facilitate Indexer configuration updates and run day to day operations.
 
 Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in Eth).
 
