@@ -18,7 +18,7 @@ Node Operators can always see their current own stake, total delegation, and any
 
 At the top of the page shows the current staking amount (and the amount that is estimated for the next Era).
 
-- Own Stake: This is the total current amount of SQT that you as the Node Operator has staked. Remember, you must meet a minumum ratio here to delegated stake - see [how much SQT should you stake](#how-much-sqt-should-you-stake).
+- Own Stake: This is the total current amount of SQT that you as the Node Operator has staked. Remember, you must meet a minimum ratio here to delegated stake - see [how much SQT should you stake](#how-much-sqt-should-you-stake).
 - Total Delegation: This is the total amount of delegated SQT to you as an Node Operator.
 - Unallocated Stake: This is the amount of stake that is not allocated to any project deployment. **You should always try to minimise this to as close to 0**. See how to [allocate stake](#allocating-stake).
 - Over Allocated Stake: **This is really bad** - please immediately see [over allocated stake](#over-allocated-stake).
@@ -43,7 +43,7 @@ Remember, both network inflation rewards and query rewards (for Flex plans) are 
 
 - If a project deployment is highly boosted, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
 - If a project deployment gets a lot of flex plan queries, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
-- If a project deployment is highly competive, you might want to allocate more stake to it to receive more rewards compared to non-competitive project deployments
+- If a project deployment is highly competitive, you might want to allocate more stake to it to receive more rewards compared to non-competitive project deployments
 
 ## Over Allocated Stake
 
@@ -65,4 +65,4 @@ There are multiple reasons why Node Operators should consider staking more SQT o
 - More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
 - It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 
-In order to become an Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase there rewards that your receive](./rewards.md).
+In order to become an Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).
