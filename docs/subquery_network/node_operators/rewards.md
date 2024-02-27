@@ -29,8 +29,9 @@ Note, a Node Operator can [change the commission rate at any time](./setup/becom
 
 ## Security Considerations
 
-Security considerations for Node Operators are as follows.
+Security considerations for Node Operators are as follows - see [the security guide](./setup/security-guide.md).
 
+- **Indexer Admin**: Avoid exposing Indexer Admin access to public. Unsecured node runner may lose reward qualification
 - **Operator Wallets**: Secure storage of the wallet recovery seed phrase is highly recommended.
 - **Firewalls**: Node Operators need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
 - **Passwords**: Secure passwords should be used by default and password rotation policies should be considered.

@@ -39,7 +39,7 @@ You can add or remove allocation for a particular project deployment by clicking
 
 ![indexer stake manage screen](/assets/img/network/indexer_stake_manage_add.png)
 
-Remember, both network inflation rewards and query rewards (for Flex plans) are distributed for based on the Cobb-Douglas production ([read more here](./rewards.md#how-are-node-operators-rewarded)). This means that you should allocate a larger proportion of stake to project to which you derive more rewards in these two areas. For example:
+Remember, both network inflation rewards and query rewards (for Flex plans) distribution is affected by the allocated stake to the project deployment ([read more here](./rewards.md#how-are-node-operators-rewarded)). This means that you should allocate a larger proportion of stake to project to which you derive more rewards in these two areas. For example:
 
 - If a project deployment is highly boosted, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
 - If a project deployment gets a lot of flex plan queries, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
@@ -49,13 +49,15 @@ Remember, both network inflation rewards and query rewards (for Flex plans) are 
 
 :::danger
 
-This is really bad. When your stake is overallocated, your receive 0 rewards for that Era - immediately fix this!
+This is really bad. When your stake is overallocated, your receive 0 rewards for that the period of time that it is over allocated - immediately fix this!
 
 :::
 
 When the Current Total Stake bar turns red, you are over allocated. You must immediately "Remove Allocation" for one or more project deployments to bring your total allocated stake amount to be less that your Own Stake + Delegated Stake.
 
 ![indexer stake over allocated](/assets/img/network/indexer_stake_manage_over_allocated.png)
+
+You can use the estimate of the Own Stake and Total Delegated for the next Era on this page to avoid situations where departing delegators might result in you over allocating.
 
 ## How much SQT should you Stake
 
