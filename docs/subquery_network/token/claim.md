@@ -47,6 +47,14 @@ You know you have ether on Base when your wallet is connected to Base Mainnet, a
 
 ![ether on base](/assets/img/network/ether_on_base.png)
 
+## Redeeming NFT Tokens
+
+At SubQuery, we've previously given away some NFTs that act as a voucher for SQT, including a [SubQuery $20 SQT Airdrop](https://opensea.io/assets/base/0x86df167b61bd62320058fcc9099d82febb9a054b/1) and a [SubQuery $50 SQT Airdrop](https://opensea.io/assets/base/0x86df167b61bd62320058fcc9099d82febb9a054b/1169).
+
+Holders of these NFTs can now redeem these NFTs for SQT. They can do so by heading to [https://claim.subquery.foundation](https://claim.subquery.foundation) and signing in with the wallet that has these NFTs. Once they have claimed their NFTs, they can then click the "Redeem All NFT" button to convert and redeem these NFTs for SQT (NFTs must be in a `Claimed` status to redeem). Redemption occurs at the public sale conversion rate ($0.012)
+
+![claim redeem NFT](/assets/img/network/claim_redeem.png)
+
 ## Troubleshooting
 
 ### Wrong network
