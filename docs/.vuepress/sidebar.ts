@@ -550,6 +550,7 @@ export const getSidebar = (locale: string) =>
               text: "RPC Providers",
               link: `${locale}/subquery_network/node_operators/rpc_providers/introduction.md`,
             },
+            `${locale}/subquery_network/node_operators/stake.md`,
             `${locale}/subquery_network/node_operators/plans.md`,
           ],
         },

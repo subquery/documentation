@@ -108,7 +108,7 @@ For the initial stages of Mainnet, the SubQuery Council will set some default pl
 
 ## 6. Configure an Node Operator Commission Rate (NOCR)
 
-Please update your Node Operator Commission Rate (NOCR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Node Operator Staking page, and you can change it by clicking `Change commission rate`
+Please update your Node Operator Commission Rate (NOCR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Node Operator Delegators page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your NOCR](/assets/img/network/indexer_icr.png)
 
