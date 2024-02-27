@@ -13,11 +13,7 @@ Check out [reward distribution](../introduction/reward-distribution.md) for more
 
 In order to register and become a Node Operator, a minimum amount of SQT is required to stake in the staking contract. If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool) reallocated to the SubQuery Foundation Treasury, diminishing their staked SQT in the network and therefore reducing their potential rewards.
 
-There are multiple reasons why Node Operators should consider staking more SQT or attracting more Delegation.
-
-- There is a maximum allowed delegation amount based on the size of the Node Operator's self stake, this ensures the Node Operator has sufficient skin in the game. Increasing self stake can mean delegators are able to delegate more to you.
-- More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
-- It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
+[Learn more about staking and allocating existing stake here](./stake.md).
 
 ## How to attract Delegators
 
@@ -31,21 +27,15 @@ You can read more about how Delegators may pick Node Operators [here](../delegat
 
 Note, a Node Operator can [change the commission rate at any time](./setup/becoming-a-node-operator.md#6-configure-an-node-operator-commission-rate-nocr), but it takes an entire [Era](../introduction/era.md) for the new value to take effect.
 
-## Security & Performance Considerations
+## Security Considerations
 
-Security and performance considerations are as follows.
+Security considerations for Node Operators are as follows.
 
-### Operator Wallets
+- **Operator Wallets**: Secure storage of the wallet recovery seed phrase is highly recommended.
+- **Firewalls**: Node Operators need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
+- **Passwords**: Secure passwords should be used by default and password rotation policies should be considered.
 
-Secure storage of the wallet recovery seed phrase is highly recommended.
-
-### Firewalls
-
-Node Operators need to keep security front of mind. Infrastructure security, in particular firewalls, should be implemented to prevent public exposure to personal ports.
-
-Secure passwords should be used by default and password rotation policies should be considered.
-
-### Node Operator’s Performance
+## Node Operator’s Performance Considerations
 
 In order to maintain desirable performance, Node Operators need to consider various factors such as:
 
