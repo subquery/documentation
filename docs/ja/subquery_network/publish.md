@@ -25,7 +25,7 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 ## Prerequisites for your project running on Kepler
 
-1.  Kepler does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../run_publish/subscription.md)
+1.  Kepler does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../run_publish/query/subscription.md)
 2.  Your client application (the one that will query data from Kepler) must be able to run a JS library
 3.  Your project can generate stable proof of indexing results. This means you should avoid:
     1.  Random ordered DB operations, e.g. avoid using `Promise.all()` in your mapping functions.
