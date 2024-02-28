@@ -12,7 +12,7 @@ Now that you have a clear understanding of how to build a basic SubQuery project
 
   - [Multi-chain indexing support](../build/multi-chain.md) - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks.
   - [Dynamic Data Sources](../build/dynamicdatasources.md) - When you want to index factory contracts, for example on a DEX or generative NFT project.
-  - [GraphQL Subscriptions](../run_publish/subscription.md) - Build more reactive front end applications that subscribe to changes in your SubQuery project.
+  - [GraphQL Subscriptions](../run_publish/query/subscription.md) - Build more reactive front end applications that subscribe to changes in your SubQuery project.
 
 - Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).
 

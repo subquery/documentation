@@ -92,7 +92,7 @@ Slots are a feature in SubQuery's Managed Service that are the equivalent of a d
 
 Once your project is deployed, access your project and run your desired query in the playground. For more information, visit:
 
-- [Query your Project using GraphQL in SubQuery Explorer](/run_publish/query.md)
+- [Query your Project using GraphQL in SubQuery Explorer](/run_publish/query/graphql.md)
 
 #### Step 6: Query via the API
 

@@ -297,6 +297,10 @@ export default defineUserConfig({
           "/build/quickstart/quickstart_chains/terra.html":
             "/build/quickstart/quickstart_chains/cosmos.html",
           "/run_publish/ipfs.html": "/miscellaneous/ipfs.html",
+          "/run_publish/query.html": "/run_publish/query/graphql.html",
+          "/run_publish/aggregate.html": "/run_publish/query/aggregate.html",
+          "/run_publish/subscription.html":
+            "/run_publish/query/subscription.html",
         };
         return {
           ...redirects,
@@ -304,10 +308,10 @@ export default defineUserConfig({
             app.pages.map(({ path }) => [
               path.replace(
                 "/subquery_network/node_operators/indexers/",
-                "/subquery_network/indexers/",
+                "/subquery_network/indexers/"
               ),
               path,
-            ]),
+            ])
           ),
         };
       },

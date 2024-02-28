@@ -14,7 +14,7 @@ SubQuery runs well behind an API gateway or a DDOS mitigation service. For any p
 
 ## Request Caching
 
-Although @subql/node does not natively provide any default request level caching, one of the easiest ways to increase performance when the number of users hitting your SubQuery project increases is by adding a cache in front of the GraphQL endpoint with a basic TTL of a few seconds (depending on how stale you want to allow your data). Most cloud providers offer simple to setup and manage caching solutions (e.g. Redis) that will work well with the GraphQL api endpoints that we provide. If you're worried about stale data affecting your user's experience, by leveraging [GraphQl subscriptions](./subscription.md) you can ensure that the most recent data is never affected by the cache while older, slower data is mostly from the cache. Additionally, consider different TTLs for each different entity.
+Although @subql/node does not natively provide any default request level caching, one of the easiest ways to increase performance when the number of users hitting your SubQuery project increases is by adding a cache in front of the GraphQL endpoint with a basic TTL of a few seconds (depending on how stale you want to allow your data). Most cloud providers offer simple to setup and manage caching solutions (e.g. Redis) that will work well with the GraphQL api endpoints that we provide. If you're worried about stale data affecting your user's experience, by leveraging [GraphQl subscriptions](./query/subscription.md) you can ensure that the most recent data is never affected by the cache while older, slower data is mostly from the cache. Additionally, consider different TTLs for each different entity.
 
 ## Database Configuration
 
@@ -34,6 +34,6 @@ GraphQL is extremely powerful, but one of the downsides is that it allows users 
 - `--query-timeout` is a flag that will restrict the time each query will be allowed to run for, [read more here](./references.md#query-timeout).
 - `--max-connection` is a flag that will restrict the number of simultaneous DB connections created by the query endpoint, [read more here](./references.md#max-connection).
 - `--query-limit` is a flag that allows you to limit the number of results returned by any query and enforce pagination, [read more here](./references.md#query-limit).
-- `--unsafe` is a flag that enables some advanced features like [GraphQL aggregations](./aggregate.md), these may have performance impacts, [read more here](./references.md#unsafe-query-service)
+- `--unsafe` is a flag that enables some advanced features like [GraphQL aggregations](./query/aggregate.md), these may have performance impacts, [read more here](./references.md#unsafe-query-service)
 
 You should also consider reading this excellent guide from Apollo on how they recommend you secure your [GraphQL API from malicious queries](https://www.apollographql.com/blog/graphql/security/securing-your-graphql-api-from-malicious-queries/).

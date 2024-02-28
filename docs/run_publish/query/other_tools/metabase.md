@@ -6,9 +6,9 @@ The objective of this guide is to show you how to analyse data from any SubQuery
 
 :::warning Automated Historical State Tracking
 
-When running your project for the sole purpose of visualising in Metabase, we strongly recommending running your project with [Automated Historical State Tracking](../historical.md) disabled.
+When running your project for the sole purpose of visualising in Metabase, we strongly recommending running your project with [Automated Historical State Tracking](../../historical.md) disabled.
 
-Automated Historical State Tracking alters the underlying DB tables to manage state tracking for you automatically. However this may make things complicated for Metabase visualisations. You can read more about these alterations [here](../historical.md#db-schema).
+Automated Historical State Tracking alters the underlying DB tables to manage state tracking for you automatically. However this may make things complicated for Metabase visualisations. You can read more about these alterations [here](../../historical.md#db-schema).
 
 :::
 
@@ -16,7 +16,7 @@ At a high level, there is no specific configuration required to ensure compatibi
 
 For that reason, visualising data in Metabase is not supported in SubQuery decentralised network or Managed Service, you must self host and run your SubQuery Indexing project.
 
-You will want to follow the guide on how to run your [SubQuery indexing project locally](../run.md#running-subquery-locally). Please pay attention to what you set as your Postgres database host, port, username, and password.
+You will want to follow the guide on how to run your [SubQuery indexing project locally](../../run.md#running-subquery-locally). Please pay attention to what you set as your Postgres database host, port, username, and password.
 
 ## Configuring Metabase
 
@@ -28,7 +28,7 @@ The installation steps are thoroughly documented, ensuring a seamless configurat
 
 ![](/assets/img/run_publish/metabase/metabase-database-connection.png)
 
-If you are running your indexer project [locally](../run.md) through Docker, all the requisite information can be found in the `docker-compose.yml` file. When you provide the correct credentials, Metabase will attempt to establish a connection. It will only proceed if the connection is successful. This connection allows Metabase to access the indexed blockchain data, enabling robust analysis and visualisation capabilities.
+If you are running your indexer project [locally](../../run.md) through Docker, all the requisite information can be found in the `docker-compose.yml` file. When you provide the correct credentials, Metabase will attempt to establish a connection. It will only proceed if the connection is successful. This connection allows Metabase to access the indexed blockchain data, enabling robust analysis and visualisation capabilities.
 
 ## Browse Data
 
