@@ -258,7 +258,6 @@ Result:
 
 索引器首次对链进行索引时，获取单个区块将显著降低性能。 增加批量大小以调整获取的区块数将减少整体处理时间。 当前的默认批量大小为 100。
 
-
 ::: tip Note SubQuery uses Node.js, by default this will use 4GB of memory. If you are running into memory issues or wish to get the most performance out of indexing you can increase the memory that will be used by setting the following environment variable `export NODE_OPTIONS=--max_old_space_size=<memory-in-MB>`. It's best to make sure this only applies to the node and not the query service. :::
 
 #### 检查您的节点健康状况
