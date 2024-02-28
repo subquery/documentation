@@ -388,7 +388,7 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 ### --aggregate
 
-**Boolean (default: `true`)** - Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/aggregate.md).
+**Boolean (default: `true`)** - Enables or disables the GraphQL aggregation feature, [read more about this here](../run_publish/query/aggregate.md).
 
 ### --disable-hot-schema
 
@@ -474,11 +474,11 @@ We use the [graphql-query-complexity](https://www.npmjs.com/package/graphql-quer
 
 ### --подписка
 
-**Boolean** - This flag enables [GraphQL Subscriptions](./subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
+**Boolean** - This flag enables [GraphQL Subscriptions](./query/subscription.md), to enable this feature requires `subql-node` also enable `--subscription`.
 
 ### --unsafe (Query Service)
 
-**Boolean** - This flag enables certain aggregation functions including sum, max, avg and others. Подробнее об этой функции [здесь](../run_publish/aggregate.md). These are disabled by default for database performance reasons.
+**Boolean** - This flag enables certain aggregation functions including sum, max, avg and others. Read more about this feature [here](../run_publish/query/aggregate.md). These are disabled by default for database performance reasons.
 
 ### --версия
 
