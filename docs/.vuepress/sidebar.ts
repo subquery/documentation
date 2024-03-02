@@ -360,7 +360,17 @@ export const getSidebar = (locale: string) =>
             },
             {
               text: "Stellar & Soroban",
-              link: `${locale}/quickstart/quickstart_chains/stellar.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "All handlers",
+                  link: `${locale}/quickstart/quickstart_chains/stellar.md`,
+                },
+                {
+                  text: "Soroban",
+                  link: `${locale}/quickstart/quickstart_chains/stellar-soroban.md`,
+                },
+              ],
             },
           ],
         },
