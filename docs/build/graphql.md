@@ -425,3 +425,51 @@ query {
   }
 }
 ```
+
+## Full Text Search
+
+We support a fast, efficient way to perform full text searching across multiple fields in entities.
+
+::: warning Note
+
+This will create a new generated column and index to the DB. Adding full text search in a project upgrade or on an existing dataset might cause some performance issues to build the data.
+
+:::
+
+
+### Add `fullText` directive
+
+To add support for full text search on an entity you can do so by adding the `fullText` directive to an entity. This directive requires the fields that wish to be searchable. These fields must be either `ID`, `String` or another entity type.
+A language option is also required to provide optimal search functionality.
+
+```graphql
+
+type NFT @entity @fullText(fields: ["name", "description"], language: "english") {
+  id: ID!
+  name: String!
+  description: String!
+}
+```
+
+### Querying with Full Text Search
+
+The result of the directive will provide new connections to the graphql schema allowing you to search. They follow the pattern `search<EntityName>` and take a `search` parameter.
+
+The search parameter allows for more than just searching for strings, you can do AND(`&`), OR(`|`) , NOT(`!`, `-`), Begins with(`<Text>:*`, `<Text>*`> and Follows (`>`, `<->`). For more details on these operations please see [pg-tsquery](https://github.com/caub/pg-tsquery) for sanitised operations and [Postgres tsquery](https://www.postgresql.org/docs/current/textsearch-controls.html) for the underlying DB implementation.
+
+```graphql
+
+# Search for all NFTs with either "blue" or "red" in the name or description
+{
+  searchNFTs(search: "blue|red") {
+    nodes: {
+      id
+      name
+      description
+    }
+  }
+}
+
+```
+
+
