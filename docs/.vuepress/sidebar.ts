@@ -363,11 +363,11 @@ export const getSidebar = (locale: string) =>
               collapsible: true,
               children: [
                 {
-                  text: "All handlers",
+                  text: "Combined Example",
                   link: `${locale}/quickstart/quickstart_chains/stellar.md`,
                 },
                 {
-                  text: "Soroban",
+                  text: "Soroban Contracts",
                   link: `${locale}/quickstart/quickstart_chains/stellar-soroban.md`,
                 },
               ],
