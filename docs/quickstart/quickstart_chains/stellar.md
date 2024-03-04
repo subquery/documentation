@@ -1,4 +1,4 @@
-# Stellar & Soroban Quick Start
+# Stellar & Soroban (Combined) Quick Start
 
 The goal of this quick start guide is to give a quick intro to all features of our Stellar and Soroban indexer. The example project indexes all soroban transfer events on Stellar's Futurenet. It also indexes all account payments including credits and debits - it's a great way to quickly learn how SubQuery works on a real world hands-on example.
 

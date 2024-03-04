@@ -1,4 +1,4 @@
-# Soroban. Simple smart contract
+# Soroban Smart Contract Quick Start
 
 The aim of this quick start guide is to provide a brief introduction to Soroban through the hello world smart contract SubQuery indexer. The sample smart contract is designed as a simple incrementer, allowing users to input a specific value. It serves as an effective way to quickly understand the workings of Soroban through a hands-on example in the real world.
 
