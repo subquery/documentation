@@ -79,5 +79,4 @@ Other notes:
 - Only supports PostgreSQL stores
 - Migrations will not succeed `--unfinalizedBlocks` is enabled
 - Does not support Enum modification
-- [GraphQL subscriptions](../run_publish/query/subscription.md) are not supported
 - [Rewind](../run_publish/historical.md) will only be supported if the new schema does not drop any `fields` or `entity`. Note that [automated historical state tracking](../run_publish/historical.md) must be enabled to support rewind.
