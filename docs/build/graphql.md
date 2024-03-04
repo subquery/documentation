@@ -77,7 +77,7 @@ All entites can be imported from the following directory after codegen:
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 ```
 
-### Entities
+### IDs
 
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
 
@@ -90,6 +90,32 @@ type Example @entity {
   address: String # This is an optional field
 }
 ```
+
+### Supported scalar types
+
+We currently support the following scalar types:
+
+- `ID` (supports [full text search](#full-text-search))
+- `Int`
+- `String` (supports [full text search](#full-text-search))
+- `BigInt`
+- `Float`
+- `Date`
+- `Boolean`
+- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
+- `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
+- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+
+### Naming Constraints
+
+You'll need to shorten the entity's name if you get an error such as the following when running the app:
+
+```shell
+subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] ERROR:  constraint "bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fk" for table "bank_msg_multi_send_input_coins" does not exist
+subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] STATEMENT:  COMMENT ON CONSTRAINT bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey ON "app"."bank_msg_multi_send_input_coins" IS E'@foreignFieldName coins'
+```
+
+SubQuery automatically generates Postgres identifiers for your entities. For example, if you have an entity named `BankMsgMultiSendInputCoins`, then an identifier `bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey` will be automatically generated in Postgres. However, this identifier is 65 bytes, and Postgres doesn't support identifiers larger than 63 bytes. In this example, shortening the entity's name to `BankMultiSendInputCoins` will resolve the issue.
 
 ### Adding Documentation Strings to GraphQL Schema
 
@@ -124,33 +150,7 @@ In addition, when using GraphQL query Playground, these doc strings will automat
 
 ![image](../.vuepress/public/assets/img/build/schema_docstring.png)
 
-### Naming Constraints
-
-You'll need to shorten the entity's name if you get an error such as the following when running the app:
-
-```shell
-subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] ERROR:  constraint "bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fk" for table "bank_msg_multi_send_input_coins" does not exist
-subquery-notifications-postgres-1        | 2022-08-26 14:18:12.355 UTC [1922] STATEMENT:  COMMENT ON CONSTRAINT bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey ON "app"."bank_msg_multi_send_input_coins" IS E'@foreignFieldName coins'
-```
-
-SubQuery automatically generates Postgres identifiers for your entities. For example, if you have an entity named `BankMsgMultiSendInputCoins`, then an identifier `bank_msg_multi_send_input_coins_bank_msg_multi_send_input_id_fkey` will be automatically generated in Postgres. However, this identifier is 65 bytes, and Postgres doesn't support identifiers larger than 63 bytes. In this example, shortening the entity's name to `BankMultiSendInputCoins` will resolve the issue.
-
-### Supported scalar types
-
-We currently support the following scalar types:
-
-- `ID`
-- `Int`
-- `String`
-- `BigInt`
-- `Float`
-- `Date`
-- `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
-
-## Indexing by non-primary-key field
+## Indexing
 
 To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field (you can also use [composite indexes](#composite-index)).
 
@@ -158,27 +158,29 @@ To improve query performance, index an entity field simply by implementing the `
 
 By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
+### Standard Indexes
+
+Assuming we knew this user's `email`, but we don't know the exact `id` value, rather than extract all users and then filtering by `email` we can add `@index` behind the `email` field. This makes querying much faster and we can additionally pass the `unique: true` to ensure uniqueness.
+
 Here is an example.
 
 ```graphql
 type User @entity {
   id: ID!
-  name: String! @index(unique: true) # unique can be set to true or false
+  email: String! @index(unique: true) # unique can be set to true or false
+  name: String!
   title: Title! # Indexes are automatically added to foreign key field
 }
 
 type Title @entity {
   id: ID!
-  name: String! @index(unique: true)
+  title: String! @index(unique: true)
 }
 ```
 
-Assuming we knew this user's name, but we don't know the exact id value, rather than extract all users and then filtering by name we can add `@index` behind the name field. This makes querying much faster and we can additionally pass the `unique: true` to ensure uniqueness.
-
 **If a field is not unique, the maximum result set size is 100**
 
-When code generation is run, this will automatically create a `getByName` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method,
-which both can directly be accessed in the mapping function.
+When code generation is run, this will automatically create a `getByEmail` under the `User` model, and the foreign key field `title` will create a `getByTitleId` method, which both can directly be accessed in the mapping function.
 
 ```sql
 /* Prepare a record for title entity */
@@ -190,14 +192,14 @@ INSERT INTO titles (id, name) VALUES ('id_1', 'Captain')
 import { User } from "../types/models/User";
 import { Title } from "../types/models/Title";
 
-const jack = await User.getByName("Jack Sparrow");
+const jack = await User.getByEmail("jack.sparrow@subquery.network");
 
 const captainTitle = await Title.getByName("Captain");
 
 const pirateLords = await User.getByTitleId(captainTitle.id); // List of all Captains
 ```
 
-### Composite Index
+### Composite Indexes
 
 Composite indexes work just like regular indexes, except they provide even faster access to data by utilising multiple columns to create the index.
 
@@ -362,6 +364,30 @@ type Transfer @entity {
 }
 ```
 
+## Full Text Search
+
+We support a fast, efficient way to perform full text search across multiple fields in entities.
+
+::: warning Note
+
+This will create a new generated column and index in your Database. Adding full text search to an existing project via [project upgrade](./project-upgrades.md) or on an existing dataset might result in some performance issues when initially building these indexes.
+
+:::
+
+To add support for full text search on an entity field, add the `fullText` directive to an entity. This directive requires the fields that wish to be searchable. These fields must be either `ID`, `String`, or a foreign key. A language option is also required to provide optimal search functionality, supported languages can be found at [https://stackoverflow.com/a/39752553](https://stackoverflow.com/a/39752553).
+
+```graphql
+type NFT
+  @entity
+  @fullText(fields: ["name", "description"], language: "english") {
+  id: ID!
+  name: String!
+  description: String!
+}
+```
+
+To read about how to query full text fields, see [querying with full text search](../run_publish/query/graphql.md#full-text-search).
+
 ## JSON type
 
 We are supporting saving data as a JSON type, which is a fast way to store structured data. We'll automatically generate corresponding JSON interfaces for querying this data and save you time defining and managing entities.
@@ -425,51 +451,3 @@ query {
   }
 }
 ```
-
-## Full Text Search
-
-We support a fast, efficient way to perform full text searching across multiple fields in entities.
-
-::: warning Note
-
-This will create a new generated column and index to the DB. Adding full text search in a project upgrade or on an existing dataset might cause some performance issues to build the data.
-
-:::
-
-
-### Add `fullText` directive
-
-To add support for full text search on an entity you can do so by adding the `fullText` directive to an entity. This directive requires the fields that wish to be searchable. These fields must be either `ID`, `String` or another entity type.
-A language option is also required to provide optimal search functionality.
-
-```graphql
-
-type NFT @entity @fullText(fields: ["name", "description"], language: "english") {
-  id: ID!
-  name: String!
-  description: String!
-}
-```
-
-### Querying with Full Text Search
-
-The result of the directive will provide new connections to the graphql schema allowing you to search. They follow the pattern `search<EntityName>` and take a `search` parameter.
-
-The search parameter allows for more than just searching for strings, you can do AND(`&`), OR(`|`) , NOT(`!`, `-`), Begins with(`<Text>:*`, `<Text>*`> and Follows (`>`, `<->`). For more details on these operations please see [pg-tsquery](https://github.com/caub/pg-tsquery) for sanitised operations and [Postgres tsquery](https://www.postgresql.org/docs/current/textsearch-controls.html) for the underlying DB implementation.
-
-```graphql
-
-# Search for all NFTs with either "blue" or "red" in the name or description
-{
-  searchNFTs(search: "blue|red") {
-    nodes: {
-      id
-      name
-      description
-    }
-  }
-}
-
-```
-
-
