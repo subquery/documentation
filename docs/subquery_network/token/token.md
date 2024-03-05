@@ -21,6 +21,17 @@ You can add it to your wallet from the wallet selector in the [Network App](http
 
 ![Add SQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
 
+## Where is SQT traded
+
+SQT is supported on [Bybit Exchange](https://www.bybit.com/). Bybit, known for its commitment to providing a secure and user-friendly trading experience, recognised the potential of SubQuery's innovative approach to decentralised data indexing and is eager to bring SQT to its platform.
+
+- Spot trade SQT/USDT on ByBit: [https://www.bybit.com/en/trade/spot/SQT/USDT](https://www.bybit.com/en/trade/spot/SQT/USDT)
+
+SQT is on a number of DEX Pools however most liqudity is on Uniswap. Please ensure that you are trading the correct SQT token (see contract addresses above)
+
+- Uniswap Pool on Ethereum: [https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85](https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85)
+- Unsiwap Pool on Base: [https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d](https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d)
+
 ## KSQT
 
 kSQT was the name of our pre-mainnet token, it is now retired, all holders can swap their kSQT for SQT via the official [Kepler Swap Mechanism](./swap.md).

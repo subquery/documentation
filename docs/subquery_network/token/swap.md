@@ -1,5 +1,11 @@
 # Swap kSQT for SQT
 
+::: info
+
+If you are looking for exchanges to swap SQT to other tokens, please see [where can I get SQT](./token.md#where-is-sqt-traded).
+
+:::
+
 Swaps allows users to swap kSQT to SQT at a fixed rate of 1:1.83.
 
 While kSQT will not have transfer restrictions, we do not envision it as a free-float token, hence will not provide or support liquidity. kSQT will have a controlled supply that is intended to be just enough for the minimum viable network running with limited capabilities.
