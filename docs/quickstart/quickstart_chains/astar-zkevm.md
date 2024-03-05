@@ -1,18 +1,18 @@
-# Astar zKatana Testnet Quick Start
+# Astar zkEVM Mainnet Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
+The goal of this quick start guide is to index all transfers and approval events from the [USDC Token](https://astar-zkevm.explorer.startale.com/address/0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035) on Astar's zkEVM Mainnet.
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-starter).
 :::
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Astar zKatana. Since Astar zKatana is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Astar zkEVM. Since Astar zkEVM is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-As we are indexing all transfers and approvals from the GACHA contract on Astar zKatana test network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the USDC contract on Astar's zkEVM network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
@@ -21,12 +21,12 @@ As we are indexing all transfers and approvals from the GACHA contract on Astar 
   dataSources: [
     {
       kind: EthereumDatasourceKind.Runtime,
-      startBlock: 53, // This is the block that the contract was deployed on https://zkatana.blockscout.com/tx/0x625fd9f365a1601486c4176bc34cf0fdf04bf06b2393fd5dd43e8dd7a62d9ec5
+      startBlock: 101596, // This is the block that the contract was deployed on https://astar-zkevm.explorer.startale.com/tx/0x7035568194509ffe6e7d4707ce34bf7523a98a7b7f8a580ea7321d9849f995c9
       options: {
         // Must be a key of assets
         abi: "erc20",
-        // This is the contract address for GACHA Token https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F
-        address: "0x28687c2A4638149745A0999D523f813f63b4786F",
+        // This is the contract address for USDC Token https://astar-zkevm.explorer.startale.com/address/0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035
+        address: "0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035",
       },
       assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
       mapping: {
@@ -64,9 +64,9 @@ As we are indexing all transfers and approvals from the GACHA contract on Astar 
 }
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [USDC Token](https://astar-zkevm.explorer.startale.com/address/0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035) on Astar's zkEVM Network.
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [GACHA Token](https://zkatana.blockscout.com/token/0x28687c2A4638149745A0999D523f813f63b4786F) on Astar's zKatana Test Network.
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [USDC Token](https://astar-zkevm.explorer.startale.com/address/0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035) on Astar's zkEVM Network.
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
@@ -240,7 +240,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Astar/astar-zkevm-starter).
 :::
 
 <!-- @include: ../snippets/whats-next.md -->
