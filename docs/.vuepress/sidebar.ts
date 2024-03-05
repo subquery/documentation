@@ -25,8 +25,8 @@ export const getSidebar = (locale: string) =>
                   link: `${locale}/quickstart/quickstart_chains/arbitrum.md`,
                 },
                 {
-                  text: "Astar zKatana",
-                  link: `${locale}/quickstart/quickstart_chains/astar-zkatana.md`,
+                  text: "Astar zkEVM",
+                  link: `${locale}/quickstart/quickstart_chains/astar-zkevm.md`,
                 },
                 {
                   text: "Avalanche",

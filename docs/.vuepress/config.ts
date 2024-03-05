@@ -301,6 +301,8 @@ export default defineUserConfig({
           "/run_publish/aggregate.html": "/run_publish/query/aggregate.html",
           "/run_publish/subscription.html":
             "/run_publish/query/subscription.html",
+          "/quickstart/quickstart_chains/astar-zkatana.html":
+            "/quickstart/quickstart_chains/astar-zkevm.html",
         };
         return {
           ...redirects,
