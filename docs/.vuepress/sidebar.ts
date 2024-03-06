@@ -457,7 +457,10 @@ export const getSidebar = (locale: string) =>
             },
             {
               text: "Other Tools",
-              children: [`${locale}/run_publish/query/other_tools/metabase.md`],
+              children: [
+                `${locale}/run_publish/query/other_tools/metabase.md`,
+                `${locale}/run_publish/query/other_tools/bigquery.md`,
+              ],
             },
           ],
         },
