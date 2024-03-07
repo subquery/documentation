@@ -568,6 +568,21 @@ export const getSidebar = (locale: string) =>
       ],
     },
     {
+      text: "SubQuery Data Node",
+      link: `${locale}/subquery_data_node/introduction.md`,
+      collapsible: true,
+      children: [
+        {
+          text: "Introduction",
+          link: `${locale}/subquery_data_node/introduction.md`,
+        },
+        {
+          text: "RPC",
+          link: `${locale}/subquery_data_node/rpc.md`,
+        },
+      ]
+    },
+    {
       text: "Courses",
       link: `${locale}/academy/academy.md`,
       collapsible: true,

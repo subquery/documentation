@@ -15,3 +15,5 @@ files:
     translation: /docs/%two_letters_code%/run_publish/%original_file_name%
   - source: /docs/subquery_network/*.md
     translation: /docs/%two_letters_code%/subquery_network/%original_file_name%
+  - source: /docs/subquery_data_node/*.md
+    translation: /docs/%two_letters_code%/subquery_data_node/%original_file_name%
