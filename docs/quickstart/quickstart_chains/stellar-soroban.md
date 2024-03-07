@@ -2,6 +2,10 @@
 
 The aim of this quick start guide is to provide a brief introduction to Soroban through the hello world smart contract SubQuery indexer. The sample smart contract is designed as a simple incrementer, allowing users to input a specific value. It serves as an effective way to quickly understand the workings of Soroban through a hands-on example in the real world.
 
+::: tip Note
+The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-greeter-contract).
+:::
+
 ## Preparations
 
 For this tutorial, we'll utilise a streamlined version of the hello world smart contract available [here](https://github.com/stellar/soroban-dapps-challenge/blob/greeter/contracts/hello-world/src/lib.rs). We'll streamline the code by retaining only the `increment()` function. The resulting smart contract code will be as follows:
@@ -242,5 +246,9 @@ You will see the result similar to below:
   }
 }
 ```
+
+::: tip Note
+The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-greeter-contract).
+:::
 
 <!-- @include: ../snippets/whats-next.md -->
