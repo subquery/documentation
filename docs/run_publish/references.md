@@ -94,7 +94,7 @@ subql-node --csv-out-dir=/csv-dir/ -f subql-project.ts
 ```
 
 ::: tip Note
-If you are keen on utilising this functionality while running a project through docker-compose, it is important to consider your current volume mounts in the configuration. If you initiated your project using a template, it is likely that you already have Docker volumes mounted, typically defined in a `docker-compose.yaml` file as follows:
+When running your project using Docker, it is important to consider your current volume mounts. If you initiated your project using a template, it is likely that you already have Docker volumes mounted, typically defined in a `docker-compose.yaml` file as follows:
 
 ```
 - ./:/app
