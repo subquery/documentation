@@ -92,6 +92,19 @@ Data Mutations:
 subql-node --csv-out-dir=/csv-dir/ -f subql-project.ts
 ```
 
+::: tip Note When running your project using Docker, it is important to consider your current volume mounts. If you initiated your project using a template, it is likely that you already have Docker volumes mounted, typically defined in a `docker-compose.yaml` file as follows:
+
+```
+- ./:/app
+```
+
+To enable the export to function properly with `csv-dir` as the target folder, follow these steps:
+
+1. Create an empty folder named `csv-dir` in the root directory of your project.
+2. Specify `app` in the path of the parameter, so that the complete parameter appears as follows: `- --csv-out-dir=/app/csv-dir`
+
+:::
+
 ### --db-schema
 
 **String** - This flag allows you to provide a name for the project database schema. Upon providing a new name, a new database schema is created with the configured name and block indexing starts.
