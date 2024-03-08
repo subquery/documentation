@@ -176,23 +176,39 @@ export default defineUserConfig({
 
     navbar: [
       {
-        text: "Explorer",
-        link: "https://explorer.subquery.network/",
-        target: "_blank",
-        rel: "",
+        text: "SubQuery Indexer SDK",
+        link: "/",
       },
       {
-        text: "Managed Service",
-        link: "https://managedservice.subquery.network/",
-        target: "_blank",
-        rel: "",
+        text: "SubQuery Network",
+        link: "/subquery_network/introduction/introduction.md",
       },
-      { text: "Documentation", link: "/" },
       {
-        text: "GitHub",
-        link: "https://github.com/subquery/subql",
-        target: "_blank",
-        rel: "",
+        text: "Others",
+        children: [
+          {
+            text: "Miscellaneous",
+            link: "/miscellaneous/contributing.md",
+          },
+          {
+            text: "Explorer",
+            link: "https://explorer.subquery.network/",
+            target: "_blank",
+            rel: "",
+          },
+          {
+            text: "Managed Service",
+            link: "https://managedservice.subquery.network/",
+            target: "_blank",
+            rel: "",
+          },
+          {
+            text: "GitHub",
+            link: "https://github.com/subquery/subql",
+            target: "_blank",
+            rel: "",
+          },
+        ],
       },
     ],
 
