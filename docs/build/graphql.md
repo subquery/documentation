@@ -298,6 +298,12 @@ type Account @entity {
 }
 ```
 
+::: warning Note
+
+`@derrivedFrom` is required and cannot be the `id` field, without this there is no constraint that `Account` is only associated to one person. This would then make it a many-to-many relationship, please follow the many-to-many steps below.
+
+:::
+
 ### Many-to-Many relationships
 
 A many-to-many relationship can be achieved by implementing a mapping entity to connect the other two entities.
