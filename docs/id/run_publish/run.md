@@ -4,6 +4,12 @@ Panduan ini bekerja melalui cara menjalankan node SubQuery lokal pada infrastruk
 
 **There are two ways to run a project locally, [using Docker](#using-docker) or running the individual components using NodeJS ([indexer node service](#running-an-indexer-subqlnode) and [query service](#running-the-query-service)).**
 
+::: tip Location is everything
+
+Run the services geographically close to one another and where you think most requests will come from. Running the node or query service far away from the DB will massively decrease performance.
+
+:::
+
 ## Gunakan Docker
 
 An alternative solution is to run a **Docker Container**, defined by the `docker-compose.yml` file. Untuk proyek baru yang baru saja diinisialisasi, Anda tidak perlu mengubah apa pun di sini.
@@ -260,7 +266,7 @@ Saat pengindeks pertama kali mengindeks rantai, mengambil blok tunggal akan seca
 
 ::: tip Note SubQuery uses Node.js, by default this will use 4GB of memory. If you are running into memory issues or wish to get the most performance out of indexing you can increase the memory that will be used by setting the following environment variable `export NODE_OPTIONS=--max_old_space_size=<memory-in-MB>`. It's best to make sure this only applies to the node and not the query service. :::
 
-#### Mengcek kesehatan Node
+#### Monitoring Indexer Health
 
 Ada 2 endpoint yang dapat Anda gunakan untuk memeriksa dan memantau kesehatan node SubQuery yang sedang berjalan.
 
@@ -311,6 +317,8 @@ Jika URL yang digunakan salah, kesalahan 404 tidak ditemukan akan ditampilkan.
 }
 ```
 
+You should also be [regularly monitoring your query service health](#monitoring-query-service-health).
+
 #### Debug proyek Anda
 
 Gunakan [inspektur simpul](https://nodejs.org/en/docs/guides/debugging-getting-started/) untuk menjalankan perintah berikut.
@@ -351,3 +359,25 @@ subql-query --name <project_name> --playground
 Pastikan nama proyek sama dengan nama proyek saat Anda [menginisialisasi proyek](../quickstart/quickstart.md#_2-initialise-the-subquery-starter-project). Juga, periksa variabel lingkungan sudah benar.
 
 Setelah menjalankan layanan subql-query dengan sukses, buka browser Anda dan buka `http://localhost:3000`. Anda akan melihat taman bermain GraphQL ditampilkan di Explorer dan skema yang siap untuk kueri.
+
+::: warning
+
+The query service will fail to start if the node has not yet created the DB schema for your project. If you are automating the startup of your project, please ensure that the node service always starts and is running healthy first - you can see an example of how we do this in the default `docker-compose.yaml`
+
+:::
+
+### Monitoring Query Service Health
+
+Unlike the indexer node, there is no specific health check route. Instead you can make a simple GraphQL query such as getting the metadata:
+
+```shell
+curl 'http://localhost:3000' -X POST --data-raw '{"query":"{\n  _metadata {\n    chain\n    lastProcessedHeight\n    lastProcessedTimestamp\n  }\n}"}'
+```
+
+## Recommendations for Self Hosting in a Production Environment
+
+If you wish to self host SubQuery in a production manner there are many other things to consider. These can vary greatly depending on how you choose to run SubQuery so we while we might find it hard to support your team, we hope to point you in the right direction.
+
+It is recommended that you are familiar with running web services in production, if this sounds like too much work we provide the [SubQuery Managed Service](https://managedservice.subquery.network) to provide all of this functionality for you.
+
+**You will want to review [Running High Performance SubQuery Infrastructure](./optimisation.md).**
