@@ -5,6 +5,12 @@ Don't want to worry about running your own SubQuery infrastructure? SubQuery pro
 
 **There are two ways to run a project locally, [using Docker](#using-docker) or running the individual components using NodeJS ([indexer node service](#running-an-indexer-subqlnode) and [query service](#running-the-query-service)).**
 
+::: tip Location is everything
+
+Run the services geographically close to one another and where you think most requests will come from. Running the node or query service far away from the DB will massively decrease performance.
+
+:::
+
 ## Using Docker
 
 An alternative solution is to run a **Docker Container**, defined by the `docker-compose.yml` file. For a new project that has been just initialised you won't need to change anything here.
@@ -271,7 +277,7 @@ When the indexer first indexes the chain, fetching single blocks will significan
 SubQuery uses Node.js, by default this will use 4GB of memory. If you are running into memory issues or wish to get the most performance out of indexing you can increase the memory that will be used by setting the following environment variable `export NODE_OPTIONS=--max_old_space_size=<memory-in-MB>`. It's best to make sure this only applies to the node and not the query service.
 :::
 
-#### Check your node health
+#### Monitoring Indexer Health
 
 There are 2 endpoints that you can use to check and monitor the health of a running SubQuery node.
 
@@ -322,6 +328,8 @@ If an incorrect URL is used, a 404 not found error will be returned.
 }
 ```
 
+You should also be [regularly monitoring your query service health](#monitoring-query-service-health).
+
 #### Debug your project
 
 Use the [node inspector](https://nodejs.org/en/docs/guides/debugging-getting-started/) to run the following command.
@@ -366,49 +374,24 @@ Make sure the project name is the same as the project name when you [initialize 
 
 After running the subql-query service successfully, open your browser and head to `http://localhost:3000`. You should see a GraphQL playground showing in the Explorer and the schema that is ready to query.
 
-<!-- // TODO query service health -->
-### Check the Query service health
+::: warning
 
-Unlike the node there is no health check route. Instead you can make a simple graphql query such as getting the metadata
+The query service will fail to start if the node has not yet created the DB schema for your project. If you are automating the startup of your project, please ensure that the node service always starts and is running healthy first - you can see an example of how we do this in the default `docker-compose.yaml`
+
+:::
+
+### Monitoring Query Service Health
+
+Unlike the indexer node, there is no specific health check route. Instead you can make a simple GraphQL query such as getting the metadata:
 
 ```shell
 curl 'http://localhost:3000' -X POST --data-raw '{"query":"{\n  _metadata {\n    chain\n    lastProcessedHeight\n    lastProcessedTimestamp\n  }\n}"}'
 ```
 
+## Recommendations for Self Hosting in a Production Environment
 
-::: note
+If you wish to self host SubQuery in a production manner there are many other things to consider. These can vary greatly depending on how you choose to run SubQuery so we while we might find it hard to support your team, we hope to point you in the right direction.
 
-The query service will fail to start if the node has not yet created the DB schema for your project
-:::
+It is recommended that you are familiar with running web services in production, if this sounds like too much work we provide the [SubQuery Managed Service](https://managedservice.subquery.network) to provide all of this functionality for you.
 
-
-## Self Hosting in a production environment
-
-If you wish to self host SubQuery in a production manner there are many other things to consider. These can vary greatly depending on how you choose to run SubQuery so we can't give you any specifics but we hope to point you in the right direction. It is recommended that you are familiar with running web services in production, if this sounds like too much work we provide the [SubQuery Managed Service](https://managedservice.subquery.network) to provide all of this functionality for you.
-
-### Security
-
-* Use an API gateway like [nginx](https://nginx.org/en/) or [kong](https://konghq.com/) to provide SSL for your query service.
-* Only expose necessary ports
-    * Only the query service needs to be public and should be done through the API Gateway
-    * Ensure docker API is not accessible if you're using docker
-* Don't run services with the root user. Our docker images already do this.
-
-### Reliability
-
-* Backup your DB regularly
-* Setup Monitoring
-    * We have a [monitoring guide](./monitor) for how to check the progress of indexing
-    * You can also setup health check monitors for the [node](#check-your-node-health) and [query service](#check-the-query-service-health)
-    * Monitor the system resources available such as CPU, Memory and Disk usage
-* Ensure services restart automatically either from the service stopping or the system stopping
-    * If you use docker this will be managed for you
-    * If using linux then [systemd](https://systemd.io/) is a good option
-* Ensure you don't run out of disk space for your DB
-
-### Scalability
-
-* Follow our guide on running [High Performance SubQuery infrastructure](./optimisation.html)
-* Add rate limits or other request restrictions using your API gateway
-* Run the services geographically close to one another and where you think most requests come from. Running the node or query service far away from the DB will greatly impact performance.
-
+**You will want to review [Running High Performance SubQuery Infrastructure](./optimisation.md).**
