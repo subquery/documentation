@@ -514,6 +514,12 @@ footer {
   display: none;
 }
 
+iframe {
+  position: static;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 .overflow3 {
   overflow: hidden;
   text-overflow: ellipsis;

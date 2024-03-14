@@ -18,6 +18,14 @@ photoSwipe: false
       <img src="/assets/img/welcomeBanner.png" />
     </div>
   </div>
+    <div class="quickStart layout mt80">
+      <h3>What are indexers?</h3>
+      <p>Indexers, in a broad context, play a fundamental role in organising and optimising data retrieval within various systems. These tools act as navigational aids, allowing efficient access to specific information by creating structured indexes.</p>
+      <p>In the scope of blockchain and dApps, indexers go beyond traditional databases, facilitating streamlined access to on-chain data. This includes transaction histories, smart contract states, event logs and etc. In the dynamic and decentralised world of blockchain, indexers contribute to the efficiency of data queries, supporting real-time updates and ensuring the seamless functionality of diverse applications and platforms.</p>
+      <div align="center" position="static">
+        <iframe position="static" width="10px" height="10" src="https://www.youtube-nocookie.com/embed/eOYaDDIL3Yg?si=bwajZNq8dxW5eWna" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+      </div> 
+    </div>
   <div class="quickStart layout mt80">
     <h3>Get Started with our Quick Start Guides</h3>
     <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
@@ -27,17 +35,21 @@ photoSwipe: false
           <img :src="networkFamily.logo" :alt="networkFamily.name" width="32" height="32">
           <span style="font-size: 18px; margin-left: 8px">{{ networkFamily.name }}</span>
         </div>
-        <div class="itemGroupContent">
-          <div v-for="network in networkFamily.quick_start_data" :key="network.name">
-            <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')">
-              <div>
-                <img v-if="quickStart.logo" :src="network.logo" width="24" height="24" style="pointer-events: none;">
-                <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
-                <span class="overflow3">{{ quickStart.name  }}</span>
-              </div>
-            </router-link>
+        <details display="block">
+          <summary>See All Networks</summary>
+          <br>
+          <div class="itemGroupContent">
+            <div v-for="network in networkFamily.quick_start_data" :key="network.name">
+              <router-link v-for="quickStart in network.quick_start_data" :key="quickStart.name" :to="quickStart.link.replace('https://academy.subquery.network', '')">
+                <div>
+                  <img v-if="quickStart.logo" :src="network.logo" width="24" height="24" style="pointer-events: none;">
+                  <div v-if="!quickStart.logo" style="width: 24px; height: 24px; background: #fff;border-radius: 50%;"></div>
+                  <span class="overflow3">{{ quickStart.name  }}</span>
+                </div>
+              </router-link>
+            </div>
           </div>
-        </div>
+        </details>
       </div>
   </div>
   </div>
@@ -48,8 +60,8 @@ photoSwipe: false
         <img src="/assets/img/journeyIcon1.svg" />
       </div>
       <div class="ct">
-        <h4>1. Build</h4>
-        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. <router-link :to="{path: '/build/introduction.html'}">Find out more</router-link></p>
+        <h4><router-link :to="{path: '/build/introduction.html'}">1. Build</router-link></h4>
+        <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. </p>
       </div>
     </div>
     <div class="journeyItem">
@@ -57,8 +69,8 @@ photoSwipe: false
         <img src="/assets/img/journeyIcon2.svg" />
       </div>
       <div class="ct">
-        <h4>2. Run and Query via GraphQL</h4>
-        <p>Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and subscriptions. <router-link :to="{path: '/run_publish/run.html'}">Find out more</router-link></p>
+        <h4><router-link :to="{path: '/run_publish/run.html'}">2. Run and Query</router-link></h4>
+        <p>Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and subscriptions. </p>
       </div>
     </div>
     <div class="journeyItem">
@@ -66,8 +78,8 @@ photoSwipe: false
         <img src="/assets/img/journeyIcon3.svg" />
       </div>
       <div class="ct">
-        <h4>3. Publish to the Managed Service</h4>
-        <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only takes a few minutes! <router-link :to="{path: '/run_publish/publish.html'}">Find out more</router-link></p>
+        <h4><router-link :to="{path: '/run_publish/publish.html'}">3. Publish</router-link></h4>
+        <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only takes a few minutes!</p>
       </div>
     </div>
     <div class="journeyItem">
@@ -75,8 +87,8 @@ photoSwipe: false
         <img src="/assets/img/journeyIcon5.svg" />
       </div>
       <div class="ct">
-        <h4>4. Deploy to the SubQuery Network (Coming soon)</h4>
-        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way. <router-link :to="{path: '/build/optimisation.html'}">Find out more</router-link></p>
+        <h4><router-link :to="{path: 'subquery_network/introduction/introduction.html'}">4. Deploy to the SubQuery Network</router-link></h4>
+        <p>Our decentralised service will be the future of web3 infrastructure. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way.</p>
       </div>
     </div>
     <div class="journeyItem">
@@ -84,8 +96,8 @@ photoSwipe: false
         <img src="/assets/img/journeyIcon6.svg" />
       </div>
       <div class="ct">
-        <h4>5. Optimise your Project</h4>
-        <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up. <router-link :to="{path: '/build/optimisation.html'}">Find out more</router-link></p>
+        <h4><router-link :to="{path: '/build/optimisation.html'}">5. Optimise your Project</router-link></h4>
+        <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up.</p>
       </div>
     </div>
   </div>
