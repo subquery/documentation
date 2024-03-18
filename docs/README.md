@@ -239,10 +239,13 @@ const quickStartJson = ref([])
 
 const fetchAllQuickStart = () => {
   fetch("https://templates.subquery.network/guides").then(async (data) => {
-    const json = await data.json()
-    quickStartJson.value = json.results.sort((a,b) => b.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0) - a.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0))
-    }
-  )
+    const json = await data.json();
+    const guides = json.results.sort((a,b) => b.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0) - a.quick_start_data.reduce((cur, add) => cur + add.quick_start_data.length, 0));
+    quickStartJson.value = guides.map(family => {
+      family.quick_start_data.map(qsd => qsd.quick_start_data = qsd.quick_start_data.filter(qs => qs.internal));
+      return family;
+    });
+  })
 }
 
 onMounted(() => {

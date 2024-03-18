@@ -8,7 +8,7 @@ To attract Delegators to support their work, Node Operators (Data Indexers or RP
 
 _Node Operator's Commission Rate (NOCR)_: This is a percentage share of the rewards received by Node Operators from serving requests to Consumers. After deducting the NOCR from total rewards, the remaining rewards will be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
 
-Node Operators are free to set this rate to any value they desire. A higher NOCR indicates that Node Operators keep more of the rewards. A lower NOCR indicates that the Node Operators share more of their rewards with their Delegators.
+Node Operators are free to [set this rate to any value they desire](../node_operators/setup/becoming-a-node-operator.md#6-configure-an-node-operator-commission-rate-nocr). A higher NOCR indicates that Node Operators keep more of the rewards. A lower NOCR indicates that the Node Operators share more of their rewards with their Delegators.
 
 :::
 
