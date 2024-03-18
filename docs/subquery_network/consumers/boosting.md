@@ -15,9 +15,7 @@ The difference between boosting and delegating, is that in return, boosters rece
 
 ## How are boosters rewarded
 
-In the SubQuery Network, the inflation rate is expected to be `1.2%`. The majority of these rewards acts as network inflation rewards (`1%`), while the remainder is allocated to the SubQuery Treasury to fund various network enhancement programmes and grants.
-
-These rewards are distributed to each project deployment based on the proportion of boosted tokens each project deployment is allocated over the time.
+In the SubQuery Network, the majority of network inflation ([see exact amount here](../parameters.md)) is distributed to each project deployment based on the proportion of boosted tokens each project deployment is allocated over the time.
 
 This reward pool is then split into two groups:
 
