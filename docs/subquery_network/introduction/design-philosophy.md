@@ -2,17 +2,27 @@
 
 The guiding principle of the SubQuery Network is simplicity and flexibility for different use cases, payment methods, and networks. While other data services have many different major network participants, SubQuery focuses on three key ones. While other networks have complicated algorithmic signalling mechanisms, SubQuery relies on the most fundamental signal, consumer demand. While other networks provide only one type of payment model (generally PAYG), SubQuery provides several advanced subscription based options for Consumers and Node Operators, And finally, while other networks only support one layer-1 chain, SubQuery is designed to be multi-chain from the outset.
 
+## Different types of Infrastructure
+
+Web3 middleware services like indexers, RPCs, oracles and storage services are pivotal in blockchain dApp development. In fact, the utilisation of these middleware services is what sets apart successful, large-scale, production dApps - they accelerate performance and can scale to thousands of users, while providing a superior developer experience to bring in more users, TVL, and value. Indexers and RPCs shoulder the heavy lifting, standing as mission-critical services that underpin the functionality and efficiency of web3 applications.
+
+Knowing that the SubQuery Network could give our existing community of top node runners a solution to trustlessly receive rewards for running data indexing infrastructure, why couldn’t it work for those other services, for other parts of the dApp tech stack?
+
+![The vision for SubQuery Network to encompass key web3 infrastructure components in a completely decentralised manner](/assets/img/network/technical_stack.png)
+
+We realised the full potential of the SubQuery Network mainnet should not be limited to just data indexing; its fundamental contracts, tools, and reward flows enable it to be so much more. By harnessing the power of the existing participants and mechanisms, the SubQuery Network is ready to extend to various infrastructure verticals. It dawned on us that there is a massive opportunity ahead of us when we think holistically about the entire developer experience.
+
+Our next step is to decentralise the biggest infrastructure component for dApps - Remote Procedure Call or RPC services.
+
 ## Multi-Chain by Design
 
 _SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future._
 
-SubQuery is native to the Polkadot ecosystem, it’s our home and will be the location of the SubQuery Network. The core premise of Polkadot is to create a thriving community of developers, users, and businesses that will tap into its multichain interoperability. SubQuery believes in the idea that a community of blockchains, working together to encourage web3 adoption, is the future and that Polkadot will be a leading player in that initiative.
+SubQuery is multi-chain. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions - to support builders wherever they decide to build and launch their dApps.
 
-But the future is multi-chain. SubQuery knows that there are going to be many different blockchains working together to solve different problems. The plan is to take SubQuery and to adapt it to work for other blockchains that don't have sufficient indexing solutions. The multi-chain approach that is needed to make it work for Polkadot means SubQuery is uniquely suited for this challenge.
+The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
 
-The SubQuery Network is designed to support any SubQuery Project from any Layer 1 network (within Polkadot or not) within it. It will be designed and built to be multi-chain from the outset, where you will see projects from one network being indexed alongside projects from another.
-
-SubQuery currently supports Polkadot, Avalanche, and Terra. Expect more layer-1 support over the coming months.
+[SubQuery currently supports over 150 chains, with many more being added each week](https://subquery.network/networks).
 
 ## Simple and Accessible
 

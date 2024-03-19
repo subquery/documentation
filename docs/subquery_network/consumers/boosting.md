@@ -13,11 +13,11 @@ Consumer Boosting is similar to delegating, where Consumers (individuals or team
 
 The difference between boosting and delegating, is that in return, boosters receive free request units over the time and they attract more Node Operators to a project by allowing them to receive a higher cut of rewards from [network inflation](../introduction/reward-distribution.md#network-inflation-rewards).
 
+Note there is a minimum boost amount that must be boosted against a project deployment in order for the project deployment to start receiving booster rewards, and in turn, for Consumers to receive boost rewards. You can see the current value in [network parameters](../parameters.md).
+
 ## How are boosters rewarded
 
-In the SubQuery Network, the inflation rate is expected to be `1.2%`. The majority of these rewards acts as network inflation rewards (`1%`), while the remainder is allocated to the SubQuery Treasury to fund various network enhancement programmes and grants.
-
-These rewards are distributed to each project deployment based on the proportion of boosted tokens each project deployment is allocated over the time.
+In the SubQuery Network, the majority of network inflation ([see exact amount here](../parameters.md)) is distributed to each project deployment based on the proportion of boosted tokens each project deployment is allocated over the time.
 
 This reward pool is then split into two groups:
 

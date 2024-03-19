@@ -89,8 +89,8 @@ We highly recommend setting up SSL on your new server and [consulting our securi
 Once your Indexing Service is all set and running successfully, you should open the Node Operator Admin App and follow the steps to register yourself (usually this is `http://localhost:8000/` depending on your installation). This includes:
 
 - Connect your metamask
-- Register and stake your minimum required stake (currently 200,000 SQT)
-- Add metadata information for your network
+- Register and stake your minimum required stake ([see the current value](../../parameters.md))
+- Add metadata information for your node operator
 
 ## 4. Index or Sync a Project
 
