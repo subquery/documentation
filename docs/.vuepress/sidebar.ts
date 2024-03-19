@@ -151,6 +151,10 @@ export const getSidebar = (locale: string) =>
                   link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
                 },
                 {
+                  text: "Iotex",
+                  link: `${locale}/quickstart/quickstart_chains/iotex.md`,
+                },
+                {
                   text: "Klaytn",
                   link: `${locale}/quickstart/quickstart_chains/klaytn.md`,
                 },
