@@ -1,13 +1,13 @@
 # Stellar & Soroban (Combined) Quick Start
 
-The goal of this quick start guide is to give a quick intro to all features of our Stellar and Soroban indexer. The example project indexes all soroban transfer events on Stellar's Futurenet. It also indexes all account payments including credits and debits - it's a great way to quickly learn how SubQuery works on a real world hands-on example.
+The goal of this quick start guide is to give a quick intro to all features of our Stellar and Soroban indexer. The example project indexes all soroban transfer events on Stellar's Mainnet. It also indexes all account payments including credits and debits - it's a great way to quickly learn how SubQuery works on a real world hands-on example.
 
 <!-- @include: ../snippets/quickstart-reference.md -->
 
 Now, let's move forward and update these configurations.
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-futurenet-starter).
+The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-starter).
 :::
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
@@ -324,7 +324,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-futurenet-starter).
+The final code of this project can be found [here](https://github.com/subquery/stellar-subql-starter/tree/main/Stellar/soroban-starter).
 :::
 
 <!-- @include: ../snippets/whats-next.md -->
