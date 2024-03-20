@@ -2,7 +2,6 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { redirectPlugin } from "vuepress-plugin-redirect";
 import { getSidebar } from "./sidebar";
 
@@ -48,79 +47,6 @@ export default defineUserConfig({
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
-
-    // "/zh/": {
-    //   lang: "zh-CN",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/es/": {
-    //   lang: "es",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/de/": {
-    //   lang: "de-AT",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/id/": {
-    //   lang: "id",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/it/": {
-    //   lang: "it",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ja/": {
-    //   lang: "ja",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ko/": {
-    //   lang: "ko",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ru/": {
-    //   lang: "ru",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/th/": {
-    //   lang: "th",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/tr/": {
-    //   lang: "tr",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/uk/": {
-    //   lang: "uk",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/vi/": {
-    //   lang: "vi",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
   },
   theme: hopeTheme({
     hostname: "https://academy.subquery.network",
@@ -132,44 +58,6 @@ export default defineUserConfig({
       "/": {
         sidebar: getSidebar(""),
       },
-
-      // "/de/": {
-      //   sidebar: getSidebar("/de"),
-      // },
-      // "/tr/": {
-      //   sidebar: getSidebar("/tr"),
-      // },
-      // "/zh/": {
-      //   sidebar: getSidebar("/zh"),
-      // },
-      // "/vi/": {
-      //   sidebar: getSidebar("/vi"),
-      // },
-      // "/ru/": {
-      //   sidebar: getSidebar("/ru"),
-      // },
-      // "/uk/": {
-      //   sidebar: getSidebar("/uk"),
-      // },
-      // "/es/": {
-      //   sidebar: getSidebar("/es"),
-      // },
-      // "/ja/": {
-      //   sidebar: getSidebar("/js"),
-      // },
-      // "/ko/": {
-      //   sidebar: getSidebar("/ko"),
-      // },
-
-      // "/id/": {
-      //   sidebar: getSidebar("/id"),
-      // },
-      // "/it/": {
-      //   sidebar: getSidebar("/it"),
-      // },
-      // "/th/": {
-      //   sidebar: getSidebar("/th"),
-      // },
     },
 
     darkmode: "enable",
@@ -185,31 +73,8 @@ export default defineUserConfig({
         link: "/subquery_network/introduction/introduction.md",
       },
       {
-        text: "Others",
-        children: [
-          {
-            text: "Miscellaneous",
-            link: "/miscellaneous/contributing.md",
-          },
-          {
-            text: "Explorer",
-            link: "https://explorer.subquery.network/",
-            target: "_blank",
-            rel: "",
-          },
-          {
-            text: "Managed Service",
-            link: "https://managedservice.subquery.network/",
-            target: "_blank",
-            rel: "",
-          },
-          {
-            text: "GitHub",
-            link: "https://github.com/subquery/subql",
-            target: "_blank",
-            rel: "",
-          },
-        ],
+        text: "Miscellaneous",
+        link: "/miscellaneous/contributing.md",
       },
     ],
 

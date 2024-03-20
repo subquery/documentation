@@ -10,7 +10,7 @@ photoSwipe: false
 <div class="welcomeContainer">
   <div class="banner">
     <div class="ct">
-      <h2>Learn How to Build with SubQuery</h2>
+      <h2>Build with SubQuery's Indexer SDK</h2>
       <p>SubQuery is a fast, flexible, and reliable open-source data decentralised infrastructure network. The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
     </div>
     <div class="bannerImage">
