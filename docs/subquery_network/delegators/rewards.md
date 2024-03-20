@@ -8,7 +8,7 @@ To attract Delegators to support their work, Node Operators (Data Indexers or RP
 
 _Node Operator's Commission Rate (NOCR)_: This is a percentage share of the rewards received by Node Operators from serving requests to Consumers. After deducting the NOCR from total rewards, the remaining rewards will be shared within the total delegation/staking pool proportionally to the individual delegated/staked value in the pool.
 
-Node Operators are free to set this rate to any value they desire. A higher NOCR indicates that Node Operators keep more of the rewards. A lower NOCR indicates that the Node Operators share more of their rewards with their Delegators.
+Node Operators are free to [set this rate to any value they desire](../node_operators/setup/becoming-a-node-operator.md#6-configure-an-node-operator-commission-rate-nocr). A higher NOCR indicates that Node Operators keep more of the rewards. A lower NOCR indicates that the Node Operators share more of their rewards with their Delegators.
 
 :::
 
@@ -24,7 +24,7 @@ You need to assess a few things when deciding on what Node Operator to choose.
 
 Node Operators set an Node Operator’s Commission Rate (NOCR) which is the percentage Node Operators earn. Therefore, a lower NOCR will be more attractive for Delegators as a larger percentage of rewards is shared between Delegators.
 
-For example, Node Operator A has set an NOCR of 80% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Node Operator itself, will be rewarded a share of the remaining 20% of what the Node Operator has earned. The share will be split proportionally between them based on the amount staked/delegated. Alternatively, if Node Operator A had an NOCR of 30%, then the 8 delegators and Node Operator would share proportionally rewards from the remaining 70% of rewards. In short, the lower the NOCR - the better it is for Delegators.
+For example, Node Operator A has set an NOCR of 30% and has received SQT from 8 Delegators. This means that the 8 Delegators plus the Node Operator itself, will be rewarded a share of the remaining 70% of what the Node Operator has earned. The share will be split proportionally between them based on the amount staked/delegated. Alternatively, if Node Operator A had an NOCR of 20%, then the 8 delegators and Node Operator would share proportionally rewards from the remaining 80% of rewards. In short, the lower the NOCR - the better it is for Delegators.
 
 Note that Delegators must have delegated their tokens for the entire [Era](../introduction/era.md) to be eligible for these rewards (note [Non-reward period](#non-reward-period)).
 
@@ -36,7 +36,7 @@ Besides the period when Delegators can effectively earn money, a non-reward peri
 
 Delegators can change the Node Operator that their SQT is delegated to (called redelegating), this change will be queued to happen automatically at the end of the Era and no lock period will occur.
 
-If a Delegator decides to undelegate their SQT, a 28 day lock period starts. The tokens cannot be used during this period, no fees can be accrued, and no rewards will be gained.
+If a Delegator decides to undelegate their SQT, a lock period starts ([see length here](../parameters.md)). The tokens cannot be used during this period, no fees can be accrued, and no rewards will be gained.
 
 ## Delegation Lifecycle
 
@@ -44,9 +44,15 @@ Delegators delegate (deposit) SQT into an Node Operator’s contract.
 
 Delegators can then decide how much to redelegate to each Node Operator of their choice.
 
-Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a lock period of 28 days.
+Delegator can undelegate (withdraw) tokens back to their wallet. This will trigger a [lock period](../parameters.md).
 
 After the unlocking period has been completed, tokens become available for withdrawal/claim.
+
+::: info You can redelegate without waiting for the unlocking period
+
+If you want to switch your delegation from one Node Operator to another, you can avoid the undelegation lock period by instead redelegating. When you initially delegate to an Node Operator, you can instead select another Node Operator's delegation as the source of funds to redelegate.
+
+:::
 
 ## How to claim your rewards
 

@@ -90,6 +90,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/node_operators/plans.md`,
         ],
       },
+      `${locale}/subquery_network/parameters.md`,
       `${locale}/subquery_network/architects/introduction.md`,
       `${locale}/subquery_network/foundation.md`,
       {
@@ -260,6 +261,10 @@ export const getSidebar = (locale: string) =>
                   {
                     text: "Immutable (Testnet)",
                     link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
+                  },
+                  {
+                    text: "Iotex",
+                    link: `${locale}/quickstart/quickstart_chains/iotex.md`,
                   },
                   {
                     text: "Klaytn",
