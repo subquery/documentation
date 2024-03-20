@@ -1,3 +1,4 @@
+import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
@@ -221,9 +222,14 @@ export default defineUserConfig({
     lastUpdated: true,
 
     plugins: {
+      docsearch: {
+        appId: "30B5W460WL",
+        apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
+        indexName: "subquery_academy",
+      },
       mdEnhance: {
         // this is the default option, so you can use it directly
-        container: true,
+        hint: true,
         codetabs: true,
         checkLinks: {
           // only check links in dev mode
@@ -238,12 +244,14 @@ export default defineUserConfig({
         sup: true,
       },
 
+      /*
       pwa: {
         manifest: {
           short_name: "SubQL Docs",
         },
         favicon: "/assets/favicons/favicon.ico",
       },
+      */
 
       seo: {
         autoDescription: true,
@@ -253,12 +261,12 @@ export default defineUserConfig({
     },
   }),
 
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
+
   plugins: [
-    docsearchPlugin({
-      appId: "30B5W460WL",
-      apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
-      indexName: "subquery_academy",
-    }),
     googleAnalyticsPlugin({
       id: "G-MY90N76MNK",
     }),
