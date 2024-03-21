@@ -340,7 +340,6 @@ export const getSidebar = (locale: string) =>
                 text: "Algorand",
                 link: `${locale}/quickstart/quickstart_chains/algorand.md`,
               },
-
               {
                 text: "Concordium",
                 link: `${locale}/quickstart/quickstart_chains/concordium.md`,
@@ -585,6 +584,7 @@ export const getSidebar = (locale: string) =>
                 text: "Other Tools",
                 children: [
                   `${locale}/run_publish/query/other_tools/metabase.md`,
+                  `${locale}/run_publish/query/other_tools/bigquery.md`,
                 ],
               },
             ],
