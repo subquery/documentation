@@ -19,5 +19,6 @@ We now have guides to expose SubQuery data to the following locations.
 - [Direct Postgres Access](../run.md#connect-to-database) - you can directly connect to the Postgres data from any other tool or service.
 - [Metabase](./other_tools/metabase.md) - an industry leading open-source and free data visualisation and business intelligence tool.
 - [CSV Export](../references.md#csv-out-dir) - export indexed datasets to CSV files easily.
+- [BigQuery](./other_tools/bigquery.md) - a fully managed, serverless data warehouse provided by Google Cloud, well-suited for analyzing large volumes of data.
 
 ![Integration Ecosystem](/assets/img/run_publish/integration_ecosystem.png)
