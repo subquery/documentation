@@ -120,7 +120,7 @@ subqlTest(
       field3: BigInt(2303515439),
     }),
   ], // expected entities
-  "handleEvent", //handler name
+  "handleEvent" //handler name
 );
 ```
 
@@ -145,15 +145,15 @@ npm run-script test
 
 An example of a passing test:
 
-![image](../.vuepress/public/assets/img/build/tf-pass-test.png)
+![image](/assets/img/build/tf-pass-test.png)
 
 An example of a failing test:
 
-![image](../.vuepress/public/assets/img/build/tf-fail-test.png)
+![image](/assets/img/build/tf-fail-test.png)
 
 The output will include a summary of the total tests run, passing tests, and failing tests. If any tests fail, a detailed summary of the failed tests will also be displayed:
 
-![image](../.vuepress/public/assets/img/build/tf-fail-summary.png)
+![image](/assets/img/build/tf-fail-summary.png)
 
 ### Example Project
 
