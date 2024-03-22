@@ -181,17 +181,23 @@ export default defineUserConfig({
             "/subquery_network/node_operators/indexers/indexer-security-guide.html",
           "/subquery_network/indexers/ssl-configuration.html":
             "/subquery_network/node_operators/indexers/indexer-security-guide.html",
-          "/build/manifest/terra.html": "/build/manifest/cosmos.html",
-          "/build/mapping/terra.html": "/build/mapping/cosmos.html",
+          "/build/manifest/terra.html": "/indexer/build/manifest/cosmos.html",
+          "/build/mapping/terra.html": "/indexer/build/mapping/cosmos.html",
           "/build/quickstart/quickstart_chains/terra.html":
-            "/build/quickstart/quickstart_chains/cosmos.html",
-          "/run_publish/ipfs.html": "/miscellaneous/ipfs.html",
-          "/run_publish/query.html": "/run_publish/query/graphql.html",
-          "/run_publish/aggregate.html": "/run_publish/query/aggregate.html",
+            "/indexer/quickstart/quickstart_chains/cosmos.html",
+          "/run_publish/ipfs.html": "/indexer/miscellaneous/ipfs.html",
+          "/miscellaneous/ipfs.html": "/indexer/miscellaneous/ipfs.html",
+          "/miscellaneous/avalanche-eth-migration.html":
+            "/indexer/miscellaneous/avalanche-eth-migration.html",
+          "/faqs/faqs.html": "/indexer/miscellaneous/faqs.html",
+          "glossary/glossary.html": "/subquery_network/glossary.html",
+          "/run_publish/query.html": "/indexer/run_publish/query/graphql.html",
+          "/run_publish/aggregate.html":
+            "/indexer/run_publish/query/aggregate.html",
           "/run_publish/subscription.html":
-            "/run_publish/query/subscription.html",
+            "/indexer/run_publish/query/subscription.html",
           "/quickstart/quickstart_chains/astar-zkatana.html":
-            "/quickstart/quickstart_chains/astar-zkevm.html",
+            "/indexer/quickstart/quickstart_chains/astar-zkevm.html",
         };
         return {
           ...redirects,
@@ -201,6 +207,36 @@ export default defineUserConfig({
                 "/subquery_network/node_operators/indexers/",
                 "/subquery_network/indexers/"
               ),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/academy/", "/academy/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/build/", "/build/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/miscellaneous/", "/miscellaneous/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/quickstart/", "/quickstart/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/run_publish/", "/run_publish/"),
               path,
             ])
           ),
