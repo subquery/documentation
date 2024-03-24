@@ -97,13 +97,6 @@ body .theme-hope-content:not(.custom) {
   line-height: 140%;
   color: var(--gray-400);
 }
-.theme-hope-content .welcomeContainer p,
-.theme-hope-content .welcomeContainer h3:first-child + p,
-.theme-hope-content .welcomeContainer h4:first-child + p,
-.theme-hope-content .welcomeContainer h5:first-child + p {
-  margin: 0;
-  padding: 0;
-}
 
 .button {
   display: flex;
@@ -429,27 +422,26 @@ body .theme-hope-content:not(.custom) {
   display: flex;
   gap: 24px;
   flex-flow: row wrap;
-  align-items: center;
+  align-items: stretch;
 }
 .advancedFeatures .cardList .item {
-  flex: 1 1 auto;
+  flex: 1 1 40%;
   margin-bottom: 8px;
   background: var(--dark-mode-card);
   border: 1px solid var(--dark-mode-border);
   border-radius: 8px;
   padding: 24px 32px;
-  width: 308px;
-  height: 204px;
   box-sizing: border-box;
   color: #fff;
 }
 
 .advancedFeatures .cardList h5 {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .advancedFeatures .cardList p {
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
+  margin-bottom: 8px;
 }
 .dark .advancedFeatures .cardList h5,
 .dark .advancedFeatures .cardList p {

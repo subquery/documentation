@@ -11,7 +11,7 @@ photoSwipe: false
   <div class="banner">
     <div class="ct">
       <h2>Build with SubQuery's Indexer SDK</h2>
-      <p>SubQuery is a fast, flexible, and reliable open-source data decentralised infrastructure network. The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
+      <p>The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg"></div>
@@ -228,7 +228,7 @@ photoSwipe: false
       <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
       <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
     </div>
-    <div class="footer layout">SubQuery © 2023</div>
+    <div class="footer layout">SubQuery © 2024</div>
   </div>
 <component is="script" src="/assets/js/welcome.js" />
 
