@@ -18,7 +18,6 @@ photoSwipe: false
       <img src="/assets/img/welcomeBanner.png" />
     </div>
   </div>
-    <!--
     <div class="quickStart layout mt80">
       <h3>What are indexers?</h3>
       <p>Indexers, in a broad context, play a fundamental role in organising and optimising data retrieval within various systems. These tools act as navigational aids, allowing efficient access to specific information by creating structured indexes.</p>
@@ -27,7 +26,6 @@ photoSwipe: false
         <iframe position="static" width="10px" height="10" src="https://www.youtube-nocookie.com/embed/eOYaDDIL3Yg?si=bwajZNq8dxW5eWna" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
       </div> 
     </div>
-    -->
     <div class="quickStart layout mt80">
       <h3>Get Started with our Quick Start Guides</h3>
       <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
