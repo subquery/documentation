@@ -22,7 +22,7 @@ SubQuery Manged Service is our managed service solution and SubQuery Explorer is
 
 ### References
 
-- [What are deployment slots?](/faqs/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
+- [What are deployment slots?](../../miscellaneous/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
 
 ## Lesson 3 - Exploring Projects
 
@@ -69,30 +69,30 @@ You can deploy any project of your choice to SubQuery Managed Service. But the m
 
 It is a common practice to publish your SubQuery project under the name of your **GitHub Organization account**, rather than your personal GitHub account. Please refer to:
 
-- [Add GitHub Organization Account to SubQuery Managed Service](/run_publish/publish.md#add-github-organization-account-to-subquery-projects)
+- [Add GitHub Organization Account to SubQuery Managed Service](../../run_publish/publish.md#add-github-organization-account-to-subquery-projects)
 
 #### Step 3: Override Endpoints
 
 When deploying your project, it is possible to override your default network or dictionary endpoints with another network. For more information please see:
 
-- [Deploy your project](/run_publish/publish.md#deploy-your-first-version)
+- [Deploy your project](../../run_publish/publish.md#deploy-your-first-version)
 
 To understand more about how dictionaries work, refer to:
 
-- [How does a SubQuery dictionary work?](/academy/tutorials_examples/dictionary.md)
+- [How does a SubQuery dictionary work?](../tutorials_examples/dictionary.md)
 
 #### Step 4: Understand the Slots
 
 Slots are a feature in SubQuery's Managed Service that are the equivalent of a development environment. To learn more, visit:
 
-- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots)
-- [What is the advantage of a staging slot?](../../faqs/faqs.md#what-is-the-advantage-of-a-staging-slot)
+- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)
+- [What is the advantage of a staging slot?](../../miscellaneous/faqs.md#what-is-the-advantage-of-a-staging-slot)
 
 #### Step 5: Access Playground
 
 Once your project is deployed, access your project and run your desired query in the playground. For more information, visit:
 
-- [Query your Project using GraphQL in SubQuery Explorer](/run_publish/query/graphql.md)
+- [Query your Project using GraphQL in SubQuery Explorer](../../run_publish/query/graphql.md)
 
 #### Step 6: Query via the API
 
@@ -106,8 +106,8 @@ It is important to keep your SubQuery projects tidy and ensure that test project
 
 To delete a project see the guide below:
 
-- [Deleting SubQuery projects](/academy/tutorials_examples/delete-projects.md)
+- [Deleting SubQuery projects](../tutorials_examples/delete-projects.md)
 
 ### References
 
-- [What are deployment slots?](../../faqs/faqs.md#what-are-deployment-slots)
+- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)

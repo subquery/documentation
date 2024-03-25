@@ -24,7 +24,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 **Documentation Reference:**
 
-[GraphQL Schema](/build/graphql.md)
+[GraphQL Schema](../../build/graphql.md)
 
 ## Lesson 3: The Mappings File - Block Handler
 
@@ -35,7 +35,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 **Documentation Reference:**
 
-[Block Handler](/build/mapping/polkadot.md#block-handler)
+[Block Handler](../../build/mapping/polkadot.md#block-handler)
 
 ## Lesson 4: The Mappings File - Event Handler
 
@@ -46,7 +46,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 **Documentation Reference:**
 
-[Event Handler](/build/mapping/polkadot.md#event-handler)
+[Event Handler](../../build/mapping/polkadot.md#event-handler)
 
 ## Lesson 5: The Mappings File - Call Handler
 
@@ -57,7 +57,7 @@ Refer to the documentation references, given at the end of the each lesson, for 
 
 **Documentation Reference:**
 
-[Call Handler](/build/mapping/polkadot.md#call-handler)
+[Call Handler](../../build/mapping/polkadot.md#call-handler)
 
 ---
 

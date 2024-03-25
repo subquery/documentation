@@ -74,7 +74,7 @@ Our goal is to save developers' time and money by eliminating the need of buildi
 
 **SubQuery Managed Service**
 
-SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](/run_publish/publish.md).
+SubQuery also provides free, production grade hosting of projects for developers. Our Managed Service removes the responsiblity of managing infrastructure, so that developers do what they do best — build. Find out more [here](../run_publish/publish.md).
 
 **The SubQuery Network**
 
@@ -94,9 +94,9 @@ We love contributions and feedback from the community. To contribute the code, f
 
 SubQuery is open-source, meaning you have the freedom to run it in the following three ways:
 
-- Locally on your own computer (or a cloud provider of your choosing), [view the instructions on how to run SubQuery Locally](https://academy.subquery.network/run_publish/run.html)
-- By publishing it to our enterprise-level [Managed Service](https://managedservice.subquery.network), where we'll host your SubQuery project in production ready services for mission critical data with zero-downtime blue/green deployments. We even have a generous free tier. [Find out how](https://academy.subquery.network/run_publish/publish.html)
-- By publishing it to the decentralised [SubQuery Network](https://subquery.network/network), the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. [Read more](../subquery_network/publish.md)
+- Locally on your own computer (or a cloud provider of your choosing), [view the instructions on how to run SubQuery Locally](../run_publish/run.md)
+- By publishing it to our enterprise-level [Managed Service](https://managedservice.subquery.network), where we'll host your SubQuery project in production ready services for mission critical data with zero-downtime blue/green deployments. We even have a generous free tier. [Find out how](../run_publish/publish.md)
+- By publishing it to the decentralised [SubQuery Network](https://subquery.network/network), the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. [Read more](../../subquery_network/publish.md)
 
 ## How can I optimise my project to speed it up?
 

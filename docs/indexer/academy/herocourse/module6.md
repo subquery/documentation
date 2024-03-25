@@ -222,7 +222,7 @@ To debug a local subql node, the --debug flag can also be used from the command 
 > subql-node -f . --debug
 ```
 
-See [Subql CLI debug reference](/run_publish/references.md#debug).
+See [Subql CLI debug reference](../../run_publish/references.md#debug).
 
 ## Changing the Batch Block Size
 
