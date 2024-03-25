@@ -11,6 +11,7 @@ SubQueryは、多くのソーシャルメディアチャンネルを通じてフ
 - [Medium](https://subquery.medium.com) (プライマリー・アナウンスチャネル)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (アナウンスチャネルのみ)
+- [Telegram](https://t.me/subquerynetworkcommunity) (Community channel)
 - [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
