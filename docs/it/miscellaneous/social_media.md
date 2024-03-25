@@ -11,6 +11,7 @@ Il nostro obiettivo è quello di ascoltare e coinvolgere sempre la nostra fedele
 - [Medium](https://subquery.medium.com) (canale degli annunci primari)
 - [Twitter](https://twitter.com/subquerynetwork)
 - [Telegram](https://t.me/subquerynetwork) (solo canale annunci)
+- [Telegram](https://t.me/subquerynetworkcommunity) (Community channel)
 - [GitHub](https://github.com/subquery/)
 - [Matrix/Riot](https://matrix.to/#/#subquery:matrix.org)
 - [LinkedIn](https://www.linkedin.com/company/subquery)
