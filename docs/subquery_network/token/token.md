@@ -21,11 +21,13 @@ You can add it to your wallet from the wallet selector in the [Network App](http
 
 ![Add SQT to Wallet](/assets/img/network/kSQT_add_wallet.png)
 
+Find SQT on [CoinGecko](https://www.coingecko.com/en/coins/subquery-network) and [CoinMarketCap](https://coinmarketcap.com/currencies/subquery-network/).
+
 ## Where is SQT traded
 
-SQT is supported on [Bybit Exchange](https://www.bybit.com/). Bybit, known for its commitment to providing a secure and user-friendly trading experience, recognised the potential of SubQuery's innovative approach to decentralised data indexing and is eager to bring SQT to its platform.
+SQT is supported on [Bybit Exchange](https://www.bybit.com/). Bybit, known for its commitment to providing a secure and user-friendly trading experience, recognised the potential of SubQuery's innovative approach to decentralised data indexing and is eager to bring SQT to its platform. Spot trade SQT/USDT on ByBit at [https://www.bybit.com/en/trade/spot/SQT/USDT](https://www.bybit.com/en/trade/spot/SQT/USDT).
 
-- Spot trade SQT/USDT on ByBit: [https://www.bybit.com/en/trade/spot/SQT/USDT](https://www.bybit.com/en/trade/spot/SQT/USDT)
+SQT is supported on the [Crypto.com](https://crypto.com/price/subquery-network) App. Users can purchase SQT easily with USD, EUR, GBP, and 20+ fiat currencies, and spend it at over 80 million merchants globally using the Crypto.com Visa Card.
 
 SQT is on a number of DEX Pools however most liqudity is on Uniswap. Please ensure that you are trading the correct SQT token (see contract addresses above)
 
