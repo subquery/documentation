@@ -42,7 +42,22 @@ On the next page you are asked to enter a project description, and also populate
   - a version number, we recommend it follows [semantic versioning rules](https://semver.org/)
   - the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version
 
-Once entered, click "Publish" to publish your project.
+Once entered, click "Publish" to publish your project. You will then be taken to a page to manage your project.
+
+## Managing Your Project
+
+You can easily make changes to your project or deploy a new version by accessing the Managed Project page.
+
+![Manage Existing Project](/assets/img/network/architect_manage_project.png)
+
+Firstly, you can publish a new verison by clicking "Deploy New Version". This will let Node Operators know and allow them to upgrade to the new version of your Project. For the deployment you shoud provide:
+
+- the deployment CID, you will need to publish your project to IPFS first, [follow the guide here](../../run_publish/publish.md#publish-your-subquery-project-to-ipfs)
+- a version number, we recommend it follows [semantic versioning rules](https://semver.org/)
+- check the box if you want to make this version recommended, this means that you are reccommending Node Operators to immediately update to it. Don't check this if it's a test build or if it has major breaking changes
+- the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version
+
+![Manage Existing Project - Deploy New Version](/assets/img/network/architect_manage_project_deploy.png)
 
 ## Changes to your DApp
 
