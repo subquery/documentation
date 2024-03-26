@@ -42,7 +42,13 @@ On the next page you are asked to enter a project description, and also populate
   - a version number, we recommend it follows [semantic versioning rules](https://semver.org/)
   - the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version
 
-Once entered, click "Publish" to publish your project. You will then be taken to a page to manage your project.
+Once entered, click "Publish" to publish your project, you will then be taken to a page to manage your project.
+
+::: info How to encourage Node Operators to sync your project
+
+At this stage you should reach out to Node Operators in our Discord to encourage them to start syncing it, once they do you will be able to create plans and start quering this data. You might also want to consider [boosting your project](../consumers/boosting.md) to incentivise Node Operators to do so, and in return recieve free queries to it.
+
+:::
 
 ## Managing Your Project
 
