@@ -29,7 +29,7 @@ photoSwipe: false
         <p>SubQuery APIs make your dApp lighting quick. By providing an indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.</p>
         <p>Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze.</p>
       </router-link>
-      <router-link class="item" :to="{path: '/subquery_network/introduction/introduction.html'}">
+      <router-link class="item" :to="{path: '/subquery_network/welcome.html'}">
         <h5>SubQuery Network Documentation</h5>
         <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </p>
         <p>The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>

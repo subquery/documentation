@@ -552,11 +552,14 @@ export const getSidebar = (locale: string) =>
     ],
     "/subquery_network/": [
       {
+        text: "Welcome",
+        link: `${locale}/subquery_network/welcome.md`,
+      },
+      {
         text: "Introduction",
-        link: `${locale}/subquery_network/introduction/introduction.md`,
+        link: `${locale}/subquery_network/introduction/reward-distribution.md`,
         collapsible: true,
         children: [
-          `${locale}/subquery_network/introduction/introduction.md`,
           `${locale}/subquery_network/introduction/reward-distribution.md`,
           `${locale}/subquery_network/introduction/design-philosophy.md`,
           `${locale}/subquery_network/introduction/era.md`,

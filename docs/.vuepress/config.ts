@@ -70,7 +70,7 @@ export default defineUserConfig({
       },
       {
         text: "SubQuery Network",
-        link: "/subquery_network/introduction/introduction.md",
+        link: "/subquery_network/welcome.md",
       },
       {
         text: "Miscellaneous",
