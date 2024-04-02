@@ -9,13 +9,13 @@ photoSwipe: false
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
-    <div class="ct">
-      <h2>Build with SubQuery's Indexer SDK</h2>
-      <p>The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
-    </div>
     <div class="bannerImage">
       <div class="bannerImageBg"></div>
       <img src="/assets/img/welcomeBanner.png" />
+    </div>
+    <div class="ct">
+      <h2>Build with SubQuery's Indexer SDK</h2>
+      <p>The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
     </div>
   </div>
     <div class="quickStart layout mt80">

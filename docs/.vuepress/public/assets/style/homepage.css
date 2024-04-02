@@ -1,3 +1,12 @@
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-sidebar #main-content {
+  padding-inline-end: 0;
+}
+
 .theme-container.has-toc .page {
   padding-right: 0;
 }
@@ -109,6 +118,7 @@ body .theme-hope-content:not(.custom) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 80px;
 }
 
 .theme-hope-content .welcomeContainer h2 {
@@ -625,6 +635,15 @@ body .theme-hope-content:not(.custom) {
 }
 
 /*Below was applied to hide the vue-press footer on home pgae */
+
+.theme-hope-content {
+  display: flex;
+  margin: unset!important;
+}
+
+.no-sidebar .theme-hope-content {
+  margin: 0 auto!important;
+}
 
 footer {
   display: none!important;
