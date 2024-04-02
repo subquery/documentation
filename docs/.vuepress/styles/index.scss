@@ -46,10 +46,26 @@ iframe {
 }
 
 #navbar {
+  max-width: 1440px;
+  margin: 0 auto;
+  .vp-navbar-start, .vp-navbar-end, .vp-navbar-center {
+    flex: 0;
+  }
+
   .vp-navbar-start {
+    margin-right: 24px;
     .vp-site-name {
       font-family: var(--font-family-heading);
     }
+  }
+
+  .vp-navbar-center {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .vp-navbar-end {
+    gap: 24px;
   }
 
   .nav-item {
@@ -84,11 +100,15 @@ iframe {
     }
   }
 
+  .vp-repo-link {
+    padding: 8px;
+  }
+
   .DocSearch {
     width: 12rem;
     border-radius: 8px;
-    border: 1px solid var(--gray-300);
-    background: #fff;
+    border: 1px solid var(--dark-mode-border);
+    background: transparent;
 
     --docsearch-text-color: var(--gray-500);
   }
@@ -125,6 +145,12 @@ iframe {
   }
 }
 
+#main-content {
+  display: flex;
+  flex-direction: column;
+  padding-inline-end: 0;
+}
+
 html[data-theme="dark"] {
   --dark-grey: #fff;
   --primary-color: var(--theme-color);
@@ -139,4 +165,5 @@ html[data-theme="dark"] {
   --gray-500: #919eab;
   --gray-700: #454f58;
   --balloon-color: var(--dark-mode-card);
+  --max-width: 1280px;
 }

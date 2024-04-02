@@ -65,6 +65,10 @@ export default defineUserConfig({
 
     navbar: [
       {
+        text: "Home",
+        link: "/",
+      },
+      {
         text: "SubQuery Indexer SDK",
         link: "/indexer/welcome.md",
       },

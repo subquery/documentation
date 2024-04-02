@@ -10,33 +10,108 @@ photoSwipe: false
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
-    <div class="ct">
-      <h2>SubQuery Revolutionises Web3 Infrastructure</h2>
-      <p>SubQuery is a fast, flexible, and reliable open-source data decentralised infrastructure network, providing both RPC and indexed data to consumers around the world.<br>
-      The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
-    </div>
     <div class="bannerImage">
       <div class="bannerImageBg"></div>
       <img src="/assets/img/welcomeBanner.png" />
     </div>
+    <div class="ct">
+      <h2 class="title">Learn how to build with SubQuery</h2>
+      <h5 class="subtitle">SubQuery is a fast, flexible, and reliable open-source data decentralised infrastructure network, providing both RPC and indexed data to consumers around the world.
+      </h5>
+      <h5 class="subtitle">
+      The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</h5>
+    </div>
   </div>
-  <div class="advancedFeatures layout mt80">
-    <h3>We have docs for our network and our data indexer</h3>
+  <div class="advancedFeatures mt80">
     <div class="cardList">
       <router-link class="item" :to="{path: '/indexer/welcome.html'}">
-        <h5>SubQuery Indexing SDK Documentation</h5>
-        <p>Fast, reliable, decentralised, and customised APIs for your web3 project.</p>
-        <p>SubQuery APIs make your dApp lighting quick. By providing an indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.</p>
-        <p>Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze.</p>
+        <div class="itemHeader">
+          <img src="/assets/img/home/indexer-sdk.png"/>
+          Indexer SDK
+        </div>
+        <h3>Build with SubQuery's Indexer SDK</h3>
+        <h6>SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains. </h6>
+        <button class="button mt40">Learn more</button>
       </router-link>
       <router-link class="item" :to="{path: '/subquery_network/welcome.html'}">
-        <h5>SubQuery Network Documentation</h5>
-        <p>Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </p>
-        <p>The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</p>
+         <div class="itemHeader">
+          <img src="/assets/img/home/subquery-network.png"/>
+          SubQuery Network
+        </div>
+        <h3>Decentralised Infra on the SubQuery Network</h3>
+        <h6>
+        Our decentralised infrastructure network revolutionises the web3 landscape, providing both RPC and indexed data to consumers around the world.</h6>
+        <button class="button mt40">Learn more</button>
       </router-link>
     </div>
   </div>
-  <div class="help layout mt80 mb80">
+  <div class="layout mt140">
+    <h3>
+      Most Popular
+    </h3>
+    <div class="advancedFeatures">
+      <div class="cardList grid3column">
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>Migrating from the Graph</p>
+          <span>Discover how SubQuery provides a superior developer experience to The Graph, with a similar development workflow that makes migration quick and easy.</span>
+        </router-link>
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>Migrating from the Graph</p>
+          <span>Discover how SubQuery provides a superior developer experience to The Graph, with a similar development workflow that makes migration quick and easy.</span>
+        </router-link>
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>Follow a indexer quick start guide</p>
+          <span>SubQuery maintains and publishes quick start guides for more than 50 different networks and projects, find one today and start building.</span>
+        </router-link>
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>Browse 169 supported networks</p>
+          <span>Our goal is to help developers with the best indexer regardless of what chain they build on, we support 161 networks - see the list.</span>
+        </router-link>
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>The SQT Token</p>
+          <span>The SubQuery Token (SQT) is a utility token that powers the SubQuery Network. Learn how to get SQT and the tokenomics of it.</span>
+        </router-link>
+        <router-link class="item pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <p>How to host and run your project</p>
+          <span>SubQuery is open-source and gives a number of different options, including self-hosting, our managed service, and our decentralised network.</span>
+        </router-link>
+      </div>
+    </div>
+  </div>
+  <div class="layout mt140">
+    <h3>
+      Start build for different chain
+    </h3>
+    <div class="advancedFeatures">
+      <div class="cardList grid6column">
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/1.png"/>
+          <p class="large"><b>EVM</b></p>
+        </router-link>
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/cosmoshub-4.png"/>
+          <p class="large"><b>Cosmos</b></p>
+        </router-link>
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/polkadot.png"/>
+          <p class="large"><b>Polkadot</b></p>
+        </router-link>
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/near.png"/>
+          <p class="large"><b>NEAR</b></p>
+        </router-link>
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/algorand.png"/>
+          <p class="large"><b>Algorand</b></p>
+        </router-link>
+        <router-link class="item flexColCenter gp16 pd20Important" :to="{path: '/indexer/welcome.html'}">
+          <img src="https://static.subquery.network/network-logos/stellar.png"/>
+          <p class="large"><b>Stellar</b></p>
+        </router-link>
+      </div>
+    </div>
+  </div>
+  <div class="help layout mt140 mb140">
     <h3>Need Help?</h3>
     <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
     <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
