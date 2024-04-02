@@ -2,5 +2,4 @@
 - [TransactionHandlers](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Stellar/Soroban transaction that matches optional filter criteria, run a mapping function
 - [OperationHandler](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Stellar operation action that matches optional filter criteria, run a mapping function
 - [EffectHandler](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Stellar effect action that matches optional filter criteria, run a mapping function
-- [OperationHandler](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Stellar operation action that matches optional filter criteria, run a mapping function
 - [EventHandler](../../build/manifest/stellar.md#mapping-handlers-and-filters): On each and every Soroban event action that matches optional filter criteria, run a mapping function
