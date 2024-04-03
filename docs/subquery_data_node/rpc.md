@@ -69,7 +69,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"subql_filterBlocksCapabilities",
 
 ### Parameters
 
-- `blockFilter` - This determines the blocks returned as well as the content within the blocks. TODO define filter matching behaviour including null, \*, case sensitivity etc
+- `blockFilter` - This determines the blocks returned as well as the content within the blocks.
 - `fieldselector` is optional - Specifies the fields returned in the block response. If this is undefined then just the header will be returned.
   - `true` or `{}` will return minimal fields for an object. e.g `logs: true` would return `logIndex`, `transactionIndex` only so that it could be associated to the relevant transaction
   - There are never nested types. e.g there are no children transactions on logs. This is to remove duplicate data
@@ -140,6 +140,8 @@ type BlockResult = {
 
 ### Example
 
+This example fetches logs from the contract `0x7b79995e5f793a07bc00c21412e50ecae098e7f9` where the topics0 is `0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef` within the given block range with a maximum of 50 blocks of results. The field selector gives results where each block will contain the block head, the matching logs and the transaction for that log.
+
 Request:
 
 ::: details Example request
@@ -170,9 +172,6 @@ curl -X POST --data '{
         "blockHeader": true,
         "logs": {
           "transaction": true
-        },
-        "transactions": {
-          "log": true
         }
       }
     }

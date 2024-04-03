@@ -22,12 +22,6 @@ SubQuery currently provides these Data Nodes:
 
 We aim to make releases in line with the official releases. These releases include linux binaries on the releases page for each repo as well as docker images. If you wish to run these on other platforms please checkout the source code and build for yourself.
 
-Release versions should match the following pattern:
-
-`v<Official-Release>+<SubQuery-Release>`. e.g `v1.13.14+0.1.0`
-
-The numbers before the + are the official release version and the number after is the version of SubQuery changes.
-
 ## Differences from the original nodes
 
 ### Additional Data
