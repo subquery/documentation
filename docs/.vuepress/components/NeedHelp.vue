@@ -1,16 +1,18 @@
 <template>
   <div class="help layout mt80 mb80">
-    <h3>Need Help?</h3>
-    <p>
+    <Typography tag="h3">Need Help?</Typography>
+    <Typography tag="p" type="secondary">
       The fastest way to get support is by joining our discord and messaging us
       in #technical-support.
-    </p>
+    </Typography>
     <a class="button" href="https://discord.com/invite/subquery" target="_blank"
       ><img src="/assets/img/discord_icon.svg" />Join our Discord</a
     >
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Typography from "./Typography.vue";
+</script>
 
 <style lang="scss">
 .help {

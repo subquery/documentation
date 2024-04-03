@@ -201,6 +201,10 @@ iframe {
   padding-inline-start: var(--sidebar-space);
 }
 
+.theme-hope-content a:not(.header-anchor):hover {
+  text-decoration: none;
+}
+
 .vp-page-nav {
   max-width: var(--max-width);
 }
