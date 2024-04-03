@@ -1,6 +1,6 @@
 # Delegating to a Node Operator
 
-## How to delegate to an Node Operator
+## How to delegate to a Node Operator
 
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/7GKWO5wEdtc" frameborder="0" allowfullscreen="true"></iframe>
@@ -18,23 +18,23 @@ Ensure you have ether for gas fees. Ether needs to be on the Base network. More 
 
 Select your source for the delegation (it can be your wallet, or from an existing delegation amount) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
 
-![Delegate to an Node Operator part 2](/assets/img/network/delegate_action.png)
+![Delegate to a Node Operator part 2](/assets/img/network/delegate_action.png)
 
 Note that some Node Operators cannot be delegated to, until they collect all the early era's rewards. You will have to contact the Node Operator to resolve the issue.
 
 ![Cannot delegate](/assets/img/network/delegate_cannot.png)
 
-## How to undelegate from an Node Operator
+## How to undelegate from a Node Operator
 
 ::: info You can redelegate without waiting for the unlocking period
 
-If you want to switch your delegation from one Node Operator to another, you can avoid the undelegation lock period by instead redelegating. When you initially delegate to an Node Operator, you can instead select another Node Operator's delegation as the source of funds to redelegate.
+If you want to switch your delegation from one Node Operator to another, you can avoid the undelegation lock period by instead redelegating. When you initially delegate to a Node Operator, you can instead select another Node Operator's delegation as the source of funds to redelegate.
 
 :::
 
-To undelegate from an Node Operator, navigate to `Delegator` -> `Delegating`.
+To undelegate from a Node Operator, navigate to `Delegator` -> `Delegating`.
 
-![Undelegate from an Node Operator](/assets/img/network/delegate_status.png)
+![Undelegate from a Node Operator](/assets/img/network/delegate_status.png)
 
 Click on `Undelegate` and enter the amount of SQT you want to undelegate. Then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask. Confirm it and wait for a few seconds.
 
@@ -44,6 +44,6 @@ You can notice the change in the Delegation Amount under the `Your DELEGATION AM
 
 ## How to withdraw undelegated tokens
 
-When you undelegate from an Node Operator, the tokens are locked for a specific period before they can be withdrawn. You can see pending unlocks and execute withdrawls in the `My profile` -> `Withdrawls`. When the tokens are unlocked, the `Withdraw` button will be available. Alternatively you can cancel the withdrawl here and redelegate your tokens.
+When you undelegate from a Node Operator, the tokens are locked for a specific period before they can be withdrawn. You can see pending unlocks and execute withdrawls in the `My profile` -> `Withdrawls`. When the tokens are unlocked, the `Withdraw` button will be available. Alternatively you can cancel the withdrawl here and redelegate your tokens.
 
 ![Withdraw delegated tokens](/assets/img/network/profile_withdrawls.png)

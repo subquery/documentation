@@ -79,7 +79,7 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon6.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: '/subquery_network/publish.html'}">4. Deploy to the SubQuery Network</router-link></h4>
+          <h4><router-link :to="{path: '/subquery_network/architect/publish.html'}">4. Deploy to the SubQuery Network</router-link></h4>
           <p>Our decentralised service is a web3 infrastructure revolution. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way.</p>
         </div>
       </div>

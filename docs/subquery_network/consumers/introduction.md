@@ -10,6 +10,8 @@ Consumers are typically dApp (decentralised application) developers, data analyt
 
 There are no requirements as such to become a SubQuery Consumer. However, Consumers will need to understand how to obtain SQT, how to advertise their data requirements and how to consume the JSON data returned.
 
+Learn how to [create plans and start making requests here](./plan.md).
+
 ## Benefits of being a Consumer
 
 As a Consumer, you can interact with performant RPCs or receive indexed data from the Network for your dApps. Other benefits include:

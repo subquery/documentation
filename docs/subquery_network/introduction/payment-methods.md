@@ -12,6 +12,8 @@ When Consumers lock their SQT to boost a deployment, they not only incentivise N
 
 Operating a state channel requires off-chain communication between the consumer and node operator, and local states management. Even though we open-sourced the software for whoever wants to run on their own environment, we also offer a gateway and consumer host service so we can manage the state channel on user's behalf at the cost of some fees.
 
+[Find out how to create a Flex plan here](../consumers/plan.md).
+
 ## Closed Agreements and Agreement Offer
 
 Closed Agreements represent an agreement between only one Node Operator and one Consumer. It’s a direct relationship where all payment flows between the two parties for the work that is done.

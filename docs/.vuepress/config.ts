@@ -206,6 +206,8 @@ export default defineUserConfig({
             "/indexer/run_publish/query/subscription.html",
           "/quickstart/quickstart_chains/astar-zkatana.html":
             "/indexer/quickstart/quickstart_chains/astar-zkevm.html",
+          "/subquery_network/publish.html":
+            "/subquery_network/architects/publish.html",
         };
         return {
           ...redirects,
