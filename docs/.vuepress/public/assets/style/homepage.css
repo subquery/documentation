@@ -49,6 +49,10 @@ body .theme-hope-content:not(.custom) {
 .page .theme-hope-content {
   padding-top: 0;
 }
+
+.mt24 {
+  margin-top: 24px;
+}
 .mt40 {
   margin-top: 40px;
 
@@ -140,6 +144,8 @@ body .theme-hope-content:not(.custom) {
 .theme-hope-content .welcomeContainer h4 {
   margin: 0;
   padding: 0;
+  font-size: 32px;
+  line-height: 48px;
 }
 
 .theme-hope-content .welcomeContainer h5 {
@@ -158,10 +164,23 @@ body .theme-hope-content:not(.custom) {
 }
 .welcomeContainer p {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 140%;
   color: var(--gray-400);
 }
+
+.fontLarge {
+  font-size: 18px!important;
+}
+
+.fontText {
+  font-size: 16px!important;
+}
+
+.fontMedium {
+  font-size: 14px!important;
+}
+
 
 .button {
   display: flex;
@@ -219,7 +238,7 @@ body .theme-hope-content:not(.custom) {
 .banner {
   padding: 80px;
   display: flex;
-  max-width: 1185px;
+  max-width: var(--max-width);
   height: 680px;
   position: relative;
   box-sizing: border-box;
@@ -270,6 +289,47 @@ body .theme-hope-content:not(.custom) {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.bannerRow {
+  height: 580px;
+  max-width: var(--max-width);
+  display: flex;
+  padding: 80px 0;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.bannerRow .ct {
+  display: flex;
+  flex-direction: column;
+  max-width: 614px;
+  gap: 24px;
+}
+
+.bannerRow .ct h5 {
+  font-size: 24px;
+  color: var(--gray-400);
+}
+
+.bannerRow .bannerImage {
+  position: static;
+  transform: translate(0, 0);
+}
+
+.bannerRow .bannerImage img {
+  width: 494px;
+  height: 420px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 1;
+}
+
+.bannerRow .bannerImageBg {
+  width: 418px;
+  height: 60px;
+  border-radius: 418px;
 }
 
 .dark .banner {
@@ -362,16 +422,12 @@ body .theme-hope-content:not(.custom) {
   }
 }
 
-.journey {
-  max-width: 952px;
-}
 
 .journey .journeyItem:first-of-type {
   border: none;
 }
 .journeyItem {
   display: flex;
-  justify-content: space-between;
   padding: 40px 0;
   border-top: 1px solid #34414b;
 }
@@ -379,6 +435,7 @@ body .theme-hope-content:not(.custom) {
   width: 56px;
   margin-right: 24px;
   flex-shrink: 0;
+  margin-top: 14px;
 }
 .journeyItem h4 a {
   font-weight: 500;
@@ -591,8 +648,8 @@ body .theme-hope-content:not(.custom) {
   padding: 40px;
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 880px;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .wantMoreDepth p {
@@ -682,13 +739,5 @@ iframe {
 @media screen and (min-width: 1920px) {
   .layout {
     max-width: var(--max-width);
-  }
-
-  .wantMoreDepth {
-    max-width: 1105px;
-  }
-
-  .journey {
-    max-width: 952px;
   }
 }

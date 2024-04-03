@@ -8,26 +8,18 @@ photoSwipe: false
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
-  <div class="banner">
-    <div class="bannerImage">
-      <div class="bannerImageBg"></div>
-      <img src="/assets/img/welcomeBanner.png" />
-    </div>
+  <div class="bannerRow">
     <div class="ct">
       <h2>Build with SubQuery's Indexer SDK</h2>
-      <p>The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</p>
+      <h5>The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</h5>
+    </div>
+    <div class="bannerImage">
+      <div class="bannerImageBg"></div>
+      <img src="https://subquery.network/images/indexerConcept.png" />
     </div>
   </div>
     <div class="quickStart layout mt80">
-      <h3>What are indexers?</h3>
-      <p>Indexers, in a broad context, play a fundamental role in organising and optimising data retrieval within various systems. These tools act as navigational aids, allowing efficient access to specific information by creating structured indexes.</p>
-      <p>In the scope of blockchain and dApps, indexers go beyond traditional databases, facilitating streamlined access to on-chain data. This includes transaction histories, smart contract states, event logs and etc. In the dynamic and decentralised world of blockchain, indexers contribute to the efficiency of data queries, supporting real-time updates and ensuring the seamless functionality of diverse applications and platforms.</p>
-      <div align="center" position="static">
-        <iframe position="static" width="10px" height="10" src="https://www.youtube-nocookie.com/embed/eOYaDDIL3Yg?si=bwajZNq8dxW5eWna" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
-      </div> 
-    </div>
-    <div class="quickStart layout mt80">
-      <h3>Get Started with our Quick Start Guides</h3>
+      <h4>Get Started with our Quick Start Guides</h4>
       <p>We have one for every supported layer 1, designed to take you from zero to hero in less than 10 minutes with intuitive example projects.</p>
       <div class="quickStartList">
         <div class="itemGroup" v-for="networkFamily in quickStartJson" :key="networkFamily.name">
@@ -84,7 +76,7 @@ photoSwipe: false
       </div>
       <div class="journeyItem">
         <div class="icon">
-          <img src="/assets/img/journeyIcon5.svg" />
+          <img src="/assets/img/journeyIcon6.svg" />
         </div>
         <div class="ct">
           <h4><router-link :to="{path: 'subquery_network/publish.html'}">4. Deploy to the SubQuery Network</router-link></h4>
@@ -93,7 +85,7 @@ photoSwipe: false
       </div>
       <div class="journeyItem">
         <div class="icon">
-          <img src="/assets/img/journeyIcon6.svg" />
+          <img src="/assets/img/journeyIcon5.svg" />
         </div>
         <div class="ct">
           <h4><router-link :to="{path: '/build/optimisation.html'}">5. Optimise your Project</router-link></h4>
@@ -110,43 +102,23 @@ photoSwipe: false
       </div>
     </div>
     <div class="advancedFeatures layout mt80">
-      <h3>Advanced Features from the Best Multi-chain Indexer</h3>
+      <h4>Advanced Features from the Best Multi-chain Indexer</h4>
       <p>We built the best, fully-featured indexer, so you don’t have to!</p>
-      <div class="cardList">
-        <router-link class="item" :to="{path: '/build/substrate-evm.html'}">
-          <h5>EVM, WASM, and more</h5>
-          <p>Supports most smart contract execution languages.</p>
-        </router-link>
-        <router-link class="item" :to="{path: '/build/multi-chain.html'}">
-          <h5>Write once, run anywhere</h5>
-          <p>Index multiple networks into one database.</p>
-        </router-link>
-        <router-link class="item" :to="{path: '/build/optimisation.html'}">
-          <h5>Absolute performance</h5>
-          <p>Fast syncing and indexing optimisations.</p>
-        </router-link>
-        <router-link class="item" :to="{path: '/run_publish/query.html'}">
-          <h5>The power of GraphQL</h5>
-          <p>Filtering, subscriptions, aggregation &#8212; all the features that you need.</p>
-        </router-link>
-        <router-link class="item" :to="{path: '/run_publish/historical.html'}">
-          <h5>Faster reindexing</h5>
-          <p>Automated historical state tracking means you can reindex partial data faster.</p>
-        </router-link>
-        <router-link class="item" :to="{path: '/build/optimisation.html'}">
-          <h5>Lightweight and portable</h5>
-          <p>Doesn’t require an extremely costly archive, connect directly to any RPC.</p>
+      <div class="cardList grid3column">
+        <router-link v-for="item in advancedFeatures" :key="item.title" class="item" :to="{path: item.link}">
+          <h5 class="fontText">{{ item.title }}</h5>
+          <p class="fontMedium" style="margin-top: 16px; margin-bottom: 0;">{{ item.desc }}</p>
         </router-link>
       </div>
     </div>
-    <div class="textImageSection layout mt80 wantMoreDepth">
+    <div class="textImageSection layout mt140 wantMoreDepth">
       <div class="ct">
         <h3>Want a More in Depth Learning Experience?</h3>
         <p>We have detailed, step by step learning course. Follow video tutorials alongside real world examples.</p>
         <router-link class="button" :to="{path: '/academy/herocourse/welcome.html'}">Start your Course</router-link>
       </div>
     </div>
-    <div class="faqs layout mt80">
+    <div class="faqs layout mt140">
       <h3>FAQs</h3>
       <ul class="faqsContent">
         <li>
@@ -235,6 +207,41 @@ photoSwipe: false
 <script setup>
 import { ref, onMounted } from 'vue'
 const quickStartJson = ref([])
+const advancedFeatures = ref([
+  {
+    title: 'EVM, WASM, and more',
+    desc: 'Supports most smart contract execution languages.',
+    link: '/build/substrate-evm.html'
+  },
+  {
+    title: 'Write once, run anywhere',
+    desc: 'Large multichain support and your gateway to Polkadot.',
+    link: '/build/multi-chain.html'
+
+  },
+  {
+    title: 'Absolute performance',
+    desc: 'Fast syncing and indexing optimisations.',
+    link: '/build/optimisation.html'
+
+  },
+  {
+    title: 'The power of GraphQL',
+    desc: 'Filtering, subscriptions, aggregation - all the features that you need.',
+    link: '/build/query.html'
+  },
+  {
+    title: 'Faster reindexing',
+    desc: 'Automated historical state tracking means you can reindex partial data faster.',
+    link: '/build/historical.html'
+  },
+  {
+    title: 'Lightweight and portable',
+    desc: 'Doesn’t require an extremely costly archive, connect directly to any RPC.',
+    link: '/build/optimisation.html'
+
+  }
+])
 
 const fetchAllQuickStart = () => {
   fetch("https://templates.subquery.network/guides").then(async (data) => {
