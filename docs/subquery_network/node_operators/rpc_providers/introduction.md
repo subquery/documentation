@@ -4,7 +4,7 @@
 
 An RPC Provider is a SubQuery network participant who is responsible for serving RPC queries for blockchain data to their customers.
 
-RPC Providers play a very important role within the SubQuery network, they acts as the main interface between dApps, indexers, and other consumers to the underlying data on the blockchain, and are also responsible for submitting transactions.
+RPC Providers play a very important role within the SubQuery network, they act as the main interface between dApps, indexers, and other consumers to the underlying data on the blockchain, and are also responsible for submitting transactions.
 
 ## Requirements to be an RPC Provider
 
