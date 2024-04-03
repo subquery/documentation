@@ -12,9 +12,7 @@ photoSwipe: false
     <div class="ct">
       <h2>SubQuery Network</h2>
       <h5>
-        SubQuery is a fast, flexible, and reliable open-source data indexer
-        that provides you with custom APIs for your web3 project across all
-        of our supported chains.
+        The SubQuery Network is the most scalable, reliable, and unified data infrastructure network. 1,000s of decentralised Indexers and RPC providers simplify the data layer for a myriad of applications and use cases.
       </h5>
     </div>
     <div class="bannerImage">
@@ -24,10 +22,10 @@ photoSwipe: false
   </div>
   <Banner
     title="Participate today as a Delegator"
-    description="Anyone can participate as a Delegator and participate in the Network to earn rewards based on the work that Node Operators do. Current APR for delegators is 23%"
+    description="Anyone can participate as a Delegator in the Network to earn rewards based on the work that Node Operators do. Current APR for delegators is high, don't miss out!"
     buttonText="Join now"
     titleTag="h4"
-    buttonLink="/academy/herocourse/welcome.html"
+    buttonLink="/subquery_network/delegators/delegating.html"
     backgroundUrl="/assets/img/network/join-network.png"
     style="margin-top: 0"
   ></Banner>
@@ -47,7 +45,6 @@ photoSwipe: false
         >
           {{ content }}
         </p>
-        <button class="button">{{ item.buttonText }}</button>
       </div>
     </BaseCard>
   </div>
@@ -104,7 +101,7 @@ photoSwipe: false
     ]"
     buttonText="Run one today"
     titleTag="h4"
-    buttonLink="/academy/herocourse/welcome.html"
+    buttonLink="/subquery_network/data_node/introduction.html"
     backgroundUrl="https://subquery.network/images/subqlDataNode.png"
     style="background-size: 300px; background-position: right"
   ></Banner>
@@ -116,7 +113,7 @@ photoSwipe: false
     ]"
     buttonText="Learn about SQT"
     titleTag="h4"
-    buttonLink="/academy/herocourse/welcome.html"
+    buttonLink="/subquery_network/token/token.html"
     backgroundUrl="/assets/img/network/sqt.png"
     style="
       justify-content: flex-end;
@@ -151,7 +148,7 @@ photoSwipe: false
     ]"
     buttonText="Learn more about our Indexer SDK"
     titleTag="h4"
-    buttonLink="/academy/herocourse/welcome.html"
+    buttonLink="/indexer/welcome.html"
     backgroundUrl="https://subquery.network/images/indexerConcept.png"
     style="
       background-size: 389px;
@@ -175,8 +172,6 @@ const oneNetworkAllWeb3 = ref([
       "SubQuery APIs make your dApp lighting quick. By providing a indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.",
       "Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze."
     ],
-    buttonText: 'Learn more',
-    buttonLink: ''
   },
   {
     image: "https://subquery.network/images/rpcConcept.png",
@@ -186,8 +181,6 @@ const oneNetworkAllWeb3 = ref([
       "The SubQuery Data Node is a heavily optimised RPC endpoint that unlocks new breakthroughs in performance and scalability to power the next generation of web3 projects.",
       "With similar RPC endpoints and helpful SDKs to manage network connections, supercharging your dApp takes only a second."
     ],
-    buttonText: 'Learn more',
-    buttonLink: ''
   }
 ])
 
@@ -198,7 +191,7 @@ const anyoneContents = ref([
       "DApp Users will ask the SubQuery Network for specific indexed data and RPC endpoints for their dApps or tools, and exchange an advertised amount of SQT for each request.",
     image: "https://subquery.network/robots/consumer/consumer.png",
     moreLink:
-      "/subquery_network/consumers.html",
+      "/subquery_network/consumers/introduction.html",
   },
   {
     name: "Delegators",
@@ -207,7 +200,7 @@ const anyoneContents = ref([
     image: "https://subquery.network/robots/delegator/delegator.png",
 
     moreLink:
-      "/subquery_network/delegators.html",
+      "/subquery_network/delegators/introduction.html",
   },
   {
     name: "Data Indexers",
@@ -215,7 +208,7 @@ const anyoneContents = ref([
       "Data Indexers will run and maintain high quality SubQuery projects in their own infrastructure and will be rewarded in SQT for the requests that they serve.",
     image: "https://subquery.network/robots/indexer/indexer.png",
 
-    moreLink: "/subquery_network/indexers.html",
+    moreLink: "/subquery_network/node_operators/introduction.html",
   },
   {
     name: "RPC Providers",
@@ -224,7 +217,7 @@ const anyoneContents = ref([
     image: "https://subquery.network/robots/rpc/rpc.svg",
 
     moreLink:
-      "/subquery_network/architects.html",
+      "/subquery_network/architects/introduction.html",
   },
 ])
 
@@ -232,34 +225,34 @@ const advancedFeatures = ref([
   {
     title: 'Delegate to the SubQuery Network',
     desc: 'Anyone can participate as a Delegator and participate in the Network to earn rewards based on the work that Node Operators do.',
-    link: '/build/substrate-evm.html'
+    link: '/subquery_network/delegators/delegating.html'
   },
   {
     title: 'The SQT Token',
     desc: 'The SubQuery Token (SQT) is a utility token that powers the SubQuery Network. Learn how to get SQT and the tokenomics of it.',
-    link: '/build/multi-chain.html'
+    link: '/subquery_network/token/token.html'
 
   },
   {
     title: 'Join as a Node Operators',
     desc: 'More technical users are able to join the network as a Node Operators and start indexing and syncing various projects.',
-    link: '/build/optimisation.html'
+    link: '/subquery_network/node_operators/setup/becoming-a-node-operator.html'
 
   },
   {
     title: 'Publish your Project to the Network',
     desc: 'If you’ve built a SubQuery project, you can publish it to the network and benefit from decentralised infrastructure hosting today.',
-    link: '/build/query.html'
+    link: '/subquery_network/publish.html'
   },
   {
     title: 'View Economic Model',
     desc: 'Take a deep dive into the economic models of the SubQuery Network, including how rewards are calculated and distributed.',
-    link: '/build/historical.html'
+    link: '/subquery_network/introduction/reward-distribution.html'
   },
   {
     title: 'View Network Parameters',
     desc: 'See the latest network statistics and parameters in the network so you can easily calculate return and decide on where to stake your SQT.',
-    link: '/build/optimisation.html'
+    link: '/subquery_network/parameters.html'
 
   }
 ])

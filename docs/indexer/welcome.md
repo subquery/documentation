@@ -52,8 +52,8 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon1.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: '/build/introduction.html'}">1. Build</router-link></h4>
-          <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in typescript and test locally with Docker. </p>
+          <h4><router-link :to="{path: '/indexer/build/introduction.html'}">1. Build</router-link></h4>
+          <p>Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in Typescript and test locally with Docker. </p>
         </div>
       </div>
       <div class="journeyItem">
@@ -61,8 +61,8 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon2.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: '/run_publish/run.html'}">2. Run and Query</router-link></h4>
-          <p>Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and subscriptions. </p>
+          <h4><router-link :to="{path: '/indexer/run_publish/run.html'}">2. Run and Query</router-link></h4>
+          <p>Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and allow you to subscribe to new data. </p>
         </div>
       </div>
       <div class="journeyItem">
@@ -70,8 +70,8 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon3.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: '/run_publish/publish.html'}">3. Publish</router-link></h4>
-          <p>Use our self-service platform to publish and run a SubQuery project on production with great ease. It only takes a few minutes!</p>
+          <h4><router-link :to="{path: '/indexer/run_publish/publish.html'}">3. Publish</router-link></h4>
+          <p>Running a SubQuery Project is easy, or if you don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes.</p>
         </div>
       </div>
       <div class="journeyItem">
@@ -79,7 +79,7 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon6.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: 'subquery_network/publish.html'}">4. Deploy to the SubQuery Network</router-link></h4>
+          <h4><router-link :to="{path: '/subquery_network/publish.html'}">4. Deploy to the SubQuery Network</router-link></h4>
           <p>Our decentralised service is a web3 infrastructure revolution. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way.</p>
         </div>
       </div>
@@ -88,7 +88,7 @@ photoSwipe: false
           <img src="/assets/img/journeyIcon5.svg" />
         </div>
         <div class="ct">
-          <h4><router-link :to="{path: '/build/optimisation.html'}">5. Optimise your Project</router-link></h4>
+          <h4><router-link :to="{path: '/indexer/build/optimisation.html'}">5. Optimise your Project</router-link></h4>
           <p>Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up.</p>
         </div>
       </div>
@@ -98,7 +98,7 @@ photoSwipe: false
         <img src="/assets/img/graphGuideIcon.svg" />
         <h3>Coming from the Graph?</h3>
         <p>Welcome to the fastest and most feature rich indexer in web3, migrating is easy and should only take a few minutes.</p>
-        <router-link class="button buttonRed" :to="{path: '/build/graph-migration.html'}">Migrate Now!</router-link>
+        <router-link class="button buttonRed" :to="{path: '/indexer/build/graph-migration.html'}">Migrate Now!</router-link>
       </div>
     </div>
     <div class="advancedFeatures layout mt80">
@@ -119,7 +119,7 @@ photoSwipe: false
           <div class="title"><span><img src="/assets/img/faqIcon.svg" /></span>What networks do you support?</div>
           <div class="animation">
             <div class="ct">
-              <p>We support over 150 leading layer-1 chains, including Ethereum, Cosmos, Polkadot, Avalanche, Algorand, Near and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Wherever you plan to build your next dApp, we want to be there to help you index it. <a href="https://subquery.network/networks">View the full list here</a></p>
+              <p>We support over 169 leading layer-1 chains, including Ethereum, Cosmos, Polkadot, Avalanche, Algorand, Near and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Wherever you plan to build your next dApp, we want to be there to help you index it. <a href="https://subquery.network/networks">View the full list here</a></p>
               <p>If you would like us to index your new layer-1 chain, we would be happy to consider it, send us a message at <a href="mailto:hello@subquery.network">hello@subquery.network</a>.</p>
             </div>
           </div>
