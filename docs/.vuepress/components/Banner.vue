@@ -1,29 +1,38 @@
 <template>
   <div
-    class="textImageSection layout mt140 bannerWithBackground"
+    class="flex gp24 layout mt140 bannerWithBackground"
     :style="{
       backgroundImage: `url('${backgroundUrl}')`,
     }"
   >
-    <div class="ct">
-      <component :is="titleTag ? titleTag : 'h3'">{{ title }}</component>
-      <p v-if="!Array.isArray(description)">
+    <div class="flexCol gp24">
+      <Typography :tag="titleTag ? titleTag : 'h35'">{{ title }}</Typography>
+      <Typography tag="p" v-if="!Array.isArray(description)" type="secondary">
         {{ description }}
-      </p>
+      </Typography>
       <template v-else>
-        <p v-for="desc in description" :key="desc">
+        <Typography
+          tag="p"
+          v-for="desc in description"
+          type="secondary"
+          :key="desc"
+        >
           {{ desc }}
-        </p>
+        </Typography>
       </template>
-      <router-link class="button" :to="{ path: buttonLink }">{{
-        buttonText
-      }}</router-link>
+      <div class="flex">
+        <router-link class="button" :to="{ path: buttonLink }">{{
+          buttonText
+        }}</router-link>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import Typography from "./Typography.vue";
+
 defineProps<{
-  titleTag: String;
+  titleTag: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
   title: String;
   description: String | String[];
   buttonText: String;

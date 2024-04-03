@@ -11,6 +11,7 @@
         : family === 'heading'
         ? 'var(--font-family-heading)'
         : 'var(--font-family)',
+      fontSize: fontSize ? fontSize + 'px' : '',
     }"
   >
     <slot></slot>
@@ -22,9 +23,10 @@ defineProps<{
   center?: boolean;
   weight?: number;
   size?: "text" | "large" | "medium" | "small";
-  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
+  tag?: "h1" | "h2" | "h3" | "h35" | "h4" | "h5" | "p";
   type?: "normal" | "secondary";
   family?: "heading" | "body";
+  fontSize?: number | string;
 }>();
 </script>
 
@@ -34,6 +36,7 @@ defineProps<{
   color: #fff;
   margin: 0;
   padding: 0;
+  border: 0;
 
   &.h1 {
     font-size: 80px;
@@ -47,6 +50,11 @@ defineProps<{
 
   &.h3 {
     font-size: 48px;
+    font-family: var(--font-family-heading);
+  }
+
+  &.h35 {
+    font-size: 32px;
     font-family: var(--font-family-heading);
   }
 

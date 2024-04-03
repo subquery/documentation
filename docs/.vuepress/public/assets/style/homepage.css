@@ -53,6 +53,10 @@ body .theme-hope-content:not(.custom) {
 .mt24 {
   margin-top: 24px;
 }
+.mb24 {
+  margin-bottom: 24px;
+}
+
 .mt40 {
   margin-top: 40px;
 
@@ -410,23 +414,10 @@ body .theme-hope-content:not(.custom) {
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 32px 32px 0 32px;
+  padding: 32px;
   box-sizing: border-box;
 }
-.graphGuide h3,
-.graphGuide p {
-  color: #fff !important;
-}
-.graphGuide > * {
-  margin-bottom: 32px !important;
-}
-.graphGuide h3 {
-  margin-bottom: 16px !important;
-}
-.graphGuide p {
-  max-width: 630px;
-  text-align: center;
-}
+
 @media screen and (max-width: 720px) {
   .quickStart {
     max-width: 95vw;
