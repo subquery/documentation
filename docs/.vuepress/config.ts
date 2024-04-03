@@ -2,6 +2,7 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { redirectPlugin } from "vuepress-plugin-redirect";
 import { getSidebar } from "./sidebar";
 
@@ -136,6 +137,9 @@ export default defineUserConfig({
   }),
 
   plugins: [
+    registerComponentsPlugin({
+      componentsDir: "./docs/.vuepress/components",
+    }),
     googleAnalyticsPlugin({
       id: "G-MY90N76MNK",
     }),

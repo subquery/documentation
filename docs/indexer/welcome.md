@@ -111,13 +111,7 @@ photoSwipe: false
         </router-link>
       </div>
     </div>
-    <div class="textImageSection layout mt140 wantMoreDepth">
-      <div class="ct">
-        <h3>Want a More in Depth Learning Experience?</h3>
-        <p>We have detailed, step by step learning course. Follow video tutorials alongside real world examples.</p>
-        <router-link class="button" :to="{path: '/academy/herocourse/welcome.html'}">Start your Course</router-link>
-      </div>
-    </div>
+    <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <div class="faqs layout mt140">
       <h3>FAQs</h3>
       <ul class="faqsContent">
@@ -195,12 +189,8 @@ photoSwipe: false
       </div>
       <img src="/assets/img/architects.png" width="516" height="392" />
     </div>
-    <div class="help layout mt80 mb80">
-      <h3>Need Help?</h3>
-      <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
-      <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
-    </div>
-    <div class="footer layout">SubQuery © 2024</div>
+    <NeedHelp></NeedHelp>
+    <Footer></Footer>
   </div>
 <component is="script" src="/assets/js/welcome.js" />
 

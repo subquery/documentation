@@ -111,11 +111,7 @@ photoSwipe: false
       </div>
     </div>
   </div>
-  <div class="help layout mt140 mb140">
-    <h3>Need Help?</h3>
-    <p>The fastest way to get support is by joining our discord and messaging us in #technical-support.</p>
-    <a class="button" href="https://discord.com/invite/subquery" target="_blank"><img src="/assets/img/discord_icon.svg" />Join our Discord</a>
-  </div>
-  <div class="footer layout">SubQuery © 2024</div>
+  <NeedHelp></NeedHelp>
+  <Footer></Footer>
 </div>
 <component is="script" src="/assets/js/welcome.js" />

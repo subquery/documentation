@@ -291,6 +291,10 @@ body .theme-hope-content:not(.custom) {
   transform: translateX(-50%);
 }
 
+.bannerImageBgRed {
+  background: #FF71D9;
+}
+
 .bannerRow {
   height: 580px;
   max-width: var(--max-width);
@@ -643,53 +647,6 @@ body .theme-hope-content:not(.custom) {
   }
 }
 
-.wantMoreDepth {
-  background: url("/assets/img/wantMoreDepthBg.png");
-  padding: 40px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.wantMoreDepth p {
-  max-width: 635px;
-  font-size: 18px;
-}
-
-.help {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  background: var(--dark-mode-card);
-  border-radius: 20px;
-  box-sizing: border-box;
-  border: 1px solid var(--dark-mode-border);
-}
-.dark .help {
-  color: #2c3e50;
-}
-.help h3 {
-  margin-bottom: 16px !important;
-}
-.help p {
-  max-width: 678px;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  margin-bottom: 32px !important;
-  text-align: center;
-}
-
-/* Styles of our footer */
-
-.footer {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 68px;
-  text-align: center;
-  color: var(--gray-500);
-}
 
 /*Below was applied to hide the vue-press footer on home pgae */
 
