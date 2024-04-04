@@ -25,7 +25,7 @@ type Account @entity {
 }
 ```
 
-![历史索引](/assets/img/historic_indexing.png)
+![历史索引](/assets/img/run_publish/historic_indexing.png)
 
 在上述示例中，Alice的DOT 平衡不断变化，并随着我们索引数据而变化。 `账户` 实体将更改 `余额` 属性。 一个基本的 SubQuery 项目，将帐户余额索引将丢失这个历史数据，并且只能存储当前索引块高度的状态。 例如，如果我们目前正在索引区块100，数据库中的数据只能代表Alice在第100区块上的帐户状态。
 
