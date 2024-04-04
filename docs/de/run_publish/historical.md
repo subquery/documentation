@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Historische Indizierung](/assets/img/historic_indexing.png)
+![Historische Indizierung](/assets/img/run_publish/historic_indexing.png)
 
 Im obigen Beispiel ändert sich Alices DOT-Guthaben ständig, und während wir die Daten indexieren, ändert sich die Eigenschaft `balance` der Entität `Account`. Ein einfaches SubQuery-Projekt, das Kontostände indiziert, verliert diese historischen Daten und speichert nur den Status der aktuellen Indizierungsblockhöhe. Wenn wir beispielsweise derzeit auf Block 100 indexieren, können die Daten in der Datenbank nur den Status von Alices Konto in Block 100 darstellen.
 
