@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Lập chỉ mục lịch sử](/assets/img/historic_indexing.png)
+![Lập chỉ mục lịch sử](/assets/img/run_publish/historic_indexing.png)
 
 Trong ví dụ trên, số dư DOT của Alice liên tục thay đổi và khi chúng tôi lập chỉ mục dữ liệu, `balance` trên thực thể `Account` sẽ thay đổi. Một dự án SubQuery cơ bản lập chỉ mục số dư tài khoản sẽ mất dữ liệu lịch sử này và sẽ chỉ lưu trữ trạng thái của chiều cao khối lập chỉ mục hiện tại. Ví dụ: nếu chúng ta hiện đang lập chỉ mục ở khối 100, dữ liệu trong cơ sở dữ liệu chỉ có thể đại diện cho trạng thái tài khoản của Alice ở khối 100.
 
