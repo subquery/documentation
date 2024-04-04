@@ -558,6 +558,16 @@ export const getSidebar = (locale: string) =>
           ],
         },
         `${locale}/subquery_network/architects/introduction.md`,
+        {
+          text: "SubQuery Data Node",
+          link: `${locale}/subquery_network/data_node/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/data_node/introduction.md`,
+            `${locale}/subquery_network/data_node/run.md`,
+            `${locale}/subquery_network/data_node/rpc.md`,
+          ],
+        },
         `${locale}/subquery_network/foundation.md`,
         {
           text: "Publish your Project",
@@ -565,16 +575,6 @@ export const getSidebar = (locale: string) =>
         },
 
         `${locale}/subquery_network/community.md`,
-      ],
-    },
-    {
-      text: "SubQuery Data Node",
-      link: `${locale}/subquery_data_node/introduction.md`,
-      collapsible: true,
-      children: [
-        `${locale}/subquery_data_node/introduction.md`,
-        `${locale}/subquery_data_node/run.md`,
-        `${locale}/subquery_data_node/rpc.md`,
       ],
     },
     {

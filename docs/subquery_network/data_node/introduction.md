@@ -1,10 +1,10 @@
 # Introduction
 
-The performance limitations of data indexers and many other decentralised applications have long been limited by the RPC endpoint. Developers have long focussed on building nodes to ensure efficient validation to ensure the safety of the network. As a result of this sacrifice, RPCs are extremely costly and they’re not at all optimised for querying.
+The performance limitations of data indexers and many other decentralised applications have long been limited by the RPC endpoint. Developers have long focused on building nodes to ensure efficient validation, ensuring the safety of the network. As a result, RPCs are extremely costly, and they're not at all optimized for querying.
 
-This is compounded by the rise of L2 chains where, with higher throughput, the query performance and cost are major outstanding issues to address. With limited querying capabilities, many don’t support complex querying languages or operations, making it inefficient to retrieve specific data.
+This is compounded by the rise of L2 chains, where, with higher throughput, the query performance and cost are major outstanding issues to address. With limited querying capabilities, many don’t support complex querying languages or operations, making it inefficient to retrieve specific data.
 
-**The SubQuery Data Node solves this**, its an enhanced RPC node that is perfectly optimised for querying, especially on endpoints like `eth_getLog`, and provides the ability to filter transactions in a single API call. The Data Node will be open source, allowing people to contribute, extend, or fork the implementation in any way. It will support leading layer-2s and other EVM networks initially, and they will be optimised to run on the SubQuery Network in a decentralised way.
+The **SubQuery Data Node** solves this; it's an enhanced RPC node that is perfectly optimized for querying, especially on endpoints like eth_getLogs, and provides the ability to filter transactions in a single API call. The Data Node will be open source, allowing people to contribute, extend, or fork the implementation in any way. It will support leading layer-2s and other EVM networks initially, and they will be optimised to run on the SubQuery Network in a decentralised way.
 
 Working together, the SubQuery Indexer and SubQuery Data Node will provide the most performant indexing performance possible and in a completely decentralised way thanks to the SubQuery Network. Our node runners will be able to run these data nodes on the network, bringing powerful and cost-effective RPC access to all, cementing SubQuery’s position as the fastest decentralised data indexer in web3.
 
