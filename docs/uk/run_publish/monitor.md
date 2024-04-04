@@ -74,7 +74,7 @@ You'll then need to add Prometheus as a datasource. You can [follow the official
 
 ## Dashboard Templates
 
-![Template dashboard for a SubQuery Node](/assets/img/monitoring.png)
+![Template dashboard for a SubQuery Node](/assets/img/run_publish/monitoring.png)
 
 Below is a template dashboard JSON designed for a SubQuery Node that you can [import into Grafana](https://grafana.com/docs/grafana/latest/dashboards/manage-dashboards/#import-a-dashboard).
 
