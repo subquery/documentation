@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Tarihi İndeksleme](/assets/img/historic_indexing.png)
+![Tarihi İndeksleme](/assets/img/run_publish/historic_indexing.png)
 
 Yukarıdaki örnekte, Alice'in DOT bakiyesi sürekli değişmektedir ve biz verileri indeksledikçe, `Hesap` varlığındaki `bilanço` özelliği değişecektir. Hesap bakiyelerini indeksleyen temel bir SubQuery projesi bu geçmiş verileri kaybeder ve yalnızca mevcut indeksleme blok yüksekliğinin durumunu saklar. Örneğin, şu anda blok 100'e endeksliyorsak, veritabanındaki veriler yalnızca Alice'in blok 100'deki hesabının durumunu temsil edebilir.
 
