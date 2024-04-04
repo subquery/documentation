@@ -1,6 +1,6 @@
 # Welcome to SubQuery's Courses
 
-![SubQuery Academy Banner](/assets/img/academy.png)
+![SubQuery Academy Banner](/assets/img/academy/academy.png)
 
 The SubQuery Academy helps developers to upskill in the SubQuery ecosystem by providing them with a modular programme. The content of this programme will take an aspiring blockchain developer from beginning to advanced level. Each course is 100% free and accessible online.
 
