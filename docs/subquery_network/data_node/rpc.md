@@ -2,11 +2,11 @@
 
 These RPC methods are an extension to the existing [Ethereum JSON-RPC](https://ethereum.org/en/developers/docs/apis/json-rpc). They can be enabled in SubQuery Data Nodes by following [these instructions.](./run.md).
 
-They have been designed in a way that they could be implemented into other blockchains that are not EVM related.
+They have been designed in a way that they could be easily implemented into other blockchains that are not EVM related.
 
-## Get Filter Blocks Capability
+## Get Block Filter Capability
 
-`subql_filterBlocksCapabilities` - Returns information about the capabilities of filtering blocks
+`subql_filterBlocksCapabilities` - Returns information about the data node's capabilities regarding filtering blocks.
 
 ### Parameters
 
@@ -63,7 +63,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"subql_filterBlocksCapabilities",
 
 :::
 
-## Get Blocks for Filter Criteria
+## Get Filtered Blocks
 
 `subql_filterBlocks` - Return blocks that match the filter
 
