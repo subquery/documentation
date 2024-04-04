@@ -12,9 +12,9 @@ Working together, the SubQuery Indexer and SubQuery Data Node will provide the m
 
 SubQuery currently provides these Data Nodes:
 
-- [geth](https://github.com/subquery/go-ethereum) (forked from [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum))
+- [geth](https://github.com/subquery/data-node-go-ethereum) (forked from [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum))
   - Ethereum and testnets
-- [op-geth](https://github.com/subquery/op-geth) (forked from [ethereum-optimism/op-geth](https://github.com/ethereum-optimism/op-geth))
+- [op-geth](https://github.com/subquery/data-node-op-geth) (forked from [ethereum-optimism/op-geth](https://github.com/ethereum-optimism/op-geth))
   - Optimism and testnets
   - Base and testnets
 
