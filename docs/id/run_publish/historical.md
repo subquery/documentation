@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Histori Pengindeksan](/assets/img/historic_indexing.png)
+![Histori Pengindeksan](/assets/img/run_publish/historic_indexing.png)
 
 Dalam contoh di atas, saldo DOT Alice terus berubah, dan saat kami mengindeks data, properti `saldo` pada entitas `Akun` akan berubah. Dalam contoh di atas, saldo Dot Alice terus berubah, dan saat kami mengindeks data, properti <0>saldo</0> pada entitas <0>Akun</0> akan berubah. Misalnya, jika saat ini kita mengindeks ke blok 100, data dalam database hanya dapat mewakili status akun Alice di blok 100.
 
