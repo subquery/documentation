@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Historic Indexing](/assets/img/historic_indexing.png)
+![Historic Indexing](/assets/img/run_publish/historic_indexing.png)
 
 In the above example, Alice's DOT balance constantly changes, and as we index the data, the `balance` property on the `Account` entity will change. A basic SubQuery project that indexes account balances will lose this historical data and will only store the state of the current indexing block height. For example, if we currently index to block 100, the data in the database can only represent the state of Alice's account at block 100.
 
