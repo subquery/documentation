@@ -14,9 +14,17 @@ SubQuery currently provides these Data Nodes:
 
 - [data-node-go-ethereum](https://github.com/subquery/data-node-go-ethereum) (forked from [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum))
   - Ethereum and testnets
+  - Public (beta) node `https://ethereum.node.subquery.network/public`
 - [data-node-op-geth](https://github.com/subquery/data-node-op-geth) (forked from [ethereum-optimism/op-geth](https://github.com/ethereum-optimism/op-geth))
   - Optimism and testnets
   - Base and testnets
+  - Public (beta) node (coming soon)
+
+For example
+
+```bash
+curl -H 'content-type:application/json' -d '{"id": 1, "jsonrpc": "2.0", "method": "eth_blockNumber"}' 'https://ethereum.node.subquery.network/public'
+```
 
 ### Releases
 
@@ -50,4 +58,4 @@ Later, SubQuery will work to democratise RPCs (and [solve EIP-4444](https://blog
 
 SubQuery will extend its Data Node to support sharding, that is making each Data Node smaller by splitting up block ranges between node operators. Since SubQuery's Data Node only runs within the boundaries of a specific block range, it does not need to constantly sync new data, allowing it to optimize further for query performance rather than validation and verification.
 
-Besides the standard RPC interface a normal RPC node and Data Node supports, A Sharded Data Node will also extend the Data Node to add endpoints that expose the block range of data/state it maintains. Significantly, the Sharded Data Node need not encompass historical chain state when functioning as a full node. This article, however, will exclusively discuss the Sharded Data Node in the context of an archive node.
+You can read more about how the sharded data node will solve EIP-4444 [here](https://blog.subquery.network/using-the-subquery-sharded-data-node-to-solve-eip-4444/?lng=en).
