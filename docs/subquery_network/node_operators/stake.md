@@ -6,9 +6,9 @@ One key difference between Kepler and the mainnet is that now Node Operators mus
 
 :::
 
-In order to register and become a Node Operator, a minimum amount of SQT is required to stake in the staking contract.
+In order to register and become a Node Operator, a minimum amount of SQT is required to stake in the staking contract - see [how much SQT should you stake](#how-much-sqt-should-you-stake).
 
-If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool) reallocated to the SubQuery Foundation Treasury, diminishing their staked SQT in the network and therefore reducing their potential rewards.
+If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool) slashed or reallocated to the SubQuery Foundation Treasury, diminishing their staked SQT in the network and therefore reducing their potential rewards.
 
 ## Managing Staking Allocation
 
@@ -63,6 +63,7 @@ You can use the estimate of the Own Stake and Total Delegated for the next Era o
 
 There are multiple reasons why Node Operators should consider staking more SQT or attracting more Delegation.
 
+- All Node Operators must stake a minimum amount of SQT to become a Node Operator, the current setting can be found in [network parameters](../parameters.md)
 - There is a maximum allowed delegation amount based on the size of the Node Operator's self stake, this ensures the Node Operator has sufficient skin in the game. Increasing self stake can mean delegators are able to delegate more to you.
 - More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
 - It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.

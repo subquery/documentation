@@ -151,6 +151,10 @@ export const getSidebar = (locale: string) =>
                   link: `${locale}/quickstart/quickstart_chains/immutable-testnet.md`,
                 },
                 {
+                  text: "Iotex",
+                  link: `${locale}/quickstart/quickstart_chains/iotex.md`,
+                },
+                {
                   text: "Klaytn",
                   link: `${locale}/quickstart/quickstart_chains/klaytn.md`,
                 },
@@ -360,7 +364,17 @@ export const getSidebar = (locale: string) =>
             },
             {
               text: "Stellar & Soroban",
-              link: `${locale}/quickstart/quickstart_chains/stellar.md`,
+              collapsible: true,
+              children: [
+                {
+                  text: "Combined Example",
+                  link: `${locale}/quickstart/quickstart_chains/stellar.md`,
+                },
+                {
+                  text: "Soroban Contracts",
+                  link: `${locale}/quickstart/quickstart_chains/stellar-soroban.md`,
+                },
+              ],
             },
           ],
         },
@@ -457,7 +471,10 @@ export const getSidebar = (locale: string) =>
             },
             {
               text: "Other Tools",
-              children: [`${locale}/run_publish/query/other_tools/metabase.md`],
+              children: [
+                `${locale}/run_publish/query/other_tools/metabase.md`,
+                `${locale}/run_publish/query/other_tools/bigquery.md`,
+              ],
             },
           ],
         },
@@ -500,8 +517,8 @@ export const getSidebar = (locale: string) =>
           collapsible: true,
           children: [
             `${locale}/subquery_network/consumers/introduction.md`,
+            `${locale}/subquery_network/consumers/plan.md`,
             `${locale}/subquery_network/consumers/boosting.md`,
-            `${locale}/subquery_network/consumers/playground.md`,
             `${locale}/subquery_network/consumers/faq.md`,
           ],
         },
@@ -557,7 +574,15 @@ export const getSidebar = (locale: string) =>
             `${locale}/subquery_network/node_operators/plans.md`,
           ],
         },
-        `${locale}/subquery_network/architects/introduction.md`,
+        {
+          text: "Architects",
+          link: `${locale}/subquery_network/architects/introduction.md`,
+          collapsible: true,
+          children: [
+            `${locale}/subquery_network/architects/introduction.md`,
+            `${locale}/subquery_network/architects/publish.md`,
+          ],
+        },
         {
           text: "SubQuery Data Node",
           link: `${locale}/subquery_network/data_node/introduction.md`,
@@ -568,12 +593,8 @@ export const getSidebar = (locale: string) =>
             `${locale}/subquery_network/data_node/rpc.md`,
           ],
         },
+        `${locale}/subquery_network/parameters.md`,
         `${locale}/subquery_network/foundation.md`,
-        {
-          text: "Publish your Project",
-          link: `${locale}/subquery_network/publish.md`,
-        },
-
         `${locale}/subquery_network/community.md`,
       ],
     },

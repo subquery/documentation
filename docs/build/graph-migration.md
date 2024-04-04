@@ -47,7 +47,7 @@ This is the recommended proccess that we use at SubQuery whenever we migrate pro
 
 ## GraphQL Schema
 
-Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities.
+Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and includes both similar [scalar types](./graphql.md#supported-scalar-types) as well as [full text search](./graphql.md#full-text-search).
 
 Visit this [full documentation for `schema.graphql`](./graphql.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
 
@@ -56,7 +56,6 @@ Notable differences include:
 - SubQuery does not have support for `Bytes` (use `String` instead) and `BigDecimal` (use `Float` instead).
 - SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql.md#json-type)).
 - Comments are added to SubQuery Project GraphQL files using hashes (`#`).
-- SubQuery does not yet support full-text search.
 
 ## Manifest File
 
@@ -518,6 +517,7 @@ SubQuery does not support historical metadata querying. However `deployments` wi
 - SubQuery has a larger support for query pagination. You have the options of using `first` and `offset`, or `cursors` on `edges`.
   - Note that [cursor-based pagination](https://graphql.org/learn/pagination/#pagination-and-edges) is far more efficient compared to `first`/`offset`/`after` pagination
 - SubQuery supports [advanced aggregate functions](../run_publish/query/aggregate.md) to allow you to perform a calculation on a set of values during your query.
+- Full text search is implemented slightly differently, please review the [full text query docs](../run_publish/query/graphql.md#full-text-search).
 
 ## What's Next?
 

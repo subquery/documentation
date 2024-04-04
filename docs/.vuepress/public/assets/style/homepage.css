@@ -295,11 +295,15 @@ body .theme-hope-content:not(.custom) {
   margin-right: 24px;
   flex-shrink: 0;
 }
-.journeyItem h4 {
+.journeyItem h4 a {
   font-weight: 500;
   font-size: 26px;
   line-height: 36px;
   margin-bottom: 16px !important;
+  color: white;
+}
+.journeyItem h4 a:hover {
+  color: #4388dd;
 }
 
 .graphGuide {
@@ -356,7 +360,6 @@ body .theme-hope-content:not(.custom) {
   color: #2c3e50;
 }
 .faqsContent li {
-  list-style: none;
   font-size: 16px;
   color: #fff;
   font-weight: 500;
@@ -512,6 +515,12 @@ body .theme-hope-content:not(.custom) {
 
 footer {
   display: none;
+}
+
+iframe {
+  position: static;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .overflow3 {

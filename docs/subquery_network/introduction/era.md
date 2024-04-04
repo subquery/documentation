@@ -2,7 +2,7 @@
 
 The SubQuery Network is oriented around a single constant heartbeat or period - this is called the **Era**.
 
-Currently the Era is 7 days (earth time). The Era represents a period that many settings and actions within the SubQuery Network are orientated around including:
+Currently the Era is 7 days ([confirm this on our network parameters page](../parameters.md)). The Era represents a period that many settings and actions within the SubQuery Network are orientated around including:
 
 - Network reward allocations are made at the end of an Era
 - The length of Plans are represented in a number of Era

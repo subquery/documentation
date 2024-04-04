@@ -11,7 +11,7 @@ Check out [reward distribution](../introduction/reward-distribution.md) for more
 
 ## Staking
 
-In order to register and become a Node Operator, a minimum amount of SQT is required to stake in the staking contract. If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool) reallocated to the SubQuery Foundation Treasury, diminishing their staked SQT in the network and therefore reducing their potential rewards.
+In order to register and become a Node Operator, a minimum amount of SQT (currently 200,000 SQT) is required to stake in the staking contract. If a Node Operator is caught misbehaving (such as by providing invalid, incomplete, or incorrect data), they are liable to have a portion of their staked SQT (on the particular reward pool) reallocated to the SubQuery Foundation Treasury, diminishing their staked SQT in the network and therefore reducing their potential rewards.
 
 [Learn more about staking and allocating existing stake here](./stake.md).
 

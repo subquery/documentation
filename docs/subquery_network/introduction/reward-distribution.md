@@ -25,11 +25,11 @@ Additionally, for Node Operators, running projects incurs significant costs. Wit
 
 The solution to this comes from network inflation as a reward source for Indexer rewards, in addition to rewards for productive work. We allow Consumers to use [Boosting](../consumers/boosting.md) to direct Network Inflation Rewards, which distributed to Node Operators proportionally based on the total boosted SQT on their projects.
 
-In order to recieve network inflaton rewards, Node Operators must be running a project that has a non-zero amount of consumer boosting, and be online/available to the public with a sync progress of 100%. Node Operators will not receive all of the network inflation rewards, some rewards are distributed to the Consumers that boosted the project, as described in [Consumer Boosting](../consumers/boosting.md#how-are-boosters-rewarded).
+In order to receive network inflaton rewards, Node Operators must be running a project that has a non-zero amount of consumer boosting, and be online/available to the public with a sync progress of 100%. Node Operators will not receive all of the network inflation rewards, some rewards are distributed to the Consumers that boosted the project, as described in [Consumer Boosting](../consumers/boosting.md#how-are-boosters-rewarded).
 
 Network inflation rewards are allocated to all project types supported by the SubQuery Network, e.g data indexing projects and RPC endpoints. The split of network inflation rewards between the Consumer that boosted the project, and the Node Operator may vary by project type.
 
-In the SubQuery Network, the inflation rate is expected to be `1.2%`. The majority of these rewards acts as network inflation rewards (`1%`), while the remainder is allocated to the SubQuery Treasury to fund various programmes.
+The current inflation rate on the SubQuery Network can be found on our [network parameters page](../parameters.md). The majority of network inflation acts as network inflation rewards, while the remainder is allocated to the SubQuery Treasury to fund various programmes.
 
 ## Cobb-Douglas Production Function
 
@@ -41,7 +41,7 @@ This approach was championed by the 0x team, and in simple terms, means that rev
 
 ## Minimum Staking Requirements
 
-The beauty of the Cobb Douglas equation (above) is that a rational Node Operator must maintain a stable level of staked SQT relative to the work they do in order in each reward pool in order to receive optimal rewards from either of the reward sources. As a result, the SubQuery Network does not need to enforce arbitrary staking requirements because Node Operators are incentivised to self-manage and maintain a stake or skin in the game.
+The beauty of the Cobb Douglas equation (above) is that a rational Node Operator must maintain a stable level of staked SQT relative to the work they do in order in each reward pool in order to receive optimal rewards from either of the reward sources. As a result, the SubQuery Network does not need to enforce many arbitrary staking requirements because Node Operators are incentivised to self-manage and maintain a stake or skin in the game (we do enforce a [minimum Node Operator Stake however](../node_operators/stake.md#how-much-sqt-should-you-stake)).
 
 SubQuery does require Node Operator must allocate their staked and delegated SQT on the deployment they run, so they can earn Allocation Rewards. When a Node Operator's stake decreases beneath the amount they have allocated, they will stop earning Allocation Rewards until they either increase their stake or reduce the allocated SQT to recover from this status.
 
