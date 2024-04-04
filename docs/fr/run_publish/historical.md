@@ -14,7 +14,7 @@ type Account @entity {
 }
 ```
 
-![Indexation historique](/assets/img/historic_indexing.png)
+![Indexation historique](/assets/img/run_publish/historic_indexing.png)
 
 Dans l'exemple ci-dessus, le solde DOT d'Alice change constamment, et alors que nous indexons les données, la propriété `solde` sur l'entité `Compte` va changer. Un projet SubQuery de base qui indexe les soldes du compte perdra ces données historiques et stockera uniquement l'état de la hauteur du bloc d'indexation actuel. Par exemple, si nous indexons actuellement le bloc 100, les données dans la base de données ne peuvent représenter que l'état du compte d'Alice au bloc 100.
 
