@@ -14,33 +14,33 @@ export type GetOptions<T> = {
   limit?: number;
   /* Order fields are only available in SDK versions >= 4.0.0 */
   orderBy?: keyof T;
-  orderDirection?: 'ASC' | 'DESC';
+  orderDirection?: "ASC" | "DESC";
 };
 
 export interface Store {
   get(entity: string, id: string): Promise<Entity | null>;
-
-  getByField(
-    entity: string,
-    field: string,
-    value: any,
-    options?: GetOptions<T>,
-  ): Promise<Entity[]>;
 
   getByFields<T extends Entity>(
     entity: string,
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>,
+      value: T[keyof T] | Array<T[keyof T]>
     ][],
-    options?: GetOptions<T>,
+    options?: GetOptions<T>
   ): Promise<T[]>;
+
+  getByField(
+    entity: string,
+    field: string,
+    value: any,
+    options?: GetOptions<T>
+  ): Promise<Entity[]>;
 
   getOneByField(
     entity: string,
     field: string,
-    value: any,
+    value: any
   ): Promise<Entity | null>;
 
   set(entity: string, id: string, data: Entity): Promise<void>;
@@ -64,14 +64,28 @@ const id = block.block.header.hash.toString();
 await store.get(`TransactionEntity`, id);
 ```
 
-## Get Records by Field
+## Get Records by Fields
 
 ```ts
-getByFields<T extends Entity>(
+export type GetOptions<T> = {
+  offset?: number;
+  limit?: number;
+  /* Order fields are only available in SDK versions >= 4.0.0 */
+  orderBy?: keyof T;
+  orderDirection?: "ASC" | "DESC";
+};
+
+export interface Store {
+  getByFields<T extends Entity>(
     entity: string,
-    filter: [field: keyof T, operator: '=' | '!=' | 'in' | '!in', value: T[keyof T] | Array<T[keyof T]>][],
+    filter: [
+      field: keyof T,
+      operator: "=" | "!=" | "in" | "!in",
+      value: T[keyof T] | Array<T[keyof T]>
+    ][],
     options?: GetOptions<T>
   ): Promise<T[]>;
+}
 ```
 
 This returns all matching records for the specific entity that matches the given filter(s). Each entry in the filter is an AND operation. By default it will return the first 100 results.
@@ -83,14 +97,15 @@ The store has a cache layer in order to increase performance, because of this th
 Only fields with an index can be filtered on and an error will be thrown if the fields are not indexed. To add an index the projects graphql schema will need to be updated to include [@index](/build/graphql.html#indexing) decorators.
 
 ### Ordering
+
 ::: info Note
 Ordering is only available in SDK versions >= 4.0.0
 :::
 
 By default ordering is done by `id` in ascending order.
 
-
 ### Examples
+
 Using the store directly:
 
 ```ts
@@ -120,7 +135,24 @@ await TransactionEntity.getByFields([["ChainID", "in", [50, 51]]]);
 
 ## Get Records by a Single Field
 
-`getByField(entity: string, field: string, value: any, options?: GetOptions): Promise<Entity[]>;`
+```ts
+export type GetOptions<T> = {
+  offset?: number;
+  limit?: number;
+  /* Order fields are only available in SDK versions >= 4.0.0 */
+  orderBy?: keyof T;
+  orderDirection?: "ASC" | "DESC";
+};
+
+export interface Store {
+  getByField(
+    entity: string,
+    field: string,
+    value: any,
+    options?: GetOptions
+  ): Promise<Entity[]>;
+}
+```
 
 This is a convenient wrapper for [getByFields](#get-records-by-field) but only accepts a single filter and uses the `=` or `in` operator.
 
