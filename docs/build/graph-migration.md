@@ -2,7 +2,7 @@
 
 SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
 
-- **Performance improvements** - SubQuery is up to 1.85x faster for common projects over The Graph (e.g the standard Ethereum Name Service project) thanks to multi-threading and a store cache layer
+- **Performance improvements** - SubQuery is up to 3.9x faster for common projects over The Graph (e.g the standard [Ethereum POAP subgraph](https://github.com/poap-xyz/poap-subgraph)) thanks to multi-threading and a store cache layer
 - **More flexibility** - SubQuery's mapping functions are written in TypeScript, and so you can import additional libraries, make external API calls, or do anything you want in order to retrieve and process your data.
 - **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, and more
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
