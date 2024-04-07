@@ -39,7 +39,7 @@ photoSwipe: false
         <img src="/assets/img/graphGuideIcon.svg" />
         <Typography tag="h4" fontSize="32" style="margin-top: 32px">Coming from the Graph?</Typography>
         <Typography tag="p" size="large" maxWidth="630" center style="margin-top: 16px;margin-bottom:32px">Welcome to the fastest and most feature rich indexer in web3, migrating is easy and should only take a few minutes.</Typography>
-        <router-link :to="{path: '/build/graph-migration.html'}">
+        <router-link :to="{path: '/indexer/build/graph-migration.html'}">
           <Button type="danger">
             Migrate Now!
           </Button>
@@ -58,7 +58,7 @@ photoSwipe: false
         </BaseCard>
       </div>
     </div>
-    <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
+    <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/indexer/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <Faqs></Faqs>
     <div class="flex layout mt80" style="justify-content: space-between;">
       <div class="flexCol gp24" style="max-width: 590px">
@@ -86,34 +86,34 @@ const advancedFeatures = ref([
   {
     title: 'EVM, WASM, and more',
     desc: 'Supports most smart contract execution languages.',
-    link: '/build/substrate-evm.html'
+    link: '/indexer/build/substrate-evm.html'
   },
   {
     title: 'Write once, run anywhere',
     desc: 'Large multichain support and your gateway to Polkadot.',
-    link: '/build/multi-chain.html'
+    link: '/indexer/build/multi-chain.html'
 
   },
   {
     title: 'Absolute performance',
     desc: 'Fast syncing and indexing optimisations.',
-    link: '/build/optimisation.html'
+    link: '/indexer/build/optimisation.html'
 
   },
   {
     title: 'The power of GraphQL',
     desc: 'Filtering, subscriptions, aggregation - all the features that you need.',
-    link: '/build/query.html'
+    link: '/indexer/build/query.html'
   },
   {
     title: 'Faster reindexing',
     desc: 'Automated historical state tracking means you can reindex partial data faster.',
-    link: '/build/historical.html'
+    link: '/indexer/build/historical.html'
   },
   {
     title: 'Lightweight and portable',
     desc: 'Doesn’t require an extremely costly archive, connect directly to any RPC.',
-    link: '/build/optimisation.html'
+    link: '/indexer/build/optimisation.html'
 
   }
 ])
