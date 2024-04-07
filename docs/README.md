@@ -163,7 +163,7 @@ const polularGuides = computed(() => {
 const startWithExp = computed(() => {
   const differentChains = allNetworks.value.slice(0, 6).map((item) => {
     return {
-      path: '',
+      path: '', // TODO: fill the links
       imgSrc: item.logo,
       name: item.name
     }
