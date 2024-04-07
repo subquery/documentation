@@ -222,7 +222,7 @@ description:
 image: "https://subquery.network/robots/rpc/rpc.svg",
 
     moreLink:
-      "/subquery_network/architects/introduction.html",
+      "/subquery_network/node_operators/introduction.html",
 
 },
 ])

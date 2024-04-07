@@ -1,6 +1,7 @@
 #main-content {
   display: flex;
   flex-direction: column;
+  max-width: 100vw;
 }
 
 .no-sidebar #main-content {
@@ -40,7 +41,6 @@ body .theme-hope-content:not(.custom) {
 
 .mt40 {
   margin-top: 40px;
-
 }
 .mt80 {
   margin-top: 80px;
@@ -137,7 +137,7 @@ body .theme-hope-content:not(.custom) {
 
 .bannerImageBg {
   border-radius: 863px;
-  background: #008BE7;
+  background: #008be7;
   filter: blur(100px);
   width: 863px;
   height: 86px;
@@ -149,7 +149,7 @@ body .theme-hope-content:not(.custom) {
 }
 
 .bannerImageBgRed {
-  background: #FF71D9;
+  background: #ff71d9;
 }
 
 .bannerRow {
@@ -181,6 +181,10 @@ body .theme-hope-content:not(.custom) {
   border-radius: 418px;
 }
 
+.flexWrap {
+  display: flex;
+  flex-flow: row wrap;
+}
 
 @media screen and (max-width: 720px) {
   .banner {
@@ -190,7 +194,6 @@ body .theme-hope-content:not(.custom) {
     flex-direction: column;
   }
 }
-
 
 .graphGuide {
   background: radial-gradient(
@@ -209,20 +212,19 @@ body .theme-hope-content:not(.custom) {
   box-sizing: border-box;
 }
 
-
 /*Below was applied to hide the vue-press footer on home pgae */
 
 .theme-hope-content {
   display: flex;
-  margin: unset!important;
+  margin: unset !important;
 }
 
 .no-sidebar .theme-hope-content {
-  margin: 0 auto!important;
+  margin: 0 auto !important;
 }
 
 footer {
-  display: none!important;
+  display: none !important;
 }
 
 iframe {

@@ -96,8 +96,8 @@ photoSwipe: false
     </div>
   </div>
   <div class="layout mt140">
-    <Typography tag="h3"> Start build for different chains </Typography>
-    <div class="grid6column gp24 mt24">
+    <Typography tag="h3"> Start building on different chains </Typography>
+    <div class="grid6column gp24 mt24 flexWrap">
       <BaseCard
         v-for="startWith in startWithExp"
         :key="startWith.name"
@@ -161,14 +161,7 @@ const polularGuides = computed(() => {
 ]})
 
 const startWithExp = computed(() => {
-  const differentChains = allNetworks.value.slice(0, 6).map((item) => {
-    return {
-      path: '', // TODO: fill the links
-      imgSrc: item.logo,
-      name: item.name
-    }
-  })
-  return differentChains.length ? differentChains : [
+  return [
   {
     "path": "/indexer/quickstart/quickstart_chains/ethereum-gravatar.html",
     "imgSrc": "https://static.subquery.network/network-logos/1.png",
