@@ -7,7 +7,7 @@ import { redirectPlugin } from "vuepress-plugin-redirect";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
-  title: "SubQuery Academy (Documentation)",
+  title: "SubQuery Documentation",
   description:
     "Learn how to build with SubQuery. SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project. Build your API anywhere across multiple chains in minutes with our open-source SDK.",
   head: [
@@ -44,7 +44,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "SubQuery Academy (Documentation)",
+      title: "SubQuery Documentation",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
