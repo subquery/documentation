@@ -337,7 +337,6 @@ export const getSidebar = (locale: string) =>
                   },
                 ],
               },
-
               {
                 text: "Polkadot/Substrate",
                 collapsible: true,
@@ -584,8 +583,8 @@ export const getSidebar = (locale: string) =>
         collapsible: true,
         children: [
           `${locale}/subquery_network/consumers/introduction.md`,
+          `${locale}/subquery_network/consumers/plan.md`,
           `${locale}/subquery_network/consumers/boosting.md`,
-          `${locale}/subquery_network/consumers/playground.md`,
           `${locale}/subquery_network/consumers/faq.md`,
         ],
       },
@@ -641,13 +640,17 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/node_operators/plans.md`,
         ],
       },
-      `${locale}/subquery_network/parameters.md`,
-      `${locale}/subquery_network/architects/introduction.md`,
-      `${locale}/subquery_network/foundation.md`,
       {
-        text: "Publish your Project",
-        link: `${locale}/subquery_network/publish.md`,
+        text: "Architects",
+        link: `${locale}/subquery_network/architects/introduction.md`,
+        collapsible: true,
+        children: [
+          `${locale}/subquery_network/architects/introduction.md`,
+          `${locale}/subquery_network/architects/publish.md`,
+        ],
       },
+      `${locale}/subquery_network/parameters.md`,
+      `${locale}/subquery_network/foundation.md`,
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
     ],

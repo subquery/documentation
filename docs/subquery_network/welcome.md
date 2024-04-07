@@ -247,7 +247,7 @@ const advancedFeatures = ref([
   {
     title: 'Publish your Project to the Network',
     desc: 'If you’ve built a SubQuery project, you can publish it to the network and benefit from decentralised infrastructure hosting today.',
-    link: '/subquery_network/publish.html'
+    link: '/subquery_network/architect/publish.html'
   },
   {
     title: 'View Economic Model',
