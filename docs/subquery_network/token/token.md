@@ -25,9 +25,11 @@ Find SQT on [CoinGecko](https://www.coingecko.com/en/coins/subquery-network) and
 
 ## Where is SQT traded
 
-SQT is supported on [Bybit Exchange](https://www.bybit.com/). Bybit, known for its commitment to providing a secure and user-friendly trading experience, recognised the potential of SubQuery's innovative approach to decentralised data indexing and is eager to bring SQT to its platform. Spot trade SQT/USDT on ByBit at [https://www.bybit.com/en/trade/spot/SQT/USDT](https://www.bybit.com/en/trade/spot/SQT/USDT).
+SQT is supported on [Bybit Exchange](https://www.bybit.com/). Bybit, known for its commitment to providing a secure and user-friendly trading experience, recognised the potential of SubQuery's innovative approach to decentralised data indexing and is eager to bring SQT to its platform. Spot trade SQT/USDT on ByBit at [https://www.bybit.com/en/trade/spot/SQT/USDT](https://www.bybit.com/en/trade/spot/SQT/USDT) - Ethereum deposits and withdrawls only.
 
-SQT is supported on the [Crypto.com](https://crypto.com/price/subquery-network) App. Users can purchase SQT easily with USD, EUR, GBP, and 20+ fiat currencies, and spend it at over 80 million merchants globally using the Crypto.com Visa Card.
+SQT is supported on the [Crypto.com](https://crypto.com/price/subquery-network) App. Users can purchase SQT easily with USD, EUR, GBP, and 20+ fiat currencies, and spend it at over 80 million merchants globally using the Crypto.com Visa Card - Ethereum deposits and withdrawls only.
+
+SQT is supported on [Gate.io](https://www.gate.io).Gate.io is a cryptocurrency exchange platform offering a wide range of digital assets, advanced trading features, and security measures for global users. Spot trade SQT/USDT on Gate at [https://www.gate.io/trade/SQT_USDT](https://www.gate.io/trade/SQT_USDT) - Ethereum and Base deposits and withdrawls only.
 
 SQT is on a number of DEX Pools however most liqudity is on Uniswap. Please ensure that you are trading the correct SQT token (see contract addresses above)
 
