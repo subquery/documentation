@@ -1,6 +1,6 @@
 {
-  "name": "SubQuery Academy",
-  "short_name": "SubQuery Academy",
+  "name": "SubQuery Documentation",
+  "short_name": "SubQuery Documentation",
   "start_url": "https://academy.subquery.network",
   "display": "standalone",
   "theme_color": "#fff",

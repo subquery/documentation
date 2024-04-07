@@ -1,12 +1,13 @@
+import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { redirectPlugin } from "vuepress-plugin-redirect";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
-  title: "SubQuery Academy (Documentation)",
+  title: "SubQuery Documentation",
   description:
     "Learn how to build with SubQuery. SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project. Build your API anywhere across multiple chains in minutes with our open-source SDK.",
   head: [
@@ -43,83 +44,10 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "SubQuery Academy (Documentation)",
+      title: "SubQuery Documentation",
       description:
         "Explore and transform your chain data to build intuitive dApps faster!",
     },
-
-    // "/zh/": {
-    //   lang: "zh-CN",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/es/": {
-    //   lang: "es",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/de/": {
-    //   lang: "de-AT",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/id/": {
-    //   lang: "id",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/it/": {
-    //   lang: "it",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ja/": {
-    //   lang: "ja",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ko/": {
-    //   lang: "ko",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/ru/": {
-    //   lang: "ru",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/th/": {
-    //   lang: "th",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/tr/": {
-    //   lang: "tr",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/uk/": {
-    //   lang: "uk",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
-    // "/vi/": {
-    //   lang: "vi",
-    //   title: "SubQuery Academy (Documentation)",
-    //   description:
-    //     "Explore and transform your chain data to build intuitive dApps faster!.",
-    // },
   },
   theme: hopeTheme({
     hostname: "https://academy.subquery.network",
@@ -131,44 +59,6 @@ export default defineUserConfig({
       "/": {
         sidebar: getSidebar(""),
       },
-
-      // "/de/": {
-      //   sidebar: getSidebar("/de"),
-      // },
-      // "/tr/": {
-      //   sidebar: getSidebar("/tr"),
-      // },
-      // "/zh/": {
-      //   sidebar: getSidebar("/zh"),
-      // },
-      // "/vi/": {
-      //   sidebar: getSidebar("/vi"),
-      // },
-      // "/ru/": {
-      //   sidebar: getSidebar("/ru"),
-      // },
-      // "/uk/": {
-      //   sidebar: getSidebar("/uk"),
-      // },
-      // "/es/": {
-      //   sidebar: getSidebar("/es"),
-      // },
-      // "/ja/": {
-      //   sidebar: getSidebar("/js"),
-      // },
-      // "/ko/": {
-      //   sidebar: getSidebar("/ko"),
-      // },
-
-      // "/id/": {
-      //   sidebar: getSidebar("/id"),
-      // },
-      // "/it/": {
-      //   sidebar: getSidebar("/it"),
-      // },
-      // "/th/": {
-      //   sidebar: getSidebar("/th"),
-      // },
     },
 
     darkmode: "enable",
@@ -176,23 +66,20 @@ export default defineUserConfig({
 
     navbar: [
       {
-        text: "Explorer",
-        link: "https://explorer.subquery.network/",
-        target: "_blank",
-        rel: "",
+        text: "Home",
+        link: "/",
       },
       {
-        text: "Managed Service",
-        link: "https://managedservice.subquery.network/",
-        target: "_blank",
-        rel: "",
+        text: "SubQuery Indexer SDK",
+        link: "/indexer/welcome.md",
       },
-      { text: "Documentation", link: "/" },
       {
-        text: "GitHub",
-        link: "https://github.com/subquery/subql",
-        target: "_blank",
-        rel: "",
+        text: "SubQuery Network",
+        link: "/subquery_network/welcome.md",
+      },
+      {
+        text: "Miscellaneous",
+        link: "/miscellaneous/contributing.md",
       },
     ],
 
@@ -205,9 +92,14 @@ export default defineUserConfig({
     lastUpdated: true,
 
     plugins: {
+      docsearch: {
+        appId: "30B5W460WL",
+        apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
+        indexName: "subquery_academy",
+      },
       mdEnhance: {
         // this is the default option, so you can use it directly
-        container: true,
+        hint: true,
         codetabs: true,
         checkLinks: {
           // only check links in dev mode
@@ -222,12 +114,14 @@ export default defineUserConfig({
         sup: true,
       },
 
+      /*
       pwa: {
         manifest: {
           short_name: "SubQL Docs",
         },
         favicon: "/assets/favicons/favicon.ico",
       },
+      */
 
       seo: {
         autoDescription: true,
@@ -237,11 +131,14 @@ export default defineUserConfig({
     },
   }),
 
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
+
   plugins: [
-    docsearchPlugin({
-      appId: "30B5W460WL",
-      apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
-      indexName: "subquery_academy",
+    registerComponentsPlugin({
+      componentsDir: "./docs/.vuepress/components",
     }),
     googleAnalyticsPlugin({
       id: "G-MY90N76MNK",
@@ -292,17 +189,23 @@ export default defineUserConfig({
             "/subquery_network/node_operators/indexers/indexer-security-guide.html",
           "/subquery_network/indexers/ssl-configuration.html":
             "/subquery_network/node_operators/indexers/indexer-security-guide.html",
-          "/build/manifest/terra.html": "/build/manifest/cosmos.html",
-          "/build/mapping/terra.html": "/build/mapping/cosmos.html",
+          "/build/manifest/terra.html": "/indexer/build/manifest/cosmos.html",
+          "/build/mapping/terra.html": "/indexer/build/mapping/cosmos.html",
           "/build/quickstart/quickstart_chains/terra.html":
-            "/build/quickstart/quickstart_chains/cosmos.html",
-          "/run_publish/ipfs.html": "/miscellaneous/ipfs.html",
-          "/run_publish/query.html": "/run_publish/query/graphql.html",
-          "/run_publish/aggregate.html": "/run_publish/query/aggregate.html",
+            "/indexer/quickstart/quickstart_chains/cosmos.html",
+          "/run_publish/ipfs.html": "/indexer/miscellaneous/ipfs.html",
+          "/miscellaneous/ipfs.html": "/indexer/miscellaneous/ipfs.html",
+          "/miscellaneous/avalanche-eth-migration.html":
+            "/indexer/miscellaneous/avalanche-eth-migration.html",
+          "/faqs/faqs.html": "/indexer/miscellaneous/faqs.html",
+          "glossary/glossary.html": "/subquery_network/glossary.html",
+          "/run_publish/query.html": "/indexer/run_publish/query/graphql.html",
+          "/run_publish/aggregate.html":
+            "/indexer/run_publish/query/aggregate.html",
           "/run_publish/subscription.html":
-            "/run_publish/query/subscription.html",
+            "/indexer/run_publish/query/subscription.html",
           "/quickstart/quickstart_chains/astar-zkatana.html":
-            "/quickstart/quickstart_chains/astar-zkevm.html",
+            "/indexer/quickstart/quickstart_chains/astar-zkevm.html",
           "/subquery_network/publish.html":
             "/subquery_network/architects/publish.html",
         };
@@ -314,6 +217,36 @@ export default defineUserConfig({
                 "/subquery_network/node_operators/indexers/",
                 "/subquery_network/indexers/"
               ),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/academy/", "/academy/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/build/", "/build/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/miscellaneous/", "/miscellaneous/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/quickstart/", "/quickstart/"),
+              path,
+            ])
+          ),
+          ...Object.fromEntries(
+            app.pages.map(({ path }) => [
+              path.replace("/indexer/run_publish/", "/run_publish/"),
               path,
             ])
           ),

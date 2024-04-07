@@ -1,4 +1,4 @@
-# SubQuery Academy
+# SubQuery Documentation
 
 SubQuery enables better dApps by making decentralised data more accessible - [learn more](https://subquery.network).
 
