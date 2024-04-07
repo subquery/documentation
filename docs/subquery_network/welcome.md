@@ -10,12 +10,10 @@ photoSwipe: false
  <div class="welcomeContainer">
   <div class="bannerRow">
     <div class="ct">
-      <h2>SubQuery Network</h2>
-      <h5>
-        SubQuery is a fast, flexible, and reliable open-source data indexer
-        that provides you with custom APIs for your web3 project across all
-        of our supported chains.
-      </h5>
+      <Typography tag="h2">SubQuery Network</Typography>
+      <Typography tag="h4" family="body" type="secondary">
+        The SubQuery Network is the most scalable, reliable, and unified data infrastructure network. 1,000s of decentralised Indexers and RPC providers simplify the data layer for a myriad of applications and use cases.
+      </Typography>
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg bannerImageBgRed"></div>
@@ -26,45 +24,46 @@ photoSwipe: false
     title="Participate today as a Delegator"
     description="Anyone can participate as a Delegator and participate in the Network to earn rewards based on the work that Node Operators do. Current APR for delegators is 23%"
     buttonText="Join now"
-    titleTag="h4"
+    titleTag="h35"
     buttonLink="/academy/herocourse/welcome.html"
     backgroundUrl="/assets/img/network/join-network.png"
     style="margin-top: 0"
   ></Banner>
-  <h3 style="margin-top: 140px; margin-bottom: 64px">
+  <Typography tag="h3" fontSize="42" style="margin-top: 140px; margin-bottom: 64px">
     One network, all your web3 data needs
-  </h3>
+  </Typography>
   <div class="layout mb140" style="display: flex; gap: 24px">
     <BaseCard v-for="item in oneNetworkAllWeb3" :key="item.title">
       <div class="flexColCenter" style="gap: 24px; text-align: center">
         <img :src="item.image" height="300" />
-        <h4 style="font-size: 26px">{{ item.title }}</h4>
-        <h5 style="font-family: var(--font-family)">{{ item.subtitle }}</h5>
-        <p
+        <Typography fontSize="26">{{ item.title }}</Typography>
+        <Typography fontSize="20" family="body" style="letter-spacing: -1.1px">{{ item.subtitle }}</Typography>
+        <Typography
           v-for="content in item.contents"
           :key="content"
-          style="font-size: 16px"
+          type="secondary"
+          fontSize="16"
         >
           {{ content }}
-        </p>
+        </Typography>
         <button class="button">{{ item.buttonText }}</button>
       </div>
     </BaseCard>
   </div>
-  <h3 style="margin-bottom: 24px">Anyone can participate</h3>
-  <h5
+  <Typography tag="h3" fontSize="42" style="margin-bottom: 24px">Anyone can participate</Typography>
+  <Typography
+  center
+  type="secondary"
+  fontSize="20"
     style="
       margin-bottom: 40px;
-      font-family: var(--font-family);
       max-width: 664px;
-      text-align: center;
-      color: var(--gray-400);
     "
   >
     There’s a role for everyone in the network, from highly technical
     developers to those with some experience and blockchain beginners. Find
     out how you can participate and be rewarded.
-  </h5>
+  </Typography>
   <div
     class="layout"
     style="
@@ -87,10 +86,10 @@ photoSwipe: false
         height="160"
         style="margin-bottom: 24px"
       />
-      <h4>{{ anyone.name }}</h4>
-      <p style="max-width: 360px; font-size: 16px">
+      <Typography tag="h35">{{ anyone.name }}</Typography>
+      <Typography fontSize="16" type="secondary" style="max-width: 360px;margin: 16px 0 24px 0">
         {{ anyone.description }}
-      </p>
+      </Typography>
       <router-link :to="{ path: anyone.moreLink }">
         <button class="button">Learn more</button>
       </router-link>
@@ -103,7 +102,9 @@ photoSwipe: false
       'It is a heavily forked RPC node that is perfectly optimised for querying and running in a decentralised environment. Performance of web3 dApps is no longer limited by slow RPC endpoints.',
     ]"
     buttonText="Run one today"
-    titleTag="h4"
+    titleTag="h3"
+    titleFontSize="42"
+    descFontSize="20"
     buttonLink="/academy/herocourse/welcome.html"
     backgroundUrl="https://subquery.network/images/subqlDataNode.png"
     style="background-size: 300px; background-position: right"
@@ -115,7 +116,8 @@ photoSwipe: false
       'You can read about the tokenomics and access SQT on a number of exchanges.',
     ]"
     buttonText="Learn about SQT"
-    titleTag="h4"
+    titleTag="h3"
+    titleFontSize="42"
     buttonLink="/academy/herocourse/welcome.html"
     backgroundUrl="/assets/img/network/sqt.png"
     style="
@@ -125,8 +127,8 @@ photoSwipe: false
     "
   ></Banner>
   <div class="advancedFeatures layout mt80">
-    <h4>Get Started with the Network Today</h4>
-    <p>Our decentralised network is live and vibrant</p>
+    <Typography tag="h35">Get Started with the Network Today</Typography>
+    <Typography tag="p" size="large" style="margin: 24px 0 40px 0">Our decentralised network is live and vibrant</Typography>
     <div class="grid3column" style="gap: 24px">
       <router-link
         v-for="item in advancedFeatures"
@@ -134,11 +136,11 @@ photoSwipe: false
         :to="{ path: item.link }"
         style="text-decoration: none"
       >
-        <BaseCard>
-          <h5 class="fontText">{{ item.title }}</h5>
-          <p class="fontMedium" style="margin-top: 16px; margin-bottom: 0">
+        <BaseCard style="padding: 20px">
+          <Typography tag="p">{{ item.title }}</Typography>
+          <Typography tag="p" size="medium" style="margin-top: 16px; margin-bottom: 0">
             {{ item.desc }}
-          </p>
+          </Typography>
         </BaseCard>
       </router-link>
     </div>
@@ -150,7 +152,7 @@ photoSwipe: false
       'Build your own custom API for over 160 chains today by following our quick start guides, then host it your way',
     ]"
     buttonText="Learn more about our Indexer SDK"
-    titleTag="h4"
+    titleTag="h35"
     buttonLink="/academy/herocourse/welcome.html"
     backgroundUrl="https://subquery.network/images/indexerConcept.png"
     style="

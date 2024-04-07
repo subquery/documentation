@@ -6,8 +6,18 @@
     }"
   >
     <div class="flexCol gp24">
-      <Typography :tag="titleTag ? titleTag : 'h35'">{{ title }}</Typography>
-      <Typography tag="p" v-if="!Array.isArray(description)" type="secondary">
+      <Typography
+        :tag="titleTag ? titleTag : 'h35'"
+        :font-size="titleFontSize"
+        >{{ title }}</Typography
+      >
+      <Typography
+        tag="p"
+        v-if="!Array.isArray(description)"
+        type="secondary"
+        size="large"
+        :font-size="descFontSize"
+      >
         {{ description }}
       </Typography>
       <template v-else>
@@ -16,6 +26,8 @@
           v-for="desc in description"
           type="secondary"
           :key="desc"
+          size="large"
+          :font-size="descFontSize"
         >
           {{ desc }}
         </Typography>
@@ -32,6 +44,8 @@
 import Typography from "./Typography.vue";
 
 defineProps<{
+  titleFontSize?: number | string;
+  descFontSize?: number | string;
   titleTag: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
   title: String;
   description: String | String[];
