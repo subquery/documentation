@@ -33,25 +33,28 @@
         </Typography>
       </template>
       <div class="flex">
-        <router-link class="button" :to="{ path: buttonLink }">{{
-          buttonText
-        }}</router-link>
+        <router-link :to="{ path: buttonLink }">
+          <Button>
+            {{ buttonText }}
+          </Button>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import Typography from "./Typography.vue";
+import Button from "./Button.vue";
 
 defineProps<{
   titleFontSize?: number | string;
   descFontSize?: number | string;
-  titleTag: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
-  title: String;
-  description: String | String[];
-  buttonText: String;
-  buttonLink: String;
-  backgroundUrl: String;
+  titleTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
+  title: string;
+  description: string | string[];
+  buttonText: string;
+  buttonLink: string;
+  backgroundUrl: string;
 }>();
 </script>
 

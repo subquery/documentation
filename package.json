@@ -19,5 +19,8 @@
     "vuepress": "2.0.0-rc.8",
     "vuepress-plugin-redirect": "2.0.0-rc.19",
     "vuepress-theme-hope": "2.0.0-rc.25"
+  },
+  "dependencies": {
+    "vue-router": "^4.3.0"
   }
 }

@@ -5,13 +5,17 @@
       The fastest way to get support is by joining our discord and messaging us
       in #technical-support.
     </Typography>
-    <a class="button" href="https://discord.com/invite/subquery" target="_blank"
-      ><img src="/assets/img/discord_icon.svg" />Join our Discord</a
-    >
+    <a href="https://discord.com/invite/subquery" target="_blank">
+      <Button>
+        <img src="/assets/img/discord_icon.svg" />
+        Join our Discord
+      </Button>
+    </a>
   </div>
 </template>
 <script setup lang="ts">
 import Typography from "./Typography.vue";
+import Button from "./Button.vue";
 </script>
 
 <style lang="scss">

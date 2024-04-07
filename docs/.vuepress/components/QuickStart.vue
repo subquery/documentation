@@ -77,7 +77,22 @@
 import { ref, onMounted } from "vue";
 import Typography from "./Typography.vue";
 
-const quickStartJson = ref([]);
+const quickStartJson = ref<
+  {
+    name: string;
+    logo: string;
+    quick_start_data: {
+      logo: string;
+      name: string;
+      quick_start_data: {
+        name: string;
+        link: string;
+        logo: string;
+        internal: boolean;
+      }[];
+    }[];
+  }[]
+>([]);
 
 const fetchAllQuickStart = () => {
   fetch("https://templates.subquery.network/guides").then(async (data) => {

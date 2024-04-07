@@ -19,9 +19,9 @@
 </template>
 <script setup lang="ts">
 defineProps<{
-  maxWidth?: number;
+  maxWidth?: number | string;
   center?: boolean;
-  weight?: number;
+  weight?: number | string;
   size?: "text" | "large" | "medium" | "small";
   tag?: "h1" | "h2" | "h3" | "h35" | "h4" | "h5" | "p" | "a";
   type?: "normal" | "secondary";

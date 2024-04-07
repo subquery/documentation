@@ -8,116 +8,125 @@ photoSwipe: false
 ---
 
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
- <div class="welcomeContainer">
-    <div class="banner">
-      <div class="bannerImage">
-        <div class="bannerImageBg"></div>
-        <img src="/assets/img/welcomeBanner.png" />
-      </div>
-      <div class="ct">
-        <Typography tag="h1" center maxWidth="787">
-          Learn how to build with SubQuery
-        </Typography>
-        <Typography tag="h4" center maxWidth="687" family="body">
-          SubQuery is a fast, flexible, and reliable open-source data
-          decentralised infrastructure network, providing both RPC and indexed
-          data to consumers around the world.
-        </Typography>
-        <Typography tag="h4" center maxWidth="687" family="body">
-          The SubQuery Data Indexer is a open-source data indexer that provides
-          you with custom APIs for your web3 project across all of our supported
-          chains.</Typography
-        >
-      </div>
+<div class="welcomeContainer">
+  <div class="banner">
+    <div class="bannerImage">
+      <div class="bannerImageBg"></div>
+      <img src="/assets/img/welcomeBanner.png" />
     </div>
-    <div class="layout flex mt80 gp24">
-      <BaseCard>
-        <router-link
-          class="flexCol gp24"
-          :to="{ path: '/indexer/welcome.html' }"
-        >
-          <div class="flexCenter gp16">
-            <img src="/assets/img/home/indexer-sdk.png" />
-            <Typography tag="h4" family="body">Indexer SDK</Typography>
-          </div>
-          <Typography tag="h3">Build with SubQuery's Indexer SDK</Typography>
-          <Typography tag="h5" type="secondary"
-            >SubQuery is a fast, flexible, and reliable open-source data indexer
-            that provides you with custom APIs for your web3 project across all
-            of our supported chains.
-          </Typography>
-          <div>
-            <button class="button mt40">Learn more</button>
-          </div>
-        </router-link>
-      </BaseCard>
-      <BaseCard>
-        <router-link
-          class="flexCol gp24"
-          :to="{ path: '/subquery_network/welcome.html' }"
-        >
-          <div class="flexCenter gp16">
-            <img src="/assets/img/home/subquery-network.png" />
-            <Typography tag="h4" family="body">SubQuery Network</Typography>
-          </div>
-          <Typography tag="h3"
-            >Decentralised Infra on the SubQuery Network</Typography
-          >
-          <Typography tag="h5" type="secondary">
-            Our decentralised infrastructure network revolutionises the web3
-            landscape, providing both RPC and indexed data to consumers around
-            the world.</Typography
-          >
-          <div>
-            <button class="button mt40">Learn more</button>
-          </div>
-        </router-link>
-      </BaseCard>
+    <div class="flexColCenter" style="position: relative">
+      <Typography tag="h1" center maxWidth="787">
+        Learn how to build with SubQuery
+      </Typography>
+      <Typography tag="h4" center maxWidth="687" family="body">
+        SubQuery is a fast, flexible, and reliable open-source data
+        decentralised infrastructure network, providing both RPC and indexed
+        data to consumers around the world.
+      </Typography>
+      <Typography tag="h4" center maxWidth="687" family="body">
+        The SubQuery Data Indexer is a open-source data indexer that provides
+        you with custom APIs for your web3 project across all of our supported
+        chains.</Typography
+      >
     </div>
-    <div class="layout mt140">
-      <Typography tag="h3"> Our Most Popular Guides </Typography>
-      <div class="grid3column mt24 gp24">
-        <BaseCard
-          v-for="guide in polularGuides"
-          :key="guide.title"
-          style="padding: 20px"
-        >
-          <router-link class="flexCol gp24" :to="{ path: guide.path }">
-            <Typography tag="p">{{ guide.title }}</Typography>
-            <Typography size="medium">{{ guide.description }}</Typography>
-          </router-link>
-        </BaseCard>
-      </div>
-    </div>
-    <div class="layout mt140">
-      <Typography tag="h3"> Start build for different chains </Typography>
-      <div class="grid6column gp24 mt24">
-        <BaseCard
-          v-for="startWith in startWithExp"
-          :key="startWith.name"
-          style="padding: 20px 60px"
-        >
-          <router-link
-            class="flexColCenter gp16"
-            :to="{ path: startWith.path }"
-          >
-            <img :src="startWith.imgSrc" width="48" height="48" />
-            <Typography size="large" weight="600">{{
-              startWith.name
-            }}</Typography>
-          </router-link>
-        </BaseCard>
-      </div>
-    </div>
-    <NeedHelp class="mt140"></NeedHelp>
-    <Footer></Footer>
   </div>
-<component is="script" src="/assets/js/welcome.js" />
+  <div class="layout flex mt80 gp24">
+    <BaseCard>
+      <router-link
+        class="flexCol gp24"
+        :to="{ path: '/indexer/welcome.html' }"
+      >
+        <div class="flexCenter gp16">
+          <img src="/assets/img/home/indexer-sdk.png" />
+          <Typography tag="h4" family="body">Indexer SDK</Typography>
+        </div>
+        <Typography tag="h3">Build with SubQuery's Indexer SDK</Typography>
+        <Typography tag="h5" type="secondary"
+          >SubQuery is a fast, flexible, and reliable open-source data indexer
+          that provides you with custom APIs for your web3 project across all
+          of our supported chains.
+        </Typography>
+        <div>
+          <Button class="mt40">Learn more</Button>
+        </div>
+      </router-link>
+    </BaseCard>
+    <BaseCard>
+      <router-link
+        class="flexCol gp24"
+        :to="{ path: '/subquery_network/welcome.html' }"
+      >
+        <div class="flexCenter gp16">
+          <img src="/assets/img/home/subquery-network.png" />
+          <Typography tag="h4" family="body">SubQuery Network</Typography>
+        </div>
+        <Typography tag="h3"
+          >Decentralised Infra on the SubQuery Network</Typography
+        >
+        <Typography tag="h5" type="secondary">
+          Our decentralised infrastructure network revolutionises the web3
+          landscape, providing both RPC and indexed data to consumers around
+          the world.</Typography
+        >
+        <div>
+          <Button class="mt40">Learn more</Button>
+        </div>
+      </router-link>
+    </BaseCard>
+  </div>
+  <div class="layout mt140">
+    <Typography tag="h3"> Our Most Popular Guides </Typography>
+    <div class="grid3column mt24 gp24">
+      <BaseCard
+        v-for="guide in polularGuides"
+        :key="guide.title"
+        style="padding: 20px"
+      >
+        <component
+          class="flexCol gp24"
+          :is="guide.path.startsWith('https') ? 'a' : 'router-link'"
+          :href="guide.path.startsWith('https') ? guide.path : ''"
+          :target="guide.path.startsWith('https') ? '_blank' : ''"
+          :to="{ path: guide.path }"
+        >
+          <Typography tag="p">{{ guide.title }}</Typography>
+          <Typography size="medium">{{ guide.description }}</Typography>
+        </component>
+      </BaseCard>
+    </div>
+  </div>
+  <div class="layout mt140">
+    <Typography tag="h3"> Start build for different chains </Typography>
+    <div class="grid6column gp24 mt24">
+      <BaseCard
+        v-for="startWith in startWithExp"
+        :key="startWith.name"
+        style="padding: 20px 60px"
+      >
+        <router-link
+          class="flexColCenter gp16"
+          :to="{ path: startWith.path }"
+        >
+          <img :src="startWith.imgSrc" width="48" height="48" />
+          <Typography size="large" weight="600" center>{{
+            startWith.name
+          }}</Typography>
+        </router-link>
+      </BaseCard>
+    </div>
+  </div>
+  <NeedHelp class="mt140"></NeedHelp>
+  <Footer></Footer>
+</div>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed,onMounted } from "vue";
 
-const polularGuides = ref([
+const allNetworks = ref([])
+
+const polularGuides = computed(() => {
+  const counts = allNetworks.value.reduce((cur, add) => cur + add.networks.length, 0) || '165+'
+  return [
   {
     "path": "/indexer/build/graph-migration.html",
     "title": "Migrating from the Graph",
@@ -135,8 +144,9 @@ const polularGuides = ref([
   },
   {
     "path": "https://subquery.network/networks",
-    "title": "Browse 169 supported networks",
-    "description": "Our goal is to help developers with the best indexer regardless of what chain they build on, we support 161 networks - see the list."
+    "title": `Browse ${counts} supported networks`,
+    "description": `Our goal is to help developers with the best indexer regardless of what chain they build on, we support ${counts} networks - see the list.`,
+    key: 'allNetworks'
   },
   {
     "path": "/subquery_network/token/token.html",
@@ -148,9 +158,17 @@ const polularGuides = ref([
     "title": "How to host and run your project",
     "description": "SubQuery is open-source and gives a number of different options, including self-hosting, our managed service, and our decentralised network."
   }
-])
+]})
 
-const startWithExp = ref([
+const startWithExp = computed(() => {
+  const differentChains = allNetworks.value.slice(0, 6).map((item) => {
+    return {
+      path: '',
+      imgSrc: item.logo,
+      name: item.name
+    }
+  })
+  return differentChains.length ? differentChains : [
   {
     "path": "/indexer/quickstart/quickstart_chains/ethereum-gravatar.html",
     "imgSrc": "https://static.subquery.network/network-logos/1.png",
@@ -181,5 +199,16 @@ const startWithExp = ref([
     "imgSrc": "https://static.subquery.network/network-logos/stellar.png",
     "name": "Stellar"
   }
-])
+]})
+
+const fetchAllNetworks = () => {
+  fetch("https://templates.subquery.network/all").then(async (data) => {
+    const json = await data.json();
+    allNetworks.value = json.templates
+  });
+};
+
+onMounted(() => {
+  fetchAllNetworks();
+});
 </script>

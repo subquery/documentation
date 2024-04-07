@@ -9,7 +9,7 @@ photoSwipe: false
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="bannerRow">
-    <div class="ct">
+    <div class="flexColCenter gp24" style="max-width: 614px">
       <Typography tag="h2">Build with SubQuery's Indexer SDK</Typography>
       <Typography tag="h5">The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</Typography>
     </div>
@@ -39,7 +39,11 @@ photoSwipe: false
         <img src="/assets/img/graphGuideIcon.svg" />
         <Typography tag="h4" fontSize="32" style="margin-top: 32px">Coming from the Graph?</Typography>
         <Typography tag="p" size="large" maxWidth="630" center style="margin-top: 16px;margin-bottom:32px">Welcome to the fastest and most feature rich indexer in web3, migrating is easy and should only take a few minutes.</Typography>
-        <router-link class="button buttonRed" :to="{path: '/build/graph-migration.html'}">Migrate Now!</router-link>
+        <router-link :to="{path: '/build/graph-migration.html'}">
+          <Button type="danger">
+            Migrate Now!
+          </Button>
+        </router-link>
       </div>
     </div>
     <div class="layout mt80">
@@ -62,7 +66,11 @@ photoSwipe: false
         <Typography tag="p" size="large" type="secondary">Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </Typography>
         <Typography tag="p" size="large" type="secondary">After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</Typography>
         <div class="flex">
-        <router-link class="button" :to="{path: '/subquery_network/welcome.html'}">Learn more about our Decentralised Network</router-link>
+        <router-link :to="{path: '/subquery_network/welcome.html'}">
+          <Button>
+          Learn more about our Decentralised Network
+          </Button>
+        </router-link>
         </div>
       </div>
       <img style="margin-top: -50px" src="/assets/img/architects.png" width="516" height="392" />
@@ -70,7 +78,6 @@ photoSwipe: false
     <NeedHelp></NeedHelp>
     <Footer></Footer>
   </div>
-<component is="script" src="/assets/js/welcome.js" />
 
 <script setup>
 import { ref, onMounted } from 'vue'
