@@ -23,7 +23,7 @@ defineProps<{
   center?: boolean;
   weight?: number;
   size?: "text" | "large" | "medium" | "small";
-  tag?: "h1" | "h2" | "h3" | "h35" | "h4" | "h5" | "p";
+  tag?: "h1" | "h2" | "h3" | "h35" | "h4" | "h5" | "p" | "a";
   type?: "normal" | "secondary";
   family?: "heading" | "body";
   fontSize?: number | string;
@@ -37,6 +37,13 @@ defineProps<{
   margin: 0;
   padding: 0;
   border: 0;
+  transition: all 0.2s linear;
+  &.a {
+    &:hover {
+      color: var(--primary);
+    }
+    text-decoration: none;
+  }
 
   &.h1 {
     font-size: 80px;
