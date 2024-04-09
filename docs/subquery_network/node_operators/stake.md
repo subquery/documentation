@@ -64,7 +64,7 @@ You can use the estimate of the Own Stake and Total Delegated for the next Era o
 There are multiple reasons why Node Operators should consider staking more SQT or attracting more Delegation.
 
 - All Node Operators must stake a minimum amount of SQT to become a Node Operator, the current setting can be found in [network parameters](../parameters.md)
-- There is a maximum allowed delegation amount based on the size of the Node Operator's self stake, this ensures the Node Operator has sufficient skin in the game. Increasing self stake can mean delegators are able to delegate more to you.
+- There is a maximum allowed delegation capacity based on the size of the Node Operator's own stake, this ensures the Node Operator has sufficient skin in the game. Increasing own stake can mean delegators are able to delegate more to you. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
 - More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
 - It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 

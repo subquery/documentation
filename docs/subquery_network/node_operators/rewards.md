@@ -21,7 +21,7 @@ In order to register and become a Node Operator, a minimum amount of SQT (curren
 
 Delegators are SQT token holders who delegate their tokens to Node Operators for a fair share of their rewards.
 
-Although reputation, service quality and total self stake are all important factors in a Delegator's decision process, eventually it all relates to ROI. Node Operators should be alert to Consumer demand, the rewards are usually larger when there is less competition from other Node Operators. Node Operators should also set their commission rate appropriately to raise the ROI of their Delegators.
+Although reputation, service quality and total own stake are all important factors in a Delegator's decision process, eventually it all relates to ROI. Node Operators should be alert to Consumer demand, the rewards are usually larger when there is less competition from other Node Operators. Node Operators should also set their commission rate appropriately to raise the ROI of their Delegators.
 
 You can read more about how Delegators may pick Node Operators [here](../delegators/rewards.md#how-to-select-what-indexers-to-delegate-to)
 

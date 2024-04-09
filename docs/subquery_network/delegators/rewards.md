@@ -28,6 +28,8 @@ For example, Node Operator A has set an NOCR of 30% and has received SQT from 8 
 
 Note that Delegators must have delegated their tokens for the entire [Era](../introduction/era.md) to be eligible for these rewards (note [Non-reward period](#non-reward-period)).
 
+Node Operators also have a maximum delegation capacity based on the size of the Node Operator's own stake, this ensures the Node Operator has sufficient skin in the game. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
+
 For Data Indexers, we've made it easier for you to see other data about all Data Indexers in our app. Navigate to `Delegator` > `Indexers` and view the [leaderboard](https://app.subquery.network/delegator/node_operators/indexers/top) which shows various scores and details that we think are important to you when deciding what Data Indexer to choose. The Data Indexers Score takes into account an Data Indexer’s uptime, slashing events, and other parameters.
 
 ## Non-reward period
