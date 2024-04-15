@@ -132,13 +132,24 @@ ENDPOINT=https://opbnb-mainnet-rpc.bnbchain.org,jjj
 CHAIN_ID=204
 ```
 
-In your .env files, CHAIN_ID and provided ENPOINT of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as CONTRACT_ADDRESS from project.ts in your .env files for added security.
+In your .env files, **CHAIN_ID** and provided **ENPOINT** of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as **CONTRACT_ADDRESS** from project.ts in your .env files for added security.
 
-Multiple ENDPOINT can be added in .env file using comma separated
+Multiple ENDPOINT can be added in .env file using comma separated.
 
 ```shell
 ENDPOINT=https://polygon-rpc.com,wss://polygon-bor-rpc.publicnode.com
 ```
+
+The package.json file includes build scripts that allow you to build with either production (`.env`) or development (`.env.develop`).
+
+```json
+"scripts": {
+    "build": "subql codegen && subql build", // default is production
+    "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
+}
+```
+Use `build` script to generate artifacts using the default production .env settings.
+Use `build:develop` script to generate artifacts using the development .env.develop settings.
 
 Using environment variables and .env files provides a convenient way to manage project configurations and keep sensitive information secure.
 
