@@ -128,16 +128,16 @@ The .env files are automatically created when you initialize a project using the
 
 ```shell
 # Example .env
-ENDPOINT=https://opbnb-mainnet-rpc.bnbchain.org,jjj
+ENDPOINT=https://polygon-rpc.com
 CHAIN_ID=204
 ```
 
-In your .env files, **CHAIN_ID** and provided **ENPOINT** of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as **CONTRACT_ADDRESS** from project.ts in your .env files for added security.
+In your .env files, *CHAIN_ID* and provided *ENDPOINT* of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as *CONTRACT_ADDRESS* from project.ts in your .env files for added security.
 
 Multiple ENDPOINT can be added in .env file using comma separated.
 
 ```shell
-ENDPOINT=https://polygon-rpc.com,wss://polygon-bor-rpc.publicnode.com
+ENDPOINT=https://polygon-rpc.com,https://polygon.llamarpc.com
 ```
 
 The package.json file includes build scripts that allow you to build with either production (`.env`) or development (`.env.develop`).
