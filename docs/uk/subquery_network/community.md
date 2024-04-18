@@ -14,7 +14,7 @@ When the conversation is deeper and requires more thought, we move the conversat
 
 SubQuery is open source and open to the community, if you want to contribute (e.g. add a feature, fix a bug, suggest an improvement, or even just fix a typo in our documentation), please review our [contributing guide](../miscellaneous/contributing.md).
 
-The following codebases are where you can find code for all the contracts, appliations, and backend SubQuery projects. We're looking forward to seeing your contributions!
+The following codebases are where you can find code for all the contracts, applications, and backend SubQuery projects. We're looking forward to seeing your contributions!
 
 ### `network-app`
 
