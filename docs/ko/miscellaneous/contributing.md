@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - 본인의 것을 만들기 전에 기존의 Issues 및 PRs를 검색하십시오.
-- 우리는 문제가 신속하게 처리될 수 있도록 열심히 노력하고 있지만, 영향 정도에 따라 근본 원인을 파악하는데 좀 더 시간이 걸릴 수 있습니다. 당신의 문제가 막힌 경우, 댓글로 친절하게 @로 제출자 혹은 기여자를 언급하면 보다 쉽게 관심을 끌 수 있습니다.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. 당신의 문제가 막힌 경우, 댓글로 친절하게 @로 제출자 혹은 기여자를 언급하면 보다 쉽게 관심을 끌 수 있습니다.
 
 ## 기여 방법
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - 문제를 식별하기 위해 문제에 대해 명확하고 자세한 제목을 사용합니다.
 - 문제를 재현 확인하기 위한 정확한 단계를 설명합니다.
-- 단계들을 수행한 후에 당신이 보았던 동작을 설명하십시오.
-- 당신이 기대 예상했던 작동과 그 이유를 설명하세요.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - 가능하다면, 스크린샷을 첨부하세요.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
