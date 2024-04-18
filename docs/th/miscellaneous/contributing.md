@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - การค้นหา Issues และ PR ที่มีอยู่ก่อนที่จะสร้าง Issues ของคุณเอง
-- เราทำงานอย่างหนักเพื่อให้แน่ใจว่า Issues จะได้รับการจัดการโดยทันที แต่อาจใช้เวลาสักครู่ในการตรวจสอบหาสาเหตุ ทั้งนี้ขึ้นอยู่กับต้นเหต การใช้ @ mention ที่เป็นมิตรในความคิดเห็นถึงผู้ส่งหรือผู้ร่วมให้ข้อมูลสามารถช่วยดึงดูดความสนใจได้หาก Issue ของคุณยังไม่ได้รับการแก้ไข้
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. การใช้ @ mention ที่เป็นมิตรในความคิดเห็นถึงผู้ส่งหรือผู้ร่วมให้ข้อมูลสามารถช่วยดึงดูดความสนใจได้หาก Issue ของคุณยังไม่ได้รับการแก้ไข้
 
 ## วิธีการมีส่วนร่วม
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - ตั้งชื่อ Issue ที่ชัดเจนและสื่อความหมายเพื่อระบุปัญหา
 - อธิบายขั้นตอนที่แน่นอนในการทำให้เกิดปัญหานี้ซ้ำ
-- อธิบายอาการที่คุณสังเกตเห็นหลังจากทำตามขั้นตอนต่างๆ
-- อธิบายว่าคุณคาดว่าจะเห็นผลลัพธ์ใดแทนและเพราะเหตุใด
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - รวมภาพหน้าจอด้วย ถ้าเป็นไปได้
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
