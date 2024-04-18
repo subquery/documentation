@@ -2,19 +2,25 @@
 
 ## What is a Delegator?
 
-A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Node Operator (RPC Providers or Data Indexers) and earn rewards (similar to staking).
+Delegating SQT is an easy way to stake your SQT and receive APY on your tokens. It only takes a few minutes and requires no technical skill.
 
-Without Delegators, Node Operators would likely earn fewer rewards because they will have less SQT to stake. Therefore, Node Operators compete to attract Delegators by offering a competitive share of a Node Operator's rewards.
+The Delegator role enables Delegators to “delegate” their SQT to one or more Node Operator (RPC Providers or Data Indexers) and earn rewards (similar to staking).
 
-## Requirements to be a Delegator
+Without Delegators, Node Operators may receive fewer rewards because they will have less SQT to stake. Therefore, Node Operators compete to attract Delegators by offering a competitive share of their rewards.
 
-One of the best things about being a Delegator is that you don’t need any DevOps, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+## How to delegate to a Node Operator
+
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/7GKWO5wEdtc" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
+Once you have some [SQT](../token/token.md#where-is-sqt-traded), you can delegate using our app. [Read more about how you can delegate here](./delegating.md).
 
 ## Benefits of being a Delegator
 
 There are several benefits of becoming a Delegator:
 
-- It's easy to get started and requires little technical knowledge, Delegators only need to acquire SQT tokens and then [learn the process of delegating the tokens to their preferred Node Operator(s)](./delegating.md).
+- It's easy to get started and requires little technical knowledge, Delegators only need to [acquire SQT tokens](../token/token.md#where-is-sqt-traded) and then [learn the process of delegating the tokens to their preferred Node Operator(s)](./delegating.md).
 - Delegating contribute to the network by putting their SQT to work by delegating their SQT to Node Operators. In return, Delegators are [rewarded with SQT](./rewards.md) (a share of the reward pool).
 - There is no minimum required delegation to be a Delegator. This means that anyone can join no matter how much SQT one has.
 

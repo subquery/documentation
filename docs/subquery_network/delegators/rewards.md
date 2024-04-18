@@ -30,7 +30,9 @@ Note that Delegators must have delegated their tokens for the entire [Era](../in
 
 Node Operators also have a maximum delegation capacity based on the size of the Node Operator's own stake, this ensures the Node Operator has sufficient skin in the game. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
 
-For Data Indexers, we've made it easier for you to see other data about all Data Indexers in our app. Navigate to `Delegator` > `Indexers` and view the [leaderboard](https://app.subquery.network/delegator/node_operators/indexers/top) which shows various scores and details that we think are important to you when deciding what Data Indexer to choose. The Data Indexers Score takes into account a Data Indexer’s uptime, slashing events, and other parameters.
+For Data Indexers, we've made it easier for you to see other data about all Data Indexers in our app. Navigate to `Delegator` > `Indexers` and view the [Node Operator List](https://app.subquery.network/delegator/node_operators/indexers/all) which shows various scores and details that we think are important to you when deciding what Data Indexer to choose. The Data Indexers Score takes into account a Data Indexer’s uptime, slashing events, and other parameters.
+
+![Delegate Node Operator List](/assets/img/network/delegate_indexers.png)
 
 ## Non-reward period
 
