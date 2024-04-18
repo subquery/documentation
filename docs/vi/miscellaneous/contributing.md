@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Tìm kiếm các Vấn đề và PR hiện có trước khi tự làm.
-- Chúng tôi làm việc chăm chỉ để đảm bảo các vấn đề được xử lý kịp thời nhưng tùy thuộc vào mức độ ảnh hưởng, có thể mất một khoảng thời gian để điều tra nguyên nhân gốc rễ. Đề cập @ thân thiện trong chuỗi nhận xét cho người gửi hoặc người đóng góp có thể giúp thu hút sự chú ý nếu vấn đề của bạn đang bị chặn.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Đề cập @ thân thiện trong chuỗi nhận xét cho người gửi hoặc người đóng góp có thể giúp thu hút sự chú ý nếu vấn đề của bạn đang bị chặn.
 
 ## Cách đóng góp
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Sử dụng tiêu đề rõ ràng và mang tính mô tả cho vấn đề để xác định vấn đề.
 - Mô tả các bước chính xác để tái tạo vấn đề.
-- Mô tả trạng thái bạn đã quan sát được sau khi làm theo các bước.
-- Giải thích hành vi nào bạn muốn thấy và tại sao.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - Bao gồm ảnh chụp màn hình nếu có thể.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
