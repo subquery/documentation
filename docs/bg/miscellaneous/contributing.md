@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Потърсете съществуващи проблеми и заявки за изтегляне, преди да създадете свои собствени.
-- Работим усилено, за да гарантираме, че проблемите се решават бързо, но в зависимост от въздействието може да отнеме известно време, за да се проучи основната причина. Приятелското @ споменаване в коментарите към подателя или сътрудника, може да ви помогне да привлечете внимание, в случай че проблемът ви блокира.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Приятелското @ споменаване в коментарите към подателя или сътрудника, може да ви помогне да привлечете внимание, в случай че проблемът ви блокира.
 
 ## Как да допринесете
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Използвайте ясно и описателно заглавие на проблема, за да идентифицирате проблема.
 - Опишете точните стъпки за възпроизвеждане на проблема.
-- Опишете поведението, което наблюдавате, след като следвате стъпките.
-- Обяснете какво поведение сте очаквали да видите вместо това и защо.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - Включете снимки на екрана, ако е възможно.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
