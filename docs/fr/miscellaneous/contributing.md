@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Recherchez les numéros d'Issues et de PRs existants avant de créer les vôtres.
-- Nous nous efforçons de faire en sorte que les problèmes soient traités rapidement mais, en fonction de l'impact, l'enquête sur la cause profonde peut prendre un certain temps. Une mention amicale @ dans le fil de commentaires à l'auteur de la proposition ou à un contributeur peut aider à attirer l'attention si votre problème est bloquant.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Une mention amicale @ dans le fil de commentaires à l'auteur de la proposition ou à un contributeur peut aider à attirer l'attention si votre problème est bloquant.
 
 ## Comment contribuer
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Utilisez un titre clair et descriptif de la question pour identifier le problème.
 - Décrivez les étapes exactes pour reproduire le problème.
-- Décrivez le comportement que vous avez observé après avoir suivi les étapes.
-- Expliquez quel comportement vous vous attendiez à voir à la place et pourquoi.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - Incluez des captures d'écran si possible.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
