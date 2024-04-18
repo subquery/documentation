@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - 自分で作成する前に、既存のIssuesやPRを検索してください。
-- 迅速な対応に努めていますが、影響によっては原因究明に時間がかかる場合もあります。 あなたの問題がブロックされている場合、コメントスレッドで投稿者や投稿者に友好的に@で言及することで、注意を引くことができます。
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. あなたの問題がブロックされている場合、コメントスレッドで投稿者や投稿者に友好的に@で言及することで、注意を引くことができます。
 
 ## 貢献方法
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - 問題を特定するために、明確で説明的なタイトルを使用します。
 - 問題を再現するための正確なステップを記述します。
-- 手順に従って観察した動作を説明します。
-- どの動作を期待するか、またその理由を説明します。
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - 可能であればスクリーンショットを含めます。
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
