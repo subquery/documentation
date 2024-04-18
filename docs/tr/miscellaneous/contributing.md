@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Kendi sorunlarınızı oluşturmadan önce mevcut Sorunları ve PRs arayın.
-- Sorunların derhal ele alınmasından emin olmak için çok çalışıyoruz, ancak etkiye bağlı olarak, temel nedeni araştırmak biraz zaman alabilir. Yorum başlığındaki bir dost @ bahsetmesi gönderene veya bir katılımcıya sorununuzu engelliyorsa dikkat çekmeye yardımcı olabilir.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Yorum başlığındaki bir dost @ bahsetmesi gönderene veya bir katılımcıya sorununuzu engelliyorsa dikkat çekmeye yardımcı olabilir.
 
 ## Nasıl Katkıda Bulunulur
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Sorunu tanımlamak için sorun için açık ve açıklayıcı bir başlık kullanın.
 - Sorunu yeniden oluşturmak için tam adımları açıklayın.
-- Adımları takip ettikten sonra gözlemlediğiniz davranışı açıklayın.
-- Bunun yerine hangi davranışı görmeyi beklediğinizi ve nedenini açıklayın.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - Mümkünse ekran görüntülerini ekleyin.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
