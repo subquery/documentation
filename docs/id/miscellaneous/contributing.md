@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Cari Issue and PR yang ada terlebih dahulu sebelum membuat milik Anda sendiri.
-- Kami bekerja keras untuk memastikan issue ditangani dengan segera, tetapi tergantung pada dampaknya, mungkin bisa memakan waktu cukup lama untuk menyelidiki akar masalahnya. Sebuah @ sebutan ramah di utas komentar kepada pengirim atau kontributor dapat membantu menarik perhatian jika issue Anda terblokir.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Sebuah @ sebutan ramah di utas komentar kepada pengirim atau kontributor dapat membantu menarik perhatian jika issue Anda terblokir.
 
 ## Bagaimana Berkontribusi
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Gunakan judul issue yang jelas dan deskriptif untuk mengidentifikasi masalah.
 - Jelaskan langkah-langkah yang akurat untuk mereproduksi masalah.
-- Jelaskan perilaku yang Anda amati setelah mengikuti langkah-langkah tersebut.
-- Jelaskan perilaku mana yang Anda harapkan untuk dilihat dan mengapa.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - Sertakan screenshot jika memungkinkan.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
