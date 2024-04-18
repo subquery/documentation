@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - 在创建您自己之前先搜索现有的问题和PR。
-- 我们努力确保问题得到迅速处理，但这视该问题影响大小而定，可能需要一段时间才能调查根源。 如果您遇到问题，可以在评论帖子中友情@提及提交者或贡献者获得帮助。
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. 如果您遇到问题，可以在评论帖子中友情@提及提交者或贡献者获得帮助。
 
 ## 如何参与贡献
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - **使用一个明确的和描述性的标题**\ 来描述问题。
 - 描述复制问题的确切步骤。
-- 描述跟随步骤之后您观察到的行为。
-- 解释一下你期望发生的现象及为原因。
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - 尽可能包括屏幕截图。
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
