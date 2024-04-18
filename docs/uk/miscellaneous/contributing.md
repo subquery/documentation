@@ -17,7 +17,7 @@ We take our open source community projects and responsibility seriously and hold
 Contributions to our repositories are made through Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
 - Перш ніж створювати власні питання та PR, за допомогою пошука переконайтеся в тому, що вони не були створені раніше.
-- Ми докладаємо всіх зусиль для того, щоб забезпечити своєчасне вирішення проблем, але, залежно від впливу даних проблем, може знадобитися більше часу на дослідження основної причини. Дружня @ згадка відправника або учасника у гілці коментарів може допомогти привернути увагу до вашої проблеми, якщо вона не вирішується.
+- We work hard to make sure issues are handled in promptly but, depending on the impact, it could take a while to investigate the root cause. Дружня @ згадка відправника або учасника у гілці коментарів може допомогти привернути увагу до вашої проблеми, якщо вона не вирішується.
 
 ## Як зробити вклад у Проект
 
@@ -27,8 +27,8 @@ Bugs are tracked as GitHub issues. When logging an issue, explain the problem an
 
 - Щоб ідентифікувати проблему, намагайтеся використовувати зрозумілу та описову назву.
 - Опишіть точні кроки для вiдтворення проблеми.
-- Опишіть, який результат ви отримали після виконання цих кроків.
-- Поясніть, який результат ви очікували побачити замість отриманого результату, і чому.
+- Describe the behaviour you observed after following the steps.
+- Explain which behaviour you expected to see instead and why.
 - При можливості додавайте скріншоти.
 
 If it is a security issue, please review our documentation on [Vulnerability Reporting](./vulnerability-reporting.md)
