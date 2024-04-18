@@ -20,13 +20,13 @@ Enter a price (in SQT) and the Deployment ID that you want to create the plan fo
 
 ![Set plan parameters](/assets/img/network/plans_price.png)
 
-You will see a pop-up to confirm your transaction with Metamask. Click on `Confirm` and wait for a few seconds. Then you will see a default plan created in the `Default` tab.
+You will see a pop-up to confirm your transaction with your wallet. Click on `Confirm` and wait for a few seconds. Then you will see a default plan created in the `Default` tab.
 
 ![Default plan created](/assets/img/network/plans.png)
 
 :::info Early Stages of Mainnet will automatically select your plan
 
-Note, for early stages of the Mainnet, the SubQuery council will automatically select and create agreements from the best node operators based off your plans. You don't need to do anything else here to be selected apart from performing your key role as an Node Operator.
+Note, for early stages of the Mainnet, the SubQuery council will automatically select and create agreements from the best node operators based off your plans. You don't need to do anything else here to be selected apart from performing your key role as a Node Operator.
 
 :::
 
@@ -41,7 +41,7 @@ To create or view your existing Flex plans, on the Node Operator Admin App, navi
 Click `Enable Flex Plan` to enable flex plan pricing for this particular project. You can then enter the following settings
 
 - The price per 1,000 requests. A good starting place is 1 kSQT or SQT per 1,000 requests
-- A validity period. This is for how long the pricing will be valid for consumers that take this up. E.g. if a new consumer opens a state channel with your Flex plan, they are garanteed this price for this many days once that channel is opened. A longer number of days gives greater price certainty, but reduces the Node Operators ability to adjust prices to match costs. A good starting place is 7 days.
+- A validity period. This is for how long the pricing will be valid for consumers that take this up. E.g. if a new consumer opens a state channel with your Flex plan, they are guaranteed this price for this many days once that channel is opened. A longer number of days gives greater price certainty, but reduces the Node Operators ability to adjust prices to match costs. A good starting place is 7 days.
 
 ![Flex Plan Create](/assets/img/network/flex-plan-create.png)
 

@@ -1,8 +1,8 @@
 # Creating Plans and Making Requests
 
-Consumers can easily create plans to start quering data from their chosen indexed project via our decentralised netowrk of Node Operators.
+Consumers can easily create plans to start querying data from their chosen indexed project via our decentralised network of Node Operators.
 
-Our Flex plan creation process is as strealined as possible and is similar to any centralised alternative, it only takes a few minutes before you have a API key and a single production endpoint that you can query through.
+Our Flex plan creation process is as streamlined as possible and is similar to any centralised alternative, it only takes a few minutes before you have a API key and a single production endpoint that you can query through.
 
 ## Plan Options
 
@@ -14,7 +14,7 @@ Some Project deployments also have a free public endpoint sponsored by the custo
 
 To create a new Flex Plan, the first place to start should be finding your selected Project Deployment on the [SubQuery Network Explorer](https://app.subquery.network/explorer/home). On each project deployment, you will see a button called "Get Endpoint".
 
-You may be asked to chose between the different options for a plan for this Project Deployment. Select Flex Plan to continue, or otherwise consider using a public endpoint.
+You may be asked to choose between the different options for a plan for this Project Deployment. Select Flex Plan to continue, or otherwise consider using a public endpoint.
 
 ![Consumer Get Endpoint Step 1](/assets/img/network/consumer_get_endpoint_1.png)
 
@@ -42,13 +42,13 @@ You will be prompted to sign and approve a number of transactions. Please follow
 
 ### View and Access Endpoint and API key
 
-You can view your personalised endpoint and API key on the final step. This allows you to connect to the endpoint and make queries through SubQuerys Gateway. You can get the endpoint in the future by also navigating to Consumer > My Flex Plans.
+You can view your personalised endpoint and API key on the final step. This allows you to connect to the endpoint and make queries through SubQuery's Gateway. You can get the endpoint in the future by also navigating to Consumer > My Flex Plans.
 
 This endpoint acts like any other endpoint that you would use for API or RPC calls. In many cases we even show an example query right there for you to copy into your terminal window to try out. API keys can either be sent as a query parameter (`https:://your.endpoint.url/?apikey=<APIKEY>`) or as a request header (`'apikey': '<APIKEY>'`).
 
 ::: warning API keys are private
 
-Never share your API key with anyone, they give access to make queries through your own billing acccount. When using them, keep them private as environment variables and avoid publishing them in public git repositories or on public websites.
+Never share your API key with anyone, they give access to make queries through your own billing account. When using them, keep them private as environment variables and avoid publishing them in public git repositories or on public websites.
 
 :::
 

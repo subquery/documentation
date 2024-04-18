@@ -24,7 +24,7 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 ## Deploying your Project
 
-The SubQuery Network is a public permissionless network, anyone can deploy their project freely. To do so, head to the SubQuery Explorer and click "Publish New Project".
+The SubQuery Network is a public permission-less network, anyone can deploy their project freely. To do so, head to the SubQuery Explorer and click "Publish New Project".
 
 ![Explorer - Publish Button](/assets/img/network/architect_publish.png)
 
@@ -46,7 +46,7 @@ Once entered, click "Publish" to publish your project, you will then be taken to
 
 ::: info How to encourage Node Operators to sync your project
 
-At this stage you should reach out to Node Operators in our Discord to encourage them to start syncing it, once they do you will be able to create plans and start quering this data. You might also want to consider [boosting your project](../consumers/boosting.md) to incentivise Node Operators to do so, and in return recieve free queries to it.
+At this stage you should reach out to Node Operators in our Discord to encourage them to start syncing it, once they do you will be able to create plans and start querying this data. You might also want to consider [boosting your project](../consumers/boosting.md) to incentivise Node Operators to do so, and in return receive free queries to it.
 
 :::
 
@@ -56,11 +56,11 @@ You can easily make changes to your project or deploy a new version by accessing
 
 ![Manage Existing Project](/assets/img/network/architect_manage_project.png)
 
-Firstly, you can publish a new verison by clicking "Deploy New Version". This will let Node Operators know and allow them to upgrade to the new version of your Project. For the deployment you shoud provide:
+Firstly, you can publish a new version by clicking "Deploy New Version". This will let Node Operators know and allow them to upgrade to the new version of your Project. For the deployment you should provide:
 
 - the deployment CID, you will need to publish your project to IPFS first, [follow the guide here](../../run_publish/publish.md#publish-your-subquery-project-to-ipfs)
 - a version number, we recommend it follows [semantic versioning rules](https://semver.org/)
-- check the box if you want to make this version recommended, this means that you are reccommending Node Operators to immediately update to it. Don't check this if it's a test build or if it has major breaking changes
+- check the box if you want to make this version recommended, this means that you are recommending Node Operators to immediately update to it. Don't check this if it's a test build or if it has major breaking changes
 - the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version
 
 ![Manage Existing Project - Deploy New Version](/assets/img/network/architect_manage_project_deploy.png)

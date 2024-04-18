@@ -1,6 +1,6 @@
 # Consumer Boosting
 
-The idea behind Consumer boosting is to allow Consumers an alternative way of bootstraping projects that they would like to be run across the network. It’s specifically to allow projects to be free to Consumers, while still ensuring that Indexers are best matching supply of indexing compute with demand from Consumers. The end result is:
+The idea behind Consumer boosting is to allow Consumers an alternative way of bootstrapping projects that they would like to be run across the network. It’s specifically to allow projects to be free to Consumers, while still ensuring that Indexers are best matching supply of indexing compute with demand from Consumers. The end result is:
 
 - The SubQuery market is efficiently matching supply with demand for Consumers' projects.
 - Consumers can receive heavily discounted (or even free) access to these projects that they boost.
@@ -29,7 +29,7 @@ Once you confirm the relevant transactions via your wallet, and wait for a few s
 
 ## Manage Existing Boost
 
-You can easily view all existing projects that you have boosed under the Consumer > My Boosted Projects menu. Here you can view total query rewards, as well as add or remove boost from each project.
+You can easily view all existing projects that you have boosted under the Consumer > My Boosted Projects menu. Here you can view total query rewards, as well as add or remove boost from each project.
 
 ![Manage boost](/assets/img/network/consumer_boosting_manage.png)
 

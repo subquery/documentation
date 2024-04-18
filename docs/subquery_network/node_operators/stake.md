@@ -19,7 +19,7 @@ Node Operators can always see their current own stake, total delegation, and any
 At the top of the page shows the current staking amount (and the amount that is estimated for the next Era).
 
 - Own Stake: This is the total current amount of SQT that you as the Node Operator has staked. Remember, you must meet a minimum ratio here to delegated stake - see [how much SQT should you stake](#how-much-sqt-should-you-stake).
-- Total Delegation: This is the total amount of delegated SQT to you as an Node Operator.
+- Total Delegation: This is the total amount of delegated SQT to you as a Node Operator.
 - Unallocated Stake: This is the amount of stake that is not allocated to any project deployment. **You should always try to minimise this to as close to 0**. See how to [allocate stake](#allocating-stake).
 - Over Allocated Stake: **This is really bad** - please immediately see [over allocated stake](#over-allocated-stake).
 
@@ -49,7 +49,7 @@ Remember, both network inflation rewards and query rewards (for Flex plans) dist
 
 :::danger
 
-This is really bad. When your stake is overallocated, your receive 0 rewards for that the period of time that it is over allocated - immediately fix this!
+This is really bad. When your stake is over-allocated, your receive 0 rewards for that the period of time that it is over allocated - immediately fix this!
 
 :::
 
@@ -68,4 +68,4 @@ There are multiple reasons why Node Operators should consider staking more SQT o
 - More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
 - It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 
-In order to become an Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).
+In order to become a Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).

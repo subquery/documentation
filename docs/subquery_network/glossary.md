@@ -66,7 +66,7 @@ Act of Indexer restaking SQT during the lock period to return locked period toke
 
 ## **Contract Ratio**
 
-The sum of daily contracts value (defined as contract value/period) can not exceed a ratio with their total stake (indexer + delegator).
+The sum of daily contracts value (defined as contract value/period) cannot exceed a ratio with their total stake (indexer + delegator).
 
 ## **Era**
 

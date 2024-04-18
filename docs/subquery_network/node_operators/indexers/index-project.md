@@ -16,11 +16,11 @@ Depending on where the application has been installed, you may find the Indexer 
 
 ### 1.2 Request Approval
 
-Click `Get Started` and then select `Approve`. Then MetaMask will pop up, asking you to sign this transaction.
+Click `Get Started` and then select `Approve`. Then your wallet will pop up, asking you to sign this transaction.
 
 ### 1.3 Register Indexer
 
-Fill in the details to register your Indexer and confirm the MetaMask transaction.
+Fill in the details to register your Indexer and confirm the wallet transaction.
 
 ![Register MetMask-Confirm Transaction](/assets/img/network/indexer_registration.png)
 
@@ -40,13 +40,13 @@ Now, two accounts will appear on the screen. The Indexer Account where you can u
 
 The Controller, a distinct and seperate account that must be created, holds a small amount of Eth tokens to facilitate Indexer configuration updates and run day to day operations.
 
-Updating a Indexer configuration is a signable event. That means it is an on-chain update that requires transaction fees to be paid (in Eth).
+Updating a Indexer configuration is a sign-able event. That means it is an on-chain update that requires transaction fees to be paid (in Eth).
 
 Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
 
 ![Add Controller](/assets/img/network/indexer_controller_add.png)
 
-Activating a controller is an on-chain signable event.
+Activating a controller is an on-chain sign-able event.
 
 Once the controller account is added, it should appear as follows:
 
@@ -111,7 +111,7 @@ The following projects are available for indexing on the Mainnet network. Some p
 If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](./dictionary-restore.md)
 :::
 
-Enter the project deployment ID when addding the new project.
+Enter the project deployment ID when adding the new project.
 
 ![Add a New Project Using Deploy ID](/assets/img/network/indexer_project_add.png)
 

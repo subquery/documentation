@@ -31,7 +31,7 @@ type Capability = {
   // Describes the possible response data fields that can be returned. These are defined by us. e.g 'basic', 'complete', 'trace'
   supportedResponses: ('basic', 'complete')[];
   genesisHash: string; // The chains first block hash, used to identify the network
-  chainId: string; // The identifier of the network, with ethereum this is a decimal string
+  chainId: string; // The identifier of the network, with Ethereum this is a decimal string
 }
 ```
 

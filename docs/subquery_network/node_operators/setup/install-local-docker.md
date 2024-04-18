@@ -19,7 +19,7 @@ Now, let's explore how to run the Node Operator Service Locally step-by-step.
 
 ## Step 1 - Download the Indexer Service file
 
-- Donwload node operator services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
+- Download node operator services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer

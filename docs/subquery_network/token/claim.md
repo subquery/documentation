@@ -8,7 +8,7 @@ To claim your subquery tokens, visit [https://claim.subquery.foundation](https:/
 
 ![SQT claim page](/assets/img/network/claim_page.png)
 
-The first step token is to connect your ERC20 compatiable crypto wallet. We recommend either Metamask, Talisman, Rainbow, or any other WalletConnect compatiable wallet.
+The first step token is to connect your ERC20 compatible crypto wallet. We recommend either Metamask, Talisman, Rainbow, or any other WalletConnect compatible wallet.
 
 ![connect wallet](/assets/img/network/claim_connect_wallet.png)
 
@@ -21,7 +21,7 @@ If claiming your public sale tokens, you must use the same wallet address you pa
 
 Select the appropriate account and then click next. You may have to approve to switch the network connection to the Base network.
 
-The SubQuery Token Claim claim page should load up showing any token allocation that you have permission to claim. Once the tokens have been generated and allocated on the token generation date, the balance should reflect your correct amount.
+The SubQuery Token Claim page should load up showing any token allocation that you have permission to claim. Once the tokens have been generated and allocated on the token generation date, the balance should reflect your correct amount.
 
 ![claim page](/assets/img/network/claim_page_tokens.png)
 
@@ -73,4 +73,4 @@ If you get an “Unknown error”, check that you have opened the Ethereum accou
 
 If you have any other issues, please contact our #public-sale-support channel on [Discord](https://discord.com/invite/subquery).
 
-<!---Check out our video guide on How to delegate your SQT to help you get started on the SubQery Network.--->
+<!---Check out our video guide on How to delegate your SQT to help you get started on the SubQuery Network.--->

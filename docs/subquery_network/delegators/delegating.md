@@ -16,7 +16,7 @@ Ensure you have ether for gas fees. Ether needs to be on the Base network. More 
 
 ![Delegate Node Operator List](/assets/img/network/delegate_indexers.png)
 
-Select your source for the delegation (it can be your wallet, or from an existing delegation amount) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with Metamask. Please wait for a while after confirming the transaction.
+Select your source for the delegation (it can be your wallet, or from an existing delegation amount) and enter an amount. Click on `Delegate`. You will be asked to confirm your transaction with your wallet. Please wait for a while after confirming the transaction.
 
 ![Delegate to a Node Operator part 2](/assets/img/network/delegate_action.png)
 
@@ -36,7 +36,7 @@ To undelegate from a Node Operator, navigate to `Delegator` -> `Delegating`.
 
 ![Undelegate from a Node Operator](/assets/img/network/delegate_status.png)
 
-Click on `Undelegate` and enter the amount of SQT you want to undelegate. Then click `Confirm Undelegation`. You will be asked to confirm your transaction with Metamask. Confirm it and wait for a few seconds.
+Click on `Undelegate` and enter the amount of SQT you want to undelegate. Then click `Confirm Undelegation`. You will be asked to confirm your transaction with your wallet. Confirm it and wait for a few seconds.
 
 ![Confirm undelegate](/assets/img/network/delegate_undelegate.png)
 

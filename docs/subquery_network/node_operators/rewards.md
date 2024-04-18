@@ -51,7 +51,7 @@ There are several indicators that need to be considered when selecting a project
 
 ### Boosted SQT and Booster Rewards
 
-When a deployment has a large amout of [Boosted SQT](../consumers/boosting.md) allocated to it, it means a potential larger share of [network inflation rewards](../introduction/reward-distribution.md#network-inflation-rewards) for all Node Operators running this deployment. Network Inflation rewards will likely be the largest source of rewards in the early stage of the SubQuery network as it bootstraps.
+When a deployment has a large amount of [Boosted SQT](../consumers/boosting.md) allocated to it, it means a potential larger share of [network inflation rewards](../introduction/reward-distribution.md#network-inflation-rewards) for all Node Operators running this deployment. Network Inflation rewards will likely be the largest source of rewards in the early stage of the SubQuery network as it bootstraps.
 
 ### Query Fee Opportunities
 

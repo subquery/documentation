@@ -22,7 +22,7 @@ Welcome to this guide on how to become a Node Operator. Let's take an overview o
 
 For those who are new to SubQuery, it is recommended to try running the Node Operator Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your Node Operator service.
 
-**Select the appropriate link to follow the guide to setup an Node Operator:**
+**Select the appropriate link to follow the guide to setup a Node Operator:**
 
 - [Locally via Docker (easy)](./install-local-docker.md)
 - [Linux](./install-linux.md)
@@ -39,13 +39,13 @@ Please return here after following these guides.
 
 ### Port configurations
 
-Here are the recommended port configurations for running an Node Operator service:
+Here are the recommended port configurations for running a Node Operator service:
 
 - Port `8000 / TCP`: This port should be configured to only allow access from your own IP address, used by `indexer_coordinator`.
 - Port `7370 / UDP`: This port can be opened to the public and used for broadcasting data to multiple clients or nodes in a peer-to-peer network, used by `indexer_proxy`.
 - Port `80 / HTTP`: This port can be opened to the public and used by `indexer_proxy`.
 
-It's important to ensure that these ports are properly configured and secured to prevent any unauthorized access or security breaches.
+It's important to ensure that these ports are properly configured and secured to prevent any unauthorised access or security breaches.
 
 ### Docker
 
@@ -106,13 +106,13 @@ Guides to setup RPC endpoints will come shortly.
 
 For the initial stages of Mainnet, the SubQuery Council will set some default plan templates to make plan management and creation easier. As a result, plan creation is very easy and just requires to you enter a price. [See the guide here](../plans.md#creating-a-plan).
 
-## 6. Configure an Node Operator Commission Rate (NOCR)
+## 6. Configure a Node Operator Commission Rate (NOCR)
 
 Please update your Node Operator Commission Rate (NOCR) in order to attract more Delegators. You can [read more about this here](../rewards.md#how-to-attract-delegators). You can do this by viewing your Node Operator Delegators page, and you can change it by clicking `Change commission rate`
 
 ![Viewing your NOCR](/assets/img/network/indexer_icr.png)
 
-Enter a new value (in a percent) and submit via Metamask.
+Enter a new value (in a percent) and submit via your wallet.
 
 ![Changing your NOCR](/assets/img/network/indexer_icr_change.png)
 
@@ -175,7 +175,7 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 
 ## 9. Upgrade Node Operator services (Ongoing)
 
-To upgrade an Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
+To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
 
 Once the image version has been updated in the docker-compose file, you can restart the specific container that needs to be upgraded. This can be done by running the following command in the terminal:
 

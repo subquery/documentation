@@ -18,7 +18,7 @@ As a Consumer, you can interact with performant RPCs or receive indexed data fro
 
 - Faster performance for your dApps. Since your dApps an get data from a decentralised network of Node Operators (RPCs or data indexers), the average latency will be lower and performance higher
 - Higher reliability. Due to the decentralised nature of the network, your dApp can immediately fall back to an alternative when an RPC provider goes offline.
-- Focus on developing your appplication, not on running blockchain infrastructure.
+- Focus on developing your application, not on running blockchain infrastructure.
 - Cost effective. Combining the two points from above, consuming data from SubQuery results in a very cost effective way to power your applications.
 
 ## Costs to being a Consumer

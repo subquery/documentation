@@ -4,11 +4,11 @@
 
 A Delegator is a non-technical network role in the SubQuery Network and is a great way to start participating in the SubQuery Network. This role enables Delegators to “delegate” their SQT to one or more Node Operator (RPC Providers or Data Indexers) and earn rewards (similar to staking).
 
-Without Delegators, Node Operators would likely earn fewer rewards because they will have less SQT to stake. Therefore, Node Operators compete to attract Delegators by offering a competitive share of an Node Operator's rewards.
+Without Delegators, Node Operators would likely earn fewer rewards because they will have less SQT to stake. Therefore, Node Operators compete to attract Delegators by offering a competitive share of a Node Operator's rewards.
 
 ## Requirements to be a Delegator
 
-One of the best things about being a Delegator is that you don’t need any devops, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
+One of the best things about being a Delegator is that you don’t need any DevOps, coding, or technical experience. Basic understanding of the SubQuery Network is all that is required to become a Delegator.
 
 ## Benefits of being a Delegator
 
@@ -25,4 +25,4 @@ Even though it is not considered a risky role, being a Delegator includes a few 
 1. Constant adjustments of staking parameters by Node Operators and delegation fees can increase the risk to a Delegator. For example, a Delegator might miss a change in staking parameters resulting in a less than expected return. To reduce this risk, when Node Operators decrease their stake parameters, it will only take effect after the next full [Era](../introduction/era.md) has been completed, giving time for delegators to assess and make any changes.
 2. Node Operator poor performance: It is possible that Delegators can select Node Operators that perform poorly and therefore provide a substandard return on investment to Delegators. Delegators are therefore encouraged to do Node Operator due diligence on potential Node Operators. A Reputation Index is also available to help Delegators compare Node Operators to each other.
 
-Once a preferred Node Operator(s) is found, due diligence should be performed to check an Node Operator’s reputation and reliability. Assessments could be performed to evaluate if the Node Operator is active in the community, if the Node Operator helps other members, if it is possible to get in touch with the Node Operator, and if the Node Operator is up-to-date with protocol and project updates. The aforementioned Reputation Index can also serve as a primary selection indicator.
+Once a preferred Node Operator(s) is found, due diligence should be performed to check a Node Operator’s reputation and reliability. Assessments could be performed to evaluate if the Node Operator is active in the community, if the Node Operator helps other members, if it is possible to get in touch with the Node Operator, and if the Node Operator is up-to-date with protocol and project updates. The aforementioned Reputation Index can also serve as a primary selection indicator.

@@ -172,7 +172,7 @@ const oneNetworkAllWeb3 = ref([
     title: 'Decentralised Data Indexers',
     subtitle: 'Fast, reliable, decentralised, and customised APIs for your web3 project',
     contents: [
-      "SubQuery APIs make your dApp lighting quick. By providing a indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.",
+      "SubQuery APIs make your dApp lighting quick. By providing an indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.",
       "Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze."
     ],
   },

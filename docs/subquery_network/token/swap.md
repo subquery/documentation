@@ -40,7 +40,7 @@ After this step, you will now have kSQT on Polygon - the contract address of SQT
 
 We recommend using official bridges like [Polygon Portal](https://portal.polygon.technology/bridge). SubQuery can't be responsible for the use of any third party bridges.
 
-You will want to brige from `Polygon POS`, not `Polygon zkEVM` - the token address for SQT on Polygon POS is [`0xc52F0f8361835B53A18408BB44d7f4136f0EF69D`](https://polygonscan.com/token/0xc52F0f8361835B53A18408BB44d7f4136f0EF69D#balances).
+You will want to bridge from `Polygon POS`, not `Polygon zkEVM` - the token address for SQT on Polygon POS is [`0xc52F0f8361835B53A18408BB44d7f4136f0EF69D`](https://polygonscan.com/token/0xc52F0f8361835B53A18408BB44d7f4136f0EF69D#balances).
 
 In the [Polygon Portal bridge](https://portal.polygon.technology/bridge), when selecting tokens, you can click `+ Add Token` and then enter the SubQuery Token Address on Polygon `0xc52F0f8361835B53A18408BB44d7f4136f0EF69D`
 

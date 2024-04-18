@@ -31,7 +31,7 @@ sudo ufw allow from <IP address of the machine running the Indexing service> to 
 
 ### Step 1 - Download the Indexer Service file
 
-- Donwloand indexing services `docker-compose.yml` file to you machine, which consists of all the images to build and start the various applications.
+- Download indexing services `docker-compose.yml` file to your machine, which consists of all the images to build and start the various applications.
 
 ```bash
 mkdir subquery-indexer && cd subquery-indexer
@@ -48,7 +48,7 @@ chmod +x ipfs/ipfs.sh
 - Update the `docker-compose.yml` file with the database information.
 
 ```bash
-# 1. remove or commment the postgres section
+# 1. remove or comment the postgres section
   # postgres:
   #   image: postgres:16-alpine
   #   container_name: indexer_db

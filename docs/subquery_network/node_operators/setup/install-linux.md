@@ -12,7 +12,7 @@ Note: You can use any other cloud providers, we will try our best to provide sup
 
 ### Step 1 - Launch a Virtual Machine
 
-There are plenty of online guies on how to launch a compute engine on various cloud providers, including AWS, GCP, Azure, Digital Ocean etc. You can follow [this tutorial to launch a new EC2 on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) (we recommend a compute engine equivalent to a [t3.medium](https://aws.amazon.com/ec2/instance-types/) linux EC2)
+There are plenty of online guides on how to launch a compute engine on various cloud providers, including AWS, GCP, Azure, Digital Ocean etc. You can follow [this tutorial to launch a new EC2 on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) (we recommend a compute engine equivalent to a [t3.medium](https://aws.amazon.com/ec2/instance-types/) linux EC2)
 
 ### Step 2 - Install Docker and Docker-Compose
 

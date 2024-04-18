@@ -77,7 +77,7 @@ ufw-docker status
 
 ### Docker
 
-The Coordinator has unrestricted access to your host's Docker, which can pose security risks if not adequately shielded. If the machine is solely utilized for running SubQuery services, Node Operators should contemplate applying specific Docker security measures. Refer to documentation on SeLinux or AppArmor for further insights.
+The Coordinator has unrestricted access to your host's Docker, which can pose security risks if not adequately shielded. If the machine is solely utilised for running SubQuery services, Node Operators should contemplate applying specific Docker security measures. Refer to documentation on SeLinux or AppArmor for further insights.
 
 ### Other Best Practices
 
@@ -88,7 +88,7 @@ The Coordinator has unrestricted access to your host's Docker, which can pose se
 
 SSL certificate is an important way to secure your Node Operator service and encrypt traffic between your query service and the Consumers requesting data from it. It's a good idea to obtain an SSL certificate for any professional service and SubQuery is no different. Additionally, a SSL certificate is required for when a Consumer access a website via SSL and that website is requesting data from your SubQuery project.
 
-**Since it's such a standard best practice, although it's not required, we rank Node Operators higher in the Node Operator leaderboard if they have SSL enabled. You can tell if an Node Operator has SSL enabled by confirming that the `Proxy Server Endpoint` in Node Operator's metadata starts with `https` instead of `http`.**
+**Since it's such a standard best practice, although it's not required, we rank Node Operators higher in the Node Operator leaderboard if they have SSL enabled. You can tell if a Node Operator has SSL enabled by confirming that the `Proxy Server Endpoint` in Node Operator's metadata starts with `https` instead of `http`.**
 
 ### Enabling SSL
 
@@ -153,7 +153,7 @@ server {
 
 }
 
-# link the new configution with a symlink to your edited file
+# link the new configuration with a symlink to your edited file
 sudo ln -s /etc/nginx/sites-available/proxy.mysqindexer.com /etc/nginx/sites-enabled/proxy.mysqindexer.com
 ```
 
