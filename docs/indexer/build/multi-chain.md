@@ -47,7 +47,7 @@ This feature is not compatible with [Historical State](../run_publish/historical
 This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://managedservice.subquery.network). All others can run this locally in their own infrastructure provider.
 :::
 
-## Intialising and creating a multi-chain project
+## Initialising and creating a multi-chain project
 
 Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
 

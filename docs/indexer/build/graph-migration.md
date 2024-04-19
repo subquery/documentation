@@ -31,7 +31,7 @@ Reach out to our team at [professionalservices@subquery.network](mailto:professi
 
 ### Recommended Migration Steps
 
-This is the recommended proccess that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery:
+This is the recommended process that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery:
 
 1. [Initialise a new SubQuery project](./introduction.md) for the same network using the `subql init` command. When migrating an existing SubGraph, it's not necessary to perform code scaffolding. It also ensures that you are using TS `strict` mode, which will help you identify any potential bugs.
 2. Copy over your `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
@@ -41,7 +41,7 @@ This is the recommended proccess that we use at SubQuery whenever we migrate pro
 6. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
    - Imports will need to be updated
    - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
-   - With strict mode, you must construct new entites with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
+   - With strict mode, you must construct new entities with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
    - [More info](#mapping).
 7. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
 
@@ -231,7 +231,7 @@ dataSources:
 
 The `codegen` command is also intentionally similar between SubQuery and SubGraphs
 
-All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
 import { Gravatar } from "../types";

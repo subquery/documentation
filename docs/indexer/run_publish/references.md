@@ -51,7 +51,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --block-confirmations
 
-**Positive Integer (default: `20`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalized, this has no effect with non-EVM networks.
+**Positive Integer (default: `20`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalised, this has no effect with non-EVM networks.
 
 ### -c, --config
 
@@ -149,7 +149,7 @@ subql-node --subquery .
 
 ### force-clean
 
-This subcommand forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing graphql schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
+This subcommand forces the project schemas and tables to be regenerated. It is helpful to use when iteratively developing GraphQL schemas in order to ensure a clean state when starting a project. Note that this flag will also wipe all indexed data.
 This will also drop all related schema and tables of the project.
 
 `-f`, `--subquery` flag must be passed in, to set path of the targeted project.

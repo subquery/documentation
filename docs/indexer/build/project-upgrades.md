@@ -5,7 +5,7 @@ Project upgrades allow you to safely make changes to your project at a specified
 - Perform upgrades to your project at a specific height
 - Change the GraphQL/database schema
 - Support changes or new deployments to smart contracts
-- When you find a bug, but want to maintain previous data for backwards compatiability
+- When you find a bug, but want to maintain previous data for backwards compatibility
 
 It's particularly useful when you want to maintain the data of the previous project (e.g. when the previous project takes a long time to index from scratch), and you only want to add a new feature from a specific point in time.
 
@@ -49,7 +49,7 @@ Schema migrations allow you to make updates to your GraphQL schema, and the data
 When a project upgrade is executed with valid schema migrations, it will compare your current schema with the schema provided in the latest version (the one you are upgrading too), and attempt to make non-destructive changes your database.
 
 ::: warning
-If you re-run a previous version of you project accidentally, SubQuery will attempt to downgrade changes to your schema.
+If you re-run a previous version of your project accidentally, SubQuery will attempt to downgrade changes to your schema.
 :::
 
 ### Schema Migration Requirements

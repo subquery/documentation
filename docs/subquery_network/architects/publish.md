@@ -15,12 +15,12 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 ## Prerequisites for your project running on the Network
 
-1.  The SubQuery Network does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../../run_publish/query/subscription.md)
+1.  The SubQuery Network does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../../indexer/run_publish/query/subscription.md)
 2.  Your client application (the one that will query data) must be able to run a JS library
 3.  Your project can generate stable proof of indexing results. This means you should avoid:
     1.  Random ordered DB operations, e.g. avoid using `Promise.all()` in your mapping functions.
     2.  Introducing external data dependent on runtime, e.g. initialising a new current date using `new Date()`.
-4.  Your project is published to IPFS, [follow the guide here](../../run_publish/publish.md#publish-your-subquery-project-to-ipfs).
+4.  Your project is published to IPFS, [follow the guide here](../../indexer/run_publish/publish.md#publish-your-subquery-project-to-ipfs).
 
 ## Deploying your Project
 
@@ -28,7 +28,7 @@ The SubQuery Network is a public permission-less network, anyone can deploy thei
 
 ![Explorer - Publish Button](/assets/img/network/architect_publish.png)
 
-You will need to publish your project to IPFS first, [follow the guide here](../../run_publish/publish.md#publish-your-subquery-project-to-ipfs). Please enter the project CID and give your project a nice name.
+You will need to publish your project to IPFS first, [follow the guide here](../../indexer/run_publish/publish.md#publish-your-subquery-project-to-ipfs). Please enter the project CID and give your project a nice name.
 
 ![Publish - Enter CID](/assets/img/network/architect_publish_ipfs.png)
 
@@ -58,7 +58,7 @@ You can easily make changes to your project or deploy a new version by accessing
 
 Firstly, you can publish a new version by clicking "Deploy New Version". This will let Node Operators know and allow them to upgrade to the new version of your Project. For the deployment you should provide:
 
-- the deployment CID, you will need to publish your project to IPFS first, [follow the guide here](../../run_publish/publish.md#publish-your-subquery-project-to-ipfs)
+- the deployment CID, you will need to publish your project to IPFS first, [follow the guide here](../../indexer/run_publish/publish.md#publish-your-subquery-project-to-ipfs)
 - a version number, we recommend it follows [semantic versioning rules](https://semver.org/)
 - check the box if you want to make this version recommended, this means that you are recommending Node Operators to immediately update to it. Don't check this if it's a test build or if it has major breaking changes
 - the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version

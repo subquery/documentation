@@ -1,7 +1,7 @@
 # Avalanche SDK Migration
 
 :::info TLDR
-We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to recieve the latest updates.
+We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to receive the latest updates.
 
 The new `@subql/node-ethereum` is feature equivalent, and provides some massive performance improvements and support for new features.
 
@@ -19,7 +19,7 @@ The new package is largely the same, with the following main changes:
   - `avalanche/BlockHandler` to `ethereum/BlockHandler`
   - `avalanche/TransactionHandler` to `ethereum/TransactionHandler`
   - `avalanche/LogHandler` to `ethereum/LogHandler`
-- Handler functions now recieve `EthereumBlock`, `EthereumTransaction`, or `EthereumLog` instead of `AvalancheBlock`, `AvalancheTransaction`, or `AvalancheLog`
+- Handler functions now receive `EthereumBlock`, `EthereumTransaction`, or `EthereumLog` instead of `AvalancheBlock`, `AvalancheTransaction`, or `AvalancheLog`
 
 ## Migrating
 
@@ -186,7 +186,7 @@ There are minimal type changes here, but before we dive in, you should be famili
 
 If you're creating a new Etheruem based project (including Avalanche), this command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
 
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In the [Avalanche Quick Start](https://github.com/subquery/ethereum-subql-starter/blob/main/Avalanche/avalanche-starter/src/mappings/mappingHandlers.ts#L5), you would import these types like so.
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In the [Avalanche Quick Start](https://github.com/subquery/ethereum-subql-starter/blob/main/Avalanche/avalanche-starter/src/mappings/mappingHandlers.ts#L5), you would import these types like so.
 
 ```ts
 import { Approval, Transaction } from "../types";
@@ -248,6 +248,6 @@ Once you have completed the above steps, your project should complete without fa
 - [Real-time indexing (Block Confirmations)](../build/manifest/avalanche.md#real-time-indexing-block-confirmations) resulting in an insanely quick user experience for your customers.
 - [Contract query support](../build/mapping/avalanche.md#querying-contracts) allowing querying contract state
 - [Third-party Library Support](../build/mapping/avalanche.md#third-party-library-support---the-sandbox) allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects
-- [Testing Framework](../build/testing.md) providing an easy way to test the behavior of mapping handlers and validate the data being indexed in an automated way.
+- [Testing Framework](../build/testing.md) providing an easy way to test the behaviour of mapping handlers and validate the data being indexed in an automated way.
 - [Multi-chain indexing support](../build/multi-chain.md) to index data from across different networks (e.g. Ethereum and Avalanche) into the same database, this allows you to query a single endpoint to get data for all supported networks.
 - [Dynamic data sources](../build/dynamicdatasources.md) to index factory contracts that create other contracts (e.g. a DEX)

@@ -10,7 +10,7 @@ Both the decentralised SubQuery Network and the SubQuery Managed Service only pr
 
 ## Integrations with other Developer Tools
 
-SubQuery is open-source, and we are busy creating a rich ecosytem of developer tools that it works well with.
+SubQuery is open-source, and we are busy creating a rich ecosystem of developer tools that it works well with.
 
 We now have guides to expose SubQuery data to the following locations.
 
@@ -19,6 +19,6 @@ We now have guides to expose SubQuery data to the following locations.
 - [Direct Postgres Access](../run.md#connect-to-database) - you can directly connect to the Postgres data from any other tool or service.
 - [Metabase](./other_tools/metabase.md) - an industry leading open-source and free data visualisation and business intelligence tool.
 - [CSV Export](../references.md#csv-out-dir) - export indexed datasets to CSV files easily.
-- [BigQuery](./other_tools/bigquery.md) - a fully managed, serverless data warehouse provided by Google Cloud, well-suited for analyzing large volumes of data.
+- [BigQuery](./other_tools/bigquery.md) - a fully managed, server-less data warehouse provided by Google Cloud, well-suited for analyzing large volumes of data.
 
 ![Integration Ecosystem](/assets/img/run_publish/integration_ecosystem.png)

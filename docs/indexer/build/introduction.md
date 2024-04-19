@@ -44,9 +44,9 @@ Scaffolding saves time during SubQuery project creation by automatically generat
 
 ### When Initialising New SubQuery Projects
 
-When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
+When you are initialising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
 
-If you have select an compatiable network type (EVM), it will prompt
+If you have select an compatible network type (EVM), it will prompt
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
@@ -66,7 +66,7 @@ You will then be prompted to select what `events` and/or `functions` that you wa
 
 ### For an Existing SubQuery Project
 
-You can also generate additional scaffolded code new new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
+You can also generate additional scaffolded code new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
 
 ```shell
 subql codegen:generate \
@@ -146,13 +146,13 @@ import {
 } from "../types/abi-interfaces/Gravity";
 
 export async function handleNewGravatarGravityLog(
-  log: NewGravatarLog,
+  log: NewGravatarLog
 ): Promise<void> {
   // Place your code logic here
 }
 
 export async function handleUpdatedGravatarGravityLog(
-  log: UpdatedGravatarLog,
+  log: UpdatedGravatarLog
 ): Promise<void> {
   // Place your code logic here
 }
@@ -268,7 +268,7 @@ The `schema.graphql` file outlines the various GraphQL schemas. The structure of
 3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
-Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recommendations, as well a relationship of many-to-many:
 
 ::: tip
 
@@ -332,7 +332,7 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entites can be imported from the following directory:
+This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
@@ -342,7 +342,7 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 If you're creating a new Ethereum based project (including Ethereum EVM, Cosmos Ethermint, Avalanche, and Substrate's Frontier EVM & Acala EVM+), the `codegen` command will also generate types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed.
 
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories.
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories.
 
 In the example [Gravatar SubQuery project](../quickstart/quickstart_chains/ethereum-gravatar.md), you would import these types like so.
 
@@ -354,7 +354,7 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 Codegen will also generate wrapper types for Cosmos Protobufs, the `codegen` command will also generate types and save them into `src/types` directory, providing you with more typesafety specifically for Cosmos Message Handers.
 
-It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to the `src/typs/proto-interfaces` directory.
+It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to the `src/types/proto-interfaces` directory.
 
 **Note**: The protobuf types you wish to generate must be kept in the `proto` directory (at the root of your project) and you must also ensure the structure of the protobufs are in accordance with the provided protobuf. For example `osmosis.gamm.v1beta1` would have the file structure of `<project-root>/proto/osmosis/gamm/v1beta1/<file>.proto`
 
@@ -390,14 +390,14 @@ Once `codegen` is executed you will find the message types under `src/types/Cosm
 }
 ```
 
-If you are uncertain of the available messages, you can always check the generated proto interfaces udner `src/types/proto-interfaces/`. You import them into your message handlers like so:
+If you are uncertain of the available messages, you can always check the generated proto interfaces under `src/types/proto-interfaces/`. You import them into your message handlers like so:
 
 ```ts
 import { CosmosMessage } from "@subql/types-cosmos";
 import { MsgSwapExactAmountIn } from "../types/proto-interfaces/osmosis/gamm/v1beta1/tx";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgSwapExactAmountIn>,
+  msg: CosmosMessage<MsgSwapExactAmountIn>
 ): Promise<void> {
   // Do something with typed event
   const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;
@@ -426,7 +426,7 @@ Similar to Ethereum ABI codegen, you will need to include the path and name for 
 }
 ```
 
-All generated files could be found under `src/typs/cosmwasm-interfaces` and `src/typs/cosmwasm-interface-wrappers` directories.
+All generated files could be found under `src/types/cosmwasm-interfaces` and `src/types/cosmwasm-interface-wrappers` directories.
 
 **Note**: For contract ABIs you wish to generate, you must ensure that each ABI is in its own directory. For example `<project-root>/abis/baseMinter/base-minter.json` and `<project-root>/abis/cw20/cw20.json`.
 

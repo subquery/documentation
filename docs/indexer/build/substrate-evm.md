@@ -146,7 +146,7 @@ There are a couple of improvements from basic log filters:
 
 ### Codegen
 
-If you're creating a new Substrate Frontier EVM or Acala EVM+ based project, the normal [codegen](./introduction.md#code-generation) command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/typs/**.ts`. In the example [Moonriver EVM Starter SubQuery project](https://github.com/subquery/subql-starter/tree/main/Moonriver/moonriver-evm-starter), you would import these types like so.
+If you're creating a new Substrate Frontier EVM or Acala EVM+ based project, the normal [codegen](./introduction.md#code-generation) command will also generate ABI types and save them into `src/types` using the `npx typechain --target=ethers-v5` command, allowing you to bind these contracts to specific addresses in the mappings and call read-only contract methods against the block being processed. It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. All of these types are written to `src/types/**.ts`. In the example [Moonriver EVM Starter SubQuery project](https://github.com/subquery/subql-starter/tree/main/Moonriver/moonriver-evm-starter), you would import these types like so.
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
@@ -183,7 +183,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleFrontierEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>,
+  event: FrontierEvmEvent<TransferEventArgs>
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -196,7 +196,7 @@ export async function handleFrontierEvmEvent(
 }
 
 export async function handleFrontierEvmCall(
-  event: FrontierEvmCall<ApproveCallArgs>,
+  event: FrontierEvmCall<ApproveCallArgs>
 ): Promise<void> {
   const approval = new Approval(event.hash);
 
@@ -228,7 +228,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleAcalaEvmEvent(
-  event: AcalaEvmEvent<TransferEventArgs>,
+  event: AcalaEvmEvent<TransferEventArgs>
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -241,7 +241,7 @@ export async function handleAcalaEvmEvent(
 }
 
 export async function handleAcalaEvmCall(
-  event: AcalaEvmCall<ApproveCallArgs>,
+  event: AcalaEvmCall<ApproveCallArgs>
 ): Promise<void> {
   const approval = new Approval(event.hash);
 

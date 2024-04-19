@@ -2,4 +2,4 @@ As you're creating a new Etheruem based project, this command will also generate
 
 It will also generate a class for every contract event to provide easy access to event parameters, as well as the block and transaction the event originated from. Read about how this is done in [EVM Codegen from ABIs](../../build/introduction.md#evm-codegen-from-abis).
 
-All of these types are written to `src/typs/abi-interfaces` and `src/typs/contracts` directories. In this example project, you would import these types like so.
+All of these types are written to `src/types/abi-interfaces` and `src/types/contracts` directories. In this example project, you would import these types like so.

@@ -104,7 +104,7 @@ SubQuery supports various blockchain networks and provides a dedicated guide for
 
 Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
-When you are initalising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatible network type (EVM), it will prompt:
+When you are initialising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatible network type (EVM), it will prompt:
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
@@ -122,9 +122,9 @@ You can read more about this feature in [Project Scaffolding](../build/introduct
 
 SubQuery provides support for environment variables to configure your project dynamically. This enables flexibility in managing different configurations for development, testing, and production environments.
 
-To utilize environment variable support:
+To utilise environment variable support:
 
-The .env files are automatically created when you initialize a project using the CLI. You can modify these files to adjust configurations according to your requirements.
+The .env files are automatically created when you initialise a project using the CLI. You can modify these files to adjust configurations according to your requirements.
 
 ```shell
 # Example .env
@@ -148,8 +148,8 @@ The package.json file includes build scripts that allow you to build with either
     "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
 }
 ```
-Use `build` script to generate artifacts using the default production .env settings.
-Use `build:develop` script to generate artifacts using the development .env.develop settings.
+Use `build` script to generate artefacts using the default production .env settings.
+Use `build:develop` script to generate artefacts using the development .env.develop settings.
 
 Using environment variables and .env files provides a convenient way to manage project configurations and keep sensitive information secure.
 

@@ -83,7 +83,7 @@ Note: With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a co
 
 ::: details What happens during IPFS Deployment?
 
-IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralized network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
+IPFS deployment represents an independent and unique existence of a SubQuery project on a decentralised network. Therefore, any changes with the code in the project will affect its uniqueness. If you need to adjust your business logic, e.g. change the mapping function, you must republish the project, and the `CID` will change.
 
 For now, to view the project you have published, use a `REST` API tool such as [Postman](https://web.postman.co/), and use the `POST` method with the following example URL to retrieve it:`https://ipfs.subquery.network/ipfs/api/v0/cat?arg=<YOUR_PROJECT_CID>`.
 
@@ -122,7 +122,7 @@ specVersion: 0.2.0
 
 To create your first project, head to [SubQuery Managed Service](https://managedservice.subquery.network). You'll need to authenticate with your GitHub account to login.
 
-On first login, you will be asked to authorize SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organization account so you can post SubQuery projects under your GitHub Organization instead of your personal account.
+On first login, you will be asked to authorise SubQuery. We only need your email address to identify your account, and we don't use any other data from your GitHub account for any other reasons. In this step, you can also request or grant access to your GitHub Organisation account so you can post SubQuery projects under your GitHub Organisation instead of your personal account.
 
 ![Revoke approval from a GitHub account](/assets/img/run_publish/project_auth_request.png)
 
@@ -130,7 +130,7 @@ SubQuery Projects is where you manage all your hosted projects uploaded to the S
 
 ![Projects Login](/assets/img/run_publish/projects_dashboard.png)
 
-If you have a GitHub Organization accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organization account. Projects created in a GitHub Organization account are shared between members in that GitHub Organization. To connect your GitHub Organization account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
+If you have a GitHub Organisation accounts connected, you can use the switcher on the header to change between your personal account and your GitHub Organisation account. Projects created in a GitHub Organisation account are shared between members in that GitHub Organisation. To connect your GitHub Organisation account, you can [follow the steps here](publish.md#add-github-organization-account-to-subquery-projects).
 
 ![Switch between GitHub accounts](/assets/img/run_publish/projects_account_switcher.png)
 
@@ -174,7 +174,7 @@ With your new project, you'll see a "Deploy your first version" button. Click th
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
 - **Query Version:** This is the version of SubQuery's query service that you want to run this SubQuery on. See [`@subql/query`](https://www.npmjs.com/package/@subql/query).
-- **Advanced Settings:** There are numerous advanced settings which are explained via the inbuild help feature.
+- **Advanced Settings:** There are numerous advanced settings which are explained via the in built help feature.
 
 ![Deploy your first Project](/assets/img/run_publish/projects_first_deployment.png)
 
@@ -243,7 +243,7 @@ jobs:
 
 ## Next Steps - Connect to your Project
 
-Once your deployment has succesfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
+Once your deployment has successfully completed and our nodes have indexed your data from the chain, you'll be able to connect to your project via the displayed GraphQL Query endpoint.
 
 ![Project being deployed and synced](/assets/img/run_publish/projects_deploy_sync.png)
 
@@ -291,7 +291,7 @@ If you just want to upgrade to the latest indexer ([`@subql/node`](https://www.n
 
 ## Add GitHub Organization Account to SubQuery Projects
 
-It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point your can change your currently selected account on [SubQuery Managed Service](https://managedservice.subquery.network) using the account switcher.
+It is common to publish your SubQuery project under the name of your GitHub Organization account rather than your personal GitHub account. At any point you can change your currently selected account on [SubQuery Managed Service](https://managedservice.subquery.network) using the account switcher.
 
 If you can't see your GitHub Organization account listed in the switcher, then you may need to grant access to SubQuery for your GitHub Organization (or request it from an administrator). To do this, you first need to revoke permissions from your GitHub account to the SubQuery Application. Then, login to your account settings in GitHub, go to Applications, and under the Authorized OAuth Apps tab, revoke SubQuery - [you can follow the exact steps here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth). **Don't worry, this will not delete your SubQuery project and you will not lose any data.**
 

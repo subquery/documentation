@@ -9,7 +9,7 @@ The `schema.graphql` file outlines the various GraphQL schemas. The structure of
 3. [Entity Relationships](#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 4. [Indexing](#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
-Here's an example of what your GraphQL Here is an example of a schema which implements all of these recomendations, as well a relationship of many-to-many:
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recommendations, as well a relationship of many-to-many:
 
 ::: tip
 
@@ -104,7 +104,7 @@ We currently support the following scalar types:
 - `Boolean`
 - `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
 - `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
-- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [Graphql Enum](https://graphql.org/learn/schema/#enumeration-types)
+- `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [GraphQL Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 ### Naming Constraints
 
@@ -205,7 +205,7 @@ Composite indexes work just like regular indexes, except they provide even faste
 
 For example, a composite index on columns `col_a` and `col_b` will significantly help when there are queries that filter across both (e.g. `WHERE col_a=x AND col_b=y`).
 
-You can create composite indexes though the `@compositeIndexes` annotation on an entity, and you can specify as many as you want.
+You can create composite indexes through the `@compositeIndexes` annotation on an entity, and you can specify as many as you want.
 
 ```graphql
 type Account @entity {
@@ -430,7 +430,7 @@ type User @entity {
 
 ### JSON field indexes
 
-By default we automatically add indexes to JSON fields to improve querying performance. This can be disabled by specifying the `indexed: false` argument on the `jsonField` directive like so. This is useful if you are using alternative databases like Cockroach DB, as there can be some perfomance issues with inserting JSON data with an index (Cockroach does not support gin index and Jsonb data).
+By default we automatically add indexes to JSON fields to improve querying performance. This can be disabled by specifying the `indexed: false` argument on the `jsonField` directive like so. This is useful if you are using alternative databases like Cockroach DB, as there can be some performance issues with inserting JSON data with an index (Cockroach does not support gin index and Jsonb data).
 
 ```graphql
 type AddressDetail @jsonField(indexed: false) {
@@ -446,7 +446,7 @@ The drawback of using JSON types is a slight impact on query efficiency when fil
 However, the impact is still acceptable in our query service. Here is an example of how to use the `contains` operator in the GraphQL query on a JSON field to find the first 5 users who own a phone number that contains '0064'.
 
 ```graphql
-#To find the the first 5 users own phone numbers contains '0064'.
+#To find the first 5 users own phone numbers contains '0064'.
 
 query {
   user(first: 5, filter: { contactCard: { contains: [{ phone: "0064" }] } }) {

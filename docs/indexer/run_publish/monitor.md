@@ -1,6 +1,6 @@
 # Monitor your SubQuery Project with Prometheus and Grafana
 
-This guide shows you how to pull metrics into [Prometheus](https://prometheus.io/), an open-source tool for storing, aggregating, and querying time series data. It also shows you how to connect [Grafana](https://grafana.com/) to Prometheus for flexible data visualizations.
+This guide shows you how to pull metrics into [Prometheus](https://prometheus.io/), an open-source tool for storing, aggregating, and querying time series data. It also shows you how to connect [Grafana](https://grafana.com/) to Prometheus for flexible data visualisations.
 
 ## Setting Up Monitoring
 

@@ -8,7 +8,7 @@ Aggregate functions are usually used with the GroupBy function in your query.
 
 GroupBy allows you to quickly get distinct values in a set from SubQuery in a single query.
 
-![Graphql Groupby](/assets/img/run_publish/graphql_aggregation.png)
+![GraphQL Groupby](/assets/img/run_publish/graphql_aggregation.png)
 
 ## Advanced Aggregate Functions
 

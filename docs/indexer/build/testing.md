@@ -4,7 +4,7 @@
 
 This document outlines the various testing approaches when building a SubQuery Project.
 
-The SubQuery testing framework provides an easy way to test the behavior of mapping handlers and validate the data being indexed in an automated way.
+The SubQuery testing framework provides an easy way to test the behaviour of mapping handlers and validate the data being indexed in an automated way.
 
 ## Manual Approaches
 
@@ -236,13 +236,13 @@ Each [SubQuery starter project](https://github.com/subquery/subql-starter/blob/m
 
 ### When not to use the SubQuery Testing Framework
 
-While the testing framework is a powerful tool for testing the behavior of mapping handlers and validating the data being indexed in SubQuery projects, there are certain limitations and use cases that are not suitable for this framework.
+While the testing framework is a powerful tool for testing the behaviour of mapping handlers and validating the data being indexed in SubQuery projects, there are certain limitations and use cases that are not suitable for this framework.
 
 Limitations:
 
 - Integration and end-to-end testing: The testing framework is specifically designed for testing individual mapping handlers. It is not suitable for testing the integration of multiple components or the end-to-end functionality of your SubQuery project.
 - State persistence: The testing framework does not persist state between test cases. This means that any state changes made during a test case will not carry over to subsequent test cases. If your mapping handlers rely on previous state changes, the testing framework may not be suitable.
-- Dynamic data sources: The testing framework cannot be used to test dynamic data sources. It is designed to test the behavior of mapping handlers and validate the data being indexed in SubQuery projects, but it does not support testing the functionality related to dynamically adding or removing data sources during runtime.
+- Dynamic data sources: The testing framework cannot be used to test dynamic data sources. It is designed to test the behaviour of mapping handlers and validate the data being indexed in SubQuery projects, but it does not support testing the functionality related to dynamically adding or removing data sources during runtime.
 
 What You Should Not Use It For:
 

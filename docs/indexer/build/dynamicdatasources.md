@@ -88,7 +88,7 @@ async function handleNewTradingPair(event: MoonbeamEvent): Promise<void> {
 }
 
 async function handleLiquidityAdded(event: MoonbeamEvent): Promise<void> {
-  /* mapping fuction implementation here */
+  /* mapping function implementation here */
 }
 ```
 
