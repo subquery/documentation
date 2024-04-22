@@ -32,6 +32,10 @@ The body of the entity in your query indicates what data you want to receive via
 - `mutation_type`: The action that has been made to this entity. Mutation types can be either `INSERT`, `UPDATE` or `DELETE`.
 - `_entity`: the value of the entity itself in JSON format.
 
+::: warning Important
+Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.
+:::
+
 ## Filtering
 
 We also support filter on subscriptions, which means a client should only receive updated subscription data if that data or mutation meets certain criteria.
@@ -67,14 +71,108 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
+## Examples
 
-## Server-side Implementation with Apollo Server
-First, let's set up the server-side. This includes defining the subscription type, event type, setting up a publish/subscribe mechanism (using `PubSub` from `graphql-subscriptions`), and adding a resolver for the subscription.
+### Client-side (React Exampel)
 
-Below is the basic, minimal example in Node.js. Refer to the official documentation for other supported technologies (for example, [Kotlin](https://www.apollographql.com/docs/kotlin/essentials/subscriptions) or [Swift](https://www.apollographql.com/docs/ios/tutorial/tutorial-subscriptions/))
+In the following client-side example, we will be using React and Apollo Client. We'll create a component that subscribes to the balance updates for a specific account.
+
+First, ensure your project has the required dependencies:
+
+```bash
+npm install @apollo/client graphql
+```
+
+Then, you can create a React component like this:
+
+```ts
+import React, { useEffect } from "react";
+import { useSubscription, gql } from "@apollo/client";
+
+const BALANCES_SUBSCRIPTION = gql`
+  subscription BalancesSubscription($id: ID!, $mutation: String!) {
+    balances(id: $id, mutation: $mutation) {
+      id
+      mutation_type
+      _entity
+      amount
+    }
+  }
+`;
+
+const BalanceUpdates = ({ accountId }) => {
+  const { data, loading, error } = useSubscription(BALANCES_SUBSCRIPTION, {
+    variables: { id: accountId, mutation: "UPDATE" },
+  });
+
+  useEffect(() => {
+    if (data) {
+      console.log("Received data:", data);
+    }
+  }, [data]);
+
+  if (loading) return <p>Subscription is loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <div>
+      <h4>Got balance update for wallet {accountId}</h4>
+      {data && <p>New balance: {JSON.stringify(data.balances.amount)}</p>}
+    </div>
+  );
+};
+
+export default BalanceUpdates;
+```
+
+This React component uses `useSubscription` from Apollo Client to subscribe to the balance updates. Make sure your Apollo Client is properly configured to connect to your GraphQL server, and it supports WebSocket for subscriptions. See more docs about Apollo Client [here](https://www.apollographql.com/docs/react/)
+
+To connect to the server, typically, you would set up `ApolloClient` with something like this:
 
 ```javascript
-const { ApolloServer, gql, PubSub } = require('apollo-server');
+import { ApolloClient, InMemoryCache, HttpLink, split } from "@apollo/client";
+import { WebSocketLink } from "@apollo/client/link/ws";
+import { getMainDefinition } from "@apollo/client/utilities";
+
+const httpLink = new HttpLink({
+  uri: "http://your-server.com/graphql",
+});
+
+const wsLink = new WebSocketLink({
+  uri: "ws://your-server.com/graphql",
+  options: {
+    reconnect: true,
+  },
+});
+
+const splitLink = split(
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === "OperationDefinition" &&
+      definition.operation === "subscription"
+    );
+  },
+  wsLink,
+  httpLink
+);
+
+const client = new ApolloClient({
+  link: splitLink,
+  cache: new InMemoryCache(),
+});
+```
+
+This setup uses HTTP for queries and mutations, and WebSocket for subscriptions, switching automatically based on the operation type. For production readiness, consider adding logic in the client component to handle unsubscription or cleanup when the component unmounts or when the user navigates away.
+
+### Server-side (Apollo Server)
+
+In this examplle, we will use `PubSub` from `graphql-subscriptions` for setting up a publish/subscribe mechanism, and add a resolver for the subscription.
+
+Below is the basic, minimal example in [Node.js](https://www.apollographql.com/docs/apollo-server). Refer to the official documentation for other supported technologies (for example, [Kotlin](https://www.apollographql.com/docs/kotlin/essentials/subscriptions) or [Swift](https://www.apollographql.com/docs/ios/tutorial/tutorial-subscriptions/))
+
+```javascript
+const { ApolloServer, gql, PubSub } = require("apollo-server");
 const pubsub = new PubSub();
 
 // GraphQL type definitions
@@ -121,117 +219,19 @@ You would need to have the logic to publish events to this subscription, typical
 
 Example publishing event:
 
-```javascript
-
+```ts
 // Somewhere in your balance update business logic...
 pubsub.publish(`UPDATE_${accountId}`, {
   balances: {
     id: accountId,
-    mutation_type: 'UPDATE',
-    _entity: 'Balances',
-    amount: newBalance,  // assume newBalance is the updated balance
-  }
+    mutation_type: "UPDATE",
+    _entity: "Balances",
+    amount: newBalance, // assume newBalance is the updated balance
+  },
 });
 ```
 
 Note that this example does not include error handling or authentication/authorization, which are essential for production applications.
-
-### Client-side Implementation with React and Apollo Client
-
-Now, let's move on to the client side where we will be using React and Apollo Client. We'll create a component that subscribes to the balance updates for a specific account.
-
-First, ensure your project has the required dependencies: 
-
-```bash
-npm install @apollo/client graphql
-```
-
-Then, you can create a React component like this:
-
-```javascript
-import React, { useEffect } from 'react';
-import { useSubscription, gql } from '@apollo/client';
-
-const BALANCES_SUBSCRIPTION = gql`
-  subscription BalancesSubscription($id: ID!, $mutation: String!) {
-    balances(id: $id, mutation: $mutation) {
-      id
-      mutation_type
-      _entity
-      amount
-    }
-  }
-`;
-
-const BalanceUpdates = ({ accountId }) => {
-  const { data, loading, error } = useSubscription(BALANCES_SUBSCRIPTION, {
-    variables: { id: accountId, mutation: "UPDATE" },
-  });
-
-  useEffect(() => {
-    if (data) {
-      console.log('Received data:', data);
-    }
-  }, [data]);
-
-  if (loading) return <p>Subscription is loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  return (
-    <div>
-      <h4>Got balance update for wallet {accountId}</h4>
-      {data && <p>New balance: {JSON.stringify(data.balances.amount)}</p>}
-    </div>
-  );
-};
-
-export default BalanceUpdates;
-```
-
-This React component uses `useSubscription` from Apollo Client to subscribe to the balance updates. Make sure your Apollo Client is properly configured to connect to your GraphQL server, and it supports WebSocket for subscriptions.
-
-To connect to the server, typically, you would set up `ApolloClient` with something like this:
-
-```javascript
-import { ApolloClient, InMemoryCache, HttpLink, split } from '@apollo/client';
-import { WebSocketLink } from '@apollo/client/link/ws';
-import { getMainDefinition } from '@apollo/client/utilities';
-
-const httpLink = new HttpLink({
-  uri: 'http://your-server.com/graphql',
-});
-
-const wsLink = new WebSocketLink({
-  uri: 'ws://your-server.com/graphql',
-  options: {
-    reconnect: true
-  }
-});
-
-const splitLink = split(
-  ({ query }) => {
-    const definition = getMainDefinition(query);
-    return (
-      definition.kind === 'OperationDefinition' &&
-      definition.operation === 'subscription'
-    );
-  },
-  wsLink,
-  httpLink,
-);
-
-const client = new ApolloClient({
-  link: splitLink,
-  cache: new InMemoryCache()
-});
-
-```
-
-This setup uses HTTP for queries and mutations, and WebSocket for subscriptions, switching automatically based on the operation type. For production readiness, consider adding logic in the client component to handle unsubscription or cleanup when the component unmounts or when the user navigates away.
-
-::: warning Important
-Please note that you must enable the `--subscription` flag on both the node and query service in order to use these functions.
-:::
 
 ## Using in the Managed Service
 
