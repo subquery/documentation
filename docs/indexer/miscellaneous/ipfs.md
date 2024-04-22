@@ -13,9 +13,9 @@ Using IPFS provides a better experience for developers in a few ways:
 
 1. Update your project's dependencies.
    - Update `@subql/cli` to the latest version: you can do this by running `yarn add -D @subql/cli@latest` or `npm i -dev @subql/cli@latest`
-   - We also recommend updating other dependencies at this time
+   - We also recommend updating other dependencies at this time, you might want to copy them from the latest example projects (e.g. [Ethereum](https://github.com/subquery/ethereum-subql-starter), [Polkadot](https://github.com/subquery/subql-starter/), [Cosmos](https://github.com/subquery/cosmos-subql-starter/))
    - Pay attention to this issue: [926](https://github.com/subquery/subql/discussions/926)
-2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/package.json#L7).
+2. `package.json`: Update the build command to `subql build`. It should look like [this](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/package.json#L6).
 3. `src/index.ts`: For Substrate based projects, if updating from `@polkadot/api` v6 (or earlier), update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
 4. `project.ts`:
 
