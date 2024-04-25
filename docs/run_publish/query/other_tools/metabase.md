@@ -88,3 +88,68 @@ In addition to the fundamental query visualisations, Metabase offers a variety o
 4. **Parameterised Queries:** to make your queries interactive and dynamic by incorporating parameters.
 
 5. **Data Alerts and Scheduled Reports:** to stay informed about critical data changes with Metabase's data alerts and scheduled reports.
+
+## Tips
+
+Presented below is a compilation of diverse tips aimed at enhancing the precision of your data analysis.
+
+### Dealing with Historical Data
+
+When the specified feature is activated, modifications to an entity with a specific ID result in the creation of a new row instead of updating the existing one. This new row includes the mentioned block range. Consequently, performing aggregations on a table with multiple rows for the same IDs can lead to inaccurate data. To address this, it is necessary to filter the data so that each ID corresponds to a single entity. The following examples provide a more detailed exploration:
+
+#### Capturing the Latest Entity State
+
+To illustrate this concept further, let's introduce a new entity to the previously mentioned example named `Account` linked to the `Swap` entity through a `sender` field. The schema is as follows:
+
+```graphql
+...
+
+type Swap @entity {
+  id: ID!
+  sender: Account!
+  ...
+
+type Account @entity {
+  id: ID!
+  swapsAmount: BigInt!
+}
+```
+
+Additionally, a `swap_amount` field is added to calculate the sum of swaps for a new entity. With historical data enabled, each time a new swap is recorded, a new row is appended to indicate the sum of swaps for the specified account within a given `_block_range`. Examine the database snapshot below, and observe multiple rows stored with different `_block_range` values for a single senderId:
+
+![](/assets/img/run_publish/metabase/blockRangesForSameId.png)
+
+Now, consider the scenario where one wants to join the `Swap` and `Account` tables for further analysis. A straightforward join would result in a many-to-many relationship due to the multitude of rows for each sender. Thus, the rows need to be reduced to a singular row for each unique ID (AccountId in our case) before performing the join.
+
+If the goal is to select a row where the account reflects the latest state (i.e., `_block_range` end block is null), employing an SQL Window function becomes necessary, as demonstrated in the following example:
+
+```sql
+SELECT *
+FROM
+  (SELECT *,
+          RANK() OVER (PARTITION BY "app"."accounts"."id"
+                       ORDER BY "app"."accounts"."_block_range" DESC) AS "ranked_from_latest"
+   FROM "app"."accounts") AS "ranked_list"
+WHERE "ranked_list"."ranked_from_latest" = 1
+ORDER BY "ranked_list"."swaps_amount" DESC
+```
+
+If the aforementioned query is executed, the resulting output will be as follows:
+
+![](/assets/img/run_publish/metabase/rankedSQLOutput.png)
+
+It is evident that all rows exhibit their latest state (the `_block_range` end block is null - indicating the absence of a second value).
+
+This query can be saved as a [Metabase model](https://www.metabase.com/docs/latest/data-modeling/models) to facilitate caching, allowing for direct and more efficient querying. To convert a question into a table, you can follow the instructions in the UI, as depicted below.
+
+![](/assets/img/run_publish/metabase/convertingToModel.png)
+
+To enable model caching, navigate to the admin settings: "Settings" -> "Caching" -> "Models" and activate the feature as shown in the following image.
+
+![](/assets/img/run_publish/metabase/cachingSetting.png)
+
+Once enabled, you can directly query this precalculated model. Returning to the previously mentioned use-case, you can now join the tables and ensure the uniqueness of addresses, thus ensuring accurate results in subsequent aggregations. The query can be formulated as follows:
+
+![](/assets/img/run_publish/metabase/joiningPrecalculatedModel.png)
+
+Beneath the surface, as we've been sorting the rows and selecting only the most recent one before, we have already obtained a result, and it has been cached in this manner, eliminating the need to re-sort. Currently, we are effortlessly incorporating each swap and merging the tables on the go. With a single row for each AccountID, we can confidently ensure the accuracy of subsequent aggregations.
