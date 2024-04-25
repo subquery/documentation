@@ -226,6 +226,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/x1.md`,
                   },
                   {
+                    text: "XDC Apothem",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/xdc-apothem.md`,
+                  },
+                  {
                     text: "And more EVM networks",
                     link: `${locale}/indexer/quickstart/quickstart_chains/evm.md`,
                   },
