@@ -1,17 +1,17 @@
-# X1 Testnet Quick Start
+# X Layer Testnet Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events for the [Wrapped Ether Token](https://www.oklink.com/x1-test/token/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8)(`0xbec7859bc3d0603bec454f7194173e36bf2aa5c8`) on X1 Testnet.
+The goal of this quick start guide is to index all transfers and approval events for the [Wrapped Ether Token](https://www.okx.com/explorer/xlayer-test/address/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8)(`0xbec7859bc3d0603bec454f7194173e36bf2aa5c8`) on X Layer Testnet.
 
-X1 is a ZK-powered layer 2 network that connects the OKX and Ethereum communities to allow anyone to take part in a truly global on-chain ecosystem. Using OKB as the X1 native token, users can move value seamlessly between OKX and X1
+X Layer is a ZK-powered layer 2 network that connects the OKX and Ethereum communities to allow anyone to take part in a truly global on-chain ecosystem. Using OKB as the X Layer native token, users can move value seamlessly between OKX and X Layer
 
-Please initialise an a X1 project.
+Please initialise an a X Layer project.
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/X1/x1-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/XLayer/xlayer-testnet-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for X1. Since X1 is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for X Layer. Since X Layer is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
@@ -22,17 +22,17 @@ As we are indexing all transfers and approvals from the Wrapped Ether Token cont
 
 ```ts
 {
-  dataSources: [
+dataSources: [
     {
       kind: EthereumDatasourceKind.Runtime,
       startBlock: 5462000,
-      // Usually you would set this to the block that the contract was deployed on https://www.oklink.com/x1-test/address/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8
+      // Usually you would set this to the block that the contract was deployed on
       // However on this RPC, they prune all logs older than the most recent 10000 blocks
       // When running, either use an archival node that has no pruning, or update this value to be within the last 10000 blocks
       options: {
         // Must be a key of assets
         abi: "erc20",
-        // this is the contract address for wrapped ether https://www.oklink.com/x1-test/token/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8
+        // this is the contract address for wrapped ether https://www.okx.com/explorer/xlayer-test/address/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8
         address: "0xbec7859bc3d0603bec454f7194173e36bf2aa5c8",
       },
       assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
@@ -67,13 +67,12 @@ As we are indexing all transfers and approvals from the Wrapped Ether Token cont
         ],
       },
     },
-  ],
 }
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Wrapped Ether Token](https://www.oklink.com/x1-test/token/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Wrapped Ether Token](https://www.okx.com/explorer/xlayer-test/address/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Wrapped Ether Token](https://www.oklink.com/x1-test/token/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Wrapped Ether Token](https://www.okx.com/explorer/xlayer-test/address/0xbec7859bc3d0603bec454f7194173e36bf2aa5c8).
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
@@ -229,7 +228,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/X1/x1-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/XLayer/xlayer-testnet-starter).
 :::
 
 <!-- @include: ../snippets/whats-next.md -->
