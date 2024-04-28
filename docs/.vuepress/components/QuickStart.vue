@@ -39,8 +39,8 @@
                 :to="
                   quickStart.link.replace(
                     'https://academy.subquery.network',
-                    '/indexer'
-                  ) // TODO: update the links from API:  https://templates.subquery.network/guides
+                    ''
+                  )
                 "
               >
                 <div>
