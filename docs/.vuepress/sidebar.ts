@@ -222,8 +222,8 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/zksync-era.md`,
                   },
                   {
-                    text: "X1",
-                    link: `${locale}/indexer/quickstart/quickstart_chains/x1.md`,
+                    text: "X Layer",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/xlayer-testnet.md`,
                   },
                   {
                     text: "XDC Apothem",
