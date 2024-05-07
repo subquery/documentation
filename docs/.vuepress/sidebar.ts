@@ -633,7 +633,6 @@ export const getSidebar = (locale: string) =>
             children: [
               `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               `${locale}/subquery_network/node_operators/indexers/index-project.md`,
-              `${locale}/subquery_network/node_operators/indexers/dictionary-restore.md`,
             ],
           },
           {

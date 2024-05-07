@@ -177,8 +177,6 @@ export default defineUserConfig({
             "/subquery_network/node_operators/indexers/install-indexer-linux.html",
           "/subquery_network/kepler/indexers/index-project.html":
             "/subquery_network/node_operators/indexers/index-project.html",
-          "/subquery_network/kepler/indexers/dictionary-restore.html":
-            "/subquery_network/node_operators/indexers/dictionary-restore.html",
           "/subquery_network/kepler/indexers/plans.html":
             "/subquery_network/node_operators/indexers/plans.html",
           "/subquery_network/kepler/indexers/troubleshooting-indexers.html":

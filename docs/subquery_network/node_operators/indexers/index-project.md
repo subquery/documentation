@@ -69,48 +69,6 @@ Once the Controller Account has been added, a new Projects tab appears at the to
 
 Before clicking **`Add Project`,** you will need to obtain the project's deployment ID. If the project has already been deployed and indexed by other indexers, you may be able to find it listed in the SubQuery Explorer as the obtain the project’s Deployment ID.
 
-The following projects are available for indexing on the Mainnet network. Some projects have a backup restore provided.
-
-| Network   | Project Name            | Deployment ID                                    | Database Size | Dictionary Endpoint                                                            | Has Restore File               |
-| --------- | ----------------------- | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------ | ------------------------------ |
-| Polkadot  | Polkadot Dictionary     | `QmZGAZQ7e1oZgfuK4V29Fa5gveYK3G2zEwvUzTZKNvSBsm` | ~220GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Kusama    | Kusama Dictionary       | `QmXwfCF8858YY924VHgNLsxRQfBLosVbB31mygRLhgJbWn` | ~260GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Moonbeam  | Moonbeam Dictionary     | `QmeeqBHdVu7iYnhVE9ZiYEKTWe4jXVUD5pVoGXT6LbCP2t` | ~123GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Moonriver | Moonriver Dictionary    | `QmXCr6uZFdY1YcGTa4u6ZieQPXK4VHE1Pjy7CBr7ubFwKR` | ~130GB        | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Moonbase  | Moonbase Alpha Dictionary | `QmUgn2eP1nvAECSe9HE9zTHTHwkQMDwSN7rpB1aXcsthfe` | N/A         | N/A                                                                             | N/A |
-| Acala     | Acala Dictionary        | `Qmarrhgrpqw5VK71rMtb4GARpPvq8ajMjAqnjnWZFLV61N` | ~10G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Karura    | Karura Dictionary       | `QmWumrabg4k6t4EUMhQg19xWwcxGq1hWbcmfmRYiy2Bod5` | ~10G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Astar     | Astar Dictionary        | `QmUmnKPhcE6JwGMYvY3Yitb5j8qxbQBMxgpkHpVQuXqxDH` | ~65G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Shiden    | Shiden Dictionary       | `QmV25WVPgdmAgRCqkbGUU49xdeg9td3CK5LbtBjeQEMxTW` | N/A           | N/A                                                                            | N/A |
-| Khala     | Khala Dictionary        | `QmYCAns2cunZKJFU85KNK8CvL2ATAmCFVZRdBf963GqWYs` | ~78G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Nodle     | Nodle Parachain Dictionary | `QmQtmsHoJEYUcxKE4tBqr9Z8kudcgkczQPfhkAxVExQX5y` | ~15G       | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Westend   | Westend Dictionary      | `Qma6BeSQGHrhP5aydmkQcJCR25TEwuNMogS5boovBBwoeW` | ~35G          | N/A                                                                            | [Yes](./dictionary-restore.md) |
-| Algorand  | Algorand Dictionary     | `QmYNRtrcD2QKftkff2UpjV3fr3ubPZuYahTNDAct4Ad2NW` | N/A           | N/A                                                                            | N/A |
-| Asset Hub | Asset Hub Dictionary    | `QmckGGY1AhrB75MwPPzR9orgWjwDVF4kXfwkZehZSZxmdE` | N/A           | N/A                                                                            | N/A |
-| Aleph Zero | Aleph Zero Dictionary  | `QmXp3MdCjZyUsmXhFXJTisxQiP1P96sm81WGmu2ew7v8WN` | N/A           | N/A                                                                            | N/A |
-| Kilt Spiritnet | Kilt Spiritnet Dictionary | `Qmc9svij5SxCEGApMZzV9MwWgy8TuMTtGgsrWxR1yaUqZ9` | N/A    | N/A                                                                            | N/A |
-| Fetch AI | Fetch AI Dictionary      | `QmbtSt8USCUTBWeAqevN1AwmUhKzqmtvhSdFYHYA1BviC8` | N/A           | N/A                                                                            | N/A |
-| Bifrost  | Bifrost (Kusama) Dictionary | `QmUWd1o3BJb5qSR1ZaAhSw1duVgQ5bsczdfRNakNUL5cJy` | N/A        | N/A                                                                            | N/A |
-| Calamari | Calamari Dictionary      | `QmUpvkmvTRkMDCGDXnAVjCBZLzZEv9UCVKHH2s3gj3hYQK` | N/A           | N/A                                                                            | N/A |
-| Near     | Near Dictionary          | `QmSKrk3BpzjWzKfS8sZRS5vyjmtXvkJnK8nHUVBhiCmz41` | N/A           | N/A                                                                            | N/A |
-| Juno     | Juno Dictionary          | `QmPjq55mgUt9S8S491Q3wEbb87fXyEkdxymT6Gwe2xe1Z1` | N/A           | N/A                                                                            | N/A |
-| SQ       | SQ Mainnet Project       | `QmTMphPvRg143xWWKsdgZZgNc1HgDxH9fK9ZYpzLiQPet1` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova wallet - Polkadot   | `QmaTy1aG5uZfeyUXRu8bDci1P6AzbTYBEzM57yEYk3MPEt` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Kusama     | `QmWS4bvLU9Y1YBkrcDBq3Z7enZf8LykeyjSvgVKjB7FSVz` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Moonriver  | `QmPzEH1Juo7RQB2X37DvYATQdCQ7oBV8V1yX92DHD71ma5` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Moonbeam   | `QmegTE8BimTw5iTpBqtJSMC2jWApU4g2q5ojGZAL3iU1fr` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Astar      | `QmRonzFGNrsmpG2NrVhcVC6rCtCBqYFupX6MEECReWXWZT` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Aleph Zero | `QmZNNYQqBs3c9f3t7UUybt1Unr49F5gTEdvU3Byv6DntKo` | N/A           | Yes                                                                            | N/A |
-| Nova     | Nova Wallet - Polkadex   | `QmdzL852vGNgmdmk4UdvpPWeVsTtYJiMsjJd6ZxnSbQsfP` | N/A           | Yes                                                                            | N/A |
-| RPC      | Eth Mainnet Rpc - Archive Node | `Qmf6uZkxuNzpcNvnhReXrz1BTzMWgmtkdFQrSNByPytkuk` | N/A     | N/A                                                                            | N/A |
-| RPC      | Eth Mainnet Rpc - Full Node | `QmNa36oZ4zRS1i2wQhiFznU5DjEuNP3wopV6U3VcUWMUKu` | N/A        | N/A                                                                            | N/A |
-| RPC      | Base Rpc - Archive Node  | `QmTfhYrb3wusYS715KvHfaL56R8M1SrM8vwhuLyYVehfKB` | N/A           | N/A                                                                            | N/A |
-| RPC      | Base Rpc - Full Node     | `QmbReTnhCweQHmbXxgffkDqkkedo7ojjsUWTKopP1auuTp` | N/A           | N/A                                                                            | N/A |
-
-::: info Note
-If you are wanting to index a Dictionary, then you may be able to restore your project from our dictionary snapshots to save a lot of time. Instructions are [here](./dictionary-restore.md)
-:::
-
 Enter the project deployment ID when adding the new project.
 
 ![Add a New Project Using Deploy ID](/assets/img/network/indexer_project_add.png)
