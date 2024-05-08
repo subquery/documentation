@@ -1,73 +1,12 @@
 # Indexing a SubQuery Project
 
-## Introduction
+Node Operators can run either data indexing projects or RPC endpoints for the network (or both). If you instead want to connect an RPC endpoint, please follow the instructions [here](../rpc_providers/connect-node.md).
 
-To become a SubQuery Indexer, you need to stake a minimum of 200,000 SQT.
+## 1. Select and Add a Project
 
-## 1. Initial Set-Up
+Inside your Node Operator Admin App (usually this is `http://localhost:8000/` depending on your installation), the Projects tab appears at the top of the page. This enables Node Operators to add projects of their choice to their Node Operator profile.
 
-### 1.1 The Indexer Admin Page
-
-Depending on where the application has been installed, you may find the Indexer admin page at:
-
-- http://localhost:8000/
-- http://your-ec2-public-path:8000/ (for example `ec2-14-273-116-26.ap-southeast-2.compute.amazonaws.com:8000`)
-- http://some-public-ip-address:8000
-
-### 1.2 Request Approval
-
-Click `Get Started` and then select `Approve`. Then your wallet will pop up, asking you to sign this transaction.
-
-### 1.3 Register Indexer
-
-Fill in the details to register your Indexer and confirm the wallet transaction.
-
-![Register MetMask-Confirm Transaction](/assets/img/network/indexer_registration.png)
-
-### 1.4 Synchronise Your Indexer
-
-Next, click on `Sync` to synchronise this account with your coordinator service. This may take a few minutes. If you still don’t get any results after 5 minutes, try refreshing the page.
-
-![Synchronise Indexer with Coordinator](/assets/img/network/indexer_sync_coordinator.png)
-
-### 1.5 Indexer and Controller Accounts
-
-Now, two accounts will appear on the screen. The Indexer Account where you can update the metadata (Indexer name and proxy server endpoint) and the Controller Account.
-
-![Indexer and Controller Accounts](/assets/img/network/indexer_controller_account.png)
-
-### 1.6 Add a Controller Account
-
-The Controller, a distinct and seperate account that must be created, holds a small amount of Eth tokens to facilitate Indexer configuration updates and run day to day operations.
-
-Updating a Indexer configuration is a sign-able event. That means it is an on-chain update that requires transaction fees to be paid (in Eth).
-
-Click `Managed Controllers` and then select `Create an Account`. This adds an account that you will need to fund with some tokens. Then set the account to `Active`.
-
-![Add Controller](/assets/img/network/indexer_controller_add.png)
-
-Activating a controller is an on-chain sign-able event.
-
-Once the controller account is added, it should appear as follows:
-
-![Activate Controller](/assets/img/network/indexer_controller_account_added.png)
-
-### 1.7 Update Indexer Metadata (Optional)
-
-The Indexer can update metadata which includes:
-
-- Indexer name.
-- Proxy server endpoint.
-
-![Update Indexer's Metadata](/assets/img/network/indexer_metadata_update.png)
-
-You have now completed the initial set-up. Next, let’s work on adding a project.
-
-## 2. Add a Project
-
-Once the Controller Account has been added, a new Projects tab appears at the top of the page. This enables Indexers to add projects of their choice for indexing.
-
-Before clicking **`Add Project`,** you will need to obtain the project's deployment ID. If the project has already been deployed and indexed by other indexers, you may be able to find it listed in the SubQuery Explorer as the obtain the project’s Deployment ID.
+Before clicking **`Add Project`,** you will need to obtain the project's deployment ID. If the project has already been deployed and indexed by other Node Operators, you will be able to obtain the project’s Deployment ID from the [SubQuery Explorer](https://app.subquery.network/explorer/home).
 
 Enter the project deployment ID when adding the new project.
 
@@ -75,7 +14,7 @@ Enter the project deployment ID when adding the new project.
 
 After finishing the process of adding your project, move forward with indexing the project.
 
-## 3. Index a Project
+## 2. Index a Project
 
 Select the project card to open the project details page.
 
@@ -83,25 +22,27 @@ For a brand new project, the indexing status will be `NOT INDEXING`. Select the 
 
 You will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
 
-Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from [OnFinality](https://www.onfinality.io/networks).
+Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from SubQuery Network itself.
 
 Please make sure that you set “Enable POI” to `true`. Then press `Submit` to trigger the request to start the node and query service for this project in the coordinator service.
 
-Once the services are started, the service information will be displayed. The Indexer can then check the service log to see the indexing details:
+Once the services are started, the service information will be displayed. The Node Operator can then check the service log to see the indexing details:
 
-![Indexer Service Log](/assets/img/network/indexer_service_logs.png)
+![Node Operator Service Log](/assets/img/network/indexer_service_logs.png)
 
-You have successfully completed the indexing process. Next comes the Announcements section. Let’s dig in further.
+You have successfully started Indexing. Next comes the Announcements section. Let’s dig in further.
 
-## 4. Announcements
+## 3. Announcements
 
-### 4.1 Announcing a Project to the Network
+### 3.1 Announcing a Project to the Network
 
-To announce a project to the network, select the `Announce Indexing` button and send a transaction.
+Once the project has started indexing, you can announce your project deployment to the network so the network knows that you are in the proccess of indexing the project.
+
+Select the `Announce Indexing` button and send a transaction.
 
 ![Announce a Project to Network](/assets/img/network/indexer_project_announce.png)
 
-After the transaction is processed, the project's status will change to `INDEXING`. Now, the Indexer can:
+After the transaction is processed, the project's status will change to `INDEXING`. Now, you can:
 
 - Publish the project to `READY` on the network via `Announce Ready`.
 - `Stop indexing` the project.
@@ -109,13 +50,28 @@ After the transaction is processed, the project's status will change to `INDEXIN
 
 ![Indexing Status](/assets/img/network/indexer_project_indexing.png)
 
-### 4.2 Announcing that Indexing Service is Ready to Use
+### 3.2 Announcing that Indexing Service is Ready to Use
 
-Once the Indexer announces that they have started indexing the project on the network, and when the indexing progress reaches the minimum block height, the indexer can publish the project to the `ready` status. This indicates that other users can now access the indexing service.
+Once a Node Operator announces that they have started indexing the project on the network, and when the indexing progress reaches the minimum required block height (or catches up with the latest height), the Node Operator can publish the project to the `ready` status. This indicates that the network can now start to distribute requests to the Node Operator's project deployment.
 
 ![Indexing Service Ready to Use Announcement](/assets/img/network/indexer_project_ready.png)
 
-### 4.3 **Stop Indexing the Project**
+## 4 Allocate SQT to the Project and Monitor
+
+To earn Network Allocation Rewards for your project, you should immediately allocate SQT to your new project. [Please follow the guide here](../stake.md#allocating-stake).
+
+On the Network app, the Node Operator can check the era information and confirm that the reward collection is up-to-date. The service log component provides the logs for the coordinator service.
+
+Monitor your eligibility for rewards from the Admin Portal, if your node is out of sync or not reachable, you may not receive rewards.
+
+Congratulations! You have successfully indexed your SubQuery Project.
+
+- If you encounter any trouble while running the Node Operator service, please visit [Troubleshooting](../setup/troubleshooting.md)) and find all your solutions in one place.
+- Find the list of [FAQs](../setup/faq.md), and resolve your query.
+
+## 5. Other Actions
+
+### 5.1 Stop Indexing the Project
 
 When you stop indexing the project, the node and query service will be terminated on the coordinator service side. Additionally, the status of the indexing service will need to be changed back to `NOT INDEXING`.
 
@@ -125,30 +81,20 @@ After the status changes to `TERMINATED`, remove the project directly.
 
 The proxy services status will change to `TERMINATED` after triggering the stop indexing function.
 
-Once the services are terminated, the Indexer also needs to send a transaction to change the status to `NOT INDEXING` on the network.
+Once the services are terminated, the Node Operator also needs to send a transaction to change the status to `NOT INDEXING` on the network.
 
 ![Not Indexing the Project Announcement_Transaction](/assets/img/network/indexer_project_stop_indexing.png)
 
 **Note**: You can start re-indexing the project at any time after stopping the project.
 
-### 4.4 Restarting a Project
+### 5.2 Restarting a Project
 
 Restart the project if you want to change the network endpoint, network dictionary, or image versions.
 
 ![Restart a Project](/assets/img/network/indexer_project_restart.png)
 
-### 4.5 **Removing a Project**
+### 5.3 Removing a Project
 
 You can remove the project from the service if a project is not required anymore.
 
 ![Remove a Project](/assets/img/network/indexer_project_remove.png)
-
-## 5. **Indexer Network Information**
-
-On the network page, the Indexer can check the era information and confirm that the reward collection is up-to-date. The service log component provides the logs for the coordinator service.
-
-Congratulations! You have successfully indexed your SubQuery Project.
-
-- If you encounter any trouble while running the indexing service, please visit [Troubleshooting](../setup/troubleshooting.md)) and find all your solutions in one place.
-
-- Find the list of [FAQs](../setup/faq.md), and resolve your query.

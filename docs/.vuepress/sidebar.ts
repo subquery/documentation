@@ -641,7 +641,7 @@ export const getSidebar = (locale: string) =>
             collapsible: true,
             children: [
               `${locale}/subquery_network/node_operators/rpc_providers/introduction.md`,
-              `${locale}/subquery_network/node_operators/rpc_providers/connect-your-node.md`,
+              `${locale}/subquery_network/node_operators/rpc_providers/connect-node.md`,
             ],
           },
           `${locale}/subquery_network/node_operators/stake.md`,
