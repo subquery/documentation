@@ -35,27 +35,40 @@ SubQuery makes it easy to migrate your existing SubGraph to SubQuery in the shor
 
 ### Recommended Migration Steps
 
-This is the recommended process that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery:
+This is the recommended process that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery.
 
-1. Use the SubQuery CLI tool to migrate an existing SubGraph. This will:
+Firstly, use the SubQuery CLI tool to migrate an existing SubGraph by using the `subql migrate` command. This will:
 
 - Intialise a new SubQuery project in your chosen directory for the matching target chain
 - Copy over basic information like project name and other metadata
 - Enable ts strict mode to assist you in identifying potential issues when migrating your project.
-- Copy over the existing `schema.graphql` to save you time
+- Copy over the existing `schema.graphql` to save you time (you will need to edit this)
+- Copy over the existing `project.ts` mapping to save you time (you will need to edit this)
 
-2. Review the migrated `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
-3. Copy over relevant abi contracts to the `abis` directory and update the `project.manifest`. [More info](#manifest-file).
-4. Migrate your data sources in the `project.manifest`, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
-5. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
-6. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
+An example of using this tool for the Graph Gravatar project is as follows
+
+- `-f` should point to a local project, or a subgraph on GitHub (if so include `/tree/<branchname>`)
+- `-d` is optional and used when the GitHub project is in a subdirectory
+- `-o` is the output directory
+
+```sh
+subql migrate -f  https://github.com/graphprotocol/graph-tooling/tree/main -d examples/ethereum-gravatar -o ~/subquery/gravatar-starter
+```
+
+Once this is done, follow along and complete the remaining steps:
+
+1. Review and edit the copied `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
+2. Copy over relevant abi contracts to the `abis` directory and update the `project.manifest`. [More info](#manifest-file).
+3. Review and edit the copied data sources in the `project.ts` manifest, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
+4. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
+5. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
    - Imports will need to be updated
    - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
    - With strict mode, you must construct new entities with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
    - [More info](#mapping).
-7. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
+6. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
 
-## GraphQL Schema
+### Differences in the GraphQL Schema
 
 Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and includes both similar [scalar types](./graphql.md#supported-scalar-types) as well as [full text search](./graphql.md#full-text-search).
 
@@ -67,7 +80,7 @@ Notable differences include:
 - SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql.md#json-type)).
 - Comments are added to SubQuery Project GraphQL files using hashes (`#`).
 
-## Manifest File
+### Differences in the Manifest File
 
 The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/ethereum.md).
 
@@ -237,7 +250,7 @@ dataSources:
 
 :::
 
-## Codegen
+### Differences in Codegen
 
 The `codegen` command is also intentionally similar between SubQuery and SubGraphs
 
@@ -256,7 +269,7 @@ import {
 } from "../types/abi-interfaces/Gravity";
 ```
 
-## Mapping
+### Differences in Mapping Functions
 
 Mapping files are also quite identical to an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
 
@@ -339,7 +352,7 @@ export async function handleUpdatedGravatar(
 
 :::
 
-## Querying Contracts
+### Differences in Querying Contracts
 
 We globally provide an `api` object that implements an [Ethers.js Provider](https://docs.ethers.io/v5/api/providers/provider/). This will allow querying contract state at the current block height being indexed. The easiest way to use the `api` is with [Typechain](https://github.com/dethcrypto/TypeChain), with this you can generate typescript interfaces that are compatible with this `api` that make it much easier to query your contracts.
 
@@ -356,11 +369,11 @@ const balance = await erc20.balanceOf(address);
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain
 
-## GraphQL Query Differences
+### Differences in the GraphQL Query Interface
 
 There are minor differences between the default GraphQL query service for SubQuery, and that of the Graph.
 
-### Query format
+#### Query format
 
 Note the additional nesting of entity properties under the `nodes` syntax.
 
@@ -392,7 +405,7 @@ Note the additional nesting of entity properties under the `nodes` syntax.
 
 :::
 
-### Filters
+#### Filters
 
 Instead of `where`, SubQuery uses `filter`. The Graph also uses a list of suffixes on the end of the entity field for filtering, when using SubQuery, you will need to add an extra layer on the GraphQL to specify the operator for the filters.
 
@@ -424,7 +437,7 @@ Instead of `where`, SubQuery uses `filter`. The Graph also uses a list of suffix
 
 :::
 
-### Sorting
+#### Sorting
 
 Instead of using `orderBy` and `orderDirection`, SubQuery creates directional values for the `orderBy` property (e.g. `CREATED_AT_ASC` and `CREATED_AT_DSC`)
 
@@ -456,7 +469,7 @@ Instead of using `orderBy` and `orderDirection`, SubQuery creates directional va
 
 :::
 
-### Historical queries
+#### Historical queries
 
 There is no difference when querying [historical data](../run_publish/historical.md).
 
@@ -488,7 +501,7 @@ There is no difference when querying [historical data](../run_publish/historical
 
 :::
 
-### Metadata
+#### Metadata
 
 SubQuery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics
 
