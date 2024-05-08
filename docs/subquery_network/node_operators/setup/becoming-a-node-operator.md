@@ -96,7 +96,7 @@ Once your Indexing Service is all set and running successfully, you should open 
 
 To index a data indexing project, please follow the instructions [here](../indexers/index-project.md).
 
-Guides to setup RPC endpoints will come shortly.
+For connect rpc nodes, see [here](../rpc_providers/introduction.md).
 
 ## 5. Create a Plan from a Plan Template
 
