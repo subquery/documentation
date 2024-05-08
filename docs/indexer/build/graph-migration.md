@@ -1,5 +1,7 @@
 # The Graph Migration
 
+![Graph Migration](/assets/img/build/graph.png)
+
 SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
 
 - **Performance improvements** - SubQuery is up to 3.9x faster for common projects over The Graph (e.g the standard [Ethereum POAP subgraph](https://github.com/poap-xyz/poap-subgraph)) thanks to multi-threading and a store cache layer
@@ -11,7 +13,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 
-![Competitor Comparison](/assets/img/build/competitor_comparison.jpg)
+![Competitor Comparison](/assets/img/build/graph_comparison.jpg)
 
 The migration from a SubGraph to a SubQuery Project is (by design) easy and quick. It may take you an hour or two to complete the migration, depending on the complexity of your SubGraph.
 
@@ -25,6 +27,8 @@ Reach out to our team at [professionalservices@subquery.network](mailto:professi
 
 ## Migration Overview
 
+SubQuery makes it easy to migrate your existing SubGraph to SubQuery in the shortest time possible, we even have an automated tool support you with migrating most of your project's boilerplate code. At a high level:
+
 - Both SubGraph and SubQuery use the same `schema.graphql` file to define schema entities. In addition, both have similar sets of supported scalars and entity relationships (SubQuery adds support for JSON types though).
 - The manifest file shows the most differences but you can easily overcome these differences once you understand them.
 - In addition, Mapping files are also quite similar with an intentionally equivalent set of commands, which are used to access the Graph Node store and the SubQuery Project store.
@@ -33,8 +37,14 @@ Reach out to our team at [professionalservices@subquery.network](mailto:professi
 
 This is the recommended process that we use at SubQuery whenever we migrate projects from a SubGraph to SubQuery:
 
-1. [Initialise a new SubQuery project](./introduction.md) for the same network using the `subql init` command. When migrating an existing SubGraph, it's not necessary to perform code scaffolding. It also ensures that you are using TS `strict` mode, which will help you identify any potential bugs.
-2. Copy over your `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
+1. Use the SubQuery CLI tool to migrate an existing SubGraph. This will:
+
+- Intialise a new SubQuery project in your chosen directory for the matching target chain
+- Copy over basic information like project name and other metadata
+- Enable ts strict mode to assist you in identifying potential issues when migrating your project.
+- Copy over the existing `schema.graphql` to save you time
+
+2. Review the migrated `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
 3. Copy over relevant abi contracts to the `abis` directory and update the `project.manifest`. [More info](#manifest-file).
 4. Migrate your data sources in the `project.manifest`, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
 5. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
