@@ -2,32 +2,27 @@
 
 ## Introduction
 
-Welcome to this guide on how to become a Node Operator. Let's take an overview of the basic steps involved in the process:
+Welcome to this guide on how to become a Node Operator.
 
-## Summary of Steps
+Node Operators can run either data indexing projects or RPC endpoints for the network (or both). At a high level, a Node Operator will run Node Operator Service, and then the various services for the projects they index or endpoints they serve.
 
-| Steps                                                           | Process Flow                                                                         |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [1](#1-deploy-an-environment)                                   | Setup & Start your Node Operator services locally in Docker or on an external VM     |
-| [2](#2-setup-ssl-on-your-new-server-and-consult-security-guide) | Setup SSL on your new server and consult security guide                              |
-| [3](#3-connect-to-metamask)                                     | Register yourself as a Node Operator                                                 |
-| [4](#4-how-to-index-a-project)                                  | Index a project, restore dictionary databases, or sync an RPC endpoint (coming soon) |
-| [5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                                   |
-| [6](#6-configure-an-node-operator-commission-rate-icr)          | Set a Node Operator Commission Rate                                                  |
-| [7](#7-troubleshooting-and-faqs`)                               | Troubleshooting and FAQs                                                             |
-| [8](#8-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                             |
-| [9](#9-upgrade-node-operator-services-ongoing)                  | Ongoing: Update Node Operator Services                                               |
+Let's take an overview of the basic steps involved in the process:
 
-## 1. Deploy an environment
+| Steps                                                                | Process Flow                                                                     |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [Step 1](#1-deploy-node-operator-services)                           | Setup & Start your Node Operator services locally in Docker or on an external VM |
+| [Step 2](#2-setup-ssl-on-your-new-server-and-consult-security-guide) | Setup SSL on your new server and consult security guide                          |
+| [Step 3](#3-connect-to-metamask)                                     | Register yourself as a Node Operator to the Network                              |
+| [Step 4](#4-how-to-index-a-project)                                  | Index a project or sync an RPC endpoint                                          |
+| [Step 5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                               |
+| [Step 6](#6-configure-an-node-operator-commission-rate-icr)          | Set a Node Operator Commission Rate                                              |
+| [Step 7](#7-troubleshooting-and-faqs`)                               | Troubleshooting and FAQs                                                         |
+| [Step 8](#8-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 9](#9-upgrade-node-operator-services-ongoing)                  | Ongoing: Update Node Operator Services                                           |
 
-For those who are new to SubQuery, it is recommended to try running the Node Operator Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your Node Operator service.
+## 1. Deploy Node Operator Services
 
-**Select the appropriate link to follow the guide to setup a Node Operator:**
-
-- [Locally via Docker (easy)](./install-local-docker.md)
-- [Linux](./install-linux.md)
-
-Please return here after following these guides.
+For those who are new to SubQuery, it is recommended to try running the Node Operator Service on your local machine first. For **intermediate to advanced users**, it is recommended to set up a VM on AWS (or similar) to host your Node Operator service. It does not need to be on the same VM as your data indexer or RPC endpoint (in fact we suggest that you run it seperately).
 
 ### Recommend resources for the machine
 
@@ -36,6 +31,13 @@ Please return here after following these guides.
 | indexer_db               | 2    | 2G  | --      |
 | subql_node (per project) | 2    | 2G  | 400G    |
 | indexer_proxy            | 2    | 1G  | --      |
+
+**Select the appropriate link to follow the guide to setup a Node Operator:**
+
+- [Locally via Docker (easy)](./install-local-docker.md)
+- [Linux](./install-linux.md)
+
+Please return here after following these guides.
 
 ### Port configurations
 
@@ -51,7 +53,7 @@ It's important to ensure that these ports are properly configured and secured to
 
 Note that you may or may not need to install Docker. If you use the SubQuery community image in AWS, it comes with everything you need to set up and run quickly. If you have your own customised VM, you will need to install Docker and some command tools, and then obtain the docker-compose.yml file.
 
-### Running indexer services
+### Running Node Operator Services
 
 `Important:`
 Login to your VM and create a folder, such as `subquery-indexer`
@@ -80,7 +82,7 @@ Please go through the docker-compose file carefully, and change the following pa
 
 :::
 
-## 2. Setup SSL on your new server and consult security guide
+## 2. Setup SSL on your New Server and Consult Security Guide
 
 We highly recommend setting up SSL on your new server and [consulting our security guide carefully](./security-guide.md). You will be penalised for not setting up SSL, firewalls, or following our security guidelines.
 
@@ -88,15 +90,16 @@ We highly recommend setting up SSL on your new server and [consulting our securi
 
 Once your Indexing Service is all set and running successfully, you should open the Node Operator Admin App and follow the steps to register yourself (usually this is `http://localhost:8000/` depending on your installation). This includes:
 
-- Connect your metamask
+- Connect your wallet
 - Register and stake your minimum required stake ([see the current value](../../parameters.md))
-- Add metadata information for your node operator
+- Add metadata information for your Node Operator account
 
 ## 4. Index or Sync a Project
 
-To index a data indexing project, please follow the instructions [here](../indexers/index-project.md).
+Node Operators can run either data indexing projects or RPC endpoints for the network (or both).
 
-Guides to setup RPC endpoints will come shortly.
+- To index a data indexing project, please follow the instructions [here](../indexers/index-project.md).
+- To connect an RPC endpoint, please follow the instructions [here](../rpc_providers/introduction.md).
 
 ## 5. Create a Plan from a Plan Template
 
