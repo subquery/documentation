@@ -1,4 +1,4 @@
-# Lesson 1: SubQuery and Moobeam Integration
+# Lesson 1: SubQuery and Moonbeam Integration
 
 This lesson discusses what problems dApp devs are currently facing and how SubQuery helps overcoming them. This lesson also explores SubQuery and Moonbeam integration in detail.
 
