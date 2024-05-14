@@ -18,7 +18,7 @@ The diagram below illustrates a suggested network topology of the Node Operator'
 
 ![Suggested Topology](/assets/img/network/indexer_topology.png)
 
-### Ports and Interfaces
+## Ports and Interfaces
 
 **443 / 80**: For nginx → indexer-proxy for HTTPS/HTTP Node Operators. If nginx is used, consult the [official docs for security controls](https://docs.nginx.com/nginx/admin-guide/security-controls/)
 
@@ -75,11 +75,11 @@ ufw-docker status
 
 **7370**: This port is generally safe to allow outbound and inbound traffic for Node Operators proxy p2p network
 
-### Docker
+## Docker
 
 The Coordinator has unrestricted access to your host's Docker, which can pose security risks if not adequately shielded. If the machine is solely utilised for running SubQuery services, Node Operators should contemplate applying specific Docker security measures. Refer to documentation on SeLinux or AppArmor for further insights.
 
-### Other Best Practices
+## Other Best Practices
 
 - Regularly update the host OS.
 - Ensure the SubQuery service softwares are upgraded to the latest versions.
@@ -90,13 +90,17 @@ SSL certificate is an important way to secure your Node Operator service and enc
 
 **Since it's such a standard best practice, although it's not required, we rank Node Operators higher in the Node Operator leaderboard if they have SSL enabled. You can tell if a Node Operator has SSL enabled by confirming that the `Proxy Server Endpoint` in Node Operator's metadata starts with `https` instead of `http`.**
 
-### Enabling SSL
+### 1. Purchase a domain name
 
-**1. Purchase a domain name**: You can purchase a domain from a lot of domain providers, we won't be providing a guide on how to do this. The rest of this guide assumes you have purchased `mysqindexer.com`
+You can purchase a domain from a lot of domain providers, we won't be providing a guide on how to do this. The rest of this guide assumes you have purchased `mysqindexer.com`
 
-**2. Config DNS**: Add a A record to your domain that points to your Node Operator's server IP address. For example, we add an A record for `proxy.mysqindexer.com` to our server's IP `210.10.5.61`.
+### 2. Config DNS
 
-**3. Get a SSL Cert**: You can get a free SSL Cert from [Let's Encrypt](https://letsencrypt.org/), they offer a lot of ways to get a SSL Cert, you can choose the [one that fits your needs](https://letsencrypt.org/docs/client-options/). This tutorial will use Certbot + NGINX + Ubuntu as an example.
+Add a A record to your domain that points to your Node Operator's server IP address. For example, we add an A record for `proxy.mysqindexer.com` to our server's IP `210.10.5.61`.
+
+### 3. Get a SSL Certificate
+
+You can get a free SSL Certificate from [Let's Encrypt](https://letsencrypt.org/), they offer a lot of ways to get a SSL certificate, you can choose the [one that fits your needs](https://letsencrypt.org/docs/client-options/). This tutorial will use Certbot + NGINX + Ubuntu as an example.
 
 3.1. Install Certbot: Check [https://certbot.eff.org/instructions](https://certbot.eff.org/instructions) on how to do this step
 3.2. Install Nginx: We will use nginx for two purpose.
@@ -156,7 +160,7 @@ server {
 sudo ln -s /etc/nginx/sites-available/proxy.mysqindexer.com /etc/nginx/sites-enabled/proxy.mysqindexer.com
 ```
 
-**4 Run certbot**
+### 4. Run Certbot
 
 ```bash
 # run certbot
@@ -184,7 +188,18 @@ sudo certbot --nginx -d proxy.mysqindexer.com
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-**5 Enable http2**
+### 5. Enable HTTP2
+
+It's important that you enable HTTP2. This significantly improves query performance across the SubQuery Network, and will likely be required at some point in the future.
+
+To enable HTTP/2 in Nginx, you must first ensure that you are running Nginx 1.9.5 or newer, as HTTP/2 support was introduced in this version. You also need to have SSL/TLS enabled because HTTP/2 in Nginx requires HTTPS due to browser support requirements.
+
+To enable HTTP2, modify your Nginx Configuration:
+
+- Open your Nginx configuration file (typically located at `/etc/nginx/nginx.conf` or within the `/etc/nginx/sites-available/` directory).
+- Find the server block for your HTTPS configuration.
+- Add the `http2` parameter to the listen directive that specifies the SSL port (usually 443). For example:
+
 ```
 # /etc/nginx/sites-available/proxy.mysqindexer.com
     server {
@@ -193,9 +208,12 @@ sudo certbot --nginx -d proxy.mysqindexer.com
       ...
     }
 ```
-more details [see here](./http2.md)
 
-**6. Update your Node Operator metadata**: set the `Proxy Server Endpoint` to `https://proxy.mysqindexer.com`
+Before applying the changes, test your new Nginx configuration by running `nginx -t`. If the configuration test is successful, reload Nginx to apply the changes with `sudo systemctl reload nginx` or `sudo nginx -s reload`.
+
+### 6. Update your Node Operator metadata
+
+Set the `Proxy Server Endpoint` to `https://proxy.mysqindexer.com`
 
 ## Community Solutions
 
