@@ -14,7 +14,7 @@ photoSwipe: false
       <div class="bannerImageBg"></div>
       <img src="/assets/img/welcomeBanner.png" />
     </div>
-    <div class="flexColCenter" style="position: relative">
+    <div class="flexColCenter" style="position: relative;gap: 24px;">
       <Typography tag="h1" center maxWidth="787">
         Learn how to build with SubQuery
       </Typography>
@@ -30,7 +30,7 @@ photoSwipe: false
       >
     </div>
   </div>
-  <div class="layout flex mt80 gp24">
+  <div class="layout flex mt80 gp24 flexColMobile">
     <BaseCard>
       <router-link
         class="flexCol gp24"
@@ -76,7 +76,7 @@ photoSwipe: false
   </div>
   <div class="layout mt140">
     <Typography tag="h3"> Our Most Popular Guides </Typography>
-    <div class="grid3column mt24 gp24">
+    <div class="grid3column mt24 gp24 flexColMobile">
       <BaseCard
         v-for="guide in polularGuides"
         :key="guide.title"

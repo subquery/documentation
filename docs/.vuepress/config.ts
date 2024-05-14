@@ -39,6 +39,12 @@ export default defineUserConfig({
         href: "/assets/favicons/favicon-16x16.png",
       },
     ],
+    [
+      "meta",
+      {
+        content: "user-scalable=no, width=device-width, initial-scale=1.0",
+      },
+    ],
   ],
 
   locales: {

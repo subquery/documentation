@@ -215,6 +215,33 @@ iframe {
   max-width: var(--max-width);
 }
 
+
+@media screen and (max-width: 768px) {
+  #navbar {
+    .vp-navbar-center {
+      display: none;
+    }
+    .vp-navbar-end {
+      flex: 1;
+      & > * {
+        margin: 0 !important;
+      }
+      #docsearch-container ~ div {
+        flex: 1;
+      }
+      .DocSearch {
+        width: 100%;
+      } 
+    }
+  }
+
+  .theme-container .vp-page {
+    padding-inline-start: 0;
+  }
+}
+
+
+
 html[data-theme="dark"] {
   --dark-grey: #fff;
   --primary-color: var(--theme-color);

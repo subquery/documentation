@@ -9,7 +9,7 @@ photoSwipe: false
 <link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="bannerRow">
-    <div class="flexColCenter gp24" style="max-width: 614px">
+    <div class="flexColCenter gp24" style="max-width: 614px; z-index: 1;">
       <Typography tag="h2">Build with SubQuery's Indexer SDK</Typography>
       <Typography tag="h5">The SubQuery Data indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.</Typography>
     </div>
@@ -49,7 +49,7 @@ photoSwipe: false
     <div class="layout mt80">
       <Typography tag="h4" fontSize="32">Advanced Features from the Best Multi-chain Indexer</Typography>
       <Typography type="secondary" tag="p" size="large" style="margin-top: 24px; margin-bottom: 40px;">We built the best, fully-featured indexer, so you don’t have to!</Typography>
-      <div class="grid3column gp24">
+      <div class="grid3column gp24 flexColMobile">
         <BaseCard  v-for="item in advancedFeatures" :key="item.title">
           <router-link class="item" :to="{path: item.link}">
             <Typography tag="p">{{ item.title }}</Typography>
@@ -60,20 +60,26 @@ photoSwipe: false
     </div>
     <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/indexer/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <Faqs></Faqs>
-    <div class="flex layout mt80" style="justify-content: space-between;">
+    <div class="flex layout mt80 flexColMobile" style="justify-content: space-between;">
       <div class="flexCol gp24" style="max-width: 590px">
         <Typography tag="h35">The SubQuery Network</Typography>
         <Typography tag="p" size="large" type="secondary">Say goodbye to relying on centralised service providers, we’re building the most open, performant, reliable and scalable data service for dApp developers. </Typography>
         <Typography tag="p" size="large" type="secondary">After publishing your project to the SubQuery Network, anyone can index and host it — providing data to users around the world faster and reliably.</Typography>
         <div class="flex">
-        <router-link :to="{path: '/subquery_network/welcome.html'}">
-          <Button>
-          Learn more about our Decentralised Network
+        <router-link :style="{
+            width: isMobile ? '100%' : 'auto'
+          }" :to="{path: '/subquery_network/welcome.html'}">
+          <Button :style="{
+            width: isMobile ? '100%' : 'auto',
+            justifyContent: 'center'
+          }">
+            {{ isMobile ? "Learn more" : "Learn more about our Decentralised Network" }}
           </Button>
         </router-link>
         </div>
       </div>
-      <img style="margin-top: -50px" src="/assets/img/architects.png" width="516" height="392" />
+      <img :style="{
+        marginTop: isMobile ? '' : '-50px'}" src="/assets/img/architects.png" :width="isMobile ? '100%' : 516" :height="isMobile ? 'auto': 392" />
     </div>
     <NeedHelp></NeedHelp>
     <Footer></Footer>
@@ -81,6 +87,21 @@ photoSwipe: false
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+const isMobile = ref(false)
+
+const checkIsMobile = () => {
+  if (window.screen && window.screen.width < 768) {
+    isMobile.value = true
+  } else {
+    isMobile.value = false
+  }
+ }
+
+onMounted(() => {
+  checkIsMobile()
+  window.addEventListener('resize', checkIsMobile)
+})
 
 const advancedFeatures = ref([
   {
