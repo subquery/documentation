@@ -100,4 +100,21 @@ defineProps<{
     color: var(--gray-400);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .docsTypography {
+    max-width: 100% !important;
+    &.h1 {
+      font-size: 40px;
+    }
+
+    &.h2 {
+      font-size: 40px;
+    }
+
+    &.h3 {
+      font-size: 36px;
+    }
+  }
+}
 </style>

@@ -2,7 +2,7 @@
   <div
     class="flex gp24 layout mt140 bannerWithBackground"
     :style="{
-      backgroundImage: `url('${backgroundUrl}')`,
+      '--background-url': `url('${backgroundUrl}')`,
     }"
   >
     <div class="flexCol gp24">
@@ -60,15 +60,40 @@ defineProps<{
 
 <style lang="scss">
 .bannerWithBackground {
-  background: url("");
   padding: 40px;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 8px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  background: var(--background-url) no-repeat;
+  overflow: hidden;
+  &::after {
+    display: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--background-url) no-repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
   p {
     max-width: 551px;
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bannerWithBackground {
+    padding: 20px;
+    background: unset;
+    &::after {
+      display: block;
+    }
   }
 }
 </style>
