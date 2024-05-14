@@ -52,7 +52,11 @@ An example of using this tool for the Graph Gravatar project is as follows
 - `-o` is the output directory
 
 ```sh
+# Github
 subql migrate -f  https://github.com/graphprotocol/graph-tooling/tree/main -d examples/ethereum-gravatar -o ~/subquery/gravatar-starter
+
+# Local file
+subql migrate -f ~/path/to/subgraph -o ~/path/to/output
 ```
 
 Once this is done, follow along and complete the remaining steps:
