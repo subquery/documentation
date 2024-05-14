@@ -32,7 +32,7 @@ photoSwipe: false
   <Typography tag="h3" fontSize="42" style="margin-top: 140px; margin-bottom: 64px">
     One network, all your web3 data needs
   </Typography>
-  <div class="layout mb140" style="display: flex; gap: 24px">
+  <div class="layout mb140 flexColMobile" style="display: flex; gap: 24px">
     <BaseCard v-for="item in oneNetworkAllWeb3" :key="item.title">
       <div class="flexColCenter" style="gap: 24px; text-align: center">
         <img :src="item.image" height="300" />
@@ -54,7 +54,7 @@ photoSwipe: false
       </div>
     </BaseCard>
   </div>
-  <Typography tag="h3" fontSize="42" style="margin-bottom: 24px">Anyone can participate</Typography>
+  <Typography tag="h3" fontSize="42" style="margin-bottom: 24px; text-align: center;">Anyone can participate</Typography>
   <Typography
   center
   type="secondary"
@@ -69,10 +69,8 @@ photoSwipe: false
     out how you can participate and be rewarded.
   </Typography>
   <div
-    class="layout"
+    class="layout grid2column flexColMobile"
     style="
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 96px;
       text-align: center;
     "
@@ -133,7 +131,7 @@ photoSwipe: false
   <div class="advancedFeatures layout mt80">
     <Typography tag="h35">Get Started with the Network Today</Typography>
     <Typography tag="p" size="large" style="margin: 24px 0 40px 0">Our decentralised network is live and vibrant</Typography>
-    <div class="grid3column" style="gap: 24px">
+    <div class="grid3column flexColMobile" style="gap: 24px">
       <router-link
         v-for="item in advancedFeatures"
         :key="item.title"
@@ -155,7 +153,7 @@ photoSwipe: false
       'SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains. ',
       'Build your own custom API for over 160 chains today by following our quick start guides, then host it your way',
     ]"
-    buttonText="Learn more about our Indexer SDK"
+    :buttonText="isMobile? 'Learn more' : 'Learn more about our Indexer SDK'"
     titleTag="h35"
     buttonLink="/indexer/welcome.html"
     backgroundUrl="https://subquery.network/images/indexerConcept.png"
@@ -169,26 +167,41 @@ photoSwipe: false
 </div>
 
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
+const isMobile = ref(false)
+
+const checkIsMobile = () => {
+if (window.screen && window.screen.width < 768) {
+isMobile.value = true
+} else {
+isMobile.value = false
+}
+}
+
+onMounted(() => {
+checkIsMobile()
+window.addEventListener('resize', checkIsMobile)
+})
+
 const oneNetworkAllWeb3 = ref([
-  {
-    image: "https://subquery.network/images/indexerConcept.png",
-    title: 'Decentralised Data Indexers',
-    subtitle: 'Fast, reliable, decentralised, and customised APIs for your web3 project',
-    contents: [
-      "SubQuery APIs make your dApp lighting quick. By providing an indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.",
-      "Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze."
-    ],
-  },
-  {
-    image: "https://subquery.network/images/rpcConcept.png",
-    title: 'Decentralised RPC Endpoints',
-    subtitle: 'Faster, cheaper, and globally decentralised RPCs that supercharge your dApp',
-    contents: [
-      "The SubQuery Data Node is a heavily optimised RPC endpoint that unlocks new breakthroughs in performance and scalability to power the next generation of web3 projects.",
-      "With similar RPC endpoints and helpful SDKs to manage network connections, supercharging your dApp takes only a second."
-    ],
-  }
+{
+image: "https://subquery.network/images/indexerConcept.png",
+title: 'Decentralised Data Indexers',
+subtitle: 'Fast, reliable, decentralised, and customised APIs for your web3 project',
+contents: [
+"SubQuery APIs make your dApp lighting quick. By providing an indexed data layer, your dApps get richer data faster to allow you to build intuitive and immersive experiences for your users.",
+"Easy to build, test, deploy, and run, SubQuery’s Data Indexer makes dApp development a breeze."
+],
+},
+{
+image: "https://subquery.network/images/rpcConcept.png",
+title: 'Decentralised RPC Endpoints',
+subtitle: 'Faster, cheaper, and globally decentralised RPCs that supercharge your dApp',
+contents: [
+"The SubQuery Data Node is a heavily optimised RPC endpoint that unlocks new breakthroughs in performance and scalability to power the next generation of web3 projects.",
+"With similar RPC endpoints and helpful SDKs to manage network connections, supercharging your dApp takes only a second."
+],
+}
 ])
 
 const anyoneContents = ref([
