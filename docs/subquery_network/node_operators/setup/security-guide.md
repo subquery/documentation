@@ -142,8 +142,7 @@ docker-compose up -d
 ```shell
 # /etc/nginx/sites-available/proxy.mysqindexer.com
 server {
-    listen 443 ssl; // Update the ports to listen on
-    listen [::]:443 ssl;
+    listen 80;
 
     server_name proxy.mysqindexer.com; // update the server name to match your DNS address
 
@@ -185,7 +184,18 @@ sudo certbot --nginx -d proxy.mysqindexer.com
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-**5. Update your Node Operator metadata**: set the `Proxy Server Endpoint` to `https://proxy.mysqindexer.com`
+**5 Enable http2**
+```
+# /etc/nginx/sites-available/proxy.mysqindexer.com
+    server {
+      # add http2 to line below
+      listen 443 ssl http2;
+      ...
+    }
+```
+more details [see here](./http2.md)
+
+**6. Update your Node Operator metadata**: set the `Proxy Server Endpoint` to `https://proxy.mysqindexer.com`
 
 ## Community Solutions
 

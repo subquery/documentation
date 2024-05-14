@@ -2,8 +2,8 @@
 
 ## Got permission denied while trying to connect to the Docker daemon socket
 
-```jsx
-[ec2-user@ip-172-31-31-78 subquery-indexer]$ docker-compose up
+```bash
+[ec2-user@example subquery-indexer]$ docker-compose up
 Got permission denied while trying to connect to the Docker daemon socket
 at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json?all=1&filters=%7B%22label%22%3A%7B%22com.docker.compose.project%3Dsubquery-indexer%22%3Atrue%7D%7D&limit=0": dial unix /var/run/docker.sock: connect: permission denied
 ```
@@ -13,13 +13,13 @@ You get this error because the user you have logged in through does not have per
 **Solution:**
 Run the following command, then log out, and log in again.
 
-```jsx
+```bash
 sudo usermod -aG docker ${USER}
 ```
 
 The alternative solution is to run as sudo user:
 
-```jsx
+```bash
 sudo docker-compose up
 
 
@@ -37,7 +37,7 @@ You get this error because the endpoint is pinged for validity.
 
 ## initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 
-```jsx
+```
 coordinator_db       | initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 coordinator_db       | If you want to create a new database system, either remove or empty
 coordinator_db       | the directory "/var/lib/postgresql/data" or run initdb
@@ -51,7 +51,7 @@ To fix this error, delete the database and start again. The database resides in 
 
 The other solution for this error is to specify another directory by adding a PGDATA key-value pair.
 
-```jsx
+```yaml
 services:
   postgres:
     environment:
@@ -60,7 +60,7 @@ services:
 
 ## fork/exec /usr/local/bin/docker-compose-v1: bad CPU type in executable
 
-```jsx
+```
 fork/exec /usr/local/bin/docker-compose-v1: bad CPU type in executable
 ```
 
@@ -73,13 +73,13 @@ To work around this issue in Docker, select “Use Docker Compose V2” in prefe
 
 If you have JavaScript disabled, you will see this error message. Turn on or enable JavaScript in your browser settings to continue to use SubQuery.
 
-```jsx
+```
 You need to enable JavaScript to run this app.
 ```
 
 ## ERROR Network chainId doesn't match expected genesisHash
 
-```jsx
+```
 2022-05-16T10:19:11.162Z <api> ERROR Network chainId doesn't match expected
 genesisHash. expected="0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654"
 499ea3dafe" actual="0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70"
@@ -101,7 +101,7 @@ For e.g. for a Kusama project, use the Kusama endpoint of: `wss://kusama.api.onf
 
 Indexers may see this error in their logs:
 
-```jsx
+```
 <transaction> WARN collect and distribute rewards: FAILED : Error: cannot estimate gas;
 transaction may fail or may require manual gas limit
 ```
@@ -128,7 +128,7 @@ The official installation guide can be found [here](https://docs.docker.com/comp
 
 ## (WIP) Unexpected EOF on client connection with an open transaction
 
-```jsx
+```
 coordinator_db       | 2022-05-07 20:17:57.675 UTC [949] LOG:
 unexpected EOF on client connection with an open transaction
 ```
@@ -137,7 +137,7 @@ unexpected EOF on client connection with an open transaction
 
 ## (WIP) FATAL: could not open file global/pg_filenode.map"
 
-```jsx
+```
 FATAL: could not open file "global/pg_filenode.map": No such file or directory
 ```
 
