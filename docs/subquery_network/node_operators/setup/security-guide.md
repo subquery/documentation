@@ -117,22 +117,22 @@ sudo apt install -y nginx
 ```shell
 # docker-compose.yml
 proxy:
-    image: subquerynetwork/indexer-proxy:v2.0.0
+    image: subquerynetwork/indexer-proxy:v2.1.0
     container_name: indexer_proxy
     restart: always
     ports:
       - 1080:1080
     command:
-      - --host=0.0.0.0
       - --port=1080
       - --auth
-      - --jwt-secret=<...>
-      - --secret-key=<...>
-      - --service-url=http://indexer_coordinator:8000
-      - --network=mainnet                                  # network type, need to be same with coordinator
-      - --network-endpoint=https://polygon-rpc.com
-      - --token-duration=24                                 # query auth token validity [hours]
+      - --network=mainnet # network type, need to be same with coordinator
+      - --jwt-secret=<a random str> # change to any random string value
+      - --secret-key=<a random str> # keep same with coordinator secret key
+      - --coordinator-endpoint=http://indexer_coordinator:8000
+      - --network-endpoint=https://mainnet.base.org # network endpoint, can choose your own endpoint
+      - --token-duration=24 # query auth token validity [hours]
       - --redis-endpoint=redis://indexer_cache
+      - --metrics-token=thisismyAuthtoken # change to any random string value
 ```
 
 then restart the `indexer-proxy` container
