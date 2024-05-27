@@ -96,6 +96,10 @@ export const getSidebar = (locale: string) =>
                     ],
                   },
                   {
+                    text: "Botanix",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/botanix.md`,
+                  },
+                  {
                     text: "Celo",
                     link: `${locale}/indexer/quickstart/quickstart_chains/celo.md`,
                   },
