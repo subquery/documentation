@@ -58,8 +58,8 @@ export const getSidebar = (locale: string) =>
                         link: `${locale}/indexer/quickstart/quickstart_chains/base.md`,
                       },
                       {
-                        text: "Base (Goerli Testnet)",
-                        link: `${locale}/indexer/quickstart/quickstart_chains/base-goerli.md`,
+                        text: "Base (Sepolia Testnet)",
+                        link: `${locale}/indexer/quickstart/quickstart_chains/base-sepolia.md`,
                       },
                     ],
                   },
