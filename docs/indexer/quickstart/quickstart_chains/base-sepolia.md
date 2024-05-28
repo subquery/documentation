@@ -1,4 +1,4 @@
-# Base Seplia Quick Start
+# Base Sepolia Quick Start
 
 The goal of this quick start guide is to index all transfers and approval events from the [Wrapped ETH](https://sepolia.basescan.org/token/0xe377517b4d95555052346c789e5b2b1cf8e4189e) on Base Sepolia.
 
