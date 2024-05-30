@@ -12,11 +12,11 @@ Let's take an overview of the basic steps involved in the process:
 | -------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | [Step 1](#1-deploy-node-operator-services)                           | Setup & Start your Node Operator services locally in Docker or on an external VM |
 | [Step 2](#2-setup-ssl-on-your-new-server-and-consult-security-guide) | Setup SSL on your new server and consult security guide                          |
-| [Step 3](#3-connect-to-metamask)                                     | Register yourself as a Node Operator to the Network                              |
-| [Step 4](#4-how-to-index-a-project)                                  | Index a project or sync an RPC endpoint                                          |
+| [Step 3](#3-register-in-the-node-operator-admin-app)                 | Register yourself as a Node Operator to the Network                              |
+| [Step 4](#4-index-or-sync-a-project)                                 | Index a project or sync an RPC endpoint                                          |
 | [Step 5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                               |
-| [Step 6](#6-configure-an-node-operator-commission-rate-icr)          | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-troubleshooting-and-faqs`)                               | Troubleshooting and FAQs                                                         |
+| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)          | Set a Node Operator Commission Rate                                              |
+| [Step 7](#7-troubleshooting-and-faqs)                                | Troubleshooting and FAQs                                                         |
 | [Step 8](#8-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
 | [Step 9](#9-upgrade-node-operator-services-ongoing)                  | Ongoing: Update Node Operator Services                                           |
 
