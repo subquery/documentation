@@ -51,7 +51,7 @@ It's important to ensure that these ports are properly configured and secured to
 
 ### Docker
 
-Note that you may or may not need to install Docker. If you use the SubQuery community image in AWS, it comes with everything you need to set up and run quickly. If you have your own customised VM, you will need to install Docker and some command tools, and then obtain the docker-compose.yml file.
+Note that you will need to install Docker and some command tools, and then obtain the docker-compose.yml file.
 
 ### Running Node Operator Services
 
