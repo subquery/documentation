@@ -78,7 +78,7 @@ query {
 
 ## Reindexing with Historical Data
 
-When you enable Automated Historical State Tracking, you can benefit from on demand partial reindexing from certain block heights. Например:
+When you enable Automated Historical State Tracking, you can benefit from on-demand partial reindexing from certain block heights. For example:
 
 - You can subscribe to new events, transactions, or assets in your manifest file, then backtrack to when they were deployed and start reindexing from that block
 - You could update your mapping files to add new logic to deal with a runtime change, and then backtrack to the block where the runtime change was deployed.
