@@ -571,6 +571,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/introduction/design-philosophy.md`,
           `${locale}/subquery_network/introduction/era.md`,
           `${locale}/subquery_network/introduction/payment-methods.md`,
+          `${locale}/subquery_network/introduction/proof-of-index.md`,
         ],
       },
       {
