@@ -673,7 +673,17 @@ export const getSidebar = (locale: string) =>
         ],
       },
       `${locale}/subquery_network/parameters.md`,
-      `${locale}/subquery_network/foundation.md`,
+      {
+        text: "SubQuery Governance",
+        link: `${locale}/subquery_network/governance/introduction.md`,
+        collapsible: true,
+        children: [
+          `${locale}/subquery_network/governance/introduction.md`,
+          `${locale}/subquery_network/governance/foundation.md`,
+          `${locale}/subquery_network/governance/governance-process.md`,
+          `${locale}/subquery_network/governance/treasury-management.md`,
+        ],
+      },
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
     ],

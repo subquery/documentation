@@ -214,6 +214,8 @@ export default defineUserConfig({
             "/indexer/quickstart/quickstart_chains/xlayer-testnet.html",
           "/subquery_network/publish.html":
             "/subquery_network/architects/publish.html",
+          "/subquery_network/foundation.html":
+            "/subquery_network/governance/foundation.html",
         };
         return {
           ...redirects,

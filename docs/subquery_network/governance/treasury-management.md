@@ -1,0 +1,7 @@
+# Treasury Management
+
+The SubQuery Foundation manages a substantial Treasury consisting of SQT tokens, crucial for funding ecosystem initiatives that drive growth and innovation within the SubQuery Network. Effective Treasury management is vital for Web3 projects, as it ensures the sustainable development of decentralised ecosystems. By carefully allocating resources, the Foundation can stimulate meaningful innovation while maintaining financial stability, ensuring that the Network thrives even in challenging market conditions.
+
+A well-managed Treasury enables the SubQuery Foundation to fund initiatives that promote long-term network health, from grants and hackathons to education and community outreach programs. The Treasury is funded through a percentage of inflation rewards and vested tokens donated by the Foundation itself. 
+
+By remaining public and accessible for anyone to submit a [SubQuery Treasury Proposal (STP)](governance-process.md#subquery-treasury-proposals-stps), the Foundation fosters a transparent and inclusive approach, allowing community members to suggest compelling reasons for the allocation of funds. The SubQuery Foundation will initially monitor and vote on all major Treasury proposals submitted by council members, subcommittees, as well as by the general community members. This open proposal system not only democratises decision-making but also empowers members to contribute to the Network's strategic direction.
