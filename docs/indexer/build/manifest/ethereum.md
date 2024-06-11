@@ -314,6 +314,10 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
+::: info Note
+When executing `subql codegen`, it will check if topics and functions are valid.
+:::
+
 ## Real-time indexing (Block Confirmations)
 
 As indexers are an additional layer in your data processing pipeline, they can introduce a massive delay between when an on-chain event occurs and when the data is processed and able to be queried from the indexer.
