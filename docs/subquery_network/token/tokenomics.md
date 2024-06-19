@@ -24,6 +24,12 @@ The vesting schedules for each participant has been designed to create long-term
 
 The Foundation and Community will have approximately 8% of their allocation unlocked from the start (as part of mainnet incentives) to meet the operational needs of launching and promoting the SubQuery Network with the rest of the allocation vesting gradually over 5 years.
 
+:::info Vesting start date
+
+Vesting schedules started when the network launched at 8am UTC, February 23rd 2024.
+
+:::
+
 | Group                                       | Size (exact) | Vesting Terms                          |
 | ------------------------------------------- | ------------ | -------------------------------------- |
 | Seed                                        | 11.65%       | 12 month lock-up with 24 month vesting |
