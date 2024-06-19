@@ -18,7 +18,7 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 1. The SubQuery Network does not support GraphQL subscriptions
 2. Your project can generate stable proof of indexing results. Node Operator’s proof of indexing will be kept private
-3. Your Subgraph deployment is published to IPFS
+3. You must have generated a unique IPFS CID for your SubGraph.
 
 ## Deploying your Subgraph Project
 
@@ -65,4 +65,4 @@ Firstly, you can publish a new version by clicking "Deploy New Version". This wi
 
 ## Connect your dApp
 
-To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../../consumers/plan.md)
+To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../consumers/plan.md)

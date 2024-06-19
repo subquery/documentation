@@ -654,13 +654,13 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Architects",
-        link: `${locale}/subquery_network/architects/introduction.md`,
+        text: "Publish your Project",
+        link: `${locale}/subquery_network/architects/publish.md`,
         collapsible: true,
         children: [
-          `${locale}/subquery_network/architects/introduction.md`,
           `${locale}/subquery_network/architects/publish.md`,
           `${locale}/subquery_network/architects/publish-subgraph.md`,
+          `${locale}/subquery_network/architects/introduction.md`,
         ],
       },
       {
