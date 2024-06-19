@@ -1,6 +1,6 @@
 # Connect your Subgraph deployment
 
-Node Operators can run either SubQuery Data Indexing projects or Subgraphs (or both). If you instead want to sync a SubQuery Data Indexing project, please follow the instructions [here](../index-project.md).
+Node Operators can run either SubQuery SDK Data Indexing projects, RPC projects, or Subgraphs (or both). If you instead want to sync a SubQuery SDK Data Indexing project, please follow the instructions [here](../index-project.md).
 
 :::info Connect any Subgraph
 The SubQuery Network does not control how you run the underlying Graph node, only that you connect a Subgraph endpoint that is able to reliably consume queries.
@@ -10,7 +10,7 @@ This means you can connect existing Subgraph deployments used for other purposes
 
 ## Prerequisites
 
-This guide assumes you are already running a Subgraph node that is internally available to the indexer proxy service, and which has the chosen deployment running.
+This guide assumes you are already running a Subgraph node that is internally available to the indexer proxy service, and which has the chosen deployment running. You can read more about how to operate a Subgraph node following the [official documentation](https://thegraph.com/docs/en/operating-graph-node/) by The Graph.
 
 ## 1. Add Project
 
@@ -24,13 +24,13 @@ Enter the project deployment ID when adding the new project, in our case, it is 
 
 ## 2. Connect your Graph node
 
-Input the endpoint of your Graph node, along with its Index Node status port, and HTTPs and Web Sockest query ports.
+Input the endpoint of your Graph node, along with its indexing status API port (usually `8030`), and HTTP (usually `8000`) and websocket (`8001`) query ports.
 
-Be aware that the coordinator service runs in docker, so localhost doesn't work like it runs outside of docker. You should use the internal ip address to connect to the node, or `host.docker.internal` which points to the host localhost.
+Be aware that the SubQuery network coordinator service runs in Docker, so `localhost` does not work the same as if it was run outside of Docker. You should use the internal IP address to connect to the node, or `host.docker.internal` which points to the host `localhost`.
 
 ![Connect graph node](/assets/img/network/subgraph_connect_node.png)
 
-Once connected, you will be able to see your node's sync status in the Node Operator Admin App under Projects
+Once connected, you will be able to see your Graph Node's sync status in the Node Operator Admin App under Projects
 
 ![subgraph sync status](/assets/img/network/subgraph_sync_status.png)
 
@@ -52,7 +52,7 @@ On the Network app, the Node Operator can check the era information and confirm 
 
 Monitor your eligibility for rewards from the Admin Portal, if your node is out of sync or not reachable, you may not receive rewards.
 
-Congratulations! You have successfully deployed your Subgraph to the SubQuery Network!
+Congratulations! You have successfully connected your Graph Node and deployed your Subgraph to the SubQuery Network!
 
 - If you encounter any trouble while running the Node Operator service, please visit [Troubleshooting](../setup/troubleshooting.md)) and find all your solutions in one place.
 - Find the list of [FAQs](../setup/faq.md), and resolve your query.

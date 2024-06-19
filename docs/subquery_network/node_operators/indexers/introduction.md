@@ -2,7 +2,7 @@
 
 ## What is an Indexer?
 
-An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers.
+An Indexer is a SubQuery network participant who is responsible for indexing blockchain data and providing this data to their customers, this can be performend using [SubQuery's Indexing SDK](index-project.md), or using a [Subgraph](./connect-subgraph.md).
 
 Indexers play a very important role within the SubQuery network. As a part of a data-as-a-service business, an Indexer turns computational and networking power into profits.
 

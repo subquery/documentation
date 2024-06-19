@@ -1,4 +1,4 @@
-# Indexing a SubQuery Project
+# Indexing a SubQuery SDK Project
 
 Node Operators can run either data indexing projects or RPC endpoints for the network (or both). If you instead want to connect an RPC endpoint, please follow the instructions [here](../rpc_providers/connect-node.md).
 
