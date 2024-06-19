@@ -660,6 +660,7 @@ export const getSidebar = (locale: string) =>
         children: [
           `${locale}/subquery_network/architects/introduction.md`,
           `${locale}/subquery_network/architects/publish.md`,
+          `${locale}/subquery_network/architects/publish-subgraph.md`,
         ],
       },
       {
