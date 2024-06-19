@@ -16,11 +16,10 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 ## Prerequisites for your project running on the Network
 
 1.  The SubQuery Network does not support GraphQL subscriptions, so you can't enable the `--subscription` [command line argument](../../indexer/run_publish/query/subscription.md)
-2.  Your client application (the one that will query data) must be able to run a JS library
-3.  Your project can generate stable proof of indexing results. This means you should avoid:
+2.  Your project can generate stable proof of indexing results. This means you should avoid:
     1.  Random ordered DB operations, e.g. avoid using `Promise.all()` in your mapping functions.
     2.  Introducing external data dependent on runtime, e.g. initialising a new current date using `new Date()`.
-4.  Your project is published to IPFS, [follow the guide here](../../indexer/run_publish/publish.md#publish-your-subquery-project-to-ipfs).
+3.  Your project is published to IPFS, [follow the guide here](../../indexer/run_publish/publish.md#publish-your-subquery-project-to-ipfs).
 
 ## Deploying your Project
 

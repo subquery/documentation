@@ -16,9 +16,7 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 ## Prerequisites for your Subgraph project running on the Network
 
-1. The SubQuery Network does not support GraphQL subscriptions
-2. Your project can generate stable proof of indexing results. Node Operator’s proof of indexing will be kept private
-3. Your Subgraph deployment is published to IPFS
+- You must have generated a unique IPFS CID for your SubGraph.
 
 ## Deploying your Subgraph Project
 
@@ -28,7 +26,7 @@ The SubQuery Network is a public permission-less network, anyone can deploy thei
 
 You will need to publish your Subgraph project to IPFS first. Please enter the project CID and give your project a nice name.
 
-![Publish - Enter CID and Name](/assets/img/network/architect_publish_subgraph.png)
+![Publish - Enter CID and Name](/assets/img/network/architect_publish_ipfs.png)
 
 On the next page you are asked to enter a project description, and also populate information about the project that Consumers or Node Operators might find interesting. This includes:
 
@@ -52,7 +50,7 @@ At this stage you should reach out to Node Operators in our Discord to encourage
 
 You can easily make changes to your project or deploy a new version by accessing the Managed Project page.
 
-![Manage Existing Project](/assets/img/network/architect_manage_subgraph_project.png)
+![Manage Existing Project](/assets/img/network/architect_manage_project.png)
 
 Firstly, you can publish a new version by clicking "Deploy New Version". This will let Node Operators know and allow them to upgrade to the new version of your Project. For the deployment you should provide:
 
@@ -61,8 +59,6 @@ Firstly, you can publish a new version by clicking "Deploy New Version". This wi
 - check the box if you want to make this version recommended, this means that you are recommending Node Operators to immediately update to it. Don't check this if it's a test build or if it has major breaking changes
 - the deployment description, which might include additional information for Node Operators about migration steps or breaking changes in this version
 
-![Manage Existing Project - Deploy New Version](/assets/img/network/architect_manage_subgraph_project_deploy.png)
-
 ## Connect your dApp
 
-To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../../consumers/plan.md)
+To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../consumers/plan.md)
