@@ -1,6 +1,6 @@
 # Connect your Subgraph deployment
 
-Node Operators can run either SubQuery SDK Data Indexing projects, RPC projects, or Subgraphs (or both). If you instead want to sync a SubQuery SDK Data Indexing project, please follow the instructions [here](./index-project.md).
+Node Operators can run SubQuery SDK Data Indexing projects, RPC projects, and Subgraphs. If you instead want to sync a SubQuery SDK Data Indexing project, please follow the instructions [here](./index-project.md).
 
 :::info Connect any Subgraph
 The SubQuery Network does not control how you run the underlying Graph node, only that you connect a Subgraph endpoint that is able to reliably consume queries.
