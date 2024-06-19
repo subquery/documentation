@@ -10,7 +10,7 @@ This means you can run existing RPC endpoint used for other purposes (including 
 
 ## Prerequisites
 
-This guide assumes you are already running an RPC node that is publicly available on a known IP address/port.
+This guide assumes you are already running an RPC node that is internally available to the indexer proxy service.
 
 For example with Etheruem, it can be any client (geth or erigon etc), and it is listening on a known address and port (in the examples below our node is listening on `192.168.1.100:8545`).
 
