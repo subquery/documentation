@@ -19,9 +19,9 @@ import {
 const project: CosmosProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
-  name: "osmosis-starter",
+  name: "juno-starter",
   description:
-    "This project can be use as a starting point for developing your Cosmos osmosis based SubQuery project",
+    "This project can be use as a starting point for developing your Cosmos juno based SubQuery project",
   runner: {
     node: {
       name: "@subql/node-cosmos",
@@ -36,56 +36,40 @@ const project: CosmosProject = {
     file: "./schema.graphql",
   },
   network: {
-    /* The genesis hash of the network (hash of block 0) */
-    chainId: "osmosis-1",
+    /* The unique chainID of the Cosmos Zone */
+    chainId: "juno-1",
     /**
-     * These endpoint(s) should be non-pruned archive nodes
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * We suggest providing an array of endpoints for increased speed and reliability
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
-    endpoint: ["https://osmosis.api.onfinality.io/public"],
-    // # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary:
-      "https://api.subquery.network/sq/subquery/cosmos-osmosis-dictionary",
-    chaintypes: new Map([
-      [
-        "osmosis.gamm.v1beta1",
-        {
-          file: "./proto/osmosis/gamm/v1beta1/tx.proto",
-          messages: ["MsgSwapExactAmountIn"],
-        },
-      ],
-      [
-        " osmosis.poolmanager.v1beta1",
-        {
-          // needed by MsgSwapExactAmountIn
-          file: "./proto/osmosis/poolmanager/v1beta1/swap_route.proto",
-          messages: ["SwapAmountInRoute"],
-        },
-      ],
-      [
-        "cosmos.base.v1beta1",
-        {
-          // needed by MsgSwapExactAmountIn
-          file: "./proto/cosmos/base/v1beta1/coin.proto",
-          messages: ["Coin"],
-        },
-      ],
-    ]),
+    endpoint: ["https://rpc-juno.whispernode.com"],
   },
   dataSources: [
     {
       kind: CosmosDatasourceKind.Runtime,
-      startBlock: 9798050,
+      startBlock: 9700000,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
+            handler: "handleEvent",
+            kind: CosmosHandlerKind.Event,
+            filter: {
+              type: "execute",
+              messageFilter: {
+                type: "/cosmwasm.wasm.v1.MsgExecuteContract",
+              },
+            },
+          },
+          {
             handler: "handleMessage",
             kind: CosmosHandlerKind.Message,
             filter: {
-              type: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract",
             },
           },
         ],
