@@ -32,7 +32,7 @@ There are two ways to do this. First, if the Subgraph is already live on the Gra
 
 ![IPFS on the Graph Explorer](/assets/img/network/architect_publish_subgraph_ipfs.png)
 
-Alternatively, if you have not deployed the Subgraph project on the Graph Network, you can use the Graph's command line interface `graph build -i https://api.thegraph.com/ipfs/`. This will return you an IPFS CID that you can use.
+Alternatively, if you have not deployed the Subgraph project on the Graph Network, you can use the Graph's command line interface `graph build -i https://unauthipfs.subquery.network/ipfs/api/v0`. This will return you an IPFS CID that you can use.
 
 
 ## Deploying your Subgraph Project
