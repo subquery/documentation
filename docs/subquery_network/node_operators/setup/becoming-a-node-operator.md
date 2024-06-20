@@ -94,6 +94,8 @@ Once your Indexing Service is all set and running successfully, you should open 
 - Register and stake your minimum required stake ([see the current value](../../parameters.md))
 - Add metadata information for your Node Operator account
 
+We suggest you also setup your Social Profile so Delegators can get to know you, and so you can show social credibility. To setup social credibility, create an ENS domain name and profile linked to your wallet. [You can setup an ENS domain here](https://app.ens.domains/).
+
 ## 4. Index or Sync a Project
 
 Node Operators can run either data indexing projects or RPC endpoints for the network (or both).
