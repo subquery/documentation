@@ -300,3 +300,15 @@ If you can't see your GitHub Organization account listed in the switcher, then y
 Once you have revoked access, log out of [SubQuery Managed Service](https://managedservice.subquery.network) and log back in again. You should be redirected to a page titled _Authorize SubQuery_ where you can request or grant SubQuery access to your GitHub Organization account. If you don't have admin permissions, you must make a request for an administrator to enable this for you.
 
 Once this request has been approved by your administrator (or if are able to grant it youself), you will see the correct GitHub Organization account in the account switcher.
+
+## Sync your Managed Service Account to the SubQuery Network
+
+You can connect your SubQuery Managed Service account to your Ethereum wallet to enable seamless integration between the SubQuery Network and the SubQuery Managed Service. This may provide discounts when running your projects in the hosted service, and will allow you to migrate your project to the network in a single click.
+
+Head to the Wallet menu and follow the guide to connect your wallet.
+
+![Connect your wallet to the managed service](/assets/img/run_publish/wallet_connect.png)
+
+To bind a wallet, you will be asked to sign a simple transaction, this costs nothing. You are able to disconnect the wallet or connect a different wallet if you need to.
+
+![Connect your wallet to the managed service success](/assets/img/run_publish/wallet_connect_success.png)
