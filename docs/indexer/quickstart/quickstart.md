@@ -144,7 +144,7 @@ The package.json file includes build scripts that allow you to build with either
 
 ```json
 "scripts": {
-    "build": "subql codegen && subql build", // default is production
+    "build": "subql codegen && subql build", // default is production, if you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-<network>` package in the dependencies before execute this command.
     "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
 }
 ```
