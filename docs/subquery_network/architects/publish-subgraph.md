@@ -24,11 +24,7 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 In order to publish a Subgraph project to the SubQuery Network, you must first upload it to IPFS and retrieve a publicly accessible IPFS CID.
 
-There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the *Deployment ID* on the website, or the `ipfs_hash` when running it on a Graph node.
-
-```json
-{ "jsonrpc": "2.0", "method": "subgraph_deploy", "params": { "name": "gravity", "ipfs_hash": "QmbaLc7fEfLGUioKWehRhq838rRzeR8cBoapNJWNSAZE8u", "version_label": "v1.0.0" }, "id": "1" } 
-```
+There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the *Deployment ID* on the website.
 
 ![IPFS on the Graph Explorer](/assets/img/network/architect_publish_subgraph_ipfs.png)
 
