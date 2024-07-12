@@ -639,6 +639,7 @@ export const getSidebar = (locale: string) =>
               `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               `${locale}/subquery_network/node_operators/indexers/index-project.md`,
               `${locale}/subquery_network/node_operators/indexers/connect-subgraph.md`,
+              `${locale}/subquery_network/node_operators/indexers/migrate_existing_deployment.md`,
             ],
           },
           {
