@@ -687,6 +687,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/governance/treasury-management.md`,
         ],
       },
+      `${locale}/subquery_network/fair-use.md`,
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
     ],
