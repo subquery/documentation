@@ -26,7 +26,7 @@ yarn global add @subql/cli
 You can then run help to see available commands and usage provide by CLI:
 
 ```shell
-subql help
+subql --help
 ```
 
 ## Install @subql/node
