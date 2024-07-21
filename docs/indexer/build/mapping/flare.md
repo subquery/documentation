@@ -15,9 +15,9 @@ You can use block handlers to capture information each time a new block is attac
 **Using block handlers slows your project down as they can be executed with each and every block - only use if you need to.**
 
 ```ts
-import { FlareBlock } from "@subql/types-flare";
+import { EthereumBlock } from "@subql/types-ethereum";
 
-export async function handleBlock(block: FlareBlock): Promise<void> {
+export async function handleBlock(block: EthereumBlock): Promise<void> {
   // Create a new BlockEntity with the block hash as it's ID
   const record = new BlockEntity(block.blockHash);
   record.height = BigInt(block.blockNumber);
@@ -30,7 +30,8 @@ export async function handleBlock(block: FlareBlock): Promise<void> {
 You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { FlareTransaction } from "@subql/types-flare";
+import { SubmitHash } from "../types";
+import { SubmitHashTransaction } from "../types/abi-interfaces/Erc20Abi";
 
 // Setup types from ABI
 type SubmitHashCallArgs = [BigNumber, string] & {
@@ -39,7 +40,7 @@ type SubmitHashCallArgs = [BigNumber, string] & {
 };
 
 export async function handleTransaction(
-  transaction: FlareTransaction<SubmitHashCallArgs>,
+  transaction: SubmitHashTransaction,
 ): Promise<void> {
   const approval = SubmitHash.create({
     id: transaction.hash,
@@ -57,18 +58,11 @@ export async function handleTransaction(
 You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/flare.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
-import { FlareLog } from "@subql/types-flare";
-
-// Setup types from ABI
-type HashSubmittedEventArgs = [string, BigNumber, string, BigNumber] & {
-  submitter: string;
-  epochId: BigNumber;
-  hash: string;
-  timestamp: BigNumber;
-};
+import { HashSubmittedEvent } from "../types";
+import { SubmitHashEvent } from "../types/abi-interfaces/Erc20Abi";
 
 export async function handleLog(
-  log: FlareLog<HashSubmittedEventArgs>,
+  log: SubmitHashEvent
 ): Promise<void> {
   const transaction = HashSubmittedEvent.create({
     id: log.transactionHash,
@@ -108,7 +102,7 @@ SubQuery is deterministic by design, that means that each SubQuery project is gu
 
 ```yml
 subquery-node:
-  image: onfinality/subql-node-flare:latest
+  image: onfinality/subql-node-ethereum:latest
   ...
   command:
     - -f=/app
@@ -120,10 +114,10 @@ subquery-node:
 When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
 
 ```ts
-import { FlareTransaction } from "@subql/types-flare";
+import { EthereumTransaction } from "@subql/types-ethereum";
 import fetch from "node-fetch";
 
-export async function handleTransaction(tx: FlareTransaction): Promise<void> {
+export async function handleTransaction(tx: EthereumTransaction): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data

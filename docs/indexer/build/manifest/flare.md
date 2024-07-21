@@ -9,7 +9,95 @@ With the number of new features we are adding to SubQuery, and the slight differ
 Below is a standard example of a basic `project.ts`.
 
 ```ts
+import {
+  EthereumProject,
+  EthereumDatasourceKind,
+  EthereumHandlerKind,
+} from "@subql/types-ethereum";
 
+// Can expand the Datasource processor types via the generic param
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "flare-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Flare SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for Flare this is 14
+     * https://chainlist.org/chain/14
+     */
+    chainId: "14",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     # We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: ["https://flare-api.flare.network/ext/C/rpc"],
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // This is the block that the contract was deployed on https://arbiscan.io/tx/0x8ebe1945f039f865af8b3079df3819534340ee41a5e6b8bfefb9c36a857778c9
+      startBlock: 2591,
+      options: {
+        // Must be a key of assets
+        abi: "priceSubmitter",
+        // This is the contract address for wrapped BTC https://arbiscan.io/token/0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f
+        address: "0x1000000000000000000000000000000000000003",
+      },
+      assets: new Map([["priceSubmitter", { file: "./priceSubmitter.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "submitHash(uint256 _epochId, bytes32 _hash)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "HashSubmitted(address indexed submitter, uint256 indexed epochId, bytes32 hash, uint256 timestamp)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
 ```
 
 Below is a standard example of the legacy YAML version (`project.yaml`).
@@ -22,7 +110,7 @@ name: flare-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: "@subql/node-flare"
+    name: "@subql/node-ethereum"
     version: "*"
   query:
     name: "@subql/query"
@@ -46,7 +134,7 @@ network:
   dictionary: "https://api.subquery.network/sq/subquery/flare-dictionary"
 
 dataSources:
-  - kind: flare/Runtime
+  - kind: ethereum/Runtime
     startBlock: 2300000
     options:
       # Must be a key of assets
@@ -59,16 +147,16 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         # - handler: handleBlock
-        # kind: flare/BlockHander
+        # kind: ethereum/BlockHander
         - handler: handleTransaction
-          kind: flare/TransactionHandler
+          kind: ethereum/TransactionHandler
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: submitHash(uint256 _epochId, bytes32 _hash)
         - handler: handleLog
-          kind: flare/LogHandler
+          kind: ethereum/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -159,7 +247,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **kind**       | string       | [flare/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                     |
+| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                     |
 | **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
@@ -178,7 +266,7 @@ In this section, we will talk about the default Flare runtime and its mapping. H
 {
   dataSources: [
     {
-      kind: FlareDatasourceKind.Runtime, // Indicates that this is default runtime
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
       startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
       options: {
         // Must be a Record of assets
@@ -206,9 +294,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                             | Supported filter                                                                                    |
 | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [flare/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [flare/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [flare/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| [ethereum/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
