@@ -8,7 +8,7 @@ The goal of this quick start guide is to index all rewards from the Flare FTSO R
 :::
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Flare/ftso-rewards-main).
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
@@ -204,7 +204,7 @@ You will see the result similar to below:
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/jamesbayly/subql-flare-ftso-rewards).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Flare/ftso-rewards-main).
 :::
 
 <!-- @include: ../snippets/whats-next.md -->
