@@ -326,6 +326,46 @@ We can load protobuf message definitions to allow support for specific Cosmos zo
 
 You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
 
+```ts
+{
+  network: {
+    ...,
+    chaintypes: new Map([
+      [
+        "cosmos.slashing.v1beta1",
+        {
+          file: "./proto/cosmos/slashing/v1beta1/tx.proto",
+          messages: ["MsgUnjail"],
+        },
+      ],
+      [
+        "cosmos.gov.v1beta1",
+        {
+          file: "./proto/cosmos/gov/v1beta1/tx.proto",
+          messages: ["MsgVoteWeighted"],
+        },
+      ],
+      [
+        "cosmos.gov.v1beta1.gov",
+        {
+          file: "./proto/cosmos/gov/v1beta1/gov.proto",
+          messages: ["WeightedVoteOption"],
+        },
+      ],
+      [
+        "publicawesome.stargaze.claim.v1beta1",
+        {
+          file: "./proto/stargaze/claim/v1beta1/tx.proto",
+          messages: ["MsgInitialClaim"],
+        },
+      ],
+    ]),
+  }
+}
+```
+
+:::details Legacy YAML Chain types
+
 ```yml
 network:
   ...
@@ -347,6 +387,10 @@ network:
       messages:
         - "MsgInitialClaim"
 ```
+:::
+
+::: info If you have more than one file with the same namespace you can use a different key. The key is only used as a fallback if the proto file doesn't specify a namespace.
+:::
 
 Our [starter repo has chaintypes for popular Cosmos chains](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) already added under a branch for each chain. Additionally see [Tested and Supported networks](#tested-and-supported-networks).
 
