@@ -13,6 +13,7 @@ Theoretically all the following networks (and more) should also be supported sin
 - Karura
 - Astar
 - Shiden
+- Reef Network
 - Automata
 - Bitcountry
 - Clover
