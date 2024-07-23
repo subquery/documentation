@@ -1,8 +1,8 @@
 # Staking and Allocating SQT
 
-:::tip New for Mainnet - Please read
+:::info 
 
-One key difference between Kepler and the mainnet is that now Node Operators must actively manage their staking allocation to each project deployment.
+Node Operators must actively manage their staking allocation to each project deployment to maximise their rewards. We also highly recommend that you enable [Auto Reduce Over Allocation](#automatically-reduce-over-allocation) to prevent being [over allocated](#over-allocated-stake).
 
 :::
 
@@ -58,6 +58,25 @@ When the Current Total Stake bar turns red, you are over allocated. You must imm
 ![indexer stake over allocated](/assets/img/network/indexer_stake_manage_over_allocated.png)
 
 You can use the estimate of the Own Stake and Total Delegated for the next Era on this page to avoid situations where departing delegators might result in you over allocating.
+
+## Automatically Reduce Over Allocation
+
+:::info 
+
+We highly recommend that you enable this feature
+
+:::
+
+In your Node Operator Admin App and in the Config section there is a setting called "Auto Reduce Over Allocation", we highly recommend that you enable it.
+
+If enabled, in the event of when you are overallocated, then your allocaton will automaticaly evenly reduce across all of your projects until you are no longer over allocated
+- Allocation reduction will be by an even percent. For example, each project will decrease by 10% of it's initial allocation.
+- Allocation will not be reduced below 1 SQT on any single project
+- If you have 0 projects then it will un-allocate all SQT
+
+It runs immediately at the start of the next era when delegation changes take effect.
+
+![Enabling Node Operator Auto Reduce Allocation](/assets/img/network/indexer_auto_allocation.png)
 
 ## How much SQT should you Stake
 
