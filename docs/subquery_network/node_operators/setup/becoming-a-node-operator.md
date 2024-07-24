@@ -16,9 +16,10 @@ Let's take an overview of the basic steps involved in the process:
 | [Step 4](#4-index-or-sync-a-project)                                 | Index a project or sync an RPC endpoint                                          |
 | [Step 5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                               |
 | [Step 6](#6-configure-a-node-operator-commission-rate-nocr)          | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-troubleshooting-and-faqs)                                | Troubleshooting and FAQs                                                         |
-| [Step 8](#8-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 9](#9-upgrade-node-operator-services-ongoing)                  | Ongoing: Update Node Operator Services                                           |
+| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards)      | Allocate your SQT to start receiving rewards                                     |
+| [Step 8](#8-troubleshooting-and-faqs)                                | Troubleshooting and FAQs                                                         |
+| [Step 9](#9-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 10](#10-upgrade-node-operator-services-ongoing)                | Ongoing: Update Node Operator Services                                           |
 
 ## 1. Deploy Node Operator Services
 
@@ -119,11 +120,19 @@ Enter a new value (in a percent) and submit via your wallet.
 
 Changes will come into effect at the start of the next [Era](../../introduction/era.md).
 
-## 7. Troubleshooting and FAQs
+## 7. Allocate your SQT stake to start receiving rewards
+
+You must [actively allocate or assign your staked and delegated SQT to certain projects](../stake.md#allocating-stake) you run in order to receive rewards. Unallocated SQT is essentially wasted.
+
+We suggest you check this page at the start of each Era, and make sure you are keeping on top to maximise allocated SQT, and also allocate SQT to more profitable projects (e.g. ones with a higer APY). [Find out how here](../stake.md#allocating-stake).
+
+We also highly recommend that you enable [Auto Reduce Over Allocation](../stake.md#automatically-reduce-over-allocation) to prevent being over allocated.
+
+## 8. Troubleshooting and FAQs
 
 Visit [Troubleshooting](./troubleshooting.md) or [FAQs](./faq.md) if you run into technical issues.
 
-## 8. Setting up a Grafana Dashboard (Optional)
+## 9. Setting up a Grafana Dashboard (Optional)
 
 This guide will walk you through setting up a preconfigured Grafana Dashboard to view metrics from the `indexer-coordinator` and `indexer-proxy`.
 
@@ -174,7 +183,7 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 ![grafana_query_count](/assets/img/network/grafana_query_count.png)
 ![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
-## 9. Upgrade Node Operator services (Ongoing)
+## 10. Upgrade Node Operator services (Ongoing)
 
 To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
 
