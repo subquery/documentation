@@ -264,6 +264,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/cosmos-archway.md`,
                   },
                   {
+                    text: "Coreum",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/cosmos-coreum.md`,
+                  },
+                  {
                     text: "Cronos (EVM)",
                     link: `${locale}/indexer/quickstart/quickstart_chains/cosmos-cronos.md`,
                   },
