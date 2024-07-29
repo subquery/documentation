@@ -42,7 +42,7 @@ Firstly, use the SubQuery CLI tool to migrate an existing SubGraph by using the 
 - Intialise a new SubQuery project in your chosen directory for the matching target chain
 - Copy over basic information like project name and other metadata
 - Enable ts strict mode to assist you in identifying potential issues when migrating your project.
-- Copy over the existing `schema.graphql` to save you time (you will need to edit this)
+- Migrate the `schema.graphql` to be compatible with SubQuery, there is a chance you need to edit this.
 - Copy over the existing `project.ts` mapping to save you time (you will need to edit this)
 
 An example of using this tool for the Graph Gravatar project is as follows
@@ -61,16 +61,15 @@ subql migrate -f ~/path/to/subgraph -o ~/path/to/output
 
 Once this is done, follow along and complete the remaining steps:
 
-1. Review and edit the copied `schema.graphql` and replace any `Bytes` and `BigDecimals`. [More info](#graphql-schema).
-2. Copy over relevant abi contracts to the `abis` directory and update the `project.manifest`. [More info](#manifest-file).
-3. Review and edit the copied data sources in the `project.ts` manifest, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
-4. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
-5. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
+1. Review and edit the `schema.graphql`, it will remove any unsupported features and modify relations to work with SubQuery. You may need to change the field parameter in the `@derivedFrom` directive. [More info](#graphql-schema).
+2. Review and edit the copied data sources in the `project.ts` manifest, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
+3. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
+4. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
    - Imports will need to be updated
    - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
    - With strict mode, you must construct new entities with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
    - [More info](#mapping).
-6. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
+5. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
 
 ### Differences in the GraphQL Schema
 
@@ -80,8 +79,9 @@ Visit this [full documentation for `schema.graphql`](./graphql.md). **You can co
 
 Notable differences include:
 
-- SubQuery does not have support for `Bytes` (use `String` instead) and `BigDecimal` (use `Float` instead).
+- SubQuery does not have support for `Bytes` (use `String` instead), `BigDecimal` (use `Float` instead) and `Timestamp` (use `Date` instead).
 - SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql.md#json-type)).
+- SubQuery does relations slightly differently and the `@derivedFrom` directive is needed in more cases.
 - Comments are added to SubQuery Project GraphQL files using hashes (`#`).
 
 ### Differences in the Manifest File
