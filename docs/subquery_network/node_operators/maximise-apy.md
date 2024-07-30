@@ -1,23 +1,52 @@
-# What Next after Installing a Node?
+# Maximising Your APY
 
-After your node has been successfully installed and set up, here are a few extra tasks to complete along with some tips and tricks.
+After you have joined the SubQuery Network, completed indexing of your first project, and announced ready to the network, you might have questions on how to maximise your APY and attract as much delegation as possible.
 
-Keep up with the latest newss by joining the following Discord channels:
-- network-announcements
-- network-general
-- network-services-release
-- network-indexer-announcements
-- network-indexer-general
+### Join the Node Operator community
 
-## General Tasks
-Log in just before the end of each Era to check and resolve any warnings or notifications
+If you're a Node Operator on the Network, we strongly suggest that you keep up with the latest news, announcements, and tips by joining our Discord. Read more about the [Node Operator community here](../community.md#join-the-node-operator-community).
 
-### Allocation
+## Quick Checks
 
-- Avoid having tokens allocated to outdated deployments. An “Outdated Allocation Projects” pop up will appear if this occurs. This means that you have to adjust your allocation to the latest version.
+- We strongly recommend that you enable [Auto Reduce Over Allocation](./stake.md#automatically-reduce-over-allocation) to prevent being over allocated.
+- Ensure you have at least one flex plan enabled for each project deployment so we can send requests to you from our gateway.
+- Ensure projects are able to fetch metadata from deployment’s Query Service. An error will appear in the status column if there is an issue.
+- Ensure that you are online. `GET:{your_indexer_service_url}/healthy` should return a 200 with something like
+
+```json
+{
+  "autoReduceAllocation": true,
+  "controller": "",
+  "coordinatorVersion": "v2.2.3",
+  "indexer": "",
+  "os": "Debian GNU/Linux 10 4-CPU",
+  "proxyVersion": "v2.4.2",
+  "uptime": 8066
+}
+```
+
+## Weekly Tasks
+
+You may have already setup a Grafana dashboard to monitor metrics from your `indexer-coordinator` and `indexer-proxy` services, but there are important notifications and settings you should monitor in the [Network App](https://app.subquery.network/).
+
+We strongly suggest that you log in at the start of each new Era (as close as possible to the start - set a calendar reminder), to resolve any warnings or notifications, as well complete the following key tasks.
+
+### Weekly tasks - Claim rewards
+
+If you don't frequently claim your rewards (e.g. once a week), delegators can see this and may decide against delegating to support you. Make sure you claim your rewards frequently (e.g. once a week), and ideally as soon as they become available after the end of the past Era.
+
+Alternatively, ensure enough ETH balance is in your Controller Account so that rewards can be collected automatically. This will result in an Era Reward Collection status of “Frequent” on the [All Node Operators](https://app.subquery.network/indexer/all-indexers) dashboard meaning that your Delegators can also receive their rewards.
+
+### Weekly tasks - Check for new project versions
+
+Project creators might deploy new versions of their project codebases each time. We strongly suggest following their release notes and updating your project to match the recommended versions. In some cases you wont need to reindex, just update the project version.
+
+### Weekly tasks - Update SQT allocation
+
+- Avoid having tokens allocated to outdated deployment versions. An “Outdated Allocation Projects” pop up will appear if this occurs. This means that you should adjust your allocation to the latest version (and update to the new version).
 - Avoid having “Unallocated Stake”. To maximise rewards, ensure all tokens are allocated. An “Unallocated Stake” pop up will appear if this occurs. 
 
-### Projects
+### Weekly tasks - Check Project health
 - Ensure your project is online. Appending “/healthy” to the end of your http URL should return:
 ```
 {
@@ -33,18 +62,14 @@ Log in just before the end of each Era to check and resolve any warnings or noti
 - Ensure you have at least one flexplan enabled for each project.
 - Ensure projects are able to fetch metadata from deployment’s Query Service. An error will appear in the status column if there is an issue.
 
-### Maintain balance in controller account
+## Selecting what projects to run.
 
-- Ensure enough ETH balance is in your Controller Account so that rewards can be collected automatically. This will result in an Era Reward Collection status of “Frequent” on the [All Node Operators](https://app.subquery.network/indexer/all-indexers) dashboard meaning that your Delegators can also receive their rewards.
-
-### Selecting Projects to Index
-
-As a node operator, two types of projects can be indexed. SubQuery projects or RPC projects. See: https://app.subquery.network/explorer/home for a complete list. 
+As a node operator, three types of projects can be run: SubQuery data indexers, Subgraphs, or RPC endpoints. See https://app.subquery.network/explorer/home for a complete list. 
 
 Rewards are generated by each project based on the amount of boost allocated to a project and then shared proportionally between the number of operators (for that project).
 
 What to look out for? Projects with:
-- high boost
+- high boost and therefore high stake rewards
 - high query numbers
 - low competition
 - low project complexity
@@ -74,6 +99,7 @@ RPC projects typically receive more query rewards which can produce a higher ove
 Running RPCs is very easy if you are already familiar with them, and it’s suggested to connect your existing RPCs to the SubQuery Network if you are already running an RPC for another usecase (the RPC service does not need to be dedicated to the SubQuery Network).
 
 ### How can I attract more RPC requests?
+
 The public RPC gateway will allocate RPC requests based on your:
 - Reliability: Improve your uptime to increase queries.
 - Block height delay: Keep your nodes fully synced to receive queries.
@@ -81,18 +107,23 @@ The public RPC gateway will allocate RPC requests based on your:
 - Price: Lower pricing can receive more RPC requests.
 
 ### Should I run all RPC projects?
+
 If you are already running RPC nodes which have capacity to serve more requests, it may be beneficial to add SubQuery as an extra source of requests to maximise your return from the node with very little added cost.
 
 ### Do I need to allocate stake to my RPC projects to earn query rewards?
+
 No. Your query rewards are slightly impacted by your total stake, but are not impacted by which project you allocate the stake to. You can allocate 1 SQT to an RPC project and still receive query rewards.
 
 ### So when would I allocate stake to my RPC projects?
+
 RPC Projects do also earn stake APY. You should allocate stake if it makes competitive stake APY compared to your other projects.
 
 ### Can you add support for the other RPCs I run?
+
 We are planning to expand our RPC projects. Letting us know which other nodes you run can help us to onboard new networks faster.
 
 ### Why did I get 0 query rewards last era?
+
 Projects may receive 0 or low query rewards if:
 - Your project is not competitive at price v performance (see [How can I attract more RPC requests?](#how-can-i-attract-more-rpc-requests))
 - Your project was offline
@@ -103,22 +134,26 @@ Projects may receive 0 or low query rewards if:
 - Your indexer controller account does not have balance to claim query rewards
 
 ### How should I allocate my Stake amongst my projects for best rewards?
+
 Allocate stake to your projects which have the highest stake APY.
 
 Note: Project stake APY (annual reward per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
 
 ### How can I attract more Delegators
+
 - Having a high NOCR (Node Operator Commission Rate)
 - Having a high historic delegator APY
 - Join the network-delegator-chat and introduce yourself to the delegator community
 - Share your node to your community and encourage them to delegate
 
 ### My delegation increased. Is it more profitable to add more projects, or to increase stake in my existing projects?
+
 If your current projects continue to earn competitive stake APY after adding additional stake, you do not need to add new projects to increase rewards.
 
 However, if by adding extra stake to your projects its total allocation becomes oversized, the stake APY of that project could reduce. At that point you may consider adding new projects that are returning higher stake APY and rebalancing your stake.
 
 ### Why do some Node Operators have >100% APY
+
 Node Operator APY compares their total returns to the amount they have personally staked (self stake)
 
 Node Operators can achieve high APY when:
@@ -128,7 +163,9 @@ Node Operators can achieve high APY when:
 High node operator APY does not necessarily mean that they make more overall rewards or profit.
 
 ### When should I mark my new project as Online
+
 When they are fully synced
 
 ### How do I know how long/difficult an index project will be to sync?
+
 The project’s satabase size is the best indicator of how large the index project will be.

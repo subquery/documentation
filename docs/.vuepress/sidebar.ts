@@ -631,7 +631,6 @@ export const getSidebar = (locale: string) =>
               `${locale}/subquery_network/node_operators/setup/install-linux.md`,
               `${locale}/subquery_network/node_operators/setup/security-guide.md`,
               `${locale}/subquery_network/node_operators/setup/separated-db.md`,
-              `${locale}/subquery_network/node_operators/setup/what-next-after-install.md`,
               `${locale}/subquery_network/node_operators/setup/troubleshooting.md`,
               `${locale}/subquery_network/node_operators/setup/faq.md`,
             ],
@@ -658,6 +657,7 @@ export const getSidebar = (locale: string) =>
           },
           `${locale}/subquery_network/node_operators/stake.md`,
           `${locale}/subquery_network/node_operators/plans.md`,
+          `${locale}/subquery_network/node_operators/maximise-apy.md`,
         ],
       },
       {
