@@ -42,7 +42,7 @@ Firstly, use the SubQuery CLI tool to migrate an existing SubGraph by using the 
 - Intialise a new SubQuery project in your chosen directory for the matching target chain
 - Copy over basic information like project name and other metadata
 - Enable ts strict mode to assist you in identifying potential issues when migrating your project.
-- Migrate the `schema.graphql` to be compatible with SubQuery, there is a chance you need to edit this.
+- Migrate the `schema.graphql` to be compatible with SubQuery, there is a chance you will need to edit this after migration to fine-tune the migrated code.
 - Copy over the existing `project.ts` mapping to save you time (you will need to edit this)
 
 An example of using this tool for the Graph Gravatar project is as follows
