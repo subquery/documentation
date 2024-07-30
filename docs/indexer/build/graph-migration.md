@@ -62,7 +62,7 @@ subql migrate -f ~/path/to/subgraph -o ~/path/to/output
 Once this is done, follow along and complete the remaining steps:
 
 1. Review and edit the `schema.graphql`, it will remove any unsupported features and modify relations to work with SubQuery. You may need to change the field parameter in the `@derivedFrom` directive. [More info](#graphql-schema).
-2. Review and edit the copied data sources in the `project.ts` manifest, specifically the `handlers` (retain the same handler names). [More info](#manifest-file).
+2. Review and edit the copied data sources in the `project.ts` manifest, specifically the `handlers` (we suggest that you retain the same handler names). [More info](#manifest-file).
 3. Perform code generation using the `yarn codegen`, this will generate GraphQL entity types, and generate types from ABIs. [More info](#codegen).
 4. Copy over the `mappings` directory, and then go through one by one to migrate them across. The key differences:
    - Imports will need to be updated
