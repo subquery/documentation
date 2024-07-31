@@ -74,6 +74,7 @@ projects:
 ### 2. Generate Required Entities, Datasource Templates, and ABIs
 
 Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
+If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
 
 ### 3. Add a New Network to the Multi-Chain Manifest
 

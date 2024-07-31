@@ -67,6 +67,7 @@ You will then be prompted to select what `events` and/or `functions` that you wa
 ### For an Existing SubQuery Project
 
 You can also generate additional scaffolded code new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
+If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
 
 ```shell
 subql codegen:generate \
