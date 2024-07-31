@@ -96,8 +96,6 @@ Index projects typically receive a higher portion of their rewards via stake rew
 
 RPC projects typically receive more query rewards which can produce a higher overall APY but with more volatility as query demand changes.
 
-Running RPCs is very easy if you are already familiar with them, and it’s suggested to connect your existing RPCs to the SubQuery Network if you are already running an RPC for another usecase (the RPC service does not need to be dedicated to the SubQuery Network).
-
 ### How can I attract more indexing & RPC requests?
 
 The public gateway will allocate requests based on your:
