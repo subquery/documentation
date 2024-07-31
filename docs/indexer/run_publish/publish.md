@@ -2,6 +2,12 @@
 
 ## Benefits of hosting your project with SubQuery's Managed Service
 
+:::info Subgraphs are now supported in SubQuery's Managed Service
+
+Run your projects side by side together with SubQuery's Subgraph hosting. One hosting provider for all your data indexing needs. Read more about how to quickly deploy and host your Subgraphs in the SubQuery Hosted Service
+
+:::
+
 The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
 - We'll run your SubQuery projects for you in a high performance, scalable, and managed public service.
@@ -121,6 +127,16 @@ specVersion: 0.2.0
 
 :::
 
+## Publish your Subgraph project to IPFS
+
+In order to publish a Subgraph project to the SubQuery Network, you must first upload it to IPFS and retrieve a publicly accessible IPFS CID.
+
+There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the *Deployment ID* on the website.
+
+![IPFS on the Graph Explorer](/assets/img/network/architect_publish_subgraph_ipfs.png)
+
+Alternatively, if you have not deployed the Subgraph project on the Graph Network, you can use the Graph's command line interface `graph build -i https://unauthipfs.subquery.network/ipfs/api/v0`. This will return you an IPFS CID that you can use.
+
 ## Login to SubQuery Projects
 
 To create your first project, head to [SubQuery Managed Service](https://managedservice.subquery.network). You'll need to authenticate with your GitHub account to login.
@@ -145,7 +161,7 @@ There are two methods to create a project in the SubQuery Managed Service: you c
 
 ### Using the UI
 
-Start by clicking on "Create Project". You'll be taken to the new project form. Please enter the following (you can change this in the future):
+Start by clicking on "Create Project". You'll be taken to the new project form. Start by selecting what project type you would like to deploy (SubQuery project or Subgraph), and then follow the steps and enter the following (you can change this in the future):
 
 - **Project Name:** Name your project.
 - **Description:** Provide a description of your project.
@@ -162,17 +178,19 @@ Create your project and you'll see it on your SubQuery Project's list. Next, we 
 
 You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Please follow the guide on how to [create a new project](./cli.md#create-a-new-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
+**Subgraph deployments are not supported in the CLI**
+
 ## Deploy your First Version
 
 There are three methods to deploy a new version of your project to the SubQuery Managed Service, you can use the UI or directly, via the `subql` cli tool, or using an automated GitHub Action.
 
 ### Using the UI
 
-While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers a new SubQuery indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
+While creating a project will setup the display behaviour of the project, you must deploy a version of it before it becomes operational. Deploying a version triggers an indexing operation to start, and sets up the required query service to start accepting GraphQL requests. You can also deploy new versions to existing projects here.
 
 With your new project, you'll see a "Deploy your first version" button. Click this, and fill in the required information about the deployment:
 
-- **CID:** Provide your IPFS deployment CID (without the leading `ipfs://`). This can be acquired by running `subql publish` with the CLI. The rest of the fields should then auto-populate.
+- **CID:** Provide your IPFS deployment CID. Retrieve this by following the steps for [SubQuery Projects here](#publish-your-subquery-project-to-ipfs) and [Subgraphs here](#publish-your-subgraph-project-to-ipfs)
 - **Manifest:** The details are obtained from the contents of the provided CID.
 - **Override Network and Dictionary Endpoints:** You can override the endpoints in your project manifest here.
 - **Indexer Version:** This is the version of SubQuery's node service that you want to run this SubQuery on. See [`@subql/node`](https://www.npmjs.com/package/@subql/node).
@@ -186,6 +204,8 @@ If deployed successfully, you'll see the indexer start working and report back p
 ### Using the CLI
 
 You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Please follow the guide on how to [deploy to an existing project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
+
+**Subgraph deployments are not supported in the CLI**
 
 ## Deploy new versions of your SubQuery project
 
@@ -216,7 +236,11 @@ Fill in the IPFS CID of the new version of your SubQuery project codebase that y
 
 You can also use `@subql/cli` to create a new deployment of your project to our Managed Service. Please follow the guide on how to [deploy a new version of your project](./cli.md#deploy-a-new-version-of-your-project) on the SubQuery Managed Service in the [CLI documentation](./cli.md).
 
+**Subgraph deployments are not supported in the CLI**
+
 ### Using GitHub actions
+
+**Subgraph deployments are not supported with GitHub Actions**
 
 With the introduction of the deployment feature for the CLI, we've added a **Default Action Workflow** to [the starter project in GitHub](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/.github/workflows/cli-deploy.yml) that will allow you to publish and deploy your changes automatically:
 
@@ -256,7 +280,9 @@ Alternatively, you can click on the three dots next to the title of your project
 
 ## Project Alert Notifications
 
-[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts on the health status of your projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
+**Subgraph deployments do not support Project Alert Notifications**
+
+[SubQuery Managed Service](https://managedservice.subquery.network) provides a service where you can receive alerts on the health status of your SubQuery projects. This means you can be alerted in real-time when your project becomes unhealthy and you can quickly resolve the issue to avoid any impact to your users.
 
 You can easily set up a webhook endpoint to receive alert notifications on the health status of your projects on the Alerting page inside of the [Managed Service](https://managedservice.subquery.network). All you need to do is enter the URL of the endpoint that you would like us to send webhooks to (e.g. Slack, Telegram). For example, you can easily receive notifications in [Slack by following this guide](https://api.slack.com/messaging/webhooks), or [Discord by following this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
 
