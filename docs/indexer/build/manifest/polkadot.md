@@ -177,15 +177,13 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/eth).
 
-| Field            | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
-| ---------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
-| **genesisHash**  | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
-| **endpoint**     | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**         | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**   | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
-| **chaintypes**   | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
-| **bypassBlocks** | Array         | x             | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
+| Field            | v1.0.0                                                  | Description                                                                                                                                                                                                |
+| ---------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
+| **chaintypes**   | {file:String}                                           | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
 
 ### Runner Spec
 
@@ -440,6 +438,25 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 {
   network: {
     bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```
+
+## Endpoint Config
+
+This option allows specifying options that are applied specific to an endpoint. As of now this just allows setting headers on a per endpoint basis.
+
+Here is an example of how to set an API key in the header.
+```ts
+{
+  network: {
+    endpoint: {
+      "wss://polkadot.api.onfinality.io/public-ws": {
+        headers: {
+          "x-api-key": "your-api-key",
+        }
+      }
+    }
   }
 }
 ```
