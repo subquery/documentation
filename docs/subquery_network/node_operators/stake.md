@@ -82,9 +82,13 @@ It runs immediately at the start of the next era when delegation changes take ef
 
 There are multiple reasons why Node Operators should consider staking more SQT or attracting more Delegation.
 
-- All Node Operators must stake a minimum amount of SQT to become a Node Operator, the current setting can be found in [network parameters](../parameters.md)
-- There is a maximum allowed delegation capacity based on the size of the Node Operator's own stake, this ensures the Node Operator has sufficient skin in the game. Increasing own stake can mean delegators are able to delegate more to you. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
-- More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
-- It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
+- All Node Operators must stake a minimum amount of SQT to become a Node Operator. The current amount can be found in [network parameters](../parameters.md)
+- There is a maximum allowed delegation capacity based on the size of the Node Operator's own stake. This ensures the Node Operator has sufficient skin in the game. Increasing one's own stake mean Delegators are able to delegate more to you. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
+- More total stake means more SQT to allocate on different deployments the Node Operator runs and more stake rewards that can be earnt.
+- More total stake provides an advantage over other Node Operators when the payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 
 In order to become a Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).
+
+## How should I allocate my Stake amongst my projects for best rewards?
+
+You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annual reward per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.

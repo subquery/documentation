@@ -98,21 +98,21 @@ RPC projects typically receive more query rewards which can produce a higher ove
 
 Running RPCs is very easy if you are already familiar with them, and it’s suggested to connect your existing RPCs to the SubQuery Network if you are already running an RPC for another usecase (the RPC service does not need to be dedicated to the SubQuery Network).
 
-### How can I attract more RPC requests?
+### How can I attract more indexing & RPC requests?
 
-The public RPC gateway will allocate RPC requests based on your:
+The public gateway will allocate requests based on your:
 - Reliability: Improve your uptime to increase queries.
 - Block height delay: Keep your nodes fully synced to receive queries.
 - Latency: Reduce latency by keeping your Node CPU usage healthy with good network connection.
-- Price: Lower pricing can receive more RPC requests.
+- Price: Lower pricing can receive more requests.
 
 ### Should I run all RPC projects?
 
-If you are already running RPC nodes which have capacity to serve more requests, it may be beneficial to add SubQuery as an extra source of requests to maximise your return from the node with very little added cost.
+If you are already running RPC nodes for other networks and have capacity to serve more requests, it may be beneficial to add SubQuery as an extra source of requests to maximise your return from the node with very little added cost.
 
 ### Do I need to allocate stake to my RPC projects to earn query rewards?
 
-No. Your query rewards are slightly impacted by your total stake, but are not impacted by which project you allocate the stake to. You can allocate 1 SQT to an RPC project and still receive query rewards.
+No. Your query rewards are slightly impacted by your total stake, but are not impacted by which project you allocate the stake to, unlike indexer projects. For example, you can allocate 1 SQT to an RPC project and still receive query rewards.
 
 ### So when would I allocate stake to my RPC projects?
 
@@ -133,18 +133,10 @@ Projects may receive 0 or low query rewards if:
 - Your indexer version does not automatically claim query rewards (must be v2.2.1 or later)
 - Your indexer controller account does not have balance to claim query rewards
 
-### How should I allocate my Stake amongst my projects for best rewards?
-
-Allocate stake to your projects which have the highest stake APY.
-
-Note: Project stake APY (annual reward per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
 
 ### How can I attract more Delegators
 
-- Having a high NOCR (Node Operator Commission Rate)
-- Having a high historic delegator APY
-- Join the network-delegator-chat and introduce yourself to the delegator community
-- Share your node to your community and encourage them to delegate
+Understand [what Delegators are looking](./rewards.md#how-to-select-what-node-operators-to-delegate-to) for in Node Operators
 
 ### My delegation increased. Is it more profitable to add more projects, or to increase stake in my existing projects?
 
@@ -161,11 +153,3 @@ Node Operators can achieve high APY when:
 - They prioritise projects with high query rewards so are less dependent on the size of their stake.
 
 High node operator APY does not necessarily mean that they make more overall rewards or profit.
-
-### When should I mark my new project as Online
-
-When they are fully synced
-
-### How do I know how long/difficult an index project will be to sync?
-
-The project’s satabase size is the best indicator of how large the index project will be.

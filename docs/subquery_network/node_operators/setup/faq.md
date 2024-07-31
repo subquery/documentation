@@ -15,6 +15,10 @@ If the indexing node is unhealthy, first visit the service log to determine if a
 
 The other option is to restart the service and/or servers involved.
 
+## When should I mark my new project as Online?
+
+You should mark your project as online When they are fully synced.
+
 ## Can the same Node Operator run 2 services on different platforms?
 
 The same Node Operator can index 2 **different** projects on 2 **different** hosting providers.
