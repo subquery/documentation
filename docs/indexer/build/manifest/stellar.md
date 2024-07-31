@@ -211,7 +211,6 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | **chainId**         | String             | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
 | **endpoint**        | String or String[] | Defines the endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical datae**.                     |
 | **sorobanEndpoint** | String             | Defines the soroban RPC endpoint - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                                          |
-| **port**            | Number             | Optional port number on the `endpoint` to connect to                                                                                                                                     |
 | **dictionary**      | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
 | **bypassBlocks**    | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
 
