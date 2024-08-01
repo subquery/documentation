@@ -217,12 +217,12 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 There is a dictionary for Optimism which is `https://api.subquery.network/sq/subquery/optimism-dictionary`.
 
-| Field            | Type               | Description                                                                                                                                                                              |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String             | A network identifier for the blockchain                                                                                                                                                  |
-| **endpoint**     | String or String[] | Defines the endpoint of the blockchain to be indexed, this can be a string or an array of endpoints - **This must be a full archive node**.                                              |
-| **dictionary**   | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks** | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| Field            | Type                                                    | Description                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain                                                                                                                                                                     |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
 
 ### Runner Spec
 
@@ -341,6 +341,27 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 {
   network: {
     bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```
+
+## Endpoint Config
+
+This option allows specifying options that are applied specific to an endpoint. This allows you to set headers and the request batch size on a per endpoint basis.
+
+Here is an example of how to set an API key in the header.
+```ts
+{
+  network: {
+    endpoint: {
+      "wss://polkadot.api.onfinality.io/public-ws": {
+        headers: {
+          "x-api-key": "your-api-key",
+        },
+        // NOTE: setting this to 0 will not use batch requests
+        batchSize: 5
+      }
+    }
   }
 }
 ```
