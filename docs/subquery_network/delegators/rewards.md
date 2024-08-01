@@ -25,7 +25,7 @@ You need to assess a few things when deciding on what Node Operator to choose. F
 - Having an ENS. (aka social credibility is enabled)
 - Having a frequent Era Reward Collection period
 - Being active in the Discord community
-- Having a high NOCR (Node Operator Commission Rate)
+- Having a lower NOCR (a lower Node Operator Commission Rate means more rewards will be shared amongst Delegators)
 
 Node Operators set a Node Operator’s Commission Rate (NOCR) which is the percentage Node Operators earn. Therefore, a lower NOCR will be more attractive for Delegators as a larger percentage of rewards is shared between Delegators.
 
