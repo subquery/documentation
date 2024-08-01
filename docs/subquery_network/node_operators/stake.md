@@ -45,6 +45,10 @@ Remember, both network inflation rewards and query rewards (for Flex plans) dist
 - If a project deployment gets a lot of flex plan queries, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
 - If a project deployment is highly competitive, you might want to allocate more stake to it to receive more rewards compared to non-competitive project deployments
 
+## How should I allocate my stake amongst my projects for best rewards?
+
+You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annual reward per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
+
 ## Over Allocated Stake
 
 :::danger
@@ -88,7 +92,3 @@ There are multiple reasons why Node Operators should consider staking more SQT o
 - More total stake provides an advantage over other Node Operators when the payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 
 In order to become a Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).
-
-## How should I allocate my Stake amongst my projects for best rewards?
-
-You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annual reward per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.

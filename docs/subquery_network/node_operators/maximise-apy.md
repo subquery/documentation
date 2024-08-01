@@ -33,9 +33,9 @@ We strongly suggest that you log in at the start of each new Era (as close as po
 
 ### Weekly tasks - Claim rewards
 
-If you don't frequently claim your rewards (e.g. once a week), delegators can see this and may decide against delegating to support you. Make sure you claim your rewards frequently (e.g. once a week), and ideally as soon as they become available after the end of the past Era.
+If you don't frequently claim your rewards (e.g. once a week), Delegators can see this and may decide against delegating to support you. Make sure you claim your rewards frequently (e.g. once a week), and ideally as soon as they become available after the end of the past Era.
 
-Alternatively, ensure enough ETH balance is in your Controller Account so that rewards can be collected automatically. This will result in an Era Reward Collection status of “Frequent” on the [All Node Operators](https://app.subquery.network/indexer/all-indexers) dashboard meaning that your Delegators can also receive their rewards.
+If you are running v2.2.1 or later, rewards are collected automatically. This will result in an Era Reward Collection status of “Frequent” on the [All Node Operators](https://app.subquery.network/indexer/all-indexers) dashboard meaning that your Delegators can also receive their rewards. Be sure though that enough ETH balance is in your Controller Account for automatic collection.
 
 ### Weekly tasks - Check for new project versions
 
@@ -88,17 +88,19 @@ Also, project database size is a good indicator of cost
 
 The public gateway will allocate requests based on your:
 - Reliability: Improve your uptime to increase queries.
-- Block height delay: Keep your nodes fully synced to receive queries.
+- Block height: Keep your nodes fully synced to receive queries.
 - Latency: Reduce latency by keeping your Node CPU usage healthy with good network connection.
 - Price: Lower pricing can receive more requests.
 
-### Should I run all RPC projects?
+### Should I run all projects or focus on a select few
 
-If you are already running RPC nodes for other networks and have capacity to serve more requests, it may be beneficial to add SubQuery as an extra source of requests to maximise your return from the node with very little added cost.
+For indexer projects, use the stake APY and the cost of running the project to determine the viability of running a project. 
 
-### Do I need to allocate stake to my RPC projects to earn query rewards?
+For RPC projects, if you are already running RPC nodes for other networks and have capacity to serve more requests, it may be beneficial to add SubQuery as an extra source of requests to maximise your return from the node with very little added cost.
 
-No. Your query rewards are slightly impacted by your total stake, but are not impacted by which project you allocate the stake to, unlike indexer projects. For example, you can allocate 1 SQT to an RPC project and still receive query rewards.
+### Do I need to allocate stake to earn query rewards?
+
+No. Your query rewards are only slightly impacted by your total stake, but are not impacted by which project you allocate the stake to, unlike indexer projects. For example, you can allocate 1 SQT to an RPC project and still receive query rewards.
 
 ### So when would I allocate stake to my RPC projects?
 
@@ -106,7 +108,7 @@ RPC Projects do also earn stake APY. You should allocate stake if it makes compe
 
 ### Can you add support for the other RPCs I run?
 
-We are planning to expand our RPC projects. Letting us know which other nodes you run can help us to onboard new networks faster.
+We are planning to expand our RPC projects. [Letting us know](https://subquery.network/contact) which other nodes you run can help us to onboard new networks faster.
 
 ### Why did I get 0 query rewards last era?
 
@@ -134,7 +136,7 @@ However, if by adding extra stake to your projects its total allocation becomes 
 
 Node Operator APY compares their total returns to the amount they have personally staked (self stake)
 
-Node Operators can achieve high APY when:
+Node Operators can achieve high Node Operator APY when:
 - They have large delegation relative to their own self stake, meaning they earn extra rewards in commission off somebody else's delegation.
 - They prioritise projects with high query rewards so are less dependent on the size of their stake.
 
