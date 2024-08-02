@@ -23,7 +23,11 @@ After confirming the project details, press Next to configure the project.
 
 ## 2. Configure Project
 
-Since coordinator service v2.3.0, there are two different types of project hosting: one is system hosting, which is the default way of using Docker; the other is user hosting, which uses existing services.
+There are two different approaches to hosting your SubQuery Indexing SDK project. System Managed, and User Managed
+
+### System Managed
+
+This is the default way where the SubQuery indexer service will manage the running and deployment of a SubQuery project on the same VM using Docker.
 
 For system-hosted projects, you will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
 
