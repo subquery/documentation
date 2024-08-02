@@ -12,15 +12,28 @@ Enter the project deployment ID when adding the new project.
 
 ![Add a New Project Using Deploy ID](/assets/img/network/indexer_project_add.png)
 
-After confirming the project details, press Next to configure the project
+When a project is successfully added, the following default Flex plan will be automatically created:
+
+| item                    | default value         |
+| ----------------------- | :-------------------- |
+| price                   | 1.0 SQT/1000 reqeusts |
+| maximum validity period | 14 days               |
+
+After confirming the project details, press Next to configure the project.
 
 ## 2. Configure Project
 
-You will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
+Since coordinator service v2.3.0, there are two different types of project hosting: one is system hosting, which is the default way of using Docker; the other is user hosting, which uses existing services.
+
+For system-hosted projects, you will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
 
 Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from SubQuery Network itself.
 
 Select the Indexer Version and Query Version (latest recommended)
+
+For user-hosted projects, you need to provide the internal IP addresses for the Node endpoint and the query endpoint, and ensure that the services are functioning properly.
+
+![User Managed Project](/assets/img/network/indexer_user_managed_project.png)
 
 Then press `Start` to start the node and query service for this project in the coordinator service.
 
