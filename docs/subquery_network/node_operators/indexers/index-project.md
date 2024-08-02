@@ -31,7 +31,11 @@ Public RPC Endpoints may be rate limited which can affect indexing speed, when i
 
 Select the Indexer Version and Query Version (latest recommended)
 
-For user-hosted projects, you need to provide the internal IP addresses for the Node endpoint and the query endpoint, and ensure that the services are functioning properly.
+### User Managed
+
+For user managed project you run your own SubQuery Indexer on a different VM. This can give you more flexibility on how you run the project and how your manage the database connected to the project.
+
+You need to provide the IP addresses for the Node endpoint and the query endpoint, and ensure that the services can be connected to and are functioning properly.
 
 ![User Managed Project](/assets/img/network/indexer_user_managed_project.png)
 
