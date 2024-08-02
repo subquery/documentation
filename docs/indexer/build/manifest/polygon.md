@@ -51,7 +51,7 @@ const project: EthereumProject = {
      * When developing your project we suggest getting a private API key
      # We suggest providing an array of endpoints for increased speed and reliability
      */
-    endpoint: ["https://polygon.api.onfinality.io/public"],
+    endpoint: ["https://polygon.rpc.subquery.network/public"],
     // Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
     dictionary:
       "https://gx.api.subquery.network/sq/subquery/polygon-dictionary",
@@ -136,9 +136,7 @@ network:
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: ["https://polygon.api.onfinality.io/public"]
+  endpoint: ["https://polygon.rpc.subquery.network/public"]
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://gx.api.subquery.network/sq/subquery/polygon-dictionary"
 
@@ -208,14 +206,14 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/polygon).
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
-| Field            | Type               | Description                                                                                                                                                                              |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String             | A network identifier for the blockchain                                                                                                                                                  |
-| **endpoint**     | String or String[] | Defines the endpoint of the blockchain to be indexed, this can be a string or an array of endpoints - **This must be a full archive node**.                                              |
-| **dictionary**   | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks** | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| Field            | Type                                                    | Description                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain                                                                                                                                                                     |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
 
 ### Runner Spec
 
@@ -334,6 +332,28 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 {
   network: {
     bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```
+
+## Endpoint Config
+
+This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
+
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
+```ts
+{
+  network: {
+    endpoint: {
+      "https://polygon.rpc.subquery.network/public": {
+        headers: {
+          "x-api-key": "your-api-key",
+        },
+        // NOTE: setting this to 0 will not use batch requests
+        batchSize: 5
+      }
+    }
   }
 }
 ```
