@@ -29,7 +29,7 @@ There are two different approaches to hosting your SubQuery Indexing SDK project
 
 This is the default way where the SubQuery indexer service will manage the running and deployment of a SubQuery project on the same VM using Docker.
 
-For system-hosted projects, you will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
+When deploying a System Managed project you will need to provide an indexing endpoint, this endpoint must be a non-pruned archive node. Public nodes may be rate limited, which can affect indexing speed. **When indexing your project we suggest getting a private API key to avoid being rate limited.**
 
 Public RPC Endpoints may be rate limited which can affect indexing speed, when indexing your project we suggest getting a private API key. You can retrieve endpoints for some networks for free from SubQuery Network itself.
 
