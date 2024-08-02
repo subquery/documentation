@@ -41,6 +41,8 @@ If you are running v2.2.1 or later, rewards are collected automatically. This wi
 
 Project creators might deploy new versions of their project codebases each time. We strongly suggest following their release notes and updating your project to match the recommended versions. In some cases you wont need to reindex, just update the project version.
 
+Since [Project Boost affects the amount of Stake rewards distributed](../introduction/reward-distribution.md#stake-rewards) for running a project, you may want to consider what project deployment version has the highest boost to maximise your Stake rewards. 
+
 ### Weekly tasks - Update SQT allocation
 
 - Avoid having tokens allocated to outdated deployment versions. An “Outdated Allocation Projects” pop up will appear if this occurs. This means that you should adjust your allocation to the latest version (and update to the new version).
@@ -128,9 +130,9 @@ Understand [what Delegators are looking](./rewards.md#how-to-select-what-node-op
 
 ### My delegation increased. Is it more profitable to add more projects, or to increase stake in my existing projects?
 
-If your current projects continue to earn competitive stake APY after adding additional stake, you do not need to add new projects to increase rewards.
+If your current projects continue to earn competitive stake APY after adding additional stake, you may just continue to serve a smaller number of projects.
 
-However, if by adding extra stake to your projects its total allocation becomes oversized, the stake APY of that project could reduce. At that point you may consider adding new projects that are returning higher stake APY and rebalancing your stake.
+However, if you don't increase your APY after allocating new delegation to an existing project, you may want to consider expanding operations with the new Delegation and adding other new projects that are returning higher stake APY and rebalancing your stake.
 
 ### Why do some Node Operators have >100% APY
 

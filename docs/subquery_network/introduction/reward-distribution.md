@@ -17,19 +17,19 @@ There is a reward pool for each deployments Node Operator runs where the adjustm
 
 ![Reward Pools](/assets/img/network/reward_pools.png)
 
-## Network Inflation Rewards
+## Stake Rewards
 
 Some projects in our network are considered “Public Good” projects, for example; network dictionaries and the various SubQuery projects that the [official Network app](https://app.subquery.network) runs on. In these cases, we need to ensure Node Operators will run and host them, but generally there will be no single customer that will take the lead in financing these requests
 
 Additionally, for Node Operators, running projects incurs significant costs. Without clear demand, Node Operators might not want to risk the time and resources to setup a new project.
 
-The solution to this comes from network inflation as a reward source for Indexer rewards, in addition to rewards for productive work. We allow Consumers to use [Boosting](../consumers/boosting.md) to direct Network Inflation Rewards, which distributed to Node Operators proportionally based on the total boosted SQT on their projects.
+The solution to this comes from network inflation as a reward source for Stake Rewards, in addition to rewards for productive work. We allow Consumers to use [Boosting](../consumers/boosting.md) to direct Stake Rewards, which distributed to Node Operators proportionally based on the total boosted SQT on their projects.
 
-In order to receive network inflation rewards, Node Operators must be running a project that has a non-zero amount of consumer boosting, and be online/available to the public with a sync progress of 100%. Node Operators will not receive all of the network inflation rewards, some rewards are distributed to the Consumers that boosted the project, as described in [Consumer Boosting](../consumers/boosting.md#how-are-boosters-rewarded).
+In order to receive Stake Rewards, Node Operators must be running a project that has a non-zero amount of consumer boosting, and be online/available to the public with a sync progress of 100%. Node Operators will not receive all of the Stake Rewards, some rewards are distributed to the Consumers that boosted the project, as described in [Consumer Boosting](../consumers/boosting.md#how-are-boosters-rewarded).
 
-Network inflation rewards are allocated to all project types supported by the SubQuery Network, e.g data indexing projects and RPC endpoints. The split of network inflation rewards between the Consumer that boosted the project, and the Node Operator may vary by project type.
+Stake Rewards are allocated to all project types supported by the SubQuery Network, e.g data indexing projects and RPC endpoints. The split of network inflation rewards between the Consumer that boosted the project, and the Node Operator may vary by project type.
 
-The current inflation rate on the SubQuery Network can be found on our [network parameters page](../parameters.md). The majority of network inflation acts as network inflation rewards, while the remainder is allocated to the SubQuery Treasury to fund various programmes.
+The current inflation rate on the SubQuery Network can be found on our [network parameters page](../parameters.md). The majority of network inflation acts as Stake Rewards, while the remainder is allocated to the SubQuery Treasury to fund various programmes.
 
 ## Cobb-Douglas Production Function
 

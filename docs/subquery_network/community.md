@@ -1,6 +1,6 @@
 # SubQuery Network Community
 
-The key focus of the [SubQuery Foundation](./foundation.md) and community is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own Project. Together we can pave the way to a more decentralised future!
+The key focus of the [SubQuery Foundation](./governance/foundation.md) and community is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own Project. Together we can pave the way to a more decentralised future!
 
 ## Developer Guild
 
