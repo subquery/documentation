@@ -22,11 +22,11 @@ When the conversation is deeper and requires more thought, we move the conversat
 
 If you're a Node Operator on the Network, we strongly suggest that you keep up with the latest news, announcements, and tips by joining the following Discord channels:
 
-- network-announcements
-- network-general
-- network-services-release
-- network-indexer-announcements
-- network-indexer-general
+- `#network-announcements`
+- `#network-general`
+- `#network-services-release`
+- `#network-indexer-announcements`
+- `#network-indexer-general`
 
 ## Contributing to Codebases
 

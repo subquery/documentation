@@ -17,7 +17,7 @@ The other option is to restart the service and/or servers involved.
 
 ## When should I mark my new project as Online?
 
-You should mark your project as online When they are fully synced.
+You should mark your project as online when they are fully synced.
 
 ## Can the same Node Operator run 2 services on different platforms?
 

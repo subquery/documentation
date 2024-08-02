@@ -20,9 +20,10 @@ If a Node Operator wishes to increase the Node Operator Commission Rate that the
 
 ## How to select what Node Operators to delegate to?
 
-You need to assess a few things when deciding on what Node Operator to choose. For instance:
+You might assess a few things when deciding on what Node Operator to choose. For instance you might consider:
+
 - Having SSL enabled
-- Having an ENS. (aka social credibility is enabled)
+- Having an ENS domain (aka social credibility is enabled)
 - Having a frequent Era Reward Collection period
 - Being active in the Discord community
 - Having a lower NOCR (a lower Node Operator Commission Rate means more rewards will be shared amongst Delegators)
