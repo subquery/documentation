@@ -52,6 +52,7 @@ const project: EthereumProject = {
      # We suggest providing an array of endpoints for increased speed and reliability
      */
     endpoint: [
+      "https://optimism.rpc.subquery.network/public",
       "https://optimism.api.onfinality.io/public",
       "https://mainnet.optimism.io",
       "https://endpoints.omniatech.io/v1/op/mainnet/public",
@@ -141,10 +142,9 @@ network:
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
   endpoint:
     [
+      "https://optimism.rpc.subquery.network/public",
       "https://optimism.api.onfinality.io/public",
       "https://mainnet.optimism.io",
       "https://endpoints.omniatech.io/v1/op/mainnet/public",
@@ -213,7 +213,7 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/optimism).
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
 There is a dictionary for Optimism which is `https://api.subquery.network/sq/subquery/optimism-dictionary`.
 
@@ -347,14 +347,15 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ## Endpoint Config
 
-This option allows specifying options that are applied specific to an endpoint. This allows you to set headers and the request batch size on a per endpoint basis.
+This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
 
-Here is an example of how to set an API key in the header.
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
 ```ts
 {
   network: {
     endpoint: {
-      "wss://polkadot.api.onfinality.io/public-ws": {
+      "https://optimism.rpc.subquery.network/public": {
         headers: {
           "x-api-key": "your-api-key",
         },

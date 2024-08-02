@@ -51,7 +51,7 @@ const project: EthereumProject = {
      * When developing your project we suggest getting a private API key
      # We suggest providing an array of endpoints for increased speed and reliability
      */
-    endpoint: ["https://arbitrum.api.onfinality.io/public"],
+    endpoint: ["https://arbitrum.rpc.subquery.network/public"],
     dictionary: "https://dict-tyk.subquery.network/query/arbitrum",
   },
   dataSources: [
@@ -134,10 +134,8 @@ network:
   # This endpoint must be a public non-pruned archive node
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
-  # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: ["https://arbitrum.api.onfinality.io/public"]
+  # When developing your project we suggest getting a private API key and using the endpoint config
+  endpoint: ["https://arbitrum.rpc.subquery.network/public"]
   # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/arbitrum-one-dictionary"
 
@@ -207,7 +205,7 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/arbitrum).
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
 There is only a dictionary for Arbitrum One `https://gx.api.subquery.network/sq/subquery/arbitrum-one-dictionary`. For Arbitrum Nova, please omit the dictionary setting.
 
@@ -341,14 +339,16 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 ## Endpoint Config
 
-This option allows specifying options that are applied specific to an endpoint. This allows you to set headers and the request batch size on a per endpoint basis.
+This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
 
-Here is an example of how to set an API key in the header.
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
+
 ```ts
 {
   network: {
     endpoint: {
-      "wss://polkadot.api.onfinality.io/public-ws": {
+      "https://arbitrum.rpc.subquery.network/public": {
         headers: {
           "x-api-key": "your-api-key",
         },
