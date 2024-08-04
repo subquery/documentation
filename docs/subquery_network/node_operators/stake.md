@@ -47,7 +47,7 @@ Remember, both network inflation rewards and query rewards (for Flex plans) dist
 
 ### How should I allocate my stake amongst my projects for best rewards?
 
-You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annualised yeild per SQT staked) reduces as more stake is allocated to a project. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
+You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annualised yeild per SQT staked) can reduce as more stake is allocated to a project. For example allocating significantly more stake to a projcct may not result in lower marginal APY increase compared to the additional stake. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
 
 ## Over Allocated Stake
 
