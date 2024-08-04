@@ -1,6 +1,6 @@
 # SubQuery Network Community
 
-The key focus of the [SubQuery Foundation](./foundation.md) and community is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own Project. Together we can pave the way to a more decentralised future!
+The key focus of the [SubQuery Foundation](./governance/foundation.md) and community is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own Project. Together we can pave the way to a more decentralised future!
 
 ## Developer Guild
 
@@ -17,6 +17,16 @@ Vist our [Developer Guild](https://github.com/orgs/subquery/projects/3?pane=info
 Discord is our main community for talking about SubQuery and learning more. You can join with [this link here](https://discord.com/invite/subquery). People most interested in the SubQuery Network will want to join `#network-general`, and Indexers or Delegators should join `#network-indexer-chat` or `#network-delegator-chat` respectively.
 
 When the conversation is deeper and requires more thought, we move the conversation to [our Forum](https://forum.subquery.network/). Here you will find longer topics, a history of all announcements to Network, and deeper conversation about the direction of the network. Feel free to join and start posting at [forum.subquery.network](https://forum.subquery.network/)!
+
+### Join the Node Operator community
+
+If you're a Node Operator on the Network, we strongly suggest that you keep up with the latest news, announcements, and tips by joining the following Discord channels:
+
+- `#network-announcements`
+- `#network-general`
+- `#network-services-release`
+- `#network-indexer-announcements`
+- `#network-indexer-general`
 
 ## Contributing to Codebases
 
