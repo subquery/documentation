@@ -18,9 +18,15 @@ If a Node Operator wishes to increase the Node Operator Commission Rate that the
 
 ![Token economic flow](/assets/img/network/token_economy.png)
 
-## How to select what Node Operators to delegate to
+## How to select what Node Operators to delegate to?
 
-You need to assess a few things when deciding on what Node Operator to choose.
+You might assess a few things when deciding on what Node Operator to choose. For instance you might consider:
+
+- Having SSL enabled
+- Having an ENS domain (aka social credibility is enabled)
+- Having a frequent Era Reward Collection period
+- Being active in the Discord community
+- Having a lower NOCR (a lower Node Operator Commission Rate means more rewards will be shared amongst Delegators)
 
 Node Operators set a Node Operator’s Commission Rate (NOCR) which is the percentage Node Operators earn. Therefore, a lower NOCR will be more attractive for Delegators as a larger percentage of rewards is shared between Delegators.
 

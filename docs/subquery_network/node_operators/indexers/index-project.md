@@ -34,7 +34,7 @@ You have successfully started Indexing. Next we need to get our project online o
 
 For a brand new project, the project status will be `Offline`.
 
-Once the project has started indexing, you can Go Online so that the Network knows that you are running the project. When the indexing progress reaches the minimum required block height the network can now start to distribute requests to the Node Operator's project deployment.
+Once the project has finished indexing, you should mark it as `online` so that the Network knows that you are running the project. The network will then start to distribute requests to the Node Operator's project deployment.
 
 Select the `Go Online` button and send a transaction.
 

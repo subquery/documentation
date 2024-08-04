@@ -661,6 +661,7 @@ export const getSidebar = (locale: string) =>
           },
           `${locale}/subquery_network/node_operators/stake.md`,
           `${locale}/subquery_network/node_operators/plans.md`,
+          `${locale}/subquery_network/node_operators/maximise-apy.md`,
         ],
       },
       {
