@@ -66,6 +66,10 @@ Firstly, you can publish a new version by clicking "Deploy New Version". This wi
 
 ## Changes to your DApp
 
+There are no changes required to your dApp. We utilise a network of Gateways to provide a standard GraphQL endpoint that your app can query the network from.
+
+<!--
+
 Your client application (the one that will query data from the Network) will need to use [Apollo Client](https://www.apollographql.com/docs/react/) as it's primary GraphQL Client. Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while automatically updating your UI.
 
 Apollo Client helps you structure code in an economical, predictable, and declarative way that's consistent with modern development practices. The core `@apollo/client` library provides built-in integration with React, and the larger Apollo community maintains [integrations for other popular view layers](https://www.apollographql.com/docs/react/#community-integrations).
@@ -109,3 +113,4 @@ const metadataQuery = gql`
 
 await client.query({ query: metadataQuery });
 ```
+-->
