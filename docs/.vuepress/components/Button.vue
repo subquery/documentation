@@ -16,7 +16,7 @@ defineProps<{
   height: 48px;
   line-height: 48px;
   border-radius: 48px;
-  background: #4388dd;
+  background: #E968DD;
   font-weight: 400;
   font-size: 16px;
   color: #fff;

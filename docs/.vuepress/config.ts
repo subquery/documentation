@@ -3,7 +3,8 @@ import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
-import { redirectPlugin } from "vuepress-plugin-redirect";
+import { redirectPlugin } from "@vuepress/plugin-redirect";
+import { linksCheckPlugin } from "@vuepress/plugin-links-check";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
@@ -103,14 +104,11 @@ export default defineUserConfig({
         apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
         indexName: "subquery_academy",
       },
+      linksCheck: {},
       mdEnhance: {
         // this is the default option, so you can use it directly
         hint: true,
         codetabs: true,
-        checkLinks: {
-          // only check links in dev mode
-          status: "dev",
-        },
         include: {
           deep: true,
         },
