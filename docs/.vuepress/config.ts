@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
-import { redirectPlugin } from "vuepress-plugin-redirect";
+import { redirectPlugin } from "@vuepress/plugin-redirect";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
@@ -12,33 +12,6 @@ export default defineUserConfig({
     "Learn how to build with SubQuery. SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project. Build your API anywhere across multiple chains in minutes with our open-source SDK.",
   head: [
     ["link", { rel: "icon", href: "/assets/img/logo.png" }],
-    [
-      "link",
-      {
-        rel: "apple-touch-icon",
-        type: "image/png",
-        sizes: "180x180",
-        href: "/assets/favicons/apple-touch-icon.png",
-      },
-    ],
-    [
-      "link",
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        href: "/assets/favicons/favicon-32x32.png",
-      },
-    ],
-    [
-      "link",
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "16x16",
-        href: "/assets/favicons/favicon-16x16.png",
-      },
-    ],
     [
       "meta",
       {
@@ -103,14 +76,11 @@ export default defineUserConfig({
         apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
         indexName: "subquery_academy",
       },
+      linksCheck: {},
       mdEnhance: {
         // this is the default option, so you can use it directly
         hint: true,
         codetabs: true,
-        checkLinks: {
-          // only check links in dev mode
-          status: "dev",
-        },
         include: {
           deep: true,
         },

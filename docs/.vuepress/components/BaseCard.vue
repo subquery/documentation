@@ -19,7 +19,7 @@
   height: 100%;
 
   &:hover {
-    border: 1px solid #4388dd;
+    border: 1px solid #E968DD;
     text-decoration: none;
   }
 }
