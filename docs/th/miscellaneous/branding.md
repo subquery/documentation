@@ -6,12 +6,6 @@
 
 หากมีข้อสงสัย โปรดอย่าลังเลที่จะติดต่อเราเพื่อสอบถาม!
 
-## ไฟล์ Figma ที่สามารถ Export ได้
-
-Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
-
-[Figma - SubQuery Brand Resources (แหล่งรวมสิ่งต่าง ๆ เกี่ยวกับแบรนด์ของ SubQuery)](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
-
 ## แพ็คเกจทรัพยากรแบรนด์
 
 A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
