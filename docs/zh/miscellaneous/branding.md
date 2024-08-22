@@ -6,12 +6,6 @@
 
 如果有疑问，请咨询！
 
-## 可导出的Figma文件
-
-Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
-
-[\[Figma - SubQuery 品牌资源\](https://www.figma.com/file/AaCXaOccrlbxq8fz39sJU/ SubQuery-Brand-Resources?node-id=3%3A2)](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
-
 ## 品牌资源包
 
 一个较小的 ZIP 品牌资源包： [public_branding.zip](https://static.subquery.network/public_branding.zip)。
