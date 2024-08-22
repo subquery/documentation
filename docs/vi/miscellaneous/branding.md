@@ -6,12 +6,6 @@ Nếu bạn chọn sử dụng bất kỳ nhãn hiệu, biểu tượng, thiết
 
 Nếu có thắc mắc, xin hãy đặt câu hỏi!
 
-## Tệp Figma có thể xuất
-
-Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
-
-[Figma - Tài nguyên thương hiệu SubQuery](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
-
 ## Gói tài sản thương hiệu
 
 Gói tài sản thương hiệu ZIP nhỏ hơn: [public_branding.zip](https://static.subquery.network/public_branding.zip).
