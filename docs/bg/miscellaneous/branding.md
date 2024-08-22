@@ -6,12 +6,6 @@
 
 Ако се съмнявате, попитайте!
 
-## Експортируем файл Figma
-
-Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
-
-[Figma - Ресурси за бранда SubQuery](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
-
 ## Пакет от брандинг активи
 
 По-малък ZIP пакет с активи на марката: [public_branding.zip](https://static.subquery.network/public_branding.zip).
