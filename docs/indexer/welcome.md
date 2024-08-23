@@ -15,7 +15,7 @@ photoSwipe: false
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg"></div>
-      <img src="https://subquery.network/images/indexerConcept.png" />
+      <img src="/assets/img/indexerBanner.png" />
     </div>
   </div>
   <QuickStart></QuickStart>
@@ -79,7 +79,7 @@ photoSwipe: false
         </div>
       </div>
       <img :style="{
-        marginTop: isMobile ? '' : '-50px'}" src="/assets/img/architects.png" :width="isMobile ? '100%' : 516" :height="isMobile ? 'auto': 392" />
+        marginTop: isMobile ? '' : '-50px'}" src="/assets/img/networkBanner.png" :width="isMobile ? '100%' : 516" :height="isMobile ? 'auto': 392" />
     </div>
     <NeedHelp></NeedHelp>
     <Footer></Footer>

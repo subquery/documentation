@@ -17,7 +17,7 @@ photoSwipe: false
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg bannerImageBgRed"></div>
-      <img src="/assets/img/architects.png" />
+      <img src="/assets/img/networkBanner.png" />
     </div>
   </div>
   <Banner
@@ -152,7 +152,7 @@ photoSwipe: false
     :buttonText="isMobile? 'Learn more' : 'Learn more about our Indexer SDK'"
     titleTag="h35"
     buttonLink="/indexer/welcome.html"
-    backgroundUrl="https://subquery.network/images/indexerConcept.png"
+    backgroundUrl="/assets/img/indexerBanner.png"
     style="
       background-size: 389px;
       background-position: right;
@@ -181,7 +181,7 @@ window.addEventListener('resize', checkIsMobile)
 
 const oneNetworkAllWeb3 = ref([
 {
-image: "https://subquery.network/images/indexerConcept.png",
+image: "https://subquery.network/images/home/decentralised.png",
 title: 'Decentralised Data Indexers',
 subtitle: 'Fast, reliable, decentralised, and customised APIs for your web3 project',
 contents: [
@@ -190,7 +190,7 @@ contents: [
 ],
 },
 {
-image: "https://subquery.network/images/rpcConcept.png",
+image: "https://subquery.network/images/home/rpcConcept.png",
 title: 'Decentralised RPC Endpoints',
 subtitle: 'Faster, cheaper, and globally decentralised RPCs that supercharge your dApp',
 contents: [
