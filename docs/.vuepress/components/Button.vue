@@ -34,6 +34,6 @@ defineProps<{
   opacity: 0.87;
 }
 .buttonRed {
-  background: #ff4581;
+  background: #E968DD;
 }
 </style>
