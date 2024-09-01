@@ -60,6 +60,8 @@ photoSwipe: false
     </div>
     <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/indexer/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <Faqs></Faqs>
+    <p><a href="https://academy.subquery.network/indexer/miscellaneous/faq.html">SDK FAQ</a></p>
+    <p><a href="https://academy.subquery.network/subquery_network/faq.html">Network FAQ</a></p>
     <div class="flex layout mt80 flexColMobile" style="justify-content: space-between;">
       <div class="flexCol gp24" style="max-width: 590px">
         <Typography tag="h35">The SubQuery Network</Typography>
