@@ -8,4 +8,4 @@ En cas de doute, n'hésitez pas à demander !
 
 ## Paquet d'actifs de marque
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public-branding.zip).
