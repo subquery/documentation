@@ -8,4 +8,4 @@ Nếu có thắc mắc, xin hãy đặt câu hỏi!
 
 ## Gói tài sản thương hiệu
 
-Gói tài sản thương hiệu ZIP nhỏ hơn: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public-branding.zip).
