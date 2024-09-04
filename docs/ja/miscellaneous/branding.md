@@ -8,4 +8,4 @@
 
 ## ブランド素材パッケージ
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public-branding.zip).
