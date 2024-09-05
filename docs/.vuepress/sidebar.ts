@@ -556,10 +556,10 @@ export const getSidebar = (locale: string) =>
       },
       {
         text: "Miscellaneous",
-        link: `${locale}/indexer/miscellaneous/faqs.md`,
+        link: `${locale}/indexer/miscellaneous/faq.md`,
         collapsible: true,
         children: [
-          `${locale}/indexer/miscellaneous/faqs.md`,
+          `${locale}/indexer/miscellaneous/faq.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
         ],
@@ -696,6 +696,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/governance/treasury-management.md`,
         ],
       },
+      `${locale}/subquery_network/faq.md`,
       `${locale}/subquery_network/fair-use.md`,
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
