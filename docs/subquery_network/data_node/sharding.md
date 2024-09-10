@@ -2,11 +2,8 @@
 
 Sharding allows you to take a subset of the chain, this reduces storage requirements to run a node an serve data on the SubQuery network.
 
-::: info
-
 It is recommended to confirgure the shard range using CLI flags or Config as adjusting the range can take some time to remove data and the RPC methods can time out.
 
-:::
 
 ## Set Head
 
@@ -17,6 +14,11 @@ If it is set to a height before the current chain height, the node will sync up 
 If the head is set to a hight to number greater than the latest height it will sync until the chain reaches that height.
 The height can be unset with null or 0, this will start syncing to the latest height.
 
+::: warning
+
+In order to set the head to an earlier block, chain state is required at the desired height. An error will be thrown if a height is set where there is no state.
+:::
+
 ### Config
 
 On startup you can set the config via `-shardend=<block-number>`
@@ -25,7 +27,7 @@ Or via the admin RPC:
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "admin_setShardEndHeight",
+    "method": "admin_setEndHeight",
     "params": [<block-number>],
     "id": 0
 },
@@ -36,7 +38,7 @@ This will return `true` if successful otherwise an error.
 ### Example
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_setShardEndHeight","params":[20000],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_setEndHeight","params":[20000],"id":1}'
 ```
 
 ::: details Example response
@@ -65,7 +67,7 @@ Or via the admin RPC:
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "admin_setShardStartHeight",
+    "method": "admin_setStartHeight",
     "params": [<block-number>],
     "id": 0
 },
@@ -76,7 +78,7 @@ This will return `true` if successful otherwise an error.
 ### Example
 
 ```bash
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_setShardStartHeight","params":[20000],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_setStartHeight","params":[20000],"id":1}'
 ```
 
 ::: details Example response
@@ -96,7 +98,7 @@ To get the curent shard config you can use the following admin RPC:
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "admin_getDesiredShardConfig",
+    "method": "subql_dataInfo",
     "params": [],
     "id": 0
 },
