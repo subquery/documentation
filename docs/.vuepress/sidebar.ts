@@ -682,6 +682,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/data_node/introduction.md`,
           `${locale}/subquery_network/data_node/run.md`,
           `${locale}/subquery_network/data_node/rpc.md`,
+          `${locale}/subquery_network/data_node/sharding.md`,
         ],
       },
       `${locale}/subquery_network/parameters.md`,
