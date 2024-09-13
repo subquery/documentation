@@ -104,6 +104,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/celo.md`,
                   },
                   {
+                    text: "Cronos zkEVM",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/cronos-zkevm.md`,
+                  },
+                  {
                     text: "Ethereum",
                     collapsible: true,
                     children: [

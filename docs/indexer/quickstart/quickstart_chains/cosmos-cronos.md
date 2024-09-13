@@ -1,5 +1,9 @@
 # Cronos Quick Start
 
+::: tip Note
+You can find the quickstart guide for Cronos' zkEVM network [here](./cronos-zkevm.md).
+:::
+
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 <br/>
@@ -187,7 +191,7 @@ type TransferEventArgs = [string, string, BigNumber] & {
 
 // Save all transfers
 export async function handleTransfer(
-  log: EthereumLog<TransferEventArgs>,
+  log: EthereumLog<TransferEventArgs>
 ): Promise<void> {
   const transfer = Transfer.create({
     id: log.transactionHash,
@@ -216,7 +220,7 @@ type TransferEventArgs = [string, string, BigNumber] & {
 
 // Save all transfers
 export async function handleTransfer(
-  event: EthermintEvmEvent<TransferEventArgs>,
+  event: EthermintEvmEvent<TransferEventArgs>
 ): Promise<void> {
   const transfer = Transfer.create({
     id: event.transactionHash,
