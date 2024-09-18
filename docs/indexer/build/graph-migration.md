@@ -1,5 +1,18 @@
 # The Graph Migration
 
+::: info Hosting existing Subgraphs during migration
+
+SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process. However SubQuery also provides a one-step migration for **hosting** your Subgraphs on The Graph’s hosted service / decentralized network, or other Subgraph hosting service. This is a drop-in replacement with the following benefits:
+
+- A enterprise level hosting platform with targeted 99.9% uptime
+- Blue/green hotswap deployments of subgraphs, allowing for seamless updates on your frontend
+- Project alert notification of outages and indexing issues
+- A team who monitors your Subgraphs 24/7, with potential for service level agreements real time support with your team
+
+Find out more about [Subgraph hosting here](../run_publish/publish.md).
+
+:::
+
 ![Graph Migration](/assets/img/build/graph.png)
 
 SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
