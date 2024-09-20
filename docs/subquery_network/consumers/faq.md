@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## As a Consumer, can I select 1 Node Operator or multiple Node Operators?
+## Can I select 1 Node Operator or multiple Node Operators?
 
 Depending on demand, there will often be multiple Indexers indexing a given SubQuery project and multiple RPC providers for each network. Consumers have the choice when deciding which Node Operator to make agreements with. Typically Consumers would select Node Operators from a combination of cost, reliability, and latency. Consumers could also incorporate automatic failover and read data from another Node Operator if the first one times out or is not responsive.
 
