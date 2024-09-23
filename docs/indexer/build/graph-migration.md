@@ -518,6 +518,42 @@ There is no difference when querying [historical data](../run_publish/historical
 
 :::
 
+#### skip item
+
+The `subquery` passes the `offset` field, while the `subgraph` uses the `skip` field.
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(
+    first: 1
+    skip: 10
+  ) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(
+    first: 1
+    offset: 10
+  ) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+:::
+
 #### Metadata
 
 SubQuery does not support historical metadata querying. However `deployments` will still show the deployments with their heights and other key metrics

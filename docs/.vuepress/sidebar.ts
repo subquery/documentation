@@ -459,7 +459,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/build/testing.md`,
           `${locale}/indexer/build/graph-migration.md`,
           `${locale}/indexer/build/project-upgrades.md`,
-          `${locale}/indexer/build/subgraph-style.md`,
+          `${locale}/indexer/build/subgraph-tutorial.md`,
           `${locale}/indexer/build/multi-chain.md`,
           `${locale}/indexer/build/dynamicdatasources.md`,
           `${locale}/indexer/build/substrate-evm.md`,
