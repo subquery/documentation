@@ -1,6 +1,6 @@
 # Using Subgraph-style query
 
-We support using `Subgraph` query style `GraphQL` queries, which are a bit different from `subquery` style. 
+We support using `Subgraph` query style `GraphQL` queries, which are a bit different from `SubQuery` style. 
 Below is an introduction to how to install it and the differences between it and subql-query.
 
 ## Install subql/query-subgraph
