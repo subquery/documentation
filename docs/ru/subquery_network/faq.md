@@ -13,7 +13,7 @@ FAQs for specific network participants:
 
 Ensured by [Proof Of Index](./introduction/proof-of-index.md)
 
-## Are there a list of RPC providers that can provide support for ___ chain?
+## Are there a list of RPC providers that can provide support for \_\_\_ chain?
 
 SubQuery Network is decentralised, so we can't say what individual node operators would decide to serve you, nor can we say what infrastructure the node operators use and where it is hosted
 
