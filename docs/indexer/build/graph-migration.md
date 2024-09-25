@@ -2,10 +2,10 @@
 
 ::: info Hosting existing Subgraphs during migration
 
-SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process. However SubQuery also provides a one-step migration for **hosting** your Subgraphs on The Graph’s hosted service / decentralized network, or other Subgraph hosting service. This is a drop-in replacement with the following benefits:
+SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process. However SubQuery also provides a one-step migration for **hosting** your Subgraphs on The Graph’s hosted service / decentralised network, or other Subgraph hosting service. This is a drop-in replacement with the following benefits:
 
 - A enterprise level hosting platform with targeted 99.9% uptime
-- Blue/green hotswap deployments of subgraphs, allowing for seamless updates on your frontend
+- Blue/green hot-swap deployments of subgraphs, allowing for seamless updates on your frontend
 - Project alert notification of outages and indexing issues
 - A team who monitors your Subgraphs 24/7, with potential for service level agreements real time support with your team
 
@@ -25,6 +25,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to all you to run, monitor, and optimise your locally hosted project
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
+- **The same query API** - We support a Subgraph compatible query service, providing the same GraphQL API that you are currently using.
 
 ![Competitor Comparison](/assets/img/build/graph_comparison.jpg)
 
@@ -82,7 +83,7 @@ Once this is done, follow along and complete the remaining steps:
    - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
    - With strict mode, you must construct new entities with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
    - [More info](#mapping).
-5. Test and update your clients to follow the GraphQL api differences and take advantage of additional features. [More info](#graphql-query-differences)
+5. Either use the [Subgraph compatibale query service](../run_publish/query/subgraph.md), or test and update your clients to follow the SubQuery native GraphQL API. There are some minor and you can take advantage of additional features. [More info](#graphql-query-differences)
 
 ### Differences in the GraphQL Schema
 
@@ -388,7 +389,13 @@ The above example assumes that the user has an ABI file named `erc20.json`, so t
 
 ### Differences in the GraphQL Query Interface
 
-There are minor differences between the default GraphQL query service for SubQuery, and that of the Graph.
+::: info Query Service Variants
+
+SubQuery provides two query service variants, a SubQuery native query service (`@subql/query`) and a version that is compatible with the standard query service used by Subgraphs (`@subql/query-subgraph`). We **recommend** the SubQuery native query service but for ease of migration you may want to use the [version that is the same as the Subgraph query service](../run_publish/query/subgraph.md).
+
+:::
+
+There are minor differences between the native SubQuery GraphQL query service for SubQuery, and that of the Graph. Remember there is a [version that is the same as the Subgraph query service](../run_publish/query/subgraph.md).
 
 #### Query format
 
@@ -508,6 +515,38 @@ There is no difference when querying [historical data](../run_publish/historical
 ```graphql
 {
   exampleEntities(block: { number: 123 }) {
+    nodes {
+      field1
+      field2
+    }
+  }
+}
+```
+
+:::
+
+#### Offset and Skip
+
+SubQuery uses the `offset` field to skip a number of elements, while Subgraphs use the `skip` field.
+
+::: code-tabs
+
+@tab SubGraph
+
+```graphql
+{
+  exampleEntities(first: 1, skip: 10) {
+    field1
+    field2
+  }
+}
+```
+
+@tab:active SubQuery
+
+```graphql
+{
+  exampleEntities(first: 1, offset: 10) {
     nodes {
       field1
       field2

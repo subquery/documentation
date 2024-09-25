@@ -1,8 +1,10 @@
-# Query your Project using GraphQL
+# SubQuery Native Query Service
 
 ::: info Coming from the Graph?
 
-You may want to take a look at the information we have [on the differences](../../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
+Instead, you may consider to use the [Subgraph style query service we have!](./subgraph.md)
+
+Or, you may want to take a look at the information we have [on the differences](../../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
 :::
 

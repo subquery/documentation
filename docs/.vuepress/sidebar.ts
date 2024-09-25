@@ -492,6 +492,7 @@ export const getSidebar = (locale: string) =>
                   `${locale}/indexer/run_publish/query/graphql.md`,
                   `${locale}/indexer/run_publish/query/aggregate.md`,
                   `${locale}/indexer/run_publish/query/subscription.md`,
+                  `${locale}/indexer/run_publish/query/subgraph.md`,
                 ],
               },
               {
