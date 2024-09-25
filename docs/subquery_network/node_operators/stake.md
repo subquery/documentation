@@ -1,6 +1,6 @@
 # Staking and Allocating SQT
 
-:::info 
+:::info
 
 Node Operators must actively manage their staking allocation to each project deployment to maximise their rewards. We also highly recommend that you enable [Auto Reduce Over Allocation](#automatically-reduce-over-allocation) to prevent being [over allocated](#over-allocated-stake).
 
@@ -65,7 +65,7 @@ You can use the estimate of the Own Stake and Total Delegated for the next Era o
 
 ## Automatically Reduce Over Allocation
 
-:::info 
+:::info
 
 We highly recommend that you enable this feature
 
@@ -74,6 +74,7 @@ We highly recommend that you enable this feature
 In your Node Operator Admin App and in the Config section there is a setting called "Auto Reduce Over Allocation", we highly recommend that you enable it.
 
 If enabled, in the event of when you are overallocated, then your allocaton will automaticaly evenly reduce across all of your projects until you are no longer over allocated
+
 - Allocation reduction will be by an even percent. For example, each project will decrease by 10% of it's initial allocation.
 - Allocation will not be reduced below 1 SQT on any single project
 - If you have 0 projects then it will un-allocate all SQT

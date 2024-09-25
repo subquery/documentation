@@ -191,7 +191,7 @@ Navigate to the default mapping function in the `src/mappings` directory. There 
 type ApproveCallArgs = [AccountId, Balance];
 
 export async function handleWasmCall(
-  call: WasmCall<ApproveCallArgs>
+  call: WasmCall<ApproveCallArgs>,
 ): Promise<void> {
   logger.info(`Processing WASM Call at ${call.blockNumber}`);
   const approval = new Approval(`${call.blockNumber}-${call.idx}`);
@@ -214,7 +214,7 @@ The `handleWasmCall` function receives event data from the WASM execution enviro
 ```ts
 export async function handleBondAndStake(event: SubstrateEvent): Promise<void> {
   logger.info(
-    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`
+    `Processing new Dapp Staking Bond and Stake event at ${event.block.block.header.number}`,
   );
   const {
     event: {

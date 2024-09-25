@@ -233,9 +233,9 @@ There is only a dictionary for Arbitrum One `https://gx.api.subquery.network/sq/
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                       |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
 | **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
@@ -342,7 +342,6 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
 
 Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
-
 
 ```ts
 {

@@ -9,8 +9,8 @@
       fontFamily: !family
         ? '' // invalid value would not set, use the default set by css
         : family === 'heading'
-        ? 'var(--font-family-heading)'
-        : 'var(--font-family)',
+          ? 'var(--font-family-heading)'
+          : 'var(--font-family)',
       fontSize: fontSize ? fontSize + 'px' : '',
     }"
   >

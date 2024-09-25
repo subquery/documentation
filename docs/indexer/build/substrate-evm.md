@@ -184,7 +184,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleFrontierEvmEvent(
-  event: FrontierEvmEvent<TransferEventArgs>
+  event: FrontierEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -197,7 +197,7 @@ export async function handleFrontierEvmEvent(
 }
 
 export async function handleFrontierEvmCall(
-  event: FrontierEvmCall<ApproveCallArgs>
+  event: FrontierEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(event.hash);
 
@@ -229,7 +229,7 @@ type ApproveCallArgs = [string, BigNumber] & {
 };
 
 export async function handleAcalaEvmEvent(
-  event: AcalaEvmEvent<TransferEventArgs>
+  event: AcalaEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   const transaction = new Transaction(event.transactionHash);
 
@@ -242,7 +242,7 @@ export async function handleAcalaEvmEvent(
 }
 
 export async function handleAcalaEvmCall(
-  event: AcalaEvmCall<ApproveCallArgs>
+  event: AcalaEvmCall<ApproveCallArgs>,
 ): Promise<void> {
   const approval = new Approval(event.hash);
 

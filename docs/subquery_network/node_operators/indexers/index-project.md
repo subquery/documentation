@@ -61,7 +61,7 @@ Select the `Go Online` button and send a transaction.
 
 ![Go Online](/assets/img/network/indexer_project_go_online.png)
 
- **Note**: Your controller account will need balance to complete the transaction.
+**Note**: Your controller account will need balance to complete the transaction.
 
 After the transaction is processed, the project's status will change to `Online`. Now, you can:
 

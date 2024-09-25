@@ -128,7 +128,7 @@ You can get the network through the global `chainId` value. This is the same val
 ```ts
 // We prefix the ID with the network name to prevent ID collisions across networks
 const transfer = new Transfer(
-  `${network}-${event.block.block.header.number.toNumber()}-${event.idx}`
+  `${network}-${event.block.block.header.number.toNumber()}-${event.idx}`,
 );
 ```
 
@@ -163,7 +163,7 @@ export async function handleKusamaEvent(e: SubstrateEvent): Promise<void> {
 
 async function handleEvent(
   event: SubstrateEvent,
-  network: "polkadot" | "kusama"
+  network: "polkadot" | "kusama",
 ): Promise<void> {
   // Do something with shared logic
 }

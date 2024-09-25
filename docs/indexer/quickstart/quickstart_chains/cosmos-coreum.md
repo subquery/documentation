@@ -89,7 +89,7 @@ import {
 import { MsgSend } from "../types/proto-interfaces/cosmos/bank/v1beta1/tx";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgSend>
+  msg: CosmosMessage<MsgSend>,
 ): Promise<void> {
   logger.info(`Messsage found at ${msg.block.blockId}`);
   const messageRecord = Message.create({

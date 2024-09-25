@@ -160,7 +160,7 @@ const splitLink = split(
     );
   },
   wsLink,
-  httpLink
+  httpLink,
 );
 
 const client = new ApolloClient({
