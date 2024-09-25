@@ -459,7 +459,6 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/build/testing.md`,
           `${locale}/indexer/build/graph-migration.md`,
           `${locale}/indexer/build/project-upgrades.md`,
-          `${locale}/indexer/build/subgraph-tutorial.md`,
           `${locale}/indexer/build/multi-chain.md`,
           `${locale}/indexer/build/dynamicdatasources.md`,
           `${locale}/indexer/build/substrate-evm.md`,
@@ -493,6 +492,7 @@ export const getSidebar = (locale: string) =>
                   `${locale}/indexer/run_publish/query/graphql.md`,
                   `${locale}/indexer/run_publish/query/aggregate.md`,
                   `${locale}/indexer/run_publish/query/subscription.md`,
+                  `${locale}/indexer/run_publish/query/subgraph.md`,
                 ],
               },
               {
