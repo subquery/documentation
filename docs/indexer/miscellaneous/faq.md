@@ -137,7 +137,7 @@ SubQuery has two different modes: safe and unsafe mode.
 
 If you enable the [unsafe flag](../run_publish/references.md#--unsafe-query-service) then you can do just about anything, meaning you can add external/third party data if you like. Unsafe mode cannot be accommodated in the SubQuery Network (our decentralised network) because we want it to be deterministic i.e. two indexers get the exact same results which we can’t ensure with third party data.
 
-### Skip a block
+### Skipping a block
 
 Refer to the [Bypass Block](../build/manifest/ethereum.md#bypass-blocks) configuration, such as for EVM. This feature is also available for all other supported architectures.
 
