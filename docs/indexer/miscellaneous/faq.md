@@ -127,7 +127,7 @@ See [Store](../build/mapping/store.md), which enables parallelised store operati
 
 Our SDK is written in node.js, so we use the JS Libary to interact with the chain via the RPC endpoints
 
-### Subscribe to a particular event
+### Subscribing to a particular event
 
 See our docs on [subscriptions](../run_publish/query/subscription.md)
 
