@@ -160,7 +160,7 @@ You might find the following articles helpful:
 - [Project Optimisation](../build/optimisation.md)
 - [Running High Performance SubQuery Infrastructure](../run_publish/optimisation.md)
 
-### Advice on building large indexers: break down or migrate?
+### Indexer Composability
 
 SubQuery don’t yet support indexer composability, but it’s something the team is currently considering.
 
