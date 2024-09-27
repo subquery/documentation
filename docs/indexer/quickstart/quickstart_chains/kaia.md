@@ -1,20 +1,20 @@
-# Klaytn Quick Start
+# Kaia Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events from the [Orbit ETH](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396) on [Klaytn](https://scope.klaytn.com) Network .
+The goal of this quick start guide is to index all transfers and approval events from the [Orbit ETH](https://kaiascan.io/token/0x34d21b1e550d73cee41151c77f3c73359527a396) on [Kaia](https://kaiascan.io) Network .
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
-Please initialise an a Klaytn project.
+Please initialise a Kaia project.
 
 ::: tip Note
 The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/blob/main/Klaytn/klaytn-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Klaytn Network. Since Klaytn is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Kaia Network. Since Kaia is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-As we are indexing all transfers and approvals from the Orbit ETH contract on Klaytn network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Orbit ETH contract on Kaia network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
@@ -24,11 +24,11 @@ As we are indexing all transfers and approvals from the Orbit ETH contract on Kl
     {
       kind: EthereumDatasourceKind.Runtime,
       startBlock: 131206820,
-      // This is the block that the contract was deployed on https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
+      // This is the block that the contract was deployed on https://kaiascan.io/token/0x34d21b1e550d73cee41151c77f3c73359527a396
       options: {
         // Must be a key of assets
         abi: "erc20",
-        // This is the contract address for Orbit Ether https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396
+        // This is the contract address for Orbit Ether https://kaiascan.io/token/0x34d21b1e550d73cee41151c77f3c73359527a396
         address: "0x34d21b1e550d73cee41151c77f3c73359527a396",
       },
       assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
@@ -67,9 +67,9 @@ As we are indexing all transfers and approvals from the Orbit ETH contract on Kl
 }
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Orbit ETH contract](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [Orbit ETH contract](https://kaiascan.io/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
-The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Orbit ETH](https://scope.klaytn.com/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
+The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the [Orbit ETH](https://kaiascan.io/token/0x34d21b1e550d73cee41151c77f3c73359527a396).
 
 <!-- @include: ../snippets/ethereum-manifest-note.md -->
 
