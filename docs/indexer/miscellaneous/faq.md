@@ -141,7 +141,7 @@ If you enable the [unsafe flag](../run_publish/references.md#--unsafe-query-serv
 
 Refer to the [Bypass Block](../build/manifest/ethereum.md#bypass-blocks) configuration, such as for EVM. This feature is also available for all other supported architectures.
 
-### Meaning of an unhealthy indexer
+### Unhealthy Indexer Status
 
 This could be for a number of reasons, we mark it unhealthy when the block number stops increasing. Feel free to share your project and we can take a look.
 
