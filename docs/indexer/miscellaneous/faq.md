@@ -101,7 +101,7 @@ The best way to do this is use a combination of `startBlock`, `endBlock`, and a 
 }
 ```
 
-### Optimise the project
+### Optimising your project
 
 Performance is a crucial factor in each project. Fortunately, there are several things you can do to improve indexing speed and query speed.
 
