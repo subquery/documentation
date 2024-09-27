@@ -5,7 +5,7 @@ FAQs for specific network participants:
 - [Node Operators](./node_operators/setup/faq.md)
 - [Consumers](./consumers/faq.md)
 
-## Could you provide some information about consensus?
+## Proof-of-indexing
 
 [Proof Of Index](./introduction/proof-of-index.md)
 
@@ -21,7 +21,7 @@ SubQuery Network is decentralised, so we can't say what individual node operator
 
 SubQuery team can enable the RPC in a few days depending on how long an archive node on your network would take to sync.
 
-## Where is your/provider's infra hosted? AWS? Own data center? GCP? etc?
+## Where is your/provider's infra hosted?
 
 Depends on the provider, SubQuery don't dictate this. But SubQuery gateway encourages competition to provide high performance, low latency, and geographically decentralised services. Most providers are running on their own bare metal for cost considerations
 

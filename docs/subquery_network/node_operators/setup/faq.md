@@ -33,7 +33,7 @@ If the same Node Operator wants to index the same project across 2 different hos
 
 # Database
 
-## How to change the default password of the PostgreSQL DB?
+## Change the default password of the PostgreSQL DB
 
 To change the password for coordinator-service: v0.18.0, ensure the password config for the DB is the same as the one for the coordinator service `.yml` file.
 
@@ -62,7 +62,7 @@ docker stop query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 docker rm query_qmyr8xqgaxucxmp query_qmszpq9f4u1gerv
 ```
 
-## Can I connect my Docker node to an externally hosted database
+## Connect my Docker node to an externally hosted database
 
 Not currently, but this is on our roadmap and we will try to incorporate it soon.
 

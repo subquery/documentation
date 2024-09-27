@@ -38,7 +38,7 @@ We don't (yet) support Bitcoin. The supported networks are listed [here](https:/
 
 See [Graph Migration](./graph-migration.md). Building with SubQuery is a similar developer experience, while providing up to 3.9x indexing speeds, multi-chain indexing, wider chain support, and more flexibility with mapping functions. It is so similar, you can easily migrate your existing subgraphs.
 
-# Migrating to version 3.0 of the SubQuery SDK
+# Migrating to version 3.0
 
 Version 3.0 adds some major improvements to SubQuery's SDK that have been requested and developed in partnership with key customers in the SubQuery ecosystem.
 
@@ -101,88 +101,78 @@ The best way to do this is use a combination of `startBlock`, `endBlock`, and a 
 }
 ```
 
-### How can I optimise my project to speed it up?
+### Optimising your project
 
 Performance is a crucial factor in each project. Fortunately, there are several things you can do to improve indexing speed and query speed.
 
 You can find our indexing speed recommendations in the [Project Optimisation](../build/optimisation.md) and recommendations for better query performance in [Running High Performance SubQuery Infrastructure](../run_publish/optimisation.md).
 
-### Is it possible to create entity based on number of blocks since the last snapshot OR based on amount of time passed since the last snapshot?
+### Entity creation based on blocks or time since last snapshot
 
 Index data based on a number of blocks since an event is hard since there is no specific event at that point in time to index from. The only way to do something like this is when the event occurs, make a note of it at the block height, and then periodically using the block handler (e.g. once every 100 blocks), query for all notes that happened and then process them there. Make sure you use the modulo filter to avoid checking this at every block since that will slow down your project.
 
-### Is it possible to trigger a mapping function on every N blocks?
+### Trigger mapping function every N blocks
 
 There is a modulo indexer on our [block handlers](../build/manifest/ethereum.md#mapping-handlers-and-filters) that can be used to trigger a mapping function on every n blocks, or on any cron expression - if you are looking to have constantly refreshed prices after every 10 blocks for all known pools.
 
-### Can I easily fetch all of any entity and iterate over to update many records?
+### Fetch all entities and iterate to update records
 
 See [Store](../build/mapping/store.md)
 
-### Can I create/update multiple records in a single place?
+### Create/update multiple records at once
 
 See [Store](../build/mapping/store.md), which enables parallelised store operations, or `Promise.all(xx, yy)` that makes sense for performance
 
-### What library do you use to query blockchain?
+### Library used for blockchain queries
 
 Our SDK is written in node.js, so we use the JS Libary to interact with the chain via the RPC endpoints
 
-### How can I subscribe to a particular event?
+### Subscribing to a particular event
 
 See our docs on [subscriptions](../run_publish/query/subscription.md)
 
-### Can SubQuery support off-chain/external data?
+### Off-chain/external data support
 
 SubQuery has two different modes: safe and unsafe mode.
 
 If you enable the [unsafe flag](../run_publish/references.md#--unsafe-query-service) then you can do just about anything, meaning you can add external/third party data if you like. Unsafe mode cannot be accommodated in the SubQuery Network (our decentralised network) because we want it to be deterministic i.e. two indexers get the exact same results which we can’t ensure with third party data.
 
-### How do I get started with building my project?
-
-We suggest starting with the starter project (i.e. [EVM](https://github.com/subquery/ethereum-subql-starter/), [Cosmos](https://github.com/subquery/cosmos-subql-starter/)), this will serve as a base for your project.
-
-Then create your final data models using the `schema.graphql` files
-
-Then write your address mapping handlers in `project.ts`
-
-And finally convert your data types in each mapping function
-
-### Is there a way to skip a block?
+### Skipping a block
 
 Refer to the [Bypass Block](../build/manifest/ethereum.md#bypass-blocks) configuration, such as for EVM. This feature is also available for all other supported architectures.
 
-### What does an unhealthy indexer mean?
+### Unhealthy Indexer Status
 
 This could be for a number of reasons, we mark it unhealthy when the block number stops increasing. Feel free to share your project and we can take a look.
 
-### What would be the process to add a new type and reindex past blocks?
+### Process for adding a new type and reindexing past blocks
 
 If data for the new entity would need to be added from a certain block height, and this entity wouldn't have any relationship with other entities, and the project would have [historical state tracking](../run_publish/historical.md) enabled, then you could reindex to that height and simply update the deployment following the guide [Project Upgrades & Schema Migrations](../build/project-upgrades.md). Otherwise, you would have to index the new deployment from the start.
 
-### Does SubQuery support integration with CloudFlare D1 database?
+### Is CloudFlare D1 database supported?
 
 Not directly. but yes! SubQuery utilises Postgres databases for storing indexed data, but it can export the data in a format compatible with CloudFlare D1, specifically CSV. A helpful resource for BigQuery, another tool that utilizes CSV data - [Querying Data with BigQuery](../run_publish/query/other_tools/bigquery.md).
 
-### Are there any other settings I should consider to improve the stability and repairability of this deployment?
+### Settings to improve deployment stability and repairability
 
 You might find the following articles helpful:
 
 - [Project Optimisation](../build/optimisation.md)
 - [Running High Performance SubQuery Infrastructure](../run_publish/optimisation.md)
 
-### Do you have any advice on building a large indexer? Should we break it down into smaller indexers and then merge them using ETL tools, or should we migrate and update the existing one?
+### Indexer Composability
 
 SubQuery don’t yet support indexer composability, but it’s something the team is currently considering.
 
-### Is reverse indexing supported, allowing me to start indexing from the later blocks back to the earlier ones?
+### Is reverse indexing supported?
 
 No, this feature is not currently supported.
 
-### Is it possible to subscribe to a query endpoint?
+### Subscribe to a query endpoint
 
 Yes, take a look at the [GraphQL Subsciption](./query/subscription.md) article for more information.
 
-### What if I plan to index a blockchain that consists of multiple architecture layers, such as EVM and Substrate?
+### Indexing a blockchain that consists of multiple architecture layers, such as EVM and Substrate?
 
 You can seamlessly index both layers by using the [Multi-chain indexing](../build/multi-chain.md) functionality.
 
@@ -209,22 +199,22 @@ Run `rm -rf .data` to clear out your local db and try again
 
 ## Managed Service
 
-### Where can I find more inforrmation about Managed Services?
+### More information about Managed Services?
 
 You can find information about Pricing and FAQs by following [this link](https://managedservice.subquery.network/pricing). Additional FAQs are listed below.
 
-### How can I change the batch size in Managed Services?
+### Change the batch size in Managed Services
 
 In `managedservice.subquery.network` you can click on your project then on your deployment. Under advanced options you can change your batch size.
 
-### In Managed Services do I need to reindex my project if I move it to dedicated database?
+### Reindex my project if it is moved to dedicated database
 
 If we move your indexer projects to a dedicated database then you will need to reindex the projects - you can do this in the staging slot and then promote to prod once it’s ready to avoid any interruption.
 
-### Do you offer SLA agreements?
+### SLA agreements
 
 SubQuery can offer SLAs for managed hosting across one or multiple projects over a specified period.
 
-### Are you assisting with the migration from Managed Services to your own infrastructure or a decentralised network?
+### Assisting with the migration from Managed Services
 
 Yes, migration between all available deployment options is possible.
