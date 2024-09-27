@@ -4,7 +4,7 @@
 
 When an author of a project publishes a new version of a SubQuery project, sometimes you may want to migrate your local deployment to the new version to avoid time spend reindexing data from scratch.
 
-:::warning 
+:::warning
 
 Not all SubQuery project deployments support migration, and for those that do, they may only support migrations from specific deployment IDs or block heights.
 
@@ -25,8 +25,6 @@ sudo docker exec -it indexer_db psql -h localhost -p 5432 -U postgres -d postgre
 ALTER SCHEMA <old> RENAME TO <new>;
 ```
 
-4. Add new deployment and start from Indexer Admin UI. 
+4. Add new deployment and start from Indexer Admin UI.
 5. Move allocation to the new deployment.
-5. Delete old project
-
-
+6. Delete old project

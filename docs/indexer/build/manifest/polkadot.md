@@ -173,13 +173,13 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
-| Field            | v1.0.0                                                  | Description                                                                                                                                                                                                |
-| ---------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String                                                  | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
-| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**.  |
-| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
-| **chaintypes**   | {file:String}                                           | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
-| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
+| Field            | v1.0.0                                                  | Description                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                        |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **chaintypes**   | {file:String}                                           | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                  |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
 
 ### Runner Spec
 
@@ -198,10 +198,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | All manifest versions | Description                                                                                                                                                                                      |
-| ----------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String                | We currently support `@subql/query`                                                                                                                                                              |
-| **version** | String                | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | All manifest versions | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String                | We currently support `@subql/query`                                                                                                                                                                                                                                                                     |
+| **version** | String                | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 

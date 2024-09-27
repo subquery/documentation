@@ -25,22 +25,22 @@ export interface Store {
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>
+      value: T[keyof T] | Array<T[keyof T]>,
     ][],
-    options?: GetOptions<T>
+    options?: GetOptions<T>,
   ): Promise<T[]>;
 
   getByField(
     entity: string,
     field: string,
     value: any,
-    options?: GetOptions<T>
+    options?: GetOptions<T>,
   ): Promise<Entity[]>;
 
   getOneByField(
     entity: string,
     field: string,
-    value: any
+    value: any,
   ): Promise<Entity | null>;
 
   set(entity: string, id: string, data: Entity): Promise<void>;
@@ -81,9 +81,9 @@ export interface Store {
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>
+      value: T[keyof T] | Array<T[keyof T]>,
     ][],
-    options?: GetOptions<T>
+    options?: GetOptions<T>,
   ): Promise<T[]>;
 }
 ```
@@ -149,7 +149,7 @@ export interface Store {
     entity: string,
     field: string,
     value: any,
-    options?: GetOptions
+    options?: GetOptions,
   ): Promise<Entity[]>;
 }
 ```

@@ -36,7 +36,7 @@ Once connected, you will be able to see your Graph Node's sync status in the Nod
 
 ## 3. Go Online
 
-Click `Go Online`, which will then trigger your wallet to sign a transaction. 
+Click `Go Online`, which will then trigger your wallet to sign a transaction.
 
 ![Go Online](/assets/img/network/subgraph_go_online.png)
 

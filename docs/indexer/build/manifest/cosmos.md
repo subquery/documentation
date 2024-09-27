@@ -190,13 +190,13 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks).
 
-| Field            | Type                                               | Description                                                                                                                                                                               |
-| ---------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String                                             | A network identifier for the blockchain                                                                                                                                                   |
-| **endpoint**     | String or String[]                                 | Defines the endpoint of the blockchain to be indexed, this can be a string or an array of endpoints - **This must be a full archive node**.                                               |
-| **dictionary**   | String                                             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).  |
-| **bypassBlocks** | Array                                              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                             |
-| **chaintypes**   | Map\<String, { file: String, messages: String[] \> | References to protobuf files that are used to decode block content, this should include protobufs for any messages or events that you wish to decode, see [ChainTypes](#chain-types)      |
+| Field            | Type                                               | Description                                                                                                                                                                              |
+| ---------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                             | A network identifier for the blockchain                                                                                                                                                  |
+| **endpoint**     | String or String[]                                 | Defines the endpoint of the blockchain to be indexed, this can be a string or an array of endpoints - **This must be a full archive node**.                                              |
+| **dictionary**   | String                                             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
+| **bypassBlocks** | Array                                              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| **chaintypes**   | Map\<String, { file: String, messages: String[] \> | References to protobuf files that are used to decode block content, this should include protobufs for any messages or events that you wish to decode, see [ChainTypes](#chain-types)     |
 
 ### Runner Spec
 
@@ -215,10 +215,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | We currently support `@subql/query`                                                                                                                                                              |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
+| **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -387,6 +387,7 @@ network:
       messages:
         - "MsgInitialClaim"
 ```
+
 :::
 
 ::: info If you have more than one file with the same namespace you can use a different key. The key is only used as a fallback if the proto file doesn't specify a namespace.

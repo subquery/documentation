@@ -170,8 +170,8 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/iotex.md`,
                   },
                   {
-                    text: "Klaytn",
-                    link: `${locale}/indexer/quickstart/quickstart_chains/klaytn.md`,
+                    text: "Kaia",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/kaia.md`,
                   },
                   {
                     text: "Mantle",
@@ -492,6 +492,7 @@ export const getSidebar = (locale: string) =>
                   `${locale}/indexer/run_publish/query/graphql.md`,
                   `${locale}/indexer/run_publish/query/aggregate.md`,
                   `${locale}/indexer/run_publish/query/subscription.md`,
+                  `${locale}/indexer/run_publish/query/subgraph.md`,
                 ],
               },
               {

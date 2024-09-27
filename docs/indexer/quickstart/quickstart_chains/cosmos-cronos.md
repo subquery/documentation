@@ -191,7 +191,7 @@ type TransferEventArgs = [string, string, BigNumber] & {
 
 // Save all transfers
 export async function handleTransfer(
-  log: EthereumLog<TransferEventArgs>
+  log: EthereumLog<TransferEventArgs>,
 ): Promise<void> {
   const transfer = Transfer.create({
     id: log.transactionHash,
@@ -220,7 +220,7 @@ type TransferEventArgs = [string, string, BigNumber] & {
 
 // Save all transfers
 export async function handleTransfer(
-  event: EthermintEvmEvent<TransferEventArgs>
+  event: EthermintEvmEvent<TransferEventArgs>,
 ): Promise<void> {
   const transfer = Transfer.create({
     id: event.transactionHash,

@@ -60,7 +60,9 @@ const project: EthereumProject = {
         // This is the contract address for wrapped BTC https://arbiscan.io/token/0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f
         address: "0x1000000000000000000000000000000000000003",
       },
-      assets: new Map([["priceSubmitter", { file: "./priceSubmitter.abi.json" }]]),
+      assets: new Map([
+        ["priceSubmitter", { file: "./priceSubmitter.abi.json" }],
+      ]),
       mapping: {
         file: "./dist/index.js",
         handlers: [
@@ -226,10 +228,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | `@subql/query`                                                                                                                                                                                   |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
+| **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -246,7 +248,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                     |
+| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                  |
 | **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
@@ -291,8 +293,8 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                             | Supported filter                                                                                    |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Handler                                                                | Supported filter                                                                                    |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [ethereum/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
 | [ethereum/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
 | [ethereum/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |

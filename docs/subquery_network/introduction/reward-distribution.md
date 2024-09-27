@@ -31,14 +31,6 @@ Stake Rewards are allocated to all project types supported by the SubQuery Netwo
 
 The current inflation rate on the SubQuery Network can be found on our [network parameters page](../parameters.md). The majority of network inflation acts as Stake Rewards, while the remainder is allocated to the SubQuery Treasury to fund various programmes.
 
-## Cobb-Douglas Production Function
-
-![Cobb Douglas production Function](/assets/img/network/cobb_douglas.png)
-
-The query fee revenue that Node Operator (**_i_** ) can receive for the Flex Plan (PAYG) reward pool (**_p_**) is defined by the Cobb-Douglas production function. Where **_Reward~p~_** is the total SQT in the reward pool **_p_**, **_σ~ip~_** is the number of requests provided by Node Operator **_i_** for the reward pool **_p_**, **_σ~p~_** is the number of requests for reward pool **_p_**, **_θ~ip~_** is the staked amount for Node Operator **_i_** for reward pool **_p_**, **_θ~p~_** the total staked amount for the reward pool **_p_** across all participating Node Operators. **_α_** is a constant that changes the weight of these two parameters and how they affect total rewards.
-
-This approach was championed by the 0x team, and in simple terms, means that revenue is allocated to competing Node Operators as a proportion of both requests answered and revenues staked.
-
 ## Minimum Staking Requirements
 
 The beauty of the Cobb Douglas equation (above) is that a rational Node Operator must maintain a stable level of staked SQT relative to the work they do in order in each reward pool in order to receive optimal rewards from either of the reward sources. As a result, the SubQuery Network does not need to enforce many arbitrary staking requirements because Node Operators are incentivised to self-manage and maintain a stake or skin in the game (we do enforce a [minimum Node Operator Stake however](../node_operators/stake.md#how-much-sqt-should-you-stake)).

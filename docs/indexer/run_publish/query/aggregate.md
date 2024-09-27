@@ -1,5 +1,11 @@
 # Aggregate Functions
 
+:::warning Not supported in Subgraph Query Service
+
+This feature is only supported in the SubQuery Native query service, not the Subgraph query service.
+
+:::
+
 ## Group By
 
 SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.

@@ -132,7 +132,7 @@ ENDPOINT=https://polygon-rpc.com
 CHAIN_ID=204
 ```
 
-In your .env files, *CHAIN_ID* and provided *ENDPOINT* of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as *CONTRACT_ADDRESS* from project.ts in your .env files for added security.
+In your .env files, _CHAIN_ID_ and provided _ENDPOINT_ of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as _CONTRACT_ADDRESS_ from project.ts in your .env files for added security.
 
 Multiple ENDPOINT can be added in .env file using comma separated.
 
@@ -148,6 +148,7 @@ The package.json file includes build scripts that allow you to build with either
     "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
 }
 ```
+
 Use `build` script to generate artefacts using the default production .env settings.
 Use `build:develop` script to generate artefacts using the development .env.develop settings.
 

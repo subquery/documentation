@@ -1,5 +1,11 @@
 # GraphQL Subscriptions
 
+:::warning Not supported in Subgraph Query Service
+
+This feature is only supported in the SubQuery Native query service, not the Subgraph query service.
+
+:::
+
 ## What is a GraphQL Subscription
 
 SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
@@ -154,7 +160,7 @@ const splitLink = split(
     );
   },
   wsLink,
-  httpLink
+  httpLink,
 );
 
 const client = new ApolloClient({

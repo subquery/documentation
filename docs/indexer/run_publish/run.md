@@ -209,7 +209,7 @@ export DB_PORT=5432
 subql-node -f your-project-path
 ```
 
-Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`subql/query`) can establish a connection to it.
+Depending on the configuration of your Postgres database (e.g. a different database password), please ensure also that both the indexer (`subql/node`) and the query service (`@subql/query`) can establish a connection to it.
 
 If your database is using SSL, you can use the following command to add the server certificate to it:
 

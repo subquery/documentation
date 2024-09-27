@@ -86,7 +86,8 @@ Uploading SupQuery project to IPFS
 SubQuery Project uploaded to IPFS: QmZ3q7YZSmhwBiot4PQCK3c7Z6HkteswN2Py58gkkZ8kNd  //CID
 ```
 
-Note: 
+Note:
+
 - With `@subql/cli` version 1.3.0 or above, when using `subql publish`, a copy of the project's `IPFS CID` will be stored in a file in your project directory. The naming of the file will be consistent with your project.ts. For example, if your manifest file is named `project.ts`, the IPFS file will be named `.project-cid`.
 - With `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-<network>` package in the dependencies before execute this command. For example, for substrate project, please make sure`@subql/common-substrate` 4.0.0 is installed
 
@@ -131,7 +132,7 @@ specVersion: 0.2.0
 
 In order to publish a Subgraph project to the SubQuery Network, you must first upload it to IPFS and retrieve a publicly accessible IPFS CID.
 
-There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the *Deployment ID* on the website.
+There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the _Deployment ID_ on the website.
 
 ![IPFS on the Graph Explorer](/assets/img/network/architect_publish_subgraph_ipfs.png)
 

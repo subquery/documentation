@@ -2,13 +2,13 @@
 
 Proof of Index (PoI) refers to a mechanism where the SubQuery Data Indexing SDK records the actions of updating, writing, and deleting data in the database during the indexing process. For each processed block height, these actions and the processed data are hashed in a specific order, resulting in a deterministic unique hash value. This hash value serves as proof that the node has completed the full data indexing process.
 
-**Proof of Indexes are only used for data indexing, they do not apply to data nodes or RPC nodes.
+\*\*Proof of Indexes are only used for data indexing, they do not apply to data nodes or RPC nodes.
 
 ## Why do we need a Proof of Index?
 
 In the SubQuery network, multiple Node Operators provide indexed data for the same project.
 
-For a given project (identified by a fixed IPFS CID), we expect all Node Operators to ensure data quality by adhering to CIA principles (Consistency, Integrity, and Accuracy). When multiple Node Operators provide indexed data for the same project, maintaining the CIA of indexed data becomes a challenge. By comparing the PoI hash values at specified block heights, we can verify the trustworthiness of the data up to that height. 
+For a given project (identified by a fixed IPFS CID), we expect all Node Operators to ensure data quality by adhering to CIA principles (Consistency, Integrity, and Accuracy). When multiple Node Operators provide indexed data for the same project, maintaining the CIA of indexed data becomes a challenge. By comparing the PoI hash values at specified block heights, we can verify the trustworthiness of the data up to that height.
 
 If all Node Operator's PoI values match, we can consider that they have reached consensus and we can guarantee that their data is the same.
 

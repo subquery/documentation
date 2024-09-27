@@ -61,9 +61,7 @@ You can use log handlers to capture information when certain logs are included o
 import { HashSubmittedEvent } from "../types";
 import { SubmitHashEvent } from "../types/abi-interfaces/Erc20Abi";
 
-export async function handleLog(
-  log: SubmitHashEvent
-): Promise<void> {
+export async function handleLog(log: SubmitHashEvent): Promise<void> {
   const transaction = HashSubmittedEvent.create({
     id: log.transactionHash,
     submitter: log.args.submitter,
@@ -117,7 +115,9 @@ When run in `unsafe` mode, you can import any custom libraries into your project
 import { EthereumTransaction } from "@subql/types-ethereum";
 import fetch from "node-fetch";
 
-export async function handleTransaction(tx: EthereumTransaction): Promise<void> {
+export async function handleTransaction(
+  tx: EthereumTransaction,
+): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
   // Do something with this data

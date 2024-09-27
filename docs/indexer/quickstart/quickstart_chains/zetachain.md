@@ -18,47 +18,47 @@ As we are indexing all transfers and approvals from the ETH contract on ZetaChai
 
 ```ts
 dataSources: [
-    {
-      kind: EthereumDatasourceKind.Runtime,
-      startBlock: 3000000,
-      options: {
-        abi: "erc20",
-        // This is the contract address for ETH
-        address: "0xd97B1de3619ed2c6BEb3860147E30cA8A7dC9891",
-      },
-      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
-      mapping: {
-        file: "./dist/index.js",
-        handlers: [
-          {
-            kind: EthereumHandlerKind.Call, // We use ethereum handlers since Zetachain is EVM-compatible
-            handler: "handleTransaction",
-            filter: {
-              /**
-               * The function can either be the function fragment or signature
-               * function: '0x095ea7b3'
-               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-               */
-              function: "approve(address spender, uint256 amount)",
-            },
-          },
-          {
-            kind: EthereumHandlerKind.Event,
-            handler: "handleLog",
-            filter: {
-              /**
-               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
-               */
-              topics: [
-                "Transfer(address indexed from, address indexed to, uint256 amount)",
-              ],
-            },
-          },
-        ],
-      },
+  {
+    kind: EthereumDatasourceKind.Runtime,
+    startBlock: 3000000,
+    options: {
+      abi: "erc20",
+      // This is the contract address for ETH
+      address: "0xd97B1de3619ed2c6BEb3860147E30cA8A7dC9891",
     },
-  ]
+    assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+    mapping: {
+      file: "./dist/index.js",
+      handlers: [
+        {
+          kind: EthereumHandlerKind.Call, // We use ethereum handlers since Zetachain is EVM-compatible
+          handler: "handleTransaction",
+          filter: {
+            /**
+             * The function can either be the function fragment or signature
+             * function: '0x095ea7b3'
+             * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+             */
+            function: "approve(address spender, uint256 amount)",
+          },
+        },
+        {
+          kind: EthereumHandlerKind.Event,
+          handler: "handleLog",
+          filter: {
+            /**
+             * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+             * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+             */
+            topics: [
+              "Transfer(address indexed from, address indexed to, uint256 amount)",
+            ],
+          },
+        },
+      ],
+    },
+  },
+];
 ```
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [ETH contract](https://zetachain.blockscout.com/token/0xd97B1de3619ed2c6BEb3860147E30cA8A7dC9891).
@@ -155,7 +155,6 @@ The `handleTransaction` function receives a `tx` parameter of type `ApproveTrans
 <!-- @include: ../snippets/query-intro.md -->
 
 ```graphql
-
 # Write your query or mutation here
 {
   query {
