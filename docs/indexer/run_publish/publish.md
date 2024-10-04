@@ -1,4 +1,4 @@
-# Publish to Managed Services
+# Publish to SubQuery Managed Services
 
 ## Benefits of hosting your project with SubQuery's Managed Service
 
