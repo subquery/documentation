@@ -230,6 +230,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/zksync-era.md`,
                   },
                   {
+                    text: "Unichain",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/unichain.md`,
+                  },
+                  {
                     text: "X Layer",
                     link: `${locale}/indexer/quickstart/quickstart_chains/xlayer-testnet.md`,
                   },
