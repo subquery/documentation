@@ -81,6 +81,8 @@ Please go through the docker-compose file carefully, and change the following pa
 - Your `--secret-key` under both coordinator and proxy containers.
 - Your `--jwt-secret` and `--metrics-token` under proxy container.
 
+Pay attention to the versions of `indexer-coordinator` and `indexer-proxy`, you should use the latest version. Older versions may experience errors or not generate rewards!
+
 :::
 
 ## 2. Setup SSL on your New Server and Consult Security Guide
