@@ -32,6 +32,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/arbitrum.md`,
                   },
                   {
+                    text: "AssetChain Testnet",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/asset-chain-testnet.md`,
+                  },
+                  {
                     text: "Astar zkEVM",
                     link: `${locale}/indexer/quickstart/quickstart_chains/astar-zkevm.md`,
                   },
