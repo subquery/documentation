@@ -472,11 +472,19 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Run & Publish",
-        link: `${locale}/indexer/run_publish/publish`,
+        text: "Run",
+        link: `${locale}/indexer/run_publish/introduction`,
         collapsible: true,
         children: [
+          {
+            text: "Introduction",
+            link: `${locale}/indexer/run_publish/introduction.md`,
+          },
           `${locale}/indexer/run_publish/run.md`,
+          {
+            text: "Publish to the SubQuery Network",
+            link: `${locale}/subquery_network/architects/publish.md`,
+          },
           `${locale}/indexer/run_publish/publish.md`,
           `${locale}/indexer/run_publish/optimisation.md`,
           {
