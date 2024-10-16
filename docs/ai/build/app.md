@@ -101,6 +101,15 @@ export default project;
 When you publish your app it will be converted to JSON.
 :::
 
+### Config
+
+To specify or override default config values when running you can provide them with environment variables.
+
+Example:
+```shell
+GRAPHQL_ENDPOINT=https://some.other.endpoint subql-ai -p ./path/to/project.ts
+```
+
 
 ## Project Entrypoint
 
