@@ -57,6 +57,10 @@ export default defineUserConfig({
         link: "/subquery_network/welcome.md",
       },
       {
+        text: "SubQuery AI",
+        link: "/ai/welcome.md",
+      },
+      {
         text: "Miscellaneous",
         link: "/miscellaneous/contributing.md",
       },

@@ -1,0 +1,99 @@
+# RAG
+
+Retreval Augmented Generation (RAG) allows providing a knowledge base outside of the LLMs training data.
+This means that the LLM can provide specific information about a dataset.
+
+
+## Defining RAG
+
+Defining the RAG data set is largely up to the user to define.
+Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported.
+
+We do provide a way to create a table from markdown files.
+This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
+
+Example:
+```shell
+subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name
+```
+
+
+## Adding RAG to your app
+
+Once you have defined your RAG dataset you need to include it in your project.
+
+#### First you will need to add it to your project manifest:
+```ts
+
+const project: ProjectManifest = {
+  // ..The rest of your project manifest
+  vectorStorage: {
+    type: "lancedb",
+    path: "./data.lance"
+}
+```
+
+#### In order for your project to be able to use this data you will also need to define a tool to consume it:
+```ts
+export class SubqueryDocs extends FunctionTool {
+  description =
+    `This tool gets relevant information from the Subquery Docs. It returns a list of results separated by newlines.`;
+
+  parameters = {
+    type: "object",
+    required: ["query"],
+    properties: {
+      account: {
+        type: "string",
+        description: "A search string, generally the users prompt",
+      },
+    },
+  };
+
+  async call({ query }: { query: string }, ctx: IContext): Promise<string> {
+    const vector = await ctx.computeQueryEmbedding(query);
+    const raw = await ctx.vectorSearch("subql-docs", vector);
+
+    const res = raw.map((r) => r.content)
+      .filter((c) => !!c)
+      .join("\n");
+
+    return res;
+  }
+}
+```
+
+This tool does a few things:
+1. Converts the users query input into an embedded vector data.
+2. Searches the specified vector db table for the closest matches.
+3. Processes the raw results. In this example the data has a column called `content` that needs to be extracted and combined for the LLM to use as the answer.
+
+#### Add your tool to your project
+
+```ts
+const tools: FunctionTool[] = [
+  // ..The rest of your tools
+  new SubqueryDocs()
+];
+
+```
+
+## Updating your data
+
+RAG data is generally not static, that source of this information can change and evolve.
+That means from time to time it is handy to rebuild your database.
+
+In order to do this when you define your application the path to your Lance DB should not use a local or IPFS path.
+Instead you should use any of the supported storage options that [Lance DB Supports](https://lancedb.github.io/lancedb/concepts/storage/).
+
+Example:
+```ts
+
+const project: ProjectManifest = {
+  // ..The rest of your project manifest
+  vectorStorage: {
+    type: "lancedb",
+    path: "s3://my-bucket/my-path/data.lance"
+}
+```
+

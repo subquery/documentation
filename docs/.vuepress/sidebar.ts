@@ -718,6 +718,27 @@ export const getSidebar = (locale: string) =>
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
     ],
+    "/ai/": [
+      `${locale}/ai/welcome.md`,
+      {
+        text: 'Build',
+        link: `${locale}/ai/build/app.md`,
+        children: [
+          `${locale}/ai/build/app.md`,
+          `${locale}/ai/build/tools.md`,
+          `${locale}/ai/build/rag.md`,
+        ],
+      },
+      {
+        text: 'Running',
+        link: `${locale}/ai/run_publish/local.md`,
+        children: [
+          `${locale}/ai/run_publish/local.md`,
+          `${locale}/ai/run_publish/cli.md`,
+          `${locale}/ai/run_publish/docker.md`,
+        ],
+      }
+    ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,
       `${locale}/miscellaneous/social_media.md`,
