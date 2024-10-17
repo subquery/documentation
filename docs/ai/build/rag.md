@@ -30,38 +30,66 @@ const project: ProjectManifest = {
   vectorStorage: {
     type: "lancedb",
     path: "./data.lance"
+  },
+  // Set this to the same model you use to generate your db
+  embeddingsModel: 'nomic-embed-text',
 }
 ```
 
-#### In order for your project to be able to use this data you will also need to define a tool to consume it:
+#### In order for your project to be able to use this data you will also need to define a tool to consume it. We provide a built in RagTool which you can use, if you need more specific functionality you can extend this or build your own.
+
 ```ts
-export class SubqueryDocs extends FunctionTool {
-  description =
-    `This tool gets relevant information from the Subquery Docs. It returns a list of results separated by newlines.`;
+import { RagTool } from 'jsr:@subql/ai-app-framework';
 
-  parameters = {
-    type: "object",
-    required: ["query"],
-    properties: {
-      account: {
-        type: "string",
-        description: "A search string, generally the users prompt",
-      },
-    },
-  };
+// Add this to your array of tools in your project,
+// The first argument is your table name and the second is the column you want to select
+new RagTool('subql-docs', 'content');
 
-  async call({ query }: { query: string }, ctx: IContext): Promise<string> {
-    const vector = await ctx.computeQueryEmbedding(query);
-    const raw = await ctx.vectorSearch("subql-docs", vector);
+```
 
-    const res = raw.map((r) => r.content)
-      .filter((c) => !!c)
-      .join("\n");
+::: details Tool implementation
+```ts
+export class RagTool extends FunctionTool {
+    /**
+     * RagTool is a default implementation allowing querying RAG data
+     * @param tableName The name of the table to query
+     * @param column The column on the table to extract results from
+     */
+    constructor(
+        readonly tableName: string,
+        readonly column: string,
+    ) {
+        super();
+    }
 
-    return res;
-  }
+    get description(): string {
+        return `This tool gets relevant information from the ${this.tableName}. It returns a list of results separated by newlines.`
+    }
+
+    parameters = {
+        type: "object",
+        required: ["query"],
+        properties: {
+          account: {
+            type: "string",
+            description: "A search string, generally the users prompt",
+          },
+        },
+      };
+
+    async call({ query }: { query: string }, ctx: IContext): Promise<string> {
+        const vector = await ctx.computeQueryEmbedding(query);
+        const raw = await ctx.vectorSearch(this.tableName, vector);
+
+        const res = raw.map((r) => r[this.column])
+          .filter((c) => !!c)
+          .join("\n");
+
+        return res;
+      }
 }
 ```
+:::
 
 This tool does a few things:
 1. Converts the users query input into an embedded vector data.

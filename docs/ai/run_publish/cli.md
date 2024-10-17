@@ -6,12 +6,12 @@
 Run an AI app
 
 Commands:
-  subql-ai            Run an AI app                                    [default]
+  subql-ai            Run an AI app                                        [default]
   subql-ai info       Get information on a project
   subql-ai embed-mdx  Creates a Lance db table with embeddings from MDX files
   subql-ai repl       Creates a CLI chat with a running app
-  subql-ai publish    Publishes a project to IPFS so it can be easily
-                      distributed
+  subql-ai publish    Publishes a project to IPFS so it can be easily distributed
+  subql-ai init       Create a new project skeleton
 
 Options:
       --version          Show version number                           [boolean]
@@ -29,6 +29,8 @@ Options:
                                                         [number] [default: 7827]
       --forceReload      If the project is from IPFS force reload it and don't
                          use the cached version       [boolean] [default: false]
+      --toolTimeout      Set a limit for how long a tool can take to run, unit
+                         is MS                         [number] [default: 10000]
 ```
 
 ### `subql-ai`

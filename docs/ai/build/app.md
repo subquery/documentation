@@ -49,6 +49,8 @@ const project: ProjectManifest = {
   },
   // The LLM model you wish to use. Currently any Ollama model is supported
   model: "llama3.1",
+  // (Optional) The LLM model for generating vectors from text.
+  embeddingsModel: "nomic-embed-text",
   // The path to your project entrypoint
   entry: "./index.ts",
 };
