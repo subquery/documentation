@@ -26,6 +26,8 @@ There are plenty of online guides on how to launch a compute engine on various c
 
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field. Replace it with your own one.
 
+Pay attention to the postgres version. The latest version is `postgres:17-alpine`. You should not change the postgres version when it is running stable, changing will cause errors. Upgrading the version requires some advanced techniques such as postgres upgrade or backup, restore.
+
 :::
 
 - Then, install Docker and set auto start:
