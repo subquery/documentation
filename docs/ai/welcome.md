@@ -2,15 +2,14 @@
 
 The SubQuery App Framework allows you to build and run LLM Apps on the SubQuery Network in a trusted environment.
 
-
 ## Getting Started
 
 ### Setup your environment
 
 To use the framework there are a couple of dependencies:
 
-* [Deno](https://deno.land/). The SubQuery AI framework is built on Deno and is needed to build your app.
-* [Ollama](https://ollama.com/). Alternatively an endpoint to an Ollama instance.
+- [Deno](https://deno.land/). The SubQuery AI framework is built on Deno and is needed to build your app.
+- [Ollama](https://ollama.com/). Alternatively an endpoint to an Ollama instance.
 
 ### Install the framework
 

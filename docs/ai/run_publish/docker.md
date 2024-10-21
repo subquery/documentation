@@ -51,5 +51,4 @@ services:
 
 volumes:
   open-webui:
-
 ```

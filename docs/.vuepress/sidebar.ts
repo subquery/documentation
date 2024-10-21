@@ -721,7 +721,7 @@ export const getSidebar = (locale: string) =>
     "/ai/": [
       `${locale}/ai/welcome.md`,
       {
-        text: 'Build',
+        text: "Build",
         link: `${locale}/ai/build/app.md`,
         children: [
           `${locale}/ai/build/app.md`,
@@ -730,14 +730,14 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: 'Running',
+        text: "Running",
         link: `${locale}/ai/run_publish/local.md`,
         children: [
           `${locale}/ai/run_publish/local.md`,
           `${locale}/ai/run_publish/cli.md`,
           `${locale}/ai/run_publish/docker.md`,
         ],
-      }
+      },
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,

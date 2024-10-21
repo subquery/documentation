@@ -148,5 +148,5 @@ You can use the `--silent` flag to only output the IPFS url. This is useful with
 ✔ Published project to IPFS
 ipfs://QmSejMf351cHqNTEbmJDziVLJ26r3hyepq1e6wbnejvgqM
 ```
-:::
 
+:::

@@ -11,13 +11,13 @@ The format of this file can either be in JSON or Typescript format. It is recomm
 @tab:active typescript
 
 ```typescript
-import type { ProjectManifest } from 'jsr:@subql/ai-app-framework';
+import type { ProjectManifest } from "jsr:@subql/ai-app-framework";
 
 const project: ProjectManifest = {
   // The version of the manifest spec, this is alaway 0.0.1.
   specVersion: "0.0.1",
   // For security reasons you must provide a list of allowed domains that your project will use
-  endpoints: ['gateway.subquery.network'],
+  endpoints: ["gateway.subquery.network"],
   // (Optional) Vector db storage for RAG data, currently only lance DB is supported
   vectorStorage: {
     type: "lancedb",
@@ -28,24 +28,21 @@ const project: ProjectManifest = {
   config: {
     type: "object",
     properties: {
-      "GRAPHQL_ENDPOINT": {
-        default: "https://gateway.subquery.network/query/QmcoJLxSeBnGwtmtNmWFCRusXVTGjYWCK1LoujthZ2NyGP",
-        type: "string"
+      GRAPHQL_ENDPOINT: {
+        default:
+          "https://gateway.subquery.network/query/QmcoJLxSeBnGwtmtNmWFCRusXVTGjYWCK1LoujthZ2NyGP",
+        type: "string",
       },
-      "BASE_RPC": {
+      BASE_RPC: {
         default: "https://gateway.subquery.network/rpc/base-full",
-        type: "string"
+        type: "string",
       },
-      "BASE_SQT_ADDR": {
+      BASE_SQT_ADDR: {
         default: "0x858c50C3AF1913b0E849aFDB74617388a1a5340d",
-        type: "string"
-      }
+        type: "string",
+      },
     },
-    required: [
-      "GRAPHQL_ENDPOINT",
-      "BASE_RPC",
-      "BASE_SQT_ADDR"
-    ]
+    required: ["GRAPHQL_ENDPOINT", "BASE_RPC", "BASE_SQT_ADDR"],
   },
   // The LLM model you wish to use. Currently any Ollama model is supported
   model: "llama3.1",
@@ -64,9 +61,7 @@ export default project;
 ```json
 {
   "specVersion": "0.0.1",
-  "endpoints": [
-    "gateway.subquery.network"
-  ],
+  "endpoints": ["gateway.subquery.network"],
   "vectorStorage": {
     "type": "lancedb",
     "path": "./.db"
@@ -87,16 +82,13 @@ export default project;
         "type": "string"
       }
     },
-    "required": [
-      "GRAPHQL_ENDPOINT",
-      "BASE_RPC",
-      "BASE_SQT_ADDR"
-    ]
+    "required": ["GRAPHQL_ENDPOINT", "BASE_RPC", "BASE_SQT_ADDR"]
   },
   "model": "llama3.1",
   "entry": "./index.ts"
 }
 ```
+
 :::
 
 ::: info Note
@@ -108,10 +100,10 @@ When you publish your app it will be converted to JSON.
 To specify or override default config values when running you can provide them with environment variables.
 
 Example:
+
 ```shell
 GRAPHQL_ENDPOINT=https://some.other.endpoint subql-ai -p ./path/to/project.ts
 ```
-
 
 ## Project Entrypoint
 
@@ -120,7 +112,7 @@ The project entrypoint is how your tools and system prompt are initialized, unli
 Example entrypoint:
 
 ```typescript
-import type { ProjectEntry, Project } from 'jsr:@subql/ai-app-framework';
+import type { ProjectEntry, Project } from "jsr:@subql/ai-app-framework";
 
 // This is your system prompt. It gives broad information to the LLM about what your application should to and how it should respond.
 const PROMPT = `
@@ -145,7 +137,7 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       new BetterIndexerApy(config.GRAPHQL_ENDPOINT),
       new TokenBalance(
         new JsonRpcProvider(config.BASE_RPC),
-        config.BASE_SQT_ADDR,
+        config.BASE_SQT_ADDR
       ),
       new SubqueryDocs(),
     ],
@@ -159,6 +151,6 @@ export default entrypoint;
 
 ## Next Steps
 
-* [Define your tools](./tools)
-* [Add RAG data](./rag)
-* Optimise your System Prompt and Tool descriptions.
+- [Define your tools](./tools)
+- [Add RAG data](./rag)
+- Optimise your System Prompt and Tool descriptions.
