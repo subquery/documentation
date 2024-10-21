@@ -725,19 +725,20 @@ export const getSidebar = (locale: string) =>
         link: `${locale}/ai/build/app.md`,
         children: [
           `${locale}/ai/build/app.md`,
-          `${locale}/ai/build/tools.md`,
+          `${locale}/ai/build/function_tools.md`,
           `${locale}/ai/build/rag.md`,
         ],
       },
       {
-        text: "Running",
-        link: `${locale}/ai/run_publish/local.md`,
+        text: "Run",
+        link: `${locale}/ai/run/local.md`,
         children: [
-          `${locale}/ai/run_publish/local.md`,
-          `${locale}/ai/run_publish/cli.md`,
-          `${locale}/ai/run_publish/docker.md`,
+          `${locale}/ai/run/local.md`,
+          `${locale}/ai/run/cli.md`,
+          `${locale}/ai/run/docker.md`,
         ],
       },
+      `${locale}/ai/query/query.md`,
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,

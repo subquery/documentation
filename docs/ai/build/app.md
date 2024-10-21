@@ -1,13 +1,19 @@
-# App
+# AI Apps
 
-Building an AI application is straight forward. There are a few components to an application, to get started, create a project manifest and entrypoint.
+Building an AI application is straight forward process that takes minutes. The SubQuery AI App framework simplifies most of this development, while allowing you to build complex applications that are ready to run on a decentralised network.
+
+There are a few components to an application, to get started, create a project manifest and entrypoint.
 
 ## Project Manifest
 
-The project manifest is the start point for your project. It defines a set of options and references your [tools](./tools) and [rag data](./rag).
-The format of this file can either be in JSON or Typescript format. It is recommended to use Typescript as it can easily provide extra build time funcitonality.
+The project manifest is the start point for your project. It defines a set of options and references your [tools](./tools) and [rag data](./rag). The format of this file can either be in JSON or Typescript format. It is recommended to use Typescript as it can easily provide extra build time funcitonality and typesafety.
+
+::: info Note
+When you publish your app, the Typescript manifest will be converted to JSON.
+:::
 
 ::: code-tabs
+
 @tab:active typescript
 
 ```typescript
@@ -91,13 +97,9 @@ export default project;
 
 :::
 
-::: info Note
-When you publish your app it will be converted to JSON.
-:::
-
 ### Config
 
-To specify or override default config values when running you can provide them with environment variables.
+To specify or override default config values when running, you can provide them with environment variables.
 
 Example:
 
@@ -115,7 +117,7 @@ Example entrypoint:
 import type { ProjectEntry, Project } from "jsr:@subql/ai-app-framework";
 
 // This is your system prompt. It gives broad information to the LLM about what your application should to and how it should respond.
-const PROMPT = `
+const SYSTEM_PROMPT = `
 You are an agent designed to help a user with their token delegation on the SubQuery Network.
 Given an input question, use the available tools to answer the users question quickly and concisely.
 You answer must use the result of the tools available.
@@ -141,7 +143,7 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       ),
       new SubqueryDocs(),
     ],
-    systemPrompt: PROMPT,
+    systemPrompt: SYSTEM_PROMPT,
   };
 };
 
@@ -151,6 +153,6 @@ export default entrypoint;
 
 ## Next Steps
 
-- [Define your tools](./tools)
+- [Define any additional function tools](./function_tools)
 - [Add RAG data](./rag)
 - Optimise your System Prompt and Tool descriptions.

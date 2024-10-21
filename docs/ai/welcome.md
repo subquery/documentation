@@ -1,6 +1,6 @@
 # Build with SubQuery's AI App Framework
 
-The SubQuery App Framework allows you to build and run LLM Apps on the SubQuery Network in a trusted environment.
+The SubQuery App Framework allows you to build and run production LLM Apps on the SubQuery Network in a trusted and decentralised environment.
 
 ## Getting Started
 

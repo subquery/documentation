@@ -1,17 +1,12 @@
 # RAG
 
-Retreval Augmented Generation (RAG) allows providing a knowledge base outside of the LLMs training data.
-This means that the LLM can provide specific information about a dataset.
+Retreval Augmented Generation (RAG) allows providing a knowledge base outside of the LLMs training data. This means that the LLM can provide specific information about a dataset or have expertise in a certain area.
 
 ## Defining RAG
 
-Defining the RAG data set is largely up to the user to define.
-Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported.
+Defining the RAG data set is largely up to the user to define. Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported. You can [review Lance DB's documentation](https://lancedb.github.io/lancedb/basic/) to determine the best way to ingest and embed your chosen RAG source data.
 
-We do provide a way to create a table from markdown files.
-This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
-
-Example:
+We do provide an off the shelf way to create a table from markdown files. This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
 
 ```shell
 subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name
@@ -21,7 +16,7 @@ subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-nam
 
 Once you have defined your RAG dataset you need to include it in your project.
 
-#### First you will need to add it to your project manifest:
+First you will need to add it to your project manifest:
 
 ```ts
 const project: ProjectManifest = {
@@ -35,7 +30,7 @@ const project: ProjectManifest = {
 };
 ```
 
-#### In order for your project to be able to use this data you will also need to define a tool to consume it. We provide a built in RagTool which you can use, if you need more specific functionality you can extend this or build your own.
+In order for your project to be able to use this data you will also need to define a tool to consume it. We provide a built in RagTool which you can use, if you need more specific functionality you can extend this or build your own.
 
 ```ts
 import { RagTool } from "jsr:@subql/ai-app-framework";

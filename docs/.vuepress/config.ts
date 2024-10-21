@@ -53,12 +53,12 @@ export default defineUserConfig({
         link: "/indexer/welcome.md",
       },
       {
-        text: "SubQuery Network",
-        link: "/subquery_network/welcome.md",
+        text: "SubQuery AI Apps Framework",
+        link: "/ai/welcome.md",
       },
       {
-        text: "SubQuery AI",
-        link: "/ai/welcome.md",
+        text: "SubQuery Network",
+        link: "/subquery_network/welcome.md",
       },
       {
         text: "Miscellaneous",
