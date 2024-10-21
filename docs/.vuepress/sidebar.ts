@@ -719,7 +719,10 @@ export const getSidebar = (locale: string) =>
       `${locale}/subquery_network/glossary.md`,
     ],
     "/ai/": [
-      `${locale}/ai/welcome.md`,
+      {
+        text: "Welcome",
+        link: `${locale}/ai/welcome.md`,
+      },
       {
         text: "Build",
         link: `${locale}/ai/build/app.md`,
@@ -738,7 +741,10 @@ export const getSidebar = (locale: string) =>
           `${locale}/ai/run/docker.md`,
         ],
       },
-      `${locale}/ai/query/query.md`,
+      {
+        text: "Query",
+        link: `${locale}/ai/query/query.md`,
+      },
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,
