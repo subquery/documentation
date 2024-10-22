@@ -161,7 +161,7 @@ const journeies = ref([
     "description": "Running a SubQuery Project is easy, or if you don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon6.svg",
+    "iconSrc": "/assets/img/journeyIcon4.svg",
     "path": "/subquery_network/publish.html",
     "title": "4. Deploy to the SubQuery Network",
     "description": "Our decentralised service is a web3 infrastructure revolution. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way."

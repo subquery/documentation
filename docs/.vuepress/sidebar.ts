@@ -32,6 +32,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/arbitrum.md`,
                   },
                   {
+                    text: "AssetChain Testnet",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/asset-chain-testnet.md`,
+                  },
+                  {
                     text: "Astar zkEVM",
                     link: `${locale}/indexer/quickstart/quickstart_chains/astar-zkevm.md`,
                   },
@@ -520,6 +524,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/run_publish/references.md`,
         ],
       },
+      /*
       {
         text: "Courses",
         link: `${locale}/indexer/academy/academy.md`,
@@ -569,6 +574,20 @@ export const getSidebar = (locale: string) =>
             ],
           },
           `${locale}/indexer/academy/subquery101/subquery101.md`,
+        ],
+      },
+      */
+      {
+        text: "Tutorials & Examples",
+        collapsible: true,
+        children: [
+          `${locale}/indexer/academy/tutorials_examples/block-height.md`,
+          `${locale}/indexer/academy/tutorials_examples/batch-size.md`,
+          `${locale}/indexer/academy/tutorials_examples/run-indexer.md`,
+          `${locale}/indexer/academy/tutorials_examples/dictionary.md`,
+          `${locale}/indexer/academy/tutorials_examples/debug-projects.md`,
+          `${locale}/indexer/academy/tutorials_examples/delete-projects.md`,
+          `${locale}/indexer/academy/tutorials_examples/terminology.md`,
         ],
       },
       {

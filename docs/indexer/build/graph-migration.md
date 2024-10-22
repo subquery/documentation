@@ -13,7 +13,7 @@ Find out more about [Subgraph hosting here](../run_publish/publish.md).
 
 :::
 
-![Graph Migration](/assets/img/build/graph.png)
+![Graph Migration](/assets/img/build/graph.jpg)
 
 SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
 
@@ -348,7 +348,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 }
 
 export async function handleUpdatedGravatar(
-  log: UpdatedGravatarLog,
+  log: UpdatedGravatarLog
 ): Promise<void> {
   const id: string = log.args.id.toHexString()!;
   let gravatar = await Gravatar.get(id);
