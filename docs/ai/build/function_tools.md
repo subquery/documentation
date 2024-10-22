@@ -1,5 +1,7 @@
 # Function Tools
 
+You can extend your AI Apps with additional function tooling, facilitating connections to external systems and tools. This capability enables rich integrations, allowing users to create versatile applications that can interact seamlessly with blockchains and other ecosystems.
+
 Function tools are functions that extend the functionality of the LLM. They can be used to do many things like request data from external APIs and services, perform computations or analyse structured data outputs from the AI.
 
 An example of a simple tool is making a GraphQL query from a specific SubQuery indexing sdk project.

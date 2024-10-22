@@ -1,5 +1,7 @@
 # AI Apps
 
+The SubQuerty AI App framework is designed with user-friendliness in mind, providing intuitive wrappers around core features. This lowers the barrier to entry for developers of all skill levels, making it easier to create, run, and deploy AI Apps.
+
 Building an AI application is straight forward process that takes minutes. The SubQuery AI App framework simplifies most of this development, while allowing you to build complex applications that are ready to run on a decentralised network.
 
 There are a few components to an application, to get started, create a project manifest and entrypoint.
