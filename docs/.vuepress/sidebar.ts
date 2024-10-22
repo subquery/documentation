@@ -764,6 +764,10 @@ export const getSidebar = (locale: string) =>
         text: "Query",
         link: `${locale}/ai/query/query.md`,
       },
+      {
+        text: "Publish",
+        link: `${locale}/ai/publish/publish.md`,
+      },
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,

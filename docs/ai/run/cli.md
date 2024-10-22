@@ -1,6 +1,4 @@
-# CLI
-
-## CLI Reference:
+# CLI Reference
 
 ```
 Run an AI app
