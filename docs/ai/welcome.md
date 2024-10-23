@@ -27,7 +27,7 @@ To use the framework there are a couple of dependencies:
 Run the following command to install the SubQuery AI framework globally on your system:
 
 ```bash
-deno install -g -f --allow-env --allow-net --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai @subql/ai-app-framework`
+deno install -g -f --allow-env --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai jsr:@subql/ai-app-framework/cli`
 ```
 
 This will install the CLI and Runner
