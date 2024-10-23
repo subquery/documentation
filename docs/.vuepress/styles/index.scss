@@ -1,8 +1,7 @@
 // place your custom styles here
 @font-face {
   font-family: "Inter";
-  src:
-    local("Inter-Regular"),
+  src: local("Inter-Regular"),
     url("https://static.subquery.network/design/fonts/Inter-Regular.ttf")
       format("truetype");
   font-display: swap;
@@ -10,8 +9,7 @@
 
 @font-face {
   font-family: "Inter-SemiBold";
-  src:
-    local("Inter-SemiBold"),
+  src: local("Inter-SemiBold"),
     url("https://static.subquery.network/design/fonts/Inter-SemiBold.ttf")
       format("truetype");
   font-display: swap;
@@ -19,8 +17,7 @@
 
 @font-face {
   font-family: "Inter-Bold";
-  src:
-    local("Inter-Bold"),
+  src: local("Inter-Bold"),
     url("https://static.subquery.network/design/fonts/Inter-Bold.ttf")
       format("truetype");
   font-display: swap;
@@ -147,7 +144,7 @@ iframe {
   .vp-sidebar-link {
     transition: all 0.2s linear;
     margin: 0;
-    padding: 12px 24px;
+    padding: 12px 16px;
     border-radius: 0;
   }
 

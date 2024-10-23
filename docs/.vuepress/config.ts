@@ -53,6 +53,10 @@ export default defineUserConfig({
         link: "/indexer/welcome.md",
       },
       {
+        text: "SubQuery AI Apps Framework",
+        link: "/ai/welcome.md",
+      },
+      {
         text: "SubQuery Network",
         link: "/subquery_network/welcome.md",
       },
@@ -193,40 +197,40 @@ export default defineUserConfig({
             app.pages.map(({ path }) => [
               path.replace(
                 "/subquery_network/node_operators/indexers/",
-                "/subquery_network/indexers/",
+                "/subquery_network/indexers/"
               ),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/academy/", "/academy/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/build/", "/build/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/miscellaneous/", "/miscellaneous/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/quickstart/", "/quickstart/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/run_publish/", "/run_publish/"),
               path,
-            ]),
+            ])
           ),
         };
       },
