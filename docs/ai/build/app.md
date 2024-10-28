@@ -11,7 +11,7 @@ There are a few components to an application, to get started, create a project m
 The project manifest is the start point for your project. It defines a set of options and references your [tools](./tools) and [rag data](./rag). The format of this file can either be in JSON or TypeScript format. It is recommended to use TypeScript as it can easily provide extra build time functionality and type safety.
 
 ::: info Note
-When you publish your app, the Typescript manifest will be converted to JSON.
+When you publish your app, the TypeScript manifest will be converted to JSON.
 :::
 
 ::: code-tabs
