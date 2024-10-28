@@ -13,6 +13,8 @@ AI apps are self contained and easily scalable AI agents that you can use to pow
 - **Choose your model:** By supporting a range of open-source LLM models, starting with Ollama-compatible ones, the SubQuery AI App Framework ensures that users can choose the best model for their applications without being locked into a specific model ecosystem. This flexibility fosters open-source innovation.
 - **Proven standards for seamless integration:** SubQuery AI Apps expose the industry-standard [OpenAI API](./query/query.md), ensuring compatibility with a wide range of applications and tools. This makes it easier for developers to integrate AI capabilities into their projects while adhering to established standards.
 
+![AI App Framework Features](/assets/img/ai/features.jpg)
+
 ## Getting Started
 
 ### Setup your environment
