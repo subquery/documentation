@@ -4,7 +4,7 @@
 
 SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process. However SubQuery also provides a one-step migration for **hosting** your Subgraphs on The Graph’s hosted service / decentralised network, or other Subgraph hosting service. This is a drop-in replacement with the following benefits:
 
-- A enterprise level hosting platform with targeted 99.9% uptime
+- An enterprise level hosting platform with targeted 99.9% uptime
 - Blue/green hot-swap deployments of subgraphs, allowing for seamless updates on your frontend
 - Project alert notification of outages and indexing issues
 - A team who monitors your Subgraphs 24/7, with potential for service level agreements real time support with your team
@@ -22,7 +22,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, and more
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
 - **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
-- **More control** - A large library of [command line parameters](../run_publish/references.md) to all you to run, monitor, and optimise your locally hosted project
+- **More control** - A large library of [command line parameters](../run_publish/references.md) to allow you to run, monitor, and optimise your locally hosted project
 - **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 - **The same query API** - We support a Subgraph compatible query service, providing the same GraphQL API that you are currently using.
@@ -53,7 +53,7 @@ This is the recommended process that we use at SubQuery whenever we migrate proj
 
 Firstly, use the SubQuery CLI tool to migrate an existing SubGraph by using the `subql migrate` command. This will:
 
-- Intialise a new SubQuery project in your chosen directory for the matching target chain
+- Initialise a new SubQuery project in your chosen directory for the matching target chain
 - Copy over basic information like project name and other metadata
 - Enable ts strict mode to assist you in identifying potential issues when migrating your project.
 - Migrate the `schema.graphql` to be compatible with SubQuery, there is a chance you will need to edit this after migration to fine-tune the migrated code.
@@ -83,11 +83,11 @@ Once this is done, follow along and complete the remaining steps:
    - Store operations are asynchronous, e.g. `<entityName>.load(id)` should be replaced by `await <entityName>.get(id)` and `<entityName>.save()` to `await <entityName>.save()` (note the `await`).
    - With strict mode, you must construct new entities with all the required properties. You may want to replace `new <entityName>(id)` with `<entityName>.create({ ... })`
    - [More info](#mapping).
-5. Either use the [Subgraph compatibale query service](../run_publish/query/subgraph.md), or test and update your clients to follow the SubQuery native GraphQL API. There are some minor and you can take advantage of additional features. [More info](#graphql-query-differences)
+5. Either use the [Subgraph compatible query service](../run_publish/query/subgraph.md), or test and update your clients to follow the SubQuery native GraphQL API. There are some minor and you can take advantage of additional features. [More info](#graphql-query-differences)
 
 ### Differences in the GraphQL Schema
 
-Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and includes both similar [scalar types](./graphql.md#supported-scalar-types) as well as [full text search](./graphql.md#full-text-search).
+Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and include both similar [scalar types](./graphql.md#supported-scalar-types) as well as [full text search](./graphql.md#full-text-search).
 
 Visit this [full documentation for `schema.graphql`](./graphql.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
 
@@ -162,7 +162,7 @@ const project: EthereumProject = {
   version: "0.0.1",
   name: "subquery-example-gravatar",
   description:
-    "This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum",
+    "This project can be used as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum",
   repository: "https://github.com/subquery/ethereum-subql-starter",
   runner: {
     node: {
@@ -231,7 +231,7 @@ runner:
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum"
+description: "This project can be used as a starting point for developing your new Ethereum SubQuery project, it indexes all Gravatars on Ethereum"
 repository: "https://github.com/subquery/eth-gravatar"
 
 schema:
