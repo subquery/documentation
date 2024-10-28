@@ -103,7 +103,7 @@ const tools: FunctionTool[] = [
 
 ## Updating your data
 
-RAG data is generally not static, that source of this information can change and evolve.
+RAG data is generally not static, the source of this information can change and evolve.
 That means from time to time it is handy to rebuild your database.
 
 In order to do this when you define your application the path to your Lance DB should not use a local or IPFS path.
