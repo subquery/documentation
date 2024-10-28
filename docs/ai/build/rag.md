@@ -88,7 +88,7 @@ export class RagTool extends FunctionTool {
 
 This tool does a few things:
 
-1. Converts the users query input into an embedded vector data.
+1. Converts the user query input into an embedded vector data.
 2. Searches the specified vector db table for the closest matches.
 3. Processes the raw results. In this example the data has a column called `content` that needs to be extracted and combined for the LLM to use as the answer.
 
