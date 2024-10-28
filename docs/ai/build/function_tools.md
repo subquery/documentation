@@ -48,7 +48,7 @@ If no delegation is found it will return null.`;
     ctx: IContext
   ): Promise<string | null> {
     try {
-      const res = await grahqlRequest<{
+      const res = await graphqlRequest<{
         delegator: null | { totalDelegations: Amount };
       }>(
         this.endpoint,
