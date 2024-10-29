@@ -29,13 +29,17 @@ To use the framework there are a couple of dependencies:
 Run the following command to install the SubQuery AI framework globally on your system:
 
 ```bash
-deno install -g -f --allow-env --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai jsr:@subql/ai-app-framework/cli`
+deno install -g -f --allow-env --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai jsr:@subql/ai-app-framework/cli
 ```
 
-This will install the CLI and Runner
+This will install the CLI and Runner. Make sure you follow the suggested instructions to add it to your path.
+
+You can confirm installation by running `subql-ai --help`.
 
 ## Create a new App
 
-TODO an init command needs to be implemented.
+You can initialise a new app using `subql-ai init`. It will ask you to provide a name and a Ollama model to use.
 
-You can read the instructions on how to create an app yourself [here](./build/app.md)
+![Init a new AI App](/assets/img/ai/guide-init.png)
+
+You can follow along on a guide to create a SubQuery App with the SubQuery App framework [here](./guides/subquery-network-agent.md), or read the instructions on how to create an app yourself [here](./build/app.md)
