@@ -24,7 +24,7 @@ When defining a project upgrade, you clone the project manifest (`project.ts`), 
 {
   parent: {
     // The block height the parent project will run until before switching to the current project.
-    // `block` is also supported but deprectated, it behaves as an alias for `untilBlock`
+    // `block` is also supported but deprecated, it behaves as an alias for `untilBlock`
     untilBlock: 1050,
     // The CID of your existing project that you wish to replace
     reference: "QmXw6FN6eScxvYXYceuCjKMpqmnuCxwY3Cx4HPhDXgUWe5",
@@ -46,7 +46,7 @@ This feature is still in beta
 
 Schema migrations allow you to make updates to your GraphQL schema, and the database tables, during the middle of indexing at a specific block height.
 
-When a project upgrade is executed with valid schema migrations, it will compare your current schema with the schema provided in the latest version (the one you are upgrading too), and attempt to make non-destructive changes your database.
+When a project upgrade is executed with valid schema migrations, it will compare your current schema with the schema provided in the latest version (the one you are upgrading to), and attempt to make non-destructive changes to your database.
 
 ::: warning
 If you re-run a previous version of your project accidentally, SubQuery will attempt to downgrade changes to your schema.

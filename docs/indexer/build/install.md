@@ -23,7 +23,7 @@ yarn global add @subql/cli
 
 :::
 
-You can then run help to see available commands and usage provide by CLI:
+You can then run help to see available commands and usage provided by CLI:
 
 ```shell
 subql --help
@@ -50,7 +50,7 @@ yarn global add @subql/node
 
 :::
 
-Once installed, you can can start a node with:
+Once installed, you can start a node with:
 
 ```shell
 subql-node <command>
