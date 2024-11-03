@@ -3,7 +3,7 @@
 This module explains the different types of entity relations **(one-to-one, one-to-many, and many-to-many)** with guided examples. The module is divided into 3 video lessons for in-depth explanations.
 
 :::info Note
-For a basic uderstanding of the terminologies related to entity relations, visit [GraphQL Schema Documentation.](../../build/graphql.md)
+For a basic understanding of the terminologies related to entity relations, visit [GraphQL Schema Documentation.](../../build/graphql.md)
 :::
 
 Let's have a look at each relationship one-by-one.
