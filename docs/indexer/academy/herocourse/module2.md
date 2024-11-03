@@ -1,8 +1,8 @@
 # Module 2: SubQuery Basics
 
-This module explains the working of the basic files of a SubQuery Project with an example. The module is divided into 3 short video lessons, each describing the usage of these files an what modfications you may need to do.
+This module explains the working of the basic files of a SubQuery Project with an example. The module is divided into 3 short video lessons, each describing the usage of these files an what modifications you may need to do.
 
-Refer to the documentation references, given at the end of the each lesson, for an in-depth explanation.
+Refer to the documentation references, given at the end of each lesson, for an in-depth explanation.
 
 ## Lesson 1: The Manifest File
 
