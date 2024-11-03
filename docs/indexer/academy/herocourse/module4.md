@@ -47,7 +47,7 @@ RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
 Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
 Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
+Description [This project can be used as a starting po...]:
 Version [1.0.0]:
 License [MIT]:
 Preparing project... done
@@ -56,7 +56,7 @@ staking-rewards is ready
 
 #### Step 2: Update the Graphql Schema
 
-Add an entity called `StakingReward`. This entity will allow you to record the account-reward along with the balance. Moreover, the block height will help you perform a cross check.
+Add an entity called `StakingReward`. This entity will allow you to record the account-reward along with the balance. Moreover, the block height will help you perform a cross-check.
 
 - The schema file should look similar to as below:
 
@@ -278,7 +278,7 @@ First of all, you need to create another entity to aggregate the staking rewards
 
 ### Pre-Requisites
 
-Compeletion of [Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewards).
+Completion of [Module 4 - Exercise 1](module4.md#exercise-1-index-staking-rewards).
 
 ### Detailed Steps
 
