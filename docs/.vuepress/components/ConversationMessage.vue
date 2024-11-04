@@ -1,5 +1,5 @@
 <template>
-  <div class="conversation-message">
+  <div class="conversation-message" ref="messageAreaRef">
     <div v-for="message, index in property.messages" :key="index" :class="{
       'conversation-message-item': true,
       'conversation-message-item-lastOne': index === property.messages.length - 1 && message.role === 'assistant',
@@ -18,6 +18,8 @@
 
 <script setup lang="ts">
 import markdownit from 'markdown-it';
+import { nextTick } from 'vue';
+import { ref } from 'vue';
 type AiMessageType = 'text' | 'image_url';
 
 type AiMessageRole = 'assistant' | 'user' | 'system';
@@ -60,6 +62,25 @@ const md = markdownit({
   typographer: true
 });
 
+const messageAreaRef = ref<HTMLDivElement | null>(null);
+
+const scrollDown = (onlyWhenReachBottom = false) => {
+  if (onlyWhenReachBottom && messageAreaRef.value) {
+    // If render an image, then not working. TODO: fix it.
+    const ifReachBottom =
+      messageAreaRef.value?.scrollTop >= messageAreaRef.value?.scrollHeight - messageAreaRef.value?.clientHeight - 52;
+      if (ifReachBottom) {
+      messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
+    }
+
+    return;
+  }
+  messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
+}
+
+defineExpose({
+  scrollDown
+})
 
 </script>
 
@@ -72,6 +93,7 @@ const md = markdownit({
   overflow: auto;
   padding: 28px 20px;
   background: #000;
+  box-sizing: border-box;
 
   &-item {
     display: flex;
@@ -99,6 +121,7 @@ const md = markdownit({
         padding: 16px;
         border-radius: 12px;
         overflow: auto;
+
         code {
           background: transparent;
           border: none;
@@ -107,7 +130,10 @@ const md = markdownit({
         }
       }
 
-      h1,h2,h3,p {
+      h1,
+      h2,
+      h3,
+      p {
         margin: 0;
         word-break: break-word;
       }
@@ -133,15 +159,15 @@ const md = markdownit({
     }
 
     &.conversation-message-item-lastOne.loading {
-        .conversation-message-item-span {
-          &::after {
-            content: "▍";
-            align-self: flex-end;
-            margin-left: 8px;
-            animation: pulseCursor 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          }
+      .conversation-message-item-span {
+        &::after {
+          content: "▍";
+          align-self: flex-end;
+          margin-left: 8px;
+          animation: pulseCursor 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
       }
+    }
   }
 
   &-item-user {
@@ -152,11 +178,19 @@ const md = markdownit({
       font-size: 14px;
       border-bottom-right-radius: 0;
       color: #000;
+
       .subql-markdown-preview {
         color: #fff;
       }
     }
   }
+}
+
+@media screen and (max-width: 768px) {
+  .conversation-message {
+    height: 100%;
+  }
+  
 }
 
 @keyframes pulseCursor {

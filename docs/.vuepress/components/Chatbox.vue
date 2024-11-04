@@ -7,21 +7,22 @@
             <ChatCloseIcon></ChatCloseIcon>
           </div>
           <Typography tag="h5" type="dark">SubQuery AI</Typography>
-          <IoClose
+          <Icon
+            name="cross"
             class="content-close-icon"
             @click="
               () => {
                 showPopover = false;
               }
             "
-          ></IoClose>
+          ></Icon>
         </div>
         <div class="content-main">
           <ConversationMessage
             :property="currentChat"
             :answerStatus="answerStatus"
             version="chatbox"
-            ref="{messageRef}"
+            ref="messageRef"
           ></ConversationMessage>
         </div>
         <div class="content-bottom">
@@ -100,8 +101,8 @@ enum ChatBotAnswerStatus {
   Error = "error",
 }
 
-// const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
-const chatUrl = "https://olla.wk.zohu.vip:8008/v1/chat/completions";
+const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
+// const chatUrl = "https://olla.wk.zohu.vip:8008/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
 const answerStatus = ref(ChatBotAnswerStatus.Loading);
@@ -119,6 +120,7 @@ const currentChat = ref<ConversationProperty>({
   chatUrl,
   prompt: "",
 });
+const messageRef = ref<{ scrollDown: (argv1?: boolean) => void } | null>(null);
 
 const chatWithStream = async (
   url: string,
@@ -177,7 +179,7 @@ const sendMessage = async () => {
 
     inputValue.value = "";
     await pushNewMsgToChat(newChat, robotAnswer);
-    // messageRef.current?.scrollToBottom();
+    messageRef.value?.scrollDown();
     // set user's message first, then get the response
     const res = await chatWithStream(newChat.chatUrl, {
       messages: newChat.prompt
@@ -210,7 +212,7 @@ const sendMessage = async () => {
                 JSON.parse(invalidJson);
               robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
               await pushNewMsgToChat(newChat, robotAnswer);
-              // messageRef.current?.scrollToBottom(true);
+              messageRef.value?.scrollDown(true);
               invalidJson = "";
             } catch (e) {
               // handle it until
@@ -229,7 +231,7 @@ const sendMessage = async () => {
               robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
 
               await pushNewMsgToChat(newChat, robotAnswer);
-              // messageRef.current?.scrollToBottom(true);
+              messageRef.value?.scrollDown(true);
             } catch (e) {
               invalidJson += partWithHandle;
             }
@@ -244,6 +246,7 @@ const sendMessage = async () => {
           robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
 
           await pushNewMsgToChat(newChat, robotAnswer);
+          messageRef.value?.scrollDown(true);
         } catch (e) {
           console.warn("Reach this code", invalidJson);
           // to reach this code, it means the response is not valid or the code have something wrong.
@@ -340,7 +343,7 @@ const sendMessage = async () => {
     justify-content: center;
   }
 
-  &-close-icon {
+  &-close-icon.content-close-icon {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -386,6 +389,38 @@ const sendMessage = async () => {
     gap: 8px;
     align-items: center;
     background: #000;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .van-popup {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .van-popover__content {
+    .content {
+      width: 100%;
+      height: 100%;
+
+      &-main {
+        flex: 1;
+        height: 1px; // overflow need set a value of height, flex 1 will grow to the max.
+      }
+    }
+  }
+
+  .chatbox {
+    .van-popover__wrapper {
+      transform: scale(0.8);
+      right: 0.7rem;
+      bottom: 7rem;
+    }
   }
 }
 </style>
