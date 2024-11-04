@@ -10,15 +10,14 @@
     }">
       <img v-if="message.role === 'assistant'" src="https://static.subquery.network/logo-with-bg.svg" width="40"
         height="40"></img>
-      <div class="conversation-message-item-span">
-        {{ message.content }}
-        <!-- <Markdown.Preview>{message.content}</Markdown.Preview> -->
+      <div class="conversation-message-item-span" v-html="md.render(message.content)">
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import markdownit from 'markdown-it';
 type AiMessageType = 'text' | 'image_url';
 
 type AiMessageRole = 'assistant' | 'user' | 'system';
@@ -54,6 +53,14 @@ defineProps<{
   property: ConversationProperty;
   answerStatus: ChatBotAnswerStatus;
 }>();
+
+const md = markdownit({
+  html: true,
+  linkify: true,
+  typographer: true
+});
+
+
 </script>
 
 <style lang="scss">
@@ -75,15 +82,45 @@ defineProps<{
       border-radius: 8px;
       max-width: 320px;
       color: #fff;
-      .subql-markdown-preview {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      word-break: break-word;
 
-        p {
-          margin: 0;
-          word-break: break-word;
+      code {
+        background-color: #ffffff1a;
+        border: 1px solid #ffffff1a;
+        border-radius: 6px;
+        padding: 2px 4px;
+      }
+
+      pre {
+        background-color: rgba(138, 208, 255, 0.1);
+        padding: 16px;
+        border-radius: 12px;
+        overflow: auto;
+        code {
+          background: transparent;
+          border: none;
+          padding: 0;
+          border-radius: 0;
         }
+      }
+
+      h1,h2,h3,p {
+        margin: 0;
+        word-break: break-word;
+      }
+
+
+      ul {
+        margin: 0;
+        padding-left: 16px;
+        list-style: disc;
+      }
+
+      img {
+        max-width: 100%;
       }
     }
   }
@@ -95,18 +132,16 @@ defineProps<{
       border-top-left-radius: 0;
     }
 
-    /* &--lastOne&--loading {
+    &.conversation-message-item-lastOne.loading {
         .conversation-message-item-span {
-          .subql-markdown-preview {
-            &::after {
-              content: "▍";
-              align-self: flex-end;
-              margin-left: 8px;
-              animation: pulseCursor 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
+          &::after {
+            content: "▍";
+            align-self: flex-end;
+            margin-left: 8px;
+            animation: pulseCursor 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
           }
         }
-      } */
+      }
   }
 
   &-item-user {
@@ -121,6 +156,12 @@ defineProps<{
         color: #fff;
       }
     }
+  }
+}
+
+@keyframes pulseCursor {
+  50% {
+    opacity: 0;
   }
 }
 </style>

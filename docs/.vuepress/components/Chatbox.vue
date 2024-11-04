@@ -100,8 +100,8 @@ enum ChatBotAnswerStatus {
   Error = "error",
 }
 
-const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
-
+// const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
+const chatUrl = "https://olla.wk.zohu.vip:8008/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
 const answerStatus = ref(ChatBotAnswerStatus.Loading);
