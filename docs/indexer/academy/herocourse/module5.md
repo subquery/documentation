@@ -1,6 +1,6 @@
 # Module 5: Projects & Explorer
 
-SubQuery Manged Service is our managed service solution and SubQuery Explorer is a dashboard where you can find projects and consume project data using GraphQL. This module takes a deeper dive into both these products.
+SubQuery Managed Service is our managed service solution and SubQuery Explorer is a dashboard where you can find projects and consume project data using GraphQL. This module takes a deeper dive into both these products.
 
 ## Lesson 1 - Deploying a project
 
