@@ -1,64 +1,70 @@
 <template>
   <div :class="['chatbox', showPopover ? 'open' : '']">
-    <Popover v-model:show="showPopover" placement="top-end" :show-arrow="false">
-      <div class="content">
-        <div class="content-top">
-          <div class="content-icon">
-            <ChatCloseIcon></ChatCloseIcon>
+    <Client-only>
+      <Popover
+        v-model:show="showPopover"
+        placement="top-end"
+        :show-arrow="false"
+      >
+        <div class="content">
+          <div class="content-top">
+            <div class="content-icon">
+              <ChatCloseIcon></ChatCloseIcon>
+            </div>
+            <Typography tag="h5" type="dark">SubQuery AI</Typography>
+            <Icon
+              name="cross"
+              class="content-close-icon"
+              @click="
+                () => {
+                  showPopover = false;
+                }
+              "
+            ></Icon>
           </div>
-          <Typography tag="h5" type="dark">SubQuery AI</Typography>
-          <Icon
-            name="cross"
-            class="content-close-icon"
-            @click="
-              () => {
-                showPopover = false;
-              }
-            "
-          ></Icon>
-        </div>
-        <div class="content-main">
-          <ConversationMessage
-            :property="currentChat"
-            :answerStatus="answerStatus"
-            version="chatbox"
-            ref="messageRef"
-          ></ConversationMessage>
-        </div>
-        <div class="content-bottom">
-          <Field
-            v-model="inputValue"
-            class="content-input"
-            placeholder="Ask a question..."
-            @keyup.enter="() => sendMessage()"
-          >
-            <template #right-icon class="input-right">
-              <SubmitIcon
-                @click="() => sendMessage()"
-                style="font-size: 32px; color: #fff"
-              ></SubmitIcon>
-            </template>
-          </Field>
-          <Typography size="small" variant="small" type="secondary">
-            This AI App is powered by the
-            <Typography
-              tag="a"
-              href="https://academy.subquery.network/ai/welcome.html"
+          <div class="content-main">
+            <ConversationMessage
+              :property="currentChat"
+              :answerStatus="answerStatus"
+              version="chatbox"
+              ref="messageRef"
+            ></ConversationMessage>
+          </div>
+          <div class="content-bottom">
+            <Field
+              v-model="inputValue"
+              class="content-input"
+              placeholder="Ask a question..."
+              @keyup.enter="() => sendMessage()"
             >
-              SubQuery Network AI App Framework
+              <template #right-icon class="input-right">
+                <SubmitIcon
+                  @click="() => sendMessage()"
+                  style="font-size: 32px; color: #fff"
+                ></SubmitIcon>
+              </template>
+            </Field>
+            <Typography size="small" variant="small" type="secondary">
+              This AI App is powered by the
+              <Typography
+                tag="a"
+                href="https://academy.subquery.network/ai/welcome.html"
+              >
+                SubQuery Network AI App Framework
+              </Typography>
             </Typography>
-          </Typography>
+          </div>
         </div>
-      </div>
-      <template #reference>
-        <ChatCloseIcon class="close-icon"></ChatCloseIcon>
-        <Icon
-          class="open-icon"
-          name="arrow-down"
-          style="font-size: 32px"
-        ></Icon>
-      </template>
-    </Popover>
+        <template #reference>
+          <ChatCloseIcon class="close-icon"></ChatCloseIcon>
+          <Icon
+            class="open-icon"
+            name="arrow-down"
+            style="font-size: 32px"
+          ></Icon>
+        </template>
+      </Popover>
+    </Client-only>
   </div>
 </template>
 
