@@ -22,6 +22,7 @@
     "vuepress-theme-hope": "2.0.0-rc.52"
   },
   "dependencies": {
+    "vant": "^4.9.8",
     "vue-router": "^4.3.0"
   }
 }

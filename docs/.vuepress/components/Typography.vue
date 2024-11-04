@@ -9,10 +9,11 @@
       fontFamily: !family
         ? '' // invalid value would not set, use the default set by css
         : family === 'heading'
-          ? 'var(--font-family-heading)'
-          : 'var(--font-family)',
+        ? 'var(--font-family-heading)'
+        : 'var(--font-family)',
       fontSize: fontSize ? fontSize + 'px' : '',
     }"
+    :href="href"
   >
     <slot></slot>
   </component>
@@ -24,9 +25,10 @@ defineProps<{
   weight?: number | string;
   size?: "text" | "large" | "medium" | "small";
   tag?: "h1" | "h2" | "h3" | "h35" | "h4" | "h5" | "p" | "a";
-  type?: "normal" | "secondary";
+  type?: "normal" | "secondary" | "dark";
   family?: "heading" | "body";
   fontSize?: number | string;
+  href?: string;
 }>();
 </script>
 
@@ -98,6 +100,10 @@ defineProps<{
 
   &.secondary {
     color: var(--gray-400);
+  }
+
+  &.dark {
+    color: #000;
   }
 }
 
