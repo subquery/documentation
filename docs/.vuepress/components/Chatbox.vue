@@ -1,6 +1,6 @@
 <template>
   <div :class="['chatbox', showPopover ? 'open' : '']">
-    <Client-only>
+    <ClientOnly>
       <Popover
         v-model:show="showPopover"
         placement="top-end"
@@ -64,7 +64,7 @@
           ></Icon>
         </template>
       </Popover>
-    </Client-only>
+    </ClientOnly>
   </div>
 </template>
 
