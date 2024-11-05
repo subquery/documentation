@@ -744,8 +744,8 @@ export const getSidebar = (locale: string) =>
       },
       {
         text: "Guides",
-        link: `${locale}/ai/guides/subquery-network-agent.md`,
-        children: [`${locale}/ai/guides/subquery-network-agent.md`],
+        link: `${locale}/ai/guides/fancy-greeter.md`,
+        children: [`${locale}/ai/guides/fancy-greeter.md`],
       },
       {
         text: "Build",

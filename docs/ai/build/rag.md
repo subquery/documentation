@@ -27,7 +27,7 @@ const project: ProjectManifest = {
     type: "lancedb",
     path: "./data.lance",
   },
-  // Set this to the same model you use to generate your db
+  // Set this to the same model you use to generate your RAG db
   embeddingsModel: "nomic-embed-text",
 };
 ```

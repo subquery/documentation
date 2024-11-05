@@ -42,4 +42,4 @@ You can initialise a new app using `subql-ai init`. It will ask you to provide a
 
 ![Init a new AI App](/assets/img/ai/guide-init.png)
 
-You can follow along on a guide to create a SubQuery App with the SubQuery App framework [here](./guides/subquery-network-agent.md), or read the instructions on how to create an app yourself [here](./build/app.md)
+You can follow along on a [guide to create a basic SubQuery AI App with the SubQuery App framework here](./guides/fancy-greeter.md), or read the instructions on how to create an app yourself [here](./build/app.md)

@@ -4,11 +4,11 @@ You can extend your AI Apps with additional function tooling, facilitating conne
 
 Function tools are functions that extend the functionality of the LLM. They can be used to do many things like request data from external APIs and services, perform computations or analyse structured data outputs from the AI.
 
-An example of a simple tool is making a GraphQL query from a specific SubQuery indexing sdk project.
+An example of a simple tool is making a GraphQL query from a specific SubQuery indexing SDK project.
 
 ## Defining a function tool
 
-Fucntion tools consist of 4 parts:
+Function tools consist of 4 parts:
 
 - `name`: The name of the tool, this is used to identify the tool and must be unique amongst the provided tools.
 - `description`: This is like a system prompt for the LLM to understand what the tool does and when it should be used, it should be as descriptive as possible as it allows the AI to determine when to use the tool and what it should be used for.
