@@ -68,7 +68,7 @@ const scrollDown = (onlyWhenReachBottom = false) => {
   if (onlyWhenReachBottom && messageAreaRef.value) {
     // If render an image, then not working. TODO: fix it.
     const ifReachBottom =
-      messageAreaRef.value?.scrollTop >= messageAreaRef.value?.scrollHeight - messageAreaRef.value?.clientHeight - 52;
+      messageAreaRef.value?.scrollTop >= messageAreaRef.value?.scrollHeight - messageAreaRef.value?.clientHeight - 100;
       if (ifReachBottom) {
       messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
     }

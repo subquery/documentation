@@ -109,6 +109,7 @@ enum ChatBotAnswerStatus {
 
 const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
 // const chatUrl = "https://olla.wk.zohu.vip:8008/v1/chat/completions";
+// const chatUrl = "http://localhost:7827/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
 const answerStatus = ref(ChatBotAnswerStatus.Loading);
@@ -262,14 +263,11 @@ const sendMessage = async () => {
       robotAnswer.content = "Sorry, The Server is not available now.";
       await pushNewMsgToChat(newChat, robotAnswer);
 
-      // setAnswerStatus(ChatBotAnswerStatus.Error);
       answerStatus.value = ChatBotAnswerStatus.Error;
     }
-    // inputRef.current?.focus();
     answerStatus.value = ChatBotAnswerStatus.Success;
   } catch (e) {
     console.error(e);
-    // inputRef.current?.focus();
     answerStatus.value = ChatBotAnswerStatus.Error;
   }
 };
