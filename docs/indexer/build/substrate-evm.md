@@ -38,7 +38,7 @@ Theoretically all the following networks (and more) should also be supported sin
 
 1. Add the custom datasource as a dependency:
 
-- Create a new project from an EVM template though `subql init` OR
+- Create a new project from an EVM template through `subql init` OR
 - For existing projects, `yarn add -D @subql/frontier-evm-processor` or `npm i @subql/acala-evm-processor --save-dev`.
 
 2. Add exports to your `package.json` like below in order for IPFS deployments to work
@@ -103,7 +103,7 @@ Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#ca
 
 | Field  | Type                                                    | Required | Description                                 |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
-| kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is an Call type handler |
+| kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is a Call type handler  |
 | filter | [Call Filter](substrate-evm.md#call-filters)            | No       | Filter the data source to execute           |
 
 ### Call Filters
@@ -352,7 +352,7 @@ This is an extract from the `project.ts` manifest file.
 
 ## Querying contracts
 
-`@subql/frontier-evm-processor` is the only package that currently allows this. It provides [FrontierEthProvider](https://github.com/subquery/datasource-processors/blob/697d63f5a9c978f3e231e0bb4975f05213077d23/packages/frontier-evm/src/frontierEthProvider.ts#L75) which implements an [Ethers Provider](https://docs.ethers.io/v5/api/providers/provider/), this implementation is restricted to only support methods for the current height. You can pass it to a contract instance in order to query contract state at the hight currently being indexed.
+`@subql/frontier-evm-processor` is the only package that currently allows this. It provides [FrontierEthProvider](https://github.com/subquery/datasource-processors/blob/697d63f5a9c978f3e231e0bb4975f05213077d23/packages/frontier-evm/src/frontierEthProvider.ts#L75) which implements an [Ethers Provider](https://docs.ethers.io/v5/api/providers/provider/), this implementation is restricted to only support methods for the current height. You can pass it to a contract instance in order to query contract state at the height currently being indexed.
 
 ## Known Limitations
 
