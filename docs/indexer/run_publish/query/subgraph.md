@@ -56,7 +56,7 @@ Once installed, you can check the version by running:
 
 We recommend using the [SubQuery Native query service](./graphql.md) for the best experience.
 
-Find out more about [differences in the GraphQL Query Interface](../build/graph-migration.md#differences-in-the-graphql-query-interface).
+Find out more about [differences in the GraphQL Query Interface](../../build/graph-migration.md#differences-in-the-graphql-query-interface).
 
 ## Unsupported features
 

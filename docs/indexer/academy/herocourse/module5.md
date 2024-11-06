@@ -20,10 +20,6 @@ SubQuery Managed Service is our managed service solution and SubQuery Explorer i
   <iframe src="https://www.youtube.com/embed/JeYa3JlxR1g" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
 
-### References
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
-
 ## Lesson 3 - Exploring Projects
 
 <br/>
@@ -83,10 +79,7 @@ To understand more about how dictionaries work, refer to:
 
 #### Step 4: Understand the Slots
 
-Slots are a feature in SubQuery's Managed Service that are the equivalent of a development environment. To learn more, visit:
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)
-- [What is the advantage of a staging slot?](../../miscellaneous/faqs.md#what-is-the-advantage-of-a-staging-slot)
+Slots are a feature in SubQuery's Managed Service that are the equivalent of a development environment. To learn more, visit https://managedservice.subquery.network/
 
 #### Step 5: Access Playground
 
@@ -107,7 +100,3 @@ It is important to keep your SubQuery projects tidy and ensure that test project
 To delete a project see the guide below:
 
 - [Deleting SubQuery projects](../tutorials_examples/delete-projects.md)
-
-### References
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)

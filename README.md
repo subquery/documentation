@@ -6,6 +6,8 @@ This is the home of SubQuery documentation. All updates to docs should be added 
 
 We welcome any contributions or improvements from our community, if you're looking for support we suggest starting by going to the technical support channel in SubQuery's official [Discord server](https://discord.com/invite/subquery).
 
+**Note you should really use `pnpm` package manager when editing docs.**
+
 ## Contributing To SubQuery
 
 Welcome and a big thank you for considering contributing to this SubQuery project! Together we can pave the way to a more decentralised future.

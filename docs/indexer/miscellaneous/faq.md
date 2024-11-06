@@ -36,7 +36,7 @@ We don't (yet) support Bitcoin. The supported networks are listed [here](https:/
 
 ### Why SubQuery instead of the Graph?
 
-See [Graph Migration](./graph-migration.md). Building with SubQuery is a similar developer experience, while providing up to 3.9x indexing speeds, multi-chain indexing, wider chain support, and more flexibility with mapping functions. It is so similar, you can easily migrate your existing subgraphs.
+See [Graph Migration](../build/graph-migration.md). Building with SubQuery is a similar developer experience, while providing up to 3.9x indexing speeds, multi-chain indexing, wider chain support, and more flexibility with mapping functions. It is so similar, you can easily migrate your existing subgraphs.
 
 # Migrating to version 3.0
 
@@ -170,7 +170,7 @@ No, this feature is not currently supported.
 
 ### Subscribe to a query endpoint
 
-Yes, take a look at the [GraphQL Subsciption](./query/subscription.md) article for more information.
+Yes, take a look at the [GraphQL Subsciption](../run_publish/query/subscription.md) article for more information.
 
 ### Indexing a blockchain that consists of multiple architecture layers, such as EVM and Substrate?
 

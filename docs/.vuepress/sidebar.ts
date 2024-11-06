@@ -737,6 +737,43 @@ export const getSidebar = (locale: string) =>
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
     ],
+    "/ai/": [
+      {
+        text: "Welcome",
+        link: `${locale}/ai/welcome.md`,
+      },
+      {
+        text: "Guides",
+        link: `${locale}/ai/guides/fancy-greeter.md`,
+        children: [`${locale}/ai/guides/fancy-greeter.md`],
+      },
+      {
+        text: "Build",
+        link: `${locale}/ai/build/app.md`,
+        children: [
+          `${locale}/ai/build/app.md`,
+          `${locale}/ai/build/function_tools.md`,
+          `${locale}/ai/build/rag.md`,
+        ],
+      },
+      {
+        text: "Run",
+        link: `${locale}/ai/run/local.md`,
+        children: [
+          `${locale}/ai/run/local.md`,
+          `${locale}/ai/run/cli.md`,
+          `${locale}/ai/run/docker.md`,
+        ],
+      },
+      {
+        text: "Query",
+        link: `${locale}/ai/query/query.md`,
+      },
+      {
+        text: "Publish",
+        link: `${locale}/ai/publish/publish.md`,
+      },
+    ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,
       `${locale}/miscellaneous/social_media.md`,
