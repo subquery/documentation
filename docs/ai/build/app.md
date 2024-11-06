@@ -22,7 +22,7 @@ When you publish your app, the TypeScript manifest will be converted to JSON.
 import type { ProjectManifest } from "jsr:@subql/ai-app-framework";
 
 const project: ProjectManifest = {
-  // The version of the manifest spec, this is alaway 0.0.1.
+  // The version of the manifest spec, this is always 0.0.1.
   specVersion: "0.0.1",
   // For security reasons you must provide a list of allowed domains that your project will use
   endpoints: ["gateway.subquery.network"],
@@ -111,7 +111,7 @@ GRAPHQL_ENDPOINT=https://some.other.endpoint subql-ai -p ./path/to/project.ts
 
 ## Project Entrypoint
 
-The project entrypoint is how your tools and system prompt are initialized, unlike the project manifest this is not static so you can change the behaviour based on your config spec.
+The project entrypoint is how your tools and system prompt are initialised, unlike the project manifest this is not static so you can change the behaviour based on your config spec.
 
 Example entrypoint:
 
@@ -132,7 +132,7 @@ If the question seems to be unrelated to the API, just return "I don't know" as 
 
 const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
   return {
-    // Initialize any tools you wish to provided with your app
+    // Initialise any tools you wish to provided with your app
     tools: [
       new TotalDelegation(config.GRAPHQL_ENDPOINT),
       new DelegatedIndexers(config.GRAPHQL_ENDPOINT),

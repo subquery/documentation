@@ -1,6 +1,6 @@
 # SubQuery Fancy Greeter - Basic Example
 
-This basic example AI App is a good starting point to learn about prompt engineering and function tooling. It's a pefect example that shows off the key features of SubQuery's AI App Framework.
+This basic example AI App is a good starting point to learn about prompt engineering and function tooling. It's a perfect example that shows off the key features of SubQuery's AI App Framework.
 
 You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/fancy-greeter).
 
@@ -9,7 +9,7 @@ You can follow along in the tutorial with the [example code here](https://github
 You should have the following installed
 
 - [Docker](https://docker.com/): This tutorial will use Docker to run a local version of SubQuery's node.
-- [Ollama](https://ollama.com/). An endpoint to an Ollama instance, this could be running on your local computer or a commerical endpoint online.
+- [Ollama](https://ollama.com/). An endpoint to an Ollama instance, this could be running on your local computer or a commercial endpoint online.
 - [Deno](https://docs.deno.com/runtime/getting_started/installation/): A recent version of Deno, the JS engine for the SubQuery AI App Framework.
 
 ## 1. Install the framework
@@ -54,9 +54,9 @@ You should review the instructions on [running locally](../run/local.md) or via 
 
 ## 4. Update System Prompt
 
-A good first place to start is by updating your system prompts in `project.ts`. System promps are the basic way you customise the behaviour of your AI agent.
+A good first place to start is by updating your system prompts in `project.ts`. System prompts are the basic way you customise the behaviour of your AI agent.
 
-We do this by editing the project entrypoint in the `project.ts` file, the [project entrypoint](../build/app.md#project-entrypoint) is how your tools and system prompt are initialized.
+We do this by editing the project entrypoint in the `project.ts` file, the [project entrypoint](../build/app.md#project-entrypoint) is how your tools and system prompt are initialised.
 
 ```ts
 const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
@@ -138,7 +138,7 @@ Note that this is a very silly example of a function tool, but you can really do
 
 ## Summary
 
-You now have a running SubQuery AI App that uses the latest LLMs and also incorportes a function tool. This may be a simple and rather basic example, but it's a great starting point to building complex AI Apps and agents custom built for your application.
+You now have a running SubQuery AI App that uses the latest LLMs and also incorporates a function tool. This may be a simple and rather basic example, but it's a great starting point to building complex AI Apps and agents custom built for your application.
 
 [**A full version of the code for this guide can be found here**](https://github.com/subquery/subql-ai-app-example/tree/main/fancy-greeter).
 

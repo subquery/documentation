@@ -2,7 +2,7 @@
 
 By integrating RAG (Retrieval-Augmented Generation) files, your AI Apps can leverage domain-specific knowledge efficiently. With initial support for LanceDB and future compatibility with other vector databases, developers can enhance their applications' performance and accuracy. Additionally, publishing to IPFS ensures data integrity and accessibility.
 
-Retreval Augmented Generation (RAG) allows developers to provide a knowledge base outside of the LLMs training data. This means that the LLM can provide specific information about a dataset or have expertise in a certain area.
+Retrieval Augmented Generation (RAG) allows developers to provide a knowledge base outside of the LLMs training data. This means that the LLM can provide specific information about a dataset or have expertise in a certain area.
 
 ## Defining RAG
 

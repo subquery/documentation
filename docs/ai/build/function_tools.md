@@ -17,7 +17,7 @@ Function tools consist of 4 parts:
 
 ### Example
 
-This tool example makes a graphql request to get the amount of SQT a wallet address has delegated on the SubQuery network.
+This tool example makes a GraphQL request to get the amount of SQT a wallet address has delegated on the SubQuery network.
 
 ```ts
 import { FunctionTool, type IContext } from "jsr:@subql/ai-app-framework";
@@ -81,7 +81,7 @@ It has the following interface:
 type IContext = {
   // Converts text into vector data using the nomic-embed-text model
   computeQueryEmbedding: (query: string) => Promise<number[]>;
-  // Searches the provided vector DB with vector data from computeQueryEmbedding and returns matching resuls
+  // Searches the provided vector DB with vector data from computeQueryEmbedding and returns matching results
   vectorSearch: (table: string, vector: number[]) => Promise<any[]>;
 };
 ```
