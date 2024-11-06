@@ -396,6 +396,11 @@ const sendMessage = async () => {
   }
 }
 
+.van-popup {
+  box-shadow: 9px 9px 40px 10px #ffffff0d, 6px 6px 40px 0px #ffffff14,
+    6px 6px 40px -4px #ffffff1f !important;
+}
+
 @media screen and (max-width: 768px) {
   .van-popup {
     display: flex;
