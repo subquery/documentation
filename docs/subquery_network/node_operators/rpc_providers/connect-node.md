@@ -16,6 +16,8 @@ For example with Etheruem, it can be any client (geth or erigon etc), and it is 
 
 Please consult the relevant guides for how to run an RPC node on each network, for example this is the guide for [Geth on Ethereum](https://geth.ethereum.org/docs/getting-started), and [Base](https://docs.base.org/tutorials/run-a-base-node/).
 
+It is recommended to enable the metrics port for the RPC node. For example, when starting an EVM node, add the parameters `--metrics --metrics.addr 0.0.0.0`. For more details, please refer to [Ethereum metrics](https://geth.ethereum.org/docs/monitoring/metrics). Polkadot nodes typically have the metrics port enabled by default. If not, please refer to this [link](https://wiki.polkadot.network/docs/maintain-sync#using-docker) and add the `--prometheus-external` parameter at startup.
+
 ## 1. Add Project
 
 Inside your Node Operator Admin App (usually this is `http://localhost:8000/` depending on your installation), the Projects tab appears at the top of the page. This enables Node Operators to add projects of their choice to their Node Operator profile.
