@@ -85,6 +85,7 @@ export default defineUserConfig({
         // this is the default option, so you can use it directly
         hint: true,
         codetabs: true,
+        tabs: true,
         include: {
           deep: true,
         },
