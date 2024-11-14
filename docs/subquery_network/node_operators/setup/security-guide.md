@@ -37,7 +37,7 @@ sudo wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/ra
 sudo chmod +x /usr/local/bin/ufw-docker
 ```
 
-Then using the following command to modify the `after.rules`` file of `ufw``
+Then using the following command to modify the ` after.rules`` file of  `ufw``
 
 ```bash
 ufw-docker install
@@ -141,7 +141,7 @@ then restart the `indexer-proxy` container
 docker-compose up -d
 ```
 
-3.4. Config NGINX: Edit your NGINX configuration to add the following (e.g. it would usually be at `/etc/nginx/conf.d/proxy.mysqindexer.com.conf`, you can create one if it doesn't exist.)
+3.4. Config Nginx: Edit your Nginx configuration (usually found at `/etc/nginx/conf.d/proxy.mysqindexer.com.conf`, create one if it does not exist) to add the following:
 
 ```shell
 # /etc/nginx/conf.d/proxy.mysqindexer.com.conf
@@ -185,7 +185,8 @@ sudo certbot --nginx -d proxy.mysqindexer.com
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-4.1 Edit the Nginx config with cert & 443:
+4.1 Edit the Nginx config with a new SSL certificate and open port 443:
+
 ```
 server {
   listen 443 ssl;
