@@ -70,8 +70,8 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 | Service                                                                                             | Version Tag |
 | :-------------------------------------------------------------------------------------------------- | :---------- |
-| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.0.7`    |
-| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.1.0`    |
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.7.0`    |
+| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.7.1`    |
 
 ::: warning Important
 
