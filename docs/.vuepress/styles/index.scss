@@ -210,6 +210,13 @@ iframe {
   text-decoration: none;
 }
 
+.theme-hope-content {
+  ol,ul {
+    padding-left: 1.2rem;
+    list-style: revert;
+  }
+}
+
 .vp-page-nav {
   max-width: var(--max-width);
 }
