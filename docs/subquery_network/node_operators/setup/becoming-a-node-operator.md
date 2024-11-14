@@ -8,18 +8,18 @@ Node Operators can run either data indexing projects or RPC endpoints for the ne
 
 Let's take an overview of the basic steps involved in the process:
 
-| Steps                                                                | Process Flow                                                                     |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Step 1](#1-deploy-node-operator-services)                           | Setup & Start your Node Operator services locally in Docker or on an external VM |
-| [Step 2](#2-setup-ssl-on-your-new-server-and-consult-security-guide) | Setup SSL on your new server and consult security guide                          |
-| [Step 3](#3-register-in-the-node-operator-admin-app)                 | Register yourself as a Node Operator to the Network                              |
-| [Step 4](#4-index-or-sync-a-project)                                 | Index a project or sync an RPC endpoint                                          |
-| [Step 5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                               |
-| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)          | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards)      | Allocate your SQT to start receiving rewards                                     |
-| [Step 8](#8-troubleshooting-and-faqs)                                | Troubleshooting and FAQs                                                         |
-| [Step 9](#9-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 10](#10-upgrade-node-operator-services-ongoing)                | Ongoing: Update Node Operator Services                                           |
+| Steps                                                           | Process Flow                                                                     |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [Step 1](#1-deploy-node-operator-services)                      | Setup & Start your Node Operator services locally in Docker or on an external VM |
+| [Step 2](#2-setup-proxy-endpoint-to-public)                     | Setup Proxy Endpoint to public                                                   |
+| [Step 3](#3-register-in-the-node-operator-admin-app)            | Register yourself as a Node Operator to the Network                              |
+| [Step 4](#4-index-or-sync-a-project)                            | Index a project or sync an RPC endpoint                                          |
+| [Step 5](#5-create-a-plan-from-a-plan-template)                 | Create a Plan from a Plan Template                                               |
+| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)     | Set a Node Operator Commission Rate                                              |
+| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
+| [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
+| [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 10](#10-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
 
 ## 1. Deploy Node Operator Services
 
@@ -70,8 +70,8 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 | Service                                                                                             | Version Tag |
 | :-------------------------------------------------------------------------------------------------- | :---------- |
-| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.0.7`    |
-| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.1.0`    |
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.7.0`    |
+| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.7.1`    |
 
 ::: warning Important
 
@@ -85,9 +85,28 @@ Pay attention to the versions of `indexer-coordinator` and `indexer-proxy`, you 
 
 :::
 
-## 2. Setup SSL on your New Server and Consult Security Guide
+## 2. Setup Proxy Endpoint to public
 
-We highly recommend setting up SSL on your new server and [consulting our security guide carefully](./security-guide.md). You will be penalised for not setting up SSL, firewalls, or following our security guidelines.
+After running the docker-compose, you can access proxy endpoint via `http://localhost/healthy`. You need to make this endpoint publicaly accessible, we will use Nginx to do this.
+
+1. Download Nginx: `sudo apt-get install nginx`
+2. Create a Nginx config: `mkdir nginx && touch $_/nginx.conf`
+3. Update `nginx/nginx.conf` to add a reverse proxy to our proxy endpoint.
+
+```
+server {
+    listen 80;
+    location / {
+        proxy_pass http://localhost/; # The proxy endpoint.
+    }
+}
+```
+
+4. Copy to `conf.d`: `sudo cp nginx/nginx.conf /etc/nginx/conf.d/`
+5. Start Nginx: `sudo systemctl start nginx` or `sudo systemctl reload nginx`
+6. Test via `curl http://your_ip_or_domain`.
+
+We highly recommend setting up SSL on your new server and [consulting our security guide carefully](./security-guide.md). You may be penalised for not setting up SSL, firewalls, or following our security guidelines.
 
 ## 3. Register in the Node Operator Admin App
 
