@@ -2,7 +2,7 @@
 
 **Congratulations on successfully publishing your project on the SubQuery Network!**
 
-Your project is now visible on the SubQuery Explorer, and Node Operators can begin syncing it. However, publishing is just the first step. To ensure your project gains traction, you must take proactive steps to encourage Node Operators to sync and consumers to use your data. This guide outlines a comprehensive approach to maximizing your project’s visibility, usability, and success.
+Your project is now visible on the SubQuery Explorer, and Node Operators can begin syncing it. However, publishing is just the first step. To ensure your project gains traction, you must take proactive steps to encourage Node Operators to sync and consumers to use your data. This guide outlines a comprehensive approach to maximising your project’s visibility, usability, and success.
 
 ## Addressing Challenges to Project Adoption
 
@@ -53,4 +53,4 @@ Additionally, reach out to the SubQuery team to request promotion through their 
 
 If you find that your project is not attracting sufficient interest from Node Operators or consumers, consider revisiting your approach. You may need to adjust your project’s boost or refine your pricing plans to make them more competitive. Review your project for inefficiencies or high resource costs that might deter Node Operators, and provide guidance or support to help them overcome technical challenges.
 
-Remember that success on the SubQuery Network depends on effective communication and collaboration. By engaging with the community, responding to feedback, and adapting to market dynamics, you can ensure your project is well-supported and widely used. If you encounter difficulties, don’t hesitate to reach out to the SubQuery team or the community for assistance. Together, we can help your project thrive in this decentralized ecosystem.
+Remember that success on the SubQuery Network depends on effective communication and collaboration. By engaging with the community, responding to feedback, and adapting to market dynamics, you can ensure your project is well-supported and widely used. If you encounter difficulties, don’t hesitate to reach out to the SubQuery team or the community for assistance. Together, we can help your project thrive in this decentralised ecosystem.
