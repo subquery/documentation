@@ -95,3 +95,89 @@ If your project requires indexing all the blocks, transactions alongside more sp
 We recommend this approach, because it takes time to index all the blocks and it can slow down your project significantly. If you want to apply some changes to your filters or entities shape you may need to remove your database and reindex the whole project from the beginning.
 
 A common example is creating a large project that indexes everything so you can perform internal analysis on your contracts, and then much smaller and optimised project for indexing the key data for your dApp. The larger project that indexes everything might never change and so you can avoid costly reindexing, while the smaller optimised project will change as your dApp matures and can be reindexed much faster.
+
+## Simplifying the Project Manifest
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many ERC20 contracts.
+
+Note that there is also [dynamic datasources](./dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+In cases where there are a large number of contract addresses, but the list is static, you can simplify the manifest a couple of ways depending on whether you're using typescript or yaml. With typescript you can use functions as you would with any other typescript file. With yaml you can use [anchors](https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/).
+
+::: code-tabs
+@tab project.ts
+
+```ts
+
+const erc20Addresses = [
+  "0x09395a2a58db45db0da254c7eaa5ac469d8bdc85",
+  // Other contract addresses go here
+];
+
+const project: EthereumProject = {
+  // ...The rest of your project manifest
+  dataSources: [
+    ...addresses.map(address => ({
+      {
+        kind: EthereumDatasourceKind.Runtime,
+        startBlock: 1,
+
+        options: {
+          abi: "erc20",
+          address,
+        },
+        assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+        mapping: {
+          file: "./dist/index.js",
+          handlers: [
+            {
+              kind: EthereumHandlerKind.Event,
+              handler: "handleLog",
+              filter: {
+                topics: [
+                  "Transfer(address indexed from, address indexed to, uint256 amount)",
+                ],
+              },
+            },
+          ],
+        },
+      }
+    }))
+    // Other data sources here
+  ],
+};
+
+```
+
+@tab project.yml
+
+```yml
+# The rest or your project yaml
+
+x-erc20: &erc20
+  kind: ethereum/Runtime
+  startBlock: 10512216
+  assets:
+    erc20:
+      file: ./abis/erc20.abi.json
+  options:
+    abi: erc20
+  mapping:
+    file: ./dist/index.js
+    handlers:
+      - handler: handleLog
+        kind: ethereum/LogHandler
+        filter:
+          topics:
+            - Transfer(address indexed from, address indexed to, uint256 amount)
+
+dataSources:
+  # Repeat this with different addresses
+  - <<: *erc20
+    options:
+      abi: erc20
+      address: "0x09395a2a58db45db0da254c7eaa5ac469d8bdc85"
+  # Other datasources here
+```
+
+:::
