@@ -40,7 +40,7 @@ To create or view your existing Flex plans, on the Node Operator Admin App, navi
 
 Click `Enable Flex Plan` to enable flex plan pricing for this particular project. You can then enter the following settings
 
-- The price per 1,000 requests. A good starting place is 3 SQT per 1,000 requests for RPC projects and 5 SQT per 1,000 requests for Data indexing projects
+- The price per 1,000 requests. A good starting place is to consider that the market rate for RPC requests are somewhere around US$2.5 per million requests for RPC projects - you should carefully consider what prices competing Node Operators are charging by looking at the Project in the [Project Explorer](https://app.subquery.network/explorer/home).
 - A validity period. This is for how long the pricing will be valid for consumers that take this up. E.g. if a new consumer opens a state channel with your Flex plan, they are guaranteed this price for this many days once that channel is opened. A longer number of days gives greater price certainty, but reduces the Node Operators ability to adjust prices to match costs. A good starting place is 7 days.
 
 ![Flex Plan Create](/assets/img/network/flex-plan-create.png)
