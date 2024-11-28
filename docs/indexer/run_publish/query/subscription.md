@@ -77,6 +77,10 @@ subscription {
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
 
+::: tip Note
+If historical indexing is enabled, the `mutation_type` will be `UPDATE` for both insertions and updates.
+:::
+
 ## Examples
 
 ### Client-side (React Exampel)
