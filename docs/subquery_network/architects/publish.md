@@ -45,7 +45,7 @@ Once entered, click "Publish" to publish your project, you will then be taken to
 
 ::: info How to encourage Node Operators to sync your project
 
-At this stage you should reach out to Node Operators in our Discord to encourage them to start syncing it, once they do you will be able to create plans and start querying this data. You might also want to consider [boosting your project](../consumers/boosting.md) to incentivise Node Operators to do so, and in return receive free queries to it.
+[Please read and review the suggested next steps after publishing your project to maximise success](./next-steps.md).
 
 :::
 
