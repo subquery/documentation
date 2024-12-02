@@ -31,14 +31,14 @@ In short, when you create, update, or delete any SubQuery entity, we store the p
 This feature is enabled by default and will track indexing by block height. If your project does not currently have this enabled you will need to reindex your project.
 
 ::: tabs
-@tab Block Height `@subql/node@<5.0.0`
+@tab Block Height `@subql/node@<5.3.0`
 
 If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
 
 On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
 
 
-@tab:active Block Height or Timestamp `@subql/node@>=5.0.0`
+@tab:active Block Height or Timestamp `@subql/node@>=5.3.0`
 
 Since this release we support historical indexing by timestamp as well as block height. You can choose one or the other.
 
