@@ -20,6 +20,14 @@ We're building the most open, performant, reliable, and scalable data service fo
 
 ## Using SubQuery's Centralised Hosted Service
 
+:::info SubQuery Managed Service is becoming the OnFinality Indexer Service
+
+At SubQuery, our mission has always been to lead the way in decentralising the future. To remain focused on this mission, we’re excited to announce that OnFinality, a leader in blockchain infrastructure management, will be taking over the day-to-day operations of the SubQuery Managed Service.
+
+Read more about this change and how it might affect you [https://documentation.onfinality.io/support/subquery-managed-service-rebrand](https://documentation.onfinality.io/support/subquery-managed-service-rebrand)
+
+:::
+
 The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100's of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.
 
 By publishing it to our enterprise-level [Managed Service](https://managedservice.subquery.network), where we'll host your SubQuery project in production ready services for mission critical data with zero-downtime blue/green deployments. We even have a generous free tier. [Read more](./publish.md).

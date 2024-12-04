@@ -1,5 +1,13 @@
 # Publish to SubQuery Managed Services
 
+:::info SubQuery Managed Service is becoming the OnFinality Indexer Service
+
+At SubQuery, our mission has always been to lead the way in decentralising the future. To remain focused on this mission, we’re excited to announce that OnFinality, a leader in blockchain infrastructure management, will be taking over the day-to-day operations of the SubQuery Managed Service.
+
+Read more about this change and how it might affect you [https://documentation.onfinality.io/support/subquery-managed-service-rebrand](https://documentation.onfinality.io/support/subquery-managed-service-rebrand)
+
+:::
+
 ## Benefits of hosting your project with SubQuery's Managed Service
 
 :::info Subgraphs are now supported in SubQuery's Managed Service
