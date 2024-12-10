@@ -457,3 +457,18 @@ query {
   }
 }
 ```
+
+## Alternative ID types
+
+By default the ID type will create a `text` column in the database. But there are scenarios where other types can be useful.
+e.g You want your `id` to be numerical so that rather than using [lexicographical](https://en.wikipedia.org/wiki/Lexicographic_order) ordering it will order numerically.
+
+The supported types are `BigInt`, `Int`, `Float`, `ID`, `String` which are the supported graphql scalar types.
+
+```graphql
+
+type Era @entity {
+  id: ID! @dbType(type: "Int")
+  field1: String!
+}
+```
