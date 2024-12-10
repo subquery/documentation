@@ -213,12 +213,31 @@ jobs:
   pr:
     name: pr
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_DATABASE: postgres
+      DB_HOST: localhost
+      DB_PORT: 5432
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
+
       - run: yarn
       - name: Codegen
         run: yarn codegen
@@ -226,6 +245,9 @@ jobs:
         run: yarn build
       - name: Install subql-node
         run: yarn global add @subql/node
+
+      - name: Enable btree btree_gist
+          run: psql "postgresql://$DB_USER:$DB_PASS@$DB_HOST:$DB_PORT/$DB_DATABASE" -c "CREATE EXTENSION IF NOT EXISTS btree_gist;"
       - name: Run tests
         run: subql-node test -f ${{ github.workspace }}
 ```
