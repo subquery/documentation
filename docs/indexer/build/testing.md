@@ -247,7 +247,7 @@ jobs:
         run: yarn global add @subql/node
 
       - name: Enable btree btree_gist
-          run: psql "postgresql://$DB_USER:$DB_PASS@$DB_HOST:$DB_PORT/$DB_DATABASE" -c "CREATE EXTENSION IF NOT EXISTS btree_gist;"
+        run: psql "postgresql://$DB_USER:$DB_PASS@$DB_HOST:$DB_PORT/$DB_DATABASE" -c "CREATE EXTENSION IF NOT EXISTS btree_gist;"
       - name: Run tests
         run: subql-node test -f ${{ github.workspace }}
 ```
