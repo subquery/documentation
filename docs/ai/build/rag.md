@@ -11,7 +11,7 @@ Defining the RAG data set is largely up to the user to define. Currently only [L
 We do provide an off the shelf way to create a table from markdown files. This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
 
 ```shell
-subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name
+subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name --model nomic-embed-text
 ```
 
 ## Adding RAG to your app
