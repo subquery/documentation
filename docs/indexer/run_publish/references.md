@@ -51,7 +51,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --block-confirmations
 
-**Positive Integer (default: `20`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalised, this has no effect with non-EVM networks.
+**Positive Integer (default: `200`)** - (Only for `subql-node-ethereum`) The number of blocks behind the head to be considered finalised, this has no effect with non-EVM networks.
 
 ### -c, --config
 
