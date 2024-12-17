@@ -81,13 +81,23 @@ import { GraphQLEntity1, GraphQLEntity2 } from "../types";
 
 Each entity must define its required fields `id` with the type of `ID!`. It is used as the primary key and unique among all entities of the same type.
 
-Non-nullable fields in the entity are indicated by `!`. Please see the example below:
-
 ```graphql
 type Example @entity {
   id: ID! # id field is always required and must look like this
   name: String! # This is a required field
   address: String # This is an optional field
+}
+```
+
+By default the ID type will create a `String` (text) column in the database. But there are scenarios where other types can be useful.
+e.g You want your `id` to be numerical so that rather than using [lexicographical](https://en.wikipedia.org/wiki/Lexicographic_order) ordering it will order numerically.
+
+If you want a different scalar type for your ID, you can add the annotation `@dbType(type: "<type>")`. The supported scalar types are `BigInt`, `Int`, `Float`, `ID`, `String`.
+
+```graphql
+type Era @entity {
+  id: ID! @dbType(type: "Int")
+  field1: String!
 }
 ```
 
@@ -105,6 +115,28 @@ We currently support the following scalar types:
 - `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
 - `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
 - `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [GraphQL Enum](https://graphql.org/learn/schema/#enumeration-types)
+
+Non-nullable fields in the entity are indicated by `!`. Please see the example below:
+
+```graphql
+"""
+This is an example entity
+"""
+type StarterEntity @entity {
+  """
+  id is a required field
+  """
+  id: ID!
+  """
+  field1 is also required field
+  """
+  field1: Int!
+  """
+  field2 is an optional field
+  """
+  field2: String
+}
+```
 
 ### Naming Constraints
 
