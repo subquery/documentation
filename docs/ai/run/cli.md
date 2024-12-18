@@ -25,8 +25,8 @@ Options:
       --debug            Enable debug logging         [boolean] [default: false]
       --logFmt           Set the logger format
                         [string] [choices: "json", "pretty"] [default: "pretty"]
-  -h, --host             The LLM RPC host. If the project model uses ChatGPT
-                         then the default value is not used.
+  -h, --host             The LLM RPC host. If the project model uses an OpenAI
+                         model then the default value is not used.
                                     [string] [default: "http://localhost:11434"]
       --openAiApiKey     If the project models use OpenAI models, then this api
                          key will be parsed on to the OpenAI client     [string]
