@@ -105,7 +105,7 @@ This creates a framework and the following directory structure, saving your time
 
 #### Step 2: Update the Mappings File
 
-The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this excerise. Hence, delete the remaining functions.
+The initialisation command pre-creates a sample mappings file with 3 functions: `handleBlock, handleEvent and handleCall`. We will focus on the first function called `handleBlock` for this exercise. Hence, delete the remaining functions.
 
 - The `mappingHandler.ts` file should look like this:
 

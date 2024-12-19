@@ -39,12 +39,12 @@ Options:
       --toolTimeout      Set a limit for how long a tool can take to run, unit
                          is MS                         [number] [default: 10000]
       --streamKeepAlive  The interval in MS to send empty data in stream
-                         responses to keep the connection alive. Only wokrs with
+                         responses to keep the connection alive. Only works with
                          http interface. Use 0 to disable.
                                                         [number] [default: 5000]
 ```
 
-These can also be specified with environment variables. They should be prefixed with `SUBQL_AI_` and the flag renambed to capitalized snake case. E.g `SUBQL_AI_CACHE_DIR`
+These can also be specified with environment variables. They should be prefixed with `SUBQL_AI_` and the flag renamed to capitalized snake case. E.g `SUBQL_AI_CACHE_DIR`
 
 ### `subql-ai`
 
@@ -68,7 +68,7 @@ subql-ai info -p ./path/to/project.ts
 Project Information:
     Model:
       llama3.1
-    Conifg:
+    Config:
       GRAPHQL_ENDPOINT: https://gateway.subquery.network/query/QmcoJLxSeBnGwtmtNmWFCRusXVTGjYWCK1LoujthZ2NyGP
         "type": "object",
         "properties": {
