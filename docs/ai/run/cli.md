@@ -1,14 +1,15 @@
 # CLI Reference
 
 ```
-Run an AI app
+Run a SubQuery AI app
 
 Commands:
-  subql-ai            Run an AI app                                        [default]
+  subql-ai            Run a SubQuery AI app                            [default]
   subql-ai info       Get information on a project
   subql-ai embed-mdx  Creates a Lance db table with embeddings from MDX files
   subql-ai repl       Creates a CLI chat with a running app
-  subql-ai publish    Publishes a project to IPFS so it can be easily distributed
+  subql-ai publish    Publishes a project to IPFS so it can be easily
+                      distributed
   subql-ai init       Create a new project skeleton
 
 Options:
@@ -19,8 +20,16 @@ Options:
           [string] [default: "https://unauthipfs.subquery.network/ipfs/api/v0/"]
       --ipfsAccessToken  A bearer authentication token to be used with the ipfs
                          endpoint                                       [string]
-  -h, --host             The ollama RPC host
+      --cacheDir         The location to cache data from ipfs. Default is a temp
+                         directory                                      [string]
+      --debug            Enable debug logging         [boolean] [default: false]
+      --logFmt           Set the logger format
+                        [string] [choices: "json", "pretty"] [default: "pretty"]
+  -h, --host             The LLM RPC host. If the project model uses an OpenAI
+                         model then the default value is not used.
                                     [string] [default: "http://localhost:11434"]
+      --openAiApiKey     If the project models use OpenAI models, then this api
+                         key will be parsed on to the OpenAI client     [string]
   -i, --interface        The interface to interact with the app
                              [string] [choices: "cli", "http"] [default: "http"]
       --port             The port the http service runs on
@@ -29,7 +38,13 @@ Options:
                          use the cached version       [boolean] [default: false]
       --toolTimeout      Set a limit for how long a tool can take to run, unit
                          is MS                         [number] [default: 10000]
+      --streamKeepAlive  The interval in MS to send empty data in stream
+                         responses to keep the connection alive. Only wokrs with
+                         http interface. Use 0 to disable.
+                                                        [number] [default: 5000]
 ```
+
+These can also be specified with environment variables. They should be prefixed with `SUBQL_AI_` and the flag renambed to capitalized snake case. E.g `SUBQL_AI_CACHE_DIR`
 
 ### `subql-ai`
 
