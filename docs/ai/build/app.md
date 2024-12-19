@@ -132,7 +132,7 @@ If the question seems to be unrelated to the API, just return "I don't know" as 
 
 const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
   return {
-    // Initialise any tools you wish to provided with your app
+    // Initialise any tools you wish to provide with your app
     tools: [
       new TotalDelegation(config.GRAPHQL_ENDPOINT),
       new DelegatedIndexers(config.GRAPHQL_ENDPOINT),
