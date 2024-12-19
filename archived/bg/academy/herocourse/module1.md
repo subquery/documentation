@@ -66,7 +66,7 @@ RPC endpoint: [wss://polkadot.api.onfinality.io/public-ws]:
 Git repository [https://github.com/subquery/subql-starter]:
 Fetching network genesis hash... done
 Author [Ian He & Jay Ji]:
-Description [This project can be use as a starting po...]:
+Description [This project can be used as a starting po...]:
 Version [0.0.4]:
 License [MIT]:
 Preparing project... done
