@@ -532,7 +532,7 @@ type Councillor @entity {
 
 Update the manifest file to include two **Event handlers**. Also update the **filter** method to `council/Proposed` and `council/Voted`.
 
-- The **_updated_** part of the `project.yaml` file should look simiar to as below:
+- The **_updated_** part of the `project.yaml` file should look similar to as below:
 
 ```
 dataSources:
