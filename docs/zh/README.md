@@ -59,9 +59,9 @@ footer: false sidebar: false lastUpdated: false contributors: false editLink: fa
           <img src="/assets/img/home/indexer-sdk.png" />
           <Typography tag="h4" family="body">AI Apps Framework</Typography>
         </div>
-        <Typography tag="h3">Intelligent apps with SubQuery's AI Apps</Typography>
+        <Typography tag="h3">Agentic AI with SubQuery's AI Apps</Typography>
         <Typography tag="h5" type="secondary"
-          >The AI App Framework allows you to build, deploy, and run production AI apps on the SubQuery Network in a trusted and decentralised environment.</Typography>
+          >The AI App Framework allows you to build, deploy, and run agentic production AI apps on the SubQuery Network in a trusted and decentralised environment.</Typography>
         <div>
           <Button class="mt40">Learn more</Button>
         </div>
