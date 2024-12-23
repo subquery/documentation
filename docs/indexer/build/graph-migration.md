@@ -2,14 +2,7 @@
 
 ::: info Hosting existing Subgraphs during migration
 
-SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process. However SubQuery also provides a one-step migration for **hosting** your Subgraphs on The Graph’s hosted service / decentralised network, or other Subgraph hosting service. This is a drop-in replacement with the following benefits:
-
-- An enterprise level hosting platform with targeted 99.9% uptime
-- Blue/green hot-swap deployments of subgraphs, allowing for seamless updates on your frontend
-- Project alert notification of outages and indexing issues
-- A team who monitors your Subgraphs 24/7, with potential for service level agreements real time support with your team
-
-Find out more about [Subgraph hosting here](../run_publish/publish.md).
+SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process.
 
 :::
 
@@ -23,7 +16,6 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
 - **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to allow you to run, monitor, and optimise your locally hosted project
-- **Managed Service hosting** - We have no plans to sunset our [Managed Service](https://managedservice.subquery.network), which provides enterprise-level infrastructure hosting and handles over hundreds of millions of requests each day
 - **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 - **The same query API** - We support a Subgraph compatible query service, providing the same GraphQL API that you are currently using.
 
@@ -602,13 +594,11 @@ SubQuery does not support historical metadata querying. However `deployments` wi
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-Now, you can easily publish your project. SubQuery provides a free Managed Service where you can deploy your new project. You can deploy it to [SubQuery Managed Service](https://managedservice.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md).
-
 To dive deeper into the developer documentation, jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 
 If you want to practice with more real examples, then head to our [Courses](../academy/academy.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
 
-In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../run_publish/run.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
+In the end, if you want to explore more ways to run and publish your project, refer to [Run & Publish section](../run_publish/introduction.md). Get complete information about all the ways to run your SubQuery project, along with advanced GraphQL aggregation and subscription features.
 
 ## Summary
 

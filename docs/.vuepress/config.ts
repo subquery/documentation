@@ -191,6 +191,8 @@ export default defineUserConfig({
             "/subquery_network/architects/publish.html",
           "/subquery_network/foundation.html":
             "/subquery_network/governance/foundation.html",
+          "/indexer/run_publish/publish.html":
+            "/indexer/run_publish/introduction.html",
         };
         return {
           ...redirects,

@@ -57,7 +57,7 @@ subql-node <command>
 ```
 
 ::: tip Note
-If you are using Docker or hosting your project in SubQuery's Managed Service, you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+If you are using Docker you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::
 
 ## Install @subql/query
@@ -82,5 +82,5 @@ yarn global add @subql/query
 :::
 
 ::: tip Note
-If you are using Docker or hosting your project in SubQuery's Managed Service, you can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+If you are using Docker you can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::
