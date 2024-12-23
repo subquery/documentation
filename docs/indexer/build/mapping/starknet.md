@@ -28,7 +28,8 @@ export async function handleBlock(block: StarknetBlock): Promise<void> {
 ## Transaction Handler
 
 You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/starknet.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
-
+We stored the decoded calls in the transaction object, so you can easily access the decoded calls and their args in the transaction object.
+To distinguish between different calls types, you can use the `selector` field in the decoded call object.
 ```ts
 
 import {StarknetTransaction} from "@subql/types-starknet";

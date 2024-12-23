@@ -281,11 +281,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                   | Supported filter                                                                                    |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [starknet/BlockHandler](../mapping/starknet.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [starknet/TransactionHandler](../mapping/starknet.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [starknet/LogHandler](../mapping/starknet.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                                   | Supported filter                                                                                                                          |
+| ------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
+| [starknet/BlockHandler](../mapping/starknet.md#block-handler)             | `modulo`, `timestamp`                                                                                                                     |
+| [starknet/TransactionHandler](../mapping/starknet.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address),`type`(transaction type, like INVOKE) |
+| [starknet/LogHandler](../mapping/starknet.md#log-handler)                 | `topics` filters, and `address`                                                                                                           |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
