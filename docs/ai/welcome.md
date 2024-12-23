@@ -4,6 +4,8 @@ The AI App Framework allows you to build, deploy, and run production AI apps on 
 
 AI apps are self contained and easily scalable AI agents that you can use to power your intelligent applications. They are sandboxed to a trusted runner and can be easily distributed and scaled horizontally across the SubQuery Network.
 
+![AI Apps Header Image](/assets/img/ai/header.png)
+
 ## Features
 
 - **Effortless decentralised distribution:** The SubQuery AI App Framework uses a sandboxed environment for secure and efficient operations. Each AI App is encapsulated with its own manifest, enabling seamless distribution across the SubQuery Network. This ensures that horizontal scaling is not only easy but also secure, allowing developers to focus on innovation rather than infrastructure.
@@ -14,6 +16,18 @@ AI apps are self contained and easily scalable AI agents that you can use to pow
 - **Proven standards for seamless integration:** SubQuery AI Apps expose the industry-standard [OpenAI API](./query/query.md), ensuring compatibility with a wide range of applications and tools. This makes it easier for developers to integrate AI capabilities into their projects while adhering to established standards.
 
 ![AI App Framework Features](/assets/img/ai/features.jpg)
+
+## What can you build with SubQuery’s AI App Framework?
+
+SubQuery’s AI App Framework is a powerful but intuitive SDK to help you build advanced AI applications in minutes. It’s built on typescript and is extremely easy to use, essentially simplifying most of the backend tasks required to customise and integrate LLM models into production usecases.
+
+For example, you could use it to build:
+
+- **A customer support bot**, trained on the documentation for your project and able to guide customers through their problems. It could also be trained to submit clean and detailed customer support tickets when escalation is required.
+- **Wallet assistants** that help users understand the tokens they have and guide them through the process of managing, bridging, or swapping them. For example, a user could ask “how do I convert ETH to SQT?” and the AI would guide them through the options.
+- **Content moderation for decentralised social networks**, AI Apps could be trained to moderate content by identifying spam or harmful content and using function tools to disable or hide them.
+- **AI agents to improve participation in governance**, by analysing and summarising proposals in DAOs and assisting users in making informed voting decisions based on data-driven insights.
+- **Dynamic pricing models**, by analysing demand and supply in real-time, adjusting prices for tokens or NFTs dynamically based on user behaviour and market trends.
 
 ## Getting Started
 
