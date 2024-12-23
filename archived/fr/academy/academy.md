@@ -1,1 +1,0 @@
-# Bienvenue à l'Académie
