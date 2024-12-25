@@ -489,13 +489,11 @@ export const getSidebar = (locale: string) =>
             text: "Publish to the SubQuery Network",
             link: `${locale}/subquery_network/architects/publish.md`,
           },
-          `${locale}/indexer/run_publish/publish.md`,
           `${locale}/indexer/run_publish/optimisation.md`,
           {
             text: "Monitoring",
             link: `${locale}/indexer/run_publish/monitor.md`,
           },
-          `${locale}/indexer/run_publish/cli.md`,
           {
             text: "Query and Access Data",
             link: `${locale}/indexer/run_publish/query/query.md`,
@@ -524,59 +522,6 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/run_publish/references.md`,
         ],
       },
-      /*
-      {
-        text: "Courses",
-        link: `${locale}/indexer/academy/academy.md`,
-        collapsible: true,
-        children: [
-          {
-            text: "Hero Course",
-            link: `${locale}/indexer/academy/herocourse/welcome`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/herocourse/welcome.md`,
-              `${locale}/indexer/academy/herocourse/module1.md`,
-              `${locale}/indexer/academy/herocourse/module2.md`,
-              `${locale}/indexer/academy/herocourse/module3.md`,
-              `${locale}/indexer/academy/herocourse/module4.md`,
-              `${locale}/indexer/academy/herocourse/module5.md`,
-              `${locale}/indexer/academy/herocourse/module6.md`,
-            ],
-          },
-          {
-            text: "SubQuery Moonbeam Course",
-            link: `${locale}/indexer/academy/moonbeam_course/welcome`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/moonbeam_course/welcome.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson1.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson2.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson3.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson4.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson5.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson6.md`,
-            ],
-          },
-          {
-            text: "Tutorials & Examples",
-            link: `${locale}/indexer/academy/tutorials_examples/introduction`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/tutorials_examples/introduction.md`,
-              `${locale}/indexer/academy/tutorials_examples/block-height.md`,
-              `${locale}/indexer/academy/tutorials_examples/batch-size.md`,
-              `${locale}/indexer/academy/tutorials_examples/run-indexer.md`,
-              `${locale}/indexer/academy/tutorials_examples/dictionary.md`,
-              `${locale}/indexer/academy/tutorials_examples/debug-projects.md`,
-              `${locale}/indexer/academy/tutorials_examples/delete-projects.md`,
-              `${locale}/indexer/academy/tutorials_examples/terminology.md`,
-            ],
-          },
-          `${locale}/indexer/academy/subquery101/subquery101.md`,
-        ],
-      },
-      */
       {
         text: "Tutorials & Examples",
         collapsible: true,
@@ -586,7 +531,6 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/academy/tutorials_examples/run-indexer.md`,
           `${locale}/indexer/academy/tutorials_examples/dictionary.md`,
           `${locale}/indexer/academy/tutorials_examples/debug-projects.md`,
-          `${locale}/indexer/academy/tutorials_examples/delete-projects.md`,
           `${locale}/indexer/academy/tutorials_examples/terminology.md`,
         ],
       },

@@ -8,7 +8,7 @@ Some of the following examples will assume you have successfully initialized the
 2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/polkadot.md).
-5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/publish.md) your Starter Project in our quick start guide.
+5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/introduction.md) your Starter Project in our quick start guide.
 
 ## Directory Structure
 
@@ -147,13 +147,13 @@ import {
 } from "../types/abi-interfaces/Gravity";
 
 export async function handleNewGravatarGravityLog(
-  log: NewGravatarLog,
+  log: NewGravatarLog
 ): Promise<void> {
   // Place your code logic here
 }
 
 export async function handleUpdatedGravatarGravityLog(
-  log: UpdatedGravatarLog,
+  log: UpdatedGravatarLog
 ): Promise<void> {
   // Place your code logic here
 }
@@ -398,7 +398,7 @@ import { CosmosMessage } from "@subql/types-cosmos";
 import { MsgSwapExactAmountIn } from "../types/proto-interfaces/osmosis/gamm/v1beta1/tx";
 
 export async function handleMessage(
-  msg: CosmosMessage<MsgSwapExactAmountIn>,
+  msg: CosmosMessage<MsgSwapExactAmountIn>
 ): Promise<void> {
   // Do something with typed event
   const messagePayload: MsgSwapExactAmountIn = msg.msg.decodedMsg;

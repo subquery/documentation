@@ -43,10 +43,6 @@ In our example project, we have [altered the standard `docker-compose.yml`](http
 This feature is not compatible with [Historical State](../run_publish/historical.md) and will be disabled if `--multi-chain` is used.
 :::
 
-::: warning Warning
-This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://managedservice.subquery.network). All others can run this locally in their own infrastructure provider.
-:::
-
 ## Initialising and creating a multi-chain project
 
 Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
@@ -128,7 +124,7 @@ You can get the network through the global `chainId` value. This is the same val
 ```ts
 // We prefix the ID with the network name to prevent ID collisions across networks
 const transfer = new Transfer(
-  `${network}-${event.block.block.header.number.toNumber()}-${event.idx}`,
+  `${network}-${event.block.block.header.number.toNumber()}-${event.idx}`
 );
 ```
 
@@ -163,7 +159,7 @@ export async function handleKusamaEvent(e: SubstrateEvent): Promise<void> {
 
 async function handleEvent(
   event: SubstrateEvent,
-  network: "polkadot" | "kusama",
+  network: "polkadot" | "kusama"
 ): Promise<void> {
   // Do something with shared logic
 }

@@ -2,7 +2,11 @@
 
 Now that you have a clear understanding of how to build a basic SubQuery project, what are the next steps of your journey?
 
-- Now, you can easily publish your project. SubQuery provides a managed service solution where you can deploy your new project. You can deploy it to [SubQuery Managed Service](https://managedservice.subquery.network) and query it using our [Explorer](https://explorer.subquery.network). Read this complete guide on how to [publish your new project to SubQuery Projects](../run_publish/publish.md).
+SubQuery is open-source and designed to be easy to run, meaning you have the freedom to run it a variety of ways.
+
+- [Locally yourself using your own infrastructure or cloud accounts.](../run_publish/introduction.md#locally-run-it-yourself)
+- [On our decentralised SubQuery Network.](../run_publish/introduction.md#using-the-subquery-network)
+- [Or with a number of partner hosting services.](../run_publish/introduction.md#other-hosting-providers-in-the-subquery-community)
 
 - To dive deeper into the developer documentation, jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 

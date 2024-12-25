@@ -164,7 +164,7 @@ const splitLink = split(
     );
   },
   wsLink,
-  httpLink,
+  httpLink
 );
 
 const client = new ApolloClient({
@@ -242,11 +242,3 @@ pubsub.publish(`UPDATE_${accountId}`, {
 ```
 
 Note that this example does not include error handling or authentication/authorization, which are essential for production applications.
-
-## Using in the Managed Service
-
-The managed service supports subscriptions for paid plans, you must enable subscription support when deploying your project in our service under "Advanced Settings"
-
-::: warning Important
-The subscription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
-:::

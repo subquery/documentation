@@ -26,9 +26,9 @@ We love contributions and feedback from the community. To contribute the code, f
 
 SubQuery is open-source, meaning you have the freedom to run it in the following three ways:
 
-- Locally on your own computer (or a cloud provider of your choosing), [view the instructions on how to run SubQuery Locally](../run_publish/run.md)
-- By publishing it to our enterprise-level [Managed Service](https://managedservice.subquery.network), where we'll host your SubQuery project in production ready services for mission critical data with zero-downtime blue/green deployments. We even have a generous free tier. [Find out how](../run_publish/publish.md)
-- By publishing it to the decentralised [SubQuery Network](https://subquery.network/network), the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. [Read more](../../subquery_network/architects/publish.md)
+- Locally on your own computer (or a cloud provider of your choosing), [view the instructions on how to run SubQuery Locally](../run_publish/run.md).
+- By publishing to one of a number of external centralised hosting services that offer reliable hosting of production SubQuery data indexing projects. These services are managed by external partners and are designed to make it easy to deploy, manage, and scale your SubQuery projects. [Read more](../run_publish/introduction.md#other-hosting-providers-in-the-subquery-community).
+- By publishing it to the decentralised [SubQuery Network](https://subquery.network/network), the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. [Read more](../../subquery_network/architects/publish.md).
 
 ### Do you support Bitcoin?
 
@@ -196,25 +196,3 @@ Yes, they do.
 ### `relation "public.subqueries" does not exist at character 23` error
 
 Run `rm -rf .data` to clear out your local db and try again
-
-## Managed Service
-
-### More information about Managed Services?
-
-You can find information about Pricing and FAQs by following [this link](https://managedservice.subquery.network/pricing). Additional FAQs are listed below.
-
-### Change the batch size in Managed Services
-
-In `managedservice.subquery.network` you can click on your project then on your deployment. Under advanced options you can change your batch size.
-
-### Reindex my project if it is moved to dedicated database
-
-If we move your indexer projects to a dedicated database then you will need to reindex the projects - you can do this in the staging slot and then promote to prod once it’s ready to avoid any interruption.
-
-### SLA agreements
-
-SubQuery can offer SLAs for managed hosting across one or multiple projects over a specified period.
-
-### Assisting with the migration from Managed Services
-
-Yes, migration between all available deployment options is possible.

@@ -37,7 +37,6 @@ If you want to disable this feature for any reason, you can set the `--disable-h
 
 On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
 
-
 @tab:active Block Height or Timestamp `@subql/node@>=5.3.0`
 
 Since this release we support historical indexing by timestamp as well as block height. You can choose one or the other.
@@ -121,8 +120,6 @@ When you enable Automated Historical State Tracking, you can benefit from on-dem
 - _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
 
 You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
-
-You can also use the reindex feature in the [SubQuery Managed Service](https://managedservice.subquery.network).
 
 ## DB Schema
 

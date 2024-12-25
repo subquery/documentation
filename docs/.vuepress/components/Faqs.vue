@@ -80,9 +80,8 @@ const faqs = computed(() => {
         `We provide a 
         <a style="cursor:pointer;" onclick="router.push('/indexer/run_publish/run.html')">long guide</a> 
         on how you can run SubQuery in your infrastructure, which includes both the indexer, Postgres database, and query service.`,
-        "Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a <a href='https://explorer.subquery.network/' target='_blank'>Managed Service</a> to the community. The biggest dApps depend on SubQuery's enterprise level Managed Service. With 100s of millions of daily requests and hundreds of active projects, SubQuery's Managed Service provides industry leading hosting for our customers.",
-        "We'll run your SubQuery projects for you in a high performance, scalable, and managed public service with a generous free tier! You can host your first two SubQuery projects for absolutely free!",
-        "You can also upgrade to take advantage of production ready hosting for mission critical data with zero-downtime blue/green deployments, dedicated databases, multiple geo-redundant clusters, intelligent routing, and advanced monitoring and analytics.",
+        `Don't want to worry about running your own SubQuery infrastructure? There are a number of  <a style="cursor:pointer;" onclick="router.push('/indexer/run_publish/introduction.html')">external centralised hosting services</a> that offer reliable hosting of production SubQuery data indexing projects. These services are managed by external partners and are designed to make it easy to deploy, manage, and scale your SubQuery projects.`,
+        `Alternatively, publish your project to the SubQuery Network, We're building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably. <a style="cursor:pointer;" onclick="router.push('/subquery_network/architects/publish.html')">Find out how</a>.`,
       ],
     },
     {
