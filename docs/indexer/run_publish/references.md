@@ -39,7 +39,7 @@ For more info, visit [basic workflows](../build/introduction.md#build).
 
 ### --batch-size
 
-**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent. This setting is overridden on the Managed service to `30`.
+**Positive Integer (default: `100`)** - This flag allows you to set the batch size in the command line. If batch size is also set in the config file, this takes precedent.
 
 ```shell
 > subql-node -f . --batch-size=20

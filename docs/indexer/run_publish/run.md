@@ -1,7 +1,8 @@
 # Running SubQuery Locally
 
 This guide works through how to run a local SubQuery node on your infrastructure, which includes both the indexer and query service.
-Don't want to worry about running your own SubQuery infrastructure? SubQuery provides a [Managed Service](https://explorer.subquery.network) to the community for free. [Follow our publishing guide](../run_publish/publish.md) to see how you can upload your project to [SubQuery Managed Service](https://managedservice.subquery.network).
+
+Don't want to worry about running your own SubQuery infrastructure? SubQuery has a [decentralised SubQuery Network](./introduction.md#using-the-subquery-network) to make running production projects easy, or you can use one of our [partner hosting options](./introduction.md#other-hosting-providers-in-the-subquery-community).
 
 **There are two ways to run a project locally, [using Docker](#using-docker) or running the individual components using NodeJS ([indexer node service](#running-an-indexer-subqlnode) and [query service](#running-the-query-service)).**
 
@@ -392,6 +393,6 @@ curl 'http://localhost:3000' -X POST --data-raw '{"query":"{\n  _metadata {\n   
 
 If you wish to self host SubQuery in a production manner there are many other things to consider. These can vary greatly depending on how you choose to run SubQuery so we while we might find it hard to support your team, we hope to point you in the right direction.
 
-It is recommended that you are familiar with running web services in production, if this sounds like too much work we provide the [SubQuery Managed Service](https://managedservice.subquery.network) to provide all of this functionality for you.
+It is recommended that you are familiar with running web services in production, if this sounds like too much work then SubQuery has a [decentralised SubQuery Network](./introduction.md#using-the-subquery-network) to make running production projects easy, or you can use one of our [partner hosting options](./introduction.md#other-hosting-providers-in-the-subquery-community).
 
 **You will want to review [Running High Performance SubQuery Infrastructure](./optimisation.md).**
