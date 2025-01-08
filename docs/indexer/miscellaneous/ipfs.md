@@ -45,7 +45,7 @@ Your project should now be ready to deploy via IPFS to the SubQuery network.
 
 ### Prepare your SUBQL_ACCESS_TOKEN
 
-- Step 1: Go to [OnFinality Indexer Service](https://indexer.onfinality.io/) and log in.
+- Step 1: Go to [OnFinality Indexer Service](https://indexing.onfinality.io/) and log in.
 - Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
 - Step 3: Copy the generated token.
 - Step 4: To use this token:

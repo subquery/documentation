@@ -55,7 +55,7 @@ None.
 
 #### Step 1: Hello World (SubQuery Hosted)
 
-The detailed steps to deploy a project to [OnFinality Indexer Service](https://indexer.onfinality.io/) are outlined within their documentation website. **Please visit [this section](https://documentation.onfinality.io/support/data-indexing-service).**
+The detailed steps to deploy a project to [OnFinality Indexer Service](https://indexing.onfinality.io/) are outlined within their documentation website. **Please visit [this section](https://documentation.onfinality.io/support/data-indexing-service).**
 
 The process begins with a starter project, then uploads it to GitHub, connects GitHub to SubQuery Managed Service, and then deploys it.
 
@@ -79,7 +79,7 @@ To understand more about how dictionaries work, refer to:
 
 #### Step 4: Understand the Slots
 
-Slots are a feature in OnFinality's Indexing Service that are the equivalent of a development environment. To learn more, visit https://indexer.onfinality.io/
+Slots are a feature in OnFinality's Indexing Service that are the equivalent of a development environment. To learn more, visit https://indexing.onfinality.io/
 
 #### Step 5: Access Playground
 
