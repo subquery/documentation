@@ -17,89 +17,89 @@ import {
 
 // Can expand the Datasource processor types via the generic param
 const project: StarknetProject = {
-    specVersion: "1.0.0",
-    version: "0.0.1",
-    name: "starknet-starter",
-    description:
-        "This project can be use as a starting point for developing your new Starknet SubQuery project",
-    runner: {
-        node: {
-            name: "@subql/node-starknet",
-            version: "*",
-        },
-        query: {
-            name: "@subql/query",
-            version: "*",
-        },
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "starknet-starter",
+  description:
+    "This project can be use as a starting point for developing your new Starknet SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-starknet",
+      version: "*",
     },
-    schema: {
-        file: "./schema.graphql",
+    query: {
+      name: "@subql/query",
+      version: "*",
     },
-    network: {
-        /**
-         * chainId is the Chain ID, for Starknet mainnet this is 0x534e5f4d41494e
-         * https://docs.metamask.io/services/reference/starknet/json-rpc-methods/starknet_chainid/
-         */
-        chainId: '0x534e5f4d41494e',
-        /**
-         * These endpoint(s) should be public non-pruned archive node
-         * We recommend providing more than one endpoint for improved reliability, performance, and uptime
-         * Public nodes may be rate limited, which can affect indexing speed
-         * When developing your project we suggest getting a private API key
-         * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
-         * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
-         */
-        endpoint: 'https://starknet-mainnet.public.blastapi.io/rpc/v0_7'
-    },
-    dataSources: [
-        {
-            kind: StarknetDatasourceKind.Runtime,
-            startBlock: 995339,
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the Chain ID, for Starknet mainnet this is 0x534e5f4d41494e
+     * https://github.com/starknet-io/starknet.js/blob/main/src/constants.ts#L42
+     */
+    chainId: "0x534e5f4d41494e",
+    /**
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
+     */
+    endpoint: ["https://starknet-mainnet.public.blastapi.io/rpc/v0_7"],
+  },
+  dataSources: [
+    {
+      kind: StarknetDatasourceKind.Runtime,
+      startBlock: 995339,
 
-            options: {
-                // Must be a key of assets
-                abi: "zkLend",
-                // # this is the contract address for zkLend market https://starkscan.co/contract/0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05
-                address: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
+      options: {
+        // Must be a key of assets
+        abi: "zkLend",
+        // # this is the contract address for zkLend market https://starkscan.co/contract/0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05
+        address:
+          "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
+      },
+      assets: new Map([["zkLend", { file: "./abis/zkLend.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: StarknetHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              to: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
+              type: "INVOKE",
+              /**
+               * The function can either be the function fragment or signature
+               * function: 'withdraw'
+               * function: '0x015511cc3694f64379908437d6d64458dc76d02482052bfb8a5b33a72c054c77'
+               */
+              function: "withdraw",
             },
-            assets: new Map([["zkLend", { file: "./abis/zkLend.abi.json" }]]),
-            mapping: {
-                file: "./dist/index.js",
-                handlers: [
-                    {
-                        kind: StarknetHandlerKind.Call,
-                        handler: "handleTransaction",
-                        filter: {
-                            to:  "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
-                            type: "INVOKE",
-                            /**
-                             * The function can either be the function fragment or signature
-                             * function: 'withdraw'
-                             * function: '0x015511cc3694f64379908437d6d64458dc76d02482052bfb8a5b33a72c054c77'
-                             */
-                            function: "withdraw",
-                        },
-                    },
-                    {
-                        kind: StarknetHandlerKind.Event,
-                        handler: "handleLog",
-                        filter: {
-                            /**
-                             * Follows standard log filters for Starknet
-                             * zkLend address: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05"
-                             */
-                            topics: [
-                                "Deposit", //0x9149d2123147c5f43d258257fef0b7b969db78269369ebcf5ebb9eef8592f2
-                            ],
-                        },
-                    },
-                ],
+          },
+          {
+            kind: StarknetHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters for Starknet
+               * zkLend address: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05"
+               */
+              topics: [
+                "Deposit", //0x9149d2123147c5f43d258257fef0b7b969db78269369ebcf5ebb9eef8592f2
+              ],
             },
-        },
-    ],
-    repository: "https://github.com/subquery/starknet-subql-starter",
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/starknet-subql-starter",
 };
-
 
 // Must set default to the project instance
 export default project;
@@ -110,7 +110,6 @@ Below is a standard example of the legacy YAML version (`project.yaml`).
 :::details Legacy YAML Manifest
 
 ```yml
-
 specVersion: 1.0.0
 version: 0.0.1
 name: starknet-starter
@@ -119,15 +118,15 @@ description: >-
   SubQuery project
 runner:
   node:
-    name: '@subql/node-starknet'
-    version: '*'
+    name: "@subql/node-starknet"
+    version: "*"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x534e5f4d41494e'
+  chainId: "0x534e5f4d41494e"
   endpoint:
     - https://starknet-mainnet.public.blastapi.io/rpc/v0_7
 dataSources:
@@ -135,7 +134,7 @@ dataSources:
     startBlock: 995339
     options:
       abi: zkLend
-      address: '0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05'
+      address: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05"
     assets:
       zkLend:
         file: ./abis/zkLend.abi.json
@@ -145,12 +144,10 @@ dataSources:
         - kind: starknet/TransactionHandler
           handler: handleTransaction
           filter:
-            to: '0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05'
+            to: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05"
             type: INVOKE
             function: withdraw
 repository: https://github.com/subquery/starknet-subql-starter
-
-
 ```
 
 :::
@@ -182,7 +179,7 @@ repository: https://github.com/subquery/starknet-subql-starter
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Starknet is `0x534e5f4d41494e` for mainnet, `0x534e5f5345504f4c4941` for Sepolia.
+The `chainId` is the network identifier of the blockchain. Examples in Starknet is `0x534e5f4d41494e` for Mainnet, `0x534e5f5345504f4c4941` for Sepolia. You can find constants for the official networks in the [Starknet.js constants.ts file](https://github.com/starknet-io/starknet.js/blob/main/src/constants.ts#L42).
 
 Additionally you will need to update the `endpoint`. This defines the HTTP endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
@@ -194,7 +191,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 | Field            | Type                                                    | Description                                                                                                                                                                                                 |
 | ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String                                                  | A network identifier for the blockchain                                                                                                                                                                     |
+| **chainId**      | String                                                  | A network identifier for the blockchain. Examples in Starknet is `0x534e5f4d41494e` for Mainnet, `0x534e5f5345504f4c4941` for Sepolia.                                                                      |
 | **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
 | **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
 | **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
@@ -209,7 +206,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 ### Runner Node Spec
 
 | Field       | Type                                        | Description                                                                                                                                                                                                          |
-| ----------- | ------------------------------------------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**    | String                                      | `@subql/node-starknet`                                                                                                                                                                                               |
 | **version** | String                                      | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 | **options** | [Runner Node Options](#runner-node-options) | Runner specific options for how to run your project. These will have an impact on the data your project produces. CLI flags can be used to override these.                                                           |
@@ -224,7 +221,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 ### Runner Node Options
 
 | Field                 | v1.0.0 (default) | Description                                                                                                                                                                            |
-| --------------------- | ---------------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **historical**        | Boolean (true)   | Historical indexing allows you to query the state at a specific block height. e.g A users balance in the past.                                                                         |
 | **unfinalizedBlocks** | Boolean (false)  | If enabled unfinalized blocks will be indexed, when a fork is detected the project will be reindexed from the fork. Requires historical.                                               |
 | **unsafe**            | Boolean (false)  | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic. |
@@ -235,8 +232,8 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 
 | Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------- | ------------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **kind**       | string       | [starknet/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                      |
+| -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **kind**       | string       | [starknet/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                  |
 | **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
@@ -244,7 +241,7 @@ Defines the data that will be filtered and extracted and the location of the map
 ### Mapping Spec
 
 | Field                  | Type                         | Description                                                                                                                      |
-| ---------------------- | ---------------------------- |----------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/starknet.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
@@ -261,7 +258,8 @@ In this section, we will talk about the default Starknet runtime and its mapping
         // Must be a Record of assets
         abi: "zkLend",
         // # this is the contract address for your target contract
-        address: "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
+        address:
+          "0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05",
       },
       assets: new Map([["zkLend", { file: "./abis/zkLend.abi.json" }]]),
       mapping: {
@@ -281,11 +279,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                                   | Supported filter                                                                                                                          |
-| ------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
-| [starknet/BlockHandler](../mapping/starknet.md#block-handler)             | `modulo`, `timestamp`                                                                                                                     |
-| [starknet/TransactionHandler](../mapping/starknet.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address),`type`(transaction type, like INVOKE) |
-| [starknet/LogHandler](../mapping/starknet.md#log-handler)                 | `topics` filters, and `address`                                                                                                           |
+| Handler                                                                   | Supported filter                                                                                                                            |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [starknet/BlockHandler](../mapping/starknet.md#block-handler)             | `modulo`, `timestamp`                                                                                                                       |
+| [starknet/TransactionHandler](../mapping/starknet.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address),`type`(transaction type, like `INVOKE`) |
+| [starknet/LogHandler](../mapping/starknet.md#log-handler)                 | `topics` filters, and `address`                                                                                                             |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -360,4 +358,24 @@ Note that there is also [dynamic datasources](./dynamicdatasources.md) for when 
 
 :::
 
+## Endpoint Config
 
+This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
+
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
+```ts
+{
+  network: {
+    endpoint: {
+      "https://starknet-mainnet.public.blastapi.io/rpc/v0_7": {
+        headers: {
+          "x-api-key": "your-api-key",
+        },
+        // NOTE: setting this to 0 will not use batch requests
+        batchSize: 5
+      }
+    }
+  }
+}
+```
