@@ -1,5 +1,5 @@
 <template>
-  <div class="footer layout">SubQuery © 2024</div>
+  <div class="footer layout">SubQuery © 2025</div>
 </template>
 <script setup lang="ts"></script>
 
