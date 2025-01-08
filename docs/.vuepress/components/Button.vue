@@ -16,7 +16,7 @@ defineProps<{
   height: 48px;
   line-height: 48px;
   border-radius: 48px;
-  background: #4388dd;
+  background: #e968dd;
   font-weight: 400;
   font-size: 16px;
   color: #fff;
@@ -34,6 +34,6 @@ defineProps<{
   opacity: 0.87;
 }
 .buttonRed {
-  background: #ff4581;
+  background: #e968dd;
 }
 </style>

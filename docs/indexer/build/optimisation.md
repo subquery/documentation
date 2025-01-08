@@ -15,9 +15,9 @@ If you're looking for advice on how to run high performance SubQuery infrastruct
 - Avoid using `blockHandlers` where possible. Using block handlers slows your project down as they can be executed with each and every block. Use them only if you need to and [consider adjusting project architecture](#review-project-architecture).
   - If you must use a block handler, ensure that you carefully optimise every code path called by it. As it will be executed on each block the total time that it might take will increase linearly as the chain grows.
   - Use a convenient `modulo` filter to run a handler only once to a specific block. This filter allows handling any given number of blocks, which is extremely useful for grouping and calculating data at a set interval. For instance, if modulo is set to 50, the block handler will run on every 50 blocks. It provides even more control over indexing data to developers.
-- Always use a [dictionary](../academy/tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) (we can help create one for your new network). You can see examples of how to create a dictionary in the [dictionary repository](https://github.com/subquery/subql-dictionary).
-- Use filter conditions in your mapping handlers (within the project manifest) to reduce the number of events/transactions that need to be processed. Create filters as specific as possible to avoid querying unnecessary data.
-- Set the start block in your project manifest to when the contract was initialised or when the first event/transaction occurs.
+- For all major chains we already [provide valid SubQuery dictionaries](https://github.com/subquery/templates/blob/main/dist/dictionary.json), but if you’re indexing a custom chain, you may want to implement your own [dictionary](../academy/tutorials_examples/dictionary.html#how-does-a-subquery-dictionary-work) project to speed up your indexer (we can help create one for your new network). You can see examples of how to create a dictionary in the [dictionary repository](https://github.com/subquery/subql-dictionary).
+- Use the strictest possible filter conditions in your mapping handlers (within the project manifest) to reduce the number of events/transactions that need to be processed. Create filters as specific as possible to avoid querying unnecessary data.
+- Set the start block in your project manifest to when the contract was initialised or, better yet, when the first event/transaction occurs.
 - Use `node worker threads` to move block fetching and block processing into its own worker thread. It could speed up indexing by up to 4 times (depending on the particular project). You can easily enable it using the `-workers=<number>` flag. Note that the number of available CPU cores strictly limits the usage of worker threads. [Read more here](../run_publish/references.html#w-workers).
 
 ## Other Improvements
@@ -39,9 +39,9 @@ type Transaction @entity {
 ```
 
 - Use parallel/batch processing as often as possible.
-  - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
   - Use `Promise.all()`. In case of multiple async functions, it is better to execute them and resolve in parallel.
   - If you want to create a lot of entities within a single handler, you can use `store.bulkCreate(entityName: string, entities: Entity[])`. You can create them in parallel, no need to do this one by one (see example below). Read more in our [advanced access to the store documentation](../build/mapping/store.html).
+    - Use `api.queryMulti()` to optimise Polkadot API calls inside mapping functions and query them in parallel. This is a faster way than a loop.
 
 ```shell
   await Promise.all([
@@ -95,3 +95,89 @@ If your project requires indexing all the blocks, transactions alongside more sp
 We recommend this approach, because it takes time to index all the blocks and it can slow down your project significantly. If you want to apply some changes to your filters or entities shape you may need to remove your database and reindex the whole project from the beginning.
 
 A common example is creating a large project that indexes everything so you can perform internal analysis on your contracts, and then much smaller and optimised project for indexing the key data for your dApp. The larger project that indexes everything might never change and so you can avoid costly reindexing, while the smaller optimised project will change as your dApp matures and can be reindexed much faster.
+
+## Simplifying the Project Manifest
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many ERC20 contracts.
+
+Note that there is also [dynamic datasources](./dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+In cases where there are a large number of contract addresses, but the list is static, you can simplify the manifest a couple of ways depending on whether you're using typescript or yaml. With typescript you can use functions as you would with any other typescript file. With yaml you can use [anchors](https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/).
+
+::: code-tabs
+@tab project.ts
+
+```ts
+
+const erc20Addresses = [
+  "0x09395a2a58db45db0da254c7eaa5ac469d8bdc85",
+  // Other contract addresses go here
+];
+
+const project: EthereumProject = {
+  // ...The rest of your project manifest
+  dataSources: [
+    ...addresses.map(address => ({
+      {
+        kind: EthereumDatasourceKind.Runtime,
+        startBlock: 1,
+
+        options: {
+          abi: "erc20",
+          address,
+        },
+        assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+        mapping: {
+          file: "./dist/index.js",
+          handlers: [
+            {
+              kind: EthereumHandlerKind.Event,
+              handler: "handleLog",
+              filter: {
+                topics: [
+                  "Transfer(address indexed from, address indexed to, uint256 amount)",
+                ],
+              },
+            },
+          ],
+        },
+      }
+    }))
+    // Other data sources here
+  ],
+};
+
+```
+
+@tab project.yml
+
+```yml
+# The rest or your project yaml
+
+x-erc20: &erc20
+  kind: ethereum/Runtime
+  startBlock: 10512216
+  assets:
+    erc20:
+      file: ./abis/erc20.abi.json
+  options:
+    abi: erc20
+  mapping:
+    file: ./dist/index.js
+    handlers:
+      - handler: handleLog
+        kind: ethereum/LogHandler
+        filter:
+          topics:
+            - Transfer(address indexed from, address indexed to, uint256 amount)
+
+dataSources:
+  # Repeat this with different addresses
+  - <<: *erc20
+    options:
+      abi: erc20
+      address: "0x09395a2a58db45db0da254c7eaa5ac469d8bdc85"
+  # Other datasources here
+```
+
+:::

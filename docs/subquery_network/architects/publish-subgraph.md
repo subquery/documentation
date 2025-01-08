@@ -18,7 +18,17 @@ The SubQuery Network is the future of web3 infrastructure, it allows you to comp
 
 1. The SubQuery Network does not support GraphQL subscriptions
 2. Your project can generate stable proof of indexing results. Node Operator’s proof of indexing will be kept private
-3. Your Subgraph deployment is published to IPFS
+3. You must have generated a unique IPFS CID for your SubGraph.
+
+## Retrieving an IPFS CID for your SubGraph
+
+In order to publish a Subgraph project to the SubQuery Network, you must first upload it to IPFS and retrieve a publicly accessible IPFS CID.
+
+There are two ways to do this. First, if the Subgraph is already live on the Graph Network, you can retrieve the IPFS CID from the Graph Explorer. In the Graph Explorer this value is called the _Deployment ID_ on the website.
+
+![IPFS on the Graph Explorer](/assets/img/network/architect_publish_subgraph_ipfs.png)
+
+Alternatively, if you have not deployed the Subgraph project on the Graph Network, you can use the Graph's command line interface `graph build -i https://unauthipfs.subquery.network/ipfs/api/v0`. This will return you an IPFS CID that you can use.
 
 ## Deploying your Subgraph Project
 
@@ -26,7 +36,7 @@ The SubQuery Network is a public permission-less network, anyone can deploy thei
 
 ![Explorer - Publish Button](/assets/img/network/architect_publish.png)
 
-You will need to publish your Subgraph project to IPFS first. Please enter the project CID and give your project a nice name.
+Please enter the [project CID that you retrieved earlier](#retrieving-an-ipfs-cid-for-your-subgraph) and give your project a nice name.
 
 ![Publish - Enter CID and Name](/assets/img/network/architect_publish_subgraph.png)
 
@@ -44,7 +54,7 @@ Once entered, click "Publish" to publish your project, you will then be taken to
 
 ::: info How to encourage Node Operators to sync your project
 
-At this stage you should reach out to Node Operators in our Discord to encourage them to start syncing it, once they do you will be able to create plans and start querying this data. You might also want to consider [boosting your project](../consumers/boosting.md) to incentivise Node Operators to do so, and in return receive free queries to it.
+[Please read and review the suggested next steps after publishing your project to maximise success](./next-steps.md).
 
 :::
 
@@ -65,4 +75,4 @@ Firstly, you can publish a new version by clicking "Deploy New Version". This wi
 
 ## Connect your dApp
 
-To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../../consumers/plan.md)
+To get started, create a Flex Plan and get your GraphQL endpoint [follow the guide here](../consumers/plan.md)

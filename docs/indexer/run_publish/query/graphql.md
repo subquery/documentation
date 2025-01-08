@@ -1,8 +1,10 @@
-# Query your Project using GraphQL
+# SubQuery Native Query Service
 
 ::: info Coming from the Graph?
 
-You may want to take a look at the information we have [on the differences](../../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
+Instead, you may consider to use the [Subgraph style query service we have!](./subgraph.md)
+
+Or, you may want to take a look at the information we have [on the differences](../../build/graph-migration.md#graphql-query-differences) between SubQuery's GraphQL library, and The Graph.
 
 :::
 
@@ -15,7 +17,7 @@ You can follow the [official GraphQL guide here](https://graphql.org/learn/) to 
 
 ![SubQuery Project](/assets/img/run_publish/query.png)
 
-On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query. On our [Managed Service Explorer](https://explorer.subquery.network/), you will also find a query constructor.
+On the top right of the playground, you'll find a _Docs_ button that will open a documentation draw. This documentation is automatically generated and helps you find what entities and methods you can query.
 
 ### Full Text Search
 

@@ -10,7 +10,7 @@ Taking the [SubQuery dictionary](https://github.com/subquery/subql-dictionary) p
 ![events table](/assets/img/academy/events_table.png)
 ![specversion table](/assets/img/academy/specversion_table.png)
 
-Data from the blockchain is then stored in these tables and indexed for performance. The project is then hosted in SubQuery's Managed Service and the API endpoint is available to be added to the manifest file.
+Data from the blockchain is then stored in these tables and indexed for performance.
 
 ## How to incorporate a dictionary into your project?
 

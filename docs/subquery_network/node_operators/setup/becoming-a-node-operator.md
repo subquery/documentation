@@ -8,17 +8,18 @@ Node Operators can run either data indexing projects or RPC endpoints for the ne
 
 Let's take an overview of the basic steps involved in the process:
 
-| Steps                                                                | Process Flow                                                                     |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Step 1](#1-deploy-node-operator-services)                           | Setup & Start your Node Operator services locally in Docker or on an external VM |
-| [Step 2](#2-setup-ssl-on-your-new-server-and-consult-security-guide) | Setup SSL on your new server and consult security guide                          |
-| [Step 3](#3-register-in-the-node-operator-admin-app)                 | Register yourself as a Node Operator to the Network                              |
-| [Step 4](#4-index-or-sync-a-project)                                 | Index a project or sync an RPC endpoint                                          |
-| [Step 5](#5-create-a-plan-from-a-plan-template)                      | Create a Plan from a Plan Template                                               |
-| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)          | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-troubleshooting-and-faqs)                                | Troubleshooting and FAQs                                                         |
-| [Step 8](#8-setting-up-a-grafana-dashboard-optional)                 | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 9](#9-upgrade-node-operator-services-ongoing)                  | Ongoing: Update Node Operator Services                                           |
+| Steps                                                           | Process Flow                                                                     |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [Step 1](#1-deploy-node-operator-services)                      | Setup & Start your Node Operator services locally in Docker or on an external VM |
+| [Step 2](#2-setup-proxy-endpoint-to-public)                     | Setup Proxy Endpoint to public                                                   |
+| [Step 3](#3-register-in-the-node-operator-admin-app)            | Register yourself as a Node Operator to the Network                              |
+| [Step 4](#4-index-or-sync-a-project)                            | Index a project or sync an RPC endpoint                                          |
+| [Step 5](#5-create-a-plan-from-a-plan-template)                 | Create a Plan from a Plan Template                                               |
+| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)     | Set a Node Operator Commission Rate                                              |
+| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
+| [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
+| [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 10](#10-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
 
 ## 1. Deploy Node Operator Services
 
@@ -68,9 +69,9 @@ curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/de
 This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release versions at your own risk).
 
 | Service                                                                                             | Version Tag |
-| :-------------------------------------------------------------------------------------------------- | :---------- |
-| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.0.7`    |
-| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.1.0`    |
+| :-------------------------------------------------------------------------------------------------- |:------------|
+| [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.8.3`    |
+| [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.8.1`    |
 
 ::: warning Important
 
@@ -80,11 +81,32 @@ Please go through the docker-compose file carefully, and change the following pa
 - Your `--secret-key` under both coordinator and proxy containers.
 - Your `--jwt-secret` and `--metrics-token` under proxy container.
 
+Pay attention to the versions of `indexer-coordinator` and `indexer-proxy`, you should use the latest version. Older versions may experience errors or not generate rewards!
+
 :::
 
-## 2. Setup SSL on your New Server and Consult Security Guide
+## 2. Setup Proxy Endpoint to public
 
-We highly recommend setting up SSL on your new server and [consulting our security guide carefully](./security-guide.md). You will be penalised for not setting up SSL, firewalls, or following our security guidelines.
+After running the docker-compose, you can access proxy endpoint via `http://localhost/healthy`. You need to make this endpoint publicaly accessible, we will use Nginx to do this.
+
+1. Download Nginx: `sudo apt-get install nginx`
+2. Create a Nginx config: `mkdir nginx && touch $_/nginx.conf`
+3. Update `nginx/nginx.conf` to add a reverse proxy to our proxy endpoint.
+
+```
+server {
+    listen 80;
+    location / {
+        proxy_pass http://localhost/; # The proxy endpoint.
+    }
+}
+```
+
+4. Copy to `conf.d`: `sudo cp nginx/nginx.conf /etc/nginx/conf.d/`
+5. Start Nginx: `sudo systemctl start nginx` or `sudo systemctl reload nginx`
+6. Test via `curl http://your_ip_or_domain`.
+
+We highly recommend setting up SSL on your new server and [consulting our security guide carefully](./security-guide.md). You may be penalised for not setting up SSL, firewalls, or following our security guidelines.
 
 ## 3. Register in the Node Operator Admin App
 
@@ -93,6 +115,8 @@ Once your Indexing Service is all set and running successfully, you should open 
 - Connect your wallet
 - Register and stake your minimum required stake ([see the current value](../../parameters.md))
 - Add metadata information for your Node Operator account
+
+We suggest you also setup your Social Profile so Delegators can get to know you, and so you can show social credibility. To setup social credibility, create an ENS domain name and profile linked to your wallet. [You can setup an ENS domain here](https://app.ens.domains/).
 
 ## 4. Index or Sync a Project
 
@@ -117,11 +141,19 @@ Enter a new value (in a percent) and submit via your wallet.
 
 Changes will come into effect at the start of the next [Era](../../introduction/era.md).
 
-## 7. Troubleshooting and FAQs
+## 7. Allocate your SQT stake to start receiving rewards
+
+You must [actively allocate or assign your staked and delegated SQT to certain projects](../stake.md#allocating-stake) you run in order to receive rewards. Unallocated SQT is essentially wasted.
+
+We suggest you check this page at the start of each Era, and make sure you are keeping on top to maximise allocated SQT, and also allocate SQT to more profitable projects (e.g. ones with a higer APY). [Find out how here](../stake.md#allocating-stake).
+
+We also highly recommend that you enable [Auto Reduce Over Allocation](../stake.md#automatically-reduce-over-allocation) to prevent being over allocated.
+
+## 8. Troubleshooting and FAQs
 
 Visit [Troubleshooting](./troubleshooting.md) or [FAQs](./faq.md) if you run into technical issues.
 
-## 8. Setting up a Grafana Dashboard (Optional)
+## 9. Setting up a Grafana Dashboard (Optional)
 
 This guide will walk you through setting up a preconfigured Grafana Dashboard to view metrics from the `indexer-coordinator` and `indexer-proxy`.
 
@@ -172,7 +204,7 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 ![grafana_query_count](/assets/img/network/grafana_query_count.png)
 ![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
-## 9. Upgrade Node Operator services (Ongoing)
+## 10. Upgrade Node Operator services (Ongoing)
 
 To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
 

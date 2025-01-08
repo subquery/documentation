@@ -26,8 +26,12 @@ photoSwipe: false
       <Typography tag="h4" center maxWidth="687" family="body">
         The SubQuery Data Indexer is a open-source data indexer that provides
         you with custom APIs for your web3 project across all of our supported
-        chains.</Typography
-      >
+        chains.
+      </Typography>
+      <Typography tag="h4" center maxWidth="687" family="body">
+        SubQuery AI Apps framework makes building decentralised AI Applications 
+        fast and easy.
+      </Typography>
     </div>
   </div>
   <div class="layout flex mt80 gp24 flexColMobile">
@@ -46,6 +50,23 @@ photoSwipe: false
           that provides you with custom APIs for your web3 project across all
           of our supported chains.
         </Typography>
+        <div>
+          <Button class="mt40">Learn more</Button>
+        </div>
+      </router-link>
+    </BaseCard>
+    <BaseCard>
+      <router-link
+        class="flexCol gp24"
+        :to="{ path: '/ai/welcome.html' }"
+      >
+        <div class="flexCenter gp16">
+          <img src="/assets/img/home/indexer-sdk.png" />
+          <Typography tag="h4" family="body">AI Apps Framework</Typography>
+        </div>
+        <Typography tag="h3">Agentic AI with SubQuery's AI Apps</Typography>
+        <Typography tag="h5" type="secondary"
+          >The AI App Framework allows you to build, deploy, and run agentic production AI apps on the SubQuery Network in a trusted and decentralised environment.</Typography>
         <div>
           <Button class="mt40">Learn more</Button>
         </div>
@@ -73,6 +94,7 @@ photoSwipe: false
         </div>
       </router-link>
     </BaseCard>
+
   </div>
   <div class="layout mt140">
     <Typography tag="h3"> Our Most Popular Guides </Typography>
@@ -154,9 +176,9 @@ const polularGuides = computed(() => {
     "description": "The SubQuery Token (SQT) is a utility token that powers the SubQuery Network. Learn how to get SQT and the tokenomics of it."
   },
   {
-    "path": "/indexer/run_publish/publish.html",
-    "title": "How to host and run your project",
-    "description": "SubQuery is open-source and gives a number of different options, including self-hosting, our managed service, and our decentralised network."
+    "path": "/ai/welcome.html",
+    "title": "Build and deploy AI Apps with SubQuery",
+    "description": "Anyone can build intelligent dApps with the SubQuery AI App framework, providing a shortcut for developers to start incorporating decentralised AI into their applications."
   }
 ]})
 

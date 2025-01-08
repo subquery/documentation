@@ -14,7 +14,7 @@ Automated Historical State Tracking alters the underlying DB tables to manage st
 
 At a high level, there is no specific configuration required to ensure compatibility between your SubQuery indexing project and Metabase. The key factor is that your Metabase instance must be able to access the Postgres database that your SubQuery project is indexing into.
 
-For that reason, visualising data in Metabase is not supported in SubQuery decentralised network or Managed Service, you must self host and run your SubQuery Indexing project.
+For that reason, visualising data in Metabase is not supported in SubQuery decentralised network, you must self host and run your SubQuery Indexing project.
 
 You will want to follow the guide on how to run your [SubQuery indexing project locally](../../run.md#running-subquery-locally). Please pay attention to what you set as your Postgres database host, port, username, and password.
 

@@ -63,7 +63,7 @@ body .theme-hope-content:not(.custom) {
 
 .grid2column {
   display: grid;
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr;
 }
 
 .grid3column {
@@ -191,7 +191,6 @@ body .theme-hope-content:not(.custom) {
   flex-flow: row wrap;
 }
 
-
 .graphGuide {
   background: radial-gradient(
       50% 50% at 50% 50%,
@@ -252,12 +251,11 @@ iframe {
   }
 }
 
-
-@media  screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .welcomeContainer {
     padding: 0 20px;
   }
-  
+
   .banner {
     padding: 80px 0;
   }
@@ -282,14 +280,14 @@ iframe {
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 0;
-    opacity: .5;
+    opacity: 0.5;
   }
-  
+
   .bannerRow .bannerImage img {
     width: 100vw;
   }
 
   .bannerRow .bannerImageBg {
-    display: none;;
+    display: none;
   }
 }

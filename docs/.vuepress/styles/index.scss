@@ -1,8 +1,7 @@
 // place your custom styles here
 @font-face {
   font-family: "Inter";
-  src:
-    local("Inter-Regular"),
+  src: local("Inter-Regular"),
     url("https://static.subquery.network/design/fonts/Inter-Regular.ttf")
       format("truetype");
   font-display: swap;
@@ -10,8 +9,7 @@
 
 @font-face {
   font-family: "Inter-SemiBold";
-  src:
-    local("Inter-SemiBold"),
+  src: local("Inter-SemiBold"),
     url("https://static.subquery.network/design/fonts/Inter-SemiBold.ttf")
       format("truetype");
   font-display: swap;
@@ -19,16 +17,16 @@
 
 @font-face {
   font-family: "Inter-Bold";
-  src:
-    local("Inter-Bold"),
+  src: local("Inter-Bold"),
     url("https://static.subquery.network/design/fonts/Inter-Bold.ttf")
       format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Futura';
-  src: url('https://static.subquery.network/design/fonts/Futura-Medium.ttf') format('truetype');
+  font-family: "Futura";
+  src: url("https://static.subquery.network/design/fonts/Futura-Medium.ttf")
+    format("truetype");
   font-display: swap;
 }
 
@@ -54,7 +52,9 @@ iframe {
 #navbar {
   max-width: 1440px;
   margin: 0 auto;
-  .vp-navbar-start, .vp-navbar-end, .vp-navbar-center {
+  .vp-navbar-start,
+  .vp-navbar-end,
+  .vp-navbar-center {
     flex: 0;
   }
 
@@ -144,7 +144,7 @@ iframe {
   .vp-sidebar-link {
     transition: all 0.2s linear;
     margin: 0;
-    padding: 12px 24px;
+    padding: 12px 16px;
     border-radius: 0;
   }
 
@@ -157,7 +157,6 @@ iframe {
   .vp-sidebar-group {
     .vp-sidebar-group {
       padding-inline-start: 0;
-
     }
     .vp-sidebar-links {
       padding-inline-start: 24px;
@@ -169,7 +168,7 @@ iframe {
     .vp-sidebar-links {
       position: relative;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 24px;
@@ -180,10 +179,10 @@ iframe {
     }
   }
 
-  .vp-sidebar-link:hover, .vp-sidebar-link.active {
+  .vp-sidebar-link:hover,
+  .vp-sidebar-link.active {
     background: var(--dark-mode-card);
     color: var(--theme-color);
-
   }
   .vp-sidebar-heading.clickable:hover {
     background: transparent;
@@ -211,10 +210,16 @@ iframe {
   text-decoration: none;
 }
 
+.theme-hope-content {
+  ol,ul {
+    padding-left: 1.2rem;
+    list-style: revert;
+  }
+}
+
 .vp-page-nav {
   max-width: var(--max-width);
 }
-
 
 @media screen and (max-width: 768px) {
   #navbar {
@@ -231,7 +236,7 @@ iframe {
       }
       .DocSearch {
         width: 100%;
-      } 
+      }
     }
   }
 
@@ -240,16 +245,14 @@ iframe {
   }
 }
 
-
-
 html[data-theme="dark"] {
   --dark-grey: #fff;
   --primary-color: var(--theme-color);
-  --secondary-color: #ff4581;
+  --secondary-color: #e968dd;
   --light-grey: var(--gray-400);
   --theme-color-mask: transparent;
-  --dark-mode-card: #1b2545;
-  --dark-mode-border: #34414b;
+  --dark-mode-card: #1a1a1a;
+  --dark-mode-border: #1a1a1a;
   --dark-mode-background: var(--bg-color);
   --gray-300: #efe3e8;
   --gray-400: #c4cdd5;

@@ -43,10 +43,6 @@ In our example project, we have [altered the standard `docker-compose.yml`](http
 This feature is not compatible with [Historical State](../run_publish/historical.md) and will be disabled if `--multi-chain` is used.
 :::
 
-::: warning Warning
-This feature is only supported for Partner Plan Customers in the [SubQuery Managed Service](https://managedservice.subquery.network). All others can run this locally in their own infrastructure provider.
-:::
-
 ## Initialising and creating a multi-chain project
 
 Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
@@ -74,6 +70,7 @@ projects:
 ### 2. Generate Required Entities, Datasource Templates, and ABIs
 
 Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
+If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
 
 ### 3. Add a New Network to the Multi-Chain Manifest
 
@@ -110,7 +107,7 @@ Use `subql publish` command to publish all the projects listed in the `subquery-
 
 The repository for this example can be found [here](https://github.com/subquery/subql-starter/tree/main/Multi-chain/transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
 
-A modified `docker-compose.yaml` file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a seperate manifest file (see [command line references](../run_publish/references.md)).
+A modified `docker-compose.yaml` file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a separate manifest file (see [command line references](../run_publish/references.md)).
 
 This multi-chain project can be started regularly by following the [Readme.md](https://github.com/subquery/subql-starter/tree/main/Multi-chain/transfers/blob/main/README.md).
 
@@ -172,7 +169,7 @@ In many cases, you will have a completely different set of mapping handlers to d
 
 ## Cross-Chain Race Conditions
 
-If you are intending to mutate data across chain, e.g. an action in one network will affect a entity saved from another, then please be aware that SubQuery provides no guarantees of cross-chain ordering.
+If you are intending to mutate data across chain, e.g. an action in one network will affect an entity saved from another, then please be aware that SubQuery provides no guarantees of cross-chain ordering.
 
 For example, one chain may index much faster than the other, and when indexing a cross-chain transaction, indexer B may encounter the receipt of this transaction on chain B well before the indexer A encounters that the transaction has been sent on chain A.
 

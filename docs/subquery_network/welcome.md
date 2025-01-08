@@ -17,7 +17,7 @@ photoSwipe: false
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg bannerImageBgRed"></div>
-      <img src="/assets/img/architects.png" />
+      <img src="/assets/img/networkBanner.png" />
     </div>
   </div>
   <Banner
@@ -152,7 +152,7 @@ photoSwipe: false
     :buttonText="isMobile? 'Learn more' : 'Learn more about our Indexer SDK'"
     titleTag="h35"
     buttonLink="/indexer/welcome.html"
-    backgroundUrl="https://subquery.network/images/indexerConcept.png"
+    backgroundUrl="/assets/img/indexerBanner.png"
     style="
       background-size: 389px;
       background-position: right;
@@ -181,7 +181,7 @@ window.addEventListener('resize', checkIsMobile)
 
 const oneNetworkAllWeb3 = ref([
 {
-image: "https://subquery.network/images/indexerConcept.png",
+image: "https://subquery.network/images/home/decentralised.png",
 title: 'Decentralised Data Indexers',
 subtitle: 'Fast, reliable, decentralised, and customised APIs for your web3 project',
 contents: [
@@ -190,7 +190,7 @@ contents: [
 ],
 },
 {
-image: "https://subquery.network/images/rpcConcept.png",
+image: "https://subquery.network/images/home/rpcConcept.png",
 title: 'Decentralised RPC Endpoints',
 subtitle: 'Faster, cheaper, and globally decentralised RPCs that supercharge your dApp',
 contents: [
@@ -205,7 +205,7 @@ const anyoneContents = ref([
 name: "DApp Users",
 description:
 "DApp Users will ask the SubQuery Network for specific indexed data and RPC endpoints for their dApps or tools, and exchange an advertised amount of SQT for each request.",
-image: "https://subquery.network/robots/consumer/consumer.png",
+image: "/assets/img/participants/consumer.png",
 moreLink:
 "/subquery_network/consumers/introduction.html",
 },
@@ -213,7 +213,7 @@ moreLink:
 name: "Delegators",
 description:
 "Delegators will participate in the Network by supporting their favourite Data Indexers and RPC Providers to earn rewards based on the work those indexers do.",
-image: "https://subquery.network/robots/delegator/delegator.png",
+image: "/assets/img/participants/delegator.png",
 
     moreLink:
       "/subquery_network/delegators/introduction.html",
@@ -223,7 +223,7 @@ image: "https://subquery.network/robots/delegator/delegator.png",
 name: "Data Indexers",
 description:
 "Data Indexers will run and maintain high quality SubQuery projects in their own infrastructure and will be rewarded in SQT for the requests that they serve.",
-image: "https://subquery.network/robots/indexer/indexer.png",
+image: "/assets/img/participants/indexer.png",
 
     moreLink: "/subquery_network/node_operators/introduction.html",
 
@@ -232,7 +232,7 @@ image: "https://subquery.network/robots/indexer/indexer.png",
 name: "RPC Providers",
 description:
 "RPC Providers run the optimised SubQuery Data Node and are rewarded in SQT for providing reliable, scalable, and affordable RPC services to the network.",
-image: "https://subquery.network/robots/rpc/rpc.svg",
+image: "/assets/img/participants/rpc.png",
 
     moreLink:
       "/subquery_network/node_operators/introduction.html",

@@ -1,5 +1,11 @@
 # GraphQL Subscriptions
 
+:::warning Not supported in Subgraph Query Service
+
+This feature is only supported in the SubQuery Native query service, not the Subgraph query service.
+
+:::
+
 ## What is a GraphQL Subscription
 
 SubQuery now also supports Graphql Subscriptions. Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time.
@@ -70,6 +76,10 @@ subscription {
 ```
 
 Note that the `mutation` filter can be one of `INSERT`, `UPDATE` or `DELETE`.
+
+::: tip Note
+If historical indexing is enabled, the `mutation_type` will be `UPDATE` for both insertions and updates.
+:::
 
 ## Examples
 
@@ -232,11 +242,3 @@ pubsub.publish(`UPDATE_${accountId}`, {
 ```
 
 Note that this example does not include error handling or authentication/authorization, which are essential for production applications.
-
-## Using in the Managed Service
-
-The managed service supports subscriptions for paid plans, you must enable subscription support when deploying your project in our service under "Advanced Settings"
-
-::: warning Important
-The subscription feature works on SubQuery's Managed Service when you directly call the listed GraphQL endpoint. It will not work within the in-browser GraphQL playground.
-:::

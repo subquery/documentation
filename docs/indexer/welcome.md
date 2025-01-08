@@ -15,7 +15,7 @@ photoSwipe: false
     </div>
     <div class="bannerImage">
       <div class="bannerImageBg"></div>
-      <img src="https://subquery.network/images/indexerConcept.png" />
+      <img src="/assets/img/indexerBanner.png" />
     </div>
   </div>
   <QuickStart></QuickStart>
@@ -60,6 +60,8 @@ photoSwipe: false
     </div>
     <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/indexer/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <Faqs></Faqs>
+    <p><a href="https://academy.subquery.network/indexer/miscellaneous/faq.html">SDK FAQ</a></p>
+    <p><a href="https://academy.subquery.network/subquery_network/faq.html">Network FAQ</a></p>
     <div class="flex layout mt80 flexColMobile" style="justify-content: space-between;">
       <div class="flexCol gp24" style="max-width: 590px">
         <Typography tag="h35">The SubQuery Network</Typography>
@@ -79,7 +81,7 @@ photoSwipe: false
         </div>
       </div>
       <img :style="{
-        marginTop: isMobile ? '' : '-50px'}" src="/assets/img/architects.png" :width="isMobile ? '100%' : 516" :height="isMobile ? 'auto': 392" />
+        marginTop: isMobile ? '' : '-50px'}" src="/assets/img/networkBanner.png" :width="isMobile ? '100%' : 516" :height="isMobile ? 'auto': 392" />
     </div>
     <NeedHelp></NeedHelp>
     <Footer></Footer>
@@ -159,7 +161,7 @@ const journeies = ref([
     "description": "Running a SubQuery Project is easy, or if you don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon6.svg",
+    "iconSrc": "/assets/img/journeyIcon4.svg",
     "path": "/subquery_network/publish.html",
     "title": "4. Deploy to the SubQuery Network",
     "description": "Our decentralised service is a web3 infrastructure revolution. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way."

@@ -29,7 +29,7 @@ For even more performance gains, using a dictionary is highly recommended.
 
 The concept of a **dictionary** was introduced in previous modules (For e.g. [Module 5 - Overriding Endpoints](../herocourse/module5.md#step-3-override-endpoints)).
 
-Due to its importance, pleae review [Understanding how a dictionary works](../tutorials_examples/dictionary.md) and remember to include it in all your projects.
+Due to its importance, please review [Understanding how a dictionary works](../tutorials_examples/dictionary.md) and remember to include it in all your projects.
 
 ## Event & Extrinsic Names
 

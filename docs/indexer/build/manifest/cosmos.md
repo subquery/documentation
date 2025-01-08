@@ -19,9 +19,9 @@ import {
 const project: CosmosProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
-  name: "osmosis-starter",
+  name: "juno-starter",
   description:
-    "This project can be use as a starting point for developing your Cosmos osmosis based SubQuery project",
+    "This project can be use as a starting point for developing your Cosmos juno based SubQuery project",
   runner: {
     node: {
       name: "@subql/node-cosmos",
@@ -36,56 +36,40 @@ const project: CosmosProject = {
     file: "./schema.graphql",
   },
   network: {
-    /* The genesis hash of the network (hash of block 0) */
-    chainId: "osmosis-1",
+    /* The unique chainID of the Cosmos Zone */
+    chainId: "juno-1",
     /**
-     * These endpoint(s) should be non-pruned archive nodes
+     * These endpoint(s) should be public non-pruned archive node
+     * We recommend providing more than one endpoint for improved reliability, performance, and uptime
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * We suggest providing an array of endpoints for increased speed and reliability
+     * If you use a rate limited endpoint, adjust the --batch-size and --workers parameters
+     * These settings can be found in your docker-compose.yaml, they will slow indexing but prevent your project being rate limited
      */
-    endpoint: ["https://osmosis.api.onfinality.io/public"],
-    // # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary:
-      "https://api.subquery.network/sq/subquery/cosmos-osmosis-dictionary",
-    chaintypes: new Map([
-      [
-        "osmosis.gamm.v1beta1",
-        {
-          file: "./proto/osmosis/gamm/v1beta1/tx.proto",
-          messages: ["MsgSwapExactAmountIn"],
-        },
-      ],
-      [
-        " osmosis.poolmanager.v1beta1",
-        {
-          // needed by MsgSwapExactAmountIn
-          file: "./proto/osmosis/poolmanager/v1beta1/swap_route.proto",
-          messages: ["SwapAmountInRoute"],
-        },
-      ],
-      [
-        "cosmos.base.v1beta1",
-        {
-          // needed by MsgSwapExactAmountIn
-          file: "./proto/cosmos/base/v1beta1/coin.proto",
-          messages: ["Coin"],
-        },
-      ],
-    ]),
+    endpoint: ["https://rpc-juno.whispernode.com"],
   },
   dataSources: [
     {
       kind: CosmosDatasourceKind.Runtime,
-      startBlock: 9798050,
+      startBlock: 9700000,
       mapping: {
         file: "./dist/index.js",
         handlers: [
           {
+            handler: "handleEvent",
+            kind: CosmosHandlerKind.Event,
+            filter: {
+              type: "execute",
+              messageFilter: {
+                type: "/cosmwasm.wasm.v1.MsgExecuteContract",
+              },
+            },
+          },
+          {
             handler: "handleMessage",
             kind: CosmosHandlerKind.Message,
             filter: {
-              type: "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
+              type: "/cosmwasm.wasm.v1.MsgExecuteContract",
             },
           },
         ],
@@ -206,13 +190,13 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks).
 
-| Field            | Type   | Description                                                                                                                                                                                                |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                                    |
-| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
+| Field            | Type                                               | Description                                                                                                                                                                              |
+| ---------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                             | A network identifier for the blockchain                                                                                                                                                  |
+| **endpoint**     | String or String[]                                 | Defines the endpoint of the blockchain to be indexed, this can be a string or an array of endpoints - **This must be a full archive node**.                                              |
+| **dictionary**   | String                                             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
+| **bypassBlocks** | Array                                              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| **chaintypes**   | Map\<String, { file: String, messages: String[] \> | References to protobuf files that are used to decode block content, this should include protobufs for any messages or events that you wish to decode, see [ChainTypes](#chain-types)     |
 
 ### Runner Spec
 
@@ -231,10 +215,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | We currently support `@subql/query`                                                                                                                                                              |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
+| **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -336,11 +320,87 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
+
+The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
+
+```yml
+filter:
+  # This cron expression will index blocks with at least 5 minutes interval
+  # between their timestamps starting at startBlock given under the datasource.
+  timestamp: "*/5 * * * *"
+```
+
+::: tip Note
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
+:::
+
+Some common examples
+
+```yml
+  # Every minute
+  timestamp: "* * * * *"
+  # Every hour on the hour (UTC)
+  timestamp: "0 * * * *"
+  # Every day at 1am UTC
+  timestamp: "0 1 * * *"
+  # Every Sunday (weekly) at 0:00 UTC
+  timestamp: "0 0 * * 0"
+```
+
+::: info Simplifying your Project Manifest for a large number contract addresses
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../optimisation.md#simplifying-the-project-manifest).
+
+Note that there is also [dynamic datasources](../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+:::
+
 ## Chain Types
 
 We can load protobuf message definitions to allow support for specific Cosmos zones under `network.chaintypes`. Any protobuf files that are required for the network (these end in `.proto`) should be imported. For example, you can find Osmosis' protobuf definitions [here](https://buf.build/osmosis-labs/osmosis/tree/main:osmosis)
 
 You can reference a chaintypes file for Cosmos like so (this is for Stargaze):
+
+```ts
+{
+  network: {
+    ...,
+    chaintypes: new Map([
+      [
+        "cosmos.slashing.v1beta1",
+        {
+          file: "./proto/cosmos/slashing/v1beta1/tx.proto",
+          messages: ["MsgUnjail"],
+        },
+      ],
+      [
+        "cosmos.gov.v1beta1",
+        {
+          file: "./proto/cosmos/gov/v1beta1/tx.proto",
+          messages: ["MsgVoteWeighted"],
+        },
+      ],
+      [
+        "cosmos.gov.v1beta1.gov",
+        {
+          file: "./proto/cosmos/gov/v1beta1/gov.proto",
+          messages: ["WeightedVoteOption"],
+        },
+      ],
+      [
+        "publicawesome.stargaze.claim.v1beta1",
+        {
+          file: "./proto/stargaze/claim/v1beta1/tx.proto",
+          messages: ["MsgInitialClaim"],
+        },
+      ],
+    ]),
+  }
+}
+```
+
+:::details Legacy YAML Chain types
 
 ```yml
 network:
@@ -363,6 +423,11 @@ network:
       messages:
         - "MsgInitialClaim"
 ```
+
+:::
+
+::: info If you have more than one file with the same namespace you can use a different key. The key is only used as a fallback if the proto file doesn't specify a namespace.
+:::
 
 Our [starter repo has chaintypes for popular Cosmos chains](https://github.com/subquery/cosmos-subql-starter/blob/stargaze-1/project.yaml#L23) already added under a branch for each chain. Additionally see [Tested and Supported networks](#tested-and-supported-networks).
 

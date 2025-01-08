@@ -150,7 +150,7 @@ import { AccountCredited, AccountDebited } from "stellar-sdk/lib/types/effects";
 import { Horizon } from "stellar-sdk";
 
 export async function handleOperation(
-  op: StellarOperation<Horizon.PaymentOperationResponse>
+  op: StellarOperation<Horizon.PaymentOperationResponse>,
 ): Promise<void> {
   logger.info(`Indexing operation ${op.id}, type: ${op.type}`);
 
@@ -171,13 +171,13 @@ export async function handleOperation(
 }
 
 export async function handleCredit(
-  effect: StellarEffect<AccountCredited>
+  effect: StellarEffect<AccountCredited>,
 ): Promise<void> {
   logger.info(`Indexing effect ${effect.id}, type: ${effect.type}`);
 
   const account = await checkAndGetAccount(
     effect.account,
-    effect.ledger.sequence
+    effect.ledger.sequence,
   );
 
   const credit = Credit.create({
@@ -191,13 +191,13 @@ export async function handleCredit(
 }
 
 export async function handleDebit(
-  effect: StellarEffect<AccountDebited>
+  effect: StellarEffect<AccountDebited>,
 ): Promise<void> {
   logger.info(`Indexing effect ${effect.id}, type: ${effect.type}`);
 
   const account = await checkAndGetAccount(
     effect.account,
-    effect.ledger.sequence
+    effect.ledger.sequence,
   );
 
   const debit = Debit.create({
@@ -241,7 +241,7 @@ export async function handleEvent(event: SorobanEvent): Promise<void> {
 
 async function checkAndGetAccount(
   id: string,
-  ledgerSequence: number
+  ledgerSequence: number,
 ): Promise<Account> {
   let account = await Account.get(id.toLowerCase());
   if (!account) {

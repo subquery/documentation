@@ -3,8 +3,7 @@
     <slot></slot>
   </div>
 </template>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 .card {
@@ -19,7 +18,7 @@
   height: 100%;
 
   &:hover {
-    border: 1px solid #4388dd;
+    border: 1px solid #e968dd;
     text-decoration: none;
   }
 }

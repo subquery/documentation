@@ -1,1 +1,0 @@
-# Akademi'ye Hoş Geldiniz

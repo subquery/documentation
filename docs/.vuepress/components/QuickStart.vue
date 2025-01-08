@@ -39,7 +39,7 @@
                 :to="
                   quickStart.link.replace(
                     'https://academy.subquery.network',
-                    ''
+                    '',
                   )
                 "
               >
@@ -101,19 +101,19 @@ const fetchAllQuickStart = () => {
       (a, b) =>
         b.quick_start_data.reduce(
           (cur, add) => cur + add.quick_start_data.length,
-          0
+          0,
         ) -
         a.quick_start_data.reduce(
           (cur, add) => cur + add.quick_start_data.length,
-          0
-        )
+          0,
+        ),
     );
     quickStartJson.value = guides.map((family) => {
       family.quick_start_data.map(
         (qsd) =>
           (qsd.quick_start_data = qsd.quick_start_data.filter(
-            (qs) => qs.internal
-          ))
+            (qs) => qs.internal,
+          )),
       );
       return family;
     });

@@ -43,10 +43,8 @@ const project: SubstrateProject = {
      * This endpoint must be a public non-pruned archive node
      * Public nodes may be rate limited, which can affect indexing speed
      * When developing your project we suggest getting a private API key
-     * You can get them from OnFinality for free https://app.onfinality.io
-     * https://documentation.onfinality.io/support/the-enhanced-api-service
      */
-    endpoint: "wss://polkadot.api.onfinality.io/public-ws",
+    endpoint: "https://polkadot.rpc.subquery.network/public",
   },
   dataSources: [
     {
@@ -112,9 +110,7 @@ network:
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
   # When developing your project we suggest getting a private API key
-  # You can get them from OnFinality for free https://app.onfinality.io
-  # https://documentation.onfinality.io/support/the-enhanced-api-service
-  endpoint: ["wss://polkadot.api.onfinality.io/public-ws"]
+  endpoint: ["https://polkadot.rpc.subquery.network/public"]
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
   dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
   # Optionally provide a list of blocks that you wish to bypass
@@ -175,17 +171,15 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 - Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
 - Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
 
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like [OnFinality](https://onfinality.io/networks/eth).
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
 
-| Field            | v1.0.0        | v0.2.0        | Description                                                                                                                                                                                                |
-| ---------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String        | x             | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                       |
-| **genesisHash**  | String        | String        | The genesis hash of the network (from v1.0.0 this is an alias for `chainId` and not necessary)                                                                                                             |
-| **endpoint**     | String        | String        | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**. You can retrieve endpoints for all parachains for free from [OnFinality](https://app.onfinality.io) |
-| **port**         | Number        | Number        | Optional port number on the `endpoint` to connect to                                                                                                                                                       |
-| **dictionary**   | String        | String        | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                   |
-| **chaintypes**   | {file:String} | {file:String} | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                 |
-| **bypassBlocks** | Array         | x             | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                              |
+| Field            | v1.0.0                                                  | Description                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain (`genesisHash` in Substrate)                                                                                                                                        |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **chaintypes**   | {file:String}                                           | Path to chain types file, accept `.json` or `.yaml` format                                                                                                                                                  |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
 
 ### Runner Spec
 
@@ -204,10 +198,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | All manifest versions | Description                                                                                                                                                                                      |
-| ----------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String                | We currently support `@subql/query`                                                                                                                                                              |
-| **version** | String                | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | All manifest versions | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String                | We currently support `@subql/query`                                                                                                                                                                                                                                                                     |
+| **version** | String                | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -326,6 +320,14 @@ Some common examples
   timestamp: "0 0 * * 0"
 ```
 
+::: info Simplifying your Project Manifest for a large number contract addresses
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../optimisation.md#simplifying-the-project-manifest).
+
+Note that there is also [dynamic datasources](../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+:::
+
 ## Custom Chains
 
 You can index data from custom Substrate chains by also including chain types in the manifest.
@@ -440,6 +442,26 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 {
   network: {
     bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```
+
+## Endpoint Config
+
+This option allows specifying options that are applied specific to an endpoint. As of now this just allows setting headers on a per endpoint basis.
+
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
+```ts
+{
+  network: {
+    endpoint: {
+      "https://polkadot.rpc.subquery.network/public": {
+        headers: {
+          "x-api-key": "your-api-key",
+        }
+      }
+    }
   }
 }
 ```

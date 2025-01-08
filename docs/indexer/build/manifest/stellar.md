@@ -211,7 +211,6 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | **chainId**         | String             | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
 | **endpoint**        | String or String[] | Defines the endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical datae**.                     |
 | **sorobanEndpoint** | String             | Defines the soroban RPC endpoint - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                                          |
-| **port**            | Number             | Optional port number on the `endpoint` to connect to                                                                                                                                     |
 | **dictionary**      | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
 | **bypassBlocks**    | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
 
@@ -232,10 +231,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | `@subql/query`                                                                                                                                                                                   |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
+| **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -324,6 +323,49 @@ handlers:
 Default runtime mapping filters are an extremely useful feature to decide what event will trigger a mapping handler.
 
 Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
+
+The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
+
+```yml
+filter:
+  modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
+```
+
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
+
+The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
+
+```yml
+filter:
+  # This cron expression will index blocks with at least 5 minutes interval
+  # between their timestamps starting at startBlock given under the datasource.
+  timestamp: "*/5 * * * *"
+```
+
+::: tip Note
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
+:::
+
+Some common examples
+
+```yml
+  # Every minute
+  timestamp: "* * * * *"
+  # Every hour on the hour (UTC)
+  timestamp: "0 * * * *"
+  # Every day at 1am UTC
+  timestamp: "0 1 * * *"
+  # Every Sunday (weekly) at 0:00 UTC
+  timestamp: "0 0 * * 0"
+```
+
+::: info Simplifying your Project Manifest for a large number contract addresses
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../optimisation.md#simplifying-the-project-manifest).
+
+Note that there is also [dynamic datasources](../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+:::
 
 ## Real-time indexing (Block Confirmations)
 

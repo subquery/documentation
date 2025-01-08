@@ -10,11 +10,13 @@ This means you can run existing RPC endpoint used for other purposes (including 
 
 ## Prerequisites
 
-This guide assumes you are already running an RPC node that is publicly available on a known IP address/port.
+This guide assumes you are already running an RPC node that is internally available to the indexer proxy service.
 
 For example with Etheruem, it can be any client (geth or erigon etc), and it is listening on a known address and port (in the examples below our node is listening on `192.168.1.100:8545`).
 
 Please consult the relevant guides for how to run an RPC node on each network, for example this is the guide for [Geth on Ethereum](https://geth.ethereum.org/docs/getting-started), and [Base](https://docs.base.org/tutorials/run-a-base-node/).
+
+It is recommended to enable the metrics port for the RPC node. For example, when starting an EVM node, add the parameters `--metrics --metrics.addr 0.0.0.0`. For more details, please refer to [Ethereum metrics](https://geth.ethereum.org/docs/monitoring/metrics). Polkadot nodes typically have the metrics port enabled by default. If not, please refer to this [link](https://wiki.polkadot.network/docs/maintain-sync#using-docker) and add the `--prometheus-external` parameter at startup.
 
 ## 1. Add Project
 

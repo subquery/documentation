@@ -10,8 +10,8 @@ Following is a summary of the `Store` interface:
 
 ```ts
 export type GetOptions<T> = {
+  limit: number;
   offset?: number;
-  limit?: number;
   /* Order fields are only available in SDK versions >= 4.0.0 */
   orderBy?: keyof T;
   orderDirection?: "ASC" | "DESC";
@@ -25,22 +25,22 @@ export interface Store {
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>
+      value: T[keyof T] | Array<T[keyof T]>,
     ][],
-    options?: GetOptions<T>
+    options: GetOptions<T>,
   ): Promise<T[]>;
 
   getByField(
     entity: string,
     field: string,
     value: any,
-    options?: GetOptions<T>
+    options: GetOptions<T>,
   ): Promise<Entity[]>;
 
   getOneByField(
     entity: string,
     field: string,
-    value: any
+    value: any,
   ): Promise<Entity | null>;
 
   set(entity: string, id: string, data: Entity): Promise<void>;
@@ -68,8 +68,8 @@ await store.get(`TransactionEntity`, id);
 
 ```ts
 export type GetOptions<T> = {
+  limit: number;
   offset?: number;
-  limit?: number;
   /* Order fields are only available in SDK versions >= 4.0.0 */
   orderBy?: keyof T;
   orderDirection?: "ASC" | "DESC";
@@ -81,9 +81,9 @@ export interface Store {
     filter: [
       field: keyof T,
       operator: "=" | "!=" | "in" | "!in",
-      value: T[keyof T] | Array<T[keyof T]>
+      value: T[keyof T] | Array<T[keyof T]>,
     ][],
-    options?: GetOptions<T>
+    options: GetOptions<T>,
   ): Promise<T[]>;
 }
 ```
@@ -109,36 +109,36 @@ By default ordering is done by `id` in ascending order.
 Using the store directly:
 
 ```ts
-// Get all records with ChainID == 50 AND AccountID == '0xSomeAddress'
+// Get the first 100 records with ChainID == 50 AND AccountID == '0xSomeAddress'
 await store.getByFields(`TransactionEntity`, [
   ["ChainID", "=", 50],
   ["AccountID", "=", "0xSomeAddress"],
-]);
+], { limit: 100 });
 ```
 
 Using an entity, this will provide better type safety:
 
 ```ts
-// Get all records with ChainID == 50 AND AccountID == '0xSomeAddress'
+// Get the first 100 records with ChainID == 50 AND AccountID == '0xSomeAddress'
 await TransactionEntity.getByFields([
   ["ChainID", "=", 50],
   ["AccountID", "=", "0xSomeAddress"],
-]);
+], { limit: 100 });
 ```
 
 It's also possible to match multiple values to a field (in this case an OR operation is applied):
 
 ```ts
-// Get all records with ChainID == 50 OR ChainID == 51
-await TransactionEntity.getByFields([["ChainID", "in", [50, 51]]]);
+// Get the first 100 records with ChainID == 50 OR ChainID == 51
+await TransactionEntity.getByFields([["ChainID", "in", [50, 51]]], { limit: 100 });
 ```
 
 ## Get Records by a Single Field
 
 ```ts
 export type GetOptions<T> = {
+  limit: number;
   offset?: number;
-  limit?: number;
   /* Order fields are only available in SDK versions >= 4.0.0 */
   orderBy?: keyof T;
   orderDirection?: "ASC" | "DESC";
@@ -149,7 +149,7 @@ export interface Store {
     entity: string,
     field: string,
     value: any,
-    options?: GetOptions
+    options: GetOptions,
   ): Promise<Entity[]>;
 }
 ```
@@ -157,16 +157,16 @@ export interface Store {
 This is a convenient wrapper for [getByFields](#get-records-by-field) but only accepts a single filter and uses the `=` or `in` operator.
 
 ```ts
-// Get all records with ChainID == 50
-await store.getByField(`TransactionEntity`, "ChainID", 50);
+// Get the first 100 records with ChainID == 50
+await store.getByField(`TransactionEntity`, "ChainID", 50, { limit: 100 });
 ```
 
 Please note, the third parameter also accepts array, you can consider this similar like `bulkGet` with OR search.
 To get a list of records with `ChainID` equal to 50, 100 or 150:
 
 ```ts
-// Get all records with ChainID == 50 OR ChainID == 100 OR ChainID == 150
-await store.getByField("TransactionEntity", "ChainID", [50, 100, 150]);
+// Get the first 100 records with ChainID == 50 OR ChainID == 100 OR ChainID == 150
+await store.getByField("TransactionEntity", "ChainID", [50, 100, 150], { limit: 100 });
 ```
 
 ## Get First Record by Field

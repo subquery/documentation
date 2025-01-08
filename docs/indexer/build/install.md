@@ -23,10 +23,10 @@ yarn global add @subql/cli
 
 :::
 
-You can then run help to see available commands and usage provide by CLI:
+You can then run help to see available commands and usage provided by CLI:
 
 ```shell
-subql help
+subql --help
 ```
 
 ## Install @subql/node
@@ -50,14 +50,14 @@ yarn global add @subql/node
 
 :::
 
-Once installed, you can can start a node with:
+Once installed, you can start a node with:
 
 ```shell
 subql-node <command>
 ```
 
 ::: tip Note
-If you are using Docker or hosting your project in SubQuery's Managed Service, you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+If you are using Docker you can skip this step. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::
 
 ## Install @subql/query
@@ -82,5 +82,5 @@ yarn global add @subql/query
 :::
 
 ::: tip Note
-If you are using Docker or hosting your project in SubQuery's Managed Service, you can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
+If you are using Docker you can skip this step also. This is because the SubQuery node is already provided in the Docker container and the hosting infrastructure.
 :::

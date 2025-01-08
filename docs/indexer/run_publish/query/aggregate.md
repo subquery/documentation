@@ -1,5 +1,11 @@
 # Aggregate Functions
 
+:::warning Not supported in Subgraph Query Service
+
+This feature is only supported in the SubQuery Native query service, not the Subgraph query service.
+
+:::
+
 ## Group By
 
 SubQuery supports advanced aggregate functions to allow you to perform a calculation on a set of values during your query.
@@ -29,5 +35,4 @@ SubQuery's implementation of aggregate functions is based on [pg-aggregates](htt
 ::: warning Important
 Please note that you must enable the `--unsafe` flag on the query service in order to use these functions. [Read more](../references.md#unsafe-query-service).
 
-Also, note that the `--unsafe` command will prevent your project from being run in the SubQuery Network, and you must contact support if you want this command to be run with your project in [SubQuery's managed service](https://managedservice.subquery.network).
 :::

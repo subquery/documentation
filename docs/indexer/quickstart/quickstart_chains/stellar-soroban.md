@@ -135,7 +135,7 @@ export async function handleEvent(event: SorobanEvent): Promise<void> {
     const increment = Increment.create({
       id: event.transaction.hash,
       newValue: BigInt(
-        JSON.parse(JSON.stringify(event.value))["_value"].toString()
+        JSON.parse(JSON.stringify(event.value))["_value"].toString(),
       ),
     });
     await increment.save();

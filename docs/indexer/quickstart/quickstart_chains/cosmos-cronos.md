@@ -1,5 +1,9 @@
 # Cronos Quick Start
 
+::: tip Note
+You can find the quickstart guide for Cronos' zkEVM network [here](./cronos-zkevm.md).
+:::
+
 The goal of this quick start guide is to adapt the standard starter project in the Cronos Network and then begin indexing all transfers of [Cro Crow Token](https://www.crocrow.com/).
 
 <br/>

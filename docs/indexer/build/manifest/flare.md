@@ -9,7 +9,97 @@ With the number of new features we are adding to SubQuery, and the slight differ
 Below is a standard example of a basic `project.ts`.
 
 ```ts
+import {
+  EthereumProject,
+  EthereumDatasourceKind,
+  EthereumHandlerKind,
+} from "@subql/types-ethereum";
 
+// Can expand the Datasource processor types via the generic param
+const project: EthereumProject = {
+  specVersion: "1.0.0",
+  version: "0.0.1",
+  name: "flare-subql-starter",
+  description:
+    "This project can be use as a starting point for developing your new Flare SubQuery project",
+  runner: {
+    node: {
+      name: "@subql/node-ethereum",
+      version: ">=3.0.0",
+    },
+    query: {
+      name: "@subql/query",
+      version: "*",
+    },
+  },
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    /**
+     * chainId is the EVM Chain ID, for Flare this is 14
+     * https://chainlist.org/chain/14
+     */
+    chainId: "14",
+    /**
+     * These endpoint(s) should be non-pruned archive nodes
+     * Public nodes may be rate limited, which can affect indexing speed
+     * When developing your project we suggest getting a private API key
+     # We suggest providing an array of endpoints for increased speed and reliability
+     */
+    endpoint: ["https://flare-api.flare.network/ext/C/rpc"],
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      // This is the block that the contract was deployed on https://arbiscan.io/tx/0x8ebe1945f039f865af8b3079df3819534340ee41a5e6b8bfefb9c36a857778c9
+      startBlock: 2591,
+      options: {
+        // Must be a key of assets
+        abi: "priceSubmitter",
+        // This is the contract address for wrapped BTC https://arbiscan.io/token/0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f
+        address: "0x1000000000000000000000000000000000000003",
+      },
+      assets: new Map([
+        ["priceSubmitter", { file: "./priceSubmitter.abi.json" }],
+      ]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call,
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "submitHash(uint256 _epochId, bytes32 _hash)",
+            },
+          },
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "HashSubmitted(address indexed submitter, uint256 indexed epochId, bytes32 hash, uint256 timestamp)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  repository: "https://github.com/subquery/ethereum-subql-starter",
+};
+
+// Must set default to the project instance
+export default project;
 ```
 
 Below is a standard example of the legacy YAML version (`project.yaml`).
@@ -22,7 +112,7 @@ name: flare-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: "@subql/node-flare"
+    name: "@subql/node-ethereum"
     version: "*"
   query:
     name: "@subql/query"
@@ -46,7 +136,7 @@ network:
   dictionary: "https://api.subquery.network/sq/subquery/flare-dictionary"
 
 dataSources:
-  - kind: flare/Runtime
+  - kind: ethereum/Runtime
     startBlock: 2300000
     options:
       # Must be a key of assets
@@ -59,16 +149,16 @@ dataSources:
       file: "./dist/index.js"
       handlers:
         # - handler: handleBlock
-        # kind: flare/BlockHander
+        # kind: ethereum/BlockHander
         - handler: handleTransaction
-          kind: flare/TransactionHandler
+          kind: ethereum/TransactionHandler
           filter:
             ## The function can either be the function fragment or signature
             # function: '0x095ea7b3'
             # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
             function: submitHash(uint256 _epochId, bytes32 _hash)
         - handler: handleLog
-          kind: flare/LogHandler
+          kind: ethereum/LogHandler
           filter:
             topics:
               ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
@@ -114,13 +204,12 @@ Additionally you will need to update the `endpoint`. This defines the (HTTP or W
 
 Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider like Flare's API Portal https://api-portal.flare.network/
 
-| Field            | Type   | Description                                                                                                                                                                              |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**      | String | A network identifier for the blockchain                                                                                                                                                  |
-| **endpoint**     | String | Defines the wss or ws endpoint of the blockchain to be indexed - **This must be a full archive node**.                                                                                   |
-| **port**         | Number | Optional port number on the `endpoint` to connect to                                                                                                                                     |
-| **dictionary**   | String | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks** | Array  | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| Field            | Type                                                    | Description                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**      | String                                                  | A network identifier for the blockchain                                                                                                                                                                     |
+| **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
+| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
 
 ### Runner Spec
 
@@ -139,10 +228,10 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 ### Runner Query Spec
 
-| Field       | Type   | Description                                                                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **name**    | String | `@subql/query`                                                                                                                                                                                   |
-| **version** | String | Version of the Query service, available versions can be found [here](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
+| Field       | Type   | Description                                                                                                                                                                                                                                                                                             |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**    | String | `@subql/query` and `@subql/query-subgraph`                                                                                                                                                                                                                                                              |
+| **version** | String | Version of the Query service, available `@subql/query` [versions](https://github.com/subquery/subql/blob/main/packages/query/CHANGELOG.md) and `@subql/query-subgraph` [versions](https://github.com/subquery/query-subgraph/blob/main/CHANGELOG.md), it also must follow the SEMVER rules or `latest`. |
 
 ### Runner Node Options
 
@@ -159,7 +248,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **kind**       | string       | [flare/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                     |
+| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                  |
 | **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
@@ -178,7 +267,7 @@ In this section, we will talk about the default Flare runtime and its mapping. H
 {
   dataSources: [
     {
-      kind: FlareDatasourceKind.Runtime, // Indicates that this is default runtime
+      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
       startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
       options: {
         // Must be a Record of assets
@@ -204,11 +293,11 @@ The following table explains filters supported by different handlers.
 
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                             | Supported filter                                                                                    |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [flare/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [flare/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
-| [flare/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| Handler                                                                | Supported filter                                                                                    |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [ethereum/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
@@ -221,13 +310,49 @@ filter:
   modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
 ```
 
+The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
+
+The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
+
+```yml
+filter:
+  # This cron expression will index blocks with at least 5 minutes interval
+  # between their timestamps starting at startBlock given under the datasource.
+  timestamp: "*/5 * * * *"
+```
+
+::: tip Note
+We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
+:::
+
+Some common examples
+
+```yml
+  # Every minute
+  timestamp: "* * * * *"
+  # Every hour on the hour (UTC)
+  timestamp: "0 * * * *"
+  # Every day at 1am UTC
+  timestamp: "0 1 * * *"
+  # Every Sunday (weekly) at 0:00 UTC
+  timestamp: "0 0 * * 0"
+```
+
+::: info Simplifying your Project Manifest for a large number contract addresses
+
+If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../optimisation.md#simplifying-the-project-manifest).
+
+Note that there is also [dynamic datasources](../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+
+:::
+
 ## Real-time indexing (Block Confirmations)
 
 As indexers are an additional layer in your data processing pipeline, they can introduce a massive delay between when an on-chain event occurs and when the data is processed and able to be queried from the indexer.
 
 SubQuery provides real time indexing of unconfirmed data directly from the RPC endpoint that solves this problem. SubQuery takes the most probabilistic data before it is confirmed to provide to the app. In the unlikely event that the data isn’t confirmed and a reorg occurs, SubQuery will automatically roll back and correct its mistakes quickly and efficiently - resulting in an insanely quick user experience for your customers.
 
-To control this feature, please adjust the [--block-confirmations](../../run_publish/references.md#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../run_publish/references.md#disable-historical) is enabled (enabled by default)
+To control this feature, please adjust the [--block-confirmations](../../run_publish/references.md#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../run_publish/references.md#disable-historical) is enabled (enabled by default). The default block confirmations for SubQuery projects is currently 200 blocks.
 
 ## Bypass Blocks
 
@@ -239,6 +364,28 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 {
   network: {
     bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```
+
+## Endpoint Config
+
+This allows you to set specific options relevant to each specific RPC endpoint that you are indexing from. This is very useful when endpoints have unique authentication requirements, or they operate with different rate limits.
+
+Here is an example of how to set an API key in the header of RPC requests in your endpoint config.
+
+```ts
+{
+  network: {
+    endpoint: {
+      "https://flare-api.flare.network/ext/C/rpc": {
+        headers: {
+          "x-api-key": "your-api-key",
+        },
+        // NOTE: setting this to 0 will not use batch requests
+        batchSize: 5
+      }
+    }
   }
 }
 ```

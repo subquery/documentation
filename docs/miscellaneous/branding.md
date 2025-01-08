@@ -6,12 +6,6 @@ If you opt to use any trademarks, logos, designs, or other brand features, pleas
 
 If in doubt, please ask!
 
-## Exportable Figma File
-
-Our Figma file has a full collection of all brand assets (logos, fonts, colours, imagery etc) for export.
-
-[Figma - SubQuery Brand Resources](https://www.figma.com/file/AaCXaOcElrlbxq8fz39sJU/SubQuery-Brand-Resources?node-id=3%3A2)
-
 ## Brand Assets Package
 
-A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public_branding.zip).
+A smaller ZIP package of brand assets: [public_branding.zip](https://static.subquery.network/public-branding.zip).

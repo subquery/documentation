@@ -38,19 +38,19 @@ The title of the SMP must start with SMP-X, where X is the SMP number (ie. SMP-1
 
 Under the title should be the header. Header fields include:
 
--   Author: Author of the proposal
--   Created: Creation date in YYYY-MM-DD
--   Status:
-    -   Draft: Proposal made, but not voted on
-    -   Voting: A vote is ongoing
-    -   Included: Passed vote
-    -   Rejected: Failed vote
-    -   Superseded: Proposal has been replaced by a new proposal
+- Author: Author of the proposal
+- Created: Creation date in YYYY-MM-DD
+- Status:
+  - Draft: Proposal made, but not voted on
+  - Voting: A vote is ongoing
+  - Included: Passed vote
+  - Rejected: Failed vote
+  - Superseded: Proposal has been replaced by a new proposal
 
 The SMP must contain the following sections:
 
--   Motivation - The reason for making this change
--   Description - A description of what the change is
+- Motivation - The reason for making this change
+- Description - A description of what the change is
 
 #### Past SMPs
 
@@ -72,20 +72,20 @@ The title of the SPP must start with SPP-X, where X is the SPP number (ie. SPP-1
 
 Under the title should be the header. Header fields include:
 
--   Author: Author of the proposal
--   Created: Creation date in YYYY-MM-DD
--   Status: 
-    -   Draft: Proposal made, but not voted on
-    -   Voting: A vote is ongoing
-    -   Planned: Passed vote
-    -   Rejected: Failed vote
-    -   Completed: Change is implemented and deployed
+- Author: Author of the proposal
+- Created: Creation date in YYYY-MM-DD
+- Status:
+  - Draft: Proposal made, but not voted on
+  - Voting: A vote is ongoing
+  - Planned: Passed vote
+  - Rejected: Failed vote
+  - Completed: Change is implemented and deployed
 
 The SPP must contain the following sections:
 
--   Motivation - Why include this feature, including use cases
--   Description - What the feature is
--   Implementation - Technical details on how to include this feature
+- Motivation - Why include this feature, including use cases
+- Description - What the feature is
+- Implementation - Technical details on how to include this feature
 
 #### Past SPPs
 
@@ -103,20 +103,20 @@ The title of the STP must start with STP-X, where X is the STP number (ie. STP-1
 
 Under the title should be the header. Header fields include:
 
--   Author: Author of the proposal
--   Created: Creation date in YYYY-MM-DD
--   Status:
-    -   Draft: Proposal made, but not voted on
-    -   Voting: A vote is ongoing
-    -   Planned: Passed vote
-    -   Rejected: Failed vote
-    -   Completed: Capital has been deployed
+- Author: Author of the proposal
+- Created: Creation date in YYYY-MM-DD
+- Status:
+  - Draft: Proposal made, but not voted on
+  - Voting: A vote is ongoing
+  - Planned: Passed vote
+  - Rejected: Failed vote
+  - Completed: Capital has been deployed
 
 The STP must contain the following sections:
 
--   Motivation - The reason for allocating capital
--   Description - What the capital allocation is, what the milestones will be
--   Implementation - How this capital will be moved, to what accounts will it be paid to and under what exchange rate (if relevant)
+- Motivation - The reason for allocating capital
+- Description - What the capital allocation is, what the milestones will be
+- Implementation - How this capital will be moved, to what accounts will it be paid to and under what exchange rate (if relevant)
 
 #### Past STPs
 

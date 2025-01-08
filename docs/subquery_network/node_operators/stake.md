@@ -1,8 +1,8 @@
 # Staking and Allocating SQT
 
-:::tip New for Mainnet - Please read
+:::info
 
-One key difference between Kepler and the mainnet is that now Node Operators must actively manage their staking allocation to each project deployment.
+Node Operators must actively manage their staking allocation to each project deployment to maximise their rewards. We also highly recommend that you enable [Auto Reduce Over Allocation](#automatically-reduce-over-allocation) to prevent being [over allocated](#over-allocated-stake).
 
 :::
 
@@ -45,6 +45,10 @@ Remember, both network inflation rewards and query rewards (for Flex plans) dist
 - If a project deployment gets a lot of flex plan queries, allocating more stake means you receive a higher proportion of its rewards compared to other project deployments
 - If a project deployment is highly competitive, you might want to allocate more stake to it to receive more rewards compared to non-competitive project deployments
 
+### How should I allocate my stake amongst my projects for best rewards?
+
+You should allocate stake to projects which have the highest stake APY. Note that project stake APY (annualised yeild per SQT staked) can reduce as more stake is allocated to a project. For example allocating significantly more stake to a projcct may not result in lower marginal APY increase compared to the additional stake. Allocating all your stake to your highest performing project could reduce its APY and make it no longer the best choice for allocation. Regularly review and adjust the stake across your projects to find the right balance.
+
 ## Over Allocated Stake
 
 :::danger
@@ -59,13 +63,33 @@ When the Current Total Stake bar turns red, you are over allocated. You must imm
 
 You can use the estimate of the Own Stake and Total Delegated for the next Era on this page to avoid situations where departing delegators might result in you over allocating.
 
+## Automatically Reduce Over Allocation
+
+:::info
+
+We highly recommend that you enable this feature
+
+:::
+
+In your Node Operator Admin App and in the Config section there is a setting called "Auto Reduce Over Allocation", we highly recommend that you enable it.
+
+If enabled, in the event of when you are overallocated, then your allocaton will automaticaly evenly reduce across all of your projects until you are no longer over allocated
+
+- Allocation reduction will be by an even percent. For example, each project will decrease by 10% of it's initial allocation.
+- Allocation will not be reduced below 1 SQT on any single project
+- If you have 0 projects then it will un-allocate all SQT
+
+It runs immediately at the start of the next era when delegation changes take effect.
+
+![Enabling Node Operator Auto Reduce Allocation](/assets/img/network/indexer_auto_allocation.png)
+
 ## How much SQT should you Stake
 
 There are multiple reasons why Node Operators should consider staking more SQT or attracting more Delegation.
 
-- All Node Operators must stake a minimum amount of SQT to become a Node Operator, the current setting can be found in [network parameters](../parameters.md)
-- There is a maximum allowed delegation capacity based on the size of the Node Operator's own stake, this ensures the Node Operator has sufficient skin in the game. Increasing own stake can mean delegators are able to delegate more to you. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
-- More total stake means more SQT to allocate on different deployments the Node Operator runs and more Network Inflation Rewards to earn.
-- It provides an advantage over other Node Operators when payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
+- All Node Operators must stake a minimum amount of SQT to become a Node Operator. The current amount can be found in [network parameters](../parameters.md)
+- There is a maximum allowed delegation capacity based on the size of the Node Operator's own stake. This ensures the Node Operator has sufficient skin in the game. Increasing one's own stake mean Delegators are able to delegate more to you. The current multiple for delegation capacity can be found on our [network parameters](../parameters.md) page.
+- More total stake means more SQT to allocate on different deployments the Node Operator runs and more stake rewards that can be earnt.
+- More total stake provides an advantage over other Node Operators when the payment method is flex plan (PAYG) due to the way the [Cobb-Douglas function](../introduction/reward-distribution.md#cobb-douglas-production-function) works.
 
 In order to become a Node Operator on the SubQuery Network, you must stake a minimum number of SQT. In addition, you will want to attract delegators to [increase the rewards that you receive](./rewards.md).

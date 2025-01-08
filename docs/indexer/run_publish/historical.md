@@ -22,17 +22,32 @@ Then we are faced with a problem. Assuming the data has changed when indexing to
 
 ## Automated Historical State Tracking
 
-SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
+SubQuery now automates the historical state tracking of entities for all new projects. You can automatically query the state of your SubQuery project at any block height/timestamp. This means that you can build applications that allow users to go back in time, or show how the state of your data changes over time.
 
-In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range that it was valid for. You can then query data from a specific block height using the same GraphQL endpoints and API.
+In short, when you create, update, or delete any SubQuery entity, we store the previous state with the block range/timestamp that it was valid for. You can then query data from a specific block height/timestamp using the same GraphQL endpoints and API.
 
 ## Enabling This
 
-This feature is enabled by default for all new projects started with at least `@subql/node@1.1.1` and `@subql/query1.1.0`. If you want to add it to your existing project, update `@subql/node` and `@subql/query` and then reindex your project with a clean database.
+This feature is enabled by default and will track indexing by block height. If your project does not currently have this enabled you will need to reindex your project.
+
+::: tabs
+@tab Block Height `@subql/node@<5.3.0`
 
 If you want to disable this feature for any reason, you can set the `--disable-historical=true` parameter on `subql-node`.
 
 On startup, the current status of this feature is printed to the console (`Historical state is enabled`).
+
+@tab:active Block Height or Timestamp `@subql/node@>=5.3.0`
+
+Since this release we support historical indexing by timestamp as well as block height. You can choose one or the other.
+
+The timestamp field is stored as a unix timestamp in milliseconds.
+
+To configure this feature you can set the `--historical=height` or `--historical=timestamp` parameter on `subql-node`. The `--disable-historical` flag still exists but is deprecated. If you wish to disable historical indexing you can do so with `--historical=false`.
+
+On startup, the current status of this feature is printed to the console (`Historical state is height` or `Historical state is timestamp`).
+
+:::
 
 If you are running your project locally using `subql-node` or `subql-node-<network>`, make sure you enable the pg_extension `btree_gist`
 
@@ -44,11 +59,15 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 ## Querying Historical State
 
-There is a special (optional) property on the GraphQL entity filter called `blockHeight`. If you omit this property, SubQuery will query the entity state at the current block height.
+There is a special (optional) property on the GraphQL entity filter called `blockHeight` or `timestamp` depending on the indexing mode. If you omit this property, SubQuery will query the entity state at the current block height/time.
 
 Please see one of our example projects: [RMRK NFT](https://github.com/subquery/tutorial-rmrk-nft).
 
 To query the owners of RMRK NFTs at block height 5,000,000, add the blockHeight parameter as shown below:
+
+::: code-tabs
+
+@tab Block Height
 
 ```graphql
 query {
@@ -62,7 +81,23 @@ query {
 }
 ```
 
-To query the owners of those RMRK NFTs collections at the latest block height, omit the blockHeight parameter as shown below.
+@tab Timestamp
+
+```graphql
+query {
+  nFTEntities(first: 5, timestamp: "1575017844000") {
+    nodes {
+      id
+      name
+      currentOwner
+    }
+  }
+}
+```
+
+:::
+
+To query the owners of those RMRK NFTs collections at the latest block height/timestamp, omit the `blockHeight`/`timestamp` parameter as shown below.
 
 ```graphql
 query {
@@ -85,8 +120,6 @@ When you enable Automated Historical State Tracking, you can benefit from on-dem
 - _Coming Soon:_ You can update your schema and reindex from a certain block height to reflect those changes
 
 You should see the new [-- reindex command in Command Line Flags](./references.md#reindex) to learn more about how to use this new feature.
-
-You can also use the reindex feature in the [SubQuery Managed Service](https://managedservice.subquery.network).
 
 ## DB Schema
 
@@ -116,3 +149,8 @@ When the historical feature is enabled, the `id` field is no longer used as prim
 The `_block_range` indicates the start to end block for this record using Postgres' [range type](https://www.postgresql.org/docs/current/rangetypes.html). For example, between block 0 to 999, `alice`'s `balance` is 5. Then from block 1000 to 1999, `alice`'s `balance` is 15.
 
 `_id` and `_block_range` are not visible to end users via the query service (GraphQL API), they are internal datatypes automatically generated and handled by the query service.
+
+::: info
+
+When historical indexing uses the `timestamp` mode. The DB schema is the same but the `_block_range` column will be timestamps rather than block numbers.
+:::

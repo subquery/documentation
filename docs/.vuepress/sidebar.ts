@@ -32,6 +32,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/arbitrum.md`,
                   },
                   {
+                    text: "AssetChain Testnet",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/asset-chain-testnet.md`,
+                  },
+                  {
                     text: "Astar zkEVM",
                     link: `${locale}/indexer/quickstart/quickstart_chains/astar-zkevm.md`,
                   },
@@ -104,6 +108,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/celo.md`,
                   },
                   {
+                    text: "Cronos zkEVM",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/cronos-zkevm.md`,
+                  },
+                  {
                     text: "Ethereum",
                     collapsible: true,
                     children: [
@@ -166,8 +174,8 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/iotex.md`,
                   },
                   {
-                    text: "Klaytn",
-                    link: `${locale}/indexer/quickstart/quickstart_chains/klaytn.md`,
+                    text: "Kaia",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/kaia.md`,
                   },
                   {
                     text: "Mantle",
@@ -226,12 +234,20 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/zksync-era.md`,
                   },
                   {
+                    text: "Unichain",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/unichain.md`,
+                  },
+                  {
                     text: "X Layer",
                     link: `${locale}/indexer/quickstart/quickstart_chains/xlayer-testnet.md`,
                   },
                   {
                     text: "XDC Apothem",
                     link: `${locale}/indexer/quickstart/quickstart_chains/xdc-apothem.md`,
+                  },
+                  {
+                    text: "ZetaChain",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/zetachain.md`,
                   },
                   {
                     text: "And more EVM networks",
@@ -262,6 +278,10 @@ export const getSidebar = (locale: string) =>
                   {
                     text: "Archway",
                     link: `${locale}/indexer/quickstart/quickstart_chains/cosmos-archway.md`,
+                  },
+                  {
+                    text: "Coreum",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/cosmos-coreum.md`,
                   },
                   {
                     text: "Cronos (EVM)",
@@ -456,18 +476,24 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Run & Publish",
-        link: `${locale}/indexer/run_publish/publish`,
+        text: "Run",
+        link: `${locale}/indexer/run_publish/introduction`,
         collapsible: true,
         children: [
+          {
+            text: "Introduction",
+            link: `${locale}/indexer/run_publish/introduction.md`,
+          },
           `${locale}/indexer/run_publish/run.md`,
-          `${locale}/indexer/run_publish/publish.md`,
+          {
+            text: "Publish to the SubQuery Network",
+            link: `${locale}/subquery_network/architects/publish.md`,
+          },
           `${locale}/indexer/run_publish/optimisation.md`,
           {
             text: "Monitoring",
             link: `${locale}/indexer/run_publish/monitor.md`,
           },
-          `${locale}/indexer/run_publish/cli.md`,
           {
             text: "Query and Access Data",
             link: `${locale}/indexer/run_publish/query/query.md`,
@@ -480,6 +506,7 @@ export const getSidebar = (locale: string) =>
                   `${locale}/indexer/run_publish/query/graphql.md`,
                   `${locale}/indexer/run_publish/query/aggregate.md`,
                   `${locale}/indexer/run_publish/query/subscription.md`,
+                  `${locale}/indexer/run_publish/query/subgraph.md`,
                 ],
               },
               {
@@ -496,62 +523,23 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Courses",
-        link: `${locale}/indexer/academy/academy.md`,
+        text: "Tutorials & Examples",
         collapsible: true,
         children: [
-          {
-            text: "Hero Course",
-            link: `${locale}/indexer/academy/herocourse/welcome`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/herocourse/welcome.md`,
-              `${locale}/indexer/academy/herocourse/module1.md`,
-              `${locale}/indexer/academy/herocourse/module2.md`,
-              `${locale}/indexer/academy/herocourse/module3.md`,
-              `${locale}/indexer/academy/herocourse/module4.md`,
-              `${locale}/indexer/academy/herocourse/module5.md`,
-              `${locale}/indexer/academy/herocourse/module6.md`,
-            ],
-          },
-          {
-            text: "SubQuery Moonbeam Course",
-            link: `${locale}/indexer/academy/moonbeam_course/welcome`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/moonbeam_course/welcome.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson1.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson2.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson3.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson4.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson5.md`,
-              `${locale}/indexer/academy/moonbeam_course/lesson6.md`,
-            ],
-          },
-          {
-            text: "Tutorials & Examples",
-            link: `${locale}/indexer/academy/tutorials_examples/introduction`,
-            collapsible: true,
-            children: [
-              `${locale}/indexer/academy/tutorials_examples/introduction.md`,
-              `${locale}/indexer/academy/tutorials_examples/block-height.md`,
-              `${locale}/indexer/academy/tutorials_examples/batch-size.md`,
-              `${locale}/indexer/academy/tutorials_examples/run-indexer.md`,
-              `${locale}/indexer/academy/tutorials_examples/dictionary.md`,
-              `${locale}/indexer/academy/tutorials_examples/debug-projects.md`,
-              `${locale}/indexer/academy/tutorials_examples/delete-projects.md`,
-              `${locale}/indexer/academy/tutorials_examples/terminology.md`,
-            ],
-          },
-          `${locale}/indexer/academy/subquery101/subquery101.md`,
+          `${locale}/indexer/academy/tutorials_examples/block-height.md`,
+          `${locale}/indexer/academy/tutorials_examples/batch-size.md`,
+          `${locale}/indexer/academy/tutorials_examples/run-indexer.md`,
+          `${locale}/indexer/academy/tutorials_examples/dictionary.md`,
+          `${locale}/indexer/academy/tutorials_examples/debug-projects.md`,
+          `${locale}/indexer/academy/tutorials_examples/terminology.md`,
         ],
       },
       {
         text: "Miscellaneous",
-        link: `${locale}/indexer/miscellaneous/faqs.md`,
+        link: `${locale}/indexer/miscellaneous/faq.md`,
         collapsible: true,
         children: [
-          `${locale}/indexer/miscellaneous/faqs.md`,
+          `${locale}/indexer/miscellaneous/faq.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
         ],
@@ -638,6 +626,8 @@ export const getSidebar = (locale: string) =>
             children: [
               `${locale}/subquery_network/node_operators/indexers/introduction.md`,
               `${locale}/subquery_network/node_operators/indexers/index-project.md`,
+              `${locale}/subquery_network/node_operators/indexers/connect-subgraph.md`,
+              `${locale}/subquery_network/node_operators/indexers/migrate-deployment.md`,
             ],
           },
           {
@@ -651,17 +641,17 @@ export const getSidebar = (locale: string) =>
           },
           `${locale}/subquery_network/node_operators/stake.md`,
           `${locale}/subquery_network/node_operators/plans.md`,
+          `${locale}/subquery_network/node_operators/maximise-apy.md`,
         ],
       },
       {
-        text: "Architects",
-        link: `${locale}/subquery_network/architects/introduction.md`,
+        text: "Publish your Project",
+        link: `${locale}/subquery_network/architects/publish.md`,
         collapsible: true,
         children: [
-          `${locale}/subquery_network/architects/introduction.md`,
           `${locale}/subquery_network/architects/publish.md`,
           `${locale}/subquery_network/architects/publish-subgraph.md`,
-
+          `${locale}/subquery_network/architects/next-steps.md`,
         ],
       },
       {
@@ -686,8 +676,47 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/governance/treasury-management.md`,
         ],
       },
+      `${locale}/subquery_network/faq.md`,
+      `${locale}/subquery_network/fair-use.md`,
       `${locale}/subquery_network/community.md`,
       `${locale}/subquery_network/glossary.md`,
+    ],
+    "/ai/": [
+      {
+        text: "Welcome",
+        link: `${locale}/ai/welcome.md`,
+      },
+      {
+        text: "Guides",
+        link: `${locale}/ai/guides/fancy-greeter.md`,
+        children: [`${locale}/ai/guides/fancy-greeter.md`],
+      },
+      {
+        text: "Build",
+        link: `${locale}/ai/build/app.md`,
+        children: [
+          `${locale}/ai/build/app.md`,
+          `${locale}/ai/build/function_tools.md`,
+          `${locale}/ai/build/rag.md`,
+        ],
+      },
+      {
+        text: "Run",
+        link: `${locale}/ai/run/local.md`,
+        children: [
+          `${locale}/ai/run/local.md`,
+          `${locale}/ai/run/cli.md`,
+          `${locale}/ai/run/docker.md`,
+        ],
+      },
+      {
+        text: "Query",
+        link: `${locale}/ai/query/query.md`,
+      },
+      {
+        text: "Publish",
+        link: `${locale}/ai/publish/publish.md`,
+      },
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,

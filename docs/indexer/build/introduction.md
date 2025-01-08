@@ -8,7 +8,7 @@ Some of the following examples will assume you have successfully initialized the
 2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/polkadot.md).
-5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/publish.md) your Starter Project in our quick start guide.
+5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/introduction.md) your Starter Project in our quick start guide.
 
 ## Directory Structure
 
@@ -46,7 +46,7 @@ Scaffolding saves time during SubQuery project creation by automatically generat
 
 When you are initialising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
 
-If you have select an compatible network type (EVM), it will prompt
+If you have select a compatible network type (EVM), it will prompt
 
 ```shell
 ? Do you want to generate scaffolding with an existing abi contract?
@@ -67,6 +67,7 @@ You will then be prompted to select what `events` and/or `functions` that you wa
 ### For an Existing SubQuery Project
 
 You can also generate additional scaffolded code new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
+If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
 
 ```shell
 subql codegen:generate \
@@ -172,7 +173,7 @@ const project: EthereumProject = {
   version: "0.0.1",
   name: "ethereum-subql-starter",
   description:
-    "This project can be use as a starting point for developing your new Ethereum SubQuery project",
+    "This project can be used as a starting point for developing your new Ethereum SubQuery project",
   runner: {
     node: {
       name: "@subql/node-ethereum",
@@ -268,7 +269,7 @@ The `schema.graphql` file outlines the various GraphQL schemas. The structure of
 3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
 4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
-Here's an example of what your GraphQL Here is an example of a schema which implements all of these recommendations, as well a relationship of many-to-many:
+Here's an example of what your GraphQL Here is an example of a schema which implements all of these recommendations, as well as a relationship of many-to-many:
 
 ::: tip
 
@@ -332,7 +333,7 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contain generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
+This will create a new directory (or update the existing) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";

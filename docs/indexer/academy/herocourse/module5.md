@@ -1,6 +1,6 @@
 # Module 5: Projects & Explorer
 
-SubQuery Manged Service is our managed service solution and SubQuery Explorer is a dashboard where you can find projects and consume project data using GraphQL. This module takes a deeper dive into both these products.
+SubQuery Managed Service is our managed service solution and SubQuery Explorer is a dashboard where you can find projects and consume project data using GraphQL. This module takes a deeper dive into both these products.
 
 ## Lesson 1 - Deploying a project
 
@@ -19,10 +19,6 @@ SubQuery Manged Service is our managed service solution and SubQuery Explorer is
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/JeYa3JlxR1g" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
-
-### References
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#how-much-does-it-cost-to-host-my-project-in-subquery-projects)
 
 ## Lesson 3 - Exploring Projects
 
@@ -59,7 +55,7 @@ None.
 
 #### Step 1: Hello World (SubQuery Hosted)
 
-The detailed steps to deploy a project to [SubQuery Managed Service](https://managedservice.subquery.network/) are outlined within our documentation website. **Please visit [this section](../../run_publish/publish.md).**
+The detailed steps to deploy a project to [OnFinality Indexer Service](https://indexer.onfinality.io/) are outlined within their documentation website. **Please visit [this section](https://documentation.onfinality.io/support/data-indexing-service).**
 
 The process begins with a starter project, then uploads it to GitHub, connects GitHub to SubQuery Managed Service, and then deploys it.
 
@@ -69,13 +65,13 @@ You can deploy any project of your choice to SubQuery Managed Service. But the m
 
 It is a common practice to publish your SubQuery project under the name of your **GitHub Organization account**, rather than your personal GitHub account. Please refer to:
 
-- [Add GitHub Organization Account to SubQuery Managed Service](../../run_publish/publish.md#add-github-organization-account-to-subquery-projects)
+- [Add GitHub Organization Account to SubQuery Managed Service](https://documentation.onfinality.io/support/add-github-organization-account-to-subquery-projec)
 
 #### Step 3: Override Endpoints
 
 When deploying your project, it is possible to override your default network or dictionary endpoints with another network. For more information please see:
 
-- [Deploy your project](../../run_publish/publish.md#deploy-your-first-version)
+- [Deploy your project](https://documentation.onfinality.io/support/publishing-your-subquery-project)
 
 To understand more about how dictionaries work, refer to:
 
@@ -83,10 +79,7 @@ To understand more about how dictionaries work, refer to:
 
 #### Step 4: Understand the Slots
 
-Slots are a feature in SubQuery's Managed Service that are the equivalent of a development environment. To learn more, visit:
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)
-- [What is the advantage of a staging slot?](../../miscellaneous/faqs.md#what-is-the-advantage-of-a-staging-slot)
+Slots are a feature in OnFinality's Indexing Service that are the equivalent of a development environment. To learn more, visit https://indexer.onfinality.io/
 
 #### Step 5: Access Playground
 
@@ -99,15 +92,3 @@ Once your project is deployed, access your project and run your desired query in
 Developers will typically query the SubQuery project via API. See an example of how this is done at:
 
 - [Querying via the API](../../quickstart/quickstart_chains/polkadot.md#_6-query-your-project)
-
-#### Step 7: Delete SubQuery Projects
-
-It is important to keep your SubQuery projects tidy and ensure that test projects are not running unnecessarily. This consumes extra resources on the network and creates extra cost as well.
-
-To delete a project see the guide below:
-
-- [Deleting SubQuery projects](../tutorials_examples/delete-projects.md)
-
-### References
-
-- [What are deployment slots?](../../miscellaneous/faqs.md#what-are-deployment-slots)
