@@ -126,8 +126,6 @@ const bal1 = await myTestContract.get_balance();
 logger.info(`Initial balance: ${bal1.toString()}`); // Cairo 1 contract
 ```
 
-The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain.
-
 ## Third-party Library Support - the Sandbox
 
 SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is makes it possible to verify data in the decentralised SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
