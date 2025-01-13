@@ -187,10 +187,13 @@ const sendMessage = async () => {
     inputValue.value = "";
     await pushNewMsgToChat(newChat, robotAnswer);
     messageRef.value?.scrollDown();
-
-    window.gtag("event", "send_message_ai-asisstant", {
-      address: `from doc`,
-    });
+    try {
+      window.gtag("event", "send_message_ai-asisstant", {
+        address: `from doc`,
+      });
+    } catch (e) {
+      //
+    }
 
     // set user's message first, then get the response
     const res = await chatWithStream(newChat.chatUrl, {
@@ -279,10 +282,14 @@ const sendMessage = async () => {
 
 watchEffect(() => {
   if (showPopover.value) {
-    window.gtag("event", "open_chatbox", {
-      event_category: "chatbox",
-      event_label: "open_chatbox",
-    });
+    try {
+      window.gtag("event", "open_chatbox", {
+        event_category: "chatbox",
+        event_label: "open_chatbox",
+      });
+    } catch (e) {
+      //
+    }
   }
 });
 </script>
