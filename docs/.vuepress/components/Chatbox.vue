@@ -70,7 +70,7 @@
 
 <script setup lang="ts">
 import { Popover, Icon, Field } from "vant";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import ChatCloseIcon from "./icons/ChatCloseIcon.vue";
 import Typography from "./Typography.vue";
 import SubmitIcon from "./icons/SubmitIcon.vue";
@@ -187,6 +187,11 @@ const sendMessage = async () => {
     inputValue.value = "";
     await pushNewMsgToChat(newChat, robotAnswer);
     messageRef.value?.scrollDown();
+
+    window.gtag("event", "send_message_ai-asisstant", {
+      address: `from doc`,
+    });
+
     // set user's message first, then get the response
     const res = await chatWithStream(newChat.chatUrl, {
       messages: newChat.prompt
@@ -271,6 +276,15 @@ const sendMessage = async () => {
     answerStatus.value = ChatBotAnswerStatus.Error;
   }
 };
+
+watchEffect(() => {
+  if (showPopover.value) {
+    window.gtag("event", "open_chatbox", {
+      event_category: "chatbox",
+      event_label: "open_chatbox",
+    });
+  }
+});
 </script>
 
 <style lang="scss">
