@@ -10,7 +10,7 @@
     }">
       <img v-if="message.role === 'assistant'" src="https://static.subquery.network/logo-with-bg.svg" width="40"
         height="40"></img>
-      <div class="conversation-message-item-span" v-html="md.render(message.content)">
+      <div class="conversation-message-item-span" v-html="md.render(message.content as string)">
       </div>
     </div>
   </div>
