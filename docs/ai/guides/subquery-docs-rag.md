@@ -1,28 +1,59 @@
-# SubQuery Docs Assistent - RAG Example
+# Project Documentation AI Assistent - RAG Example
 
-This is an example of an AI app utilizing RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialized type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorize.
-
-In this case, we are building a vector database based on the markdown files in the documentation repository. Once deployed, this enables an intelligent documentation search feature.
+This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise.
 
 :::info note
-This tool is already in use in production within this documentation. Be sure to explore it now by clicking the corresponding button in the lower-right corner.
+This tool is already in use in production for SubQuery documentation. Be sure to explore it now by clicking the corresponding button in the lower-right corner.
 :::
 
 You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/docs).
 
 <!-- @include: ./snippets/prerequisites.md -->
 
+## 1. Install the framework
+
 <!-- @include: ./snippets/install-the-framework.md -->
+
+## 2. Create a New App
 
 <!-- @include: ./snippets/create-a-new-app.md -->
 
-## 3. Run the AI App
+## 3. Configure Manifest File
 
-<!-- @include: ./snippets/run-the-ai-app.md -->
+<!-- @include: ./snippets/configure-manifest-file.md -->
+
+To proceed with this case, we need to define and add a RAG dataset. You can experiment using the [SubQuery documentation](https://github.com/subquery/documentation) or your own documentation, provided it can be vectorized.
+
+After downloading the documentation project, you can define it using the SubQuery CLI and the default tool by following [this guide](../build/rag.md#defining-rag). The logic for vectorization can be found on [GitHub](https://github.com/subquery/subql-ai-app-framework/blob/main/src/embeddings/generator/generator.ts). Alternatively, you can use a custom vectorization algorithm better suited to your specific needs.
+
+Once the vectorisation process is complete, it will generate a folder. Copy the path to the root of this generated folder and include it in the manifest file to ingest and embed your chosen RAG source data.
+
+After the modification, the manifest file will resemble the following structure:
+
+```ts
+import type { ProjectManifest } from "jsr:@subql/ai-app-framework@^0.0.5";
+
+const project: ProjectManifest = {
+  specVersion: "0.0.1",
+  vectorStorage: {
+    type: "lancedb",
+    path: "../path-to-the-folder",
+  },
+  config: {},
+  model: "llama3.1",
+  embeddingsModel: 'nomic-embed-text',
+  entry: "./project.ts",
+};
+
+export default project;
+
+```
+
+## 4. Configure App's Logic
+
+<!-- @include: ./snippets/configure-app-logic.md -->
 
 <!-- @include: ./snippets/update-system-prompt.md -->
-
-In this example we will be having several tools connected. 
 
 ```ts
 const PROMPT = `
@@ -61,9 +92,7 @@ export class SubqueryDocs extends RagTool {
 }
 ```
 
-After that, you can simply run it.
-
-## 6. Run the AI App with developed tools
+## 5. Run the AI App with developed tools
 
 <!-- @include: ./snippets/run-the-ai-app.md -->
 
@@ -122,8 +151,6 @@ Subquery currently does not support Solana blockchain.
 
 ## Summary
 
-You now have a fully functional SubQuery AI App that utilizes the latest LLMs and integrates several function tools that interact with blockchain data. You can use this example as a foundation to create your own tools, leveraging on-chain data queried in a flexible way, enabling real-time data analysis through simple, natural language prompts.
-
-[**A full version of the code for this guide can be found here**](https://github.com/subquery/subql-ai-app-example/tree/main/fancy-greeter).
+You now have a fully functional SubQuery AI App that leverages unstructured markdown data to deliver clearer and more concise responses about SubQuery.
 
 <!-- @include: ./snippets/summary.md -->

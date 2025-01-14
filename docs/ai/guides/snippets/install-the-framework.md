@@ -1,5 +1,3 @@
-## 1. Install the framework
-
 Run the following command to install the SubQuery AI framework globally on your system:
 
 ```bash

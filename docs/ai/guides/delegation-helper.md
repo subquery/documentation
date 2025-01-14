@@ -2,21 +2,66 @@
 
 This is a more advanced example of an AI application. It is an agent specifically designed to assist users with token delegation on the SubQuery Network. The agent utilizes multiple tools to extract and interpret relevant information about delegation from raw on-chain data. This showcases an excellent integration of an AI framework with an indexing SDK, enabling the structuring of natural language responses based on on-chain data.
 
+:::info note
 You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/network-delegation-helper).
+:::
 
 <!-- @include: ./snippets/prerequisites.md -->
 
+## 1. Install the framework
+
 <!-- @include: ./snippets/install-the-framework.md -->
+
+## 2. Create a New App
 
 <!-- @include: ./snippets/create-a-new-app.md -->
 
-## 3. Run the AI App
+## 3. Configure Manifest File
 
-<!-- @include: ./snippets/run-the-ai-app.md -->
+<!-- @include: ./snippets/configure-manifest-file.md -->
+
+The manifest file is having the following look:
+
+```ts
+/** Gets the host names of any urls in a record */
+export function extractConfigHostNames(
+  config: Record<string, string>,
+): string[] {
+  const hosts = Object.values(config)
+    .filter((v) => typeof v === "string")
+    .map((v) => {
+      try {
+        return new URL(v).hostname;
+      } catch (_e) {
+        return undefined;
+      }
+    })
+    .filter((v) => !!v) as string[]; // Cast should be unnecessary with latest TS versions
+  
+    // Make unique
+  return [...new Set(hosts)];
+}
+
+const defaultConfig = Value.Default(ConfigType, {} as Config) as Config;
+
+const project: ProjectManifest = {
+  specVersion: "0.0.1",
+  endpoints: extractConfigHostNames(defaultConfig),
+  config: JSON.parse(JSON.stringify(ConfigType)), // Convert to JSON Schema
+  model: "llama3.1",
+  entry: "./project.ts",
+};
+
+export default project;
+```
+
+The code includes the import of necessary types and functions, the definition of a utility function, and the creation of a project manifest object. Since we're sharing the config logic between the manifest file and the app's code, we import `ConfigType`, which we will explain later during the code explaination.
+
+## 4. Configure App's Logic
+
+<!-- @include: ./snippets/configure-app-logic.md -->
 
 <!-- @include: ./snippets/update-system-prompt.md -->
-
-In this example we will be having several tools connected. 
 
 ```ts
 const PROMPT = `
@@ -82,7 +127,7 @@ As mentioned earlier, there are two methods for obtaining data: using an SDK to 
 
 Given the number of tools included in the project, the logic can be modularized and split across multiple files. To achieve this, the original project will include a dedicated `tools.ts` file for managing these tools.
 
-### Obtaining Data from Indexers
+### 4.1 Obtaining Data from Indexers
 
 Let’s take the `TotalDelegation` tool as an example to illustrate its implementation in detail. This tool calculates the total delegation amount of SQT for a given user address. If no delegation is found, it returns `null`. You can view the tool's implementation here:
 
@@ -171,7 +216,7 @@ export async function grahqlRequest<T = unknown>(
 
 This function is an asynchronous utility created to send GraphQL requests to a designated endpoint. It is a generic function, enabling the caller to define the expected structure of the response data.
 
-### Fetching Data Directly from RPC
+### 4.2 Fetching Data Directly from RPC
 
 In our example, only the `TokenBalance` tool retrieves data directly from the node. Let’s review its implementation:
 
@@ -224,7 +269,7 @@ export class TokenBalance extends FunctionTool {
 
 The tool is built to fetch the current on-chain balance of a specific token (SQT) for a given user address. The class constructor accepts two parameters: `provider`, an instance of AbstractProvider used to interact with the blockchain, and `tokenAddress`, the address of the token contract, both of which are hardcoded.
 
-## 6. Run the AI App with developed tools
+## 5. Run the AI App
 
 <!-- @include: ./snippets/run-the-ai-app.md -->
 

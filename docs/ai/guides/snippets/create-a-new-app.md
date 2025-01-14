@@ -1,5 +1,3 @@
-## 2. Create a new App
-
 You can initialise a new app using `subql-ai init`. It will ask you to provide a name and a Ollama model to use.
 
 ![Init a new AI App](/assets/img/ai/guide-init.png)
