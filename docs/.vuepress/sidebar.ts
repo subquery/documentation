@@ -710,8 +710,8 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Query",
-        link: `${locale}/ai/query/query.md`,
+        text: "API",
+        link: `${locale}/ai/api/api.md`,
       },
       {
         text: "Publish",
