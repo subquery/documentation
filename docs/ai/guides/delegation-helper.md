@@ -27,7 +27,7 @@ We need to update the manifest file to the following:
 ```ts
 /** Gets the host names of any urls in a record */
 export function extractConfigHostNames(
-  config: Record<string, string>
+  config: Record<string, string>,
 ): string[] {
   const hosts = Object.values(config)
     .filter((v) => typeof v === "string")
@@ -113,7 +113,7 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       new BetterIndexerApy(config.GRAPHQL_ENDPOINT),
       new TokenBalance(
         new JsonRpcProvider(config.BASE_RPC),
-        config.BASE_SQT_ADDR
+        config.BASE_SQT_ADDR,
       ),
     ],
     systemPrompt: PROMPT,
@@ -165,7 +165,7 @@ export class TotalDelegation extends FunctionTool {
         delegator(id: "${account}") {
           totalDelegations
         }
-      }`
+      }`,
       );
 
       if (!res.delegator) {
@@ -188,7 +188,7 @@ Every tool utilising GraphQL depends on an external function named `graphqlReque
 export async function grahqlRequest<T = unknown>(
   endpoint: string,
   query: string,
-  variables?: unknown
+  variables?: unknown,
 ): Promise<T> {
   const response = await fetch(endpoint, {
     method: "POST",
@@ -207,7 +207,7 @@ export async function grahqlRequest<T = unknown>(
     console.log(`Request failed\n${query}`);
 
     throw new Error(
-      res.errors.map((e: { message: string }) => e.message).join("\n")
+      res.errors.map((e: { message: string }) => e.message).join("\n"),
     );
   }
 
@@ -225,7 +225,7 @@ In our example, only the `TokenBalance` tool retrieves data directly from the no
 export class TokenBalance extends FunctionTool {
   constructor(
     readonly provider: AbstractProvider,
-    readonly tokenAddress: string
+    readonly tokenAddress: string,
   ) {
     super();
   }
@@ -254,7 +254,7 @@ export class TokenBalance extends FunctionTool {
       const erc20Contract = new Contract(
         this.tokenAddress,
         erc20Abi,
-        this.provider
+        this.provider,
       );
 
       const balance = await erc20Contract.balanceOf(account);

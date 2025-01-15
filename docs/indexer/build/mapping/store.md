@@ -110,27 +110,36 @@ Using the store directly:
 
 ```ts
 // Get the first 100 records with ChainID == 50 AND AccountID == '0xSomeAddress'
-await store.getByFields(`TransactionEntity`, [
-  ["ChainID", "=", 50],
-  ["AccountID", "=", "0xSomeAddress"],
-], { limit: 100 });
+await store.getByFields(
+  `TransactionEntity`,
+  [
+    ["ChainID", "=", 50],
+    ["AccountID", "=", "0xSomeAddress"],
+  ],
+  { limit: 100 },
+);
 ```
 
 Using an entity, this will provide better type safety:
 
 ```ts
 // Get the first 100 records with ChainID == 50 AND AccountID == '0xSomeAddress'
-await TransactionEntity.getByFields([
-  ["ChainID", "=", 50],
-  ["AccountID", "=", "0xSomeAddress"],
-], { limit: 100 });
+await TransactionEntity.getByFields(
+  [
+    ["ChainID", "=", 50],
+    ["AccountID", "=", "0xSomeAddress"],
+  ],
+  { limit: 100 },
+);
 ```
 
 It's also possible to match multiple values to a field (in this case an OR operation is applied):
 
 ```ts
 // Get the first 100 records with ChainID == 50 OR ChainID == 51
-await TransactionEntity.getByFields([["ChainID", "in", [50, 51]]], { limit: 100 });
+await TransactionEntity.getByFields([["ChainID", "in", [50, 51]]], {
+  limit: 100,
+});
 ```
 
 ## Get Records by a Single Field
@@ -166,7 +175,9 @@ To get a list of records with `ChainID` equal to 50, 100 or 150:
 
 ```ts
 // Get the first 100 records with ChainID == 50 OR ChainID == 100 OR ChainID == 150
-await store.getByField("TransactionEntity", "ChainID", [50, 100, 150], { limit: 100 });
+await store.getByField("TransactionEntity", "ChainID", [50, 100, 150], {
+  limit: 100,
+});
 ```
 
 ## Get First Record by Field

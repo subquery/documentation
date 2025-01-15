@@ -36,7 +36,7 @@ To distinguish between different calls types, you can use the `selector` field i
 import { StarknetTransaction } from "@subql/types-starknet";
 
 export async function handleTransaction(
-  tx: WithdrawTransaction
+  tx: WithdrawTransaction,
 ): Promise<void> {
   logger.info(`New Withdraw transaction at block ${tx.blockNumber}`);
   assert(tx.decodedCalls, "No tx decodedCalls");
@@ -114,7 +114,7 @@ You can then query contract state at the right block height. For example to quer
 const testAddress =
   "0x7667469b8e93faa642573078b6bf8c790d3a6184b2a1bb39c5c923a732862e1";
 const compiledTest = json.parse(
-  fs.readFileSync("./compiledContracts/test.json").toString("ascii")
+  fs.readFileSync("./compiledContracts/test.json").toString("ascii"),
 );
 
 // connect the contract
@@ -150,7 +150,7 @@ import { StarknetTransaction } from "@subql/types-starknet";
 import fetch from "node-fetch";
 
 export async function handleTransaction(
-  tx: StarknetTransaction
+  tx: StarknetTransaction,
 ): Promise<void> {
   const httpData = await fetch("https://api.github.com/users/github");
   logger.info(`httpData: ${JSON.stringify(httpData.body)}`);

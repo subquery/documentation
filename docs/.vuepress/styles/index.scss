@@ -1,7 +1,8 @@
 // place your custom styles here
 @font-face {
   font-family: "Inter";
-  src: local("Inter-Regular"),
+  src:
+    local("Inter-Regular"),
     url("https://static.subquery.network/design/fonts/Inter-Regular.ttf")
       format("truetype");
   font-display: swap;
@@ -9,7 +10,8 @@
 
 @font-face {
   font-family: "Inter-SemiBold";
-  src: local("Inter-SemiBold"),
+  src:
+    local("Inter-SemiBold"),
     url("https://static.subquery.network/design/fonts/Inter-SemiBold.ttf")
       format("truetype");
   font-display: swap;
@@ -17,7 +19,8 @@
 
 @font-face {
   font-family: "Inter-Bold";
-  src: local("Inter-Bold"),
+  src:
+    local("Inter-Bold"),
     url("https://static.subquery.network/design/fonts/Inter-Bold.ttf")
       format("truetype");
   font-display: swap;
@@ -211,7 +214,8 @@ iframe {
 }
 
 .theme-hope-content {
-  ol,ul {
+  ol,
+  ul {
     padding-left: 1.2rem;
     list-style: revert;
   }

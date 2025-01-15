@@ -1,28 +1,43 @@
 <template>
   <div class="conversation-message" ref="messageAreaRef">
-    <div v-for="message, index in property.messages" :key="index" :class="{
-      'conversation-message-item': true,
-      'conversation-message-item-lastOne': index === property.messages.length - 1 && message.role === 'assistant',
-      [answerStatus]: index === property.messages.length - 1 && message.role === 'assistant' && !message?.content?.length
-        ? true
-        : undefined,
-      [`conversation-message-item-${message.role}`]: true
-    }">
-      <img v-if="message.role === 'assistant'" src="https://static.subquery.network/logo-with-bg.svg" width="40"
-        height="40"></img>
-      <div class="conversation-message-item-span" v-html="md.render(message.content as string)">
-      </div>
+    <div
+      v-for="(message, index) in property.messages"
+      :key="index"
+      :class="{
+        'conversation-message-item': true,
+        'conversation-message-item-lastOne':
+          index === property.messages.length - 1 &&
+          message.role === 'assistant',
+        [answerStatus]:
+          index === property.messages.length - 1 &&
+          message.role === 'assistant' &&
+          !message?.content?.length
+            ? true
+            : undefined,
+        [`conversation-message-item-${message.role}`]: true,
+      }"
+    >
+      <img
+        v-if="message.role === 'assistant'"
+        src="https://static.subquery.network/logo-with-bg.svg"
+        width="40"
+        height="40"
+      />
+      <div
+        class="conversation-message-item-span"
+        v-html="md.render(message.content as string)"
+      ></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import markdownit from 'markdown-it';
-import { nextTick } from 'vue';
-import { ref } from 'vue';
-type AiMessageType = 'text' | 'image_url';
+import markdownit from "markdown-it";
+import { nextTick } from "vue";
+import { ref } from "vue";
+type AiMessageType = "text" | "image_url";
 
-type AiMessageRole = 'assistant' | 'user' | 'system';
+type AiMessageRole = "assistant" | "user" | "system";
 
 interface Content {
   type: AiMessageType;
@@ -41,14 +56,14 @@ interface ConversationProperty {
 interface Message {
   role: AiMessageRole;
   content: string | Content[];
-  type?: 'welcome'; // welcome should filter before send
+  type?: "welcome"; // welcome should filter before send
 }
 
 enum ChatBotAnswerStatus {
-  Empty = 'empty',
-  Loading = 'loading',
-  Success = 'success',
-  Error = 'error',
+  Empty = "empty",
+  Loading = "loading",
+  Success = "success",
+  Error = "error",
 }
 
 defineProps<{
@@ -59,7 +74,7 @@ defineProps<{
 const md = markdownit({
   html: true,
   linkify: true,
-  typographer: true
+  typographer: true,
 });
 
 const messageAreaRef = ref<HTMLDivElement | null>(null);
@@ -68,20 +83,22 @@ const scrollDown = (onlyWhenReachBottom = false) => {
   if (onlyWhenReachBottom && messageAreaRef.value) {
     // If render an image, then not working. TODO: fix it.
     const ifReachBottom =
-      messageAreaRef.value?.scrollTop >= messageAreaRef.value?.scrollHeight - messageAreaRef.value?.clientHeight - 100;
-      if (ifReachBottom) {
+      messageAreaRef.value?.scrollTop >=
+      messageAreaRef.value?.scrollHeight -
+        messageAreaRef.value?.clientHeight -
+        100;
+    if (ifReachBottom) {
       messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
     }
 
     return;
   }
   messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
-}
+};
 
 defineExpose({
-  scrollDown
-})
-
+  scrollDown,
+});
 </script>
 
 <style lang="scss">
@@ -138,7 +155,6 @@ defineExpose({
         word-break: break-word;
       }
 
-
       ul {
         margin: 0;
         padding-left: 16px;
@@ -190,7 +206,6 @@ defineExpose({
   .conversation-message {
     height: 100%;
   }
-  
 }
 
 @keyframes pulseCursor {

@@ -37,7 +37,7 @@ sudo wget -O /usr/local/bin/ufw-docker https://github.com/chaifeng/ufw-docker/ra
 sudo chmod +x /usr/local/bin/ufw-docker
 ```
 
-Then using the following command to modify the ` after.rules`` file of  `ufw``
+Then using the following command to modify the `after.rules`` file of `ufw``
 
 ```bash
 ufw-docker install
