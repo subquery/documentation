@@ -2,7 +2,7 @@
 
 This page explains how to create an multi-chain indexer for [Kava](https://www.kava.io/), the first Layer-1 blockchain to combine the speed and scalability of the Cosmos SDK with the developer support of Ethereum, empowering developers to build for Web3 and next-gen blockchain technologies through its unique co-chain architecture.
 
-<!-- @include: ../snippets/multi-chain-quickstart-reference.md -->
+<!-- @include: ./snippets/multi-chain-quickstart-reference.md -->
 
 After finishing this guide, you'll get the ability to connect event data efficiently across various diverse networks. Additionally, you'll obtain the know-how to set up a SubQuery indexer that enables monitoring, tracking, and aggregating events within a single unified system.
 
@@ -56,7 +56,7 @@ In the provided snippet, we're managing an individual log named `Transfer`. This
 
 Next, change the name of the file mentioned above to `kava-evm.yaml` to indicate that this file holds the Ethereum configuration.
 
-<!-- @include: ../snippets/multi-chain-creation.md -->
+<!-- @include: ./snippets/multi-chain-creation.md -->
 
 ::: code-tabs
 
@@ -167,7 +167,7 @@ dataSources:
 
 :::
 
-<!-- @include: ../snippets/multi-chain-network-origin-note.md -->
+<!-- @include: ./snippets/multi-chain-network-origin-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
@@ -229,7 +229,7 @@ Setting up mappings contract is straightforward. In this instance, the mappings 
 ```ts
 function kavaToEthAddress(kavaAddress: string) {
   return ethers.utils.getAddress(
-    ethers.utils.hexlify(bech32.fromWords(bech32.decode(kavaAddress).words)),
+    ethers.utils.hexlify(bech32.fromWords(bech32.decode(kavaAddress).words))
   );
 }
 
@@ -237,14 +237,14 @@ function ethToKavaAddress(ethereumAddress: string) {
   return bech32.encode(
     "kava",
     bech32.toWords(
-      ethers.utils.arrayify(ethers.utils.getAddress(ethereumAddress)),
-    ),
+      ethers.utils.arrayify(ethers.utils.getAddress(ethereumAddress))
+    )
   );
 }
 
 async function checkGetUserAddress(
   cosmosAddress: string,
-  evmAddress: string,
+  evmAddress: string
 ): Promise<Address> {
   let addressId = `${cosmosAddress}-${evmAddress}`;
   let userRecord = await Address.get(addressId);
@@ -275,7 +275,7 @@ export async function handleEVMLog(transferLog: TransferLog): Promise<void> {
     contractAddressId: (
       await checkGetUserAddress(
         ethToKavaAddress(contractAddress),
-        contractAddress,
+        contractAddress
       )
     ).id.toString(),
   });

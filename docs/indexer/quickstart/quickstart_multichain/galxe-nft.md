@@ -689,7 +689,7 @@ import assert from "assert";
 async function handleClaimV2(
   event: EventModel,
   claim_nft: NFTModel,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling handleClaimV2");
   let campaign_id = claim_nft.campaignID;
@@ -715,7 +715,7 @@ async function handleClaimV2(
   let spaceStation = await createSpaceStation(
     event.spaceStationAddr,
     TWO_BI,
-    network,
+    network
   );
   let campaign = await createCampaign(campaign_id.toString(), network);
   logger.info("Iterating through array");
@@ -760,7 +760,7 @@ async function handleClaimV2(
 
 export async function handleEventClaimV2(
   event: EventClaimLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling EventClaimLogV2");
   let em = new EventModel();
@@ -784,21 +784,21 @@ export async function handleEventClaimV2(
 }
 
 export async function handleEventClaimV2Ethereum(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimV2Ethereum");
   await handleEventClaimV2(event, "ethereum");
 }
 
 export async function handleEventClaimV2Arbitrum(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimV2Arbitrum");
   await handleEventClaimV2(event, "arbitrum");
 }
 
 export async function handleEventClaimV2Polygon(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimV2Polygon");
   await handleEventClaimV2(event, "polygon");
@@ -808,7 +808,7 @@ export async function handleEventClaimV2Polygon(
 
 export async function handleEventClaimBatchV2(
   event: EventClaimBatchLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchV2");
   let em = new EventModel();
@@ -823,10 +823,10 @@ export async function handleEventClaimBatchV2(
   nm.campaignID = event.args._cid.toBigInt();
   nm.user = event.args._sender;
   nm.verifyIDs = event.args._dummyIdArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
   nm.nftIDs = event.args._nftIDArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
   nm.nftContract = event.args._starNFT;
 
@@ -836,21 +836,21 @@ export async function handleEventClaimBatchV2(
 }
 
 export async function handleEventClaimBatchV2Ethereum(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchV2Ethereum");
   await handleEventClaimBatchV2(event, "ethereum");
 }
 
 export async function handleEventClaimBatchV2Arbitrum(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchV2Arbitrum");
   await handleEventClaimBatchV2(event, "arbitrum");
 }
 
 export async function handleEventClaimBatchV2Polygon(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchV2Polygon");
   await handleEventClaimBatchV2(event, "polygon");
@@ -860,7 +860,7 @@ export async function handleEventClaimBatchV2Polygon(
 
 export async function handleEventClaimBatchCappedV2(
   event: EventClaimBatchCappedLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Hanling EventClaimBatchCappedLogV2");
   let em = new EventModel();
@@ -875,10 +875,10 @@ export async function handleEventClaimBatchCappedV2(
   nm.campaignID = event.args._cid.toBigInt();
   nm.user = event.args._sender;
   nm.verifyIDs = event.args._dummyIdArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
   nm.nftIDs = event.args._nftIDArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
   nm.nftContract = event.args._starNFT;
 
@@ -888,21 +888,21 @@ export async function handleEventClaimBatchCappedV2(
 }
 
 export async function handleEventClaimBatchCappedV2Ethereum(
-  event: EventClaimBatchCappedLog,
+  event: EventClaimBatchCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchCappedV2Ethereum");
   await handleEventClaimBatchCappedV2(event, "ethereum");
 }
 
 export async function handleEventClaimBatchCappedV2Arbitrum(
-  event: EventClaimBatchCappedLog,
+  event: EventClaimBatchCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchCappedV2Arbitrum");
   await handleEventClaimBatchCappedV2(event, "arbitrum");
 }
 
 export async function handleEventClaimBatchCappedV2Polygon(
-  event: EventClaimBatchCappedLog,
+  event: EventClaimBatchCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchCappedV2Polygon");
   await handleEventClaimBatchCappedV2(event, "polygon");
@@ -912,7 +912,7 @@ export async function handleEventClaimBatchCappedV2Polygon(
 
 export async function handleEventClaimCappedV2(
   event: EventClaimCappedLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Hanling EventClaimCappedLogV2");
   let em = new EventModel();
@@ -936,21 +936,21 @@ export async function handleEventClaimCappedV2(
 }
 
 export async function handleEventClaimCappedV2Ethereum(
-  event: EventClaimCappedLog,
+  event: EventClaimCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimCappedV2Ethereum");
   await handleEventClaimCappedV2(event, "ethereum");
 }
 
 export async function handleEventClaimCappedV2Arbitrum(
-  event: EventClaimCappedLog,
+  event: EventClaimCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimCappedV2Arbitrum");
   await handleEventClaimCappedV2(event, "arbitrum");
 }
 
 export async function handleEventClaimCappedV2Polygon(
-  event: EventClaimCappedLog,
+  event: EventClaimCappedLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimCappedV2Polygon");
   await handleEventClaimCappedV2(event, "polygon");
@@ -960,7 +960,7 @@ export async function handleEventClaimCappedV2Polygon(
 
 export async function handleEventForgeV2(
   event: EventForgeLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling EventForgeLogV2");
   let em = new EventModel();
@@ -984,21 +984,21 @@ export async function handleEventForgeV2(
 }
 
 export async function handleEventForgeV2Ethereum(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgeV2Ethereum");
   await handleEventForgeV2(event, "ethereum");
 }
 
 export async function handleEventForgeV2Arbitrum(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgeV2Arbitrum");
   await handleEventForgeV2(event, "arbitrum");
 }
 
 export async function handleEventForgeV2Polygon(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgeV2Polygon");
   await handleEventForgeV2(event, "polygon");
@@ -1049,7 +1049,7 @@ import assert from "assert";
 async function handleClaim(
   event: EventModel,
   claim_nft: NFTModel,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling Claim");
   let campaign_id = claim_nft.campaignID;
@@ -1077,7 +1077,7 @@ async function handleClaim(
   let spaceStation = createSpaceStation(
     event.spaceStationAddr,
     ONE_BI,
-    network,
+    network
   );
   let campaign = await createCampaign(campaign_id.toString(), network);
 
@@ -1118,7 +1118,7 @@ async function handleClaim(
 
 export async function handleEventClaim(
   event: EventClaimLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling EventClaimLog");
   let em = new EventModel();
@@ -1141,21 +1141,21 @@ export async function handleEventClaim(
 }
 
 export async function handleEventClaimEthereum(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimEthereum");
   await handleEventClaim(event, "ethereum");
 }
 
 export async function handleEventClaimArbitrum(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimArbitrum");
   await handleEventClaim(event, "arbitrum");
 }
 
 export async function handleEventClaimPolygon(
-  event: EventClaimLog,
+  event: EventClaimLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimPolygon");
   await handleEventClaim(event, "polygon");
@@ -1165,7 +1165,7 @@ export async function handleEventClaimPolygon(
 
 export async function handleEventClaimBatch(
   event: EventClaimBatchLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling EventClaimBatchLog");
   let em = new EventModel();
@@ -1180,10 +1180,10 @@ export async function handleEventClaimBatch(
   nm.campaignID = event.args._cid.toBigInt();
   nm.user = event.args._sender;
   nm.verifyIDs = event.args._dummyIdArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
   nm.nftIDs = event.args._nftIDArr.map((bigNumber) =>
-    BigInt(bigNumber.toString()),
+    BigInt(bigNumber.toString())
   );
 
   logger.info("--> V1 ClaimBatch {}", [event.address]);
@@ -1192,21 +1192,21 @@ export async function handleEventClaimBatch(
 }
 
 export async function handleEventClaimBatchEthereum(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchEthereum");
   await handleEventClaimBatch(event, "ethereum");
 }
 
 export async function handleEventClaimBatchArbitrum(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchArbitrum");
   await handleEventClaimBatch(event, "arbitrum");
 }
 
 export async function handleEventClaimBatchPolygon(
-  event: EventClaimBatchLog,
+  event: EventClaimBatchLog
 ): Promise<void> {
   logger.info("Handling handleEventClaimBatchPolygon");
   await handleEventClaimBatch(event, "polygon");
@@ -1216,7 +1216,7 @@ export async function handleEventClaimBatchPolygon(
 
 export async function handleEventForge(
   event: EventForgeLog,
-  network: string,
+  network: string
 ): Promise<void> {
   logger.info("Handling EventForgeLog");
   let em = new EventModel();
@@ -1239,21 +1239,21 @@ export async function handleEventForge(
 }
 
 export async function handleEventForgeEthereum(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgeEthereum");
   await handleEventForge(event, "ethereum");
 }
 
 export async function handleEventForgeArbitrum(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgeArbitrum");
   await handleEventForge(event, "arbitrum");
 }
 
 export async function handleEventForgePolygon(
-  event: EventForgeLog,
+  event: EventForgeLog
 ): Promise<void> {
   logger.info("Handling handleEventForgePolygon");
   await handleEventForge(event, "polygon");

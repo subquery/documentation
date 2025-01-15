@@ -2,19 +2,15 @@
 
 SubQuery is open-source and designed to be easy to run, meaning you have the freedom to run it a variety of ways.
 
-In short, you will want reliable production ready hosting of your SubQuery project. Typically this means running three services in a stable way:
-
-- A NodeJS indexer service (known as `subql-node`).
-- A PostgreSQL database.
-- A NodeJS query service (known as `subql-query` or our [subgraph compatible variant](./query/subgraph.md))
-
-There are four key options for how you might run your SubQuery project
+- [Locally on your own computer or on your cloud provider of choice](#locally-run-it-yourself).
+- [By publishing it to the decentralised SubQuery Network](#publish-to-the-subquery-network), the most open, performant, reliable, and scalable data service for dApp developers.
+- [Leveraging a centralised hosting partner in the SubQuery community](#other-hosting-providers-in-the-subquery-community).
 
 ## Locally (Run it yourself)
 
-Locally on your own computer (or a cloud provider of your choosing). There are two ways to run a project locally, using Docker or running the individual components using NodeJS services. [Read more](./run.md).
+Locally on your own computer (or a cloud provider of your choosing). There are two ways to run a project locally, using Docker or running the individual components using NodeJS services. [Read more](./run.md). Typically this gives the most flexibility and customisability, but obviously requires effort to maintain and monitor.
 
-## Using the SubQuery Network
+## Publish to the SubQuery Network
 
 We're building the most open, performant, reliable, and scalable data service for dApp developers. The SubQuery Network indexes and services data to the global community in an incentivised and verifiable way. After publishing your project to the SubQuery Network, anyone can index and host it - providing data to users around the world faster and reliably. [Read more](../../subquery_network/architects/publish.md).
 
