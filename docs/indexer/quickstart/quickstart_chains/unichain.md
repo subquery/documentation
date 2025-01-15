@@ -18,49 +18,49 @@ As we are indexing all transfers and approvals from the ETH contract on ZetaChai
 
 ```ts
 dataSources: [
-    {
-      kind: EthereumDatasourceKind.Runtime,
-      startBlock: 243124, // This is the block that the contract was deployed on https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
+  {
+    kind: EthereumDatasourceKind.Runtime,
+    startBlock: 243124, // This is the block that the contract was deployed on https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
 
-      options: {
-        // Must be a key of assets
-        abi: "erc20",
-        // This is the contract address for USDC https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
-        address: "0x31d0220469e10c4E71834a79b1f276d740d3768F",
-      },
-      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
-      mapping: {
-        file: "./dist/index.js",
-        handlers: [
-          {
-            kind: EthereumHandlerKind.Call,
-            handler: "handleTransaction",
-            filter: {
-              /**
-               * The function can either be the function fragment or signature
-               * function: '0x095ea7b3'
-               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-               */
-              function: "approve(address spender, uint256 rawAmount)",
-            },
-          },
-          {
-            kind: EthereumHandlerKind.Event,
-            handler: "handleLog",
-            filter: {
-              /**
-               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
-               */
-              topics: [
-                "Transfer(address indexed from, address indexed to, uint256 amount)",
-              ],
-            },
-          },
-        ],
-      },
+    options: {
+      // Must be a key of assets
+      abi: "erc20",
+      // This is the contract address for USDC https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
+      address: "0x31d0220469e10c4E71834a79b1f276d740d3768F",
     },
-  ]
+    assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+    mapping: {
+      file: "./dist/index.js",
+      handlers: [
+        {
+          kind: EthereumHandlerKind.Call,
+          handler: "handleTransaction",
+          filter: {
+            /**
+             * The function can either be the function fragment or signature
+             * function: '0x095ea7b3'
+             * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+             */
+            function: "approve(address spender, uint256 rawAmount)",
+          },
+        },
+        {
+          kind: EthereumHandlerKind.Event,
+          handler: "handleLog",
+          filter: {
+            /**
+             * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+             * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+             */
+            topics: [
+              "Transfer(address indexed from, address indexed to, uint256 amount)",
+            ],
+          },
+        },
+      ],
+    },
+  },
+];
 ```
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [USDC contract](https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F).

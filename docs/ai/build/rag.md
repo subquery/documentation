@@ -51,7 +51,10 @@ export class RagTool extends FunctionTool {
    * @param tableName The name of the table to query
    * @param column The column on the table to extract results from
    */
-  constructor(readonly tableName: string, readonly column: string) {
+  constructor(
+    readonly tableName: string,
+    readonly column: string,
+  ) {
     super();
   }
 

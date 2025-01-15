@@ -1,11 +1,9 @@
 # Running Locally
 
-Now that you have made your application and built it, you can run it locally to test it out.
-
-To do so run the following command, where the `-p` is the path to the `project.ts`, and `-h` is the URL of the Ollama endpoint:
+Now that you have made your application and built it, you can run it locally to test it out. To do so run the following command, where the `-p` is the path to the `manifest.ts`, and `-h` is the URL of the Ollama endpoint:
 
 ```shell
-subql-ai -p ./path/to/project.ts -h  http://ollama.public.url
+subql-ai -p ./path/to/manifest.ts -h  http://ollama.public.url
 ```
 
 Once the project is running you should see the following: `Listening on http://0.0.0.0:7827/`

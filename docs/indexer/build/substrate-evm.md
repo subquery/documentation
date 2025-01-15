@@ -101,10 +101,10 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
 
 Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
 
-| Field  | Type                                                    | Required | Description                                 |
-| ------ | ------------------------------------------------------- | -------- | ------------------------------------------- |
-| kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is a Call type handler  |
-| filter | [Call Filter](substrate-evm.md#call-filters)            | No       | Filter the data source to execute           |
+| Field  | Type                                                    | Required | Description                                |
+| ------ | ------------------------------------------------------- | -------- | ------------------------------------------ |
+| kind   | `substrate/FrontierEvmCall` or `substrate/AcalaEvmCall` | Yes      | Specifies that this is a Call type handler |
+| filter | [Call Filter](substrate-evm.md#call-filters)            | No       | Filter the data source to execute          |
 
 ### Call Filters
 

@@ -51,7 +51,7 @@ These can also be specified with environment variables. They should be prefixed 
 Run an AI app.
 
 ```shell
-subql-ai -p ./path/to/project.ts
+subql-ai -p ./path/to/manifest.ts
 ```
 
 ### `info`
@@ -59,7 +59,7 @@ subql-ai -p ./path/to/project.ts
 Get information on a project.
 
 ```shell
-subql-ai info -p ./path/to/project.ts
+subql-ai info -p ./path/to/manifest.ts
 ```
 
 ::: details Example output
@@ -143,7 +143,7 @@ subql-ai repl
 Publish your project to IPFS, this is how you can distribute your project
 
 ```shell
-subql-ai publish -p ./path/to/project.ts
+subql-ai publish -p ./path/to/manifest.ts
 ```
 
 ::: tip Info

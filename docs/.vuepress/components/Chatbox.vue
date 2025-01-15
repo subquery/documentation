@@ -139,7 +139,7 @@ const messageRef = ref<{ scrollDown: (argv1?: boolean) => void } | null>(null);
 
 const chatWithStream = async (
   url: string,
-  body: { messages: Message[]; model?: string }
+  body: { messages: Message[]; model?: string },
 ) => {
   const { model = "gemma2" } = body;
   const res = await fetch(url, {
@@ -159,7 +159,7 @@ const chatWithStream = async (
 
 const pushNewMsgToChat = async (
   newChat: ConversationProperty,
-  newMessage: Message
+  newMessage: Message,
 ) => {
   currentChat.value = {
     ...newChat,
@@ -456,7 +456,9 @@ watchEffect(() => {
 }
 
 .van-popup {
-  box-shadow: 9px 9px 40px 10px #ffffff0d, 6px 6px 40px 0px #ffffff14,
+  box-shadow:
+    9px 9px 40px 10px #ffffff0d,
+    6px 6px 40px 0px #ffffff14,
     6px 6px 40px -4px #ffffff1f !important;
 }
 

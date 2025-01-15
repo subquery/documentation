@@ -69,7 +69,7 @@ curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/de
 This will overwrite the existing docker-compose.yml file. Always use the latest versions (use pre-release versions at your own risk).
 
 | Service                                                                                             | Version Tag |
-| :-------------------------------------------------------------------------------------------------- |:------------|
+| :-------------------------------------------------------------------------------------------------- | :---------- |
 | [subquerynetwork/indexer-coordinator](https://hub.docker.com/r/subquerynetwork/indexer-coordinator) | `v2.8.3`    |
 | [subquerynetwork/indexer-proxy](https://hub.docker.com/r/subquerynetwork/indexer-proxy)             | `v2.8.1`    |
 

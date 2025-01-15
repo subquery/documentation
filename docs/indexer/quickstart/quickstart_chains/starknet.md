@@ -174,7 +174,7 @@ async function checkGetAddress(addressString: string): Promise<Address> {
 }
 
 export async function handleTransaction(
-  tx: WithdrawTransaction
+  tx: WithdrawTransaction,
 ): Promise<void> {
   logger.info(`New Withdraw transaction at block ${tx.blockNumber}`);
   assert(tx.decodedCalls, "No tx decodedCalls");
@@ -195,7 +195,7 @@ export async function handleTransaction(
     ) {
       if (!call.decodedArgs) {
         throw new Error(
-          `Expect decodedArgs in withdraw tx ${tx.hash}, call #${i}`
+          `Expect decodedArgs in withdraw tx ${tx.hash}, call #${i}`,
         );
       }
 

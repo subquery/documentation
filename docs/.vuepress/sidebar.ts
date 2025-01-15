@@ -695,7 +695,11 @@ export const getSidebar = (locale: string) =>
       {
         text: "Guides",
         link: `${locale}/ai/guides/fancy-greeter.md`,
-        children: [`${locale}/ai/guides/fancy-greeter.md`],
+        children: [
+          `${locale}/ai/guides/fancy-greeter.md`,
+          `${locale}/ai/guides/subquery-docs-rag.md`,
+          `${locale}/ai/guides/delegation-helper.md`,
+        ],
       },
       {
         text: "Build",
@@ -716,8 +720,8 @@ export const getSidebar = (locale: string) =>
         ],
       },
       {
-        text: "Query",
-        link: `${locale}/ai/query/query.md`,
+        text: "API",
+        link: `${locale}/ai/api/api.md`,
       },
       {
         text: "Publish",

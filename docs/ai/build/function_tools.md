@@ -45,7 +45,7 @@ If no delegation is found it will return null.`;
 
   async call(
     { account }: { account: string },
-    ctx: IContext
+    ctx: IContext,
   ): Promise<string | null> {
     try {
       const res = await graphqlRequest<{
@@ -56,7 +56,7 @@ If no delegation is found it will return null.`;
         delegator(id: "${account}") {
           totalDelegations
         }
-      }`
+      }`,
       );
 
       if (!res.delegator) {

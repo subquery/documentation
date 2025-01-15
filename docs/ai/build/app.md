@@ -141,7 +141,7 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       new BetterIndexerApy(config.GRAPHQL_ENDPOINT),
       new TokenBalance(
         new JsonRpcProvider(config.BASE_RPC),
-        config.BASE_SQT_ADDR
+        config.BASE_SQT_ADDR,
       ),
       new SubqueryDocs(),
     ],

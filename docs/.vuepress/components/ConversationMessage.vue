@@ -1,26 +1,63 @@
 <template>
   <div class="conversation-message" ref="messageAreaRef">
-    <div v-for="message, index in property.messages" :key="index" :class="{
-      'conversation-message-item': true,
-      'conversation-message-item-lastOne': index === property.messages.length - 1 && message.role === 'assistant',
-      [answerStatus]: index === property.messages.length - 1 && message.role === 'assistant' && !message?.content?.length
-        ? true
-        : undefined,
-      [`conversation-message-item-${message.role}`]: true
-    }">
-      <img v-if="message.role === 'assistant'" src="https://static.subquery.network/logo-with-bg.svg" width="40"
-        height="40"></img>
+    <div
+      v-for="(message, index) in property.messages"
+      :key="index"
+      :class="{
+        'conversation-message-item': true,
+        'conversation-message-item-lastOne':
+          index === property.messages.length - 1 &&
+          message.role === 'assistant',
+        [answerStatus]:
+          index === property.messages.length - 1 &&
+          message.role === 'assistant' &&
+          !message?.content?.length
+            ? true
+            : undefined,
+        [`conversation-message-item-${message.role}`]: true,
+      }"
+    >
+      <img
+        v-if="message.role === 'assistant'"
+        src="https://static.subquery.network/logo-with-bg.svg"
+        width="40"
+        height="40"
+      />
 
       <div class="conversation-message-item-span">
-        <div class="conversation-message-item-markdown" v-html="md.render(message.content as string)">
-        </div>
-        <div v-if="message.role === 'assistant' && index !== 0 && message?.content" class="conversation-message-item-reaction">
+        <div
+          class="conversation-message-item-markdown"
+          v-html="md.render(message.content as string)"
+        ></div>
+        <div
+          v-if="message.role === 'assistant' && index !== 0 && message?.content"
+          class="conversation-message-item-reaction"
+        >
           <template v-if="answerReaction === null">
-            <ThumbsUpIcon @click="() => handleReaction('like', message, property.messages[index-1])"></ThumbsUpIcon>
-            <ThumbsDownIcon @click="() => handleReaction('dislike', message, property.messages[index-1])"></ThumbsDownIcon>
+            <ThumbsUpIcon
+              @click="
+                () =>
+                  handleReaction('like', message, property.messages[index - 1])
+              "
+            ></ThumbsUpIcon>
+            <ThumbsDownIcon
+              @click="
+                () =>
+                  handleReaction(
+                    'dislike',
+                    message,
+                    property.messages[index - 1]
+                  )
+              "
+            >
+            </ThumbsDownIcon>
           </template>
-          <ThumbsUpFilledIcon v-if="answerReaction === 'like'"></ThumbsUpFilledIcon>
-          <ThumbsDownFilledIcon v-if="answerReaction === 'dislike'"></ThumbsDownFilledIcon>
+          <ThumbsUpFilledIcon
+            v-if="answerReaction === 'like'"
+          ></ThumbsUpFilledIcon>
+          <ThumbsDownFilledIcon
+            v-if="answerReaction === 'dislike'"
+          ></ThumbsDownFilledIcon>
         </div>
       </div>
     </div>
@@ -28,16 +65,16 @@
 </template>
 
 <script setup lang="ts">
-import markdownit from 'markdown-it';
-import { ref } from 'vue';
-import ThumbsUpIcon from './icons/ThumbsUpIcon.vue';
-import ThumbsDownIcon from './icons/ThumbsDownIcon.vue';
-import ThumbsDownFilledIcon from './icons/ThumbsDownFilledIcon.vue';
-import ThumbsUpFilledIcon from './icons/ThumbsUpFilledIcon.vue';
+import markdownit from "markdown-it";
+import { ref } from "vue";
+import ThumbsUpIcon from "./icons/ThumbsUpIcon.vue";
+import ThumbsDownIcon from "./icons/ThumbsDownIcon.vue";
+import ThumbsDownFilledIcon from "./icons/ThumbsDownFilledIcon.vue";
+import ThumbsUpFilledIcon from "./icons/ThumbsUpFilledIcon.vue";
 
-type AiMessageType = 'text' | 'image_url';
+type AiMessageType = "text" | "image_url";
 
-type AiMessageRole = 'assistant' | 'user' | 'system';
+type AiMessageRole = "assistant" | "user" | "system";
 
 interface Content {
   type: AiMessageType;
@@ -56,16 +93,16 @@ interface ConversationProperty {
 interface Message {
   role: AiMessageRole;
   content: string | Content[];
-  type?: 'welcome'; // welcome should filter before send
+  type?: "welcome"; // welcome should filter before send
   id?: string;
   conversation_id?: string;
 }
 
 enum ChatBotAnswerStatus {
-  Empty = 'empty',
-  Loading = 'loading',
-  Success = 'success',
-  Error = 'error',
+  Empty = "empty",
+  Loading = "loading",
+  Success = "success",
+  Error = "error",
 }
 
 defineProps<{
@@ -74,41 +111,52 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'reaction', reaction: 'like' | 'dislike', message: Message, userQuestion: Message): void;
+  (
+    e: "reaction",
+    reaction: "like" | "dislike",
+    message: Message,
+    userQuestion: Message
+  ): void;
 }>();
 
 const md = markdownit({
   html: true,
   linkify: true,
-  typographer: true
+  typographer: true,
 });
 
 const messageAreaRef = ref<HTMLDivElement | null>(null);
-const answerReaction = ref<'dislike' | 'like' | null>(null);
+const answerReaction = ref<"dislike" | "like" | null>(null);
 
-const handleReaction = (reaction: 'like' | 'dislike', message: Message, userQuestion: Message) => {
+const handleReaction = (
+  reaction: "like" | "dislike",
+  message: Message,
+  userQuestion: Message
+) => {
   answerReaction.value = reaction;
-  emit('reaction' ,reaction, message, userQuestion);
-}
+  emit("reaction", reaction, message, userQuestion);
+};
 
 const scrollDown = (onlyWhenReachBottom = false) => {
   if (onlyWhenReachBottom && messageAreaRef.value) {
     // If render an image, then not working. TODO: fix it.
     const ifReachBottom =
-      messageAreaRef.value?.scrollTop >= messageAreaRef.value?.scrollHeight - messageAreaRef.value?.clientHeight - 100;
-      if (ifReachBottom) {
+      messageAreaRef.value?.scrollTop >=
+      messageAreaRef.value?.scrollHeight -
+        messageAreaRef.value?.clientHeight -
+        100;
+    if (ifReachBottom) {
       messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
     }
 
     return;
   }
   messageAreaRef.value?.scrollTo(0, messageAreaRef.value?.scrollHeight);
-}
+};
 
 defineExpose({
-  scrollDown
-})
-
+  scrollDown,
+});
 </script>
 
 <style lang="scss">
@@ -164,7 +212,6 @@ defineExpose({
         margin: 0;
         word-break: break-word;
       }
-
 
       ul {
         margin: 0;
@@ -223,7 +270,6 @@ defineExpose({
   .conversation-message {
     height: 100%;
   }
-  
 }
 
 @keyframes pulseCursor {
