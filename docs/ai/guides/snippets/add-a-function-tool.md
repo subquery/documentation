@@ -1,1 +1,0 @@
-Then, we add the function tools. Function tools are functions that extend the functionality of the LLM. They can be used to do many things like request data from external APIs and services, perform computations or analyse structured data outputs from the AI. You can read more about function tooling [here](../../build/function_tools.md).

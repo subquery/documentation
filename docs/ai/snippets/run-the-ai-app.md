@@ -10,4 +10,6 @@ Once the project is running you should see the following: `Listening on http://0
 subql-ai repl
 ```
 
-This will start a CLI chat. You can type `/bye` to exit. Alternatively, it is possible to launch the app via [Docker](../../run/docker.md).
+This will start a CLI chat. You can type `/bye` to exit. Alternatively, it is possible to launch the app via [Docker](../run/docker.md).
+
+You should review the instructions on [running locally](../run/local.md) or via [Docker](../run/docker.md).

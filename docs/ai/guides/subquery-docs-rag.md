@@ -1,6 +1,6 @@
-# Project Documentation AI Assistent - RAG Example
+# Project Documentation AI Assistent - Intermediate Example with RAG Support
 
-This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise.
+This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise. In most cases this will be additional data from a knowledgebase or a database, in this case we're incorportating the SubQuery documentation website as our RAG data (where you're reading this right now).
 
 :::info note
 This tool is already in use in production for SubQuery documentation. Be sure to explore it now by clicking the corresponding button in the lower-right corner.
@@ -8,23 +8,23 @@ This tool is already in use in production for SubQuery documentation. Be sure to
 
 You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/docs).
 
-<!-- @include: ./snippets/prerequisites.md -->
+<!-- @include: ../snippets/prerequisites.md -->
 
 ## 1. Install the framework
 
-<!-- @include: ./snippets/install-the-framework.md -->
+<!-- @include: ../snippets/install-the-framework.md -->
 
 ## 2. Create a New App
 
-<!-- @include: ./snippets/create-a-new-app.md -->
+<!-- @include: ../snippets/create-a-new-app.md -->
 
 ## 3. Configure Manifest File
 
-<!-- @include: ./snippets/configure-manifest-file.md -->
+<!-- @include: ../snippets/configure-manifest-file.md -->
 
-To proceed with this case, we need to define and add a RAG dataset. You can experiment using the [SubQuery documentation](https://github.com/subquery/documentation) or your own documentation, provided it can be vectorized.
+To proceed with this case, we need to define and add a RAG dataset. You can experiment using the [SubQuery documentation](https://github.com/subquery/documentation) or your own documentation, provided it can be vectorized (it's easiest if it's in Markdown format).
 
-After downloading the documentation project, you can define it using the SubQuery CLI and the default tool by following [this guide](../build/rag.md#defining-rag). The logic for vectorization can be found on [GitHub](https://github.com/subquery/subql-ai-app-framework/blob/main/src/embeddings/generator/generator.ts). Alternatively, you can use a custom vectorization algorithm better suited to your specific needs.
+After downloading the documentation project to your local computer, you can define it using the SubQuery CLI and the default tool by following [this guide](../build/rag.md#defining-rag). The logic for vectorization can be found on [GitHub](https://github.com/subquery/subql-ai-app-framework/blob/main/src/embeddings/generator/generator.ts). Alternatively, you can use a custom vectorization algorithm better suited to your specific needs.
 
 Once the vectorisation process is complete, it will generate a folder. Copy the path to the root of this generated folder and include it in the manifest file to ingest and embed your chosen RAG source data.
 
@@ -41,19 +41,18 @@ const project: ProjectManifest = {
   },
   config: {},
   model: "llama3.1",
-  embeddingsModel: 'nomic-embed-text',
+  embeddingsModel: "nomic-embed-text",
   entry: "./project.ts",
 };
 
 export default project;
-
 ```
 
 ## 4. Configure App's Logic
 
-<!-- @include: ./snippets/configure-app-logic.md -->
+<!-- @include: ../snippets/configure-app-logic.md -->
 
-<!-- @include: ./snippets/update-system-prompt.md -->
+<!-- @include: ../snippets/update-system-prompt.md -->
 
 ```ts
 const PROMPT = `
@@ -64,7 +63,7 @@ If you need more information to answer the question, ask the user for more detai
 `;
 ```
 
-<!-- @include: ./snippets/add-a-function-tool.md -->
+<!-- @include: ../snippets/add-a-function-tool.md -->
 
 You can now add the tool to the array.
 
@@ -72,9 +71,7 @@ You can now add the tool to the array.
 // deno-lint-ignore require-await
 const entrypoint: ProjectEntry = async (): Promise<Project> => {
   return {
-    tools: [
-      new SubqueryDocs(),
-    ],
+    tools: [new SubqueryDocs()],
     systemPrompt: PROMPT,
   };
 };
@@ -94,7 +91,7 @@ export class SubqueryDocs extends RagTool {
 
 ## 5. Run the AI App with developed tools
 
-<!-- @include: ./snippets/run-the-ai-app.md -->
+<!-- @include: ../snippets/run-the-ai-app.md -->
 
 Let's attempt to ask the tool specific questions:
 
@@ -153,4 +150,4 @@ Subquery currently does not support Solana blockchain.
 
 You now have a fully functional SubQuery AI App that leverages unstructured markdown data to deliver clearer and more concise responses about SubQuery.
 
-<!-- @include: ./snippets/summary.md -->
+<!-- @include: ../snippets/summary.md -->

@@ -31,14 +31,7 @@ For example, you could use it to build:
 
 ## Getting Started
 
-### Setup your environment
-
-To use the framework there are a couple of dependencies:
-
-- [Deno](https://deno.land/). The SubQuery AI framework is built on Deno and is needed to build your app.
-- An LLM
-  - [Ollama](https://ollama.com/). Alternatively an endpoint to an Ollama instance.
-  - [OpenAI](https://platform.openai.com). You will need a paid API Key.
+<!-- @include: ./snippets/prerequisites.md -->
 
 ### Install the framework
 

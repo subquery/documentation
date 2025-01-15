@@ -1,31 +1,33 @@
-# SubQuery Network Delegation Helper - Intermediate Example
+# SubQuery Network Delegation Helper - Complex Example with Advanced Function tools
 
-This is a more advanced example of an AI application. It is an agent specifically designed to assist users with token delegation on the SubQuery Network. The agent utilizes multiple tools to extract and interpret relevant information about delegation from raw on-chain data. This showcases an excellent integration of an AI framework with an indexing SDK, enabling the structuring of natural language responses based on on-chain data.
+This is a more advanced example of a SubQuery AI application. It is an agent specifically designed to assist users with questions relating to their token delegation on the SubQuery Network. The agent utilizes multiple tools to extract and interpret relevant information about delegation from raw on-chain data (indexed using SubQuery of course).
+
+This showcases an excellent integration of an AI framework with the SubQuery Indexing SDK, enabling the structuring of natural language responses based on on-chain data.
 
 :::info note
 You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/network-delegation-helper).
 :::
 
-<!-- @include: ./snippets/prerequisites.md -->
+<!-- @include: ../snippets/prerequisites.md -->
 
 ## 1. Install the framework
 
-<!-- @include: ./snippets/install-the-framework.md -->
+<!-- @include: ../snippets/install-the-framework.md -->
 
 ## 2. Create a New App
 
-<!-- @include: ./snippets/create-a-new-app.md -->
+<!-- @include: ../snippets/create-a-new-app.md -->
 
 ## 3. Configure Manifest File
 
-<!-- @include: ./snippets/configure-manifest-file.md -->
+<!-- @include: ../snippets/configure-manifest-file.md -->
 
-The manifest file is having the following look:
+We need to update the manifest file to the following:
 
 ```ts
 /** Gets the host names of any urls in a record */
 export function extractConfigHostNames(
-  config: Record<string, string>,
+  config: Record<string, string>
 ): string[] {
   const hosts = Object.values(config)
     .filter((v) => typeof v === "string")
@@ -37,8 +39,8 @@ export function extractConfigHostNames(
       }
     })
     .filter((v) => !!v) as string[]; // Cast should be unnecessary with latest TS versions
-  
-    // Make unique
+
+  // Make unique
   return [...new Set(hosts)];
 }
 
@@ -59,9 +61,9 @@ The code includes the import of necessary types and functions, the definition of
 
 ## 4. Configure App's Logic
 
-<!-- @include: ./snippets/configure-app-logic.md -->
+<!-- @include: ../snippets/configure-app-logic.md -->
 
-<!-- @include: ./snippets/update-system-prompt.md -->
+<!-- @include: ../snippets/update-system-prompt.md -->
 
 ```ts
 const PROMPT = `
@@ -76,7 +78,7 @@ If the question seems to be unrelated to the API, just return "I don't know" as 
 `;
 ```
 
-<!-- @include: ./snippets/add-a-function-tool.md -->
+<!-- @include: ../snippets/add-a-function-tool.md -->
 
 Since delegation data can only be derived from chain events, it must be pre-indexed to enable faster and simpler querying. For this reason, we are including a relevant GraphQL endpoint that provides access to this data. Additionally, we are establishing a connection to an RPC to retrieve token balances, although the same results could be achieved if the indexer were configured to include balance data.
 
@@ -111,8 +113,8 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       new BetterIndexerApy(config.GRAPHQL_ENDPOINT),
       new TokenBalance(
         new JsonRpcProvider(config.BASE_RPC),
-        config.BASE_SQT_ADDR,
-      )
+        config.BASE_SQT_ADDR
+      ),
     ],
     systemPrompt: PROMPT,
   };
@@ -138,8 +140,7 @@ export class TotalDelegation extends FunctionTool {
   }
 
   // name = 'total-delegation-amount';
-  description =
-    `This tool gets the total delegation amount of SQT for the given user address.
+  description = `This tool gets the total delegation amount of SQT for the given user address.
   If no delegation is found it will return null.
   `;
   parameters = {
@@ -156,15 +157,15 @@ export class TotalDelegation extends FunctionTool {
 
   async call({ account }: { account: string }): Promise<string | null> {
     try {
-      const res = await grahqlRequest<
-        { delegator: null | { totalDelegations: Amount } }
-      >(
+      const res = await grahqlRequest<{
+        delegator: null | { totalDelegations: Amount };
+      }>(
         this.endpoint,
         `{
         delegator(id: "${account}") {
           totalDelegations
         }
-      }`,
+      }`
       );
 
       if (!res.delegator) {
@@ -187,7 +188,7 @@ Every tool utilising GraphQL depends on an external function named `graphqlReque
 export async function grahqlRequest<T = unknown>(
   endpoint: string,
   query: string,
-  variables?: unknown,
+  variables?: unknown
 ): Promise<T> {
   const response = await fetch(endpoint, {
     method: "POST",
@@ -206,7 +207,7 @@ export async function grahqlRequest<T = unknown>(
     console.log(`Request failed\n${query}`);
 
     throw new Error(
-      res.errors.map((e: { message: string }) => e.message).join("\n"),
+      res.errors.map((e: { message: string }) => e.message).join("\n")
     );
   }
 
@@ -224,14 +225,13 @@ In our example, only the `TokenBalance` tool retrieves data directly from the no
 export class TokenBalance extends FunctionTool {
   constructor(
     readonly provider: AbstractProvider,
-    readonly tokenAddress: string,
+    readonly tokenAddress: string
   ) {
     super();
   }
 
   // name = 'token-balance';
-  description =
-    `This tool gets the current on chain SQT balance for the given address`;
+  description = `This tool gets the current on chain SQT balance for the given address`;
   parameters = {
     type: "object",
     required: ["account"],
@@ -254,7 +254,7 @@ export class TokenBalance extends FunctionTool {
       const erc20Contract = new Contract(
         this.tokenAddress,
         erc20Abi,
-        this.provider,
+        this.provider
       );
 
       const balance = await erc20Contract.balanceOf(account);
@@ -271,7 +271,7 @@ The tool is built to fetch the current on-chain balance of a specific token (SQT
 
 ## 5. Run the AI App
 
-<!-- @include: ./snippets/run-the-ai-app.md -->
+<!-- @include: ../snippets/run-the-ai-app.md -->
 
 Let's now try asking questions and obtaining responses using the previously demonstrated tools. For example, to extract the total delegations, you can use the following prompt:
 
@@ -318,4 +318,4 @@ You now have a functional SubQuery AI App that utilizes the latest LLMs and inte
 
 [**A full version of the code for this guide can be found here**](https://github.com/subquery/subql-ai-app-example/tree/main/fancy-greeter).
 
-<!-- @include: ./snippets/summary.md -->
+<!-- @include: ../snippets/summary.md -->
