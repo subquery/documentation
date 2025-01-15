@@ -28,6 +28,7 @@
               :answerStatus="answerStatus"
               version="chatbox"
               ref="messageRef"
+              @reaction="saveReaction"
             ></ConversationMessage>
           </div>
           <div class="content-bottom">
@@ -98,6 +99,14 @@ interface Message {
   role: AiMessageRole;
   content: string | Content[];
   type?: "welcome"; // welcome should filter before send
+  id?: string;
+  conversation_id?: string;
+}
+
+interface ResponseChunk {
+  id?: string;
+  conversation_id?: string;
+  choices: { delta: { content: string } }[];
 }
 
 enum ChatBotAnswerStatus {
@@ -108,7 +117,6 @@ enum ChatBotAnswerStatus {
 }
 
 const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
-// const chatUrl = "https://olla.wk.zohu.vip:8008/v1/chat/completions";
 // const chatUrl = "http://localhost:7827/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
@@ -182,6 +190,8 @@ const sendMessage = async () => {
     const robotAnswer: Message = {
       role: "assistant" as const,
       content: "",
+      id: "0",
+      conversation_id: "0",
     };
 
     inputValue.value = "";
@@ -223,9 +233,12 @@ const sendMessage = async () => {
           if (invalidJson) {
             try {
               invalidJson += part;
-              const parsed: { choices: { delta: { content: string } }[] } =
-                JSON.parse(invalidJson);
+              const parsed: ResponseChunk = JSON.parse(invalidJson);
               robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
+              robotAnswer.id = parsed.id !== "0" ? parsed.id : "0";
+              robotAnswer.conversation_id =
+                parsed.conversation_id !== "0" ? parsed.conversation_id : "0";
+
               await pushNewMsgToChat(newChat, robotAnswer);
               messageRef.value?.scrollDown(true);
               invalidJson = "";
@@ -241,9 +254,12 @@ const sendMessage = async () => {
 
           if (partWithHandle) {
             try {
-              const parsed: { choices: { delta: { content: string } }[] } =
-                JSON.parse(partWithHandle);
+              const parsed: ResponseChunk = JSON.parse(partWithHandle);
+              console.warn(parsed);
               robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
+              robotAnswer.id = parsed.id !== "0" ? parsed.id : "0";
+              robotAnswer.conversation_id =
+                parsed.conversation_id !== "0" ? parsed.conversation_id : "0";
 
               await pushNewMsgToChat(newChat, robotAnswer);
               messageRef.value?.scrollDown(true);
@@ -256,9 +272,11 @@ const sendMessage = async () => {
 
       if (invalidJson) {
         try {
-          const parsed: { choices: { delta: { content: string } }[] } =
-            JSON.parse(invalidJson);
+          const parsed: ResponseChunk = JSON.parse(invalidJson);
           robotAnswer.content += parsed?.choices?.[0]?.delta?.content;
+          robotAnswer.id = parsed.id !== "0" ? parsed.id : "0";
+          robotAnswer.conversation_id =
+            parsed.conversation_id !== "0" ? parsed.conversation_id : "0";
 
           await pushNewMsgToChat(newChat, robotAnswer);
           messageRef.value?.scrollDown(true);
@@ -278,6 +296,26 @@ const sendMessage = async () => {
     console.error(e);
     answerStatus.value = ChatBotAnswerStatus.Error;
   }
+};
+
+const saveReaction = async (
+  status: "like" | "dislike",
+  message: Message,
+  userQuestion: Message
+) => {
+  await fetch(`https://ai-reaction-backend.thechaindata.com/react/message`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      status: status,
+      conversation_id: message.conversation_id,
+      id: message.id,
+      content: message.content as string,
+      user_question: userQuestion.content,
+    }),
+  });
 };
 
 watchEffect(() => {

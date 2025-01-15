@@ -10,7 +10,18 @@
     }">
       <img v-if="message.role === 'assistant'" src="https://static.subquery.network/logo-with-bg.svg" width="40"
         height="40"></img>
-      <div class="conversation-message-item-span" v-html="md.render(message.content as string)">
+
+      <div class="conversation-message-item-span">
+        <div class="conversation-message-item-markdown" v-html="md.render(message.content as string)">
+        </div>
+        <div v-if="message.role === 'assistant' && index !== 0 && message?.content" class="conversation-message-item-reaction">
+          <template v-if="answerReaction === null">
+            <ThumbsUpIcon @click="() => handleReaction('like', message, property.messages[index-1])"></ThumbsUpIcon>
+            <ThumbsDownIcon @click="() => handleReaction('dislike', message, property.messages[index-1])"></ThumbsDownIcon>
+          </template>
+          <ThumbsUpFilledIcon v-if="answerReaction === 'like'"></ThumbsUpFilledIcon>
+          <ThumbsDownFilledIcon v-if="answerReaction === 'dislike'"></ThumbsDownFilledIcon>
+        </div>
       </div>
     </div>
   </div>
@@ -18,8 +29,12 @@
 
 <script setup lang="ts">
 import markdownit from 'markdown-it';
-import { nextTick } from 'vue';
 import { ref } from 'vue';
+import ThumbsUpIcon from './icons/ThumbsUpIcon.vue';
+import ThumbsDownIcon from './icons/ThumbsDownIcon.vue';
+import ThumbsDownFilledIcon from './icons/ThumbsDownFilledIcon.vue';
+import ThumbsUpFilledIcon from './icons/ThumbsUpFilledIcon.vue';
+
 type AiMessageType = 'text' | 'image_url';
 
 type AiMessageRole = 'assistant' | 'user' | 'system';
@@ -42,6 +57,8 @@ interface Message {
   role: AiMessageRole;
   content: string | Content[];
   type?: 'welcome'; // welcome should filter before send
+  id?: string;
+  conversation_id?: string;
 }
 
 enum ChatBotAnswerStatus {
@@ -56,6 +73,10 @@ defineProps<{
   answerStatus: ChatBotAnswerStatus;
 }>();
 
+const emit = defineEmits<{
+  (e: 'reaction', reaction: 'like' | 'dislike', message: Message, userQuestion: Message): void;
+}>();
+
 const md = markdownit({
   html: true,
   linkify: true,
@@ -63,6 +84,12 @@ const md = markdownit({
 });
 
 const messageAreaRef = ref<HTMLDivElement | null>(null);
+const answerReaction = ref<'dislike' | 'like' | null>(null);
+
+const handleReaction = (reaction: 'like' | 'dislike', message: Message, userQuestion: Message) => {
+  answerReaction.value = reaction;
+  emit('reaction' ,reaction, message, userQuestion);
+}
 
 const scrollDown = (onlyWhenReachBottom = false) => {
   if (onlyWhenReachBottom && messageAreaRef.value) {
@@ -149,6 +176,12 @@ defineExpose({
         max-width: 100%;
       }
     }
+
+    &-reaction {
+      display: flex;
+      gap: 8px;
+      cursor: pointer;
+    }
   }
 
   &-item-assistant {
@@ -159,7 +192,7 @@ defineExpose({
     }
 
     &.conversation-message-item-lastOne.loading {
-      .conversation-message-item-span {
+      .conversation-message-item-markdown {
         &::after {
           content: "▍";
           align-self: flex-end;
