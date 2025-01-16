@@ -18,17 +18,58 @@ You can follow along in the tutorial with the [example code here](https://github
 
 <!-- @include: ../snippets/create-a-new-app.md -->
 
-## 3. Configure Manifest File
+## 3. Embedding Documentation for RAG
+
+To proceed with our example, we need to define and add a RAG dataset. For this guide, we will experiment with the [SubQuery documentation](https://github.com/subquery/documentation), but feel free to use your own markdown-based documentation, provided it can be vectorised.
+
+### Step 1: Clone the Documentation Repository
+
+First, clone the SubQuery documentation repository by running the following command in your terminal:
+
+```bash
+git clone https://github.com/subquery/documentation.git
+```
+
+### Step 2: Define the RAG Dataset
+
+Once the documentation repository is cloned, you can define it using the SubQuery CLI. The default RAG tool can be utilised by following [this guide](../build/rag.md#defining-rag). Here’s an example command:
+
+```bash
+subql-ai embed-mdx -i ./subquery/documentation -o ./db --table subql-docs --model nomic-embed-text
+```
+
+Here’s a breakdown of the parameters used in this command:
+
+- **`-i` (input)**: Specifies the path to the documentation repository you cloned, with no additional modifications required.
+- **`-o` (output)**: Indicates the path where the generated embeddings will be saved.
+- **`--table`**: Defines the table name for storing the embeddings.
+- **`--model`**: Specifies the embedding LLM model to use, which should match the model defined in the app's manifest.
+
+:::info Note  
+The logic for vectorisation is implemented in the SubQuery framework and can be found on [GitHub](https://github.com/subquery/subql-ai-app-framework/blob/main/src/embeddings/generator/generator.ts).  
+
+The CLI processes markdown files within the specified directory and generates embeddings by performing the following steps:  
+
+1. **Splitting Markdown Files**: Files are divided into sections based on headers.
+2. **MDX Element Removal**: Any MDX elements are stripped away.
+3. **Plain Text Conversion**: Each section's content is converted to plain text.
+
+If the default vectorisation algorithm doesn’t suit your needs, you can use a custom algorithm tailored to your specific requirements.  
+:::
+
+### Step 3: Review Generated Embeddings
+
+After the vectorisation process is complete, a folder will be generated containing the embeddings. It will include subfolders and files similar to the structure shown below:  
+
+![Generated Embeddings](/assets/img/ai/generated-embeddings.png)
+
+Copy the root path of this folder. You will need this path in the next step when configuring the manifest file to ingest and embed your chosen RAG source data.
+
+### 4. Configure the Manifest File  
 
 <!-- @include: ../snippets/configure-manifest-file.md -->
 
-To proceed with this case, we need to define and add a RAG dataset. You can experiment using the [SubQuery documentation](https://github.com/subquery/documentation) or your own documentation, provided it can be vectorized (it's easiest if it's in Markdown format).
-
-After downloading the documentation project to your local computer, you can define it using the SubQuery CLI and the default tool by following [this guide](../build/rag.md#defining-rag). The logic for vectorization can be found on [GitHub](https://github.com/subquery/subql-ai-app-framework/blob/main/src/embeddings/generator/generator.ts). Alternatively, you can use a custom vectorization algorithm better suited to your specific needs.
-
-Once the vectorisation process is complete, it will generate a folder. Copy the path to the root of this generated folder and include it in the manifest file to ingest and embed your chosen RAG source data.
-
-After the modification, the manifest file will resemble the following structure:
+Continue with the next steps to integrate the embeddings into your application. After the modification, the manifest file will resemble the following structure:
 
 ```ts
 import type { ProjectManifest } from "jsr:@subql/ai-app-framework@^0.0.5";
@@ -37,7 +78,7 @@ const project: ProjectManifest = {
   specVersion: "0.0.1",
   vectorStorage: {
     type: "lancedb",
-    path: "../path-to-the-folder",
+    path: "../path-to-previously-generated-db-folder",
   },
   config: {},
   model: "llama3.1",
@@ -48,7 +89,7 @@ const project: ProjectManifest = {
 export default project;
 ```
 
-## 4. Configure App's Logic
+## 5. Configure App's Logic
 
 <!-- @include: ../snippets/configure-app-logic.md -->
 
@@ -89,7 +130,7 @@ export class SubqueryDocs extends RagTool {
 }
 ```
 
-## 5. Run the AI App with developed tools
+## 6. Run the AI App with developed tools
 
 <!-- @include: ../snippets/run-the-ai-app.md -->
 
