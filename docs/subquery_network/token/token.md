@@ -31,8 +31,6 @@ SQT is supported on the [Crypto.com](https://crypto.com/price/subquery-network) 
 
 SQT is supported on [Gate.io](https://www.gate.io). Gate.io is a cryptocurrency exchange platform offering a wide range of digital assets, advanced trading features, and security measures for global users. Spot trade SQT/USDT on Gate at [https://www.gate.io/trade/SQT_USDT](https://www.gate.io/trade/SQT_USDT) - Ethereum and Base deposits and withdrawls only.
 
-SQT is supported on [MEXC.com](https://www.mexc.com). MEXC is a cryptocurrency exchange that balances low fees with robust security features, catering to both new and experienced traders. It offers a wide range of trading tools and a vast selection of cryptocurrencies, making it a versatile platform. Spot and Futures trade SQT/USDT on MEXC at [https://www.mexc.com/exchange/SQT_USDT](https://www.mexc.com/exchange/SQT_USDT).
-
 SQT is on a number of DEX Pools however most liquidity is on Uniswap. Please ensure that you are trading the correct SQT token (see contract addresses above)
 
 - Uniswap Pool on Ethereum: [https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85](https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85)
