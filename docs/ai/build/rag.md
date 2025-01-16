@@ -14,6 +14,12 @@ We do provide an off the shelf way to create a table from markdown files. This w
 subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name --model nomic-embed-text
 ```
 
+::: info
+
+You can follow through a step by step tutorial on how parse, vectorise, and add the resulting RAG database to your AI App in our [RAG quick start guide](../guides/subquery-docs-rag.md).
+
+:::
+
 ## Adding RAG to your app
 
 Once you have defined your RAG dataset you need to include it in your project.
@@ -51,10 +57,7 @@ export class RagTool extends FunctionTool {
    * @param tableName The name of the table to query
    * @param column The column on the table to extract results from
    */
-  constructor(
-    readonly tableName: string,
-    readonly column: string,
-  ) {
+  constructor(readonly tableName: string, readonly column: string) {
     super();
   }
 
