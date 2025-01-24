@@ -190,6 +190,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/metis.md`,
                   },
                   {
+                    text: "Monad",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/monad.md`,
+                  },
+                  {
                     text: "Optimism",
                     link: `${locale}/indexer/quickstart/quickstart_chains/optimism.md`,
                   },
