@@ -554,6 +554,10 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
         ],
       },
+      {
+        text: "Contact Us",
+        link: "https://subquery.network/contact",
+      },
     ],
     "/subquery_network/": [
       {
