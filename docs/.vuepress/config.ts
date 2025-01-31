@@ -4,6 +4,10 @@ import { hopeTheme } from "vuepress-theme-hope";
 import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { redirectPlugin } from "@vuepress/plugin-redirect";
+import { linksCheckPlugin } from "@vuepress/plugin-links-check";
+import { markdownTabPlugin } from "@vuepress/plugin-markdown-tab";
+import { markdownStylizePlugin } from "@vuepress/plugin-markdown-stylize";
+import { markdownIncludePlugin } from "@vuepress/plugin-markdown-include";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
@@ -19,7 +23,6 @@ export default defineUserConfig({
       },
     ],
   ],
-
   locales: {
     "/": {
       lang: "en-US",
@@ -42,6 +45,13 @@ export default defineUserConfig({
 
     darkmode: "enable",
     logo: "/assets/img/logo.png",
+    markdown: {
+      linksCheck: {
+        build: "error",
+      },
+      tabs: true,
+      codeTabs: true,
+    },
 
     navbar: [
       {
@@ -80,21 +90,6 @@ export default defineUserConfig({
         apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
         indexName: "subquery_academy",
       },
-      linksCheck: {},
-      mdEnhance: {
-        // this is the default option, so you can use it directly
-        hint: true,
-        codetabs: true,
-        tabs: true,
-        include: {
-          deep: true,
-        },
-        // Enable Subscript
-        sub: true,
-        // Enable  Superscript
-        sup: true,
-      },
-
       /*
       pwa: {
         manifest: {
@@ -118,6 +113,16 @@ export default defineUserConfig({
   }),
 
   plugins: [
+    markdownStylizePlugin({
+      // options
+      sup: true,
+      sub: true,
+    }),
+    markdownIncludePlugin({
+      // options
+      deep: true,
+      useComment: true,
+    }),
     registerComponentsPlugin({
       componentsDir: "./docs/.vuepress/components",
     }),
@@ -200,40 +205,40 @@ export default defineUserConfig({
             app.pages.map(({ path }) => [
               path.replace(
                 "/subquery_network/node_operators/indexers/",
-                "/subquery_network/indexers/",
+                "/subquery_network/indexers/"
               ),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/academy/", "/academy/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/build/", "/build/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/miscellaneous/", "/miscellaneous/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/quickstart/", "/quickstart/"),
               path,
-            ]),
+            ])
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/run_publish/", "/run_publish/"),
               path,
-            ]),
+            ])
           ),
         };
       },

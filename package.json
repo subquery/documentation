@@ -6,24 +6,29 @@
     "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress dev docs",
     "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress build docs"
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@9.15.4",
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/helper": "2.0.0-rc.41",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.39",
-    "@vuepress/plugin-google-analytics": "2.0.0-rc.37",
-    "@vuepress/plugin-links-check": "2.0.0-rc.41",
-    "@vuepress/plugin-redirect": "2.0.0-rc.39",
-    "@vuepress/plugin-register-components": "2.0.0-rc.37",
+    "@vuepress/bundler-vite": "2.0.0-rc.19",
+    "@vuepress/helper": "2.0.0-rc.74",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.74",
+    "@vuepress/plugin-google-analytics": "2.0.0-rc.66",
+    "@vuepress/plugin-links-check": "2.0.0-rc.74",
+    "@vuepress/plugin-markdown-include": "2.0.0-rc.74",
+    "@vuepress/plugin-markdown-stylize": "2.0.0-rc.75",
+    "@vuepress/plugin-markdown-tab": "2.0.0-rc.74",
+    "@vuepress/plugin-redirect": "2.0.0-rc.74",
+    "@vuepress/plugin-register-components": "2.0.0-rc.66",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
-    "vue": "^3.4.38",
-    "vuepress": "2.0.0-rc.14",
-    "vuepress-theme-hope": "2.0.0-rc.52"
+    "sass-embedded": "^1.83.4",
+    "vue": "^3.5.13",
+    "vuepress": "2.0.0-rc.19",
+    "vuepress-plugin-md-enhance": "2.0.0-rc.71",
+    "vuepress-theme-hope": "2.0.0-rc.71"
   },
   "dependencies": {
     "markdown-it": "^14.1.0",
-    "vant": "^4.9.8",
-    "vue-router": "^4.3.0"
+    "vant": "^4.9.16",
+    "vue-router": "^4.5.0"
   }
 }
