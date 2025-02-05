@@ -1,10 +1,17 @@
 $theme-color: #e968dd;
 $primary-color: $theme-color;
+$vp-c-accent: $theme-color;
 
 $bg-color: #000000;
+$vp-c-bg: $bg-color;
+$vp-c-bg-elv-soft: $bg-color;
 $bg-color-secondary: #1a1a1a;
+$vp-c-bg-alt: $bg-color-secondary;
+
 $text-color: #fff;
+$vp-c-text: $text-color;
 $border-color: #1a1a1a;
+$vp-c-border: $border-color;
 $border-color-dark: #1a1a1a;
 
 $navbar-height: 80px;
@@ -12,4 +19,6 @@ $navbar-horizontal-padding: 24px;
 $navbar-vertical-padding: 16px;
 
 $font-family: '"Inter", Arial, sans-serif';
+$vp-font: $font-family;
 $font-family-heading: '"Futura", Arial, sans-serif';
+$vp-font-heading: $font-family-heading;
