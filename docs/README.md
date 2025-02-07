@@ -213,6 +213,11 @@ const startWithExp = computed(() => {
     "path": "/indexer/quickstart/quickstart_chains/stellar.html",
     "imgSrc": "https://static.subquery.network/network-logos/stellar.png",
     "name": "Stellar"
+  },
+  {
+    "path": "/indexer/quickstart/quickstart_chains/starknet.html",
+    "imgSrc": "https://static.subquery.network/network-logos/starknet.png",
+    "name": "Starknet"
   }
 ]})
 
