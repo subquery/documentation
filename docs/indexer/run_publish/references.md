@@ -484,6 +484,28 @@ In the case where Worker C completes its fetch prior to Worker A and B, it will 
 
 We use the [graphql-query-complexity](https://www.npmjs.com/package/graphql-query-complexity) plugin to calculate this value.
 
+### --query-depth
+
+**Positive Integer (default: `5`)** - The query depth limit essentially controls the depth of joins to prevent unbounded GraphQL queries that can DDOS your database. This flag accepts a positive integer value that will change this limit. Setting a high value may cause performance issues on the query service. For example a value of 3 will allow:
+
+```graphql
+{
+  indexers(first: 5) { # First depth
+    nodes {
+      id
+      projects(first: 5) { # Second depth
+        nodes {
+          id
+          deployment { # Third depth
+            id
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### --query-limit
 
 **Positive Integer (default: `100`)** - The query service pagination size limit to prevent unbounded GraphQL queries and encourage the use of pagination. This flag accepts a positive integer value that will change this limit. Setting a high value may cause performance issues on the query service, it is recommended instead that queries are [paginated](https://graphql.org/learn/pagination/).
