@@ -6,7 +6,7 @@ This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). 
 This tool is already in use in production for SubQuery documentation. Be sure to explore it now by clicking the corresponding button in the lower-right corner.
 :::
 
-You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/docs).
+You can follow along in the tutorial with the [example code here](https://github.com/subquery/subql-ai-app-example/tree/main/subql-docs).
 
 <!-- @include: ../snippets/prerequisites.md -->
 
