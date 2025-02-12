@@ -1,69 +1,67 @@
-# Unichain Testnet Quick Start
+# Unichain Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events from [USDC](https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs) on Unichain's Testnet.
+The goal of this quick start guide is to index all transfers and approval events from [USDC](https://unichain.blockscout.com/address/0x078D782b760474a361dDA0AF3839290b0EF57AD6?tab=logs) on Unichain's Mainnet.
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Unichain/unichain-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Unichain/unichain-starter).
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for ZetaChain. Since ZetaChain is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Unichain. Since Unichain is an EVM-compatible layer-2 scaling solution, we can use the core Ethereum framework to index it.
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-As we are indexing all transfers and approvals from the ETH contract on ZetaChain's network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the USDC ERC20 contract on Unichain's network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
 ```ts
 dataSources: [
-  {
-    kind: EthereumDatasourceKind.Runtime,
-    startBlock: 243124, // This is the block that the contract was deployed on https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
-
-    options: {
-      // Must be a key of assets
-      abi: "erc20",
-      // This is the contract address for USDC https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F?tab=logs
-      address: "0x31d0220469e10c4E71834a79b1f276d740d3768F",
-    },
-    assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
-    mapping: {
-      file: "./dist/index.js",
-      handlers: [
-        {
-          kind: EthereumHandlerKind.Call,
-          handler: "handleTransaction",
-          filter: {
-            /**
-             * The function can either be the function fragment or signature
-             * function: '0x095ea7b3'
-             * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-             */
-            function: "approve(address spender, uint256 rawAmount)",
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 1,
+      options: {
+        abi: "erc20",
+        // This is the contract address for USDC
+        address: "0x078D782b760474a361dDA0AF3839290b0EF57AD6",
+      },
+      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            kind: EthereumHandlerKind.Call, // We use ethereum handlers since Unichain is EVM-compatible
+            handler: "handleTransaction",
+            filter: {
+              /**
+               * The function can either be the function fragment or signature
+               * function: '0x095ea7b3'
+               * function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
+               */
+              function: "approve(address spender, uint256 amount)",
+            },
           },
-        },
-        {
-          kind: EthereumHandlerKind.Event,
-          handler: "handleLog",
-          filter: {
-            /**
-             * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-             * address: "0x60781C2586D68229fde47564546784ab3fACA982"
-             */
-            topics: [
-              "Transfer(address indexed from, address indexed to, uint256 amount)",
-            ],
+          {
+            kind: EthereumHandlerKind.Event,
+            handler: "handleLog",
+            filter: {
+              /**
+               * Follows standard log filters https://docs.ethers.io/v5/concepts/events/
+               * address: "0x60781C2586D68229fde47564546784ab3fACA982"
+               */
+              topics: [
+                "Transfer(address indexed from, address indexed to, uint256 amount)",
+              ],
+            },
           },
-        },
-      ],
+        ],
+      },
     },
-  },
-];
+  ],
 ```
 
-The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [USDC contract](https://unichain-sepolia.blockscout.com/address/0x31d0220469e10c4E71834a79b1f276d740d3768F).
+The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a `approve` method being called on any transaction from the [USDC contract](https://unichain.blockscout.com/address/0x078D782b760474a361dDA0AF3839290b0EF57AD6).
 
 The code also indicates that you will be running a `handleLog` mapping function whenever there is a `Transfer` event being emitted from the USDC contract.
 
@@ -186,7 +184,7 @@ The `handleTransaction` function receives a `tx` parameter of type `ApproveTrans
 ```
 
 ::: tip Note
-The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Unichain/unichain-testnet-starter).
+The final code of this project can be found [here](https://github.com/subquery/ethereum-subql-starter/tree/main/Unichain/unichain-starter).
 :::
 
 <!-- @include: ../snippets/whats-next.md -->
