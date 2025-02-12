@@ -184,10 +184,10 @@ const polularGuides = computed(() => {
 
 const startWithExp = computed(() => {
   return [
-  {
-    "path": "/indexer/quickstart/quickstart_chains/ethereum-gravatar.html",
-    "imgSrc": "https://static.subquery.network/network-logos/1.png",
-    "name": "EVM"
+    {
+    "path": "/indexer/quickstart/quickstart_chains/algorand.html",
+    "imgSrc": "https://static.subquery.network/network-logos/algorand.png",
+    "name": "Algorand"
   },
   {
     "path": "/indexer/quickstart/quickstart_chains/cosmos-osmosis.html",
@@ -195,9 +195,9 @@ const startWithExp = computed(() => {
     "name": "Cosmos"
   },
   {
-    "path": "/indexer/quickstart/quickstart_chains/polkadot.html",
-    "imgSrc": "https://static.subquery.network/network-logos/polkadot.png",
-    "name": "Polkadot"
+    "path": "/indexer/quickstart/quickstart_chains/ethereum-gravatar.html",
+    "imgSrc": "https://static.subquery.network/network-logos/1.png",
+    "name": "EVM"
   },
   {
     "path": "/indexer/quickstart/quickstart_chains/near.html",
@@ -205,20 +205,20 @@ const startWithExp = computed(() => {
     "name": "NEAR"
   },
   {
-    "path": "/indexer/quickstart/quickstart_chains/algorand.html",
-    "imgSrc": "https://static.subquery.network/network-logos/algorand.png",
-    "name": "Algorand"
-  },
-  {
-    "path": "/indexer/quickstart/quickstart_chains/stellar.html",
-    "imgSrc": "https://static.subquery.network/network-logos/stellar.png",
-    "name": "Stellar"
+    "path": "/indexer/quickstart/quickstart_chains/polkadot.html",
+    "imgSrc": "https://static.subquery.network/network-logos/polkadot.png",
+    "name": "Polkadot"
   },
   {
     "path": "/indexer/quickstart/quickstart_chains/starknet.html",
     "imgSrc": "https://static.subquery.network/network-logos/starknet.png",
     "name": "Starknet"
-  }
+  },
+  {
+    "path": "/indexer/quickstart/quickstart_chains/stellar.html",
+    "imgSrc": "https://static.subquery.network/network-logos/stellar.png",
+    "name": "Stellar"
+  },  
 ]})
 
 const fetchAllNetworks = () => {
