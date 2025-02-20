@@ -116,7 +116,7 @@ enum ChatBotAnswerStatus {
   Error = "error",
 }
 
-const chatUrl = "https://ai.thechaindata.com/v1/chat/completions";
+const chatUrl = "https://ai.subquery.network/v1/chat/completions";
 // const chatUrl = "http://localhost:7827/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
@@ -139,7 +139,7 @@ const messageRef = ref<{ scrollDown: (argv1?: boolean) => void } | null>(null);
 
 const chatWithStream = async (
   url: string,
-  body: { messages: Message[]; model?: string },
+  body: { messages: Message[]; model?: string }
 ) => {
   const { model = "gemma2" } = body;
   const res = await fetch(url, {
@@ -159,7 +159,7 @@ const chatWithStream = async (
 
 const pushNewMsgToChat = async (
   newChat: ConversationProperty,
-  newMessage: Message,
+  newMessage: Message
 ) => {
   currentChat.value = {
     ...newChat,
@@ -303,7 +303,7 @@ const saveReaction = async (
   message: Message,
   userQuestion: Message
 ) => {
-  await fetch(`https://ai-reaction-backend.thechaindata.com/react/message`, {
+  await fetch(`https://ai-reaction-backend.subquery.network/react/message`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -456,9 +456,7 @@ watchEffect(() => {
 }
 
 .van-popup {
-  box-shadow:
-    9px 9px 40px 10px #ffffff0d,
-    6px 6px 40px 0px #ffffff14,
+  box-shadow: 9px 9px 40px 10px #ffffff0d, 6px 6px 40px 0px #ffffff14,
     6px 6px 40px -4px #ffffff1f !important;
 }
 
