@@ -33,7 +33,7 @@ It may take a few hours for the tokens and NFTs to show up in your wallet or in 
 
 ## How to connect with a hardware wallet?
 
-You can use certain hardware wallets with Metamask by following [the offical Metamask guide](https://support.metamask.io/hc/en-us/articles/4408552261275-Hardware-Wallet-Hub).
+You can use certain hardware wallets with Metamask by following [the official Metamask guide](https://support.metamask.io/hc/en-us/articles/4408552261275-Hardware-Wallet-Hub).
 
 Immediately after claiming your tokens, you can put them to productive use on the SubQuery Network mainnet - for example by delegating to your favourite indexer or boosting your favourite project to earn rewards.
 
