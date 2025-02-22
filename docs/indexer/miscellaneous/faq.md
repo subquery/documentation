@@ -170,7 +170,7 @@ No, this feature is not currently supported.
 
 ### Subscribe to a query endpoint
 
-Yes, take a look at the [GraphQL Subsciption](../run_publish/query/subscription.md) article for more information.
+Yes, take a look at the [GraphQL Subscription](../run_publish/query/subscription.md) article for more information.
 
 ### Indexing a blockchain that consists of multiple architecture layers, such as EVM and Substrate?
 
