@@ -132,7 +132,7 @@ This indicates that you will be running a `handleNewContract` mapping function w
 
 If you're not using the [WASM starter template](https://github.com/subquery/subql-starter/tree/main/Astar/astar-wasm-starter) then please add the Wasm Datasource as a dependency using `yarn add @subql/substrate-wasm-processor`.
 
-We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First, you will need to import the contract ABI defintion. You can copy the entire JSON and save it as a file `./erc20Metadata.abi.json` in the `abis` directory.
+We are indexing all transfers and approve contract call events from the Astar contract `bZ2uiFGTLcYyP8F88XzXa13xu5Mmp13VLiaW1gGn7rzxktc`. First, you will need to import the contract ABI definition. You can copy the entire JSON and save it as a file `./erc20Metadata.abi.json` in the `abis` directory.
 
 This section in the Project Manifest now imports all the correct definitions and lists the triggers that we look for on the blockchain when indexing. We add another section the datasource beneath the above [substrate manifest section](#substrate-manifest-section).
 
