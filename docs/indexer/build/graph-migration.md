@@ -1,18 +1,18 @@
 # The Graph Migration
 
+![Graph Migration](/assets/img/build/graph.jpg)
+
 ::: info Hosting existing Subgraphs during migration
 
 SubQuery provides a superior indexing SDK to Subgraphs and this document outlines the migration process.
 
 :::
 
-![Graph Migration](/assets/img/build/graph.jpg)
-
 SubQuery provides a superior developer experience to The Graph, while maintaining a similar development workflow that makes migration quick and easy. Migrating to SubQuery brings the following benefits:
 
 - **Performance improvements** - SubQuery is up to 3.9x faster for common projects over The Graph (e.g the standard [Ethereum POAP subgraph](https://github.com/poap-xyz/poap-subgraph)) thanks to multi-threading and a store cache layer
 - **More flexibility** - SubQuery's mapping functions are written in TypeScript, and so you can import additional libraries, make external API calls, or do anything you want in order to retrieve and process your data.
-- **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, and more
+- **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, Starknet, Stellar, and more
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
 - **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to allow you to run, monitor, and optimise your locally hosted project
@@ -27,7 +27,7 @@ The migration from a SubGraph to a SubQuery Project is (by design) easy and quic
 
 **Want Support During Migration?**
 
-Reach out to our team at [professionalservices@subquery.network](mailto:professionalservices@subquery.network) and get a professional service to manage the migration for you.
+Reach out to our team at [professionalservices@subquery.network](mailto:professionalservices@subquery.network) and get our professional service to help migrate your project.
 
 :::
 
@@ -340,7 +340,7 @@ export async function handleNewGravatar(log: NewGravatarLog): Promise<void> {
 }
 
 export async function handleUpdatedGravatar(
-  log: UpdatedGravatarLog,
+  log: UpdatedGravatarLog
 ): Promise<void> {
   const id: string = log.args.id.toHexString()!;
   let gravatar = await Gravatar.get(id);
