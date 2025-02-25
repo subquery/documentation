@@ -8,10 +8,27 @@ Retrieval Augmented Generation (RAG) allows developers to provide a knowledge ba
 
 Defining the RAG data set is largely up to the user to define. Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported. You can [review Lance DB's documentation](https://lancedb.github.io/lancedb/basic/) to determine the best way to ingest and embed your chosen RAG source data.
 
-We do provide an off the shelf way to create a table from markdown files. This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
+We do provide a couple of tools to create a table from different sources.
+
+### From Markdown
+
+This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
 
 ```shell
 subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name --model nomic-embed-text
+```
+
+### From Web
+
+This will parse all the visible text from the specified web page(s). You can specify the scope for how many links are followed to pull in more data.
+
+Scope options:
+- `none` - Only the page of the specified URL
+- `domain` - Only the domain of the URL
+- `subdomain` - Only the domain of the URL and any subdomains
+
+```shell
+subql-ai embed-web -i https://subquery.network -o ./db --table your-table-name --model nomic-embed-text --scope doamin
 ```
 
 ::: info
