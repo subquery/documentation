@@ -34,7 +34,7 @@ We aim to make releases in line with the official releases. These releases inclu
 
 ### Additional Data
 
-In order to efficiently query transactions data, the nodes will now build bloom filters for each block. This bloom data is based on transaction `to`, `from` and the first 4 bytes of `input`. On top of this, there is also a bloombits indexer to increase the lookup performance of the bloom filters. This is effectively the same approach as what is used to filter logs, but applied to transactions.
+In order to efficiently query transaction data, the nodes will now build bloom filters for each block. This bloom data is based on transaction `to`, `from` and the first 4 bytes of `input`. On top of this, there is also a bloombits indexer to increase the lookup performance of the bloom filters. This is effectively the same approach as what is used to filter logs, but applied to transactions.
 
 ::: note
 
