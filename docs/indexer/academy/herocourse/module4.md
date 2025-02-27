@@ -83,7 +83,7 @@ Update the manifest file by including a `handleStakingRewarded` handler and upda
 ```
 
 ::: tip Note
-The `Rewarded` method was recently introduced from the block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called `Reward`. For this exercise, we will use this the new format and use a startBlock of 7,000,000.
+The `Rewarded` method was recently introduced from the block [6,713,249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/manual/polkadot.ts) onwards. It was previously called `Reward`. For this exercise, we will use this the new format and use a startBlock of 7,000,000.
 :::
 
 ::: warning Important
@@ -648,7 +648,7 @@ query{
 
 So far, we have used the `Rewarded` method in the manifest file.
 
-As mentioned in the previous exercise, `Rewarded` was only recently introduced from block [6713249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/polkadot.ts) onwards. It was previously called `Reward`.
+As mentioned in the previous exercise, `Rewarded` was only recently introduced from block [6713249](https://github.com/polkadot-js/api/blob/master/packages/types-known/src/upgrades/manual/polkadot.ts) onwards. It was previously called `Reward`.
 
 Hence, you need to update your code to capture all the staking rewards prior to this change.
 
