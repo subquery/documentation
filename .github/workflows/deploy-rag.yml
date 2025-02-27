@@ -1,0 +1,42 @@
+name: Deploy RAG Data - academy.subquery.network
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: true
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: "2.2.2"
+          cache: pnpm
+
+      - name: Install subql-ai
+        run: deno install -g -f --allow-env --allow-sys --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options --no-prompt -n subql-ai jsr:@subql/ai-app-framework/cli
+
+      - name: Build rag
+        run: subql-ai embed-mdx -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
+
+      - name: Tar dist
+        run: tar -czvf db-openai.tar.gz dist
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          message: "Submit Build Rag Data"
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
