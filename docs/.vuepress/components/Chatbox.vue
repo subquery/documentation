@@ -116,7 +116,8 @@ enum ChatBotAnswerStatus {
   Error = "error",
 }
 
-const chatUrl = "https://ai.subquery.network/v1/chat/completions";
+const chatUrl =
+  "https://ai-reaction-backend.subquery.network/ai-rag/v1/chat/completions";
 // const chatUrl = "http://localhost:7827/v1/chat/completions";
 const showPopover = ref(false);
 const inputValue = ref("");
