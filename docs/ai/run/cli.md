@@ -6,6 +6,7 @@ Run a SubQuery AI app
 Commands:
   subql-ai            Run a SubQuery AI app                            [default]
   subql-ai info       Get information on a project
+  subql-ai embed-web  Creates a Lance db table with emdeddings from a Web source
   subql-ai embed-mdx  Creates a Lance db table with embeddings from MDX files
   subql-ai repl       Creates a CLI chat with a running app
   subql-ai publish    Publishes a project to IPFS so it can be easily
