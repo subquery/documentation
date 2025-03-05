@@ -140,11 +140,12 @@ subql-node -f . --db-schema=test2
 
 ### -f, --subquery
 
-**Boolean** - Use this flag to start the SubQuery project.
+**String (default: current working directory)** - The path to the subquery project directory or project manifest.
 
 ```shell
 subql-node -f . // OR
 subql-node --subquery .
+subql-node -f ~/Path/To/Your/Project
 ```
 
 ### force-clean
@@ -300,6 +301,10 @@ subql-node reindex -f /example/subql-project --targetHeight=30
 Once the command is executed and the state has been rolled back to the specified height, the application will exit. You can then start up the indexer to proceed again from this height.
 :::
 
+### --skip-transactions
+
+**Boolean** - This flag allows you to skip fetching transactions when indexing in order to increase speed. This is useful when you only need to index events/logs. Only supported with Ethereum and Substrate SDKs.
+
 ### --scale-batch-size
 
 **Boolean** - Scale the block fetch batch size with memory usage.
@@ -319,6 +324,10 @@ Once the command is executed and the state has been rolled back to the specified
 ### --store-flush-interval
 
 **Positive Integer (default: `5`)** - The interval, in seconds, at which data is flushed from the cache. This ensures that data is persisted regularly when there is either not much data or the project is up to date.
+
+### --store-cache-target
+
+**Positive Integer (default: `10`)** - When the indexer is within this many blocks of the chain head, then data is flushed after indexing every block. This makes data available to be queried quicker.
 
 ### --subscription
 
