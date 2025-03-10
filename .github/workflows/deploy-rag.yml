@@ -3,14 +3,13 @@ on:
   push:
     branches:
       - master
-      - feat/pipeline-rag-data
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # env:
-      # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,11 +28,11 @@ jobs:
       - name: Install subql-ai
         run: deno install -g -f --allow-env --allow-sys --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options --no-prompt -n subql-ai jsr:@subql/ai-app-framework/cli
 
-      # - name: Build rag
-      #   run: subql-ai embed-mdx -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
+      - name: Build rag
+        run: subql-ai embed-mdx -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
 
-      # - name: Tar dist
-      #   run: tar -czvf db-openai.tar.gz dist
+      - name: Tar dist
+        run: tar -czvf db-openai.tar.gz dist
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
