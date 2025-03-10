@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - feat/pipeline-rag-data
   workflow_dispatch:
 
 jobs:
