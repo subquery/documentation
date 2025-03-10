@@ -100,23 +100,52 @@ Please note that none of these tools have been endorsed by the SubQuery team and
 Please research and use at your own risk
 :::
 
-### Indexer Toolkit (by web3cdnservices)
+### SQTScan 
 
-This tool contains everything you need to index, monitor and properly access for you from any device
+[SQTScan](https://sqtscan.com/?ref=blog.subquery.network) is a ***community-owned application*** designed specifically to help expert users such as Node Operators and Delegators to gain a deeper understanding of historical rewards on the SubQuery Network and optimise their participation.
 
-What it does
+SQT Scan helps expert users (Node Operators and Delegators) with:
+
+1. **Education:** Understand how their rewards are calculated and how they should make decisions
+2. **Compare Opportunities:** Decide which projects to deploy based on historical rewards
+3. **Compare Others:** Compare their APY with other Node Operators, overall and by project, to see how they're performing relatively
+4. **APY Maximisation:** Identify ways to increase their APY
+
+If you would like to add your support, suggest improvements or new features, or even contribute code, it is welcomed!
+
+Links
+
+- [SQTSCan](https://sqtscan.com)
+- [Github](https://github.com/HuberTRoy/subquery-sqtscan)
+
+### Indexer Monitoring Tools (by web3cdnservices)
+
+Two products:
+1. **Toolkit:** A toolkit contains everything you need to index, monitor and properly access from any device
+2. **Telegram Uptime Bot:** Eagle Eye is a bot which will provide you live updates in Telegram on the uptime of your indexer
+
+Toolkit Features:
 
 - Extended monitoring of all indexer parameters, sync time, balances, issues. Metrics also support Alerting rules
-- You will always know about the problems that have arisen through monitoring and do not miss the reward.
+- Flags problems that have arisen through monitoring and help you to not miss rewards.
 - Makes your indexer and infrastructure secure
 - Ease of updating without the risk of changing important parameters
 - Secured access to dangerous zone with your own VPN, Access from mobile devices to monitoring, and internal services in any time.
 - Very easy installation and user error protection
 
+Eagle Eye Telegram Bot Notifications:
+
+- Provide reports on your indexer's uptime - help you to know about an errors in advance and not lose funds.
+- If your indexer is offline
+- If your project is somehow unavailable
+- If you do not have enough funds
+- If your certificate is about to expire
+- And more
+
 Links
 
-- [Documentation](https://forum.subquery.network/t/indexer-toolkit/484)
-- [Github](https://github.com/web3cdnservices/subquery-indexer-toolkit)
+- [Toolkit Github](https://github.com/web3cdnservices/subquery-indexer-toolkit)
+- [Eagle Eye Telegram Bot](https://eagleeye.subquery.dev/)
 
 ### Kepler Network Dashboard (by DappLooker)
 
