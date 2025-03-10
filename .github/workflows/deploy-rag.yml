@@ -40,3 +40,23 @@ jobs:
           message: "Submit Build Rag Data"
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+
+          - name: Redeploy subquery-ai
+          run: |
+              curl --request POST \
+                --url 'https://api.bitbucket.org/2.0/repositories/onfinalitydev/pipeline-ai/pipelines' \
+                --header 'Authorization: Bearer ${{ secrets.BITBUCKET_ACCESS_TOKEN }}' \
+                --header 'Accept: application/json' \
+                --header 'Content-Type: application/json' \
+                --data '
+                  { 
+                    "target": {
+                    "selector": {
+                        "type": "custom",
+                        "pattern": "only-redeploy"
+                    },
+                    "type": "pipeline_ref_target",
+                    "ref_name": "main",
+                    "ref_type": "branch"
+                    }
+                  }' 
