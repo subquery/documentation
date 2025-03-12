@@ -6,19 +6,25 @@ Retrieval Augmented Generation (RAG) allows developers to provide a knowledge ba
 
 ## Defining RAG
 
-Defining the RAG data set is largely up to the user to define. Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported. You can [review Lance DB's documentation](https://lancedb.github.io/lancedb/basic/) to determine the best way to ingest and embed your chosen RAG source data.
+We provide an off the shelf tool to create datasets from markdown files and web sources. This tool extracts the data into chunks, generates embedding vectors and stores them in a vector DB.
 
-We do provide an off the shelf way to create a table from markdown files. This will parse and chunk the content appropriately and use the `nomic-embed-text` model to generate vectors.
+Currently only [Lance DB](https://lancedb.github.io/lancedb/) is supported. You can [review Lance DB's documentation](https://lancedb.github.io/lancedb/basic/) to determine the best way to ingest and embed your chosen RAG source data.
 
 ```shell
-subql-ai embed-mdx -i ./path/to/dir/with/markdown -o ./db --table your-table-name --model nomic-embed-text
+subql-ai embed -i ./path/to/dir/with/markdown -o ./db --table your-table-name --model nomic-embed-text
 ```
+
+RAG data can also be defined with your own tooling.
 
 ::: info
 
 You can follow through a step by step tutorial on how parse, vectorise, and add the resulting RAG database to your AI App in our [RAG quick start guide](../guides/subquery-docs-rag.md).
 
 :::
+
+## Updating RAG
+
+As the source content changes, you may need to update your RAG data. To do this you can run the same command as used to define your initial RAG data. The tool will be able to determine changes to content and update the DB to match the changes, this makes the process much faster and reduces calls to the LLM.
 
 ## Adding RAG to your app
 
@@ -107,7 +113,7 @@ const tools: FunctionTool[] = [
 ];
 ```
 
-## Updating your data
+## Updating your projects data
 
 RAG data is generally not static, the source of this information can change and evolve.
 That means from time to time it is handy to rebuild your database.
