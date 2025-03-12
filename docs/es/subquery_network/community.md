@@ -118,11 +118,14 @@ Links
 - [SQTSCan](https://sqtscan.com)
 - [Github](https://github.com/HuberTRoy/subquery-sqtscan)
 
-### Indexer Monitoring Tools (by web3cdnservices)
+### Indexer Monitoring Tools (by web3cdn.network)
 
-Two products:
+Five products:
 1. **Toolkit:** A toolkit contains everything you need to index, monitor and properly access from any device
 2. **Telegram Uptime Bot:** Eagle Eye is a bot which will provide you live updates in Telegram on the uptime of your indexer
+3. **UpdateHunter**
+4. **Snapshots**
+5. **Snapshots Toolkit**
 
 Toolkit Features:
 
@@ -142,10 +145,30 @@ Eagle Eye Telegram Bot Notifications:
 - If your certificate is about to expire
 - And more
 
+UpdateHunter:
+
+ - A tool that notifies you when a project is updated or a new project is created, providing complete documentation to enable fast and secure upgrades.
+ - It scans the blockchain and alerts an indexer via a Telegram channel about updates, automati­cally generating instructions and SQL queries.
+ - The bot integrates with GitHub, posting documentation updates to a public repository.
+
+ Snapshots:
+
+ - Service generates daily snapshots for all active projects
+ - This service is ideal if your indexer:
+ - Is newly deployed and you want to avoid ~1 month of downtime for project synchronization
+ - Has experienced data loss (corrupted disk, hardware failures, or software issues)
+
+ Snapshots Toolkit:
+
+ - Open Source toolkit for an own snapshot generator. With this repository indexer can generate its own snapshots.
+
 Links
 
-- [Toolkit Github](https://github.com/web3cdnservices/subquery-indexer-toolkit)
+- [Toolkit Github](https://toolkit.subquery.dev/)
 - [Eagle Eye Telegram Bot](https://eagleeye.subquery.dev/)
+- [UpdateHunter](https://eagleeye.subquery.dev/updates)
+- [Snapshots](https://snapshots.subquery.dev/)
+- [Snapshots Toolkit](https://snapshots.subquery.dev/toolkit)
 
 ### Kepler Network Dashboard (by DappLooker)
 
