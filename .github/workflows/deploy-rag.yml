@@ -28,6 +28,9 @@ jobs:
       - name: Install subql-ai
         run: deno install -g -f --allow-env --allow-sys --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options --no-prompt -n subql-ai jsr:@subql/ai-app-framework/cli
 
+      - name: Extract cache
+        run: tar -xzvf db-openai.tar.gz
+
       - name: Build rag
         run: subql-ai embed-mdx -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
 
@@ -59,4 +62,4 @@ jobs:
                 "ref_name": "main",
                 "ref_type": "branch"
                 }
-              }' 
+              }'
