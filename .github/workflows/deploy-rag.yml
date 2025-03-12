@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,15 +34,18 @@ jobs:
         run: tar -xzvf db-openai.tar.gz
 
       - name: Build rag
-        run: subql-ai embed-mdx -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
+        run: subql-ai embed -i docs -o dist -t subql-docs --model text-embedding-3-large --openAiApiKey $OPENAI_API_KEY
 
       - name: Tar dist
         run: tar -czvf db-openai.tar.gz dist
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          message: "Submit Build Rag Data"
+          commit_message: "Submit Build Rag Data"
+          branch: build-rag
+          commit_options: "--no-verify --signoff"
+          push_options: "--force"
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
 
