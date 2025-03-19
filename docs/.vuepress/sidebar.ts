@@ -40,6 +40,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/astar-zkevm.md`,
                   },
                   {
+                    text: "Autonity Testnet",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/autonity.md`,
+                  },
+                  {
                     text: "Avalanche",
                     collapsible: true,
                     children: [
