@@ -35,6 +35,8 @@ chmod +x ipfs/ipfs.sh
 
 Please change the default PostgreSQL password in the `POSTGRES_PASSWORD` field and in the coordinator-service's `postgres-password` field in the docker-compose.yml file.
 
+If you are running in Kubernetes (k8s), make sure to set the `host-env` parameter to `k8s` in the `docker-compose.yml` file, as specified in the file.
+
 :::
 
 ### Step 2 - Start the Node Operator Services
