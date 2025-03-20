@@ -1,10 +1,10 @@
 # Autonity Testnet Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events from the Newton (0xBd770416a3345F91E4B34576cb804a576fa48EB1) on Autonity Testnet Mainnet.
+The goal of this quick start guide is to index all transfers and approval events from the Newton (0xBd770416a3345F91E4B34576cb804a576fa48EB1) on Autonity's Piccadilly Testnet.
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Autonity Testnet. Since Autonity Testnet is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Autonity Testnet. Since Autonity Testnet is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
