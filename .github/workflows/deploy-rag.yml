@@ -44,6 +44,7 @@ jobs:
         with:
           add_options: "--all"
           commit_message: "Submit Build Rag Data"
+          skip_checkout: true
           branch: build-rag
           commit_options: "--no-verify --signoff"
           push_options: "--force"
