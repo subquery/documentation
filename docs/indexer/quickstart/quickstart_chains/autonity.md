@@ -9,7 +9,7 @@ We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-As we are indexing all transfers and approvals from the Newton contract on Autonity Testnet's Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Newton contract on Autonity's Testnet Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
