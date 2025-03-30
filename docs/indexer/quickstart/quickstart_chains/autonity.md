@@ -1,15 +1,15 @@
 # Autonity Testnet Quick Start
 
-The goal of this quick start guide is to index all transfers and approval events from the Newton (0xBd770416a3345F91E4B34576cb804a576fa48EB1) on Autonity Testnet Mainnet.
+The goal of this quick start guide is to index all transfers and approval events from the Newton (0xBd770416a3345F91E4B34576cb804a576fa48EB1) on Autonity's Piccadilly Testnet.
 
 <!-- @include: ../snippets/evm-quickstart-reference.md -->
 
-We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Hander`) for Autonity Testnet. Since Autonity Testnet is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
+We use Ethereum packages, runtimes, and handlers (e.g. `@subql/node-ethereum`, `ethereum/Runtime`, and `ethereum/*Handler`) for Autonity Testnet. Since Autonity Testnet is an EVM-compatible layer-1, we can use the core Ethereum framework to index it.
 :::
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level2 -->
 
-As we are indexing all transfers and approvals from the Wrapped ETH contract on Autonity Testnet's Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
+As we are indexing all transfers and approvals from the Newton contract on Autonity's Testnet Network, the first step is to import the contract abi definition which can be obtained from from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). Copy the entire contract ABI and save it as a file called `erc20.abi.json` in the `/abis` directory.
 
 **Update the `datasources` section as follows:**
 
