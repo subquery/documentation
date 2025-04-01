@@ -35,7 +35,7 @@ git clone https://github.com/subquery/documentation.git
 Once the documentation repository is cloned, you can define it using the SubQuery CLI. The default RAG tool can be utilised by following [this guide](../build/rag.md#defining-rag). Here’s an example command:
 
 ```bash
-subql-ai embed-mdx -i ./subquery/documentation -o ./db --table subql-docs --model nomic-embed-text
+subql-ai embed -i ./subquery/documentation -o ./db --table subql-docs --model nomic-embed-text
 ```
 
 Here’s a breakdown of the parameters used in this command:
