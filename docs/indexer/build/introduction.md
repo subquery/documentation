@@ -5,9 +5,9 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
 1. Initialise your project using `subql init PROJECT_NAME`.
-2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/polkadot.md).
+2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/ethereum.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/polkadot.md).
+4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/ethereum.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/introduction.md) your Starter Project in our quick start guide.
 
 ## Directory Structure
