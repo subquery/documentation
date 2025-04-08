@@ -14,10 +14,6 @@ SubQuery has a deep bench of highly skilled talent of engineers, customer servic
 
 Ian forged his interest in blockchain during his tenure as the Technical Team Lead for Centrality where he led the development of core components of CENNZnet. Ian also led a team that won 2nd place in the world's first Substrate/Polkadot Hackathon in 2019. Prior to this, Ian obtained significant experience working on large-scale infrastructure working for Alipay and Yihaodian.com.
 
-### James Bayly - COO and Co-Founder
-
-Well-versed across the business, from product engineering to being the face of SubQuery, James is also a serial entrepreneur leading several tech companies. When he’s not in Berlin sipping cocktails, you’ll find him hiking up the Routeburn Track in New Zealand.
-
 ### Scott Twiname - Principal Dev of SDK
 
 Scott has a large wealth of experience in blockchain development. He started out learning about blockchain in his own time and eventually got the opportunity to apply his knowledge as a senior developer at Sylo. He has worked on all facets of blockchain development from smart contracts, dapps, decentralised technologies and wallet integration for various networks including Bitcoin, Ethereum, Tezos and CENNZnet.
@@ -29,6 +25,10 @@ Marta is a huge tech advocate, Web3 enthusiast and IT-meetup addict. She helps S
 ### Brittany Seales - Head of Marketing
 
 Brittany has a background in chemistry but since then she became the closest point of contact with SubQuery customers and helped ensure that every SubQuery customer gets an excellent on-boarding experience. Naturally Brittany is heavily integrated with the community and content marketing and has since taken over this area. Sadly, no amount of interaction with successful blockchain projects has give her the ability to pick a winning NFT!
+
+### James Bayly - Advisor
+
+Well-versed across the business, from product engineering to being the face of SubQuery, James is also a serial entrepreneur leading several tech companies. When he’s not in Berlin sipping cocktails, you’ll find him hiking up the Routeburn Track in New Zealand.
 
 ## Our Manifesto
 
