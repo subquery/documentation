@@ -10,7 +10,7 @@ SubQuery is open-source and designed to be easy to run, meaning you have the fre
 
 - To dive deeper into the developer documentation, jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.**
 
-- If you want to practice with more real examples, then head to our [Courses](../academy/herocourse/welcome.md) section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
+- If you want to practice with more real examples, then head to our Course section and learn important concepts with related exercises and lab workbooks. Get access to readily available and open-source projects, and get a hands-on experience with SubQuery projects.
 
 - Take a look at some of our **advanced features** to take your project to the next level!
 
