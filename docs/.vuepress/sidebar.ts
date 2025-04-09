@@ -76,6 +76,10 @@ export const getSidebar = (locale: string) =>
                     link: `${locale}/indexer/quickstart/quickstart_chains/bevm.md`,
                   },
                   {
+                    text: "Berachain Artio Testnet",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/berachain-artio-testnet.md`,
+                  },
+                  {
                     text: "BNB Smart Chain (BSC)",
                     collapsible: true,
                     children: [
