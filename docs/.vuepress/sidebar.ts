@@ -234,6 +234,10 @@ export const getSidebar = (locale: string) =>
                     ],
                   },
                   {
+                    text: "SEI",
+                    link: `${locale}/indexer/quickstart/quickstart_chains/sei.md`,
+                  },
+                  {
                     text: "Skale",
                     link: `${locale}/indexer/quickstart/quickstart_chains/skale.md`,
                   },
