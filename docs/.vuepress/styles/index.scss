@@ -158,15 +158,6 @@ iframe {
   }
 
   .vp-sidebar-group {
-    .vp-sidebar-group {
-      padding-inline-start: 0;
-    }
-    .vp-sidebar-links {
-      padding-inline-start: 24px;
-    }
-    .vp-sidebar-link {
-      padding-inline-start: 24px;
-    }
 
     .vp-sidebar-links {
       position: relative;
@@ -179,7 +170,14 @@ iframe {
         height: 100%;
         background: var(--dark-mode-border);
       }
+      margin: 0.75em 0 0 0.75em;
     }
+  }
+
+  .vp-sidebar-group {
+
+    padding: 16px 0;
+
   }
 
   .vp-sidebar-link:hover,
