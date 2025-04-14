@@ -5,6 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
+- The mappings are run from within a [Sandbox](./sandbox.md)
 
 There are different classes of mappings functions for NEAR; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Action Handlers](#action-handler).
 
@@ -106,58 +107,3 @@ We also support some [API RPC methods here](https://github.com/subquery/subql-ne
 
 Documents in [NEAR `JsonRpcProvider`](https://docs.near.org/tools/near-api-js/reference/classes/providers_json_rpc_provider.JsonRpcProvider.html) provide some methods to interact with the NEAR RPC API.
 
-## Third-party Library Support - the Sandbox
-
-SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is makes it possible to verify data in the decentralised SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine, with access to a strict number of third party libraries.
-
-**You can easily bypass this limitation however, allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects.** In order to do to, you must run your project in `unsafe` mode, you can read more about this in the [references](../../run_publish/references.md#unsafe-node-service). An easy way to do this while developing (and running in Docker) is to add the following line to your `docker-compose.yml`:
-
-```yml
-subquery-node:
-  image: onfinality/subql-node-near:latest
-  ...
-  command:
-    - -f=/app
-    - --db-schema=app
-    - --unsafe
-  ...
-```
-
-When run in `unsafe` mode, you can import any custom libraries into your project and make external API calls using tools like node-fetch. A simple example is given below:
-
-```ts
-import { NearAction, Transfer } from "@subql/types-near";
-import fetch from "node-fetch";
-
-export async function handleAction(
-  action: NearAction<Transfer>,
-): Promise<void> {
-  const httpData = await fetch("https://api.github.com/users/github");
-  logger.info(`httpData: ${JSON.stringify(httpData.body)}`);
-  // Do something with this data
-}
-```
-
-By default (when in safe mode), the [VM2](https://www.npmjs.com/package/vm2) sandbox only allows the following:
-
-- only some certain built-in modules, e.g. `assert`, `buffer`, `crypto`,`util` and `path`
-- third-party libraries written by _CommonJS_.
-- Historical/safe queries, see [RPC Calls](#rpc-calls).
-- external `HTTP` and `WebSocket` connections are forbidden
-
-## Modules and Libraries
-
-To improve SubQuery's data processing capabilities, we have allowed some of the NodeJS's built-in modules for running mapping functions in the [sandbox](#third-party-library-support---the-sandbox), and have allowed users to call third-party libraries.
-
-Please note this is an **experimental feature** and you may encounter bugs or issues that may negatively impact your mapping functions. Please report any bugs you find by creating an issue in [GitHub](https://github.com/subquery/subql).
-
-### Built-in modules
-
-Currently, we allow the following NodeJS modules: `assert`, `buffer`, `crypto`, `util`, and `path`.
-
-Rather than importing the whole module, we recommend only importing the required method(s) that you need. Some methods in these modules may have dependencies that are unsupported and will fail on import.
-
-```ts
-import { hashMessage } from "ethers/lib/utils"; // Good way
-import { utils } from "ethers"; // Bad way
-```
