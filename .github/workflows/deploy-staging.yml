@@ -30,7 +30,16 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID_V2 }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_V2 }}
           aws-region: ap-northeast-1
-      - run: aws s3 sync ./docs/.vuepress/dist s3://doc.thechaindata.com/ --delete
+      - run: aws s3 sync ./docs/.vuepress/dist s3://${{ vars.S3_BUCKET_DEV }}/ --delete
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ vars.CF_DISTRIBUTION_DEV }}
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID_V2 }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_V2 }}
