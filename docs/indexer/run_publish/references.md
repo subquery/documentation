@@ -349,9 +349,6 @@ Note that this feature **requires historical indexing** to be enabled.
 Learn more [here](./historical.md).
 :::
 
-::: tip Note
-This feature is only available for Substrate-based and Ethereum blockchains; more networks will be supported in the future.
-:::
 
 ### --unsafe (Node Service)
 
