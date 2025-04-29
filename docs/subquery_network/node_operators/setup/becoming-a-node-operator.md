@@ -19,7 +19,8 @@ Let's take an overview of the basic steps involved in the process:
 | [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
 | [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
 | [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 10](#10-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
+| [Step 10](#10-cron-job-for-auto-upgrading-docker-compose)       | Automate Docker Compose upgrades                                                 |
+| [Step 11](#11-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
 
 ## 1. Deploy Node Operator Services
 
@@ -204,7 +205,152 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 ![grafana_query_count](/assets/img/network/grafana_query_count.png)
 ![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
-## 10. Upgrade Node Operator services (Ongoing)
+## 10. Cron Job for Auto-Upgrading Docker Compose
+
+### Step 1: Download the `auto-upgrade-tool.sh` Script
+
+Use the following command to download the `auto-upgrade-tool.sh` script:
+
+```sh
+curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/auto-upgrade-tool.sh -o auto-upgrade-tool.sh
+```
+
+### Step 2: Basic Usage of `auto-upgrade-tool.sh`
+
+The `auto-upgrade-tool.sh` script automatically fetches the latest tags for `subquerynetwork/indexer-coordinator` and `subquerynetwork/indexer-proxy` from Docker Hub and updates the versions in your Docker Compose configuration file.
+
+```sh
+# Default usage with `docker-compose.yml`
+./auto-upgrade-tool.sh
+
+# Specify a custom Docker Compose file
+./auto-upgrade-tool.sh -f my-compose.yml
+
+# Force the script to run `docker compose up` without confirmation
+./auto-upgrade-tool.sh -u
+```
+
+### Step 3: Sample Script Execution
+
+Here’s an example of running the script:
+
+```sh
+./auto-upgrade-tool.sh
+Latest coordinator tag: v2.10.0
+Latest proxy tag: v2.9.0
+📦 Backup created: docker-compose.yml.20250429_180911.bak
+✅ Coordinator tag updated to v2.10.0.
+🎉 docker-compose.yml has been updated to the latest tags.
+Do you want to run 'docker compose up'? (yes/[no]): yes
+🔄 Pulling latest images:
+    Command    : docker compose pull
+    Config file: docker-compose.yml
+WARN[0000] /Users/a/company_info/network-indexer-services/deploy/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Pulling 5/5
+ ✔ redis Pulled                                                                     4.6s
+ ✔ ipfs Pulled                                                                      2.9s
+ ✔ proxy Pulled                                                                     2.9s
+ ✔ coordinator Pulled                                                               4.3s
+ ✔ postgres Pulled                                                                  4.2s
+🔄 Starting services:
+    Command    : docker compose up -d
+    Config file: docker-compose.yml
+WARN[0000] /Users/a/company_info/network-indexer-services/deploy/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] A network with the name `indexer_services` exists but was not created for project "deploy".
+Set `external: true` to use an existing network.
+[+] Running 5/5
+ ✔ Container indexer_cache        Started                                           0.4s
+ ✔ Container indexer_db           Healthy                                           5.9s
+ ✔ Container indexer_ipfs         Healthy                                           5.9s
+ ✔ Container indexer_coordinator  Healthy                                          11.5s
+ ✔ Container indexer_proxy        Started                                          11.6s
+```
+
+### Step 4: Docker Compose File Update Example
+
+After running the script, the `docker-compose.yml` file will be updated. Below is an example of the changes:
+
+```diff
+# git diff docker-compose.yml
+
+Δ deploy/docker-compose.yml
+─────────────────────────────────────────────────────────────────────────────────────────
+────────────────┐
+• 18: services: │
+────────────────┘
+ 18 ⋮ 18 │      retries: 5
+ 19 ⋮ 19 │
+ 20 ⋮ 20 │  coordinator:
+-21 ⋮ 21 │    image: subquerynetwork/indexer-coordinator:v2.9.1
++21 ⋮ 21 │    image: subquerynetwork/indexer-coordinator:v2.10.0
+ 22 ⋮ 22 │    container_name: indexer_coordinator
+ 23 ⋮ 23 │    restart: always
+ 24 ⋮ 24 │    ports:
+```
+
+### Step 5: Setting Up a Cron Job
+
+To automate the script execution, set up a cron job. Below is an example of a cron job that runs the script every 6 hours:
+
+```sh
+0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+```
+
+This will log the output to `/var/log/auto-upgrade-cron.log` for future reference.
+
+#### Adding the Cron Job with `sudo`
+
+To add the cron job as a superuser, use the following command:
+
+```sh
+sudo crontab -e
+```
+
+This will open the cron editor for the root user. Add the following line to schedule the script:
+
+```sh
+0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+```
+
+Save and exit the editor to apply the changes.
+
+To verify that the cron job has been added, run:
+
+```sh
+sudo crontab -l
+```
+
+This will list all cron jobs for the root user, including the one you just added.
+
+#### Adding the Cron Job with `sudo` (Direct Command)
+
+To add the cron job directly without opening the editor, use the following command:
+
+```sh
+echo "0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1" | sudo crontab -
+```
+
+This will overwrite the existing root user's crontab with the new entry. If you want to preserve existing cron jobs, first list them using:
+
+```sh
+sudo crontab -l
+```
+
+Then append the new entry like this:
+
+```sh
+(sudo crontab -l; echo "0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1") | sudo crontab -
+```
+
+To verify the cron job has been added, run:
+
+```sh
+sudo crontab -l
+```
+
+This will list all cron jobs for the root user, including the one you just added.
+
+## 11. Upgrade Node Operator services (Ongoing)
 
 To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
 
