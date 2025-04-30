@@ -20,7 +20,7 @@ Let's take an overview of the basic steps involved in the process:
 | [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
 | [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
 | [Step 10](#10-cron-job-for-auto-upgrading-docker-compose)       | Automate Docker Compose upgrades                                                 |
-| [Step 11](#11-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
+
 
 ## 1. Deploy Node Operator Services
 
@@ -215,7 +215,7 @@ Use the following command to download the `auto-upgrade-tool.sh` script:
 curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/auto-upgrade-tool.sh -o auto-upgrade-tool.sh
 ```
 
-### Step 2: Basic Usage of `auto-upgrade-tool.sh`
+### Step 2: Usage of `auto-upgrade-tool.sh`
 
 The `auto-upgrade-tool.sh` script automatically fetches the latest tags for `subquerynetwork/indexer-coordinator` and `subquerynetwork/indexer-proxy` from Docker Hub and updates the versions in your Docker Compose configuration file.
 
@@ -227,10 +227,8 @@ The `auto-upgrade-tool.sh` script automatically fetches the latest tags for `sub
 ./auto-upgrade-tool.sh -f my-compose.yml
 
 # Force the script to run `docker compose up` without confirmation
-./auto-upgrade-tool.sh -u
+./auto-upgrade-tool.sh -y
 ```
-
-### Step 3: Sample Script Execution
 
 Here’s an example of running the script:
 
@@ -266,8 +264,6 @@ Set `external: true` to use an existing network.
  ✔ Container indexer_proxy        Started                                          11.6s
 ```
 
-### Step 4: Docker Compose File Update Example
-
 After running the script, the `docker-compose.yml` file will be updated. Below is an example of the changes:
 
 ```diff
@@ -288,12 +284,12 @@ After running the script, the `docker-compose.yml` file will be updated. Below i
  24 ⋮ 24 │    ports:
 ```
 
-### Step 5: Setting Up a Cron Job
+### Step 3: Setting Up a Cron Job
 
 To automate the script execution, set up a cron job. Below is an example of a cron job that runs the script every 6 hours:
 
 ```sh
-0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+0 */6 * * * /path/to/auto-upgrade-tool.sh -y -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
 ```
 
 This will log the output to `/var/log/auto-upgrade-cron.log` for future reference.
@@ -309,57 +305,9 @@ sudo crontab -e
 This will open the cron editor for the root user. Add the following line to schedule the script:
 
 ```sh
-0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+0 */6 * * * /path/to/auto-upgrade-tool.sh -y -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
 ```
 
 Save and exit the editor to apply the changes.
-
-To verify that the cron job has been added, run:
-
-```sh
-sudo crontab -l
-```
-
-This will list all cron jobs for the root user, including the one you just added.
-
-#### Adding the Cron Job with `sudo` (Direct Command)
-
-To add the cron job directly without opening the editor, use the following command:
-
-```sh
-echo "0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1" | sudo crontab -
-```
-
-This will overwrite the existing root user's crontab with the new entry. If you want to preserve existing cron jobs, first list them using:
-
-```sh
-sudo crontab -l
-```
-
-Then append the new entry like this:
-
-```sh
-(sudo crontab -l; echo "0 */6 * * * /path/to/auto-upgrade-tool.sh -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1") | sudo crontab -
-```
-
-To verify the cron job has been added, run:
-
-```sh
-sudo crontab -l
-```
-
-This will list all cron jobs for the root user, including the one you just added.
-
-## 11. Upgrade Node Operator services (Ongoing)
-
-To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
-
-Once the image version has been updated in the docker-compose file, you can restart the specific container that needs to be upgraded. This can be done by running the following command in the terminal:
-
-```bash
-docker-compose up -d --no-deps container-service-name
-```
-
-The `up` command starts the container in the background, while the `--no-deps` flag prevents Docker Compose from starting any linked services. Finally, the `container-service-name` argument specifies the name of the container that needs to be restarted.
 
 By following these simple steps, you can upgrade your Node Operator services in Docker Compose and ensure that they are running the latest version of the image.
