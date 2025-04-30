@@ -19,8 +19,7 @@ Let's take an overview of the basic steps involved in the process:
 | [Step 7: Allocate Your SQT Stake](#_7-allocate-your-sqt-stake-to-start-receiving-rewards)               | Allocate your SQT to start receiving rewards                                     |
 | [Step 8: Troubleshooting and FAQs](#_8-troubleshooting-and-faqs)                                        | Troubleshooting and FAQs                                                         |
 | [Step 9: Setting up a Grafana Dashboard](#_9-setting-up-a-grafana-dashboard-optional)                   | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 10: Cron Job for Auto-Upgrading](#_10-cron-job-for-auto-upgrading-docker-compose)                 | Automate Docker Compose upgrades                                                 |
-
+| [Step 10: Auto Upgrading docker compose](#_10-auto-upgrading-docker-compose)                            | Automate Docker Compose upgrades                                                 |
 
 ## 1. Deploy Node Operator Services
 
@@ -205,7 +204,7 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 ![grafana_query_count](/assets/img/network/grafana_query_count.png)
 ![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
-## 10. Cron Job for Auto-Upgrading Docker Compose
+## 10. Auto-Upgrading Docker Compose
 
 ### Step 1: Download the `auto-upgrade-tool.sh` Script
 
@@ -284,7 +283,7 @@ After running the script, the `docker-compose.yml` file will be updated. Below i
  24 ⋮ 24 │    ports:
 ```
 
-### Step 3: Setting Up a Cron Job
+### Step 3: Optional to Set Up a Cron Job
 
 To automate the script execution, set up a cron job. Below is an example of a cron job that runs the script every 6 hours:
 
