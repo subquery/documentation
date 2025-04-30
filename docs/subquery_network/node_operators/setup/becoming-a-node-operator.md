@@ -8,18 +8,18 @@ Node Operators can run either data indexing projects or RPC endpoints for the ne
 
 Let's take an overview of the basic steps involved in the process:
 
-| Steps                                                           | Process Flow                                                                     |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Step 1](#1-deploy-node-operator-services)                      | Setup & Start your Node Operator services locally in Docker or on an external VM |
-| [Step 2](#2-setup-proxy-endpoint-to-public)                     | Setup Proxy Endpoint to public                                                   |
-| [Step 3](#3-register-in-the-node-operator-admin-app)            | Register yourself as a Node Operator to the Network                              |
-| [Step 4](#4-index-or-sync-a-project)                            | Index a project or sync an RPC endpoint                                          |
-| [Step 5](#5-create-a-plan-from-a-plan-template)                 | Create a Plan from a Plan Template                                               |
-| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)     | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
-| [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
-| [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 10](#10-cron-job-for-auto-upgrading-docker-compose)       | Automate Docker Compose upgrades                                                 |
+| Steps                                                                                                   | Process Flow                                                                     |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [Step 1: Deploy Node Operator Services](#_1-deploy-node-operator-services)                              | Setup & Start your Node Operator services locally in Docker or on an external VM |
+| [Step 2: Setup Proxy Endpoint to Public](#_2-setup-proxy-endpoint-to-public)                            | Setup Proxy Endpoint to public                                                   |
+| [Step 3: Register in the Node Operator Admin App](#_3-register-in-the-node-operator-admin-app)          | Register yourself as a Node Operator to the Network                              |
+| [Step 4: Index or Sync a Project](#_4-index-or-sync-a-project)                                          | Index a project or sync an RPC endpoint                                          |
+| [Step 5: Create a Plan from a Plan Template](#_5-create-a-plan-from-a-plan-template)                    | Create a Plan from a Plan Template                                               |
+| [Step 6: Configure a Node Operator Commission Rate](#_6-configure-a-node-operator-commission-rate-nocr) | Set a Node Operator Commission Rate                                              |
+| [Step 7: Allocate Your SQT Stake](#_7-allocate-your-sqt-stake-to-start-receiving-rewards)               | Allocate your SQT to start receiving rewards                                     |
+| [Step 8: Troubleshooting and FAQs](#_8-troubleshooting-and-faqs)                                        | Troubleshooting and FAQs                                                         |
+| [Step 9: Setting up a Grafana Dashboard](#_9-setting-up-a-grafana-dashboard-optional)                   | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 10: Cron Job for Auto-Upgrading](#_10-cron-job-for-auto-upgrading-docker-compose)                 | Automate Docker Compose upgrades                                                 |
 
 
 ## 1. Deploy Node Operator Services
