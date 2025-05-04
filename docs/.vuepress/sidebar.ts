@@ -484,6 +484,7 @@ export const getSidebar = (locale: string) =>
               `${locale}/indexer/build/mapping/stellar.md`,
               `${locale}/indexer/build/mapping/cache.md`,
               `${locale}/indexer/build/mapping/store.md`,
+              `${locale}/indexer/build/mapping/sandbox.md`,
             ],
           },
           `${locale}/indexer/build/testing.md`,
