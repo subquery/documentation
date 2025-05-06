@@ -212,6 +212,7 @@ Use the following command to download the `auto-upgrade-tool.sh` script:
 
 ```sh
 curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/auto-upgrade-tool.sh -o auto-upgrade-tool.sh
+chmod +x auto-upgrade-tool.sh
 ```
 
 ### Step 2: Usage of `auto-upgrade-tool.sh`
@@ -283,7 +284,7 @@ After running the script, the `docker-compose.yml` file will be updated. Below i
  24 ⋮ 24 │    ports:
 ```
 
-### Step 3: Optional to Set Up a Cron Job
+### Step 3: Set Up a Cron Job
 
 To automate the script execution, set up a cron job. Below is an example of a cron job that runs the script every 6 hours:
 
