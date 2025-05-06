@@ -8,18 +8,18 @@ Node Operators can run either data indexing projects or RPC endpoints for the ne
 
 Let's take an overview of the basic steps involved in the process:
 
-| Steps                                                           | Process Flow                                                                     |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Step 1](#1-deploy-node-operator-services)                      | Setup & Start your Node Operator services locally in Docker or on an external VM |
-| [Step 2](#2-setup-proxy-endpoint-to-public)                     | Setup Proxy Endpoint to public                                                   |
-| [Step 3](#3-register-in-the-node-operator-admin-app)            | Register yourself as a Node Operator to the Network                              |
-| [Step 4](#4-index-or-sync-a-project)                            | Index a project or sync an RPC endpoint                                          |
-| [Step 5](#5-create-a-plan-from-a-plan-template)                 | Create a Plan from a Plan Template                                               |
-| [Step 6](#6-configure-a-node-operator-commission-rate-nocr)     | Set a Node Operator Commission Rate                                              |
-| [Step 7](#7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
-| [Step 8](#8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
-| [Step 9](#9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
-| [Step 10](#10-upgrade-node-operator-services-ongoing)           | Ongoing: Update Node Operator Services                                           |
+| Steps                                                            | Process Flow                                                                     |
+|------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [Step 1](#_1-deploy-node-operator-services)                      | Setup & Start your Node Operator services locally in Docker or on an external VM |
+| [Step 2](#_2-setup-proxy-endpoint-to-public)                     | Setup Proxy Endpoint to public                                                   |
+| [Step 3](#_3-register-in-the-node-operator-admin-app)            | Register yourself as a Node Operator to the Network                              |
+| [Step 4](#_4-index-or-sync-a-project)                            | Index a project or sync an RPC endpoint                                          |
+| [Step 5](#_5-create-a-plan-from-a-plan-template)                 | Create a Plan from a Plan Template                                               |
+| [Step 6](#_6-configure-a-node-operator-commission-rate-nocr)     | Set a Node Operator Commission Rate                                              |
+| [Step 7](#_7-allocate-your-sqt-stake-to-start-receiving-rewards) | Allocate your SQT to start receiving rewards                                     |
+| [Step 8](#_8-troubleshooting-and-faqs)                           | Troubleshooting and FAQs                                                         |
+| [Step 9](#_9-setting-up-a-grafana-dashboard-optional)            | Optional: Setting up a Grafana Dashboard                                         |
+| [Step 10](#_10-auto-upgrading-docker-compose)                    | Automate Docker Compose upgrades                                                 |
 
 ## 1. Deploy Node Operator Services
 
@@ -204,16 +204,110 @@ Once you have successfully logged in, look for 'dashboards' on the left-hand sid
 ![grafana_query_count](/assets/img/network/grafana_query_count.png)
 ![grafana_query_stats](/assets/img/network/grafana_query_stats.png)
 
-## 10. Upgrade Node Operator services (Ongoing)
+## 10. Auto-Upgrading Docker Compose
 
-To upgrade a Node Operator service, you will need to update the version of the image used in the docker-compose file. This can be done by updating the image field in the service definition to the new version you want to use.
+### Step 1: Download the `auto-upgrade-tool.sh` Script
 
-Once the image version has been updated in the docker-compose file, you can restart the specific container that needs to be upgraded. This can be done by running the following command in the terminal:
+Use the following command to download the `auto-upgrade-tool.sh` script:
 
-```bash
-docker-compose up -d --no-deps container-service-name
+```sh
+curl https://raw.githubusercontent.com/subquery/network-indexer-services/main/deploy/auto-upgrade-tool.sh -o auto-upgrade-tool.sh
+chmod +x auto-upgrade-tool.sh
 ```
 
-The `up` command starts the container in the background, while the `--no-deps` flag prevents Docker Compose from starting any linked services. Finally, the `container-service-name` argument specifies the name of the container that needs to be restarted.
+### Step 2: Usage of `auto-upgrade-tool.sh`
+
+The `auto-upgrade-tool.sh` script automatically fetches the latest tags for `subquerynetwork/indexer-coordinator` and `subquerynetwork/indexer-proxy` from Docker Hub and updates the versions in your Docker Compose configuration file.
+
+```sh
+# Default usage with `docker-compose.yml`
+./auto-upgrade-tool.sh
+
+# Specify a custom Docker Compose file
+./auto-upgrade-tool.sh -f my-compose.yml
+
+# Force the script to run `docker compose up` without confirmation
+./auto-upgrade-tool.sh -y
+```
+
+Here’s an example of running the script:
+
+```sh
+./auto-upgrade-tool.sh
+Latest coordinator tag: v2.10.0
+Latest proxy tag: v2.9.0
+📦 Backup created: docker-compose.yml.20250429_180911.bak
+✅ Coordinator tag updated to v2.10.0.
+🎉 docker-compose.yml has been updated to the latest tags.
+Do you want to run 'docker compose up'? (yes/[no]): yes
+🔄 Pulling latest images:
+    Command    : docker compose pull
+    Config file: docker-compose.yml
+WARN[0000] /Users/a/company_info/network-indexer-services/deploy/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Pulling 5/5
+ ✔ redis Pulled                                                                     4.6s
+ ✔ ipfs Pulled                                                                      2.9s
+ ✔ proxy Pulled                                                                     2.9s
+ ✔ coordinator Pulled                                                               4.3s
+ ✔ postgres Pulled                                                                  4.2s
+🔄 Starting services:
+    Command    : docker compose up -d
+    Config file: docker-compose.yml
+WARN[0000] /Users/a/company_info/network-indexer-services/deploy/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+WARN[0000] A network with the name `indexer_services` exists but was not created for project "deploy".
+Set `external: true` to use an existing network.
+[+] Running 5/5
+ ✔ Container indexer_cache        Started                                           0.4s
+ ✔ Container indexer_db           Healthy                                           5.9s
+ ✔ Container indexer_ipfs         Healthy                                           5.9s
+ ✔ Container indexer_coordinator  Healthy                                          11.5s
+ ✔ Container indexer_proxy        Started                                          11.6s
+```
+
+After running the script, the `docker-compose.yml` file will be updated. Below is an example of the changes:
+
+```diff
+# git diff docker-compose.yml
+
+Δ deploy/docker-compose.yml
+─────────────────────────────────────────────────────────────────────────────────────────
+────────────────┐
+• 18: services: │
+────────────────┘
+ 18 ⋮ 18 │      retries: 5
+ 19 ⋮ 19 │
+ 20 ⋮ 20 │  coordinator:
+-21 ⋮ 21 │    image: subquerynetwork/indexer-coordinator:v2.9.1
++21 ⋮ 21 │    image: subquerynetwork/indexer-coordinator:v2.10.0
+ 22 ⋮ 22 │    container_name: indexer_coordinator
+ 23 ⋮ 23 │    restart: always
+ 24 ⋮ 24 │    ports:
+```
+
+### Step 3: Set Up a Cron Job
+
+To automate the script execution, set up a cron job. Below is an example of a cron job that runs the script every 6 hours:
+
+```sh
+0 */6 * * * /path/to/auto-upgrade-tool.sh -y -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+```
+
+This will log the output to `/var/log/auto-upgrade-cron.log` for future reference.
+
+#### Adding the Cron Job with `sudo`
+
+To add the cron job as a superuser, use the following command:
+
+```sh
+sudo crontab -e
+```
+
+This will open the cron editor for the root user. Add the following line to schedule the script:
+
+```sh
+0 */6 * * * /path/to/auto-upgrade-tool.sh -y -f /path/to/docker-compose.yml >> /var/log/auto-upgrade-cron.log 2>&1
+```
+
+Save and exit the editor to apply the changes.
 
 By following these simple steps, you can upgrade your Node Operator services in Docker Compose and ensure that they are running the latest version of the image.
