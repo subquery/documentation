@@ -136,7 +136,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       componentsDir: "./docs/.vuepress/components",
     }),
 
-    ,
     redirectPlugin({
       config: (app) => {
         const redirects: Record<string, string> = {
