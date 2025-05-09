@@ -7,11 +7,11 @@ Please [contact us](https://subquery.network/contact) providing the following de
 
 ## Requirements
 
-- To suggest an archive node, 1M SQT needs to be locked for a period of 3 months. 
-- To suggest a full node, 500k SQT needs to be locked for a period of 3 months.
+- To suggest an archive node, 4M SQT needs to be locked for a period of 6 months. 
+- To suggest a full node, 2M SQT needs to be locked for a period of 6 months.
 - The lock period will start when the RPC is live.
 - When the RPC is live, these locked tokens will be used to boost the RPC to incentivise Node Operators to run them.
-- Should no Node Operators run this RPC within two months of going live, the tokens will be unlocked.
+- Should no Node Operators run this RPC within three months of going live, the tokens will be unlocked.
 
 ## How to obtain SQT tokens?
 
