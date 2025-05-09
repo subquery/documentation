@@ -609,6 +609,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/consumers/introduction.md`,
           `${locale}/subquery_network/consumers/plan.md`,
           `${locale}/subquery_network/consumers/boosting.md`,
+          `${locale}/subquery_network/consumers/suggest_rpc.md`,
           `${locale}/subquery_network/consumers/faq.md`,
         ],
       },
