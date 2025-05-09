@@ -2,16 +2,6 @@
 
 The key focus of the [SubQuery Foundation](./governance/foundation.md) and community is to ensure that there is enough support that anyone, from an expert blockchain team to a new hobbyist developer, can build their own Project. Together we can pave the way to a more decentralised future!
 
-## Developer Guild
-
-It is our long term goal that a collection of independent organisations and individuals contribute to the SubQuery SDK, as well as the SubQuery Network contracts and applications. We've already taken steps towards this by introducing our open [Developer Guild](https://github.com/orgs/subquery/projects/3?pane=info), which is a collection of paid tasks that any developer can start working on today for inclusion in our codebases.
-
-In the Open Task column, pick a task that interests you and start completing it. Tasks are reviewed on a first come first serve basis. Once done, create a PR and one of our team members will review it. If it meets the criteria and bug free, we'll merge it and contact you to arrange payment. For any questions or clarifications, please feel visit the `#sdk-technical-support` channel in Discord.
-
-::: info
-Vist our [Developer Guild](https://github.com/orgs/subquery/projects/3?pane=info) to view a list of paid development tasks that we welcome the community to contribute to.
-:::
-
 ## Connecting with others
 
 Discord is our main community for talking about SubQuery and learning more. You can join with [this link here](https://discord.com/invite/subquery). People most interested in the SubQuery Network will want to join `#network-general`, and Indexers or Delegators should join `#network-indexer-chat` or `#network-delegator-chat` respectively.
