@@ -49,7 +49,7 @@ importers:
         specifier: 2.0.0-rc.66
         version: 2.0.0-rc.66(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@20.11.30)(sass-embedded@1.83.4))(vue@3.5.13))
       cross-env:
-        specifier: 7.0.3
+        specifier: ^7.0.3
         version: 7.0.3
       http-server:
         specifier: 14.1.1

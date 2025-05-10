@@ -6,7 +6,7 @@
     "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress dev docs",
     "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=4096 vuepress build docs"
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.10.0",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.19",
     "@vuepress/helper": "2.0.0-rc.74",
