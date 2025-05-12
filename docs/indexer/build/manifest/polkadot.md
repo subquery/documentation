@@ -143,7 +143,7 @@ dataSources:
 | **specVersion** | String                                     | String                                     | The spec version of the manifest file               |
 | **name**        | String                                     | String                                     | Name of your project                                |
 | **version**     | String                                     | String                                     | Version of your project                             |
-| **description** | String                                     | String                                     | Discription of your project                         |
+| **description** | String                                     | String                                     | Description of your project                         |
 | **repository**  | String                                     | String                                     | Git repository address of your project              |
 | **schema**      | [Schema Spec](#schema-spec)                | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
 | **network**     | [Network Spec](#network-spec)              | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |

@@ -1,4 +1,4 @@
-# NEAR Manifest File
+# Solana Manifest File
 
 The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
@@ -10,20 +10,20 @@ Below is a standard example of a basic `project.ts`.
 
 ```ts
 import {
-  NearDatasourceKind,
-  NearHandlerKind,
-  NearProject,
-} from "@subql/types-near";
+  SolanaDataSourceKind,
+  SolanaHandlerKind,
+  SolanaProject,
+} from "@subql/types-solana";
 
-const project: NearProject = {
-  // This project can be use as a starting point for developing your new NEAR SubQuery project
+// Can expand the Datasource processor types via the genreic param
+const project: SolanaProject = {
   specVersion: "1.0.0",
-  name: "near-subql-starter",
-  version: "0.0.1",
+  name: "solana-subql-starter",
+  version: "1.0.0",
   runner: {
     node: {
-      name: "@subql/node-near",
-      version: "*",
+      name: "@subql/node-solana",
+      version: ">=1.0.0",
     },
     query: {
       name: "@subql/query",
@@ -31,90 +31,46 @@ const project: NearProject = {
     },
   },
   description:
-    "This project can be use as a starting point for developing your new NEAR SubQuery project",
-  repository: "https://github.com/subquery/near-subql-starter",
+    "This project can be used as a starting point for developing your Solana SubQuery project",
+  repository: "https://github.com/subquery/solana-subql-starter",
   schema: {
-    // This endpoint must be a public non-pruned archive node
-    // We recommend providing more than one endpoint for improved reliability, performance, and uptime
-    // Public nodes may be rate limited, which can affect indexing speed
-    // When developing your project we suggest getting a private API key from a commercial provider
     file: "./schema.graphql",
   },
   network: {
-    chainId: "mainnet",
-    endpoint: ["https://archival-rpc.mainnet.near.org"],
-    // Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-    dictionary: "https://api.subquery.network/sq/subquery/near-dictionary",
-    // This is a missing block from the NEAR mainnet chain that we are skipping
-    bypassBlocks: [81003306],
+    chainId: "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d=",
+    // This endpoint must be a public non-pruned archive node
+    // We recommend providing more than one endpoint for improved reliability, performance, and uptime
+    // Public nodes may be rate limited, which can affect indexing speed
+    // When developing your project we suggest getting a private API key
+    // You can get them from OnFinality for free https://app.onfinality.io
+    // https://documentation.onfinality.io/support/the-enhanced-api-service
+    endpoint: ["https://solana.rpc.subquery.network/public", "https://api.mainnet-beta.solana.com"],
   },
   dataSources: [
     {
-      kind: NearDatasourceKind.Runtime,
-      // You can set any start block you want here. This block was when the sweat_welcome.near address was created
-      startBlock: 80980000,
+      kind: SolanaDataSourceKind.Runtime,
+      startBlock: 336382792,
+      assets: new Map([["TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", { file: "./idls/tokenprogram.idl.json" }]]),
       mapping: {
         file: "./dist/index.js",
         handlers: [
-          // Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
           // {
-          //   handler: "handleBlock",
-          //   kind: "near/BlockHandler",
-          //   filter: {
-          //     modulo: 10,
-          //   },
-          // },
+          //   block handlers are slow and we are best to avoid them if possible
+          //   handler: handleBlock,
+          //   kind: SolanaHandlerKind.Block
+          // }
           {
-            handler: "handleTransaction",
-            kind: NearHandlerKind.Transaction,
+            kind: SolanaHandlerKind.Instruction,
+            handler: "handleCheckedTransfer",
             filter: {
-              sender: "sweat_welcome.near",
-              receiver: "token.sweat",
+              programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              discriminator: "transferChecked",
+              accounts: [
+                null,
+                ['rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof'],
+              ]
             },
           },
-          {
-            handler: "handleAction",
-            kind: NearHandlerKind.Action,
-            filter: {
-              type: "FunctionCall",
-              methodName: "storage_deposit",
-              receiver: "token.sweat",
-            },
-          },
-          // Some other filter examples
-          // {
-          //   handler: "handleAction",
-          //   kind: NearHandlerKind.Action,
-          //   filter: {
-          //     type: "DeleteAccount",
-          //     beneficiaryId: "",
-          //   },
-          // },
-          // {
-          //   handler: "handleAction",
-          //   kind: NearHandlerKind.Action,
-          //   filter: {
-          //     type: "AddKey",
-          //     publicKey: "",
-          //     accessKey: "",
-          //   },
-          // },
-          // {
-          //   handler: "handleAction",
-          //   kind: NearHandlerKind.Action,
-          //   filter: {
-          //     type: "DeleteKey",
-          //     publicKey: "",
-          //   },
-          // },
-          // {
-          //   handler: "handleAction",
-          //   kind: NearHandlerKind.Action,
-          //   filter: {
-          //     type: "Stake",
-          //     publicKey: "",
-          //   },
-          // },
         ],
       },
     },
@@ -131,54 +87,50 @@ Below is a standard example of the legacy YAML version (`project.yaml`).
 
 ```yml
 specVersion: 1.0.0
-
-name: near-subql-starter
-version: 0.0.1
+name: solana-subql-starter
+version: 1.0.0
 runner:
   node:
-    name: "@subql/node-near"
-    version: "*"
+    name: "@subql/node-solana"
+    version: ">=1.0.0"
   query:
     name: "@subql/query"
     version: "*"
-description: "This project can be use as a starting point for developing your new NEAR SubQuery project"
-repository: "https://github.com/subquery/near-subql-starter"
-
+description: >-
+  This project can be used as a starting point for developing your Solans SubQuery project
+repository: "https://github.com/subquery/solana-subql-starter"
 schema:
   file: ./schema.graphql
-
 network:
-  chainId: mainnet
+  chainId: "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d="
   # This endpoint must be a public non-pruned archive node
   # We recommend providing more than one endpoint for improved reliability, performance, and uptime
   # Public nodes may be rate limited, which can affect indexing speed
-  # When developing your project we suggest getting a private API key from a commercial provider
-  endpoint: ["https://archival-rpc.mainnet.near.org"]
-  # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: https://api.subquery.network/sq/subquery/near-dictionary
-  bypassBlocks: [81003306] # This is a missing block from the NEAR mainnet chain that we are skipping
+  # When developing your project we suggest getting a private API key
+  # You can get them from OnFinality for free https://app.onfinality.io
+  # https://documentation.onfinality.io/support/the-enhanced-api-service
+  endpoint:
+    - "https://solana.rpc.subquery.network/public"
+    - "https://api.mainnet-beta.solana.com"
+
 dataSources:
-  - kind: near/Runtime
-    startBlock: 80980000 # You can set any start block you want here. This block was when the sweat_welcome.near address was created
+  - kind: solana/Runtime
+    startBlock: 50000 # Block to start indexing from
+    assets:
+      TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA:
+        file:  "./idls/tokenprogram.idl.json"
     mapping:
-      file: "./dist/index.js"
+      file: ./dist/index.js
       handlers:
-        # Using block handlers slows your project down as they can be executed with each and every block. Only use if you need to
-        # - handler: handleBlock
-        #   kind: near/BlockHandler
-        #   filter:
-        #     modulo: 10
-        - handler: handleTransaction
-          kind: near/TransactionHandler
+        - handler: handleCheckedTransfer
+          kind: solanas/InstructionHandler
           filter:
-            sender: sweat_welcome.near
-            receiver: token.sweat
-        - handler: handleAction
-          kind: near/ActionHandler
-          filter:
-            type: FunctionCall
-            methodName: storage_deposit
-            receiver: token.sweat
+            programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+            discriminator: "transferChecked"
+            accounts:
+              - null
+              -
+                - 'rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof'
 ```
 
 :::
@@ -210,7 +162,7 @@ dataSources:
 
 If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. In NEAR, it's either `mainnet` or `testnet`.
+The `chainId` is the network identifier of the blockchain.
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 
@@ -238,7 +190,7 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 
 | Field       | Type                                        | Description                                                                                                                                                                                                          |
 | ----------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **name**    | String                                      | `@subql/node-near`                                                                                                                                                                                                   |
+| **name**    | String                                      | `@subql/node-solana`                                                                                                                                                                                               |
 | **version** | String                                      | Version of the indexer Node service, it must follow the [SEMVER](https://semver.org/) rules or `latest`, you can also find available versions in subquery SDK [releases](https://github.com/subquery/subql/releases) |
 | **options** | [Runner Node Options](#runner-node-options) | Runner specific options for how to run your project. These will have an impact on the data your project produces. CLI flags can be used to override these.                                                           |
 
@@ -260,30 +212,30 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
-
-| Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **kind**       | String       | [near/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                      |
-| **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
-| **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
-| **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
+| Field | Type | Description
+| --------------- |-------------|-------------|
+| **kind** | String | [solana/Runtime](#data-sources-and-mapping) |
+| **startBlock** | Integer | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data |
+| **endBlock** | Integer | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
+| **assets** | Object | This is a set of IDL file references that are used to decode instruction data and convert discriminator function names to their byte representation |
+| **mapping** | Mapping Spec | |
 
 ### Mapping Spec
 
-| Field                  | Type                         | Description                                                                                                                  |
-| ---------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/near.md) and their corresponding handler types, with additional mapping filters. |
+| Field                  | Type                         | Description                                                                                                                      |
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/solana.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
-In this section, we will talk about the default NEAR runtime and its mapping. Here is an example:
+In this section, we will talk about the default Solana runtime and its mapping. Here is an example:
 
 ```ts
 {
   ...
   dataSources: [
     {
-      kind: NearDataSourceKind.Runtime, // Indicates that this is default runtime
+      kind: SolanaDataSourceKind.Runtime, // Indicates that this is default runtime
       startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
       mapping: {
         file: "./dist/index.js", // Entry path for this mapping
@@ -300,29 +252,18 @@ In this section, we will talk about the default NEAR runtime and its mapping. He
 
 The following table explains filters supported by different handlers.
 
-**Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `ActionHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
+**Your SubQuery project will be much more efficient when you only use `TransactionHandler` with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
-| Handler                                                           | Supported filter                                                                              |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [near/BlockHandler](../mapping/near.md#block-handler)             | `modulo`, `timestamp`                                                                         |
-| [near/TransactionHandler](../mapping/near.md#transaction-handler) | `sender`, `reciever`                                                                          |
-| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, 'args', 'publicKey', 'accessKey', 'beneficiaryId' |
+| Handler                                                                   | Supported filter                                          |
+| ------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [solana/BlockHandler](../mapping/solana.md#block-handler)                 | `modulo`, `timestamp`                                     |
+| [solana/TransactionHandler](../mapping/solana.md#transaction-handler)     | `signerAccountKey`                                        |
+| [solana/InstructionHandler](../mapping/solana.md#instruction-handler)     | `programId`, `discriminator`, `accounts`, `includeFailed` |
+| [solana/LogHandler](../mapping/solana.md#log-handler)                     | `programId`                                               |
 
-Default runtime mapping filters are an extremely useful feature to decide what block, transaction, or action will trigger a mapping handler.
+Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 
-Only incoming data that satisfy the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
-
-```yml
-# Example filter from TransactionHandler
-filter:
-  sender: sweat_welcome.near
-  receiver: token.sweat
-
-# Example filter from ActionHandler:
-filter:
-  type: FunctionCall
-  methodName: 'storage_deposit'
-```
+Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
 The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
 
@@ -367,13 +308,9 @@ Note that there is also [dynamic datasources](../dynamicdatasources.md) for when
 
 :::
 
-### Action Types
-
-There are several types of actions as defined [here](https://github.com/subquery/subql-near/blob/main/packages/types/src/interfaces.ts#L91)
-
 ## Bypass Blocks
 
-Bypass Blocks allow you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
+Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
 
 When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
 

@@ -412,6 +412,10 @@ export const getSidebar = (locale: string) =>
                 ],
               },
               {
+                text: 'Solana',
+                link: `${locale}/indexer/quickstart/quickstart_chains/solana.md`,
+              },
+              {
                 text: "Starknet",
                 link: `${locale}/indexer/quickstart/quickstart_chains/starknet.md`,
               },
@@ -458,6 +462,7 @@ export const getSidebar = (locale: string) =>
               `${locale}/indexer/build/manifest/optimism.md`,
               `${locale}/indexer/build/manifest/polkadot.md`,
               `${locale}/indexer/build/manifest/polygon.md`,
+              `${locale}/indexer/build/manifest/solana.md`,
               `${locale}/indexer/build/manifest/starknet.md`,
               `${locale}/indexer/build/manifest/stellar.md`,
             ],
@@ -480,6 +485,7 @@ export const getSidebar = (locale: string) =>
               `${locale}/indexer/build/mapping/optimism.md`,
               `${locale}/indexer/build/mapping/polkadot.md`,
               `${locale}/indexer/build/mapping/polygon.md`,
+              `${locale}/indexer/build/mapping/solana.md`,
               `${locale}/indexer/build/mapping/starknet.md`,
               `${locale}/indexer/build/mapping/stellar.md`,
               `${locale}/indexer/build/mapping/cache.md`,
