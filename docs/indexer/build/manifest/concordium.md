@@ -110,7 +110,7 @@ export default project;
 | **specVersion** | String                                     | The spec version of the manifest file               |
 | **name**        | String                                     | Name of your project                                |
 | **version**     | String                                     | Version of your project                             |
-| **description** | String                                     | Discription of your project                         |
+| **description** | String                                     | Description of your project                         |
 | **repository**  | String                                     | Git repository address of your project              |
 | **schema**      | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
 | **network**     | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |
