@@ -58,21 +58,21 @@ import { TransferCheckedInstruction } from '../types/handler-inputs/TokenkegQfeZ
 export async function handleInstruction(inst: TransferCheckedInstruction): Promise<void> {
   logger.info(`New Transfer instruction at block ${inst.blockNumber}`);
 
-  const source = getAccountByIndex(instruction, instruction.accounts[0]);
-  const mint = getAccountByIndex(instruction, instruction.accounts[1]);
-  const dest = getAccountByIndex(instruction, instruction.accounts[2]);
+  const source = getAccountByIndex(inst, inst.accounts[0]);
+  const mint = getAccountByIndex(inst, inst.accounts[1]);
+  const dest = getAccountByIndex(inst, inst.accounts[2]);
 
-  const decoded = await instruction.decodedData;
+  const decoded = await inst.decodedData;
   assert(decoded, "Expected decoded value");
 
   const transferRecord = Transfer.create({
-    id: `${instruction.transaction.transaction.signatures[0]}-${instruction.index.join('.')}`,
+    id: `${inst.transaction.transaction.signatures[0]}-${inst.index.join('.')}`,
     amount: BigInt(decoded.data.amount),
     from: source,
     to: dest,
-    blockNumber: instruction.block.blockHeight,
-    transactionHash: instruction.transaction.transaction.signatures[0],
-    date: new Date(Number(instruction.block.blockTime) * 1000),
+    blockNumber: inst.block.blockHeight,
+    transactionHash: inst.transaction.transaction.signatures[0],
+    date: new Date(Number(inst.block.blockTime) * 1000),
   });
 
   await transferRecord.save();
