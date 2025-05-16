@@ -31,10 +31,19 @@ SQT is supported on the [Crypto.com](https://crypto.com/price/subquery-network) 
 
 SQT is supported on [Gate.io](https://www.gate.io). Gate.io is a cryptocurrency exchange platform offering a wide range of digital assets, advanced trading features, and security measures for global users. Spot trade SQT/USDT on Gate at [https://www.gate.io/trade/SQT_USDT](https://www.gate.io/trade/SQT_USDT) - Ethereum and Base deposits and withdrawls only.
 
-SQT is on a number of DEX Pools however most liquidity is on Uniswap. Please ensure that you are trading the correct SQT token (see contract addresses above)
+SQT is available on several DEXs and aggregators:
 
+### Ethereum Network
 - Uniswap Pool on Ethereum: [https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85](https://app.uniswap.org/explore/tokens/ethereum/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85)
-- Unsiwap Pool on Base: [https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d](https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d)
+
+### Base Network
+- Uniswap Pool on Base: [https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d](https://app.uniswap.org/explore/tokens/base/0x858c50c3af1913b0e849afdb74617388a1a5340d)
+  - Note: On Base network, please use the USDC/SQT pool for trading. The ETH/SQT pool is not maintained and may result in failed transactions.
+- Alternative DEX Aggregators:
+  - [Aerodrome](https://aerodrome.finance/swap)
+  - [1inch](https://app.1inch.io/swap)
+
+Please ensure that you are trading the correct SQT token by verifying the contract addresses above.
 
 ## KSQT
 
