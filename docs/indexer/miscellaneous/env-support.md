@@ -34,6 +34,6 @@ Use `build:develop` script to generate artefacts using the development .env.deve
 
 Using environment variables and .env files provides a convenient way to manage project configurations and keep sensitive information secure.
 
-Note: Ensure that .env files are included in your project's .gitignore to prevent them from being committed to version control and exposing sensitive information.
+Note: Ensure that .env files are NOT included in your project's .gitignore to prevent them from being committed to version control and exposing sensitive information.
 
 This documentation provides comprehensive guidance on utilizing environment variable support in SubQuery projects for better configurability and security.
