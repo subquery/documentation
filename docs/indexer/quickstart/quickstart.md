@@ -114,9 +114,9 @@ yarn dev
 
 This command actually runs 3 subcommands under the hood for convenience. 
 
-* npm run codegen - This generates types from the GraphQL schema definition and contract ABIs and saves them in the /src/types directory. This must be done after each change to the schema.graphql file or the contract ABIs.
-* npm run build - This builds and packages the SubQuery project into the /dist directory.
-* docker-compose pull && docker-compose up - This runs a Docker container with an indexer, PostgeSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
+* `npm run codegen` - This generates types from the GraphQL schema definition and contract ABIs and saves them in the /src/types directory. This must be done after each change to the schema.graphql file or the contract ABIs.
+* `npm run build` - This builds and packages the SubQuery project into the /dist directory.
+* `docker compose pull && docker compose up` - This runs a Docker container with an indexer, PostgeSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
 
 It may take a few minutes to download all the docker images (depending on your Internet speed) and for the nodes to start indexing.
 
