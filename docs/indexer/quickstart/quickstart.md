@@ -48,7 +48,7 @@ You'll be asked certain questions as you proceed ahead:
 - **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint which will be used by this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so an archive node is recommended.
 - **Authors**: Enter the owner of this SubQuery project here. eg. your name or organisation.
 - **Description**: Provide a short paragraph about your project that describes what the project does.
-- **Generate scaffolding from an existing contract abt?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
+- **Generate scaffolding from an existing contract ABI?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
 
 Let’s look at an example:
 
