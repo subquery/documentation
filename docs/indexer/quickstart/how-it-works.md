@@ -119,7 +119,7 @@ The hello-world project has two entities. A Transfer entity and an Approval enti
 
 Mapping functions, located in the `src/mappings/` directory, defines how chain data is transformed into the optimised GraphQL entities that we have previously defined in the schema.graphql file.
 
-The hello-world project contains two functions. `handleLog` and `handleTransaction`. `handleLog` accepts one argument called `log` of type `TransferLog` and calls various methods such as log.blockNumber, log.args.to, log.args.from etc on the `log` object. 
+The hello-world project contains two functions. `handleLog` and `handleTransaction`. `handleLog` accepts one argument called `log` of type `TransferLog` and accesses various properties such as log.blockNumber, log.args.to, log.args.from etc on the `log` object in order to create a `Transfer` entity before it is saved.
 
 ```
 export async function handleLog(log: TransferLog): Promise<void> {
