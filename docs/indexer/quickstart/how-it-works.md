@@ -9,7 +9,7 @@ These are:
 
 ## The project.ts file
 
-The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain data we are subscribing to.
 
 This file imports various type definitions and environment variables along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
 
@@ -119,7 +119,7 @@ The hello-world project has two entities. A Transfer entity and an Approval enti
 
 Mapping functions, located in the `src/mappings/` directory, defines how chain data is transformed into the optimised GraphQL entities that we have previously defined in the schema.graphql file.
 
-The hello-world project contains two functions. `handleLog` and `handleTransaction`. `handleLog` accepts one argument called `log` of type `TransferLog` and calls various methods such as log.blockNumber, log.args.to, log.args.from etc on the `log` object. 
+The hello-world project contains two functions. `handleLog` and `handleTransaction`. `handleLog` accepts one argument called `log` of type `TransferLog` and accesses various properties such as log.blockNumber, log.args.to, log.args.from etc on the `log` object in order to create a `Transfer` entity before it is saved.
 
 ```
 export async function handleLog(log: TransferLog): Promise<void> {
@@ -139,7 +139,7 @@ export async function handleLog(log: TransferLog): Promise<void> {
 }
 ```
 
-`handleTransaction` works in a similar fashion receiving one argument called `tx` of type `ApproveTransaction` from which various methods can be called on this object such as tx.blockNumber and tx.hash.
+`handleTransaction` works in a similar fashion receiving one argument called `tx` of type `ApproveTransaction` from which various properties can be accessed on this object such as tx.blockNumber and tx.hash.
 
 ```
 export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
