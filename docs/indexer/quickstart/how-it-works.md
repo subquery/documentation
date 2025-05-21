@@ -9,7 +9,7 @@ These are:
 
 ## The project.ts file
 
-The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain events we are subscribing to.
+The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain data we are subscribing to.
 
 This file imports various libraries and configurations along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
 
