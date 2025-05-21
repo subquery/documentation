@@ -160,7 +160,7 @@ Because a free public RPC endpoint is used in the default configuration, sometim
 
 ## 3. Query your project
 
-Once your project is running, open http://localhost:3000 on your browser and you should see a GraphQL playground. Run the following query:
+Once your project is running, open [http://localhost:3000](http://localhost:3000) on your browser and you should see a GraphQL playground. Run the following query:
 
 :::details query
 
