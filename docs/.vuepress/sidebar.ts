@@ -19,8 +19,10 @@ export const getSidebar = (locale: string) =>
         collapsible: true,
         children: [
           `${locale}/indexer/quickstart/quickstart.md`,
+          `${locale}/indexer/quickstart/how-it-works.md`,
+          `${locale}/indexer/quickstart/whats-next.md`,
           {
-            text: "2. Edit your Project",
+            text: "Example Projects",
             collapsible: true,
             children: [
               {
@@ -435,7 +437,6 @@ export const getSidebar = (locale: string) =>
               },
             ],
           },
-          `${locale}/indexer/quickstart/whats-next.md`,
         ],
       },
       {
@@ -571,6 +572,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/miscellaneous/faq.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
+          `${locale}/indexer/miscellaneous/env-support.md`,
         ],
       },
       {
