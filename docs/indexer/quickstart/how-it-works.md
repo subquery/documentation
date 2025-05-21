@@ -139,7 +139,7 @@ export async function handleLog(log: TransferLog): Promise<void> {
 }
 ```
 
-`handleTransaction` works in a similar fashion receiving one argument called `tx` of type `ApproveTransaction` from which various methods can be called on this object such as tx.blockNumber and tx.hash.
+`handleTransaction` works in a similar fashion receiving one argument called `tx` of type `ApproveTransaction` from which various properties can be accessed on this object such as tx.blockNumber and tx.hash.
 
 ```
 export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
