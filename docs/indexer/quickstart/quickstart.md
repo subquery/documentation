@@ -118,7 +118,7 @@ This command actually runs 3 subcommands under the hood for convenience.
 * npm run build - This builds and packages the SubQuery project into the /dist directory.
 * docker-compose pull && docker-compose up - This runs a Docker container with an indexer, PostgeSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
 
-It may take a few minutes to download all the docker images (depending on your Internet speed) and for the nodes to start indexing.
+It may take a few minutes to download all the docker images (depending on your Internet speed) and for the nodes to start indexing the data. Allow the logs to update to confirm that blocks are being indexed.
 
 :::details Node log output
 
@@ -145,6 +145,9 @@ subquery-node-1   | 2025-05-21T09:10:02.059Z <sandbox-#2> INFO New Approval tran
 graphql-engine-1  | 2025-05-21T09:10:02.187Z <nestjs> INFO Nest application successfully started
 subquery-node-1   | 2025-05-21T09:10:02.426Z <sandbox-#2> INFO New Approval transaction at block 4753432
 subquery-node-1   | 2025-05-21T09:10:02.812Z <sandbox-#2> INFO New Approval transaction at block 4753441
+subquery-node-1   | 2025-05-21T09:10:06.140Z <WorkerBlockDispatcherService> INFO Enqueuing blocks 4757692...4757919, total 40 blocks
+subquery-node-1   | 2025-05-21T09:10:06.891Z <WorkerBlockDispatcherService> INFO Enqueuing blocks 4757923...4758303, total 43 blocks
+subquery-node-1   | 2025-05-21T09:10:08.967Z <benchmark> INFO INDEXING: 7.13 blocks/s. Target height: 22,534,657. Current height: 4,756,988. Estimated time remaining: 28 days 20 hours 09 mins
 
 ```
 :::

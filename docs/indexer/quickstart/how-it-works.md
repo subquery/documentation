@@ -11,7 +11,7 @@ These are:
 
 The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain events we are subscribing to.
 
-This file imports various libraries and configurations along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
+This file imports various type definitions and environment variables along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
 
 :::details project.ts snippet
 ```
@@ -75,7 +75,7 @@ Finally, there are three types of mapping handlers (you can have more than one i
 * TransactionHandlers: On each and every transaction that matches optional filter criteria, run a mapping function
 * LogHandlers: On each and every log that matches optional filter criteria, run a mapping function
 
-The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". When a filter condition is met, the associated handler is called. 
+The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers]((../build/mapping/ethereum.md)) section. When a filter condition is met, the associated handler is called. 
 
 :::details handlers
 ```
