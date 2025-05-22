@@ -1,4 +1,4 @@
-# Ethereum Mapping
+# EVM Mappings
 
 Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
 
@@ -7,7 +7,14 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - The mappings files are reference in `project.ts` under the mapping handlers.
 - The mappings are run from within a [Sandbox](./sandbox.md)
 
-There are different classes of mappings functions for Ethereum; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
+There are different classes of mappings functions for EVM based networks such as Avalanche, Arbitrum, BNB, Flare, Gnosis, Optimism and Polygon. They are:
+* [Block handlers](#block-handler)
+* [Transaction Handlers](#transaction-handler)
+* [Log Handlers](#log-handler).
+
+::: warning Important
+Since Arbitrum, BNB, Gnosis, and Optimism are a layer-2 scaling solution, we can use the core Ethereum framework to index it. Therefore, Ethereum types (e.g. `EthereumBlock`, `EthereumTransaction`, and `EthereumLog`) are used.
+:::
 
 ## Block Handler
 
@@ -15,7 +22,11 @@ You can use block handlers to capture information each time a new block is attac
 
 **Using block handlers slows your project down as they can be executed with each and every block - only use if you need to.**
 
+:::code-tabs
+@tab:active EVM
+
 ```ts
+// this includes avalanche, arbitrum, bnb, flare, gnosis, optimism, polygon
 import { EthereumBlock } from "@subql/types-ethereum";
 
 export async function handleBlock(block: EthereumBlock): Promise<void> {
@@ -26,10 +37,15 @@ export async function handleBlock(block: EthereumBlock): Promise<void> {
 }
 ```
 
+:::
+
+
 ## Transaction Handler
 
 You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
+:::code-tabs
+@tab:active EVM
 ```ts
 import { Approval } from "../types";
 import { ApproveTransaction } from "../types/abi-interfaces/Erc20Abi";
@@ -47,6 +63,7 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
   await approval.save();
 }
 ```
+:::
 
 ## Log Handler
 
@@ -86,3 +103,14 @@ const balance = await erc20.balanceOf(address);
 ```
 
 The above example assumes that the user has an ABI file named `erc20.json`, so that TypeChain generates `ERC20__factory` class for them. Check out [this example](https://github.com/dethcrypto/TypeChain/tree/master/examples/ethers-v5) to see how to generate factory code around your contract ABI using TypeChain.
+
+
+## Avalanche
+
+:::warning Avalanche SDK is Deprecated
+We are no longer supporting `@subql/node-avalanche` and all Avalanche users should migrate their projects to use `@subql/node-ethereum` to recieve the latest updates.
+
+The new `@subql/node-ethereum` is feature equivalent, and provides some massive performance improvements and support for new features.
+
+The migration effort is easy and should only take a few minutes. You can [follow a step by step guide here](../../miscellaneous/avalanche-eth-migration.md).
+:::
