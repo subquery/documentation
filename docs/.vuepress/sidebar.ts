@@ -15,7 +15,6 @@ export const getSidebar = (locale: string) =>
       },
       {
         text: "Quick Start",
-        link: `${locale}/indexer/quickstart/quickstart`,
         collapsible: true,
         children: [
           `${locale}/indexer/quickstart/quickstart.md`,
