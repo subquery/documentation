@@ -158,7 +158,7 @@ Because a free public RPC endpoint is used in the default configuration, sometim
  Error: All endpoints failed to initialize. Please add healthier endpoints
  ```
  
- To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider and to obtain a more stable RPC endpoint.
+ To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider and to obtain a more stable RPC endpoint and update the .env file.
 
 
 ## 3. Query your project
