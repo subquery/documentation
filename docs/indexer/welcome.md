@@ -6,7 +6,7 @@ editLink: false
 photoSwipe: false
 ---
 
-<link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
+<link rel="stylesheet" href="/doc/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="bannerRow">
     <div class="flexColCenter gp24" style="max-width: 614px; z-index: 1;">
