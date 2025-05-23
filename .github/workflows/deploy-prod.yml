@@ -33,7 +33,7 @@ jobs:
           aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID_V2 }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_V2 }}
           aws-region: ap-northeast-1
-      - run: aws s3 sync ./docs/.vuepress/dist s3://subquery-website-prod/academy/ --delete
+      - run: aws s3 sync ./docs/.vuepress/dist s3://subquery-website-prod/doc/ --delete
 
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
