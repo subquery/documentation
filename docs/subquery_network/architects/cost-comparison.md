@@ -29,7 +29,7 @@ The unique Boost model of SubQuery Network ensures token safety and indexing cos
 
 ::: info SubQuery SDK provides a superior indexing experience
 
-Learn more about SDK features and Graph Migration here: [Graph Migration](../indexer/build/graph-migration.md)
+Learn more about SDK features and Graph Migration here: [Graph Migration](../../indexer/build/graph-migration.md)
 
 :::
 
