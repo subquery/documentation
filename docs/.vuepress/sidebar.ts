@@ -686,6 +686,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/architects/publish.md`,
           `${locale}/subquery_network/architects/publish-subgraph.md`,
           `${locale}/subquery_network/architects/next-steps.md`,
+          `${locale}/subquery_network/architects/cost-comparison.md`,          
         ],
       },
       {
