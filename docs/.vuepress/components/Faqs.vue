@@ -58,7 +58,7 @@ const faqs = computed(() => {
   return [
     {
       title: "What networks do you support?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         `We support over ${counts} leading layer-1 chains, including Ethereum, Cosmos, Polkadot, Avalanche, Algorand, Near and Flare. The list of supported layer-1 chains keeps growing every week, and it's our goal to support them all. Wherever you plan to build your next dApp, we want to be there to help you index it. <a href='https://subquery.network/networks'>View the full list here</a>`,
         "If you would like us to index your new layer-1 chain, we would be happy to consider it, send us a message at <a href='mailto:hello@subquery.network'>hello@subquery.network</a>.",
@@ -66,7 +66,7 @@ const faqs = computed(() => {
     },
     {
       title: "How much does it cost?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         "SubQuery is open-source, and free for all to use forever. You can write, run, and scale your SubQuery project in your own infrastructure with complete control, many of our biggest customers do just this. Since it's open source, you can even just run the parts of it that you want.",
         `We're big believers in open source technology and really appreciate it when we 
@@ -75,7 +75,7 @@ const faqs = computed(() => {
     },
     {
       title: "Do you provide hosting, or do I have to run it myself?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         `We provide a 
         <a style="cursor:pointer;" onclick="router.push('/indexer/run_publish/run.html')">long guide</a> 
@@ -86,14 +86,14 @@ const faqs = computed(() => {
     },
     {
       title: "How is the data stored?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         "SubQuery stores indexed data in a high performance PostgreSQL database.",
       ],
     },
     {
       title: "Why should I use SubQuery?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         "SubQuery is the most efficient option for web3 builders to index data from multiple chains without the hassle of building your own indexing solution.",
         "In addition to a flexible SDK, SubQuery offers superior indexing speeds and will eventually be a decentralised solution (upon the launch of the SubQuery Network) where you can have a stake in the future of the project.",
@@ -101,7 +101,7 @@ const faqs = computed(() => {
     },
     {
       title: "How are you different from The Graph?",
-      iconSrc: "/assets/img/faqIcon.svg",
+      iconSrc: "/doc/assets/img/faqIcon.svg",
       content: [
         `SubQuery is a flexible, cross-chain indexing service similar to The Graph. In fact, 
         <a style="cursor:pointer;" onclick="router.push('/indexer/build/graph-migration.html')">migrating from the Graph takes only a few hours</a>. 
