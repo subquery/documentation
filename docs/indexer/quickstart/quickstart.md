@@ -8,7 +8,6 @@ Before you begin creating your first blockchain project with SubQuery, make sure
 
 - [NodeJS](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of NodeJS.
 - [Docker](https://docker.com/): This tutorial will use Docker to run a local version of SubQuery's node.
-- [SubQuery CLI](https://www.npmjs.com/package/@subql/cli): The SubQuery Command Line Interface used to create a project scaffold as a starting point for your project.
 
 To check if you have Node or Docker already, run: 
 ```shell
@@ -19,24 +18,12 @@ docker -v
 Docker version 27.4.0, build bde2b89
 ```
 
-Install the SubQuery CLI using NPM.
-
-```shell
-# NPM
-npm install -g @subql/cli
-
-# Test that it was installed correctly
-subql --help
-```
-
-NB: We **do not** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. 
-
 ## 1. Initialise a new SubQuery Project
 
 Run the following command inside the directory that you want to create a SubQuery project in:
 
 ```shell
-subql init
+npx @subql/cli init
 ```
 
 You'll be asked certain questions as you proceed ahead:
@@ -53,7 +40,7 @@ You'll be asked certain questions as you proceed ahead:
 Let’s look at an example:
 
 ```shell
-$ subql init
+$ npx @subql/cli init
 Project name [subql-starter]: evm-hello-world
 ? Select a network family EVM
 ? Select a network Ethereum
@@ -78,7 +65,7 @@ After you complete the initialisation process, you will see a folder with your p
 
 Run the following command to install the new project’s dependencies from within the new project's directory.
 
-::: code-tabs
+::: code-tabs#shell
 @tab:active npm
 
 ```shell
@@ -97,14 +84,14 @@ yarn install
 
 ## 3. Run your project
 
-::: code-tabs
-@tab:active npm
+::: code-tabs#shell
+@tab:active npm#npm
 
 ```shell
 npm run-script dev
 ```
 
-@tab yarn
+@tab yarn#yarn
 
 ```shell
 yarn dev
