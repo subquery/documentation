@@ -205,7 +205,7 @@ const anyoneContents = ref([
 name: "DApp Users",
 description:
 "DApp Users will ask the SubQuery Network for specific indexed data and RPC endpoints for their dApps or tools, and exchange an advertised amount of SQT for each request.",
-image: "/assets/img/participants/consumer.png",
+image: "/doc/assets/img/participants/consumer.png",
 moreLink:
 "/subquery_network/consumers/introduction.html",
 },
@@ -213,7 +213,7 @@ moreLink:
 name: "Delegators",
 description:
 "Delegators will participate in the Network by supporting their favourite Data Indexers and RPC Providers to earn rewards based on the work those indexers do.",
-image: "/assets/img/participants/delegator.png",
+image: "/doc/assets/img/participants/delegator.png",
 
     moreLink:
       "/subquery_network/delegators/introduction.html",
@@ -223,7 +223,7 @@ image: "/assets/img/participants/delegator.png",
 name: "Data Indexers",
 description:
 "Data Indexers will run and maintain high quality SubQuery projects in their own infrastructure and will be rewarded in SQT for the requests that they serve.",
-image: "/assets/img/participants/indexer.png",
+image: "/doc/assets/img/participants/indexer.png",
 
     moreLink: "/subquery_network/node_operators/introduction.html",
 
@@ -232,7 +232,7 @@ image: "/assets/img/participants/indexer.png",
 name: "RPC Providers",
 description:
 "RPC Providers run the optimised SubQuery Data Node and are rewarded in SQT for providing reliable, scalable, and affordable RPC services to the network.",
-image: "/assets/img/participants/rpc.png",
+image: "/doc/assets/img/participants/rpc.png",
 
     moreLink:
       "/subquery_network/node_operators/introduction.html",
@@ -244,7 +244,7 @@ const advancedFeatures = ref([
 {
 title: 'Delegate to the SubQuery Network',
 desc: 'Anyone can participate as a Delegator and participate in the Network to earn rewards based on the work that Node Operators do.',
-link: '/subquery_network/delegators/delegating.html'
+link: '/doc/subquery_network/delegators/delegating.html'
 },
 {
 title: 'The SQT Token',
