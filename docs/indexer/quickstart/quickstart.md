@@ -154,7 +154,7 @@ Once your project is running, open [http://localhost:3000](http://localhost:3000
 
 :::details query
 
-```
+```gql
 {
   query {
     transfers(first: 2, orderBy: VALUE_DESC) {
@@ -187,7 +187,7 @@ Expected results:
 
 :::details json results
 
-```
+```json
 {
   "data": {
     "query": {

@@ -14,7 +14,7 @@ The project.ts file can be seen as an entry point of your project as it defines 
 This file imports various type definitions and environment variables along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
 
 :::details project.ts snippet
-```
+```ts
 .
 .
 .
@@ -78,7 +78,7 @@ Finally, there are three types of mapping handlers (you can have more than one i
 The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers]((../build/mapping/ethereum.md)) section. When a filter condition is met, the associated handler is called. 
 
 :::details handlers
-```
+```ts
 handlers: [
           {
             kind: EthereumHandlerKind.Call,
@@ -121,7 +121,7 @@ Mapping functions, located in the `src/mappings/` directory, defines how chain d
 
 The hello-world project contains two functions. `handleLog` and `handleTransaction`. `handleLog` accepts one argument called `log` of type `TransferLog` and accesses various properties such as log.blockNumber, log.args.to, log.args.from etc on the `log` object in order to create a `Transfer` entity before it is saved.
 
-```
+```ts
 export async function handleLog(log: TransferLog): Promise<void> {
   logger.info(`New transfer transaction log at block ${log.blockNumber}`);
   assert(log.args, "No log.args");
@@ -141,7 +141,7 @@ export async function handleLog(log: TransferLog): Promise<void> {
 
 `handleTransaction` works in a similar fashion receiving one argument called `tx` of type `ApproveTransaction` from which various properties can be accessed on this object such as tx.blockNumber and tx.hash.
 
-```
+```ts
 export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
   logger.info(`New Approval transaction at block ${tx.blockNumber}`);
   assert(tx.args, "No tx.args");
