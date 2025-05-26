@@ -1,6 +1,6 @@
-# 1. Initialise a New Project
+# 1. SubQuery Hello World
 
-The goal of this quick start guide is to provide you with working SubQuery project in your chosen layer-1 network and a basic understanding of how SubQuery works, it should take around 10-15 minutes.
+This quick start demonstrates how to get the Ethereum starter project, which indexes all transfers and approval events for the [wrapped Ether token](https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) on Ethereum Mainnet up and running. This should take about 5 minutes. 
 
 ## Prerequisites
 
@@ -9,24 +9,21 @@ Before you begin creating your first blockchain project with SubQuery, make sure
 - [NodeJS](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of NodeJS.
 - [Docker](https://docker.com/): This tutorial will use Docker to run a local version of SubQuery's node.
 
-## 1. Install the SubQuery CLI
-
-Install SubQuery CLI globally on your terminal by using NPM. We **do not** encourage the use of `yarn global` for installing `@subql/cli` due to its poor dependency management. This may lead to multiple errors.
-
+To check if you have Node or Docker already, run: 
 ```shell
-# NPM
-npm install -g @subql/cli
+node -v
+v22.15.0
 
-# Test that it was installed correctly
-subql --help
+docker -v
+Docker version 27.4.0, build bde2b89
 ```
 
-## 2. Initialise a new SubQuery Project
+## 1. Initialise a new SubQuery Project
 
 Run the following command inside the directory that you want to create a SubQuery project in:
 
 ```shell
-subql init
+npx @subql/cli init
 ```
 
 You'll be asked certain questions as you proceed ahead:
@@ -34,126 +31,213 @@ You'll be asked certain questions as you proceed ahead:
 - **Project name**: A project name for your SubQuery project.
 - **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
 - **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
-- **Template project**: Select a SubQuery template project that will provide a starting point in the development. For some networks we provide multiple examples.
-- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint, which will be used by default for this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so we recommend an archive node.
-- **Git repository**: Provide a Git URL to a repo that this SubQuery project will be hosted in.
-- **Authors**: Enter the owner of this SubQuery project here (e.g. your name!) or accept the provided default.
-- **Description**: Provide a short paragraph about your project that describes what data it contains and what users can do with it, or accept the provided default.
-- **Version**: Enter a custom version number or use the default (`1.0.0`).
-- **License**: Provide the software license for this project or accept the default (`MIT`).
+- **Template project**: Select a SubQuery template project that will serve as a starting point for your project. For some networks, multiple examples are provided.
+- **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint which will be used by this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so an archive node is recommended.
+- **Authors**: Enter the owner of this SubQuery project here. eg. your name or organisation.
+- **Description**: Provide a short paragraph about your project that describes what the project does.
+- **Generate scaffolding from an existing contract ABI?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
 
 Let’s look at an example:
 
 ```shell
-$ subql init
-Project name [subql-starter]: test-subquery-project
-? Select a network family Ethereum
+$ npx @subql/cli init
+Project name [subql-starter]: evm-hello-world
+? Select a network family EVM
 ? Select a network Ethereum
-? Select a template project ethereum-starter     Starter project for Ethereum networks
-RPC endpoint: [https://eth.api.onfinality.io/public]:
-Git repository [https://github.com/subquery/ethereum-subql-starter]: https://github.com/jamesbayly/test-subquery-project  ^ Author [SubQuery Team]: James Bayly
-Description [This project can be use as a starting po...]: A new example ethereum SubQuery project
-Version [0.0.1]:
-License [MIT]:
-Preparing project... done
-test-subquery-project is ready
+? Select a template project ethereum-starter     This SubQuery project indexes all transfers and approval events for the wrapped Ether token on Ethereum Mainnet
+? RPC endpoint: https://ethereum.rpc.subquery.network/public
+? Author SubQuery Team
+? Description This project can be use as a starting po...
+evm-hello-world is ready
+? Do you want to generate scaffolding from an existing contract abi? no
+
 ```
 
-:::info Ethereum Project Scaffolding
+:::info EVM Based Projects
 
-You can generate a project from a JSON ABIs to save you time when creating your project in EVM chains. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
+SubQuery projects can be generated from ABIs to save time when creating EVM based projects. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
 
 :::
 
 After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be near identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
 
-Finally, run the following command to install the new project’s dependencies from within the new project's directory.
+## 2. Install dependencies
 
-::: code-tabs
-@tab:active yarn
+Run the following command to install the new project’s dependencies from within the new project's directory.
 
-```shell
-cd PROJECT_NAME
-yarn install
-```
-
-@tab npm
+::: code-tabs#shell
+@tab:active npm
 
 ```shell
 cd PROJECT_NAME
 npm install
 ```
 
+@tab yarn
+
+```shell
+cd PROJECT_NAME
+yarn install
+```
+
 :::
 
-You have now initialised your first SubQuery project with just a few simple steps. Let’s now customise the standard template project for a specific blockchain of interest.
+## 3. Run your project
 
-You may want to refer to the [command line arguments](../run_publish/references.md) used in SubQuery. It will help you understand the commands better.
-
-## 3. Make Changes to Your Project
-
-There are 3 important files that need to be modified. These are:
-
-1. The GraphQL Schema in `schema.graphql`.
-2. The Project Manifest in `project.ts`.
-3. The Mapping functions in `src/mappings/` directory.
-
-SubQuery supports various blockchain networks and provides a dedicated guide for each of them. Select your preferred blockchain under **2. Specific Chains** and continue the quick start guide.
-
-## EVM Project Scaffolding
-
-Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
-
-When you are initialising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI. If you select a compatible network type (EVM), it will prompt:
+::: code-tabs#shell
+@tab:active npm#npm
 
 ```shell
-? Do you want to generate scaffolding with an existing abi contract?
+npm run-script dev
 ```
 
-For example, to create the [Ethereum Gravatar indexer](./quickstart_chains/ethereum-gravatar.md), download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following:
-
-![Project Scaffolding EVM](/assets/img/build/project-scaffold-evm.png)
-
-Once completed, you will have a scaffold project structure from your chosen ABI `functions`/`events`.
-
-You can read more about this feature in [Project Scaffolding](../build/introduction.md#evm-project-scaffolding)
-
-## ENV Support
-
-SubQuery provides support for environment variables to configure your project dynamically. This enables flexibility in managing different configurations for development, testing, and production environments.
-
-To utilise environment variable support:
-
-The .env files are automatically created when you initialise a project using the CLI. You can modify these files to adjust configurations according to your requirements.
+@tab yarn#yarn
 
 ```shell
-# Example .env
-ENDPOINT=https://polygon-rpc.com
-CHAIN_ID=204
+yarn dev
 ```
 
-In your .env files, _CHAIN_ID_ and provided _ENDPOINT_ of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as _CONTRACT_ADDRESS_ from project.ts in your .env files for added security.
+:::
 
-Multiple ENDPOINT can be added in .env file using comma separated.
+This command actually runs 3 subcommands under the hood for convenience. 
 
-```shell
-ENDPOINT=https://polygon-rpc.com,https://polygon.llamarpc.com
+* `npm run codegen` - This generates types from the GraphQL schema definition and contract ABIs and saves them in the /src/types directory. This must be done after each change to the schema.graphql file or the contract ABIs.
+* `npm run build` - This builds and packages the SubQuery project into the /dist directory.
+* `docker compose pull && docker compose up` - This runs a Docker container with an indexer, PostgeSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
+
+It may take a few minutes to download all the docker images (depending on your Internet speed) and for the nodes to start indexing the data. Allow the logs to update to confirm that blocks are being indexed.
+
+:::details Node log output
+
 ```
+subquery-node-1   | 2025-05-21T09:10:00.896Z <WorkerBlockDispatcherService> INFO
+subquery-node-1   | Host Status:
+subquery-node-1   |   Total Fetching: 0
+subquery-node-1   |   Awaiting process: 0
+subquery-node-1   | Worker Status:
+subquery-node-1   |   Worker 1 - To Fetch: 0 blocks, Ready to process: 0 blocks
+subquery-node-1   |   Worker 2 - To Fetch: 0 blocks, Ready to process: 0 blocks
+subquery-node-1   |   Worker 3 - To Fetch: 0 blocks, Ready to process: 0 blocks
+subquery-node-1   |   Worker 4 - To Fetch: 0 blocks, Ready to process: 0 blocks
+subquery-node-1   |
+subquery-node-1   | 2025-05-21T09:10:01.489Z <WorkerBlockDispatcherService> INFO Enqueuing blocks 4753408...4754452, total 35 blocks
+graphql-engine-1  | 2025-05-21T09:10:01.931Z <subql-query> INFO Current @subql/query version is 2.22.1
+graphql-engine-1  | 2025-05-21T09:10:01.941Z <nestjs> INFO Starting Nest application...
+graphql-engine-1  | 2025-05-21T09:10:01.963Z <nestjs> INFO AppModule dependencies initialized
+graphql-engine-1  | 2025-05-21T09:10:01.963Z <nestjs> INFO ConfigureModule dependencies initialized
+graphql-engine-1  | 2025-05-21T09:10:01.963Z <nestjs> INFO GraphqlModule dependencies initialized
+graphql-engine-1  | 2025-05-21T09:10:01.965Z <subql-query> INFO Started playground at http://localhost:3000
+graphql-engine-1  | 2025-05-21T09:10:01.972Z <graphql-module> INFO Setup PG Pool keep alive. interval 180000 ms
+subquery-node-1   | 2025-05-21T09:10:02.059Z <sandbox-#2> INFO New Approval transaction at block 4753408
+graphql-engine-1  | 2025-05-21T09:10:02.187Z <nestjs> INFO Nest application successfully started
+subquery-node-1   | 2025-05-21T09:10:02.426Z <sandbox-#2> INFO New Approval transaction at block 4753432
+subquery-node-1   | 2025-05-21T09:10:02.812Z <sandbox-#2> INFO New Approval transaction at block 4753441
+subquery-node-1   | 2025-05-21T09:10:06.140Z <WorkerBlockDispatcherService> INFO Enqueuing blocks 4757692...4757919, total 40 blocks
+subquery-node-1   | 2025-05-21T09:10:06.891Z <WorkerBlockDispatcherService> INFO Enqueuing blocks 4757923...4758303, total 43 blocks
+subquery-node-1   | 2025-05-21T09:10:08.967Z <benchmark> INFO INDEXING: 7.13 blocks/s. Target height: 22,534,657. Current height: 4,756,988. Estimated time remaining: 28 days 20 hours 09 mins
 
-The package.json file includes build scripts that allow you to build with either production (`.env`) or development (`.env.develop`).
+```
+:::
 
-```json
-"scripts": {
-    "build": "subql codegen && subql build", // default is production, if you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-<network>` package in the dependencies before execute this command.
-    "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
+Because a free public RPC endpoint is used in the default configuration, sometimes the request limit is reached so this error may appear:
+
+```
+ Error: All endpoints failed to initialize. Please add healthier endpoints
+ ```
+ 
+ To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider and to obtain a more stable RPC endpoint and update the .env file.
+
+
+## 3. Query your project
+
+Once your project is running, open [http://localhost:3000](http://localhost:3000) on your browser and you should see a GraphQL playground. Run the following query:
+
+:::details query
+
+```gql
+{
+  query {
+    transfers(first: 2, orderBy: VALUE_DESC) {
+      totalCount
+      nodes {
+        id
+        blockHeight
+        from
+        to
+        value
+        contractAddress
+      }
+    }
+  }
+  approvals(first: 2, orderBy: BLOCK_HEIGHT_DESC) {
+    nodes {
+      id
+      blockHeight
+      owner
+      spender
+      value
+      contractAddress
+    }
+  }
 }
 ```
+:::
 
-Use `build` script to generate artefacts using the default production .env settings.
-Use `build:develop` script to generate artefacts using the development .env.develop settings.
+Expected results:
 
-Using environment variables and .env files provides a convenient way to manage project configurations and keep sensitive information secure.
+:::details json results
 
-Note: Ensure that .env files are included in your project's .gitignore to prevent them from being committed to version control and exposing sensitive information.
+```json
+{
+  "data": {
+    "query": {
+      "transfers": {
+        "totalCount": 95,
+        "nodes": [
+          {
+            "id": "0x5fe866f8a3ff90c6bd8948f21326aac1873c34e48553fc9c0b58bd7a88aea250",
+            "blockHeight": "4755720",
+            "from": "0x7C5F6fFaD368dBf1a83E6D66b5aCE792fac2E7C0",
+            "to": "0x448a5065aeBB8E423F0896E6c5D525C040f59af3",
+            "value": "300000000000000000000",
+            "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          },
+          {
+            "id": "0x8b7d07040e66569608d49745d3e255a1401cc9f34bd47e2fd812c48a8e9f9344",
+            "blockHeight": "4755986",
+            "from": "0xc031D5e3822bE0335027ecf88aFdfd3433A97fe1",
+            "to": "0x448a5065aeBB8E423F0896E6c5D525C040f59af3",
+            "value": "219000000000000000000",
+            "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          }
+        ]
+      }
+    },
+    "approvals": {
+      "nodes": [
+        {
+          "id": "0x5c4db66455acdf8798a771bfa55c46a851b29b7176256ccf24f414190ceae35e",
+          "blockHeight": null,
+          "owner": "0x004075e4D4b1ce6c48c81CC940e2bad24B489e64",
+          "spender": "0x14FBCA95be7e99C15Cc2996c6C9d841e54B79425",
+          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+          "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        },
+        {
+          "id": "0x9e3c3bffae16d4ce2019d6bf488449cc4dbb0322955fb02ee265e722fafe58fd",
+          "blockHeight": null,
+          "owner": "0x0E4555922c52FFDdcfb006D3dBc94B21541F0F15",
+          "spender": "0x14FBCA95be7e99C15Cc2996c6C9d841e54B79425",
+          "value": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+          "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        }
+      ]
+    }
+  }
+}
+```
+:::
 
-This documentation provides comprehensive guidance on utilizing environment variable support in SubQuery projects for better configurability and security.
+Congratulations! You have successfully created your first SubQuery project indexing transfers and approvals for the wrapped ether token on Ethereum mainnet!
+
+
