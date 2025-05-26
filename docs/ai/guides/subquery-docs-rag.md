@@ -182,7 +182,7 @@ Does subquery support the solana blockchain?
 ::: details Full Response
 
 ```
-Subquery currently does not support Solana blockchain.
+Yes. SubQuery supports data indexing on Solana blockchain.
 ```
 
 :::
