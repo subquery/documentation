@@ -52,6 +52,8 @@ In case of idexing the Uniswap project on the Graph, developers need to curate G
 
 Query fees are another area where SubQuery comes out ahead. After the first 100,000 free requests, the Graph charges $2 USD for every 100,000 queries. On SubQuery, the real cost is just $0.40 USD per 100,000 requests, thanks to boost rewards model. That is about five times less, which really adds up at scale. 
 
+*Costs checked on 27/04/2025*
+
 ## Tokenomics & Incentives
 
 - **Graph Curation Modelh**: Graph Network uses a DeFi pool-like curation model. Projects require more curation, more rewards, and more operators interested in running a project to get it indexed. There is a risk of losing tokens due to the pool design.
