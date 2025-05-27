@@ -474,6 +474,21 @@ export const getSidebar = (locale: string) =>
             children: [
               `${locale}/indexer/build/mapping/evm-mappings.md`,
               `${locale}/indexer/build/mapping/non-evm-mappings.md`,
+                {
+                  text: "Additional non-EVM handlers",
+                  link: `${locale}/indexer/build/mapping/algorand.md`,
+                  collapsible: true,    
+                  children: [
+                    `${locale}/indexer/build/mapping/algorand.md`,
+                    `${locale}/indexer/build/mapping/concordium.md`,
+                    `${locale}/indexer/build/mapping/cosmos.md`,
+                    `${locale}/indexer/build/mapping/near.md`,
+                    `${locale}/indexer/build/mapping/substrate.md`,
+                    `${locale}/indexer/build/mapping/solana.md`,
+                    `${locale}/indexer/build/mapping/starknet.md`,
+                    `${locale}/indexer/build/mapping/soroban.md`,
+                  ],
+                },
               `${locale}/indexer/build/mapping/cache.md`,
               `${locale}/indexer/build/mapping/store.md`,
               `${locale}/indexer/build/mapping/sandbox.md`,
