@@ -44,13 +44,15 @@ Reach out to our team at [professionalservices@subquery.network](mailto:professi
 
 ## Deployment Costs
 
-![Competitor Comparison](/assets/img/network/graph-subquery-cost-comparison.png)
+![Competitor Comparison](/assets/img/network/graph-subquery-cost-comparison-new.png)
 
 Let’s break down the indexing costs based on the data from the comparison table above. 
 
-In case of idexing the Uniswap project on the Graph, developers need to curate GRT tokens worth $3,906 USD. On SubQuery, boosting the same project only requires a $45.60 USD stake.
+In case of idexing the Uniswap project on the Graph, developers need to curate GRT tokens worth nearly $4,900 USD. On SubQuery, boosting a similar project only requires a $35 USD stake.
 
-Query fees are another area where SubQuery comes out ahead. After the first 100,000 free requests, the Graph charges $2 USD for every 100,000 queries. On SubQuery, the real cost is just $0.40 USD per 100,000 requests, thanks to boost rewards model. That is about five times less, which really adds up at scale. 
+Query fees are another area where SubQuery comes out ahead. After the first 100,000 free requests, the Graph charges $2 USD for every 100,000 queries. On SubQuery, the real cost is just $0.32 USD per 100,000 requests, thanks to boost rewards model. That is about five times less, which really adds up at scale. 
+
+*Costs checked on 28/05/2025*
 
 ## Tokenomics & Incentives
 
