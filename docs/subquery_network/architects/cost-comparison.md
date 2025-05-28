@@ -44,7 +44,7 @@ Reach out to our team at [professionalservices@subquery.network](mailto:professi
 
 ## Deployment Costs
 
-![Competitor Comparison](/assets/img/network/graph-subquery-cost-comparison.png)
+![Competitor Comparison](/assets/img/network/graph-subquery-cost-comparison-new.png)
 
 Let’s break down the indexing costs based on the data from the comparison table above. 
 
