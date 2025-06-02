@@ -83,7 +83,7 @@ If historical indexing is enabled, the `mutation_type` will be `UPDATE` for both
 
 ## Examples
 
-### Client-side (React Exampel)
+### Client-side (React Example)
 
 In the following client-side example, we will be using React and Apollo Client. We'll create a component that subscribes to the balance updates for a specific account.
 
