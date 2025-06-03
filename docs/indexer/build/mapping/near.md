@@ -56,6 +56,30 @@ export async function handleTransaction(
 
 The `NearTransaction` encapsulates transaction info, result, the corresponding block details and the list of `NearAction` entities that occured in the specific transaction.
 
+## Receipt Handler
+
+You can use receipt handlers to capture information about each of the receipts in a block. To achieve this, a defined ReceiptHandler will be called once for every receipt. You should use [Receipt Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter receipts to reduce the time it takes to index data and improve mapping performance.
+
+```ts
+import { NearTransactionReceipt } from "@subql/types-near";
+
+export async function handleReceipt(
+  receipt: NearTransactionReceipt,
+): Promise<void> {
+  logger.info(`Handling receipt at ${receipt.block_height}`);
+
+  const receiptRecord = NearReceiptEntity.create({
+    id: `${receipt.block_height}-${receipt.receipt_id}`,
+    signer: receipt.Action?.signer_id,
+    receiver: receipt.receiver_id,
+  });
+
+  await receiptRecord.save();
+}
+```
+
+The `NearReceipt` encapsulates receipt info, result, the corresponding block details and the list of `NearAction` entities that occured in the specific receipt.
+
 ## Action Handler
 
 You can use action handlers to capture information from each action in a transaction. To achieve this, a defined ActionHandler will be called once for every action. You should use [Mapping Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter actions to reduce the time it takes to index data and improve mapping performance.
@@ -106,4 +130,3 @@ export async function handleAction(
 We also support some [API RPC methods here](https://github.com/subquery/subql-near/blob/main/packages/types/src/global.ts) that are remote calls that allow the mapping function to interact with the actual node and chain state.
 
 Documents in [NEAR `JsonRpcProvider`](https://docs.near.org/tools/near-api-js/reference/classes/providers_json_rpc_provider.JsonRpcProvider.html) provide some methods to interact with the NEAR RPC API.
-

@@ -306,7 +306,8 @@ The following table explains filters supported by different handlers.
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [near/BlockHandler](../mapping/near.md#block-handler)             | `modulo`, `timestamp`                                                                         |
 | [near/TransactionHandler](../mapping/near.md#transaction-handler) | `sender`, `reciever`                                                                          |
-| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, 'args', 'publicKey', 'accessKey', 'beneficiaryId' |
+| [near/ReceiptHandler](../mapping/near.md#receipt-handler)          | `sender`, `receiver`, `signer` |
+| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, `args`, `publicKey`, `accessKey`, `beneficiaryId` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, or action will trigger a mapping handler.
 
