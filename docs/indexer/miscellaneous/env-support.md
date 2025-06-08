@@ -1,39 +1,60 @@
-# ENV Support
+# Environment Variable Support
 
-SubQuery provides support for environment variables to configure your project dynamically. This enables flexibility in managing different configurations for development, testing, and production environments.
+SubQuery allows you to configure your project dynamically using environment variables. This makes it easy to manage different settings for development, testing, and production environments.
 
-To utilise environment variable support:
+## Getting Started
 
-The .env files are automatically created when you initialise a project using the CLI. You can modify these files to adjust configurations according to your requirements.
+When you initialize a SubQuery project with the CLI, `.env` files are created automatically. Edit these files to adjust your configuration:
 
 ```shell
-# Example .env
+# .env (production)
 ENDPOINT=https://polygon-rpc.com
 CHAIN_ID=204
 ```
 
-In your .env files, _CHAIN_ID_ and provided _ENDPOINT_ of your project are already added you can configure these variables to match your blockchain network settings. Additionally, you can keep sensitive information such as _CONTRACT_ADDRESS_ from project.ts in your .env files for added security.
+* **ENDPOINT**
+  Comma-separated list of RPC endpoints for your network.
 
-Multiple ENDPOINT can be added in .env file using comma separated.
+  ```shell
+  ENDPOINT=https://polygon-rpc.com,https://polygon.llamarpc.com
+  ```
+* **CHAIN\_ID**
+  Numeric ID of your target blockchain network (e.g. `204` for Polygon zkEVM).
+
+You can also store sensitive values—such as contract addresses or API keys—in your `.env` files:
 
 ```shell
-ENDPOINT=https://polygon-rpc.com,https://polygon.llamarpc.com
+CONTRACT_ADDRESS=0x1234...abcd
+API_KEY=your_api_key_here
 ```
 
-The package.json file includes build scripts that allow you to build with either production (`.env`) or development (`.env.develop`).
+---
 
-```json
+## Build Scripts
+
+Your `package.json` includes two build scripts. By default, `build` uses `.env`. Use `build:develop` to load `.env.develop` instead.
+
+```jsonc
 "scripts": {
-    "build": "subql codegen && subql build", // default is production, if you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-<network>` package in the dependencies before execute this command.
-    "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
+  // Uses production settings from .env
+  "build": "subql codegen && subql build",
+  
+  // Uses development settings from .env.develop
+  "build:develop": "NODE_ENV=develop subql codegen && NODE_ENV=develop subql build"
 }
 ```
 
-Use `build` script to generate artefacts using the default production .env settings.
-Use `build:develop` script to generate artefacts using the development .env.develop settings.
+* **build**
+  Generate project artifacts with production variables.
+* **build\:develop**
+  Generate project artifacts with development variables (`NODE_ENV=develop`).
 
-Using environment variables and .env files provides a convenient way to manage project configurations and keep sensitive information secure.
+---
 
-Note: Ensure that .env files are NOT included in your project's .gitignore to prevent them from being committed to version control and exposing sensitive information.
+## Best Practices
 
-This documentation provides comprehensive guidance on utilizing environment variable support in SubQuery projects for better configurability and security.
+* **Version control**: Add your `.env*` files to `.gitignore` to avoid committing sensitive data.
+* **Multiple environments**: Maintain separate files (e.g. `.env`, `.env.develop`, `.env.test`).
+* **Documentation**: Keep a template (e.g. `.env.example`) in source control to show required variable names without real values.
+
+Using environment variables in SubQuery helps you maintain flexible, secure, and environment-specific configurations.
