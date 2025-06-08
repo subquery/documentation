@@ -13,6 +13,15 @@ SubQuery is open-source and designed to be easy to run, meaning you have the fre
 
 Browse over 80 example projects across over 10 network families to inspire your next SubQuery project.
 
+- [Algorand Example](./quickstart_chains/algorand.md)
+- [Cosmos Osmosis Example](./quickstart_chains/cosmos-osmosis.md)
+- [Ethereum Gravatar Example](./quickstart_chains/ethereum-gravatar.md)
+- [Multi-Chain Galxe NFTs Example](./quickstart_multichain/galxe-nft.md)
+- [NEAR Example](./quickstart_chains/near.md)
+- [Polkadot/Substrate Moonbeam Example](./quickstart_chains/polkadot-moonbeam.md)
+- [Solana Example](./quickstart_chains/solana.md)
+- [Starknet Example](./quickstart_chains/starknet.md)
+
 ## Advanced features
 Dive deeper into the developer documentation and jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.** or take a look at some of our **advanced features** to take your project to the next level!
 
