@@ -47,7 +47,7 @@ This feature is not compatible with [Historical State](../run_publish/historical
 
 Creating a multi-chain project involves several steps that enable you to index multiple networks into a single database. This is achieved by configuring a multi-chain manifest file, generating required entities and datasource templates, adding new projects to the manifest, and publishing the multi-chain project.
 
-:::info See a real world example
+:::info See a real-world example
 You can see an example project with all of this correctly enabled [here](https://github.com/subquery/subql-starter/tree/main/Multi-chain/transfers)
 :::
 
@@ -70,7 +70,7 @@ projects:
 ### 2. Generate Required Entities, Datasource Templates, and ABIs
 
 Use the `subql codegen` command to generate the required entities, datasource templates, and ABIs for all the projects listed in the multi-chain manifest file. By default, the codegen command will look for `subquery-multichain.yaml` if no multichain file is explicitly mentioned through `-f` flag
-If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
+If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before executing this command.
 
 ### 3. Add a New Network to the Multi-Chain Manifest
 
@@ -84,7 +84,7 @@ subql multi-chain:add -f subquery-multichain.yaml -c project-newchain.yaml
 
 This command adds `project-newchain.yaml` to the `subquery-multichain.yaml` manifest. It both introduces the new chain and integrates the necessary [GraphQL schema](./graphql.md) into its corresponding `project-xxxx.yaml` file, a critical step for ensuring the proper functioning of multi-chain indexing.
 
-This command also updates `docker-compose.yml` with the new service. All projects must index to the same PostgreSQL table schema, this is set in your `docker-compose.yml`:
+This command also updates `docker-compose.yml` with the new service. All projects must index to the same PostgreSQL table schema, which is set in your `docker-compose.yml`:
 
 ```yaml
 subquery-node-newchain:
@@ -105,7 +105,7 @@ Use `subql publish` command to publish all the projects listed in the `subquery-
 
 ### See the Example Project
 
-The repository for this example can be found [here](https://github.com/subquery/subql-starter/tree/main/Multi-chain/transfers), it is an example of a multichain project that indexes multiple networks (in this case Polkadot and Kusama) into the same database.
+The repository for this example can be found [here](https://github.com/subquery/subql-starter/tree/main/Multi-chain/transfers). It is an example of a multichain project that indexes multiple networks (in this case, Polkadot and Kusama) into the same database.
 
 A modified `docker-compose.yaml` file has been included, with two subql/node images, one for each network being indexed. You will notice that that each image maps to a separate manifest file (see [command line references](../run_publish/references.md)).
 
@@ -128,7 +128,7 @@ const transfer = new Transfer(
 );
 ```
 
-It can also be helpful to save all entities with a property indicating the source network so you can filter like below:
+It can also be helpful to save all entities with a property indicating the source network, so you can filter like below:
 
 ```graphql
 query {
@@ -171,7 +171,7 @@ In many cases, you will have a completely different set of mapping handlers to d
 
 If you are intending to mutate data across chain, e.g. an action in one network will affect an entity saved from another, then please be aware that SubQuery provides no guarantees of cross-chain ordering.
 
-For example, one chain may index much faster than the other, and when indexing a cross-chain transaction, indexer B may encounter the receipt of this transaction on chain B well before the indexer A encounters that the transaction has been sent on chain A.
+For example, one chain may index much faster than the other, and when indexing a cross-chain transaction, indexer B may encounter the receipt of this transaction on chain B well before indexer A encounters that the transaction has been sent on chain A.
 
 We suggest designing your entities to avoid or handle cross-chain race conditions so that chain B can safely record the receipt of the transaction without requiring that chain A has already recorded that the transaction has been sent.
 
@@ -190,7 +190,7 @@ When querying metadata using GraphQL with multi-chain enabled, you need to pass 
   }
 ```
 
-To query metadata from all metadata tables you can use the query shown below. There are no arguments in this query, so you cannot filter or sort.
+To query metadata from all metadata tables, you can use the query shown below. There are no arguments in this query, so you cannot filter or sort.
 
 ```graphql
 {
