@@ -473,10 +473,9 @@ export const getSidebar = (locale: string) =>
             collapsible: true,
             children: [
               `${locale}/indexer/build/mapping/evm-mappings.md`,
-              `${locale}/indexer/build/mapping/non-evm-mappings.md`,
                 {
-                  text: "Additional non-EVM handlers",
-                  link: `${locale}/indexer/build/mapping/algorand.md`,
+                  text: "Non-EVM handlers",
+                  link: `${locale}/indexer/build/mapping/non-evm-mappings.md`,
                   collapsible: true,    
                   children: [
                     `${locale}/indexer/build/mapping/algorand.md`,
