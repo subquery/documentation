@@ -3,17 +3,17 @@
 The SubQuery CLI creates a working template project as a launch pad for your own custom project. From this template, there are only 3 important files you need to familiarise yourself with.
 These are:
 
-1. [The project.ts file](#the-projectts-file)
+1. [The Manifest File](#the-manifest-file)
 2. [The GraphQL Schema file](#the-graphql-schema-file)
 3. [The Mapping functions (in src/mappings/ directory)](#the-mapping-functions)
 
-## The project.ts file
+## The Manifest File
 
-The project.ts file can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain data we are subscribing to.
+The Manifest File can be seen as an entry point of your project as it defines most of the details on how SubQuery will index and transform the chain data. It indicates where we are indexing data from, and to what on chain data we are subscribing to.
 
 This file imports various type definitions and environment variables along with defining the name, version and description of the project. In the network section, it specifies the chainID, the RPC endpoint, and also the startBlock. It also specifies the ABI contract address.
 
-:::details project.ts snippet
+:::details Manifest File snippet
 ```ts
 .
 .
