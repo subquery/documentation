@@ -26,7 +26,7 @@ Run the following command inside the directory that you want to create a SubQuer
 npx @subql/cli init
 ```
 
-You'll be asked certain questions as you proceed ahead:
+You'll be asked certain questions as you proceed:
 
 - **Project name**: A project name for your SubQuery project.
 - **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
@@ -35,7 +35,7 @@ You'll be asked certain questions as you proceed ahead:
 - **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint which will be used by this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so an archive node is recommended.
 - **Authors**: Enter the owner of this SubQuery project here. eg. your name or organisation.
 - **Description**: Provide a short paragraph about your project that describes what the project does.
-- **Generate scaffolding from an existing contract ABI?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
+- **Generate scaffolding from an existing contract ABI?**: Enter a local path to an ABI.json file, after which the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
 
 Let’s look at an example:
 
@@ -44,22 +44,22 @@ $ npx @subql/cli init
 Project name [subql-starter]: evm-hello-world
 ? Select a network family EVM
 ? Select a network Ethereum
-? Select a template project ethereum-starter     This SubQuery project indexes all transfers and approval events for the wrapped Ether token on Ethereum Mainnet
+? Select a template project, ethereum-starter.     This SubQuery project indexes all transfers and approval events for the wrapped Ether token on the Ethereum Mainnet
 ? RPC endpoint: https://ethereum.rpc.subquery.network/public
 ? Author SubQuery Team
-? Description This project can be use as a starting po...
+? Description: This project can be used as a starting po...
 evm-hello-world is ready
-? Do you want to generate scaffolding from an existing contract abi? no
+? Do you want to generate scaffolding from an existing contract ABI? no
 
 ```
 
 :::info EVM Based Projects
 
-SubQuery projects can be generated from ABIs to save time when creating EVM based projects. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
+SubQuery projects can be generated from ABIs to save time when creating EVM-based projects. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
 
 :::
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be near identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be nearly identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
 
 ## 2. Install dependencies
 
@@ -99,13 +99,13 @@ yarn dev
 
 :::
 
-This command actually runs 3 subcommands under the hood for convenience. 
+This command runs 3 subcommands under the hood for convenience. 
 
 * `npm run codegen` - This generates types from the GraphQL schema definition and contract ABIs and saves them in the /src/types directory. This must be done after each change to the schema.graphql file or the contract ABIs.
 * `npm run build` - This builds and packages the SubQuery project into the /dist directory.
-* `docker compose pull && docker compose up` - This runs a Docker container with an indexer, PostgeSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
+* `docker compose pull && docker compose up` - This runs a Docker container with an indexer, PostgreSQL DB, and a query service. This requires Docker to be installed and running locally. The configuration for this container is set in your docker-compose.yml
 
-It may take a few minutes to download all the docker images (depending on your Internet speed) and for the nodes to start indexing the data. Allow the logs to update to confirm that blocks are being indexed.
+It may take a few minutes to download all the Docker images (depending on your Internet speed) and for the nodes to start indexing the data. Allow the logs to update to confirm that blocks are being indexed.
 
 :::details Node log output
 
@@ -139,18 +139,18 @@ subquery-node-1   | 2025-05-21T09:10:08.967Z <benchmark> INFO INDEXING: 7.13 blo
 ```
 :::
 
-Because a free public RPC endpoint is used in the default configuration, sometimes the request limit is reached so this error may appear:
+Because a free public RPC endpoint is used in the default configuration, sometimes the request limit is reached, so this error may appear:
 
 ```
  Error: All endpoints failed to initialize. Please add healthier endpoints
  ```
  
- To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider and to obtain a more stable RPC endpoint and update the .env file.
+ To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider to obtain a more stable RPC endpoint and update the .env file.
 
 
 ## 3. Query your project
 
-Once your project is running, open [http://localhost:3000](http://localhost:3000) on your browser and you should see a GraphQL playground. Run the following query:
+Once your project is running, open [http://localhost:3000](http://localhost:3000) on your browser, and you should see a GraphQL playground. Run the following query:
 
 :::details query
 
