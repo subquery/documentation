@@ -196,7 +196,7 @@ subquery-node:
 To run tests with Docker, set the Docker SUB_COMMAND environment variable to "test" in the docker-compose.yml file. Then, use the following command to start the Docker container (tests will be run on startup automatically):
 
 ```
-SUB_COMMAND=test docker-compose pull && docker-compose up
+SUB_COMMAND=test docker compose pull && docker compose up
 ```
 
 ### Setting up GitHub Actions

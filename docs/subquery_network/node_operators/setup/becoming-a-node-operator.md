@@ -75,7 +75,7 @@ This will overwrite the existing docker-compose.yml file. Always use the latest 
 
 ::: warning Important
 
-Please go through the docker-compose file carefully, and change the following parameters to your own values:
+Please go through the docker compose file carefully, and change the following parameters to your own values:
 
 - Your `POSTGRES_PASSWORD` under your postgres container, as well as `--postgres-password` under coordinator container.
 - Your `--secret-key` under both coordinator and proxy containers.
@@ -175,7 +175,7 @@ mkdir network-indexer-services-temp && curl -L https://api.github.com/repos/subq
 
 This will generate a folder named `metrics` containing all the necessary setup files for your Dashboard.
 
-Before using the docker-compose file in the `metrics` directory, you should port over your previous changes from your backup that you created earlier, and make several additional modifications:
+Before using the docker compose file in the `metrics` directory, you should port over your previous changes from your backup that you created earlier, and make several additional modifications:
 
 1. Open the `docker-compose-metrics.yml` file and update the `GF_SECURITY_ADMIN_PASSWORD` variable. This is the password you'll use to log in to the Grafana dashboard.
 2. Navigate to `metrics/datasources/datasource.yml` and update the Authorization token. It should match the `--metrics-token` specified in the proxy container section of your `docker-compose.yml` file.
@@ -194,7 +194,7 @@ You can get this for `indexer-proxy` and `indexer-coordinator` by running:
 After doing this configuration you can start up the compose file:
 
 ```bash
-docker-compose -f ./metrics/docker-compose-metrics.yml up -d
+docker compose -f ./metrics/docker-compose-metrics.yml up -d
 ```
 
 Head to `http://<indexer-endpoint>:3000`, your username will be `admin` and password will be whatever you set for `GF_SECURITY_ADMIN_PASSWORD`

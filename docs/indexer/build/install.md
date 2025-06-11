@@ -1,26 +1,26 @@
 # Installation
 
-There are various components required when creating a SubQuery project. The [@subql/cli](https://github.com/subquery/subql/tree/docs-new-section/packages/cli) tool is used to create SubQuery projects. The [@subql/node](https://github.com/subquery/subql/tree/docs-new-section/packages/node) component is required to run an indexer. The [@subql/query](https://github.com/subquery/subql/tree/docs-new-section/packages/query) library is required to generate queries.
+When working with SubQuery, we recommend doing everything in a dedicated directory for your project and using Docker to run projects. Please follow the [quickstart](../quickstart/quickstart.md) for more details on how to create a SubQuery project.
 
+But if you wish to install the SubQuery components manually, you can follow the instructions below.
 ## Install @subql/cli
 
-The [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) tool helps to create a project framework or scaffold, meaning you don't have to start from scratch.
+The [@subql/cli](https://github.com/subquery/subql/tree/main/packages/cli) tool helps to create and manage a project, meaning you don't have to start from scratch.
 
 Install SubQuery CLI globally on your terminal by using Yarn or NPM:
 
-::: code-tabs
+::: code-tabs#shell
 @tab npm
 
 ```bash
 npm install -g @subql/cli
 ```
 
-@tab:active yarn
+@tab:active yarn (not recommended)
 
 ```shell
 yarn global add @subql/cli
 ```
-
 :::
 
 You can then run help to see available commands and usage provided by CLI:
@@ -29,23 +29,27 @@ You can then run help to see available commands and usage provided by CLI:
 subql --help
 ```
 
-## Install @subql/node
+::: tip Note
+SubQuery projects will have this as a dependency in their `package.json` file, so you can also run the CLI commands using `npx` without installing it globally. For example, you can run `npx subql publish` to publish the project to IPFS.
+:::
 
-A SubQuery node is an implementation that extracts substrate-based blockchain data per the SubQuery project and saves it into a Postgres database.
+## Install @subql/node-*
+
+A SubQuery node is an implementation that runs a project to extract data from a blockchain and stores it in a database. We have multiple implementations of the SubQuery node, such as `@subql/node` (for Substrate/Polkadot), `@subql/node-evm`, and `@subql/node-cosmos`. You can choose the one that matches your project.
 
 Install SubQuery node globally on your terminal by using Yarn or NPM:
 
-::: code-tabs
+::: code-tabs#shell
 @tab npm
 
 ```bash
-npm install -g @subql/node
+npm install -g @subql/node-ethereum
 ```
 
-@tab:active yarn
+@tab:active yarn (not recommended)
 
 ```shell
-yarn global add @subql/node
+yarn global add @subql/node-ethereum
 ```
 
 :::
@@ -53,7 +57,7 @@ yarn global add @subql/node
 Once installed, you can start a node with:
 
 ```shell
-subql-node <command>
+subql-node-ethereum <command>
 ```
 
 ::: tip Note
@@ -66,14 +70,14 @@ The SubQuery query library provides a service that allows you to query your proj
 
 Install SubQuery query globally on your terminal by using Yarn or NPM:
 
-::: code-tabs
+::: code-tabs#shell
 @tab npm
 
 ```bash
 npm install -g @subql/query
 ```
 
-@tab:active yarn
+@tab:active yarn (not recommended)
 
 ```shell
 yarn global add @subql/query

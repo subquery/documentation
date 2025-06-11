@@ -1,6 +1,6 @@
 # Other EVM Networks
 
-Although we only list quick start guides for select EVM based networks - SubQuery has been tested to support all standard EVM implementations. You can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `subql init` command:
+Although we only list quick start guides for select EVM based networks - SubQuery has been tested to support all standard EVM implementations. You can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `npx @subql/cli init` command:
 
 View the full list of tested EVM projects in [the ethereum-subql-starter repository](https://github.com/subquery/ethereum-subql-starter).
 

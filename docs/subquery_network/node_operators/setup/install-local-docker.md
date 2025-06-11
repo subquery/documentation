@@ -44,7 +44,7 @@ If you are running in Kubernetes (k8s), make sure to set the `host-env` paramete
 Run the following command to start the Node Operator service:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Please check that the Docker is already running. The images will be pulled from Docker and then it will start the following services:

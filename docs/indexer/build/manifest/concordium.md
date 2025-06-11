@@ -126,7 +126,7 @@ export default project;
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. In Concordium it is always the genesis hash of the network (hash of the first block). This is `4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796` for testnet.
 

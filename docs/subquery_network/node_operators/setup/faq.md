@@ -52,7 +52,7 @@ However, we don't support applying the changed password to the existing data at 
 docker exec -i db_container_id psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'your_password'"
 
 // 2. restart docker compose
-docker-compose up -d
+docker compose up -d
 
 // 3. For the running projects, there is a tricky way to force the “restart the
 // project” with a new DB password. (force restart to be supported as an option flag in the future).
@@ -137,7 +137,7 @@ There are a number of options to solve this:
      - Requires additional configuration to fix up the way Docker creates networks which allow the containers to talk to each other.
 2. Use `expose` instead of `ports` in the `docker-compose.yml`.
    - Pros:
-     - Nice and neat as the change is only in the docker-compose file which is where we are defining the rest of the behaviour in our stack.
+     - Nice and neat as the change is only in the docker compose file which is where we are defining the rest of the behaviour in our stack.
    - Cons:
      - The `query_` containers that are created to index a project need to talk to other containers in the stack. They do this by running on a specific port. And it gets allocated when they are created starting at 3000 and are incremented with each project indexed.
      - That makes `expose` a little inconvenient/complex- either suffer the disruption of adding/removing the internal port as projects are added/removed, or just expose a bunch (3000 - 3100 for example) up front and hope you don't forget when your 101st project won't index.

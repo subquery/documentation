@@ -35,7 +35,7 @@ Modify `docker-compose.yml` to update the graphql-engine image to `subquerynetwo
 Under the project directory run the following command:
 
 ```shell
-docker-compose pull && docker-compose up
+docker compose pull && docker compose up
 ```
 
 ::: tip Note It may take some time to download the required packages ([`@subql/node`](https://www.npmjs.com/package/@subql/node), [`@subql/query-subgraph`](https://www.npmjs.com/package/@subql/query-subgraph), and Postgres) for the first time but soon you'll see a running SubQuery node.

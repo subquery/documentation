@@ -1,6 +1,6 @@
 # Other Supported Cosmos Zones
 
-Although we only list quick start guides for select Cosmos zones - SubQuery has been tested to support most zones that that use CosmWasm, Tendermint, or Ethermint. You can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `subql init` command:
+Although we only list quick start guides for select Cosmos zones - SubQuery has been tested to support most zones that that use CosmWasm, Tendermint, or Ethermint. You can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `npx @subql/cli init` command:
 
 CosmWasm Projects:
 

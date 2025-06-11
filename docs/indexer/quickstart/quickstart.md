@@ -1,6 +1,6 @@
 # 1. SubQuery Hello World
 
-This quick start demonstrates how to get the Ethereum starter project, which indexes all transfers and approval events for the [wrapped Ether token](https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) on Ethereum Mainnet up and running. This should take about 5 minutes. 
+This quick start demonstrates how to get the Ethereum starter project, which indexes all transfers and approval events for the [wrapped Ether token](https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) on Ethereum Mainnet up and running. This should take about 5 minutes.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ Before you begin creating your first blockchain project with SubQuery, make sure
 - [NodeJS](https://nodejs.org/en/): A modern (e.g. the LTS version) installation of NodeJS.
 - [Docker](https://docker.com/): This tutorial will use Docker to run a local version of SubQuery's node.
 
-To check if you have Node or Docker already, run: 
+To check if you have Node or Docker already, run:
 ```shell
 node -v
 v22.15.0
@@ -29,13 +29,13 @@ npx @subql/cli init
 You'll be asked certain questions as you proceed ahead:
 
 - **Project name**: A project name for your SubQuery project.
-- **Network family**: The layer-1 blockchain network family that this SubQuery project will index. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
 - **Network**: The specific network that this SubQuery project will index. Use the arrow keys to select from the available options (scroll down as there are multiple pages).
 - **Template project**: Select a SubQuery template project that will serve as a starting point for your project. For some networks, multiple examples are provided.
 - **RPC endpoint**: Provide an HTTP or websocket URL to a running RPC endpoint which will be used by this project. You can use public endpoints for different networks, your own private dedicated node, or just use the default endpoint. This RPC node must have the entire state of the data that you wish to index, so an archive node is recommended.
 - **Authors**: Enter the owner of this SubQuery project here. eg. your name or organisation.
 - **Description**: Provide a short paragraph about your project that describes what the project does.
-- **Generate scaffolding from an existing contract ABI?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction.md#directory-structure).
+- **Do you want to generate datasources and handlers from an existing contract ABI?**: Enter a local path to an ABI.json file afterwhich the project will automatically create the events and methods. Learn more [here](../build/introduction#evm-abi-importing).
+
 
 Let’s look at an example:
 
@@ -49,17 +49,17 @@ Project name [subql-starter]: evm-hello-world
 ? Author SubQuery Team
 ? Description This project can be use as a starting po...
 evm-hello-world is ready
-? Do you want to generate scaffolding from an existing contract abi? no
+? Do you want to generate datasources and handlers from an existing contract ABI? no
 
 ```
 
 :::info EVM Based Projects
 
-SubQuery projects can be generated from ABIs to save time when creating EVM based projects. Please see [EVM Project Scaffolding](#evm-project-scaffolding)
+SubQuery projects can import ABIs to generate datasources and their handlers. Please see [EVM ABI Importing](../build/introduction#evm-abi-importing)
 
 :::
 
-After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be near identical to what's listed in the [Directory Structure](../build/introduction.md#directory-structure).
+After you complete the initialisation process, you will see a folder with your project name created inside the directory. Please note that the contents of this directory should be near identical to what's listed in the [Directory Structure](../build/introduction#directory-structure).
 
 ## 2. Install dependencies
 
@@ -99,7 +99,7 @@ yarn dev
 
 :::
 
-This command actually runs 3 subcommands under the hood for convenience. 
+This command actually runs 3 subcommands under the hood for convenience.
 
 * `npm run codegen` - This generates types from the GraphQL schema definition and contract ABIs and saves them in the /src/types directory. This must be done after each change to the schema.graphql file or the contract ABIs.
 * `npm run build` - This builds and packages the SubQuery project into the /dist directory.
@@ -144,7 +144,7 @@ Because a free public RPC endpoint is used in the default configuration, sometim
 ```
  Error: All endpoints failed to initialize. Please add healthier endpoints
  ```
- 
+
  To resolve this, sign up for a free account at [OnFinality](https://onfinality.io/) or any other RPC provider and to obtain a more stable RPC endpoint and update the .env file.
 
 
@@ -239,5 +239,3 @@ Expected results:
 :::
 
 Congratulations! You have successfully created your first SubQuery project indexing transfers and approvals for the wrapped ether token on Ethereum mainnet!
-
-

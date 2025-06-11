@@ -4,28 +4,7 @@ All booleans are by default `false` unless explicitly mentioned.
 
 ## subql (cli)
 
-### --help
-
-This shows all the current command options for your current version of `subql-cli`.
-
-### build
-
-This command uses webpack to generate a bundle of a subquery project.
-
-| Options        | Description                                                 |
-| -------------- | ----------------------------------------------------------- |
-| -l, --location | local folder of subquery project (if not in folder already) |
-| -o, --output   | specify output folder of build e.g. build-folder            |
-| --mode         | `production` or `development` (default: `production`)       |
-
-- With `subql build` you can specify additional entry points in exports field although it will always build
-  `index.ts` automatically.
-
-- You need to have @subql/cli v0.19.0 or above to use exports field.
-
-- Any `exports` field must map to string type (e.g. `"entry": "./src/file.ts"`), else it will be ignored from build.
-
-For more info, visit [basic workflows](../build/introduction.md#build).
+You can view the latest CLI reference [here](https://github.com/subquery/subql/blob/main/packages/cli/README.md)
 
 ## subql-node
 

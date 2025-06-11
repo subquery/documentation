@@ -10,7 +10,7 @@ There is a [friendly quick start guide that introduces SubQuery's Substrate WASM
 
 ## Getting started
 
-1. Add the custom datasource as a dependency. Create a new project from an WASM starter template though `subql init` OR for existing projects, `yarn add -D @subql/substrate-wasm-processor`.
+1. Add the custom datasource as a dependency. Create a new project from an WASM starter template though `npx @subql/cli init` OR for existing projects, `yarn add -D @subql/substrate-wasm-processor`.
 2. Import processor file to your `project.ts` like below
 
 ```ts

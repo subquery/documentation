@@ -38,7 +38,7 @@ Theoretically all the following networks (and more) should also be supported sin
 
 1. Add the custom datasource as a dependency:
 
-- Create a new project from an EVM template through `subql init` OR
+- Create a new project from an EVM template through `npx @subql/cli init` OR
 - For existing projects, `yarn add -D @subql/frontier-evm-processor` or `npm i @subql/acala-evm-processor --save-dev`.
 
 2. Add exports to your `package.json` like below in order for IPFS deployments to work

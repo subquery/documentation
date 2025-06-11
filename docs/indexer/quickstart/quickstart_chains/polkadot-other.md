@@ -1,6 +1,6 @@
 # Other Supported Polkadot/Substrate Chains
 
-Although we only list quick start guides for select Polkadot networks - SubQuery has been tested to support most Polkadot parachains and standalone Substrate chains and you can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `subql init` command.
+Although we only list quick start guides for select Polkadot networks - SubQuery has been tested to support most Polkadot parachains and standalone Substrate chains and you can quickly initialise a new project in any [supported network](https://subquery.network/networks) using the `npx @subql/cli init` command.
 
 View the full list of tested projects in [the subql-starter repository](https://github.com/subquery/subql-starter).
 
