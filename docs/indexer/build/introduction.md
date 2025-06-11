@@ -44,7 +44,7 @@ Importing ABIs saves time during SubQuery project creation by automatically gene
 
 ### When Initialising New SubQuery Projects
 
-When you are initialising a new project using the `npx @subql/cli init` command, SubQuery will give you the option to import an ABI to give you a head start by automatically generating some data sources and empty handler functions fro you.
+When you are initialising a new project using the `npx @subql/cli init` command, SubQuery will give you the option to import an ABI to give you a head start by automatically generating some data sources and empty handler functions for you.
 
 If you have select a compatible network type (EVM), it will prompt
 
