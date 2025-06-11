@@ -38,7 +38,7 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-- Note that you need to install the docker-compose command tool in EC2, in order to use the docker-compose features:
+- Note that you need to install the docker compose command tool in EC2, in order to use the docker compose features:
 
 ```bash
 # get the latest version for docker-compose
@@ -48,7 +48,7 @@ sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-c
 sudo chmod +x /usr/bin/docker-compose
 
 # verify the installation
-sudo docker-compose version
+sudo docker compose version
 ```
 
 ### Step 3 - Download the Docker Compose File for Node Operator Services
@@ -69,7 +69,7 @@ Please change the `POSTGRES_PASSWORD` in postgres and `postgres-password` in coo
 Run the service using the following command:
 
 ```bash
-sudo docker-compose up -d
+sudo docker compose up -d
 ```
 
 It will start the following services:
@@ -106,7 +106,7 @@ SyslogIdentifier=subquery
 SyslogFacility=local7
 KillSignal=SIGHUP
 WorkingDirectory=/home/ec2-user/subquery-indexer
-ExecStart=/usr/bin/docker-compose up -d
+ExecStart=/usr/bin/docker compose up -d
 
 [Install]
 WantedBy=multi-user.target

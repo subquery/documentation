@@ -177,7 +177,7 @@ repository: https://github.com/subquery/starknet-subql-starter
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. Examples in Starknet is `0x534e5f4d41494e` for Mainnet, `0x534e5f5345504f4c4941` for Sepolia. You can find constants for the official networks in the [Starknet.js constants.ts file](https://github.com/starknet-io/starknet.js/blob/main/src/constants.ts#L42).
 

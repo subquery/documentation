@@ -4,7 +4,7 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
-1. Initialise your project using `subql init PROJECT_NAME`.
+1. Initialise your project using `npx @subql/cli init PROJECT_NAME`.
 2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/ethereum.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
 4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/ethereum.md).
@@ -38,18 +38,18 @@ For example:
 
 ![SubQuery directory structure](/assets/img/build/directory_stucture.png)
 
-## EVM and Cosmos Project Scaffolding
+## EVM ABI Importing
 
-Scaffolding saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
+Importing ABIs saves time during SubQuery project creation by automatically generating typescript facades for EVM transactions, logs, and types.
 
 ### When Initialising New SubQuery Projects
 
-When you are initialising a new project using the `subql init` command, SubQuery will give you the option to set up a scaffolded SubQuery project based on your JSON ABI.
+When you are initialising a new project using the `npx @subql/cli init` command, SubQuery will give you the option to import an ABI to give you a head start by automatically generating some data sources and empty handler functions fro you.
 
 If you have select a compatible network type (EVM), it will prompt
 
 ```shell
-? Do you want to generate scaffolding with an existing abi contract?
+? Do you want to generate datasources and handlers from an existing contract ABI?
 ```
 
 Followed by prompt on the path to your ABI file (absolute or relative to your current working directory). This must be in a JSON format.
@@ -60,42 +60,49 @@ Followed by prompt on the path to your ABI file (absolute or relative to your cu
 
 So for example, If I wanted to create the [Ethereum Gravatar indexer](../quickstart/quickstart_chains/ethereum-gravatar.md), I would download the Gravity ABI contract JSON from [Etherscan](https://etherscan.io/address/0x2e645469f354bb4f5c8a05b3b30a929361cf77ec#code), save it as `Gravity.json`, and then run the following.
 
-![Project Scaffolding EVM](/assets/img/build/project-scaffold-evm.png)
+![Project ABI Import EVM](/assets/img/build/project-scaffold-evm.png)
 
 You will then be prompted to select what `events` and/or `functions` that you want to index from the provided ABI.
 
 ### For an Existing SubQuery Project
 
-You can also generate additional scaffolded code new contracts and append this code to your existing `project.ts`. This is done using the `subql codegen:generate` command from within your project workspace.
-If you have `@subql/cli` version `5.0.0` or above, you will need to install `@subql/common-ethereum` package in the dependencies before execute this command.
+You can also import ABIs into an existing SubQuery project. This is useful if you have a new contract that you want to index, or if you want to add more events or functions to your existing project. This is done using the `subql import-abi` command from within your project workspace.
+
+#### From Etherscan
+
+If the contract you wish to import is verified on Etherscan (or any other Etherscan related explorer), you can import the ABI using just the contract address. This will automatically fetch the ABI from Etherscan and generate the necessary data sources and handler functions.
+
+::: note
+You will need an Etherscan API key to use this feature. You can get one for free from [Etherscan](https://etherscan.io/myapikey).
+:::
 
 ```shell
-subql codegen:generate \
--f <root path of your project> \ # Assumes current location if not provided
---abiPath <path of your abi file> \ # path is from project root - this is required
---startBlock <start block> # Required
---address <address> \ # Contract address
---events '*' \  # accepted formats: 'transfers, approval'
---functions '*' # accepted formats: 'transferFrom, approve'
+ETHERSCAN_API_KEY=<your-api-key> subql import-abi \
+-f ./example-project \
+--address 0x2e645469f354bb4f5c8a05b3b30a929361cf77ec \
+--events '*' \
+--functions '*'
 ```
 
-This will attempt to read the provided ABI file, and generate a list of events & functions in accordance. If `--events` or `--functions` are not provided, all available events\functions will be prompted, if `'*'` is provided, all events/functions will be selected. For example:
+#### From an ABI File
+
+If you have the ABI file saved locally, you can specify the path to the ABI file using the `--abiPath` option. This allows you to import the ABI from a local file and generate the necessary changes.
 
 ```shell
-subql codegen:generate \
+subql import-abi \
 -f './example-project' \
---abiPath './abis/erc721.json' \ (required)
---startBlock 1 \ (required)
+--abiPath './abis/erc721.json'
+--startBlock 1 \ # The block number when the contract was deployed
 --address '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' \
 --events '*' \
 --functions '*'
 ```
 
-### What is Scaffolded?
+### What is changed?
 
-Once completed, you will have a scaffolded project structure from your chosen ABI `functions`/`events`.
+Once completed, you will have an updated project structure from your chosen ABI `functions`/`events`.
 
-In the previous example for the [Ethereum Gravatar indexer](../quickstart/quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to scaffold.
+In the previous example for the [Ethereum Gravatar indexer](../quickstart/quickstart_chains/ethereum-gravatar.md), I have selected the events `NewGravatar` and `UpdatedGravatar` to import.
 
 It initialises the correct manifest with Log Handlers included, as well a new typescript file `<abiName>Handler.ts` containing mapping functions and imports with the appropriate typing..
 
