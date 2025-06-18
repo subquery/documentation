@@ -3,12 +3,12 @@
 ## Got permission denied while trying to connect to the Docker daemon socket
 
 ```bash
-[ec2-user@example subquery-indexer]$ docker-compose up
+[ec2-user@example subquery-indexer]$ docker compose up
 Got permission denied while trying to connect to the Docker daemon socket
 at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json?all=1&filters=%7B%22label%22%3A%7B%22com.docker.compose.project%3Dsubquery-indexer%22%3Atrue%7D%7D&limit=0": dial unix /var/run/docker.sock: connect: permission denied
 ```
 
-You get this error because the user you have logged in through does not have permission to run the docker-compose up command.
+You get this error because the user you have logged in through does not have permission to run the docker compose up command.
 
 **Solution:**
 Run the following command, then log out, and log in again.
@@ -20,7 +20,7 @@ sudo usermod -aG docker ${USER}
 The alternative solution is to run as sudo user:
 
 ```bash
-sudo docker-compose up
+sudo docker compose up
 
 
 ```
@@ -120,7 +120,7 @@ Try to uninstall Docker Compose and re-install it from the official guide rather
 - `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
 - `sudo chmod +x /usr/local/bin/docker-compose`
 
-If all has worked you should get `docker-compose version 1.29.2, build 5becea4c` from `docker-compose --version`, and you can go ahead and pull/up.
+If all has worked you should get `docker compose version 1.29.2, build 5becea4c` from `docker compose --version`, and you can go ahead and pull/up.
 
 The official installation guide can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
 

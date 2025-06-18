@@ -195,7 +195,7 @@ dataSources:
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. Examples in Arbitrum is `42161` for Arbitrum One and `42170` for Arbitrum Nova. See https://chainlist.org/chain/42161
 

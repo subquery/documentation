@@ -138,7 +138,7 @@ proxy:
 then restart the `indexer-proxy` container
 
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 
 3.4. Config Nginx: Edit your Nginx configuration (usually found at `/etc/nginx/conf.d/proxy.mysqindexer.com.conf`, create one if it does not exist) to add the following:
