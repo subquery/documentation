@@ -310,7 +310,7 @@ The following table explains filters supported by different handlers.
 | Handler                                                                 | Supported filter                                                                                    |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [ethereum/BlockHandler](../mapping/gnosis.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/gnosis.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/TransactionHandler](../mapping/gnosis.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
 | [ethereum/LogHandler](../mapping/gnosis.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
