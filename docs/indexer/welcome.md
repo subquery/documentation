@@ -6,7 +6,7 @@ editLink: false
 photoSwipe: false
 ---
 
-<link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
+<link rel="stylesheet" href="/doc/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="bannerRow">
     <div class="flexColCenter gp24" style="max-width: 614px; z-index: 1;">
@@ -143,31 +143,31 @@ const advancedFeatures = ref([
 
 const journeies = ref([
   {
-    "iconSrc": "/assets/img/journeyIcon1.svg",
+    "iconSrc": "/doc/assets/img/journeyIcon1.svg",
     "path": "/indexer/build/introduction.html",
     "title": "1. Build",
     "description": "Initialise your project, define your entities using GraphQL, identify the trigger events, and write simple mapping functions that process your data - that’s it! Theres no need for pre-existing data archives, write simply in Typescript and test locally with Docker."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon2.svg",
+    "iconSrc": "/doc/assets/img/journeyIcon2.svg",
     "path": "/indexer/run_publish/run.html",
     "title": "2. Run and Query",
     "description": "Make advanced, flexible, but simple queries over GraphQL from any website or app. We even support advanced features like aggregate functions and allow you to subscribe to new data."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon3.svg",
+    "iconSrc": "/doc/assets/img/journeyIcon3.svg",
     "path": "/indexer/run_publish/publish.html",
     "title": "3. Publish",
     "description": "Running a SubQuery Project is easy, or if you don’t want to run and manage production infrastructure, use our self-service platform to publish and run a production SubQuery project in only a few minutes."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon4.svg",
+    "iconSrc": "/doc/assets/img/journeyIcon4.svg",
     "path": "/subquery_network/publish.html",
     "title": "4. Deploy to the SubQuery Network",
     "description": "Our decentralised service is a web3 infrastructure revolution. We’re building the most open, performant, reliable, and scalable data service for dApp developers which will index and serve data to the global community in an incentivised and verifiable way."
   },
   {
-    "iconSrc": "/assets/img/journeyIcon5.svg",
+    "iconSrc": "/doc/assets/img/journeyIcon5.svg",
     "path": "/indexer/build/optimisation.html",
     "title": "5. Optimise your Project",
     "description": "Performance is a crucial factor in each project. We’re here to give you guidance on how to optimise your SubQuery project to speed it up."

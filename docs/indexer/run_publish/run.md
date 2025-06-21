@@ -19,7 +19,7 @@ An alternative solution is to run a **Docker Container**, defined by the `docker
 Under the project directory run the following command:
 
 ```shell
-docker-compose pull && docker-compose up
+docker compose pull && docker compose up
 ```
 
 ::: tip Note

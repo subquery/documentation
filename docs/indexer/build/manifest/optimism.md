@@ -203,7 +203,7 @@ dataSources:
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. In Optimism it is `10`. See https://chainlist.org/chain/10.
 
@@ -309,7 +309,7 @@ The following table explains filters supported by different handlers.
 | Handler                                                                   | Supported filter                                                                                    |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [ethereum/BlockHandler](../mapping/optimism.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/optimism.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/TransactionHandler](../mapping/optimism.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
 | [ethereum/LogHandler](../mapping/optimism.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.

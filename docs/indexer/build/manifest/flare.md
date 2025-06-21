@@ -192,7 +192,7 @@ dataSources:
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. Examples in Flare is `14` for Flare mainnet and `19` for Songbird. See https://chainlist.org/chain/14
 
@@ -296,7 +296,7 @@ The following table explains filters supported by different handlers.
 | Handler                                                                | Supported filter                                                                                    |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | [ethereum/BlockHandler](../mapping/flare.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/flare.md#transaction-handler) | `function` filters (either be the function fragment or signature), `from` (address), `to` (address) |
+| [ethereum/TransactionHandler](../mapping/flare.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
 | [ethereum/LogHandler](../mapping/flare.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.

@@ -1,16 +1,14 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
-import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { redirectPlugin } from "@vuepress/plugin-redirect";
-import { linksCheckPlugin } from "@vuepress/plugin-links-check";
-import { markdownTabPlugin } from "@vuepress/plugin-markdown-tab";
 import { markdownStylizePlugin } from "@vuepress/plugin-markdown-stylize";
 import { markdownIncludePlugin } from "@vuepress/plugin-markdown-include";
 import { getSidebar } from "./sidebar";
 
 export default defineUserConfig({
+  base: "/doc/",
   title: "SubQuery Documentation",
   description:
     "Learn how to build with SubQuery. SubQuery is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project. Build your API anywhere across multiple chains in minutes with our open-source SDK.",
@@ -41,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
   },
   theme: hopeTheme({
-    hostname: "https://academy.subquery.network",
+    hostname: "https://subquery.network/doc/",
 
     favicon: "/assets/favicons/favicon.ico",
     author: "SubQuery Team",

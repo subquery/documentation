@@ -7,7 +7,7 @@ editLink: false
 photoSwipe: false
 ---
 
-<link rel="stylesheet" href="/assets/style/homepage.css" as="style" />
+<link rel="stylesheet" href="/doc/assets/style/homepage.css" as="style" />
 <div class="welcomeContainer">
   <div class="banner">
     <div class="bannerImage">

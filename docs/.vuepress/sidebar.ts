@@ -15,12 +15,13 @@ export const getSidebar = (locale: string) =>
       },
       {
         text: "Quick Start",
-        link: `${locale}/indexer/quickstart/quickstart`,
         collapsible: true,
         children: [
           `${locale}/indexer/quickstart/quickstart.md`,
+          `${locale}/indexer/quickstart/how-it-works.md`,
+          `${locale}/indexer/quickstart/whats-next.md`,
           {
-            text: "2. Edit your Project",
+            text: "Example Projects",
             collapsible: true,
             children: [
               {
@@ -435,7 +436,6 @@ export const getSidebar = (locale: string) =>
               },
             ],
           },
-          `${locale}/indexer/quickstart/whats-next.md`,
         ],
       },
       {
@@ -571,6 +571,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/miscellaneous/faq.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
+          `${locale}/indexer/miscellaneous/env-support.md`,
         ],
       },
       {
@@ -686,6 +687,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/architects/publish.md`,
           `${locale}/subquery_network/architects/publish-subgraph.md`,
           `${locale}/subquery_network/architects/next-steps.md`,
+          `${locale}/subquery_network/architects/cost-comparison.md`,          
         ],
       },
       {

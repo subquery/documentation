@@ -5,7 +5,11 @@
       The fastest way to get support is by joining our discord and messaging us
       in #technical-support.
     </Typography>
-    <a href="https://discord.com/invite/subquery" target="_blank">
+    <a
+      href="https://discord.com/invite/subquery"
+      target="_blank"
+      class="joinDiscordLink"
+    >
       <Button>
         <img src="/assets/img/discord_icon.svg" />
         Join our Discord
@@ -41,5 +45,11 @@ import Button from "./Button.vue";
   line-height: 24px !important;
   margin-bottom: 32px !important;
   text-align: center;
+}
+
+.joinDiscordLink {
+  &::after {
+    display: none;
+  }
 }
 </style>

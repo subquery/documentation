@@ -208,7 +208,7 @@ dataSources:
 
 ### Network Spec
 
-If you start your project by using the `subql init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
+If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
 The `chainId` is the network identifier of the blockchain. In NEAR, it's either `mainnet` or `testnet`.
 
@@ -306,7 +306,8 @@ The following table explains filters supported by different handlers.
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [near/BlockHandler](../mapping/near.md#block-handler)             | `modulo`, `timestamp`                                                                         |
 | [near/TransactionHandler](../mapping/near.md#transaction-handler) | `sender`, `reciever`                                                                          |
-| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, 'args', 'publicKey', 'accessKey', 'beneficiaryId' |
+| [near/ReceiptHandler](../mapping/near.md#receipt-handler)          | `sender`, `receiver`, `signer` |
+| [near/ActionHandler](../mapping/near.md#message-handler)          | `type`, `sender`, `receiver`, `methodName`, `args`, `publicKey`, `accessKey`, `beneficiaryId` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, or action will trigger a mapping handler.
 

@@ -14,7 +14,7 @@ This document goes into detail about how to use the Ethermint Cosmos RPCs (rathe
 
 1. Add the custom datasource as a dependency:
 
-- Create a new project from an EVM template through `subql init` OR
+- Create a new project from an EVM template through `npx @subql/cli init` OR
 - For existing projects, `yarn add @subql/ethermint-evm-processor` or `npm i @subql/ethermint-evm-processor`.
 
 2. Add a custom data source as described below.
