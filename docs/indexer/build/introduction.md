@@ -7,7 +7,7 @@ Some of the following examples will assume you have successfully initialized the
 1. Initialise your project using `npx @subql/cli init PROJECT_NAME`.
 2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/ethereum.md).
 3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/ethereum.md).
+4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/evm-mappings.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/introduction.md) your Starter Project in our quick start guide.
 
 ## Directory Structure
@@ -444,9 +444,9 @@ Mapping functions are crucial to the transformation of chain data into GraphQL e
 
 In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 
-1. [Block Handlers](mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
-2. [Transaction Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
-3. [Log Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
+1. [Block Handlers](mapping/evm-mappings.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
+2. [Transaction Handlers](mapping/evm-mappings.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
+3. [Log Handlers](mapping/evm-mappings.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
 
 Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
 

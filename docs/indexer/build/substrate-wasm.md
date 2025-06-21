@@ -58,7 +58,7 @@ const project: SubstrateProject<WasmDatasource> = {
 
 ## Call Handlers
 
-Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/CallHandler](../build/mapping/substrate.md#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                          | Required | Description                                 |
 | ------ | --------------------------------------------- | -------- | ------------------------------------------- |
@@ -119,7 +119,7 @@ export async function handleWasmCall(
 
 ## Event Handlers
 
-Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#event-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/EventHandler](../build/mapping/substrate.md#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                           | Required | Description                                  |
 | ------ | ------------------------------ | -------- | -------------------------------------------- |
