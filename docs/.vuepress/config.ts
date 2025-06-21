@@ -203,6 +203,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "/subquery_network/governance/foundation.html",
           "/indexer/run_publish/publish.html":
             "/indexer/run_publish/introduction.html",
+          "/indexer/build/mapping/avalanche.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/gnosis.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/flare.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/arbitrum.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/polygon.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/optimism.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/bsc.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/ethereum.html": "/indexer/build/mapping/evm-mappings.html",
+          "/indexer/build/mapping/stellar.html": "/indexer/build/mapping/soroban.html",
+          "/indexer/build/mapping/polkadot.html": "/indexer/build/mapping/substrate.html",
         };
         return {
           ...redirects,
