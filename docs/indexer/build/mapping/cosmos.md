@@ -1,5 +1,39 @@
 # Cosmos
 
+<!-- @include: ./snippets/intro.md -->
+
+There are different classes of mappings functions for Cosmos; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
+
+<!-- @include: ./snippets/block-handler.md -->
+
+```ts
+import { CosmosBlock } from "@subql/types-cosmos";
+
+export async function handleBlock(block: CosmosBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.block_id.hash);
+  record.height = BigInt(block.block.block.header.height);
+  await record.save();
+}
+```
+
+<!-- @include: ./snippets/transaction-handler.md -->
+
+You should use [Mapping Filters](../manifest/cosmos.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+```ts
+import { CosmosTransaction } from "@subql/types-cosmos";
+
+export async function handleTransaction(tx: CosmosTransaction): Promise<void> {
+  const record = new TransactionEntity(tx.tx.txhash);
+  record.blockHeight = BigInt(tx.block.block.block.header.height);
+  record.timestamp = tx.block.block.header.time;
+  await record.save();
+}
+```
+
+The `CosmosTransaction` encapsulates TxInfo and the corresponding `CosmosBlock` in which the transaction occured.
+
 ## Event Handler
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.

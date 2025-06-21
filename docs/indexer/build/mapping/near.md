@@ -1,5 +1,52 @@
 # NEAR
 
+<!-- @include: ./snippets/intro.md -->
+
+There are different classes of mappings functions for NEAR; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Action Handlers](#action-handler).
+
+<!-- @include: ./snippets/block-handler.md -->
+
+```ts
+import { NearBlock } from "@subql/types-near";
+
+export async function handleBlock(block: NearBlock): Promise<void> {
+  logger.info(`Handling block ${block.header.height}`);
+
+  const blockRecord = NearBlockEntity.create({
+    id: block.header.height.toString(),
+    hash: block.header.hash,
+    author: block.author,
+    timestamp: BigInt(block.header.timestamp),
+  });
+
+  await blockRecord.save();
+}
+```
+
+<!-- @include: ./snippets/transaction-handler.md -->
+
+You should use [Transaction Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+```ts
+import { NearTransaction } from "@subql/types-near";
+
+export async function handleTransaction(
+  transaction: NearTransaction,
+): Promise<void> {
+  logger.info(`Handling transaction at ${transaction.block_height}`);
+
+  const transactionRecord = NearTxEntity.create({
+    id: `${transaction.block_hash}-${transaction.result.id}`,
+    signer: transaction.signer_id,
+    receiver: transaction.receiver_id,
+  });
+
+  await transactionRecord.save();
+}
+```
+
+The `NearTransaction` encapsulates transaction info, result, the corresponding block details and the list of `NearAction` entities that occured in the specific transaction.
+
 ## Receipt Handler
 
 You can use receipt handlers to capture information about each of the receipts in a block. To achieve this, a defined ReceiptHandler will be called once for every receipt. You should use [Receipt Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter receipts to reduce the time it takes to index data and improve mapping performance.

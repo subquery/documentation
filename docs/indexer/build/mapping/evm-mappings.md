@@ -1,18 +1,13 @@
 # EVM Mappings
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
-
-- Mappings are defined in the `src/mappings` directory and are exported as a function.
-- These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+<!-- @include: ./snippets/intro.md -->
 
 There are different classes of mappings functions for EVM based networks such as Avalanche, Arbitrum, BNB, Flare, Gnosis, Optimism and Polygon. They are:
 * [Block handlers](#block-handler)
 * [Transaction Handlers](#transaction-handler)
 * [Log Handlers](#log-handler).
 
-::: warning Important
+::: info Important
 Since Arbitrum, BNB, Gnosis, and Optimism are a layer-2 scaling solution, we can use the core Ethereum framework to index it. Therefore, Ethereum types (e.g. `EthereumBlock`, `EthereumTransaction`, and `EthereumLog`) are used.
 :::
 
@@ -40,9 +35,9 @@ export async function handleBlock(block: EthereumBlock): Promise<void> {
 :::
 
 
-## Transaction Handler
+<!-- @include: ./snippets/transaction-handler.md -->
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 :::code-tabs
 @tab:active EVM

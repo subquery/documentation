@@ -1,5 +1,48 @@
 # Soroban
 
+<!-- @include: ./snippets/intro.md -->
+
+There are different classes of mapping functions for Stellar; [Block handlers](#block-handler), [Operation Handlers](#operation-handler), and [Effect Handlers](#effect-handler).
+
+Soroban has two classes of mapping functions; [Transaction Handlers](#transaction-handler), and [Event Handlers](#event-handler).
+
+<!-- @include: ./snippets/block-handler.md -->
+
+```ts
+import { StellarBlock } from "@subql/types-stellar";
+
+export async function handleBlock(block: StellarBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.hash);
+  record.height = BigInt(block.sequence);
+  await record.save();
+}
+```
+
+<!-- @include: ./snippets/transaction-handler.md -->
+
+You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+::: info Soroban Transactions
+
+Soroban transactions are transactions that call a Soroban contract, they are passed through to the mapping functions as a `StellarTransaction` type.
+
+:::
+
+```ts
+import { StellarTransaction } from "@subql/types-stellar";
+
+export async function handleTransaction(
+  transaction: StellarTransaction,
+): Promise<void> {
+  const record = new TransactionEntity(transaction.id);
+  record.height = BigInt(transaction.ledger.sequence);
+  record.transactionHash = transaction.hash;
+  record.sourceAccount = transaction.source_account;
+  await record.save();
+}
+```
+
 ## Operation Handler
 
 Operation handlers can be used to capture information about specific operations that occur on the chain. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
@@ -42,7 +85,7 @@ export async function handleCredit(
 }
 ```
 
-### Event Handler
+## Event Handler
 
 You can use event handlers to capture information when certain events are included on transactions. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 

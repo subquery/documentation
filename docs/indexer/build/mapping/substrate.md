@@ -1,5 +1,34 @@
 # Substrate
 
+<!-- @include: ./snippets/intro.md -->
+
+There are different classes of mappings functions for Polkadot/Substrate; [Block handlers](#block-handler), [Event Handlers](#event-handler), and [Call Handlers](#call-handler).
+
+<!-- @include: ./snippets/block-handler.md -->
+
+```ts
+import { SubstrateBlock } from "@subql/types";
+
+export async function handleBlock(block: SubstrateBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.block.header.hash.toString());
+  record.field1 = block.block.header.number.toNumber();
+  await record.save();
+}
+```
+
+A `SubstrateBlock` is an extended interface type of [signedBlock](https://polkadot.js.org/docs/api/cookbook/blocks/), but also includes the `specVersion` and `timestamp`.
+
+<!-- @include: ./snippets/transaction-handler.md -->
+
+You should use [Mapping Filters](../manifest/polkadot.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+```
+export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+  // Do something with a call handler here
+}
+```
+
 ## Event Handler
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.

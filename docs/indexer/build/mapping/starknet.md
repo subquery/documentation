@@ -1,5 +1,61 @@
 # Starknet
 
+<!-- @include: ./snippets/intro.md -->
+
+There are different classes of mappings functions for Starknet; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
+
+<!-- @include: ./snippets/block-handler.md -->
+
+```ts
+import { StarknetBlock } from "@subql/types-starknet";
+
+export async function handleBlock(block: StarknetBlock): Promise<void> {
+  // Create a new BlockEntity with the block hash as it's ID
+  const record = new BlockEntity(block.blockHash);
+  record.height = BigInt(block.blockNumber);
+  await record.save();
+}
+```
+
+<!-- @include: ./snippets/transaction-handler.md -->
+
+You should use [Mapping Filters](../manifest/starknet.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+
+We store the decoded calls in the transaction object, so you can easily access the decoded calls and their args in the transaction object.
+To distinguish between different calls types, you can use the `selector` field in the decoded call object.
+
+```ts
+import { StarknetTransaction } from "@subql/types-starknet";
+
+export async function handleTransaction(
+  tx: WithdrawTransaction,
+): Promise<void> {
+  logger.info(`New Withdraw transaction at block ${tx.blockNumber}`);
+  assert(tx.decodedCalls, "No tx decodedCalls");
+
+  for (let i = 0; i < tx.decodedCalls.length; i++) {
+    const call = tx.decodedCalls[i];
+    // Notice all invoke calls are returned in the decodedCalls, we need to filter out the calls we are interested in
+    if (
+      call.selector ===
+        "0x015511cc3694f64379908437d6d64458dc76d02482052bfb8a5b33a72c054c77" ||
+      call.selector ===
+        "0x15511cc3694f64379908437d6d64458dc76d02482052bfb8a5b33a72c054c77"
+    ) {
+      const withdraw = Withdraw.create({
+        id: `${tx.hash}_${i}`,
+        user: tx.from,
+        // Convert the BigNumberish to Hex
+        token: convertBigNumberish(call.decodedArgs.token),
+        amount: BigInt(call.decodedArgs.amount),
+      });
+      logger.info(`withdraw at ${withdraw.id}`);
+      await withdraw.save();
+    }
+  }
+}
+```
+
 ## Log Handler
 
 You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/starknet.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
