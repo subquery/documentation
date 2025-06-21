@@ -260,7 +260,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                                 |
 | ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/bsc.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/evm-mappings.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -298,9 +298,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                              | Supported filter                                                                                    |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [ethereum/BlockHandler](../mapping/bsc.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/bsc.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
-| [ethereum/LogHandler](../mapping/bsc.md#log-handler)                 | `topics` filters, and `address`                                                                     |
+| [ethereum/BlockHandler](../mapping/evm-mappings.md#block-handler)             | `modulo`, `timestamp`                                                                               |
+| [ethereum/TransactionHandler](../mapping/evm-mappings.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
+| [ethereum/LogHandler](../mapping/evm-mappings.md#log-handler)                 | `topics` filters, and `address`                                                                     |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

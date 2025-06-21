@@ -227,7 +227,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | All manifest versions                                                                   | Description                                                                                                                                                                                                                                |
 | ---------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](../mapping/polkadot.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
+| **handlers & filters** | Default handlers and filters, <br />[Custom handlers and filters](#custom-data-sources) | List all the [mapping functions](../mapping/substrate.md) and their corresponding handler types, with additional mapping filters. <br /><br /> For custom runtimes mapping handlers please view [Custom data sources](#custom-data-sources) |
 
 ## Data Sources and Mapping
 
@@ -259,9 +259,9 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                        | Supported filter                         |
 | -------------------------------------------------------------- | ---------------------------------------- |
-| [substrate/BlockHandler](../mapping/polkadot.md#block-handler) | `specVersion`, `modulo`, `timestamp`     |
-| [substrate/EventHandler](../mapping/polkadot.md#event-handler) | `module`,`method`                        |
-| [substrate/CallHandler](../mapping/polkadot.md#call-handler)   | `module`,`method` ,`success`, `isSigned` |
+| [substrate/BlockHandler](../mapping/substrate.md#block-handler) | `specVersion`, `modulo`, `timestamp`     |
+| [substrate/EventHandler](../mapping/substrate.md#event-handler) | `module`,`method`                        |
+| [substrate/CallHandler](../mapping/substrate.md#call-handler)   | `module`,`method` ,`success`, `isSigned` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
 

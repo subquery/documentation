@@ -259,7 +259,7 @@ Defines the data that will be filtered and extracted and the location of the map
 
 | Field                  | Type                         | Description                                                                                                                     |
 | ---------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/stellar.md) and their corresponding handler types, with additional mapping filters. |
+| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/soroban.md) and their corresponding handler types, with additional mapping filters. |
 
 ## Data Sources and Mapping
 
@@ -289,12 +289,12 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                                 | Supported filter                                                                               |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [stellar/BlockHandler](../mapping/stellar.md#block-handler)             | `modulo` and `timestamp`                                                                       |
-| [stellar/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address from)                                                                       |
-| [soroban/TransactionHandler](../mapping/stellar.md#transaction-handler) | `account` (address from)                                                                       |
-| [stellar/OperationHandler](../mapping/stellar.md#operation-handler)     | `type`, `sourceAccount`                                                                        |
-| [stellar/EffectHandler](../mapping/stellar.md#effect-handler)           | `type`, `account` (address from)                                                               |
-| [soroban/EventHandler](../mapping/stellar.md#event-handler)             | `contractId` and/or up to 4 `topics` filters applied as an array, and an optional `contractId` |
+| [stellar/BlockHandler](../mapping/soroban.md#block-handler)             | `modulo` and `timestamp`                                                                       |
+| [stellar/TransactionHandler](../mapping/soroban.md#transaction-handler) | `account` (address from)                                                                       |
+| [soroban/TransactionHandler](../mapping/soroban.md#transaction-handler) | `account` (address from)                                                                       |
+| [stellar/OperationHandler](../mapping/soroban.md#operation-handler)     | `type`, `sourceAccount`                                                                        |
+| [stellar/EffectHandler](../mapping/soroban.md#effect-handler)           | `type`, `account` (address from)                                                               |
+| [soroban/EventHandler](../mapping/soroban.md#event-handler)             | `contractId` and/or up to 4 `topics` filters applied as an array, and an optional `contractId` |
 
 ```yml
 handlers:
