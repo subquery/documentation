@@ -186,7 +186,7 @@ export async function erc20Transfer(
 
 The `handleErc20Transfer` function receives event data from the EVM execution environment whenever an event matches the filters that was specified previously in the `project.ts`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
 
-Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate Frontier EVM data processor](../../build/substrate-evm.md) to get detailed information on mapping functions for each type.
+Check out our mappings documentation for [Substrate](../../build/mapping/substrate.md) and the [Substrate Frontier EVM data processor](../../build/substrate-evm.md) to get detailed information on mapping functions for each type.
 
 <!-- @include: ../snippets/build.md -->
 

@@ -156,7 +156,7 @@ import { MintApeTransaction } from "../types/abi-interfaces/BaycAbi";
 <!-- @include: ../snippets/mapping-intro.md#level2 -->
 
 ::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/ethereum.md) documentation.
+For more information on mapping functions, please refer to our [Mappings](../../build/mapping/evm-mappings.md) documentation.
 :::
 
 Writing mappings for this smart contract is a straightforward process. To provide better context, we've included this handler in a separate file `mappingHandlers.ts` within the `src/mappings` directory. Let's start by importing the necessary modules.
