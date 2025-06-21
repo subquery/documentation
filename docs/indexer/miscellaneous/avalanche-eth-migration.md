@@ -246,8 +246,8 @@ export async function handleLog(log: EthereumLog): Promise<void> { ... }
 Once you have completed the above steps, your project should complete without fault. You might also want to review the following new features that the new Ethereum SDK support for Avalanche brings to Avalanche projects
 
 - [Real-time indexing (Block Confirmations)](../build/manifest/avalanche.md#real-time-indexing-block-confirmations) resulting in an insanely quick user experience for your customers.
-- [Contract query support](../build/mapping/avalanche.md#querying-contracts) allowing querying contract state
-- [Third-party Library Support](../build/mapping/avalanche.md#third-party-library-support---the-sandbox) allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects
+- [Contract query support](../build/mapping/evm-mappings.md#querying-contracts) allowing querying contract state
+- [Third-party Library Support](../build/mapping/evm-mappings.md#third-party-library-support---the-sandbox) allowing you to retrieve data from external API endpoints, non historical RPC calls, and import your own external libraries into your projects
 - [Testing Framework](../build/testing.md) providing an easy way to test the behaviour of mapping handlers and validate the data being indexed in an automated way.
 - [Multi-chain indexing support](../build/multi-chain.md) to index data from across different networks (e.g. Ethereum and Avalanche) into the same database, this allows you to query a single endpoint to get data for all supported networks.
 - [Dynamic data sources](../build/dynamicdatasources.md) to index factory contracts that create other contracts (e.g. a DEX)

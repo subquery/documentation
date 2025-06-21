@@ -187,7 +187,7 @@ global.atob = atob;
 
 ### `Cannot find module 'http'` error
 
-If you're encountering this issue, it's likely because you're trying to fetch external data in your mapping. Refer to the section on Third Party support ([Ethereum example](../build/mapping/ethereum.md#third-party-library-support---the-sandbox)) in the architecture mapping configuration guide, and make sure to enable the [`--unsafe`](../run_publish/references.md#--unsafe-node-service) flag.
+If you're encountering this issue, it's likely because you're trying to fetch external data in your mapping. Refer to the section on Third Party support ([Ethereum example](../build/mapping/evm-mappings.md#third-party-library-support---the-sandbox)) in the architecture mapping configuration guide, and make sure to enable the [`--unsafe`](../run_publish/references.md#--unsafe-node-service) flag.
 
 ### Do multi-chain projects support [upgrades](../build/project-upgrades.md)?
 
