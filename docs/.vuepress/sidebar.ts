@@ -413,7 +413,7 @@ export const getSidebar = (locale: string) =>
                 ],
               },
               {
-                text: 'Solana',
+                text: "Solana",
                 link: `${locale}/indexer/quickstart/quickstart_chains/solana.md`,
               },
               {
@@ -569,6 +569,7 @@ export const getSidebar = (locale: string) =>
         collapsible: true,
         children: [
           `${locale}/indexer/miscellaneous/faq.md`,
+          `${locale}/indexer/miscellaneous/ai.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
           `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
           `${locale}/indexer/miscellaneous/env-support.md`,
@@ -687,7 +688,7 @@ export const getSidebar = (locale: string) =>
           `${locale}/subquery_network/architects/publish.md`,
           `${locale}/subquery_network/architects/publish-subgraph.md`,
           `${locale}/subquery_network/architects/next-steps.md`,
-          `${locale}/subquery_network/architects/cost-comparison.md`,          
+          `${locale}/subquery_network/architects/cost-comparison.md`,
         ],
       },
       {
