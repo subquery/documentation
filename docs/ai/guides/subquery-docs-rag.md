@@ -1,4 +1,4 @@
-# Project Documentation AI Assistent - Intermediate Example with RAG Support
+# Project Documentation AI Assistant - Intermediate Example with RAG Support
 
 This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise. In most cases this will be additional data from a knowledgebase or a database, in this case we're incorportating the SubQuery documentation website as our RAG data (where you're reading this right now).
 
