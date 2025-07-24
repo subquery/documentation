@@ -109,7 +109,7 @@ global.TextDecoder = TextDecoder;
 * `fetch` is also not available by default. This will also require using the `--unsafe` flag to get access to http. If your handlers or a dependency need this you can polyfill it like so:
 ```ts
 // ./src/polyfill.ts
-// Add `node-fetch@2.7,6` as a dependency.
+// Add `node-fetch@2.7.6` as a dependency.
 import { fetch } from 'node-fetch';
 (global as any).fetch = fetch;
 ```
