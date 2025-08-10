@@ -6,6 +6,10 @@ This cache is globally accessible and is introduced alongside `logger` and `stor
 
 The cache provides two primary methods for interacting with the cache: `set()` and `get()`. These methods allow you to store data in the cache and retrieve it, respectively.
 
+::: warning Important
+The cache isn't aware of reindexing because of block forks when indexing unfinalized blocks. Make sure the data you store in the cache takes this into consideration.
+:::
+
 Following is a summary of the `Store` interface:
 
 ```ts
