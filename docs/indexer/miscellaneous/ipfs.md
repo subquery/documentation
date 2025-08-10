@@ -43,15 +43,6 @@ Your project should now be ready to deploy via IPFS to the SubQuery network.
 
 ## Publish to IPFS
 
-### Prepare your SUBQL_ACCESS_TOKEN
-
-- Step 1: Go to [OnFinality Indexer Service](https://indexing.onfinality.io/) and log in.
-- Step 2: Click on your profile at the top right of the navigation menu, then click on **_Refresh Token_**.
-- Step 3: Copy the generated token.
-- Step 4: To use this token:
-  - Option 1: Add SUBQL_ACCESS_TOKEN in your environment variables. `EXPORT SUBQL_ACCESS_TOKEN=<token>` (Windows) or `export SUBQL_ACCESS_TOKEN=<token>` (Mac/Linux)
-  - Option 2: Coming soon, `subql/cli` will support storing your SUBQL_ACCESS_TOKEN locally.
-
 ### How to publish a project
 
 Run the following command, which will read the project's default manifest `project.ts` for the required information.
