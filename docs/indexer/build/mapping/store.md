@@ -1,6 +1,6 @@
 # Advanced Access to the SubQuery Store
 
-The SubQuery SDK will generate classes for your entities with the codegen step. These classes provide a simpler, better typed interface for inteacting with the store. Howevr there are times where you may need to access the store directly such as performing bulk operations.
+The SubQuery SDK will generate classes for your entities with the codegen step. These classes provide a simpler, better typed interface for interacting with the store. However there are times where you may need to access the store directly such as performing bulk operations.
 
 The SubQuery store is an injected class that allows users to interact with records in the database from within mapping functions. This will come handy when user demands using multiple entity records as the parameters in the mapping function, or create/update multiple records in a single place.
 
