@@ -6,7 +6,7 @@ Now that you have made your application and built it, you can run it locally to 
 subql-ai -p ./path/to/manifest.ts -h  http://ollama.public.url
 ```
 
-Once the project is running you should see the following: `Listening on http://0.0.0.0:7827/`
+Once the project is running, you should see the following: `Listening on http://0.0.0.0:7827/`
 
 You can now interact with your application. The easiest way to do that is to run the repl in another terminal.
 
@@ -16,6 +16,6 @@ subql-ai repl
 
 This will start a CLI chat. You can type `/bye` to exit.
 
-Alternatively you can [run with docker](./docker.md) to get a web UI.
+Alternatively, you can [run with docker](./docker.md) to get a web UI.
 
-You may want to refer to the [command line arguments](../run/cli.md) used in SubQuery AI App Framework. It will help you understand the commands better.
+You may want to refer to the [command line arguments](../run/cli.md) used in the SubQuery AI App Framework. It will help you understand the commands better.

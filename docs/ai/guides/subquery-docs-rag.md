@@ -1,6 +1,6 @@
 # Project Documentation AI Assistant - Intermediate Example with RAG Support
 
-This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise. In most cases this will be additional data from a knowledgebase or a database, in this case we're incorportating the SubQuery documentation website as our RAG data (where you're reading this right now).
+This is an example of an AI app utilising RAG (Retrieval-Augmented Generation). [RAG tools](../build/rag.md) are a specialised type of [function tools](../build/function_tools.md) that enhance your LLM by integrating a vector database created from anything you choose to vectorise. In most cases, this will be additional data from a knowledge base or a database. In this case, we're incorporating the SubQuery documentation website as our RAG data (where you're reading this right now).
 
 :::info note
 This tool is already in use in production for SubQuery documentation. Be sure to explore it now by clicking the corresponding button in the lower-right corner.
@@ -20,7 +20,7 @@ You can follow along in the tutorial with the [example code here](https://github
 
 ## 3. Embedding Documentation for RAG
 
-To proceed with our example, we need to define and add a RAG dataset. For this guide, we will experiment with the [SubQuery documentation](https://github.com/subquery/documentation), but feel free to use your own markdown-based documentation, provided it can be vectorised.
+To proceed with our example, we need to define and add a RAG dataset. For this guide, we will experiment with the [SubQuery documentation](https://github.com/subquery/documentation); however, feel free to use your own markdown-based documentation, provided it can be vectorized.
 
 ### Step 1: Clone the Documentation Repository
 
@@ -98,7 +98,7 @@ export default project;
 ```ts
 const PROMPT = `
 You are designed to assist with answering questions about SubQuery, using its documentation as a reference.
-You answer must use the result of the tools available.
+Your answer must use the results of the available tools.
 Do not mention that you used a tool or the name of a tool.
 If you need more information to answer the question, ask the user for more details.
 `;
@@ -130,11 +130,11 @@ export class SubqueryDocs extends RagTool {
 }
 ```
 
-## 6. Run the AI App with developed tools
+## 6. Run the AI App with the developed tools
 
 <!-- @include: ../snippets/run-the-ai-app.md -->
 
-Let's attempt to ask the tool specific questions:
+Let's attempt to ask the tool-specific questions:
 
 ```
 How can I define a one-to-many relationship in a subquery project GraphQL schema?
@@ -176,13 +176,13 @@ Please note that not all GraphQL databases support this syntax, so you may need 
 Another prompt:
 
 ```
-Does subquery support the solana blockchain?
+Does subquery support the Solana blockchain?
 ```
 
 ::: details Full Response
 
 ```
-Yes. SubQuery supports data indexing on Solana blockchain.
+Yes. SubQuery supports data indexing on the Solana blockchain.
 ```
 
 :::
