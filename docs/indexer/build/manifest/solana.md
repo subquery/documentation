@@ -321,3 +321,11 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
   }
 }
 ```
+
+## SQD Integration
+
+SubQuery supports [SQD Archives for Solana](https://sqd-34796de3.mintlify.app/get-started/introduction) to greatly speed up indexing your SubQuery Solana project by being able to pre-filter blocks and the relevant data within those blocks. To do this we have an adaptor, [Solana-Takoyaki](https://github.com/subquery/solana-takoyaki), that converts between the SQD RPC interface and the SubQuery data node RPC interface to work nicely with the SDK. By default your project will use the SubQuery hosted version but there can be some limitations like rate limits and longer request times.
+
+If you wish to run Solana-Takoyaki yourself and have your SubQuery projects use it then:
+1. Follow the instructions in the Solana-Takoyaki readme on how to run it. Ideally it runs on the same machine or as close as possible to your indexer.
+1. Add the following flag to your indexer `--network-dictionary=<url-to-solana-takoyaki>`
