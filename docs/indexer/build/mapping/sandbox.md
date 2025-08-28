@@ -93,23 +93,10 @@ export async function handleTransaction(
 
 ## Other differences and incompatibilities
 
-The SubQuery sandbox doesn't have all the same global variables as you would expect in a normal Node.js environment. This might cause some issues with certain packages. To get around this you can use polyfills for some of the missing globals.
-
-To set this up you can create a file called `./src/polyfill.ts` or `./src/polyfills.ts` and update the global object with your required polyfills.
-
 * `TextEncoder` and `TextDecoder` are not available by default. If your handlers or a dependency need these they can be polyfilled like so:
 ```ts
-// ./src/polyfill.ts
-// Add `text-encoding` as a dependency.
+// Add `text-encoding` as a dependency and include this code in index.ts before any other imports
 import { TextDecoder, TextEncoder } from 'text-encoding';
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
-```
-
-* `fetch` is also not available by default. This will also require using the `--unsafe` flag to get access to http. If your handlers or a dependency need this you can polyfill it like so:
-```ts
-// ./src/polyfill.ts
-// Add `node-fetch@2.7.6` as a dependency.
-import { fetch } from 'node-fetch';
-(global as any).fetch = fetch;
 ```
