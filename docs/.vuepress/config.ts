@@ -203,6 +203,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "/subquery_network/governance/foundation.html",
           "/indexer/run_publish/publish.html":
             "/indexer/run_publish/introduction.html",
+          // EVM network mapping redirects to consolidated ethereum.md
+          "/indexer/build/mapping/avalanche.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/arbitrum.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/bsc.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/flare.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/gnosis.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/optimism.html":
+            "/indexer/build/mapping/ethereum.html",
+          "/indexer/build/mapping/polygon.html":
+            "/indexer/build/mapping/ethereum.html",
+          // EVM network manifest redirects to consolidated ethereum.md
+          "/indexer/build/manifest/avalanche.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/arbitrum.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/bsc.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/flare.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/gnosis.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/optimism.html":
+            "/indexer/build/manifest/ethereum.html",
+          "/indexer/build/manifest/polygon.html":
+            "/indexer/build/manifest/ethereum.html",
         };
         return {
           ...redirects,

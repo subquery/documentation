@@ -1,4 +1,4 @@
-# Sandbox
+# Introduction
 
 SubQuery is deterministic by design, that means that each SubQuery project is guaranteed to index the same data set. This is a critical factor that is makes it possible to verify data in the decentralised SubQuery Network. This limitation means that in default configuration, the indexer is by default run in a strict virtual machine.
 
@@ -45,6 +45,14 @@ From within the sandbox `console` doesn't work and you will not see any output f
 ```ts
 logger.info('Hello world');
 ```
+
+### `registry` (Cosmos only)
+
+This is an instance of `@cosmjs/proto-signing`'s `Registry` class, which allows you to encode and decode protobuf messages. This is only available for Cosmos projects.
+
+### `decoder` (Solana only)
+
+This is object provides utilities for decoding data for instructions and logs using the provided IDLs for the project.
 
 ## Third Party Libraries
 

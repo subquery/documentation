@@ -1,6 +1,16 @@
-# Ethereum Manifest File
+# EVM Manifest File
 
 The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
+
+::: info EVM Compatibility
+This documentation applies to all EVM-compatible networks supported by SubQuery, including:
+- **Ethereum** (Layer 1)
+- **Layer 2 Solutions**: Arbitrum, Optimism, Polygon, Base
+- **Sidechains**: BNB Smart Chain (BSC), Avalanche C-Chain
+- **Other EVM Networks**: Gnosis, Flare, and other EVM-compatible chains
+
+All these networks use the same manifest structure and `@subql/node-ethereum` runner since they are EVM-compatible.
+:::
 
 The Manifest can be in either Typescript, Yaml, or JSON format.
 
@@ -195,7 +205,16 @@ dataSources:
 
 If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples in Ethereum is `1` for mainnet, `3` for Ropsten, and `4` for Rinkeby. See https://chainlist.org/chain/1
+The `chainId` is the network identifier of the blockchain. Examples include:
+- **Ethereum**: `1` (mainnet), `11155111` (Sepolia)
+- **Polygon**: `137` (mainnet), `80001` (Mumbai testnet)
+- **BNB Smart Chain**: `56` (mainnet), `97` (testnet)
+- **Arbitrum**: `42161` (One), `421614` (Sepolia)
+- **Optimism**: `10` (mainnet), `11155420` (Sepolia)
+- **Avalanche**: `43114` (C-Chain)
+- **Base**: `8453` (mainnet), `84532` (Sepolia)
+
+For a complete list of chain IDs, see https://chainlist.org/
 
 Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
 

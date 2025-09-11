@@ -4,9 +4,7 @@ There are cases where you don't know all the parameters for a data source when a
 
 ## The `templates` field
 
-In order to use dynamic data sources you need to have spec version of at least `0.2.1`. If you are on `0.2.0` all you need to do is change the specVersion. If you are on a lower version then you should update to `0.2.0` first with `subql migrate`.
-
-Spec version `0.2.1` introduces a new `templates` field. Templates are the same as data sources with a couple of differences.
+Templates are the same as data sources with a couple of differences.
 
 - They need a `name` in order to identify the template.
 - `startBlock` is no longer necessary. This will be set to the block the data source is created.
@@ -21,7 +19,7 @@ The below example is for a decentralised exchange that has a factory contract wh
 ### `project.yaml`
 
 ```yaml
-specVersion: 0.2.1
+specVersion: 1.0.0
 name: example-project
 version: 1.0.0
 description: ""

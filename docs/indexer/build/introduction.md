@@ -440,7 +440,7 @@ All generated files could be found under `src/types/cosmwasm-interfaces` and `sr
 
 ## Mapping
 
-Mapping functions are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.ts` under the mapping handlers.
+[Mapping functions](./code/introduction) are crucial to the transformation of chain data into GraphQL entities defined in the schema file (schema.graphql). The process includes defining these mappings in the `src/mappings` directory and exporting them as a function. They are also exported in `src/index.ts` and referenced in `project.ts` under the mapping handlers.
 
 In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 
@@ -448,7 +448,7 @@ In general (but depending on the network that you are planning to index), there 
 2. [Transaction Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
 3. [Log Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
 
-Remember to use Mapping Filters in your manifest to filter events and calls. This improves indexing speed and mapping performance.
+Remember to use Mapping Filters in your manifest to filter just the data you wish to index. This improves indexing speed and mapping performance.
 
 Here's an example of how to use a transaction handler and log handler:
 
