@@ -112,8 +112,8 @@ We currently support the following scalar types:
 - `Float`
 - `Date`
 - `Boolean`
-- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](graphql.md#entity-relationships).
-- `JSON` can alternatively store structured data, please see [JSON type](graphql.md#json-type)
+- `<EntityName>` for nested relationship entities, you might use the defined entity's name as one of the fields. Please see in [Entity Relationships](#entity-relationships).
+- `JSON` can alternatively store structured data, please see [JSON type](#json-type)
 - `<EnumName>` types are a special kind of enumerated scalar that is restricted to a particular set of allowed values. Please see [GraphQL Enum](https://graphql.org/learn/schema/#enumeration-types)
 
 Non-nullable fields in the entity are indicated by `!`. Please see the example below:
@@ -186,7 +186,7 @@ In addition, when using GraphQL query Playground, these doc strings will automat
 
 To improve query performance, index an entity field simply by implementing the `@index` annotation on a non-primary-key field (you can also use [composite indexes](#composite-index)).
 
-`@index` annotations are not supported on any [JSON](graphql.md#json-type) object or a boolean field.
+`@index` annotations are not supported on any [JSON](#json-type) object or a boolean field.
 
 By default, indexes are automatically added to foreign keys and for JSON fields in the database, but only to enhance query service performance.
 
@@ -408,7 +408,7 @@ We support a fast, efficient way to perform full text search across multiple fie
 
 ::: warning Note
 
-This will create a new generated column and index in your Database. Adding full text search to an existing project via [project upgrade](./project-upgrades.md) or on an existing dataset might result in some performance issues when initially building these indexes.
+This will create a new generated column and index in your Database. Adding full text search to an existing project via [project upgrade](../project-upgrades.md) or on an existing dataset might result in some performance issues when initially building these indexes.
 
 :::
 
@@ -424,7 +424,7 @@ type NFT
 }
 ```
 
-To read about how to query full text fields, see [querying with full text search](../run_publish/query/graphql.md#full-text-search).
+To read about how to query full text fields, see [querying with full text search](../../run_publish/query/graphql.md#full-text-search).
 
 ## JSON type
 

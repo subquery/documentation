@@ -1,3 +1,3 @@
-- [BlockHandler](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [ActionHandlers](../../build/manifest/near.md#mapping-handlers-and-filters): On each and every transaction action that matches optional filter criteria, run a mapping function
+- [BlockHandler](../../build/manifest/chain-specific/near.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/chain-specific/near.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [ActionHandlers](../../build/manifest/chain-specific/near.md#mapping-handlers-and-filters): On each and every transaction action that matches optional filter criteria, run a mapping function

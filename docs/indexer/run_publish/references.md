@@ -258,7 +258,7 @@ subql-node -f . --local --profiler
 
 ### --query-limit
 
-**Positive Integer (default: `100`)** - The limit of items that can be retrieved by [store operations](../build/mapping/store.md) from within your mapping functions in each query.
+**Positive Integer (default: `100`)** - The limit of items that can be retrieved by [store operations](../build/mapping-functions/sandbox/store.md) from within your mapping functions in each query.
 
 ### reindex
 

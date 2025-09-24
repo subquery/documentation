@@ -65,13 +65,13 @@ Supported migrations:
 
 - Adding new entities
 - Removing entities (this is destructive)
-- Adding new fields (however only [nullable fields](./graphql.md#entities) are supported)
+- Adding new fields (however only [nullable fields](./graphql/reference.md#entities) are supported)
 - Removing fields (primary key `ID` can't be removed)
 - Index creation and removal
 - Enum creation or removal
-- Adding or removing new [foreign key relations](./graphql.md#entity-relationships)
+- Adding or removing new [foreign key relations](./graphql/reference.md#entity-relationships)
 - Updating existing fields (this is destructive)
-  - You can not update a [non-nullable fields](./graphql.md#entities) field to nullable
+  - You can not update a [non-nullable fields](./graphql/reference.md#entities) field to nullable
   - Please note: When field update is detected, the original field column will be dropped (with all existing data in that field), and a new column will be created with the new field types.
 
 Other notes:

@@ -3,10 +3,10 @@
 We provide a custom data source processor for [Substrate WASM contract](https://ink.substrate.io/why-webassembly-for-smart-contracts). This offers a simple way to filter and index both WASM and Substrate activity on many Polkadot networks within a single SubQuery project.
 
 :::warning Check out the Quick Start Guide
-There is a [friendly quick start guide that introduces SubQuery's Substrate WASM support by using an example project in Astar Network](../quickstart/quickstart_chains/polkadot-astar.md). This guide covers most of the topics shown in the following guide in a format more easy to understand. You can return here when you need specific technical support for the Substrate WASM data source processor.
+There is a [friendly quick start guide that introduces SubQuery's Substrate WASM support by using an example project in Astar Network](../../quickstart/quickstart_chains/polkadot-astar.md). This guide covers most of the topics shown in the following guide in a format more easy to understand. You can return here when you need specific technical support for the Substrate WASM data source processor.
 :::
 
-**You can also refer to the basic [Substrate WASM](../quickstart/quickstart_chains/polkadot-astar.md) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
+**You can also refer to the basic [Substrate WASM](../../quickstart/quickstart_chains/polkadot-astar.md) example projects with an event and call handler.** This project is also hosted live in the SubQuery Explorer [here](https://explorer.subquery.network/subquery/subquery/tutorial-substrate-wasm-starter).
 
 ## Getting started
 
@@ -58,7 +58,7 @@ const project: SubstrateProject<WasmDatasource> = {
 
 ## Call Handlers
 
-Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/CallHandler](../mapping-functions/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                          | Required | Description                                 |
 | ------ | --------------------------------------------- | -------- | ------------------------------------------- |
@@ -119,7 +119,7 @@ export async function handleWasmCall(
 
 ## Event Handlers
 
-Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#event-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/EventHandler](../mapping-functions/mapping/polkadot.md#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                           | Required | Description                                  |
 | ------ | ------------------------------ | -------- | -------------------------------------------- |
@@ -228,4 +228,4 @@ This is an extract from the `project.ts` manifest file.
 
 ## Known Limitations
 
-- Does not support [dynamic datasources](../build/dynamicdatasources.md) at the moment, which means we are unable to import and handle contracts dynamically.
+- Does not support [dynamic datasources](../dynamic-datasources.md) at the moment, which means we are unable to import and handle contracts dynamically.

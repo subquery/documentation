@@ -124,7 +124,7 @@ This is the manifest definitions that apply to all projects on all networks
 | **schema**      | [Schema Spec](#schema-spec)                | The location of your GraphQL schema file            |
 | **network**     | [Network Spec](#network-spec)              | Detail of the network to be indexed                 |
 | **dataSources** | [DataSource Spec](#datasource-spec)        | The datasource to your project                      |
-| **templates**   | [Templates Spec](../dynamicdatasources.md) | Allows creating new datasources from this templates |
+| **templates**   | [Templates Spec](../dynamic-datasources.md) | Allows creating new datasources from this templates |
 
 ### Schema Spec
 
@@ -234,7 +234,7 @@ When declaring a `range` use an string in the format of `"start - end"`. Both st
 
 If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../optimisation.md#simplifying-the-project-manifest).
 
-Note that there is also [dynamic datasources](../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+Note that there is also [dynamic datasources](../dynamic-datasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
 
 :::
 

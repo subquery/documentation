@@ -94,7 +94,7 @@ dataSources:
 
 :::
 
-The factory smart contracts mentioned above create new contract instances for every new safe. As a result, we must employ [dynamic data sources](../../build/dynamicdatasources.md) to establish indexers for each of these new contracts. To integrate the dynamic data sources, simply add the following code to the manifest file:
+The factory smart contracts mentioned above create new contract instances for every new safe. As a result, we must employ [dynamic data sources](../../build/dynamic-datasources.md) to establish indexers for each of these new contracts. To integrate the dynamic data sources, simply add the following code to the manifest file:
 
 ::: code-tabs
 

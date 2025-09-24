@@ -15,7 +15,7 @@ The final code of this project can be found [here](https://github.com/subquery/a
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql).
 
 Update the `schema.graphql` file as follows. In this project, you can see we are indexing all transactions related to the PLANET asset. Each entity has a number of properties, including id, blockheight, sender, receiver, and amount.
 
@@ -56,7 +56,7 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+Check out the [GraphQL Schema](../../build/graphql) documentation to get in-depth information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
 
@@ -64,8 +64,8 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.ts`) file works as an entry point to your Algorand project. It defines most of the details on how SubQuery will index and transform the chain data. For Algorand, there are two types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/algorand.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
+- [BlockHanders](../../build/manifest/chain-specific/algorand.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/chain-specific/algorand.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
@@ -104,7 +104,7 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Algorand Transaction that includes the asset ID `27165954` and is sent from the `ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754` (Planet) address. The `txType: axfer ` distinguishes the type of the transaction as an [asset transfer transaction](https://developer.algorand.org/docs/get-details/transactions/transactions/).
 
-Check out our [Manifest File](../../build/manifest/algorand.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+Check out our [Manifest File](../../build/manifest/chain-specific/algorand.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -159,7 +159,7 @@ Let’s understand how the above code works.
 
 Here, the function receives a `AlgorandTransaction` which includes all transaction data on the payload. We extract this data and then instantiate a new `Transaction` entity (using required properties `id`,`blockHeight` and `sender`) defined earlier in the `schema.graphql` file. After that, we add additional information about the payment (`receiver` and `amount`properties) and then use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping/algorand.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping-functions/mapping/algorand.md) documentation to get more information on mapping functions.
 
 <!-- @include: ../snippets/build.md -->
 

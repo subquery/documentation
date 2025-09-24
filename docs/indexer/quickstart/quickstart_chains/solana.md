@@ -14,10 +14,10 @@ The final code of this project can be found [here](https://github.com/subquery/s
 
 For Solana, there are four types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHandlers](../../build/manifest/solana.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/solana.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [InstructionHandlers](../../build/manifest/solana.md#mapping-handlers-and-filters): On each and every instruction that matches optional filter criteria, run a mapping function
-- [LogHandlers](../../build/manifest/solana.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/solana.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/chain-specific/solana.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [InstructionHandlers](../../build/manifest/chain-specific/solana.md#mapping-handlers-and-filters): On each and every instruction that matches optional filter criteria, run a mapping function
+- [LogHandlers](../../build/manifest/chain-specific/solana.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 
 We are indexing actions from the RNDR token, first you will need to import the Token Program IDL definition from [here](https://raw.githubusercontent.com/subquery/solana-subql-starter/refs/heads/main/Solana/solana-token-program-starter/idls/tokenprogram.idl.json). You can copy the entire JSON and save as a file `tokenprogram.idl.json` in the `/idls` directory.
@@ -58,7 +58,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running a `handleCheckedTransfer` mapping function whenever there is a `transferChecked` instruction on any transaction from the [RNDR token](https://solscan.io/token/rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof).
 
-Check out our [Manifest File](../../build/manifest/solana.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+Check out our [Manifest File](../../build/manifest/chain-specific/solana.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
@@ -150,7 +150,7 @@ Let’s understand how the above code works.
 For `handleCheckedTransfer`, the function here receives an `TransferCheckedInstruction` which includes instruction data in the payload. We extract the relevant accounts and confirm the mint is for the RNDR token. We then create a new `Transfer` entity that we defined in our `schema.graphql` and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
 ::: tip Note
-For more information on mapping functions, please refer to our [Mappings](../../build/mapping/solana.md) documentation.
+For more information on mapping functions, please refer to our [Mappings](../../build/mapping-functions/mapping/solana.md) documentation.
 :::
 
 

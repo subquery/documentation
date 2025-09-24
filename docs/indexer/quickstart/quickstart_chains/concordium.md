@@ -16,7 +16,7 @@ The final code of this project can be found [here](https://github.com/subquery/c
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql).
 
 Remove all existing entities and update the `schema.graphql` file as follows, here you can see we are indexing a variety of datapoints, including accounts, transfers, credit, debits, and payments.
 
@@ -67,7 +67,7 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+Check out the [GraphQL Schema](../../build/graphql) documentation to get in-depth information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
 
@@ -75,10 +75,10 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.ts`) file works as an entry point to your Concordium projects. It defines most of the details on how SubQuery will index and transform the chain data. For Concordium, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [Block handler](../../build/manifest/concordium.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [Transaction handlers](../../build/manifest/concordium.md#mapping-handlers-and-filters): On each and every Concordium transaction that matches optional filter criteria, run a mapping function
-- [TransactionEvent handler](../../build/manifest/concordium.md#mapping-handlers-and-filters): On each and every event related to a specific Concordium transaction that matches optional filter criteria, run a mapping function
-- [SpecialEvent handler](../../build/manifest/concordium.md#mapping-handlers-and-filters): On each and every Concordium special event that matches optional filter criteria, run a mapping function
+- [Block handler](../../build/manifest/chain-specific/concordium.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [Transaction handlers](../../build/manifest/chain-specific/concordium.md#mapping-handlers-and-filters): On each and every Concordium transaction that matches optional filter criteria, run a mapping function
+- [TransactionEvent handler](../../build/manifest/chain-specific/concordium.md#mapping-handlers-and-filters): On each and every event related to a specific Concordium transaction that matches optional filter criteria, run a mapping function
+- [SpecialEvent handler](../../build/manifest/chain-specific/concordium.md#mapping-handlers-and-filters): On each and every Concordium special event that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but we can walk through the different handlers.
 
@@ -131,7 +131,7 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is a Concordium transaction of type `TransactionSummaryType.AccountTransaction` wiht the type `transfer`. Additionally we run the `handleTransactionEvent` mapping function whenever there is any event on any transaction with the `TransactionEventTag.Updated` type. Finally, we have a `handleSpecialEvent` function which runs whenever there is a SpecialEvent of type `blockAccrueReward`.
 
-Check out our [Manifest File](../../build/manifest/concordium.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+Check out our [Manifest File](../../build/manifest/chain-specific/concordium.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -143,7 +143,7 @@ Follow these steps to add a mapping function:
 
 Navigate to the default mapping function in the `src/mappings` directory.
 
-There are four different classes of mapping functions for Concordium; [Block handlers](../../build/mapping/concordium.md#block-handler), [Transaction Handlers](../../build/mapping/concordium.md#transaction-handler), [Transaction Event Handlers](../../build/mapping/concordium.md#transaction-event-handler), and [Special Event Handlers](../../build/mapping/concordium.md#special-event-handler).
+There are four different classes of mapping functions for Concordium; [Block handlers](../../build/mapping-functions/mapping/concordium.md#block-handler), [Transaction Handlers](../../build/mapping-functions/mapping/concordium.md#transaction-handler), [Transaction Event Handlers](../../build/mapping-functions/mapping/concordium.md#transaction-event-handler), and [Special Event Handlers](../../build/mapping-functions/mapping/concordium.md#special-event-handler).
 
 Update the `mappingHandler.ts` file as follows (**note the additional imports**):
 
@@ -218,7 +218,7 @@ For the `handleTransaction` mapping function, the function receives a new `Conco
 
 For the `handleTransactionEvent` mapping function, the functions receives a new `ConcordiumTransactionEvent` payload to which it processes. Finally, the `handleSpecialEvent` mapping function is for `ConcordiumSpecialEvent`s.
 
-Check out our [Mappings](../../build/mapping/concordium.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping-functions/mapping/concordium.md) documentation to get more information on mapping functions.
 
 <!-- @include: ../snippets/ethereum-mapping-note.md -->
 

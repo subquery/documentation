@@ -5,9 +5,9 @@ In the [quick start](../quickstart/quickstart.md) guide, we very quickly ran thr
 Some of the following examples will assume you have successfully initialized the starter package in the [Quick start](../quickstart/quickstart.md) section. From that starter package, we'll walk through the standard process to customise and implement your SubQuery project.
 
 1. Initialise your project using `npx @subql/cli init PROJECT_NAME`.
-2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/ethereum.md).
-3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql.md).
-4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping/ethereum.md).
+2. Update the Manifest file (`project.ts`) to include information about your blockchain, and the entities that you will map - see [Manifest File](./manifest/introduction.md).
+3. Create GraphQL entities in your schema (`schema.graphql`) that defines the shape of the data that you will extract and persist for querying - see [GraphQL Schema](./graphql/reference.md).
+4. Add all the mapping functions (eg `mappingHandlers.ts`) you wish to invoke to transform chain data to the GraphQL entities that you have defined - see [Mapping](./mapping-functions/introduction.md).
 5. Generate, build, and publish your code to SubQuery Projects (or run in your own local node) - see how to [Run](../run_publish/run.md) and [Publish](../run_publish/introduction.md) your Starter Project in our quick start guide.
 
 ## Directory Structure
@@ -172,7 +172,7 @@ export async function handleUpdatedGravatarGravityLog(
 
 The Manifest `project.ts` file acts as the entry point for your project. It holds crucial information about how SubQuery will index and transform the chain data. It specifies where the data is being indexed from, and what on-chain events are being subscribed to.
 
-The Manifest can be in either TS, YAML, or JSON format. In all [our examples](./manifest), we use TS. Here is an [example](./manifest/ethereum.md) of what it looks like:
+The Manifest can be in either TS, YAML, or JSON format. In all [our examples](./manifest), we use TS. Here is an [example](./manifest/chain-specific/ethereum.md) of what it looks like:
 
 ```ts
 const project: EthereumProject = {
@@ -271,10 +271,10 @@ For more information, please check the full documentation about [Manifest File](
 
 The `schema.graphql` file outlines the various GraphQL schemas. The structure of this file essentially dictates the shape of your data from SubQuery. If you're new to writing in GraphQL schema language, consider exploring resources like [Schemas and Types](https://graphql.org/learn/schema/). Here are a few elements to take into consideration when setting up your GraphQL Schema:
 
-1. [Defining Entities](./graphql.md#defining-entities): In SubQuery, each entity should define a required `id` field with the type of `ID!`, serving as the unique primary key.
-2. [Supported Scalars and Types](./graphql.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
-3. [Entity Relationships](./graphql.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
-4. [Indexing](./graphql.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
+1. [Defining Entities](./graphql/reference.md#defining-entities): In SubQuery, each entity should define a required `id` field with the type of `ID!`, serving as the unique primary key.
+2. [Supported Scalars and Types](./graphql/reference.md#supported-scalars-and-types): SubQuery supports various scalar types like `ID`, `Int`, `String`, `BigInt`, `Float`, `Date`, `Boolean`, `<EntityName>`, `JSON`, and `<EnumName>`.
+3. [Entity Relationships](./graphql/reference.md#entity-relationships): An entity often has nested relationships with other entities. Setting the field value to another entity name will define a relationship between these two entities.
+4. [Indexing](./graphql/reference.md#indexing-by-non-primary-key-field): Enhance query performance by implementing the @index annotation on a non-primary-key field.
 
 Here's an example of what your GraphQL Here is an example of a schema which implements all of these recommendations, as well as a relationship of many-to-many:
 
@@ -340,7 +340,7 @@ npm run-script codegen
 
 :::
 
-This will create a new directory (or update the existing) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
+This will create a new directory (or update the existing) `src/types` which contains generated entity classes for each type you have defined previously in `schema.graphql`. These classes provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql/reference.md). All entities can be imported from the following directory:
 
 ```ts
 import { GraphQLEntity1, GraphQLEntity2 } from "../types";
@@ -444,9 +444,9 @@ All generated files could be found under `src/types/cosmwasm-interfaces` and `sr
 
 In general (but depending on the network that you are planning to index), there are three primary types of mapping functions:
 
-1. [Block Handlers](mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
-2. [Transaction Handlers](mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
-3. [Log Handlers](mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
+1. [Block Handlers](./mapping-functions/mapping/ethereum.md#block-handler): These capture information each time a new block is added to the chain. They are executed for every block and are primarily used when block-specific data is needed.
+2. [Transaction Handlers](./mapping-functions/mapping/ethereum.md#transaction-handler): These are used to capture information on certain transactions, generally when specific, predefined operations are performed on the chain.
+3. [Log Handlers](./mapping-functions/mapping/ethereum.md#log-handler): These are used to capture information when certain transaction logs occur in a new block, often as the output of a transaction. These events may trigger the mapping, allowing data source activity to be captured.
 
 Remember to use Mapping Filters in your manifest to filter just the data you wish to index. This improves indexing speed and mapping performance.
 

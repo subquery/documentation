@@ -32,9 +32,9 @@ The majority of changes occur in the project manifest (`project.ts`). This inclu
 - `name`
 - `description`
 - `network.chainId`: This will be the network identifier of the Substrate chain. In Substrate it is always the genesis hash of the network (hash of the first block). You can retrieve this easily by going to [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.api.onfinality.io%2Fpublic-ws#/explorer/query/0) and looking for the hash on **block 0** - e.g. for Kusama it is `0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe`.
-- `network.endpoint`: This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). Read more in [Network Spec](../../build/manifest/polkadot.md#network-spec).
+- `network.endpoint`: This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). Read more in [Network Spec](../../build/manifest/chain-specific/polkadot.md#network-spec).
 - `network.dictionary`: Unless you have already created a [dictionary](../../academy/tutorials_examples/dictionary.md), please comment out or remove this.
-- `network.chainTypes`: Please see the docs under [Custom Chains - Working Example](../../build/manifest/polkadot.md#working-example).
+- `network.chainTypes`: Please see the docs under [Custom Chains - Working Example](../../build/manifest/chain-specific/polkadot.md#working-example).
 
 **3. Update Readme**
 

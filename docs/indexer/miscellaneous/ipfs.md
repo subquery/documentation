@@ -12,7 +12,7 @@ In order to make deploying projects easier on the network, we use IPFS to packag
 3. `src/index.ts`: For Substrate based projects, if updating from `@polkadot/api` v6 (or earlier), update your `src/index.ts` to include [this line](https://github.com/subquery/subql-starter/blob/418440f09226694a0063c939ff3332530f3047c4/src/index.ts#L3).
 4. `project.ts`:
 
-   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.ts`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
+   - Make sure your project is using manifest version 1.0.0. You can check this by looking at the `specVersion` field in `project.ts`. If it is below 1.0.0, then run `subql migrate` and follow the [migration steps to upgrade](../build/manifest/chain-specific/polkadot.md#migrating-to-v100-badge-textupgrade-typewarning).
 
    - Check that the `datasources: mapping: file:` references your code entrypoint correctly. Usually this is `./dist/index.js`
 
@@ -31,7 +31,7 @@ In order to make deploying projects easier on the network, we use IPFS to packag
 
    We need to update the reference to the bundle in your `project.ts`. To do this you can update any processor file paths to `file: ./node_modules/@subql/<processor-name>/dist/bundle.js` and replace `<processor-name>` with the processor you are using. If you are using `@subql/datasource-processors` this package is now deprecated, you can find the relevant replacement from the new [datasource-processors repository](https://github.com/subquery/datasource-processors/tree/main/packages).
 
-   - If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
+   - If your project uses js/ts based custom [Substrate Chain Types](../build/manifest/chain-specific/polkadot.md#custom-chains) you will need to repeat the steps above but with the reference to your chain types.
 
 5. `docker-compose.yaml`: Update it to the [latest docker compose version](https://github.com/subquery/subql-starter/blob/main/Polkadot/Polkadot-starter/docker-compose.yml) and add [this directory](https://github.com/subquery/subql-starter/tree/main/Polkadot/Polkadot-starter/docker) to your repo. To test it we recommend running your project locally.
 

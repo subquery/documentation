@@ -63,7 +63,7 @@ With the number of new features we are adding to SubQuery, and the slight differ
 
 The manifest from version 3 is now written in Typescript by default, which includes better type safety, more advanced settings, and documentation to make it easier for developers to update and edit without having to consult our documentation. This step makes the development experience easier for developers of SubQuery, and also improves the discovery and documentation of new features and configuration options, it’s a relatively major change to our SDK that is surprisingly easy to make to your projects. For example, with typescript in your favourite code editor, you can see documentation and types for each field as you code your manifest file - easy!
 
-You can see examples of the new manifest in the Build > Manifest section of this documentation, for example; [Ethereum](../build/manifest/ethereum.md), [Cosmos](../build/manifest/cosmos.md), and [Polkadot](../build/manifest/polkadot.md).
+You can see examples of the new manifest in the Build > Manifest section of this documentation, for example; [Ethereum](../build/manifest/chain-specific/ethereum.md), [Cosmos](../build/manifest/chain-specific/cosmos.md), and [Polkadot](../build/manifest/chain-specific/polkadot.md).
 
 For Cosmos projects, in the new Typescript manifest, `chainTypes` have been renamed to `chaintypes`.
 
@@ -113,15 +113,15 @@ Index data based on a number of blocks since an event is hard since there is no 
 
 ### Trigger mapping function every N blocks
 
-There is a modulo indexer on our [block handlers](../build/manifest/ethereum.md#mapping-handlers-and-filters) that can be used to trigger a mapping function on every n blocks, or on any cron expression - if you are looking to have constantly refreshed prices after every 10 blocks for all known pools.
+There is a modulo indexer on our [block handlers](../build/manifest/chain-specific/ethereum.md#mapping-handlers-and-filters) that can be used to trigger a mapping function on every n blocks, or on any cron expression - if you are looking to have constantly refreshed prices after every 10 blocks for all known pools.
 
 ### Fetch all entities and iterate to update records
 
-See [Store](../build/mapping/store.md)
+See [Store](../build/mapping-functions/sandbox/store.md)
 
 ### Create/update multiple records at once
 
-See [Store](../build/mapping/store.md), which enables parallelised store operations, or `Promise.all(xx, yy)` that makes sense for performance
+See [Store](../build/mapping-functions/sandbox/store.md), which enables parallelised store operations, or `Promise.all(xx, yy)` that makes sense for performance
 
 ### Library used for blockchain queries
 
@@ -139,7 +139,7 @@ If you enable the [unsafe flag](../run_publish/references.md#--unsafe-query-serv
 
 ### Skipping a block
 
-Refer to the [Bypass Block](../build/manifest/ethereum.md#bypass-blocks) configuration, such as for EVM. This feature is also available for all other supported architectures.
+Refer to the [Bypass Block](../build/manifest/introduction.md#bypass-blocks) configuration, such as for EVM. This feature is also available for all other supported architectures.
 
 ### Unhealthy Indexer Status
 
@@ -187,7 +187,7 @@ global.atob = atob;
 
 ### `Cannot find module 'http'` error
 
-If you're encountering this issue, it's likely because you're trying to fetch external data in your mapping. Refer to the section on Third Party support ([Ethereum example](../build/mapping/ethereum.md#third-party-library-support---the-sandbox)) in the architecture mapping configuration guide, and make sure to enable the [`--unsafe`](../run_publish/references.md#--unsafe-node-service) flag.
+If you're encountering this issue, it's likely because you're trying to fetch external data in your mapping. Refer to the section on Third Party support ([Ethereum example](../build/mapping-functions/sandbox/sandbox.md#third-party-libraries)) in the architecture mapping configuration guide, and make sure to enable the [`--unsafe`](../run_publish/references.md#--unsafe-node-service) flag.
 
 ### Do multi-chain projects support [upgrades](../build/project-upgrades.md)?
 

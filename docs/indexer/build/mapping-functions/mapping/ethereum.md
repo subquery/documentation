@@ -1,21 +1,6 @@
 # EVM Mapping
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
-
-::: info EVM Compatibility
-This documentation applies to all EVM-compatible networks supported by SubQuery, including:
-- **Ethereum** (Layer 1)
-- **Layer 2 Solutions**: Arbitrum, Optimism, Polygon, Base
-- **Sidechains**: BNB Smart Chain (BSC), Avalanche C-Chain
-- **Other EVM Networks**: Gnosis, Flare, and other EVM-compatible chains
-
-All these networks use the same `@subql/types-ethereum` types and `@subql/node-ethereum` indexer since they are EVM-compatible.
-:::
-
-- Mappings are defined in the `src/mappings` directory and are exported as a function.
-- These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](../sandbox)
+This is the EVM specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
 
 There are different classes of mappings functions for EVM networks; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 

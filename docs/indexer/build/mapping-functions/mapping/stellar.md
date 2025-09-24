@@ -1,11 +1,6 @@
 # Stellar & Soroban Mapping
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
-
-- Mappings are defined in the `src/mappings` directory and are exported as a function.
-- These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](../sandbox)
+This is the Alogrand specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
 
 There are different classes of mapping functions for Stellar; [Block handlers](#block-handler), [Operation Handlers](#operation-handler), and [Effect Handlers](#effect-handler).
 

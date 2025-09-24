@@ -99,7 +99,7 @@ const project: SubstrateProject<FrontierEvmDatasource> = {
 
 ## Call Handlers
 
-Works in the same way as [substrate/CallHandler](../build/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/CallHandler](../mapping-functions/mapping/polkadot.md#call-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                                    | Required | Description                                |
 | ------ | ------------------------------------------------------- | -------- | ------------------------------------------ |
@@ -125,7 +125,7 @@ Changes from the `TransactionResponse` type:
 
 ## Event Handlers
 
-Works in the same way as [substrate/EventHandler](../build/mapping/polkadot.md#event-handler) except with a different handler argument and minor filtering changes.
+Works in the same way as [substrate/EventHandler](../mapping-functions/mapping/polkadot.md#event-handler) except with a different handler argument and minor filtering changes.
 
 | Field  | Type                                                      | Required | Description                                  |
 | ------ | --------------------------------------------------------- | -------- | -------------------------------------------- |

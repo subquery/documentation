@@ -4,7 +4,7 @@
 
 This guide serves as your gateway to a comprehensive guide on setting up a SubQuery indexer specifically tailored to index data from Chainlink Data Feeds. Our mission is to provide you with a detailed, step-by-step journey through the indexer setup process. We'll delve deep into the necessary configurations and explore the intricacies of the underlying logic. By the end of this guide, you'll have a clear understanding of how to index data for a complex oracle network like Chainlink.
 
-This project is an excellent example of [SubQuery's Dynamic Data sources](../../build/dynamicdatasources.md). Chainlink has a `ChainlinkFeedRegistry`, a factory contract that creates other chainlink aggregator contracts. It also gives a real life example of how you can use SubQuery's contract type-generation to access contract functions on the ABI smart contracts.
+This project is an excellent example of [SubQuery's Dynamic Data sources](../../build/dynamic-datasources.md). Chainlink has a `ChainlinkFeedRegistry`, a factory contract that creates other chainlink aggregator contracts. It also gives a real life example of how you can use SubQuery's contract type-generation to access contract functions on the ABI smart contracts.
 
 ## Setting Up the Indexer
 
@@ -160,11 +160,11 @@ It first retrieves the previous data feed using the address provided in the even
 
 ### Data Feed Aggregator Contracts
 
-As mentioned in the introduction to [Indexer Configuration](#setting-up-the-indexer), a fresh contract is linked to the [feed registry smart contract](#chainlinkfeedregistry) whenever a new feed is confirmed. We use SubQuery's [Dynamic Data Sources](../../build/dynamicdatasources.md) to create a new listener for each new price feed using the following template.
+As mentioned in the introduction to [Indexer Configuration](#setting-up-the-indexer), a fresh contract is linked to the [feed registry smart contract](#chainlinkfeedregistry) whenever a new feed is confirmed. We use SubQuery's [Dynamic Data Sources](../../build/dynamic-datasources.md) to create a new listener for each new price feed using the following template.
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
-The feed registry smart contract establishes a connection with a data feed contract for each new data feed. Consequently, we utilize [dynamic data sources](../../build/dynamicdatasources.md) to generate indexers for each new contract:
+The feed registry smart contract establishes a connection with a data feed contract for each new data feed. Consequently, we utilize [dynamic data sources](../../build/dynamic-datasources.md) to generate indexers for each new contract:
 
 ```ts
 {

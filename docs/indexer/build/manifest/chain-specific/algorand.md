@@ -169,8 +169,8 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                                   | Supported filter                                                                                                            |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| [algorand/BlockHandler](../mapping/algorand.md#block-handler)             | `modulo`, `timestamp`                                                                                                       |
-| [algorand/TransactionHandler](../mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `applicationArgs`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
+| [algorand/BlockHandler](../../mapping-functions/mapping/algorand.md#block-handler)             | `modulo`, `timestamp`                                                                                                       |
+| [algorand/TransactionHandler](../../mapping-functions/mapping/algorand.md#transaction-handler) | `txType`,`sender`, `receiver`, `applicationId`, `applicationArgs`, `nonParticipant`, `assetId`, `newFreezeStatus` `address` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, event, or transaction will trigger a mapping handler.
 
@@ -187,6 +187,6 @@ Only incoming data that satisfies the filter conditions will be processed by the
 
 If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many similar ERC20 contracts, there are [ways to better handle a large static list of contract addresses](../../optimisation.md#simplifying-the-project-manifest).
 
-Note that there is also [dynamic datasources](../../dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+Note that there is also [dynamic datasources](../../dynamic-datasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
 
 :::

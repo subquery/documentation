@@ -4,7 +4,7 @@ Handler functions define how chain data is transformed into the optimized GraphQ
 
 ## Overview
 - Mapping functions are defined in the `src/mappings` directory of a SubQuery project.
-- Each mapping function is associated with a specific event, call, or block type defined in the [Project Manifest](../project-manifest.md).
+- Each mapping function is associated with a specific event, call, or block type defined in the [Project Manifest](../manifest/introduction.md).
 - Mapping functions are called whenever the associated event, call, or block is encountered during indexing.
 - Mapping functions run in a [Sandboxed Environment](./sandbox/sandbox.md)
 

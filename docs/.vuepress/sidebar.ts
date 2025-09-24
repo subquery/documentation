@@ -597,7 +597,6 @@ export const getSidebar = (locale: string) =>
           `${locale}/indexer/miscellaneous/faq.md`,
           `${locale}/indexer/miscellaneous/ai.md`,
           `${locale}/indexer/miscellaneous/ipfs.md`,
-          `${locale}/indexer/miscellaneous/avalanche-eth-migration.md`,
           `${locale}/indexer/miscellaneous/env-support.md`,
         ],
       },

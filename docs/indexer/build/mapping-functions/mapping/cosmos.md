@@ -1,10 +1,6 @@
 # Cosmos Mapping
 
-Mapping functions define how chain data is transformed into the optimised GraphQL entities that we have previously defined in the `schema.graphql` file.
-
-- Mappings are defined in the `src/mappings` directory and are exported as a function.
-- These mappings are also exported in `src/index.ts`.
-- The mappings files are reference in `project.ts` under the mapping handlers.
+This is the Cosmos specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
 
 There are different classes of mappings functions for Cosmos; [Block handlers](#block-handler), [Event Handlers](#event-handler), [Transaction Handlers](#transaction-handler), and [Message Handlers](#message-handler).
 
