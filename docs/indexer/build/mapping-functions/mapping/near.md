@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for NEAR; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Action Handlers](#action-handler).
 
@@ -34,7 +34,7 @@ export async function handleBlock(block: NearBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Transaction Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Transaction Filters](../manifest/chain-specific/near#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { NearTransaction } from "@subql/types-near";
@@ -58,7 +58,7 @@ The `NearTransaction` encapsulates transaction info, result, the corresponding b
 
 ## Receipt Handler
 
-You can use receipt handlers to capture information about each of the receipts in a block. To achieve this, a defined ReceiptHandler will be called once for every receipt. You should use [Receipt Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter receipts to reduce the time it takes to index data and improve mapping performance.
+You can use receipt handlers to capture information about each of the receipts in a block. To achieve this, a defined ReceiptHandler will be called once for every receipt. You should use [Receipt Filters](../manifest/chain-specific/near#mapping-handlers-and-filters) in your manifest to filter receipts to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { NearTransactionReceipt } from "@subql/types-near";
@@ -82,7 +82,7 @@ The `NearReceipt` encapsulates receipt info, result, the corresponding block det
 
 ## Action Handler
 
-You can use action handlers to capture information from each action in a transaction. To achieve this, a defined ActionHandler will be called once for every action. You should use [Mapping Filters](../manifest/near.md#mapping-handlers-and-filters) in your manifest to filter actions to reduce the time it takes to index data and improve mapping performance.
+You can use action handlers to capture information from each action in a transaction. To achieve this, a defined ActionHandler will be called once for every action. You should use [Mapping Filters](../manifest/chain-specific/near#mapping-handlers-and-filters) in your manifest to filter actions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { NearAction, Transfer } from "@subql/types-near";

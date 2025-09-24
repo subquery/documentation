@@ -15,9 +15,11 @@ All these networks use the same `@subql/types-ethereum` types and `@subql/node-e
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for EVM networks; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
+
+
 
 ## Block Handler
 
@@ -38,7 +40,11 @@ export async function handleBlock(block: EthereumBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+::: info Generated Types
+EVM has codegen for **Transaction** and **Log** handler inputs which wil create types in `src/types/abi-interfaces`. This provides more details types for the arguments to transactions and logs. It is recommeneded to use these generated types but there is also the more generic `EthereumTransaction` and `EthereumLog` types available from `@subql/types-ethereum`.
+:::
+
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/chain-specific/ethereum#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { Approval } from "../types";
@@ -60,7 +66,7 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/ethereum.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/chain-specific/ethereum#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { Transaction } from "../types";

@@ -16,7 +16,96 @@ The best way to show how to use dynamic data source is with an example.
 
 The below example is for a decentralised exchange that has a factory contract which deploys a new contract when a trading pair is added. When the project is run it's not possible to know the addresses of all trading pair contract that have been created or will be created. Data sources can be dynamically created by a mapping handler from a template in order to index the newly created trading pair contracts.
 
-### `project.yaml`
+### Project Manifest
+
+::: code-tabs
+@tab `project.ts`
+
+```ts
+import {
+  EthereumProject
+  EthereumDatasourceKind,
+  EthereumHandlerKind,,
+} from "@subql/types-ethereum";
+
+const manifest: EthereumProject = {
+  specVersion: "1.0.0",
+  name: "example-project",
+  version: "1.0.0",
+  description: "",
+  repository: "",
+  schema: {
+    file: "./schema.graphql",
+  },
+  network: {
+    // For Ethereum we use chainId instead of genesisHash
+    chainId: "1284", // Moonbeam’s EVM chainId (replace if targeting a different network)
+    endpoint: ["https://rpc.api.moonbeam.network"],
+  },
+  dataSources: [
+    {
+      kind: EthereumDatasourceKind.Runtime,
+      startBlock: 1358833,
+      options: {
+        abi: "exchangeFactory",
+        address: "0x0000000000000000000000000000000000000000",
+      },
+      assets: {
+        exchangeFactory: {
+          file: "./src/exchangeFactory.abi.json",
+        },
+      },
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleNewTradingPair",
+            kind: EthereumHandlerKind.Log,
+            filter: {
+              topics: [
+                "newTradingPair(address,address,address)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+  templates: [
+    {
+      name: "TradingPair",
+      kind: EthereumDatasourceKind.Runtime,
+      options: {
+        abi: "tradingPair",
+        // no address yet, will be filled when instantiated dynamically
+      },
+      assets: {
+        tradingPair: {
+          file: "./src/tradingPair.abi.json",
+        },
+      },
+      mapping: {
+        file: "./dist/index.js",
+        handlers: [
+          {
+            handler: "handleLiquidityAdded",
+            kind: EthereumHandlerKind.Log,
+            filter: {
+              topics: [
+                "liquidityAdded(address,uint256,uint256)",
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+export default manifest;
+```
+
+@tab `project.yaml`
 
 ```yaml
 specVersion: 1.0.0
@@ -27,11 +116,11 @@ repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: "0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527"
-  chaintypes:
-    file: "./types.yaml"
+  chainId: "1284" # Moonbeam’s EVM chainId (replace if targeting a different network)
+  endpoint:
+    - https://rpc.api.moonbeam.network
 dataSources:
-  - kind: substrate/Moonbeam
+  - kind: ethereum/Runtime
     startBlock: 1358833
     processor:
       file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
@@ -45,14 +134,14 @@ dataSources:
       file: ./dist/index.js
       handlers:
         - handler: handleNewTradingPair
-          kind: substrate/MoonbeamEvent
+          kind: ethereum/LogHandler
           filter:
             topics:
               - newTradingPair(address exchange, address token1, address token2)
 
 templates:
   - name: TradingPair
-    kind: substrate/Moonbeam
+    kind: ethereum/Runtime
     processor:
       file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
@@ -65,11 +154,12 @@ templates:
       file: ./dist/index.js
       handlers:
         - handler: handleLiquidityAdded
-          kind: substrate/MoonbeamEvent
+          kind: ethereum/LogHandler
           filter:
             topics:
               - liquidityAdded(address provider, uint256 amount1, uint256 amount2)
 ```
+:::
 
 ### `mappingHandlers.ts`
 

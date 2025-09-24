@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for Starknet; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), and [Log Handlers](#log-handler).
 
@@ -28,7 +28,7 @@ export async function handleBlock(block: StarknetBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/starknet.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../../manifest/chain-specific/starknet.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 We store the decoded calls in the transaction object, so you can easily access the decoded calls and their args in the transaction object.
 To distinguish between different calls types, you can use the `selector` field in the decoded call object.
@@ -67,7 +67,7 @@ export async function handleTransaction(
 
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/starknet.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../../manifest/chain-specific/starknet.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { StarknetLog } from "@subql/types-starknet";

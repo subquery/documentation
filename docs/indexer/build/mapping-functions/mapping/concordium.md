@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for Concordium: [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), [Transaction Event Handlers](#transaction-event-handler) and [Special Event Handlers](#special-event-handler).
 
@@ -30,7 +30,7 @@ export async function handleBlock(block: ConcordiumBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/concordium.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/chain-specific/concordium#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { ConcordiumTransaction } from "@subql/types-concordium";
@@ -52,7 +52,7 @@ export async function handleTransaction(
 
 ## Transaction Event Handler
 
-You can use transaction event handlers to capture information about each of the transaction events in a block. To achieve this, a defined TransactionEventHandler will be called once for every transaction event. You should use [Mapping Filters](../manifest/concordium.md#mapping-handlers-and-filters) in your manifest to filter transactions events to reduce the time it takes to index data and improve mapping performance.
+You can use transaction event handlers to capture information about each of the transaction events in a block. To achieve this, a defined TransactionEventHandler will be called once for every transaction event. You should use [Mapping Filters](../manifest/chain-specific/concordium#mapping-handlers-and-filters) in your manifest to filter transactions events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { ConcordiumTransactionEvent } from "@subql/types-concordium";
@@ -74,7 +74,7 @@ export async function handleTransactionEvent(
 
 ## Special Event Handler
 
-You can use special event handlers to capture information about each of the special events in a block. To achieve this, a defined SpecialEventHandler will be called once for every special event. You should use [Mapping Filters](../manifest/concordium.md#mapping-handlers-and-filters) in your manifest to filter special events to reduce the time it takes to index data and improve mapping performance.
+You can use special event handlers to capture information about each of the special events in a block. To achieve this, a defined SpecialEventHandler will be called once for every special event. You should use [Mapping Filters](../manifest/chain-specific/concordium#mapping-handlers-and-filters) in your manifest to filter special events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { ConcordiumSpecialEvent } from "@subql/types-concordium";

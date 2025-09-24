@@ -1,22 +1,12 @@
-# EVM Manifest File
+# Introduction
 
 The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. It clearly indicates where we are indexing data from, and to what on chain events we are subscribing to.
-
-::: info EVM Compatibility
-This documentation applies to all EVM-compatible networks supported by SubQuery, including:
-- **Ethereum** (Layer 1)
-- **Layer 2 Solutions**: Arbitrum, Optimism, Polygon, Base
-- **Sidechains**: BNB Smart Chain (BSC), Avalanche C-Chain
-- **Other EVM Networks**: Gnosis, Flare, and other EVM-compatible chains
-
-All these networks use the same manifest structure and `@subql/node-ethereum` runner since they are EVM-compatible.
-:::
 
 The Manifest can be in either Typescript, Yaml, or JSON format.
 
 With the number of new features we are adding to SubQuery, and the slight differences between each chain that mostly occur in the manifest, the project manifest is now written by default in Typescript. This means that you get a fully typed project manifest with documentation and examples provided your code editor.
 
-Below is a standard example of a basic `project.ts`.
+Below is a standard example of a basic ethereum `project.ts`.
 
 ```ts
 import {
@@ -58,7 +48,6 @@ const project: EthereumProject = {
      # We suggest providing an array of endpoints for increased speed and reliability
      */
     endpoint: ["https://ethereum.rpc.subquery.network/public"],
-    dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary",
   },
   dataSources: [
     {
@@ -112,73 +101,15 @@ const project: EthereumProject = {
 export default project;
 ```
 
-Below is a standard example of the legacy YAML version (`project.yaml`).
+## Structure Overview
 
-:::details Legacy YAML Manifest
+For all networks the manifest contains the same basic structure. It includes some meta information, details on what network the project is for, references to specific files like the graphql schema and the datasources of what on chain data to collect.
 
-```yml
-specVersion: "1.0.0"
-
-name: "ethereum-subql-starter"
-version: "0.0.1"
-runner:
-  node:
-    name: "@subql/node-ethereum"
-    version: "*"
-  query:
-    name: "@subql/query"
-    version: "*"
-description: "This project can be use as a starting point for developing your new Ethereum SubQuery project"
-repository: "https://github.com/subquery/ethereum-subql-starter"
-
-schema:
-  file: "./schema.graphql"
-
-network:
-  # chainId is the EVM Chain ID, for Ethereum this is 1
-  # https://chainlist.org/chain/1
-  chainId: "1"
-  # This endpoint must be a public non-pruned archive node
-  # We recommend providing more than one endpoint for improved reliability, performance, and uptime
-  # Public nodes may be rate limited, which can affect indexing speed
-  # When developing your project we suggest getting a private API key and using endpoint config
-  endpoint: ["https://ethereum.rpc.subquery.network/public"]
-  # Recommended to provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://gx.api.subquery.network/sq/subquery/eth-dictionary"
-
-dataSources:
-  - kind: ethereum/Runtime
-    startBlock: 15695385
-    options:
-      # Must be a key of assets
-      abi: erc20
-      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" # this is the contract address for wrapped ether https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
-    assets:
-      erc20:
-        file: "erc20.abi.json"
-    mapping:
-      file: "./dist/index.js"
-      handlers:
-        - handler: handleTransaction
-          kind: ethereum/TransactionHandler
-          filter:
-            ## The function can either be the function fragment or signature
-            # function: '0x095ea7b3'
-            # function: '0x7ff36ab500000000000000000000000000000000000000000000000000000000'
-            # function: null - this will filter for native transfers that have no contract calls
-            function: approve(address spender, uint256 rawAmount)
-        - handler: handleLog
-          kind: ethereum/LogHandler
-          filter:
-            topics:
-              ## Follows standard log filters https://docs.ethers.io/v5/concepts/events/
-              - Transfer(address indexed from, address indexed to, uint256 amount)
-              # address: "0x60781C2586D68229fde47564546784ab3fACA982"
-```
-
-:::
+The main differences between different networks is in the `dataSources` and the `network` sections. The `dataSources` largely differ based on handler types and the filters available to them, there are also some differences when it comes to contract definitions and some other minor configurations.
 
 ## Overview
+
+This is the manifest definitions that apply to all projects on all networks
 
 ### Top Level Spec
 
@@ -205,31 +136,29 @@ dataSources:
 
 If you start your project by using the `npx @subql/cli init` command, you'll generally receive a starter project with the correct network settings. If you are changing the target chain of an existing project, you'll need to edit the [Network Spec](#network-spec) section of this manifest.
 
-The `chainId` is the network identifier of the blockchain. Examples include:
-- **Ethereum**: `1` (mainnet), `11155111` (Sepolia)
-- **Polygon**: `137` (mainnet), `80001` (Mumbai testnet)
-- **BNB Smart Chain**: `56` (mainnet), `97` (testnet)
-- **Arbitrum**: `42161` (One), `421614` (Sepolia)
-- **Optimism**: `10` (mainnet), `11155420` (Sepolia)
-- **Avalanche**: `43114` (C-Chain)
-- **Base**: `8453` (mainnet), `84532` (Sepolia)
-
-For a complete list of chain IDs, see https://chainlist.org/
-
-Additionally you will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
-
-- Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
-- Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
-- Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
-
-Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
-
 | Field            | Type                                                    | Description                                                                                                                                                                                                 |
 | ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **chainId**      | String                                                  | A network identifier for the blockchain                                                                                                                                                                     |
 | **endpoint**     | String or String[] or Record\<String, IEndpointConfig\> | Defines the endpoint of the blockchain to be indexed, this can be a string, an array of endpoints, or a record of endpoints to [endpoint configs](#endpoint-config) - **This must be a full archive node**. |
-| **dictionary**   | String                                                  | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
-| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                                               |
+| **dictionary**   | String                                                  | This should be automatically set from our registry but if you have your own dictiionary you can set it here - read [how a SubQuery Dictionary works](../../academy/tutorials_examples/dictionary.md).                    |
+| **bypassBlocks** | Array                                                   | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)
+
+
+#### Endpoint
+You will need to update the `endpoint`. This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). We suggest providing an array of endpoints as it has the following benefits:
+
+- Increased speed - When enabled with [worker threads](../../run_publish/references.md#w---workers), RPC calls are distributed and parallelised among RPC providers. Historically, RPC latency is often the limiting factor with SubQuery.
+- Increased reliability - If an endpoint goes offline, SubQuery will automatically switch to other RPC providers to continue indexing without interruption.
+- Reduced load on RPC providers - Indexing is a computationally expensive process on RPC providers, by distributing requests among RPC providers you are lowering the chance that your project will be rate limited.
+- You can also configure headers for each endpoint using the [Endpoint Config](#endpoint-config) section below.
+- When you publish your project the endpoint wont be included, this will need to be set in the node configuration.
+
+Public nodes may be rate limited which can affect indexing speed, when developing your project we suggest getting a private API key from a professional RPC provider.
+
+
+::: note
+Some networks have additional properties or different names. Please seethe specific network documentation for more details.
+:::
 
 ### Runner Spec
 
@@ -262,113 +191,30 @@ Public nodes may be rate limited which can affect indexing speed, when developin
 | **unsafe**            | Boolean (false)  | Removes all sandbox restrictions and allows access to all inbuilt node packages as well as being able to make network requests. WARNING: this can make your project non-deterministic.                                                                                                    |
 | **skipTransactions**  | Boolean (false)  | If your project contains only event handlers and you don't access any other block data except for the block header you can speed your project up. Handlers should be updated to use `LightEthereumLog` instead of `EthereumLog` to ensure you are not accessing data that is unavailable. |
 
+
 ### Datasource Spec
 
 Defines the data that will be filtered and extracted and the location of the mapping function handler for the data transformation to be applied.
 
 | Field          | Type         | Description                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **kind**       | string       | [ethereum/Runtime](#data-sources-and-mapping)                                                                                                                                                                                                                                                                                                                                  |
+| **kind**       | string       | This is almost always using the default runtime kind unless a datasource processor is used. e.g `ethereum/Runtime`                                                                                                                                                                                                                                                                                                                                  |
 | **startBlock** | Integer      | This changes your indexing start block for this datasource, set this as high as possible to skip initial blocks with no relevant data                                                                                                                                                                                                                                          |
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
-| **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
+| **mapping**    | Mapping Spec |
+
 
 ### Mapping Spec
 
 | Field                  | Type                         | Description                                                                                                                      |
 | ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **handlers & filters** | Default handlers and filters | List all the [mapping functions](../mapping/ethereum.md) and their corresponding handler types, with additional mapping filters. |
+| **file**               | string                       | This should generally be `"./dist/index.js"` unless you're using your own build process.                                         |
+| **handlers**           | Default handlers and filters | List all the mapping functions and their corresponding handler types, with additional mapping filters.                           |
 
-## Data Sources and Mapping
-
-In this section, we will talk about the default Ethereum runtime and its mapping. Here is an example:
-
-```ts
-{
-  dataSources: [
-    {
-      kind: EthereumDatasourceKind.Runtime, // Indicates that this is default runtime
-      startBlock: 1, // This changes your indexing start block, set this higher to skip initial blocks with less data
-      options: {
-        // Must be a Record of assets
-        abi: "erc20",
-        // # this is the contract address for your target contract
-        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-      },
-      assets: new Map([["erc20", { file: "./abis/erc20.abi.json" }]]),
-      mapping: {
-        file: "./dist/index.js", // Entry path for this mapping
-        handlers: [
-          /* Enter handers here */
-        ],
-      },
-    },
-  ];
-}
-```
-
-### Mapping Handlers and Filters
-
-The following table explains filters supported by different handlers.
-
-**Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `LogHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
-
-| Handler                                                                   | Supported filter                                                                                    |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [ethereum/BlockHandler](../mapping/ethereum.md#block-handler)             | `modulo`, `timestamp`                                                                               |
-| [ethereum/TransactionHandler](../mapping/ethereum.md#transaction-handler)| `function` filters (either be the function fragment or signature), `from` (address), `to` (address), `type` ("0x0" for legacy, "0x1" for access type lists, "0x2" for dynamic fees and "0x3" for blob transactions)  |
-| [ethereum/LogHandler](../mapping/ethereum.md#log-handler)                 | `topics` filters, and `address`                                                                     |
-
-Default runtime mapping filters are an extremely useful feature to decide what block, event, or extrinsic will trigger a mapping handler.
+This is specific to each network, please see the specific network documentation for more details. Default runtime mapping filters are an extremely useful feature to decide what block, or transaction will trigger a mapping handler.
 
 Only incoming data that satisfies the filter conditions will be processed by the mapping functions. Mapping filters are optional but are highly recommended as they significantly reduce the amount of data processed by your SubQuery project and will improve indexing performance.
 
-The `modulo` filter allows handling every N blocks, which is useful if you want to group or calculate data at a set interval. The following example shows how to use this filter.
-
-```yml
-filter:
-  modulo: 50 # Index every 50 blocks: 0, 50, 100, 150....
-```
-
-The `timestamp` filter is very useful when indexing block data with specific time intervals between them. It can be used in cases where you are aggregating data on a hourly/daily basis. It can be also used to set a delay between calls to `blockHandler` functions to reduce the computational costs of this handler.
-
-The `timestamp` filter accepts a valid cron expression and runs on schedule against the timestamps of the blocks being indexed. Times are considered on UTC dates and times. The block handler will run on the first block that is after the next iteration of the cron expression.
-
-```yml
-filter:
-  # This cron expression will index blocks with at least 5 minutes interval
-  # between their timestamps starting at startBlock given under the datasource.
-  timestamp: "*/5 * * * *"
-```
-
-::: tip Note
-We use the [cron-converter](https://github.com/roccivic/cron-converter) package to generate unix timestamps for iterations out of the given cron expression. So, make sure the format of the cron expression given in the `timestamp` filter is compatible with the package.
-:::
-
-Some common examples
-
-```yml
-  # Every minute
-  timestamp: "* * * * *"
-  # Every hour on the hour (UTC)
-  timestamp: "0 * * * *"
-  # Every day at 1am UTC
-  timestamp: "0 1 * * *"
-  # Every Sunday (weekly) at 0:00 UTC
-  timestamp: "0 0 * * 0"
-```
-
-::: info Note
-When executing `subql codegen`, it will check if topics and functions are valid.
-:::
-
-## Real-time indexing (Block Confirmations)
-
-As indexers are an additional layer in your data processing pipeline, they can introduce a massive delay between when an on-chain event occurs and when the data is processed and able to be queried from the indexer.
-
-SubQuery provides real time indexing of unconfirmed data directly from the RPC endpoint that solves this problem. SubQuery takes the most probabilistic data before it is confirmed to provide to the app. In the unlikely event that the data isn’t confirmed and a reorg occurs, SubQuery will automatically roll back and correct its mistakes quickly and efficiently - resulting in an insanely quick user experience for your customers.
-
-To control this feature, please adjust the [--block-confirmations](../../run_publish/references.md#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../run_publish/references.md#disable-historical) is enabled (enabled by default). The default block confirmations for SubQuery projects is currently 200 blocks.
 
 ## Bypass Blocks
 
@@ -406,10 +252,14 @@ Here is an example of how to set an API key in the header of RPC requests in you
         headers: {
           "x-api-key": "your-api-key",
         },
-        // NOTE: setting this to 0 will not use batch requests
-        batchSize: 5
       }
     }
   }
 }
 ```
+
+## Block Filters
+
+All networks support the same `modulo` and `timestamp` filters for block handlers.
+
+`modulo` and `timestamp` are common block filters and are described in the [overview](../introduction#block-filters)

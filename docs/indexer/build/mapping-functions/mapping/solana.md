@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for Solana; [Block handlers](#block-handler), [Transaction Handlers](#transaction-handler), [Instruction Handlers](#instruction-handler), and [Log Handlers](#log-handler).
 
@@ -28,7 +28,7 @@ export async function handleBlock(block: SolanaBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/solana.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../../manifest/chain-specific/solana.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { Transaction } from "../types";
@@ -49,7 +49,7 @@ export async function handleTransaction(tx: SolanaTransaction): Promise<void> {
 
 ## Instruction Handler
 
-You can use instruction handlers to capture information about each of the instructions in a block. To achieve this, a defined InstructionHandler will be called once for every instruction. You should use [Mapping Filters](../manifest/solana.md#mapping-handlers-and-filters) in your manifest to filter instructions to reduce the time it takes to index data and improve mapping performance.
+You can use instruction handlers to capture information about each of the instructions in a block. To achieve this, a defined InstructionHandler will be called once for every instruction. You should use [Mapping Filters](../../manifest/chain-specific/solana.md#mapping-handlers-and-filters) in your manifest to filter instructions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { Transfer } from "../types";
@@ -81,7 +81,7 @@ export async function handleInstruction(inst: TransferCheckedInstruction): Promi
 
 ## Log Handler
 
-You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/solana.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+You can use log handlers to capture information when certain logs are included on transactions. During the processing, the log handler will receive a log as an argument with the log's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../../manifest/chain-specific/solana.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { Log } from "../types";

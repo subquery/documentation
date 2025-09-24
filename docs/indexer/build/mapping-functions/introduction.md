@@ -22,7 +22,46 @@ All handler functions are async and return a `Promise<void>`. This is to allow f
 
 ### Loading and Storing Data
 
-Within the handler functions you will typically load and store data using the generated entity classes. These classes are generated based on the `schema.graphql` file and provide a type-safe way to interact with the data store.
+Within the handler functions you will typically load and store data using the generated entity classes. These classes are generated based on the `schema.graphql` file and provide a type-safe way to interact with the data store. You can find all the details about the store in the [Store documentation](./sandbox/store.md).
+
+
+### Example
+
+```ts
+/**
+ * The handler function for an event.
+ * The function name "handleEvent" will be referenced in the project manifest file.
+ * The function takes a single argument of type Event.
+ * The type of this will depend on the handler type and the network being indexed.
+*/
+async function handleEvent(event: Event): Promise<void> {
+
+  // Create a new Transfer entity. The Transfer class is generated based on the schema.graphql file
+  const transfer = Transfer.create({
+    id: `${event.transaction.hash.toHex()}-${event.logIndex.toString()}`,
+    from: event.params.from,
+    to: event.params.to,
+    value: event.params.value,
+    blockNumber: event.block.number,
+    timestamp: event.block.timestamp,
+  });
+
+  // Persist the entity to the store
+  await transfer.save();
+
+  // We can also load existing entities from the store, update them, and savs.
+  let account = Account.get(event.params.from);
+  if (!account) {
+    account = Account.create({
+      id: event.params.from,
+      balance: BigInt(0),
+    });
+  }
+  account.balance -= event.params.value;
+  await account.save();
+}
+
+````
 
 ## Specifics
 

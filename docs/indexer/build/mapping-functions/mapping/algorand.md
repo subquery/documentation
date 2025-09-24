@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mappings functions for Algorand: [Block handlers](#block-handler), and [Transaction Handlers](#transaction-handler).
 
@@ -30,7 +30,7 @@ export async function handleBlock(block: AlgorandBlock): Promise<void> {
 
 ## Transaction Handler
 
-You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/algorand.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/chain-specific/algorand#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { AlgorandTransaction } from "@subql/types-algorand";
@@ -59,4 +59,3 @@ const txGroup: AlgorandTransaction[] = tx.block.getTransactionsByGroup(
   tx.group!,
 );
 ```
-

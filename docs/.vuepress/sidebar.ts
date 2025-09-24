@@ -448,16 +448,24 @@ export const getSidebar = (locale: string) =>
           {
             text: "Project Manifest",
             collapsible: true,
+            link: `${locale}/indexer/build/manifest/introduction`,
             children: [
-              `${locale}/indexer/build/manifest/ethereum.md`,
-              `${locale}/indexer/build/manifest/algorand.md`,
-              `${locale}/indexer/build/manifest/concordium.md`,
-              `${locale}/indexer/build/manifest/cosmos.md`,
-              `${locale}/indexer/build/manifest/near.md`,
-              `${locale}/indexer/build/manifest/polkadot.md`,
-              `${locale}/indexer/build/manifest/solana.md`,
-              `${locale}/indexer/build/manifest/starknet.md`,
-              `${locale}/indexer/build/manifest/stellar.md`,
+              `${locale}/indexer/build/manifest/introduction.md`,
+              {
+                text: "Chain Specific Manifests",
+                collapsible: true,
+                children: [
+                  `${locale}/indexer/build/manifest/chain-specific/ethereum.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/algorand.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/concordium.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/cosmos.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/near.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/polkadot.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/solana.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/starknet.md`,
+                  `${locale}/indexer/build/manifest/chain-specific/stellar.md`,
+                ],
+              },
             ],
           },
           {

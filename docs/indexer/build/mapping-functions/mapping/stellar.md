@@ -5,7 +5,7 @@ Mapping functions define how chain data is transformed into the optimised GraphQ
 - Mappings are defined in the `src/mappings` directory and are exported as a function.
 - These mappings are also exported in `src/index.ts`.
 - The mappings files are reference in `project.ts` under the mapping handlers.
-- The mappings are run from within a [Sandbox](./sandbox.md)
+- The mappings are run from within a [Sandbox](../sandbox)
 
 There are different classes of mapping functions for Stellar; [Block handlers](#block-handler), [Operation Handlers](#operation-handler), and [Effect Handlers](#effect-handler).
 
@@ -30,7 +30,7 @@ export async function handleBlock(block: StellarBlock): Promise<void> {
 
 ## Transaction Handler
 
-Transaction handlers can be used to capture information about transactions that occur on the chain. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+Transaction handlers can be used to capture information about transactions that occur on the chain. You should use [Mapping Filters](../../manifest/chain-specific/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ::: info Soroban Transactions
 
@@ -54,7 +54,7 @@ export async function handleTransaction(
 
 ## Operation Handler
 
-Operation handlers can be used to capture information about specific operations that occur on the chain. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+Operation handlers can be used to capture information about specific operations that occur on the chain. You should use [Mapping Filters](../../manifest/chain-specific/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleOperation(
@@ -76,7 +76,7 @@ export async function handleOperation(
 
 ## Effect Handler
 
-Effect handlers can be used to capture information about the effects of operations that occur on the chain. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+Effect handlers can be used to capture information about the effects of operations that occur on the chain. You should use [Mapping Filters](../../manifest/chain-specific/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCredit(
@@ -96,9 +96,9 @@ export async function handleCredit(
 
 ## Event Handler
 
-You can use event handlers to capture information when certain events are included on transactions. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
+You can use event handlers to capture information when certain events are included on transactions. You should use [Mapping Filters](../../manifest/chain-specific/stellar.md#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
 
-During processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/stellar.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During processing, the event handler will receive a event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../../manifest/chain-specific/stellar.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { TransferEvent } from "../types";
