@@ -8,7 +8,7 @@ Handler functions define how chain data is transformed into the optimized GraphQ
 - Mapping functions are called whenever the associated event, call, or block is encountered during indexing.
 - Mapping functions run in a [Sandboxed Environment](./sandbox/sandbox.md)
 
-## Function Strucutre
+## Function Structure
 
 ### Inputs
 
