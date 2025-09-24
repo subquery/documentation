@@ -1,6 +1,6 @@
 # Stellar & Soroban Mapping
 
-This is the Alogrand specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
+This is the Stellar specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
 
 There are different classes of mapping functions for Stellar; [Block handlers](#block-handler), [Operation Handlers](#operation-handler), and [Effect Handlers](#effect-handler).
 
