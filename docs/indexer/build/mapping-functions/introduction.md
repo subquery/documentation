@@ -49,7 +49,7 @@ async function handleEvent(event: Event): Promise<void> {
   // Persist the entity to the store
   await transfer.save();
 
-  // We can also load existing entities from the store, update them, and savs.
+  // We can also load existing entities from the store, update them, and save them.
   let account = Account.get(event.params.from);
   if (!account) {
     account = Account.create({
