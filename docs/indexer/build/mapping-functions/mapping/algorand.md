@@ -1,6 +1,6 @@
 # Algorand Mapping
 
-This is the Alogrand specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
+This is the Algorand specific section of the Mapping Functions documentation. If you are looking for the general Mapping Functions documentation, see [here](../).
 
 There are different classes of mappings functions for Algorand: [Block handlers](#block-handler), and [Transaction Handlers](#transaction-handler).
 
