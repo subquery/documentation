@@ -12,7 +12,7 @@ Handler functions define how chain data is transformed into the optimized GraphQ
 
 ### Inputs
 
-All functions take a single argument which is the data structure for the type of handler. For example an `Event` handler will take an `Eventobject as its argument.
+All functions take a single argument which is the data structure for the type of handler. For example an `Event` handler will take an Event object as its argument.
 
 Depending on the network being indexed there are different types of data structures available. For example, in a Substrate based chain there are `Event`, `Call`, and `Block` types. In an Ethereum based chain there are `Log`, `Transaction`, and `Block` types. The exact types available depend on the network being indexed.
 
