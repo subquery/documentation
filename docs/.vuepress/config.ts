@@ -70,8 +70,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         link: "/indexer/welcome.md",
       },
       {
-        text: "SubQuery AI Apps Framework",
-        link: "/ai/welcome.md",
+        text: "SubQuery GraphQL Agent",
+        link: "/ai/graphql_agent.md",
       },
       {
         text: "SubQuery Network",
