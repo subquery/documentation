@@ -1,1 +1,0 @@
-To configure the app, you’ll need to edit the project entry point file (e.g., `project.ts` in this example). The [project entry point](../build/app.md#project-entrypoint) is where the tools and system prompt are initialised.
