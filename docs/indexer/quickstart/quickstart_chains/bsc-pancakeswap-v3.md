@@ -291,7 +291,7 @@ As we discussed in the introduction of [Configuring the Indexer](#configuring-th
 
 <!-- @include: ../snippets/evm-manifest-intro.md#level4 -->
 
-The contract factory generates fresh contract instances for each new pool, therefore we use [dynamic data sources](../../build/dynamicdatasources.md) to create indexers for each new contract:
+The contract factory generates fresh contract instances for each new pool, therefore we use [dynamic data sources](../../build/dynamic-datasources.md) to create indexers for each new contract:
 
 ```ts
 {

@@ -8,7 +8,7 @@ The project that we are developing throughout this guide can be found [here](htt
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
-The Kilt-spiritinet-credentials-example project has two entities: Attestation and Aggregation (which has a [foreign key](../../build/graphql.md#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, height, and hash along with some other attributes related to the event.
+The Kilt-spiritinet-credentials-example project has two entities: Attestation and Aggregation (which has a [foreign key](../../build/graphql#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, height, and hash along with some other attributes related to the event.
 
 ```graphql
 type Attestation @entity {
@@ -73,7 +73,7 @@ We are indexing all attestations creation and revoking events from the Kilt Spir
 
 The above code indicates that you will be running a `handleAttestationCreated` mapping function whenever there is an `AttestationCreated` event on any transaction from the Kilt Blockchain. Similarly, we will run the `handleAttestationRevoked` mapping function whenever there is a `AttestationRevoked` log on Kilt.
 
-Check out our [Substrate](../../build/manifest/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file for Polkadot chains.
+Check out our [Substrate](../../build/manifest/chain-specific/polkadot.md) documentation to get more information about the Project Manifest (`project.ts`) file for Polkadot chains.
 
 <!-- @include: ../snippets/polkadot-manifest-note.md -->
 

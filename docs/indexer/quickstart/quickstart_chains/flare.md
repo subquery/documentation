@@ -66,7 +66,7 @@ type Address @entity {
 }
 ```
 
-Since we have a [many-to-many relationship](../../build/graphql.md#many-to-many-relationships), we add the `@derivedFrom` annotation to ensure that we are mapping to the right foreign key.
+Since we have a [many-to-many relationship](../../build/graphql#many-to-many-relationships), we add the `@derivedFrom` annotation to ensure that we are mapping to the right foreign key.
 
 <!-- @include: ../snippets/note-on-entity-relationships.md -->
 

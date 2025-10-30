@@ -35,14 +35,14 @@ You will find the generated models in the `/src/types/models` directory.
 
 The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
-- [BlockHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [EventHandlers](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/manifest/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [EventHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
-For [EVM](../../build/substrate-evm.md) and [WASM](../../build/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
+For [EVM](../../build/datasource-processors/substrate-evm.md) and [WASM](../../build/datasource-processors/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
 
-- [EventHandlers](../../build/substrate-evm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/substrate-evm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+- [EventHandlers](../../build/datasource-processors/substrate-evm.md#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/datasource-processors/substrate-evm.md#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 ### Substrate Manifest section
 
@@ -128,7 +128,7 @@ This section in the Project Manifest now imports all the correct definitions and
 
 The above code indicates that you will be running a `handleErc20Transfer` mapping function whenever there is an `Transfer` event on any transaction from the Moonbeam $FRAX contract.
 
-Check out our [Substrate EVM](../../build/substrate-evm.md) documentation to get more information about the Project Manifest (`project.ts`) file for Substrate EVM contracts.
+Check out our [Substrate EVM](../../build/datasource-processors/substrate-evm.md) documentation to get more information about the Project Manifest (`project.ts`) file for Substrate EVM contracts.
 
 <!-- @include: ../snippets/mapping-intro.md#level2 -->
 
@@ -186,7 +186,7 @@ export async function erc20Transfer(
 
 The `handleErc20Transfer` function receives event data from the EVM execution environment whenever an event matches the filters that was specified previously in the `project.ts`. It instantiates a new `Transfer` entity and populates the fields with data from the EVM Call payload. Then the `.save()` function is used to save the new entity (_SubQuery will automatically save this to the database_).
 
-Check out our mappings documentation for [Substrate](../../build/mapping/polkadot.md) and the [Substrate Frontier EVM data processor](../../build/substrate-evm.md) to get detailed information on mapping functions for each type.
+Check out our mappings documentation for [Substrate](../../build/mapping-functions/mapping/polkadot.md) and the [Substrate Frontier EVM data processor](../../build/datasource-processors/substrate-evm.md) to get detailed information on mapping functions for each type.
 
 <!-- @include: ../snippets/build.md -->
 

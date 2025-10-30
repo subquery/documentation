@@ -75,7 +75,7 @@ Finally, there are three types of mapping handlers (you can have more than one i
 * TransactionHandlers: On each and every transaction that matches optional filter criteria, run a mapping function
 * LogHandlers: On each and every log that matches optional filter criteria, run a mapping function
 
-The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers]((../build/mapping/ethereum.md)) section. When a filter condition is met, the associated handler is called. 
+The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers](../build/mapping-functions/mapping/ethereum.md) section. When a filter condition is met, the associated handler is called.
 
 :::details handlers
 ```ts
@@ -111,7 +111,7 @@ handlers: [
 
 ## The GraphQL schema file
 
-The schema.graphql file outlines the various GraphQL schemas being used. The structure of this file essentially dictates the shape of your data from SubQuery. For more information, click [here](../build/graphql.md)
+The schema.graphql file outlines the various GraphQL schemas being used. The structure of this file essentially dictates the shape of your data from SubQuery. For more information, see the [GraphQL schema reference](../build/graphql/reference.md)
 
 The hello-world project has two entities. A Transfer entity and an Approval entity. Both these entities contain six fields with their associated type such as string or bigint. An exclamation mark indicates that the field is mandatory.
 

@@ -26,7 +26,7 @@ Browse over 80 example projects across over 10 network families to inspire your 
 Dive deeper into the developer documentation and jump to the [Build ](../build/introduction.md) section and learn more about the three key files: **the manifest file, the GraphQL schema, and the mappings file.** or take a look at some of our **advanced features** to take your project to the next level!
 
   - [Multi-chain indexing support](../build/multi-chain.md) - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks.
-  - [Dynamic Data Sources](../build/dynamicdatasources.md) - When you want to index factory contracts, for example on a DEX or generative NFT project.
+  - [Dynamic Data Sources](../build/dynamic-datasources.md) - When you want to index factory contracts, for example on a DEX or generative NFT project.
   - [GraphQL Subscriptions](../run_publish/query/subscription.md) - Build more reactive front end applications that subscribe to changes in your SubQuery project.
 
 - Find out **how to build a performant SubQuery project and avoid common mistakes** in [Project Optimisation](../build/optimisation.md).

@@ -14,7 +14,7 @@ SubQuery provides a superior developer experience to The Graph, while maintainin
 - **More flexibility** - SubQuery's mapping functions are written in TypeScript, and so you can import additional libraries, make external API calls, or do anything you want in order to retrieve and process your data.
 - **Wider chain support** - SubQuery supports all EVM networks, as well as many other non-EVM networks, like Cosmos, Polkadot, Algorand, NEAR, Starknet, Stellar, and more
 - **Lightweight** - SubQuery is designed to connect to external public RPC endpoints, you don't need to run an archive node locally when developing
-- **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](../build/multi-chain.md).
+- **Multi-chain indexing support** - SubQuery allows you to index data from across different layer-1 networks into the same database, this allows you to query a single endpoint to get data for all supported networks. [Read more](./multi-chain.md).
 - **More control** - A large library of [command line parameters](../run_publish/references.md) to allow you to run, monitor, and optimise your locally hosted project
 - **A decentralised network supporting all chains** - Our [decentralised network](https://app.subquery.network) supports all chains that SubQuery support, there is no _second-class_ chain support in the SubQuery ecosystem
 - **The same query API** - We support a Subgraph compatible query service, providing the same GraphQL API that you are currently using.
@@ -79,20 +79,20 @@ Once this is done, follow along and complete the remaining steps:
 
 ### Differences in the GraphQL Schema
 
-Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and include both similar [scalar types](./graphql.md#supported-scalar-types) as well as [full text search](./graphql.md#full-text-search).
+Both SubGraphs and SubQuery projects use the same `schema.graphql` to define entities and include both similar [scalar types](./graphql/reference.md#supported-scalar-types) as well as [full text search](./graphql/reference.md#full-text-search).
 
-Visit this [full documentation for `schema.graphql`](./graphql.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
+Visit this [full documentation for `schema.graphql`](./graphql/reference.md). **You can copy this file from your SubGraph to your SubQuery project in most cases.**
 
 Notable differences include:
 
 - SubQuery does not have support for `Bytes` (use `String` instead), `BigDecimal` (use `Float` instead) and `Timestamp` (use `Date` instead).
-- SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql.md#json-type)).
+- SubQuery has the additional scalar types of `Float`, `Date`, and `JSON` (see [JSON type](./graphql/reference.md#json-type)).
 - SubQuery does relations slightly differently and the `@derivedFrom` directive is needed in more cases.
 - Comments are added to SubQuery Project GraphQL files using hashes (`#`).
 
 ### Differences in the Manifest File
 
-The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/ethereum.md).
+The manifest file contains the largest set of differences, but once you understand those they can be easily overcome. Most of these changes are due to the layout of this file, you can see the [full documentation of this file here](./manifest/introduction.md).
 
 **Notable differences include:**
 
@@ -107,7 +107,7 @@ The manifest file contains the largest set of differences, but once you understa
 - Handlers and Filters - Each mapping function is defined slightly differently in a SubQuery project:
   - Instead of listing the blocks/events/calls as the key and then denoting the handler that processes it. In SubQuery, you define the handler as the key and then what follows is the description of how this handler is triggered.
   - In a SubQuery project, you can document both block handlers, call handlers, and event handlers in the same `mapping:` object, the `kind:` property notes what type we are using.
-  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/ethereum.md#mapping-handlers-and-filters).
+  - SubQuery supports advanced filtering on the handler. The format of the supported filter varies amongst block/events/calls/transactions, and between the different blockchain networks. You should refer to the [documentation for a detailed description of each filter](./manifest/chain-specific/ethereum.md#mapping-handlers-and-filters).
 
 ::: code-tabs
 
@@ -264,7 +264,7 @@ dataSources:
 
 The `codegen` command is also intentionally similar between SubQuery and SubGraphs
 
-All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](../build/graphql.md). All entities can be imported from the following directory:
+All GraphQL entities will have generated entity classes that provide type-safe entity loading, read and write access to entity fields - see more about this process in [the GraphQL Schema](./graphql/reference.md). All entities can be imported from the following directory:
 
 ```ts
 import { Gravatar } from "../types";

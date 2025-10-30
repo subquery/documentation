@@ -39,7 +39,7 @@ dataSources: [
 ];
 ```
 
-Within the provided code snippet, we've established a single handler `handleMessage`, which will execute every time a message of the `MsgSwapExactAmountIn` type is detected. This handler is sufficient to monitor and record swaps within Osmosis. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+Within the provided code snippet, we've established a single handler `handleMessage`, which will execute every time a message of the `MsgSwapExactAmountIn` type is detected. This handler is sufficient to monitor and record swaps within Osmosis. Check out our [Manifest File](../../build/manifest/chain-specific/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
@@ -86,7 +86,7 @@ You will find the generated models in the `/src/types/models` directory. You can
 import { Pool, Swap, SwapRoute } from "../types";
 ```
 
-As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. For example, you can find Osmosis' protobuf definitions in the [official documentation](https://docs.osmosis.zone/apis/grpc#grpcurl). Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs) and [Cosmos Manifest File Configuration](../../build/manifest/cosmos.md#chain-types). The following chain types are used in this example project:
+As you're creating a new CosmWasm based project, this command will also generate types for your listed protobufs and save them into `src/types` directory, providing you with more typesafety. For example, you can find Osmosis' protobuf definitions in the [official documentation](https://docs.osmosis.zone/apis/grpc#grpcurl). Read about how this is done in [Cosmos Codegen from CosmWasm Protobufs](../../build/introduction.md#cosmos-codegen-from-cosmwasm-protobufs) and [Cosmos Manifest File Configuration](../../build/manifest/chain-specific/cosmos.md#chain-types). The following chain types are used in this example project:
 
 ```ts
     chaintypes: new Map([

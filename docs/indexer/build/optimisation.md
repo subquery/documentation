@@ -101,7 +101,7 @@ A common example is creating a large project that indexes everything so you can 
 
 If your project has the same handlers for multiple versions of the same type of contract your project manifest can get quite repetitive. e.g you want to index the transfers for many ERC20 contracts.
 
-Note that there is also [dynamic datasources](./dynamicdatasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
+Note that there is also [dynamic datasources](./dynamic-datasources.md) for when your list of addresses is dynamic (e.g. you use a factory contract).
 
 In cases where there are a large number of contract addresses, but the list is static, you can simplify the manifest a couple of ways depending on whether you're using typescript or yaml. With typescript you can use functions as you would with any other typescript file. With yaml you can use [anchors](https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/).
 

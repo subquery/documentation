@@ -35,13 +35,13 @@ The final code of this project can be found [here](https://github.com/subquery/c
 }
 ```
 
-The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+The above code defines that you will be running a `handleMessage` mapping function whenever there is an message emitted with the `/types.MsgDeposit` type. Check out our [Manifest File](../../build/manifest/chain-specific/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 <!-- @include: ../snippets/cosmos-manifest-note.md -->
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
-Update the `schema.graphql` file as follows. The aim is to index all deposit messages. Since each deposit can include multiple tokens, we need to define a [many-to-many relationship](../../build/graphql.md#man) between the Deposit and Coin - we use the DepositCoin entity to link these two entities.
+Update the `schema.graphql` file as follows. The aim is to index all deposit messages. Since each deposit can include multiple tokens, we need to define a [many-to-many relationship](../../build/graphql#man) between the Deposit and Coin - we use the DepositCoin entity to link these two entities.
 
 ```graphql
 type Deposit @entity {
@@ -123,7 +123,7 @@ export async function handleMessage(
 }
 ```
 
-Let’s understand how the above code works. Here, the function receives an `CosmosMessage` which includes data on the payload that we decode using the supplied `<DepositMethod>` type definition. We extract this data and then create a new `Deposit` entity defined earlier in the `schema.graphql` file. For each `coin` in the deposit message, we then check if the coin is known, and then link it to the `Deposit` entity using a `DepositCoin`. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/mapping/cosmos.md) documentation and get information on the mapping functions in detail.
+Let’s understand how the above code works. Here, the function receives an `CosmosMessage` which includes data on the payload that we decode using the supplied `<DepositMethod>` type definition. We extract this data and then create a new `Deposit` entity defined earlier in the `schema.graphql` file. For each `coin` in the deposit message, we then check if the coin is known, and then link it to the `Deposit` entity using a `DepositCoin`. After that we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database). Check out our [Mappings](../../build/manifest/chain-specific/cosmos.md) documentation and get information on the mapping functions in detail.
 
 <!-- @include: ../snippets/cosmos-mapping-note.md -->
 

@@ -162,7 +162,7 @@ export async function handleTransaction(tx: ApproveTransaction): Promise<void> {
 
 The `handleTransaction` function receives a `tx` parameter of type `ApproveTransaction` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/ethereum.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping-functions/mapping/ethereum.md) documentation to get more information on mapping functions.
 
 <!-- @include: ../snippets/ethereum-mapping-note.md -->
 

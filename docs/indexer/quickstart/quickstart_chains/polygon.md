@@ -73,7 +73,7 @@ The above code indicates that you will be running a `handleDeposit` mapping func
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql.md#entity-relationships) to the `User`.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing three entities, a `Deposit` and a `Withdrawl` each with a [foreign key relationship](../../build/graphql/reference.md#entity-relationships) to the `User`.
 
 ```graphql
 type Deposit @entity {

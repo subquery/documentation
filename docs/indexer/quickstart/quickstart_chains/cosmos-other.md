@@ -56,9 +56,9 @@ The majority of changes occur in the project manifest (`project.ts`). This inclu
 - `description`
 - `network.chainId`: This will be the network identifier of the Cosmos Zone
   chainId. You can often search for this in https://github.com/cosmos/chain-registry.
-- `network.endpoint`: This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). Read more in [Network Spec](../../build/manifest/cosmos.md#network-spec).
+- `network.endpoint`: This defines the (HTTP or WSS) endpoint of the blockchain to be indexed - **this must be a full archive node**. This property can be a string or an array of strings (e.g. `endpoint: ['rpc1.endpoint.com', 'rpc2.endpoint.com']`). Read more in [Network Spec](../../build/manifest/chain-specific/cosmos.md#network-spec).
 - `network.dictionary`: Unless you have already created a [dictionary](../../academy/tutorials_examples/dictionary.md), please comment out or remove this.
-- `network.chainTypes`: Please see the docs under [Chain Types](../../build/manifest/cosmos.md#chain-types).
+- `network.chainTypes`: Please see the docs under [Chain Types](../../build/manifest/chain-specific/cosmos.md#chain-types).
 
 We suggest adding one or two chain types that relate to the events or messages that you are trying to index, and recursively add more after running it and observing errors from missing protobuf definitions
 

@@ -139,7 +139,7 @@ export async function handleDividendBatch(
 
 The `handleDividendBatch` function receives a `batchDividendLog` parameter of type `ClaimDividendBatchLog` which includes transaction log data in the payload. We extract this data and then save this to the store using the `.save()` function (_Note that SubQuery will automatically save this to the database_).
 
-Check out our [Mappings](../../build/mapping/arbitrum.md) documentation to get more information on mapping functions.
+Check out our [EVM Mappings](../../build/mapping-functions/mapping/ethereum.md) documentation to get more information on mapping functions.
 
 <!-- @include: ../snippets/arbitrum-mapping-note.md -->
 

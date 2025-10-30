@@ -76,7 +76,7 @@ The above code indicates that you will be running `handleTokenMint` and `handleT
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
-Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing token information such as the `id` and the `mintBlockHeight` along with all transfers of that token. There are [foreign keys](../../build/graphql.md#entity-relationships) between all entities.
+Remove all existing entities and update the `schema.graphql` file as follows. Here you can see we are indexing token information such as the `id` and the `mintBlockHeight` along with all transfers of that token. There are [foreign keys](../../build/graphql#entity-relationships) between all entities.
 
 ```graphql
 type Event @entity {

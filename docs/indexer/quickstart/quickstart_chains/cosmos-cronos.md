@@ -126,7 +126,7 @@ There are two versions of this file depending on your choice to index data via t
 
 :::
 
-The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+The above code defines that you will be running a `handleTransfer` mapping function whenever there is an event emitted with the `transfer` method. Check out our [Manifest File](../../build/manifest/chain-specific/cosmos.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 ::: tip Note
 Please note that Cro Crow token requires a specific ABI interface. You need to:

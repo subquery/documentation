@@ -1,3 +1,3 @@
-- [BlockHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
-- [LogHandlers](../../build/manifest/ethereum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/ethereum.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/chain-specific/ethereum.md#mapping-handlers-and-filters): On each and every transaction that matches optional filter criteria, run a mapping function
+- [LogHandlers](../../build/manifest/chain-specific/ethereum.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function

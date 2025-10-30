@@ -10,9 +10,9 @@ The final code of this project can be found [here](https://github.com/subquery/s
 
 ## 1. Update Your GraphQL Schema File
 
-The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql.md).
+The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql).
 
-Update the `schema.graphql` file as follows. In this project, you can see we are indexing all withdrawl or deposit actions on the zkLend protocol. Each entity has a number of properties, including id, created (date), createdBlock, token, and address. Address is actually a foreign key to a different table, and you can see how this [one-to-many relationship](../../build/graphql.md#one-to-many-relationships) is defined with `address: Address!`
+Update the `schema.graphql` file as follows. In this project, you can see we are indexing all withdrawal or deposit actions on the zkLend protocol. Each entity has a number of properties, including id, created (date), createdBlock, token, and address. Address is actually a foreign key to a different table, and you can see how this [one-to-many relationship](../../build/graphql#one-to-many-relationships) is defined with `address: Address!`
 
 ```graphql
 type Deposit @entity {
@@ -61,7 +61,7 @@ npm run-script codegen
 
 You will find the generated models in the `/src/types/models` directory.
 
-Check out the [GraphQL Schema](../../build/graphql.md) documentation to get in-depth information on `schema.graphql` file.
+Check out the [GraphQL Schema](../../build/graphql) documentation to get in-depth information on `schema.graphql` file.
 
 Now that you have made essential changes to the GraphQL Schema file, let’s move forward to the next file.
 
@@ -69,9 +69,9 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.ts`) file works as an entry point to your Starknet project. It defines most of the details on how SubQuery will index and transform the chain data. For Starknet, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/starknet.md#mapping-handlers-and-filters): On each and every block, run a mapping function
-- [TransactionHandlers](../../build/manifest/starknet.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
-- [LogHanders](../../build/manifest/starknet.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [TransactionHandlers](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
+- [LogHanders](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 
 Note that the manifest file has already been set up correctly and doesn’t require significant changes, but you need to change the datasource handlers. This section lists the triggers that look for on the blockchain to start indexing.
 
@@ -128,7 +128,7 @@ Note that the manifest file has already been set up correctly and doesn’t requ
 
 The above code indicates that you will be running a `handleTransaction` mapping function whenever there is an Starknet Transaction that is a transaction type `INVOKE`, and is to the contract `0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05` and invokes the `withdraw` function. Additionally the `handleLog` mapping function will run whenever there is a Starknet Log emitted from the `0x04c0a5193d58f74fbace4b74dcf65481e734ed1714121bdc571da345540efa05` contact that includes the `Deposit` topic.
 
-Check out our [Manifest File](../../build/manifest/starknet.md) documentation to get more information about the Project Manifest (`project.ts`) file.
+Check out our [Manifest File](../../build/manifest/chain-specific/starknet.md) documentation to get more information about the Project Manifest (`project.ts`) file.
 
 Next, let’s proceed ahead with the Mapping Function’s configuration.
 
@@ -221,7 +221,7 @@ We store the decoded calls in the transaction object, so you can easily access t
 
 We extract this data and then instantiate a new `Withdraw` entity, using all required properties defined earlier in the `schema.graphql` file. After that, we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping/starknet.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping-functions/mapping/starknet.md) documentation to get more information on mapping functions.
 
 ### 3.2 HandleLog for Deposits
 
@@ -298,7 +298,7 @@ We first extract the address of the user making this transaction by converting t
 
 We extract this data and then instantiate a new `Deposit` entity, using all required properties defined earlier in the `schema.graphql` file. After that, we use the `.save()` function to save the new entity (SubQuery will automatically save this to the database).
 
-Check out our [Mappings](../../build/mapping/starknet.md) documentation to get more information on mapping functions.
+Check out our [Mappings](../../build/mapping-functions/mapping/starknet.md) documentation to get more information on mapping functions.
 
 <!-- @include: ../snippets/build.md -->
 
