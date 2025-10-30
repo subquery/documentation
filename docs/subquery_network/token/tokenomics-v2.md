@@ -40,8 +40,7 @@ Reduced Foundation Role: Enhanced Community Ownership
 #### A) Protocol Fee Structure (Existing Revenue Sources)
 
 **Unstaking Fees:**
-
-**Service Agreement Fees:**
+0.1 %
 
 #### B) Premium Services (Additional Revenue)
 
@@ -56,6 +55,10 @@ Reduced Foundation Role: Enhanced Community Ownership
 **Developer Tools:**
 - Advanced monitoring
 - Premium debugging
+
+**Revenue Allocation:**
+- **SQT Revenue**: Direct contribution to treasury reserves
+- **USD/Fiat Revenue**: After operational costs, used for SQT buyback programs
 
 ### 5. Community Ownership Benefits
 
