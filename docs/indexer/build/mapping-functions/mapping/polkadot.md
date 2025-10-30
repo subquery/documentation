@@ -27,7 +27,7 @@ A `SubstrateBlock` is an extended interface type of [signedBlock](https://polkad
 
 You can use event handlers to capture information when certain events are included on a new block. The events that are part of the default runtime and a block may contain multiple events.
 
-During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../manifest/chain-specific/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
+During the processing, the event handler will receive an event as an argument with the event's typed inputs and outputs. Any type of event will trigger the mapping, allowing activity with the data source to be captured. You should use [Mapping Filters](../../manifest/chain-specific/polkadot.md#mapping-handlers-and-filters) in your manifest to filter events to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 import { SubstrateEvent } from "@subql/types";
@@ -63,7 +63,7 @@ async function handleEvmLog(event: SubstrateEvent<[EvmLog]>): Promise<void> {
 
 ## Call Handler
 
-Call handlers are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../manifest/chain-specific/polkadot.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
+Call handlers are used when you want to capture information on certain substrate extrinsics. You should use [Mapping Filters](../../manifest/chain-specific/polkadot.md#mapping-handlers-and-filters) in your manifest to filter calls to reduce the time it takes to index data and improve mapping performance.
 
 ```ts
 export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -170,7 +170,7 @@ Next, copy and paste the output to a JSON file. In our [kitty example](https://g
 
 **Type definitions**
 
-We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../manifest/chain-specific/polkadot.md#custom-chains).
+We assume that the user knows the specific types and RPC support from the chain, and it is defined in the [Manifest](../../manifest/chain-specific/polkadot.md#custom-chains).
 
 Following [types setup](https://polkadot.js.org/docs/api/examples/promise/typegen#metadata-setup), we create :
 

@@ -75,7 +75,7 @@ Finally, there are three types of mapping handlers (you can have more than one i
 * TransactionHandlers: On each and every transaction that matches optional filter criteria, run a mapping function
 * LogHandlers: On each and every log that matches optional filter criteria, run a mapping function
 
-The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers](../build/mapping/ethereum.md) section. When a filter condition is met, the associated handler is called.
+The hello-world project has a transaction handler called "handleTransaction" and a LogHandler called "handleLog". These are exported functions that will be explained in the [mapping handlers](../build/mapping-functions/mapping/ethereum.md) section. When a filter condition is met, the associated handler is called.
 
 :::details handlers
 ```ts
