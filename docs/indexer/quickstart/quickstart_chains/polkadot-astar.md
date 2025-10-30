@@ -14,7 +14,7 @@ This project is unique, as it indexes data from both Astar's Substrate execution
 
 <!-- @include: ../snippets/schema-intro.md#level2 -->
 
-The Astar-wasm-starter project has four entities. A Transaction, Approval, DApp, and DAppReward (which has a [foreign key](../../build/graphql#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, heigh and hash along with from and contract addresses and the value.
+The Astar-wasm-starter project has four entities. A Transaction, Approval, DApp, and DAppReward (which has a [foreign key](../../build/graphql#one-to-many-relationships) to Dapp). These index basic block data such as the timestamp, height and hash along with from and contract addresses and the value.
 
 ```graphql
 type Transaction @entity {
@@ -62,7 +62,7 @@ type DAppReward @entity {
 
 The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
-- [BlockHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 

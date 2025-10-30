@@ -1,6 +1,6 @@
 # Polkadot/Substrate Manifest File
 
-The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for Algorand, please refer to the [top level manifest documentation](../introduction.md) for more general details.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the Polkadot chain data. Please refer to the [top level manifest documentation](../introduction.md) for more general details.
 
 Below is a standard example of a basic Polkadot `project.ts`.
 
@@ -11,7 +11,7 @@ import {
   SubstrateProject,
 } from "@subql/types";
 
-// Can expand the Datasource processor types via the genreic param
+// Can expand the Datasource processor types via the generic param
 const project: SubstrateProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
@@ -250,7 +250,7 @@ export default { typesBundle: typesBundleDeprecated };
 
 You can see the suggested method for connecting and retrieving custom chain types in [SubQuery's Official Dictionary repository](https://github.com/subquery/subql-dictionary). Here you will find a dictionary project for each network with all the chain types correct inserted. We retrieve these definitions from the [official Polkadot.js repo](https://github.com/polkadot-js/apps/tree/master/packages/apps-config/src/api/spec), where each network lists their their chaintypes.
 
-For example, Acala publish an [offical chain type definition to NPM](https://www.npmjs.com/package/@acala-network/type-definitions). This is imported in your project's `package.json` like so:
+For example, Acala publish an [official chain type definition to NPM](https://www.npmjs.com/package/@acala-network/type-definitions). This is imported in your project's `package.json` like so:
 
 ```json
 {
@@ -319,7 +319,7 @@ To enable this feature, you must ensure that your project has the [--unfinalized
 
 Custom Data Sources provide network specific functionality that makes dealing with data easier. They act as a middleware that can provide extra filtering and data transformation.
 
-A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures farmiliar to the Ethereum ecosystem as well as parsing parameters with ABIs.
+A good example of this is EVM support, having a custom data source processor for EVM means that you can filter at the EVM level (e.g. filter contract methods or logs) and data is transformed into structures familiar to the Ethereum ecosystem as well as parsing parameters with ABIs.
 
 Custom Data Sources can be used with normal data sources.
 
@@ -327,4 +327,4 @@ Here is a list of supported custom datasources:
 
 | Kind                                         | Supported Handlers                                                                                                               | Filters                         | Description                                                                                                                                           |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [substrate/FrontierEvm](../../datasource-processors/substrate-evm.md) | [substrate/FrontierEvmEvent](../../datasource-processors/substrate-evm#event-handlers), [substrate/FrontierEvmCall](../../dataspirce-processors/substrate-evm#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |
+| [substrate/FrontierEvm](../../datasource-processors/substrate-evm.md) | [substrate/FrontierEvmEvent](../../datasource-processors/substrate-evm#event-handlers), [substrate/FrontierEvmCall](../../datasource-processors/substrate-evm#call-handlers) | See filters under each handlers | Provides easy interaction with EVM transactions and events on the Frontier EVM (widely used across Polkadot including in Moonbeam and Astar networks) |

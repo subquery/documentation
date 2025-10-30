@@ -1,6 +1,6 @@
 # NEAR Manifest File
 
-The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for Algorand, please refer to the [top level manifest documentation](../introduction.md) for more general details.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for NEAR, please refer to the [top level manifest documentation](../introduction.md) for more general details.
 
 Below is a standard example of a basic Near `project.ts`.
 

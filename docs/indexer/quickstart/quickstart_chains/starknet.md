@@ -12,7 +12,7 @@ The final code of this project can be found [here](https://github.com/subquery/s
 
 The `schema.graphql` file determines the shape of the data that you are using SubQuery to index, hence it's a great place to start. The shape of your data is defined in a GraphQL Schema file with various [GraphQL entities](../../build/graphql).
 
-Update the `schema.graphql` file as follows. In this project, you can see we are indexing all withdrawl or deposit actions on the zkLend protocol. Each entity has a number of properties, including id, created (date), createdBlock, token, and address. Address is actually a foreign key to a different table, and you can see how this [one-to-many relationship](../../build/graphql#one-to-many-relationships) is defined with `address: Address!`
+Update the `schema.graphql` file as follows. In this project, you can see we are indexing all withdrawal or deposit actions on the zkLend protocol. Each entity has a number of properties, including id, created (date), createdBlock, token, and address. Address is actually a foreign key to a different table, and you can see how this [one-to-many relationship](../../build/graphql#one-to-many-relationships) is defined with `address: Address!`
 
 ```graphql
 type Deposit @entity {
@@ -69,7 +69,7 @@ Now that you have made essential changes to the GraphQL Schema file, let’s mov
 
 The Project Manifest (`project.ts`) file works as an entry point to your Starknet project. It defines most of the details on how SubQuery will index and transform the chain data. For Starknet, there are three types of mapping handlers (and you can have more than one in each project):
 
-- [BlockHanders](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [TransactionHandlers](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every transaction that matches an optional filter, run a mapping function
 - [LogHanders](../../build/manifest/chain-specific/starknet.md#mapping-handlers-and-filters): On each and every log that matches optional filter criteria, run a mapping function
 

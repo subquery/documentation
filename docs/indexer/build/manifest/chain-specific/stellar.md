@@ -1,8 +1,8 @@
 # Stellar & Soroban Manifest File
 
-The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for Algorand, please refer to the [top level manifest documentation](../introduction.md) for more general details.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. These details are for Stellar & Soroban, please refer to the [top-level manifest documentation](../introduction.md) for more general details.
 
-Below is a standard example of a basic Algorand `project.ts`.
+Below is a standard example of a basic Stellar `project.ts`.
 
 ```ts
 import {
@@ -169,13 +169,13 @@ dataSources:
 
 In addition to there being an endpoint, Stellar also has a `sorobanEndpoint`. This is the standard RPC while the `endpoint` is the Horizon API.
 
-| Field               | Type               | Description                                                                                                                                                                              |
-| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **chainId**         | String             | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                         |
-| **endpoint**        | String or String[] | Defines the endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical datae**.                     |
-| **sorobanEndpoint** | String             | Defines the soroban RPC endpoint - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                                          |
+| Field               | Type               | Description                                                                                                                                                                             |
+| ------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **chainId**         | String             | A network identifier for the blockchain, [Stellar and Soroban uses the network passphrase](https://developers.stellar.org/docs/encyclopedia/network-passphrases)                        |
+| **endpoint**        | String or String[] | Defines the endpoint of the blockchain to be indexed - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                     |
+| **sorobanEndpoint** | String             | Defines the soroban RPC endpoint - **you will want archive nodes with high rate limits if you want to index large amounts of historical data**.                                         |
 | **dictionary**      | String             | It is suggested to provide the HTTP endpoint of a full chain dictionary to speed up processing - read [how a SubQuery Dictionary works](../../../academy/tutorials_examples/dictionary.md). |
-| **bypassBlocks**    | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                            |
+| **bypassBlocks**    | Array              | Bypasses stated block numbers, the values can be a `range`(e.g. `"10- 50"`) or `integer`, see [Bypass Blocks](#bypass-blocks)                                                           |
 
 ## Data Sources and Mapping
 
@@ -257,3 +257,17 @@ As indexers are an additional layer in your data processing pipeline, they can i
 SubQuery provides real time indexing of unconfirmed data directly from the RPC endpoint that solves this problem. SubQuery takes the most probabilistic data before it is confirmed to provide to the app. In the unlikely event that the data isn’t confirmed and a reorg occurs, SubQuery will automatically roll back and correct its mistakes quickly and efficiently - resulting in an insanely quick user experience for your customers.
 
 To control this feature, please adjust the [--block-confirmations](../../../run_publish/references#block-confirmations) command to fine tune your project and also ensure that [historic indexing](../../../run_publish/references#disable-historical) is enabled (enabled by default)
+
+## Bypass Blocks
+
+Bypass Blocks allows you to skip the stated blocks, this is useful when there are erroneous blocks in the chain or when a chain skips a block after an outage or a hard fork. It accepts both a `range` or single `integer` entry in the array.
+
+When declaring a `range` use an string in the format of `"start - end"`. Both start and end are inclusive, e.g. a range of `"100-102"` will skip blocks `100`, `101`, and `102`.
+
+```ts
+{
+  network: {
+    bypassBlocks: [1, 2, 3, "105-200", 290];
+  }
+}
+```

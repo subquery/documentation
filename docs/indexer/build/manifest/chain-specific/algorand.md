@@ -11,7 +11,7 @@ import {
   AlgorandProject,
 } from "@subql/types-algorand";
 
-// Can expand the Datasource processor types via the genreic param
+// Can expand the Datasource processor types via the generic param
 const project: AlgorandProject = {
   specVersion: "1.0.0",
   name: "algorand-subql-starter",

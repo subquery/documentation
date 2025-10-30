@@ -1,6 +1,6 @@
 # Concordium Manifest File
 
-The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for Algorand, please refer to the [top level manifest documentation](../introduction.md) for more general details.
+The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. The following details are for Concordium, please refer to the [top-level manifest documentation](../introduction.md) for more general details.
 
 Below is a standard example of a basic Concordium `project.ts`.
 
@@ -130,10 +130,10 @@ The following table explains filters supported by different handlers.
 
 | Handler                                                                                      | Supported filter |
 | -------------------------------------------------------------------------------------------- | ---------------- |
-| [ConcordiumHandlerKind.Block](../../mapping/concordium#block-handler)                        | `modulo`, `timestamp`         |
-| [ConcordiumHandlerKind.Transaction](../../mapping/concordium#transaction-handler)            | `type`, `values` |
-| [ConcordiumHandlerKind.TransactionEvent](../../mapping/concordium#transaction-event-handler) | `type`, `values` |
-| [ConcordiumHandlerKind.SpecialEvent](../../mapping/concordium#special-event-handler)         | `type`, `values` |
+| [ConcordiumHandlerKind.Block](../../mapping-functions/mapping/concordium#block-handler)                        | `modulo`, `timestamp`         |
+| [ConcordiumHandlerKind.Transaction](../../mapping-functions/mapping/concordium#transaction-handler)            | `type`, `values` |
+| [ConcordiumHandlerKind.TransactionEvent](../../mapping-functions/mapping/concordium#transaction-event-handler) | `type`, `values` |
+| [ConcordiumHandlerKind.SpecialEvent](../../mapping-functions/mapping/concordium#special-event-handler)         | `type`, `values` |
 
 `type` is type of transaction, transaction event, or special event to filter by (case sensitive). The `values` filter is a map where the keys correspond to the keys found in a transaction, transaction event, or special event. This filter allows you to search for transactions or events that have specific values for these keys. The `values` filter matches the keys in the filter against the keys in the data object. If a match is found, the corresponding transaction, event, or special event is included in the query result. For example:
 

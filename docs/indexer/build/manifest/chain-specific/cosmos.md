@@ -11,7 +11,7 @@ import {
   CosmosProject,
 } from "@subql/types-cosmos";
 
-// Can expand the Datasource processor types via the genreic param
+// Can expand the Datasource processor types via the generic param
 const project: CosmosProject = {
   specVersion: "1.0.0",
   version: "0.0.1",
@@ -145,7 +145,7 @@ dataSources:
 
 :::
 
-### Tested and Supported networks
+## Tested and Supported networks
 
 We expect that SubQuery will work with all Ethermint and CosmWasm Cosmos chains with the import of the correct protobuf definitions. We have tested this with the [chains in the cosmos-subql-starter repository](https://github.com/subquery/cosmos-subql-starter). However, please feel free to make a pull request to non-supported chains when you are able to test and confirm them.
 

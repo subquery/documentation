@@ -203,36 +203,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "/subquery_network/governance/foundation.html",
           "/indexer/run_publish/publish.html":
             "/indexer/run_publish/introduction.html",
-          // EVM network mapping redirects to consolidated ethereum.md
-          "/indexer/build/mapping/avalanche.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/arbitrum.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/bsc.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/flare.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/gnosis.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/optimism.html":
-            "/indexer/build/mapping/ethereum.html",
-          "/indexer/build/mapping/polygon.html":
-            "/indexer/build/mapping/ethereum.html",
-          // EVM network manifest redirects to consolidated ethereum.md
-          "/indexer/build/manifest/avalanche.html":
-            "/indexer/build/manifest/ethereum.html",
+  
+          // Restructured SDK build redirects
+          "/indexer/build/cosmos-evm.html":
+            "/indexer/build/datasource-processors/cosmos-evm.html",
+          "/indexer/build/substrate-evm.html":
+            "/indexer/build/datasource-processors/substrate-evm.html",
+          "/indexer/build/substrate-wasm.html":
+            "/indexer/build/datasource-processors/substrate-wasm.html",
+          "/indexer/build/dynamicdatasources.html":
+            "/indexer/build/dynamic-datasources.html",
+          "/indexer/build/graphql.html":
+            "/indexer/build/graphql/reference.html",
+
+          // Manifest redirects to introduction
+          "/indexer/build/manifest/algorand.html":
+            "/indexer/build/manifest/chain-specific/algorand.html",
           "/indexer/build/manifest/arbitrum.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
+          "/indexer/build/manifest/avalanche.html":
+            "/indexer/build/manifest/chain-specific/ethereum.html",
           "/indexer/build/manifest/bsc.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
+          "/indexer/build/manifest/concordium.html":
+            "/indexer/build/manifest/chain-specific/concordium.html",
+          "/indexer/build/manifest/cosmos.html":
+            "/indexer/build/manifest/chain-specific/cosmos.html",
           "/indexer/build/manifest/flare.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
           "/indexer/build/manifest/gnosis.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
+          "/indexer/build/manifest/near.html":
+            "/indexer/build/manifest/chain-specific/near.html",
           "/indexer/build/manifest/optimism.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
+          "/indexer/build/manifest/polkadot.html":
+            "/indexer/build/manifest/chain-specific/polkadot.html",
           "/indexer/build/manifest/polygon.html":
-            "/indexer/build/manifest/ethereum.html",
+            "/indexer/build/manifest/chain-specific/ethereum.html",
+          "/indexer/build/manifest/solana.html":
+            "/indexer/build/manifest/chain-specific/solana.html",
+          "/indexer/build/manifest/starknet.html":
+            "/indexer/build/manifest/chain-specific/starknet.html",
+          "/indexer/build/manifest/stellar.html":
+            "/indexer/build/manifest/chain-specific/stellar.html",
+
+          // Mapping redirects to new structure
+          "/indexer/build/mapping/arbitrum.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/avalanche.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/bsc.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/flare.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/gnosis.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/optimism.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
+          "/indexer/build/mapping/polygon.html":
+            "/indexer/build/mapping-functions/mapping/ethereum.html",
         };
         return {
           ...redirects,

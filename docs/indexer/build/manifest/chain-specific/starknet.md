@@ -161,6 +161,7 @@ Defines the data that will be filtered and extracted and the location of the map
 | **endBlock**   | Integer      | This sets a end block for processing on the datasource. After this block is processed, this datasource will no longer index your data. <br><br>Useful when your contracts change at a certain block height, or when you want to insert data at genesis. For example, setting both the `startBlock` and `endBlock` to 320, will mean this datasource only operates on block 320 |
 | **mapping**    | Mapping Spec |                                                                                                                                                                                                                                                                                                                                                                                |
 | **options**    | { abi: string; address: string; } | The name of the abi in assets to use for decoding data and an address for the contract to filter |
+
 | **assets**     | Map<string, { file: string }>     | A map of contract names to abi file paths                                                        |
 ## Data Sources and Mapping
 

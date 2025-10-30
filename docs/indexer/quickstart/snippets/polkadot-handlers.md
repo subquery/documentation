@@ -1,4 +1,4 @@
-- [BlockHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 

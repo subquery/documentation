@@ -35,14 +35,14 @@ You will find the generated models in the `/src/types/models` directory.
 
 The Project Manifest (`project.ts`) file works as an entry point to your project. It defines most of the details on how SubQuery will index and transform the chain data. For Substrate/Polkadot chains, there are three types of mapping handlers:
 
-- [BlockHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
+- [BlockHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every block, run a mapping function
 - [EventHandlers](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every Event that matches optional filter criteria, run a mapping function
 - [CallHanders](../../build/manifest/chain-specific/polkadot.md#mapping-handlers-and-filters): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 For [EVM](../../build/datasource-processors/substrate-evm.md) and [WASM](../../build/datasource-processors/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
 
-- [EventHandlers](../../build/substrate-evm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/substrate-evm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+- [EventHandlers](../../build/datasource-processors/substrate-evm.md#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/datasource-processors/substrate-evm.md#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 ### Substrate Manifest section
 
