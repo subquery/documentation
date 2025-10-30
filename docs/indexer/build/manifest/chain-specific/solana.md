@@ -93,7 +93,7 @@ runner:
     name: "@subql/query"
     version: "*"
 description: >-
-  This project can be used as a starting point for developing your Solans SubQuery project
+  This project can be used as a starting point for developing your Solana SubQuery project
 repository: "https://github.com/subquery/solana-subql-starter"
 schema:
   file: ./schema.graphql
@@ -119,7 +119,7 @@ dataSources:
       file: ./dist/index.js
       handlers:
         - handler: handleCheckedTransfer
-          kind: solanas/InstructionHandler
+          kind: solana/InstructionHandler
           filter:
             programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
             discriminator: "transferChecked"

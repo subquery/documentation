@@ -216,10 +216,10 @@ The following table explains filters supported by different handlers.
 **Your SubQuery project will be much more efficient when you only use `TransactionHandler` or `ActionHandler` handlers with appropriate mapping filters (e.g. NOT a `BlockHandler`).**
 
 | Handler                                                           | Supported filter                                                                              |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------- |-----------------------------------------------------------------------------------------------|
 | [near/BlockHandler](../../mapping/near#block-handler)             | `modulo`, `timestamp`                                                                         |
-| [near/TransactionHandler](../../mapping/near#transaction-handler) | `sender`, `reciever`                                                                          |
-| [near/ReceiptHandler](../../mapping/near#receipt-handler)          | `sender`, `receiver`, `signer` |
+| [near/TransactionHandler](../../mapping/near#transaction-handler) | `sender`, `receiver`                                                                          |
+| [near/ReceiptHandler](../../mapping/near#receipt-handler)          | `sender`, `receiver`, `signer`                                                                |
 | [near/ActionHandler](../../mapping/near#message-handler)          | `type`, `sender`, `receiver`, `methodName`, `args`, `publicKey`, `accessKey`, `beneficiaryId` |
 
 Default runtime mapping filters are an extremely useful feature to decide what block, transaction, or action will trigger a mapping handler.

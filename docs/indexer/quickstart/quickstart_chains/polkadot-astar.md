@@ -68,8 +68,8 @@ The Project Manifest (`project.ts`) file works as an entry point to your project
 
 For [EVM](../../build/datasource-processors/substrate-evm.md) and [WASM](../../build/datasource-processors/substrate-wasm.md) data processors on Substrate/Polkadot chains, there are only two types of mapping handlers:
 
-- [EventHandlers](../../build/substrate-wasm.html#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
-- [CallHanders](../../build/substrate-wasm.html#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
+- [EventHandlers](../../build/datasource-processors/substrate-wasm.md#event-handlers): On each and every Event that matches optional filter criteria, run a mapping function
+- [CallHanders](../../build/datasource-processors/substrate-wasm.md#call-handlers): On each and every extrinsic call that matches optional filter criteria, run a mapping function
 
 ### Substrate Manifest section
 
