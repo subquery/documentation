@@ -23,9 +23,9 @@ The below example is for a decentralised exchange that has a factory contract wh
 
 ```ts
 import {
-  EthereumProject
+  EthereumProject,
   EthereumDatasourceKind,
-  EthereumHandlerKind,,
+  EthereumHandlerKind,
 } from "@subql/types-ethereum";
 
 const manifest: EthereumProject = {
@@ -38,8 +38,8 @@ const manifest: EthereumProject = {
     file: "./schema.graphql",
   },
   network: {
-    // For Ethereum we use chainId instead of genesisHash
-    chainId: "1284", // Moonbeam’s EVM chainId (replace if targeting a different network)
+    // For EVM chains we use chainId instead of genesisHash
+    chainId: "1284", // Moonbeam's EVM chainId — use "1" for Ethereum mainnet
     endpoint: ["https://rpc.api.moonbeam.network"],
   },
   dataSources: [

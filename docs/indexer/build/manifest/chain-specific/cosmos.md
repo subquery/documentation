@@ -1,6 +1,6 @@
 # Cosmos Manifest File
 
-The Manifest `project.ts` file can be seen as an entry point of your project and it defines most of the details on how SubQuery will index and transform the chain data. This is the specific details for Algorand, please refer to the [top level manifest documentation](../introduction.md) for more general details.
+The manifest project.ts file is the entry point of your project and defines how SubQuery will index and transform chain data. For Cosmos-specific details, please refer to the [top level manifest documentation](../introduction.md) for more general information.
 
 Below is a standard example of a basic Cosmos `project.ts`.
 

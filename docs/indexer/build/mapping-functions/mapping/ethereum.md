@@ -26,7 +26,7 @@ export async function handleBlock(block: EthereumBlock): Promise<void> {
 ## Transaction Handler
 
 ::: info Generated Types
-EVM has codegen for **Transaction** and **Log** handler inputs which wil create types in `src/types/abi-interfaces`. This provides more details types for the arguments to transactions and logs. It is recommeneded to use these generated types but there is also the more generic `EthereumTransaction` and `EthereumLog` types available from `@subql/types-ethereum`.
+EVM has codegen for **Transaction** and **Log** handler inputs which will create types in `src/types/abi-interfaces`. This provides more detailed types for the arguments to transactions and logs. It is recommended to use these generated types but there is also the more generic `EthereumTransaction` and `EthereumLog` types available from `@subql/types-ethereum`.
 :::
 
 You can use transaction handlers to capture information about each of the transactions in a block. To achieve this, a defined TransactionHandler will be called once for every transaction. You should use [Mapping Filters](../manifest/chain-specific/ethereum#mapping-handlers-and-filters) in your manifest to filter transactions to reduce the time it takes to index data and improve mapping performance.
