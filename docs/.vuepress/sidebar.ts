@@ -721,43 +721,8 @@ export const getSidebar = (locale: string) =>
     ],
     "/ai/": [
       {
-        text: "Welcome",
-        link: `${locale}/ai/welcome.md`,
-      },
-      {
-        text: "Guides",
-        link: `${locale}/ai/guides/fancy-greeter.md`,
-        children: [
-          `${locale}/ai/guides/fancy-greeter.md`,
-          `${locale}/ai/guides/subquery-docs-rag.md`,
-          `${locale}/ai/guides/delegation-helper.md`,
-        ],
-      },
-      {
-        text: "Build",
-        link: `${locale}/ai/build/app.md`,
-        children: [
-          `${locale}/ai/build/app.md`,
-          `${locale}/ai/build/function_tools.md`,
-          `${locale}/ai/build/rag.md`,
-        ],
-      },
-      {
-        text: "Run",
-        link: `${locale}/ai/run/local.md`,
-        children: [
-          `${locale}/ai/run/local.md`,
-          `${locale}/ai/run/cli.md`,
-          `${locale}/ai/run/docker.md`,
-        ],
-      },
-      {
-        text: "API",
-        link: `${locale}/ai/api/api.md`,
-      },
-      {
-        text: "Publish",
-        link: `${locale}/ai/publish/publish.md`,
+        text: "SubQuery GraphQL Agent",
+        link: `${locale}/ai/graphql_agent.md`,
       },
     ],
     "/miscellaneous/": [

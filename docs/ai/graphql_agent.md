@@ -229,7 +229,7 @@ The agent follows this intelligent workflow:
 6. **Summarization**: Provides user-friendly responses based on actual results
 
 ## Pricing and Billing
-Comming soon
+Coming soon
 
 ### Support Resources
 - **Documentation**: Comprehensive guides and API references
@@ -242,8 +242,8 @@ Comming soon
 **What types of questions can I ask?**
 You can ask any question that can be answered by the data in the SubQuery project, from simple counts to complex analytical queries.
 
-**Can I use the GraphQL Agent with my own SubQuery projects?**
-Yes, in the coming graphql agent as MCP.
+**Can I use the GraphQL Agent with my own SubQuery/SubGraph projects?**
+Yes, the GraphQL Agent can be used as an MCP (Model Context Protocol) with custom SubQuery/SubGraph projects. Configure the agent to point to your GraphQL endpoint and include the project schema and any required authentication settings.
 
 **What's the difference between the free and paid versions?**
 The free tier has rate limits (5 queries/day) while paid versions offer higher limits, priority access, and additional features.
