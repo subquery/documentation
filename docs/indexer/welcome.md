@@ -58,7 +58,6 @@ photoSwipe: false
         </BaseCard>
       </div>
     </div>
-    <Banner title="Want a More in Depth Learning Experience?" description="We have detailed, step by step learning course. Follow video tutorials alongside real world examples." buttonText="Start your Course" buttonLink="/indexer/academy/herocourse/welcome.html" backgroundUrl="/assets/img/wantMoreDepthBg.png"></Banner>
     <Faqs></Faqs>
     <p><a href="https://academy.subquery.network/indexer/miscellaneous/faq.html">SDK FAQ</a></p>
     <p><a href="https://academy.subquery.network/subquery_network/faq.html">Network FAQ</a></p>
