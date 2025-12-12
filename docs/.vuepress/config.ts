@@ -93,9 +93,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     plugins: {
       docsearch: {
-        appId: "30B5W460WL",
-        apiKey: "fdae5afc6c3711a8b4f53a4801b43143",
-        indexName: "subquery_academy",
+        appId: "HIFVNOT2R7",
+        apiKey: "adae3ba421d66a72633fdb0e703d9c72",
+        indexName: "SubQuery Doc",
       },
       /*
       pwa: {
@@ -203,7 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "/subquery_network/governance/foundation.html",
           "/indexer/run_publish/publish.html":
             "/indexer/run_publish/introduction.html",
-  
+
           // Restructured SDK build redirects
           "/indexer/build/cosmos-evm.html":
             "/indexer/build/datasource-processors/cosmos-evm.html",
