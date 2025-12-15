@@ -745,10 +745,14 @@ export const getSidebar = (locale: string) =>
       `${locale}/subquery_network/glossary.md`,
     ],
     "/ai/": [
-    //   {
-    //     text: "SubQuery GraphQL Agent",
-    //     link: `${locale}/ai/graphql_agent.md`,
-    //   },
+      {
+        text: "GraphQL Agent",
+        link: `${locale}/ai/graphql_agent.md`,
+      },
+      {
+        text: "Hermes (Coming)",
+        link: `${locale}/ai/hermes.md`,
+      },
     ],
     "/miscellaneous/": [
       `${locale}/miscellaneous/contributing.md`,
