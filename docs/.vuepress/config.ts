@@ -73,14 +73,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text: "SubQuery GraphQL Agent",
         link: "/ai/graphql_agent.md",
       },
-      {
-        text: "SubQuery Network",
-        link: "/subquery_network/welcome.md",
-      },
-      {
-        text: "Miscellaneous",
-        link: "/miscellaneous/contributing.md",
-      },
     ],
 
     repo: "https://github.com/subquery/documentation",
@@ -270,40 +262,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             app.pages.map(({ path }) => [
               path.replace(
                 "/subquery_network/node_operators/indexers/",
-                "/subquery_network/indexers/"
+                "/subquery_network/indexers/",
               ),
               path,
-            ])
+            ]),
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/academy/", "/academy/"),
               path,
-            ])
+            ]),
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/build/", "/build/"),
               path,
-            ])
+            ]),
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/miscellaneous/", "/miscellaneous/"),
               path,
-            ])
+            ]),
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/quickstart/", "/quickstart/"),
               path,
-            ])
+            ]),
           ),
           ...Object.fromEntries(
             app.pages.map(({ path }) => [
               path.replace("/indexer/run_publish/", "/run_publish/"),
               path,
-            ])
+            ]),
           ),
         };
       },

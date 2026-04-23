@@ -72,29 +72,6 @@ photoSwipe: false
         </div>
       </router-link>
     </BaseCard>
-    <BaseCard>
-      <router-link
-        class="flexCol gp24"
-        :to="{ path: '/subquery_network/welcome.html' }"
-      >
-        <div class="flexCenter gp16">
-          <img src="/assets/img/home/subquery-network.png" />
-          <Typography tag="h4" family="body">SubQuery Network</Typography>
-        </div>
-        <Typography tag="h3"
-          >Decentralised Infra on the SubQuery Network</Typography
-        >
-        <Typography tag="h5" type="secondary">
-          Our decentralised infrastructure network revolutionises the web3
-          landscape, providing both RPC and indexed data to consumers around
-          the world.</Typography
-        >
-        <div>
-          <Button class="mt40">Learn more</Button>
-        </div>
-      </router-link>
-    </BaseCard>
-
   </div>
   <div class="layout mt140">
     <Typography tag="h3"> Our Most Popular Guides </Typography>
@@ -155,11 +132,6 @@ const polularGuides = computed(() => {
     "description": "Discover how SubQuery provides a superior developer experience to The Graph, with a similar development workflow that makes migration quick and easy."
   },
   {
-    "path": "/subquery_network/delegators/introduction.html",
-    "title": "Delegate to the SubQuery Network",
-    "description": "Anyone can participate as a Delegator and participate in the Network to earn rewards based on the work that Node Operators do."
-  },
-  {
     "path": "/indexer/quickstart/quickstart.html",
     "title": "Follow a indexer quick start guide",
     "description": "SubQuery maintains and publishes quick start guides for more than 50 different networks and projects, find one today and start building."
@@ -169,11 +141,6 @@ const polularGuides = computed(() => {
     "title": `Browse ${counts} supported networks`,
     "description": `Our goal is to help developers with the best indexer regardless of what chain they build on, we support ${counts} networks - see the list.`,
     key: 'allNetworks'
-  },
-  {
-    "path": "/subquery_network/token/token.html",
-    "title": "The SQT Token",
-    "description": "The SubQuery Token (SQT) is a utility token that powers the SubQuery Network. Learn how to get SQT and the tokenomics of it."
   },
   {
     "path": "/ai/welcome.html",
