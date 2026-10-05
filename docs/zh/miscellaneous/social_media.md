@@ -18,7 +18,7 @@ SubQuery 是一个活跃的项目，通过许多社交媒体与我们的用户�
 
 ## SubQuery非官方社区
 
-这些社区并不是由SubQuery团队搭建的，但我们的大使可能在那里提供支持。 请注意防骗，因为SubQuery **不** 负责它们内部发生的事情。
+这些社区并不是由SubQuery团队搭建的，但我们的大使可能在那里提供支持。请注意防骗，因为SubQuery **不** 负责它们内部发生的事情。
 
 - [Telegram (Chinese)](https://t.me/subquerychina)
 - [Telegram (Russian)](https://t.me/SubQuery_russia)
