@@ -1,6 +1,6 @@
 # SubQueryへの貢献
 
-このSubQueryプロジェクトへの貢献をご検討いただき、誠にありがとうございます！ 私たちは共に、より分散化された未来への道を切り開くことができます。
+このSubQueryプロジェクトへの貢献をご検討いただき、誠にありがとうございます！私たちは共に、より分散化された未来への道を切り開くことができます。
 
 ::: tip Note This documentation is actively maintained by the SubQuery team. We welcome your contributions. You can do so by forking our GitHub project and making changes to all the documentation markdown files under the `docs` directory. :::
 
