@@ -1,10 +1,10 @@
 # 为SubQuery项目贡献代码
 
-非常欢迎并感谢您考虑为SubQuery项目贡献时间和精力编写项目代码！ 让我们一起为更加去中心化的未来铺平道路。
+非常欢迎并感谢您考虑为SubQuery项目贡献时间和精力编写项目代码！让我们一起为更加去中心化的未来铺平道路。
 
-::: tip Note This documentation is actively maintained by the SubQuery team. 我们欢迎您的意见 我们欢迎您为此做出贡献，您可以通过查看我们的GitHub项目并更改`docs`目录下的所有标记文件来实现这一点。 :::
+::: tip Note This documentation is actively maintained by the SubQuery team. 我们欢迎您的意见我们欢迎您为此做出贡献，您可以通过查看我们的GitHub项目并更改`docs`目录下的所有标记文件来实现这一点。 :::
 
-下面是一套促进SubQuery发展的准则(而不是规则)。 遵循这些指导方针将有助于我们使作出贡献的进程对每一个参与者都是容易和有效的。 它还通知您同意尊重开发者管理和开发此项目的时间。 作为回报，我们将通过解决你的问题、考虑变化、协作改进以及帮助你完成你的拉请求来对付这种尊重。
+下面是一套促进SubQuery发展的准则(而不是规则)。遵循这些指导方针将有助于我们使作出贡献的进程对每一个参与者都是容易和有效的。它还通知您同意尊重开发者管理和开发此项目的时间。作为回报，我们将通过解决你的问题、考虑变化、协作改进以及帮助你完成你的拉请求来对付这种尊重。
 
 ::: info Contributing to the SubQuery Network There are specific contribution guidelines for the SubQuery Network [here](../subquery_network/community.md#contributing-to-codebases). :::
 
